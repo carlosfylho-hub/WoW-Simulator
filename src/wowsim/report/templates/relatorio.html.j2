@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Relatório — {{ personagem.nome }}</title>
+  <style>
+    :root { color-scheme: light; }
+    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; margin: 0; background: #f6f6f8; color: #1f2230; }
+    main { max-width: 1180px; margin: 0 auto; padding: 32px 20px 64px; }
+    h1 { font-size: 1.7rem; margin-bottom: 4px; }
+    h2 { margin-top: 36px; border-bottom: 2px solid #ddd; padding-bottom: 6px; }
+    h3 { margin-top: 26px; }
+    .meta { color: #555; line-height: 1.6; }
+    .badge { display: inline-block; padding: 2px 8px; border-radius: 999px; font-size: .78rem; font-weight: 700; }
+    .ganho { background: #d8f5df; color: #155d27; }
+    .perda { background: #ffe0e0; color: #8a1f1f; }
+    .empate { background: #eee; color: #444; }
+    table { width: 100%; border-collapse: collapse; margin-top: 10px; background: #fff; font-size: .9rem; }
+    th, td { padding: 8px 10px; border-bottom: 1px solid #e4e4ea; text-align: left; vertical-align: top; }
+    th { background: #ececf3; font-size: .8rem; text-transform: uppercase; letter-spacing: .03em; }
+    td.num { text-align: right; font-variant-numeric: tabular-nums; }
+    .base { background: #eef3ff; border-left: 4px solid #4a6cf7; padding: 12px 14px; border-radius: 6px; }
+    .aviso { background: #fff8e1; border-left: 4px solid #d9a400; padding: 10px 14px; border-radius: 6px; }
+    ul { line-height: 1.6; }
+    footer { margin-top: 40px; color: #666; font-size: .85rem; }
+  </style>
+</head>
+<body>
+<main>
+  <h1>Relatório de equipamento — {{ personagem.nome }}</h1>
+  <p class="meta">
+    Gerado em {{ gerado_em }} · Cenário {{ fight_style }} · {{ iteracoes }} iterações<br>
+    {{ personagem.classe }} / {{ personagem.spec }} · nível {{ personagem.nivel }} · {{ personagem.regiao }}/{{ personagem.servidor }}<br>
+    Build {{ personagem.build }} · checksum {{ personagem.checksum }}
+  </p>
+
+  <h2>1. Base</h2>
+  <div class="base">
+    <strong>{{ base.dps_txt }} DPS</strong> · erro {{ base.erro_txt }} · {{ total_variacoes }} variações simuladas
+  </div>
+  <p>Diferença menor que o maior erro entre base e variação, com piso de 0,15%, é marcada como <strong>empate</strong>.</p>
+
+  <h2>2. Resultados por categoria</h2>
+  {% if not categorias %}<p>Nenhuma variação simulada.</p>{% endif %}
+  {% for categoria in categorias %}
+    <h3>{{ categoria.nome }}</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Variação</th><th>DPS</th><th>Delta</th><th>Erro</th><th>Veredito</th>
+          <th>Item</th><th>Onde dropa</th><th>Fonte</th>
+        </tr>
+      </thead>
+      <tbody>
+      {% for linha in categoria.linhas %}
+        <tr>
+          <td>{{ linha.variacao }}</td>
+          <td class="num">{{ linha.dps_txt }}</td>
+          <td class="num">{{ linha.delta_txt }}</td>
+          <td class="num">{{ linha.erro_txt }}</td>
+          <td><span class="badge {{ linha.veredito }}">{{ linha.veredito }}</span></td>
+          <td>
+            {% if linha.item_pt %}{{ linha.item_pt }}{% if linha.item_en %} <em>{{ linha.item_en }}</em>{% endif %} <code>{{ linha.item_id }}</code>
+            {% elif linha.item_en %}{{ linha.item_en }}
+            {% else %}—{% endif %}
+          </td>
+          <td>{{ linha.origem or "não catalogado" }}</td>
+          <td><code>{{ linha.fonte }}</code></td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  {% endfor %}
+
+  <h2>3. Avisos</h2>
+  {% if avisos %}
+    <div class="aviso"><ul>{% for aviso in avisos %}<li>{{ aviso }}</li>{% endfor %}</ul></div>
+  {% else %}<p>Nenhum aviso registrado.</p>{% endif %}
+
+  <h2>4. Limites</h2>
+  <ul>{% for limite in limites %}<li>{{ limite }}</li>{% endfor %}</ul>
+
+  <h2>5. Fontes usadas</h2>
+  <ul>{% for fonte in fontes %}<li><code>{{ fonte }}</code></li>{% endfor %}</ul>
+
+  <footer>
+    A origem de drop vem do catálogo do projeto. Quando não está catalogada, o relatório escreve
+    "não catalogado" em vez de inferir. Todos os números vêm do SimulationCraft.
+  </footer>
+</main>
+</body>
+</html>

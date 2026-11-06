@@ -277,50 +277,43 @@ def _tipo_berloque(item_id: int | None) -> str | None:
 def berloques(personagem: Personagem, *, nivel: int = 341) -> list[Variacao]:
     if nivel not in NIVEL_PARA_BONUS:
         raise ValueError("Nível de berloque deve ser 341, 334 ou 328.")
-    bonus = NIVEL_PARA_BONUS[nivel]
     saida: list[Variacao] = []
+    tipos = {
+        loot.item_id: loot.tipo_efeito for loot in catalog.berloques_conjurador()
+    }
 
-    candidatos = list(catalog.berloques_conjurador())
-    for candidato in personagem.mochila.get("trinket1", []):
-        if candidato.item_id:
-            candidatos.append(
-                catalog._loot_de_item(  # noqa: SLF001 - same package data
-                    "mochila",
-                    {
-                        "item_id": candidato.item_id,
-                        "nome_pt": candidato.nome_pt,
-                        "slot": "trinket",
-                        "stats": {},
-                    },
-                    fonte="fixture: Gear from Bags",
-                )
-            )
-
+    candidatos = catalog.berloques_monitor(nivel)
     for slot in ("trinket1", "trinket2"):
         atual = personagem.equipado.get(slot)
         outro = personagem.equipado.get("trinket2" if slot == "trinket1" else "trinket1")
-        tipo_outro = _tipo_berloque(outro.item_id if outro else None)
+        tipo_outro = (
+            tipos.get(outro.item_id)
+            if outro is not None and outro.item_id is not None
+            else None
+        )
         for candidato in candidatos:
             if atual is not None and candidato.item_id == atual.item_id:
                 continue
             if outro is not None and candidato.item_id == outro.item_id:
                 continue
+            tipo_candidato = tipos.get(candidato.item_id) or candidato.tipo_efeito
             aviso = None
-            if candidato.tipo_efeito == "ativo" and tipo_outro == "ativo":
+            if tipo_candidato == "ativo" and tipo_outro == "ativo":
                 aviso = (
                     "Regra R4: dois berloques on-use dividem recarga no jogo; "
                     "o SimC pode não reproduzir esse limite."
                 )
             linha = _linha_novo_item(
-                slot, candidato.item_id, bonus_id=bonus, base=None
+                slot, candidato.item_id, bonus_id=candidato.bonus_id, base=None
             )
+            bonus_ids = [candidato.bonus_id] if candidato.bonus_id else []
             saida.append(
                 Variacao(
                     nome=f"{slot}_{candidato.item_id}",
                     categoria="berloque",
                     linhas_override=[linha],
                     item_ids=[candidato.item_id],
-                    bonus_ids_envolvidos=[bonus],
+                    bonus_ids_envolvidos=bonus_ids,
                     aviso=aviso,
                     fonte=candidato.fonte,
                 )
@@ -339,7 +332,7 @@ def gerar(
     max_variacoes: int = 40,
 ) -> list[Variacao]:
     """Build all requested variations, always with the base first."""
-    pedidas = set(categorias or CATEGORIAS)
+    pedidas = set(CATEGORIAS if categorias is None else categorias)
     variacoes: list[Variacao] = [_base(personagem)]
 
     if "upgrade" in pedidas:

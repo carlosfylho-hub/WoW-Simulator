@@ -13,7 +13,7 @@ Todos os números vêm do **SimulationCraft**. Nada é estimado pelo código nem
 | 2 | parser do addon | concluída — round-trip byte a byte e 17 testes |
 | 3 | catálogo | concluída — nomes, bônus, encantos, gemas, runas e loot |
 | 4 | gerador de variações | concluída — 7 categorias e teste com simc real |
-| 5 | relatório | pendente |
+| 5 | relatório | concluída — Markdown e HTML com empate por erro, origem e limites |
 | 6 | resumo opcional com DeepSeek | pendente |
 | 7 | interface web | opcional |
 

@@ -1,0 +1,58 @@
+# Relatório de equipamento — {{ personagem.nome }}
+
+**Gerado em:** {{ gerado_em }}
+**Cenário:** {{ fight_style }} | **Iterações:** {{ iteracoes }}
+**Classe / spec:** {{ personagem.classe }} / {{ personagem.spec }} | **Nível:** {{ personagem.nivel }}
+**Região / servidor:** {{ personagem.regiao }} / {{ personagem.servidor }}
+**Build do cliente:** {{ personagem.build }} | **Checksum:** {{ personagem.checksum }}
+
+> Todos os números vêm do SimulationCraft. Nada foi estimado pelo código.
+
+## 1. Base
+
+| Métrica | Valor |
+| :--- | --: |
+| DPS da base | {{ base.dps_txt }} |
+| Erro da base | {{ base.erro_txt }} |
+| Variações simuladas | {{ total_variacoes }} |
+
+Diferença menor que o maior erro entre base e variação, com piso de 0,15%, é marcada como **empate**. Nenhuma troca é recomendada por ruído.
+
+## 2. Resultados por categoria
+
+{% if not categorias %}
+Nenhuma variação simulada.
+{% endif %}
+{% for categoria in categorias %}
+### {{ categoria.nome }}
+
+| Variação | DPS | Delta | Erro | Veredito | Item | Onde dropa | Fonte |
+| :--- | --: | --: | --: | :-: | :--- | :--- | :--- |
+{% for linha in categoria.linhas %}
+| {{ linha.variacao }} | {{ linha.dps_txt }} | {{ linha.delta_txt }} | {{ linha.erro_txt }} | **{{ linha.veredito }}** | {% if linha.item_pt %}{{ linha.item_pt }}{% if linha.item_en %} *{{ linha.item_en }}*{% endif %} `{{ linha.item_id }}`{% elif linha.item_en %}{{ linha.item_en }}{% else %}—{% endif %} | {{ linha.origem or "não catalogado" }} | {{ linha.fonte }} |
+{% endfor %}
+{% endfor %}
+
+## 3. Avisos
+
+{% if avisos %}
+{% for aviso in avisos %}
+- {{ aviso }}
+{% endfor %}
+{% else %}
+- Nenhum aviso registrado.
+{% endif %}
+
+## 4. Limites
+
+{% for limite in limites %}
+- {{ limite }}
+{% endfor %}
+
+## 5. Fontes usadas
+
+{% for fonte in fontes %}
+- {{ fonte }}
+{% endfor %}
+
+> A origem de drop vem do catálogo do projeto. Quando a origem não está catalogada, o relatório escreve "não catalogado" em vez de inferir.

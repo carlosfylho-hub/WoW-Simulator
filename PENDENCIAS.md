@@ -77,6 +77,16 @@ O prompt aponta erros de nome e remete a `pendencias.md` seção `3.16-A`, que *
 
 [`guia_masmorras_e_delves_s2.md`](../../WoW%20Calculator/guia_masmorras_e_delves_s2.md:261) recomenda `C23`; [`pendencias.md`](../../WoW%20Calculator/pendencias.md:235) afirma correção para `C29`. Recomendação de código vem da matriz de `consumiveis_e_sistemas_s2.md`. Fecha com revisão do guia.
 
+### P-020 — Expectativa de berloques do prompt não se confirmou no simc
+
+| Campo | Detalhe |
+| :--- | :--- |
+| **O que o prompt supõe** | Trocar Dazar mais Ampola por qualquer outro berloque piora. |
+| **O que o simc mediu** | Em 500 iterações, DungeonSlice, alguns candidatos de 341 melhoram **um** dos slots: `270167` +2,14%, `270170` +1,98%, `250214` +1,90%, `270164` +1,25% e `250224` +0,99%. |
+| **O que não foi testado** | Trocar os dois berloques ao mesmo tempo. A regra R4 também impede avaliar dois on-use como independentes. |
+| **Decisão** | Vale o simc. O relatório reporta os números medidos e marca empate por erro; a expectativa do prompt fica registrada como não sustentada. |
+| **Ressalva** | Candidatos vêm de `monitor_upgrades_s2.json` no nível alvo; bônus forjado só é aplicado quando o monitor marca Peçonha. Item fora desse conjunto não entra. |
+
 ### P-016 — Camadas de aprimoramento que não são encantamento clássico
 
 | Campo | Detalhe |

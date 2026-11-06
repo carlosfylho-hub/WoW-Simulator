@@ -239,6 +239,44 @@ def itens_mplus(slot: str) -> list[ItemLoot]:
     return saida
 
 
+def berloques_monitor(nivel: int) -> list[ItemLoot]:
+    """Trinkets at an exact ceiling from monitor_upgrades_s2.json.
+
+    Only items the monitor lists at that ilvl are eligible. A forged item gets
+    the forged bonus; a regular one keeps its own level. This avoids applying a
+    341 bonus to an old item and inflating its stats.
+    """
+    chave = {341: "teto_341", 328: "teto_328"}.get(nivel)
+    if chave is None:
+        return []
+    dados = _dados("monitor_upgrades_s2.json").get(chave, [])
+    bonus_forjado = {341: 12856, 328: 12848}[nivel]
+    saida: list[ItemLoot] = []
+    for item in dados:
+        if not isinstance(item, dict) or not isinstance(item.get("id"), int):
+            continue
+        if normalizar_slot(item.get("slot")) != "trinket":
+            continue
+        if item.get("ilvl") != nivel:
+            continue
+        peconha = item.get("peconha")
+        saida.append(
+            ItemLoot(
+                item_id=item["id"],
+                nome_pt=item.get("nome_pt"),
+                nome_en=item.get("nome_en"),
+                slot="trinket",
+                ilvl=item.get("ilvl"),
+                origem="monitor de upgrades",
+                usavel_conjurador=True,
+                bonus_id=bonus_forjado if peconha else None,
+                peconha=peconha,
+                fonte="monitor_upgrades_s2.json",
+            )
+        )
+    return saida
+
+
 def berloques_conjurador() -> list[ItemLoot]:
     """Caster-usable trinkets. Explicit usavel_por_conjurador=false is excluded."""
     saida: list[ItemLoot] = []

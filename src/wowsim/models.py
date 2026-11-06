@@ -216,4 +216,6 @@ class ItemLoot(BaseModel):
     origem: str | None = None
     tipo_efeito: str | None = None
     usavel_conjurador: bool | None = None
+    bonus_id: int | None = None
+    peconha: str | None = None
     fonte: str

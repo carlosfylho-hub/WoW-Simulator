@@ -108,8 +108,13 @@ def test_berloques_respeitam_nivel_e_slots(personagem) -> None:
     variacoes = profilesets.berloques(personagem, nivel=341)
     assert variacoes
     for variacao in variacoes:
-        assert "12856" in variacao.linhas_override[0]
+        linha = variacao.linhas_override[0]
         assert variacao.nome.startswith(("trinket1_", "trinket2_"))
+        if variacao.bonus_ids_envolvidos:
+            assert variacao.bonus_ids_envolvidos == [12856]
+            assert "12856" in linha
+        else:
+            assert "bonus_id=" not in linha
     assert any(variacao.aviso for variacao in variacoes)
 
     with pytest.raises(ValueError):

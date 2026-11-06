@@ -18,6 +18,7 @@ from . import simc_runner as sr
 from .gen import profilesets
 from .models import Personagem, Variacao
 from .parser.addon import SLOTS, ErroParseAddon, parse_texto
+from .report import render as render_relatorio
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 FIXTURE_PADRAO = PROJECT_ROOT / "fixtures" / "pyrogalth.simc"
@@ -277,6 +278,16 @@ def _executar_lote(
     console.print(f"Base: {base:,.0f} DPS")
     console.print(tabela)
     console.print(f"JSON: {execucao.json_path}")
+
+    caminho_md, caminho_html = render_relatorio(
+        personagem,
+        resultado,
+        variacoes,
+        destino=PROJECT_ROOT / "saida",
+        iterations=iterations,
+        fight_style=fight_style,
+    )
+    console.print(f"Relatório: [bold]{caminho_md}[/bold] e [bold]{caminho_html}[/bold]")
 
 
 def _destino(nome: str) -> Path:
