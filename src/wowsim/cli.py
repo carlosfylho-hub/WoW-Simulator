@@ -15,6 +15,7 @@ from rich.panel import Panel
 from rich.table import Table
 
 from . import simc_runner as sr
+from .parser.addon import SLOTS, ErroParseAddon, parse_texto
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 FIXTURE_PADRAO = PROJECT_ROOT / "fixtures" / "pyrogalth.simc"
@@ -195,6 +196,108 @@ def simc_check(
             )
         )
         raise typer.Exit(code=1)
+
+
+@app.command("parse")
+def parse(
+    addon: Path = typer.Argument(..., help="Arquivo com o export do SimC AddOn."),
+    json_out: Optional[Path] = typer.Option(
+        None, "--json", help="Grava o personagem parseado em JSON."
+    ),
+) -> None:
+    """Resume o personagem sem simular nada."""
+    if not addon.is_file():
+        console.print(Panel(f"Arquivo não encontrado: {addon}", title="Falha", style="red"))
+        raise typer.Exit(code=2)
+
+    try:
+        personagem = parse_texto(addon.read_text(encoding="utf-8"))
+    except ErroParseAddon as exc:
+        console.print(Panel(str(exc), title="Falha no parse", style="red"))
+        raise typer.Exit(code=2)
+
+    identidade = Table(title="Personagem", show_header=False)
+    identidade.add_column("Campo", style="bold")
+    identidade.add_column("Valor")
+    identidade.add_row("Nome", personagem.nome or "não informado")
+    identidade.add_row("Classe / spec", f"{personagem.classe or '?'} / {personagem.spec or '?'}")
+    identidade.add_row("Nível / raça", f"{personagem.nivel or '?'} / {personagem.raca or '?'}")
+    identidade.add_row(
+        "Região / servidor",
+        f"{personagem.regiao or '?'} / {personagem.servidor or '?'}",
+    )
+    identidade.add_row(
+        "Profissões",
+        ", ".join(f"{nome}={nivel}" for nome, nivel in personagem.profissoes.items())
+        or "não informadas",
+    )
+    identidade.add_row(
+        "Addon / cliente",
+        f"{personagem.versao_addon or '?'} / {personagem.build_cliente or '?'}",
+    )
+    identidade.add_row("Checksum", personagem.checksum or "ausente")
+    console.print(identidade)
+
+    equipamento = Table(title="Equipamento", header_style="bold")
+    equipamento.add_column("Slot")
+    equipamento.add_column("Item")
+    equipamento.add_column("Nome PT-BR")
+    equipamento.add_column("ilvl", justify="right")
+    equipamento.add_column("Encanto", justify="right")
+    equipamento.add_column("Gemas")
+    equipamento.add_column("Bônus", justify="right")
+    for slot in SLOTS:
+        item = personagem.equipado.get(slot)
+        if item is None:
+            continue
+        equipamento.add_row(
+            slot,
+            str(item.item_id or "?"),
+            item.nome_pt or "PT a confirmar",
+            str(item.ilvl_comentario or "?"),
+            str(item.enchant_id or "—"),
+            ", ".join(str(gema) for gema in item.gem_ids) or "—",
+            str(len(item.bonus_ids)),
+        )
+    console.print(equipamento)
+
+    console.print(
+        f"Loadouts salvos: {len(personagem.loadouts)} — "
+        + ", ".join(personagem.loadouts)
+        if personagem.loadouts
+        else "Loadouts salvos: nenhum"
+    )
+    console.print(
+        "Folio Ômnico: "
+        + (
+            ", ".join(str(runa) for runa in personagem.omnium_ids_brutos)
+            or "não informado"
+        )
+    )
+    console.print(
+        f"Mochila: {sum(len(itens) for itens in personagem.mochila.values())} peças | "
+        f"Catalisador: {len(personagem.catalyst_currencies)} moedas | "
+        f"Marcas de ilvl: {len(personagem.slot_high_watermarks)}"
+    )
+
+    if personagem.alertas:
+        tabela_alertas = Table(title="Alertas de parse", header_style="bold")
+        tabela_alertas.add_column("Código")
+        tabela_alertas.add_column("Severidade")
+        tabela_alertas.add_column("Detalhe")
+        for alerta in personagem.alertas:
+            tabela_alertas.add_row(alerta.codigo, alerta.severidade, alerta.detalhe)
+        console.print(tabela_alertas)
+
+    if json_out is not None:
+        json_out.write_text(
+            personagem.model_dump_json(
+                indent=2,
+                exclude={"texto_original", "bloco_equipamento_original"},
+            ),
+            encoding="utf-8",
+        )
+        console.print(f"JSON gravado em {json_out}")
 
 
 if __name__ == "__main__":

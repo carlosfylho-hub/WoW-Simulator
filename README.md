@@ -10,7 +10,7 @@ Todos os números vêm do **SimulationCraft**. Nada é estimado pelo código nem
 | :-: | :--- | :-: |
 | 0 | arquitetura e fontes | concluída — [`docs/ARQUITETURA.md`](docs/ARQUITETURA.md), [`docs/FONTES.md`](docs/FONTES.md) |
 | 1 | motor SimC, fixture, scaffold e snapshot de dados | concluída — aceite do `simc-check` cumprido |
-| 2 | parser do addon | pendente |
+| 2 | parser do addon | concluída — round-trip byte a byte e 17 testes |
 | 3 | catálogo | pendente |
 | 4 | gerador de variações | pendente |
 | 5 | relatório | pendente |
@@ -71,7 +71,25 @@ O script Windows importa o `vcvars64.bat`, configura com CMake e Ninja, compila 
 wowsim simc-info
 wowsim simc-check
 wowsim simc-check --iterations 1000 --forcar
+wowsim parse fixtures/pyrogalth.simc
+wowsim parse fixtures/pyrogalth.simc --json personagem.json
 ```
+
+## Parser do addon
+
+`wowsim parse` lê o export do SimC AddOn sem simular nada. O parser é uma máquina de estados por seção, porque `neck=` significa coisas diferentes no bloco principal e em `Gear from Bags`.
+
+O que ele extrai:
+
+- identidade: nome, classe, spec, nível, raça, região, servidor, profissões, addon, build e checksum;
+- 16 slots equipados, incluindo tabardo, com `item_id`, `enchant_id`, `gem_ids`, `bonus_ids`, `crafted_stats`, `crafting_quality`, `content_tuning` e `redirected_base_stats`;
+- nome PT-BR e ilvl do comentário imediatamente acima de cada slot;
+- itens da mochila agrupados por slot;
+- loadouts salvos com a import string descomentada;
+- `omnium_talents` bruto e por rank;
+- moedas de Catalisador, moedas de upgrade, marcas de ilvl e extra rolls.
+
+O texto original é preservado. `serializar_texto` reproduz o arquivo inteiro byte a byte, e `serializar_bloco_equipamento` devolve exatamente o trecho dos slots. O checksum é descartado por padrão ao reescrever.
 
 `simc-check` roda o fixture `fixtures/pyrogalth.simc` em dois cenários e compara com os valores de referência:
 
