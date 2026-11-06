@@ -16,6 +16,7 @@ from rich.table import Table
 
 from . import simc_runner as sr
 from .gen import profilesets
+from .llm import montar_contexto, resumir, resumo_deterministico
 from .models import Personagem, Variacao
 from .parser.addon import SLOTS, ErroParseAddon, parse_texto
 from .report import render as render_relatorio
@@ -230,7 +231,7 @@ def _executar_lote(
         f"estimativa ~{estimativa:.0f}s com {iterations} iterações"
     )
     if sem_llm:
-        console.print("[dim]Resumo por LLM desligado nesta fase.[/dim]")
+        console.print("[dim]Resumo por LLM desligado (--sem-llm).[/dim]")
 
     if not rodar:
         tabela = Table(title="Variações geradas", header_style="bold")
@@ -288,6 +289,22 @@ def _executar_lote(
         fight_style=fight_style,
     )
     console.print(f"Relatório: [bold]{caminho_md}[/bold] e [bold]{caminho_html}[/bold]")
+
+    if not sem_llm:
+        contexto = montar_contexto(
+            resultado, variacoes, iterations=iterations, fight_style=fight_style
+        )
+        texto = resumir(contexto)
+        if texto:
+            console.print(Panel(texto, title="Resumo DeepSeek", style="cyan"))
+        else:
+            console.print(
+                Panel(
+                    resumo_deterministico(contexto),
+                    title="Resumo determinístico — LLM indisponível ou descartado",
+                    style="yellow",
+                )
+            )
 
 
 def _destino(nome: str) -> Path:

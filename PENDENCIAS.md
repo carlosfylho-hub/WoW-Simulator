@@ -135,6 +135,10 @@ O SimC simula o berloque isoladamente, mas a recarga compartilhada é regra de j
 
 Loadouts de Soul Harvester podem rodar abaixo do real. Relatório inclui aviso fixo na categoria de talentos. Fecha com atualização do APL no repositório do simc.
 
+### P-021 — Resumo DeepSeek validado apenas com cliente falso
+
+A validação numérica foi testada com cliente fake: texto com número do contexto passa, número inventado é descartado e o fallback determinístico entra. **Nenhuma chamada real ao DeepSeek foi feita**, porque não há `DEEPSEEK_API_KEY` configurada. Fecha com uma execução real e revisão do texto gerado.
+
 ### P-015 — Versão do addon e build do cliente
 
 `12.1.5-04` no export e `12.1.5.70783` no cliente. `check_version` compara o build numérico e avisa quando divergir; não bloqueia, mas o relatório marca `build_divergente=true`.

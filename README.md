@@ -14,7 +14,7 @@ Todos os números vêm do **SimulationCraft**. Nada é estimado pelo código nem
 | 3 | catálogo | concluída — nomes, bônus, encantos, gemas, runas e loot |
 | 4 | gerador de variações | concluída — 7 categorias e teste com simc real |
 | 5 | relatório | concluída — Markdown e HTML com empate por erro, origem e limites |
-| 6 | resumo opcional com DeepSeek | pendente |
+| 6 | resumo opcional com DeepSeek | concluída — opcional, validado número a número |
 | 7 | interface web | opcional |
 
 ## Instalação
@@ -79,7 +79,14 @@ wowsim talentos fixtures/pyrogalth.simc --cenario mplus
 wowsim folio fixtures/pyrogalth.simc
 wowsim berloques fixtures/pyrogalth.simc --nivel 341
 wowsim tudo fixtures/pyrogalth.simc --iteracoes 1000 --max-variacoes 40 --sem-llm
+wowsim tudo fixtures/pyrogalth.simc --iteracoes 1000 --com-llm
 ```
+
+## Resumo opcional com DeepSeek
+
+`--sem-llm` é o padrão e sempre funciona. Com `--com-llm`, o resumo recebe **somente** o JSON já calculado, com prompt restritivo. Depois da resposta, todo número é comparado com o contexto; se houver um número que não exista lá, o texto é descartado e o resumo determinístico entra no lugar.
+
+A chave fica em `DEEPSEEK_API_KEY` e nunca no código. O pacote `openai` é opcional: `pip install -e ".[llm]"`. Sem chave ou sem pacote, o fallback determinístico é usado sem quebrar o fluxo.
 
 ## Gerador de variações
 
