@@ -1,0 +1,747 @@
+{
+  "_meta": {
+    "nome": "Builds de Talentos e Poderes Emprestados — Season 2",
+    "patch": "12.1.5 — Maldição de Ula'tek",
+    "expansao": "World of Warcraft: Midnight",
+    "atualizado": "2026-11-04",
+    "fontes": [
+      "https://www.icy-veins.com/wow/shadow-priest-pve-dps-spec-builds-talents (IcyVeins, patch 12.1.5)",
+      "https://maxroll.gg/wow/class-guides/shadow-priest-mythic-plus-guide (MaxRoll, patch 12.1.5)",
+      "https://maxroll.gg/wow/class-guides/demonology-warlock-mythic-plus-guide (MaxRoll, patch 12.1.5)",
+      "https://www.wowhead.com/pt/guide/classes/warlock/demonology/talent-builds-pve-dps (Wowhead PT-BR, patch 12.1.5)",
+      "https://www.icy-veins.com/wow/balance-druid-pve-dps-spec-builds-talents (IcyVeins, patch 12.1.5)",
+      "https://www.method.gg/guides/how-to-unlock-and-upgrade-the-altar-of-corrosion-in-wow-midnight (Method.gg)",
+      "https://mythic-store.com/blog/altar-of-corrosion-guide-how-to-unlock-upgrade-and-max-it-in-wow-midnight-patch-12-1"
+    ],
+    "descricao": "Todas as builds de talentos M+ e Raid para Shadow Priest, Demonology Warlock e Balance Druid. Inclui Omnium Folio (runas) e Altar Corroído — os dois sistemas de poder emprestado de Midnight Season 2. Nomes de talentos em PT-BR extraídos do Wowhead PT.",
+    "aviso": "Builds extraídas de IcyVeins, MaxRoll, Wowhead e Method em novembro/2026. Strings de importação podem mudar com hotfixes — verifique sempre a data na fonte original."
+  },
+  "shadow_priest": {
+    "nome": "Sacerdote Sombra (Shadow Priest)",
+    "hero_talents": {
+      "arquetipo_recomendado": "Voidweaver para burst AoE / Archon para sustained damage",
+      "descricao_voidweaver": "Foco em burst damage. Melhor para M+ onde mobs morrem mais rápido. Recomendado como ponto de partida por IcyVeins.",
+      "descricao_archon": "Revolve em usar Halo para empoderar Voidform e Mind Flay: Insanity. Dano sustentado. Traz Incessant Screams (stop extra) em M+. Melhor para Raid e conteúdo single-target.",
+      "apex_talent": "Void Apparitions — 4 pontos, transforma o gameplay. Incentiva investir em talentos que melhoram Shadowy Apparitions."
+    },
+    "builds_mplus": {
+      "archon_mplus": {
+        "nome": "Archon M+ Build",
+        "contexto": "Alta sustentação de dano AoE. Escolha se precisar de dano consistente em pulls grandes.",
+        "hero_tree": "Archon",
+        "import_strings": {
+          "com_4pc_s2": "CIQAR03Gt7xPmcDNOjs2Zlb3yOMjZGAAAAAAAAAAAghZxMGbzMmZWmZYmx2MGzMzYDZGLmpBYGgZ2MjmNDAZMWAwMAjZmZMbjZ2W",
+          "sem_4pc_s2": "CIQAR03Gt7xPmcDNOjs2Zlb3yOMjZGAAAAAAAAAAAghZxMGbzMmZWmZYmx2MGzMzYDZGLmpBYGgZ2MjmNDAZMWAwMAjZmZMbjZ2W",
+          "fonte": "IcyVeins 12.1.5"
+        },
+        "nota": "Se não tiver o tier S2 ainda: evite Descending Darkness e Crushing Void. Troque por Idol of C'Thun."
+      },
+      "voidweaver_mplus": {
+        "nome": "Voidweaver M+ Build (AoE)",
+        "contexto": "Melhor quando inimigos morrem mais rápido (keys menores/médias). Mais burst.",
+        "hero_tree": "Voidweaver",
+        "import_strings": {
+          "com_4pc_s2": "CIQAAAAAAAAAAAAAAAAAAAAAAMMDDAAAAAAAAAAAAmZxMmZbmxMzyMzYG2mZGzMzYDZGLmpBYmZGAIAz2stAmNGAYwYmZGzGzgZG",
+          "sem_4pc_s2": "CIQAR03Gt7xPmcDNOjs2Zlb3yOMjZGAAAAAAAAAAAghZxMGbzMmZWmZYmx2MGzMzYDZGLmpBYmZGAIAz2stEMbMAwgxMzMmtxMYm",
+          "fonte": "IcyVeins 12.1.5"
+        }
+      }
+    },
+    "builds_raid": {
+      "archon_raid": {
+        "nome": "Archon Raid Build (padrão)",
+        "contexto": "Build padrão para a maioria dos encontros de raid.",
+        "hero_tree": "Archon",
+        "import_strings": {
+          "com_4pc_s2": "CIQAAAAAAAAAAAAAAAAAAAAAAMMDDAAAAAAAAAAAAmZxMmZbmxMz2MGzw2MzYmZGbIzYxMNAzAMzmZY2MAkxYBAzMgxMzMmNmZbZ",
+          "sem_4pc_s2": "CIQAR03Gt7xPmcDNOjs2Zlb3yOMjZGAAAAAAAAAAAgxMMjx2MDzsNzwMjtZMmZmBmMwMNzAzAMzmZ0sZAIjxCAmBYMzMjZbMz2yA",
+          "fonte": "IcyVeins 12.1.5"
+        },
+        "variantes_por_boss": {
+          "sszorak": "CIQAAAAAAAAAAAAAAAAAAAAAAMMDzAAAAAAAAAAAAwMLmxMbzMGz2MGzw2MzYmZGbIzYxMNAzAMzmZY2MAkxYBAzMgxMzMmNmZbZ",
+          "entombed_sentinels": "CIQAAAAAAAAAAAAAAAAAAAAAAMMDzAAAAAAAAAAAAMmZxMGbzMmZ2mBzw2MzYmZGbIzYxMNAzAMzmZY2MAkxYBAzMgxMzMmNmZbZ",
+          "lost_explorers": "CIQAAAAAAAAAAAAAAAAAAAAAAMMDPAAAAAAAAAAAAghZxMmZbmxMz2MGzw2MzYmZGbIzYxMNAzAMzmZ0sZAIjxCAmZMYMzMjZjZ2",
+          "ulatek_heroic": "CIQAAAAAAAAAAAAAAAAAAAAAAMMDDAAAAAAAAAAAAmZxMmZZmxMz2MGzw2MzYmZGbIzYxMNAzAMziZY2MAkxYBAzMIjZmZMbMz2y",
+          "ulatek_mythic": "CIQAAAAAAAAAAAAAAAAAAAAAAMMDPAAAAAAAAAAAAghZxMmZZmxMz2MGzw2MzYmZGbIzYxMNAzAMziZY2MAkxYBAzMGZMzMjZjZ2"
+        }
+      },
+      "voidweaver_raid": {
+        "nome": "Voidweaver Raid Build",
+        "hero_tree": "Voidweaver",
+        "import_string": "CIQAR03Gt7xPmcDNOjs2Zlb3yOMjZGAAAAAAAAAAAgxMMjx2MDzsNzwMsNzMmZmxGyMWMTDwMzMAQAmtZbJY2YAmBYMzMjZbMDmZ",
+        "fonte": "IcyVeins 12.1.5"
+      }
+    },
+    "build_delves": {
+      "nome": "Voidweaver Delves Build",
+      "contexto": "Especializada para Delves em Midnight Season 2. Class tree tem adaptações para solo.",
+      "import_string": "CIQAAAAAAAAAAAAAAAAAAAAAAMMDDAAAAAAAAAAAAmZxMmZbmxMzyMzYmx2MYmZmZDZGLb0AMzMDAEgZb2WAzGDAMwMzMzMbMDmZ",
+      "fonte": "IcyVeins 12.1.5"
+    },
+    "quick_start_codes": {
+      "shadow_raid_archon": "CIQAAAAAAAAAAAAAAAAAAAAAAMMDDAAAAAAAAAAAAmZxMmZbmxMz2MGzw2MzYmZGbIzYxMNAzAMzmZY2",
+      "shadow_aoe_voidweaver": "CIQAAAAAAAAAAAAAAAAAAAAAAMMDDAAAAAAAAAAAAmZxMmZbmxMzyMzYG2mZGzMzYDZGLmpBYmZGAIAz2stAmNGAYwYmZGzGzgZG",
+      "shadow_delves_voidweaver": "CIQAAAAAAAAAAAAAAAAAAAAAAMMDDAAAAAAAAAAAAmZxMmZbmxMzyMzYmx2MYmZmZDZGLb0AMzMDAEgZb2WAzGDAMwMzMzMbMDmZ"
+    },
+    "resumo_builds": "Voidweaver para burst M+, Archon para sustained. Ambas estão muito próximas em performance — escolha pelo playstyle.",
+    "variantes_situacionais": {
+      "descricao": "Adaptações situacionais para Sacerdote Sombra conforme tipo de dano (Burst vs Sustentado) e perigos de sobrevivência.",
+      "comparativo_situacional": {
+        "arconte_vs_tecelao": "Arconte (Archon) é a escolha para dano sustentado prolongado e encontros de raide padrão; Tecelão do Vazio (Voidweaver) é a escolha para burst explosivo em janelas curtas, ideal para masmorras com pulls rápidos e Delves.",
+        "single_target_puro": "Arconte com Halo e Foco no Vazio proporciona a rotação mais estável contra chefes de alvo único puro (ex: Nek'zali).",
+        "dano_em_area_explosivo": "Tecelão do Vazio com Fenda Entrópica (Entropic Rift) gera dano inicial massivo em pacotes de monstros em M+."
+      },
+      "variante_defensiva_extrema": {
+        "nome": "Variante de Resiliência Máxima",
+        "ajustes": [
+          "Alocar Dispersão Acelerada (reduz a recarga de Dispersão para 90s).",
+          "Alocar Abraço Vampírico Aprimorado (converte 50% do dano de alvo único em cura para o grupo).",
+          "Manter Prece Desesperada (Desperate Prayer) para aumento imediato de vida máxima."
+        ]
+      },
+      "variante_utilidade_e_controle": {
+        "nome": "Variante de Suporte e Controle de Grupo",
+        "ajustes": [
+          "Alocar Dissipação em Massa (Mass Dispel) para encontros com debuffs mágicos em múltiplos alvos da raide.",
+          "Alocar Gritos Incessantes (Incessant Screams) no arquétipo Arconte para silenciamento em área estendido em Míticas+."
+        ]
+      }
+    }
+  },
+  "demo_warlock": {
+    "nome": "Bruxo da Demonologia (Demonology Warlock)",
+    "hero_talents": {
+      "arquetipo_recomendado": "Diabolista (melhor em todos os cenários em 12.1.5)",
+      "descricao_diabolist": "Revolve em Rituais Diabólicos (Lorde → Mãe do Caos → Lorde do Poço, ciclicamente). Cada ritual vira uma Arte Demoníaca ao gastar Estilhaço de Alma. Burst fortíssimo em janelas de Evocar Tirano Demoníaco.",
+      "descricao_soul_harvester": "Enfatiza Implosão e dano AoE. Atualmente ligeiramente pior que Diabolista em todos os cenários.",
+      "comparacao": "Diabolista: burst mais alto via Evocar Tirano Demoníaco. Colhedor de Almas: AoE mais consistente via Implosão. Diabolista é o escolhido para S2."
+    },
+    "builds_mplus": {
+      "diabolist_mplus": {
+        "nome": "Build Diabolista M+",
+        "contexto": "Build padrão M+ Season 2.",
+        "hero_tree": "Diabolista",
+        "fonte_wowhead": "https://www.wowhead.com/pt/guide/classes/warlock/demonology/talent-builds-pve-dps",
+        "fonte_maxroll": "https://maxroll.gg/wow/class-guides/demonology-warlock-mythic-plus-guide",
+        "import_string_wowhead": "CoQAAAAAAAAAAAAAAAAAAAAAAYmhZGNbmx2MzYWGAAAAAAAwYGDLwAbj2ohFjZGLz2MzMmBAmZMmZmZAmZGmZDAAMmZmxwwyMGwA",
+        "talentos_chave_spec_tree_ptbr": [
+          "Evocar Tirano Demoníaco (core absoluto)",
+          "Brutalidade Demoníaca (Demonic Strength)",
+          "Demo-cracia (Demonic Core)",
+          "Implosão / Sifão de Poder (Power Siphon)",
+          "Açoite Pavoroso (Dreadlash)",
+          "Evocar Diabo Vil (Guillotine)",
+          "Chamado Demoníaco (Fel Invocation)",
+          "Grimório: Lordiabrete (Nether Portal)"
+        ],
+        "talentos_chave_class_tree_ptbr": [
+          "Sinergia Vil (Fel Synergy)",
+          "Espiral da Morte (Mortal Coil) — heal + CC",
+          "Impulso Ardente (Burning Rush) — mobilidade",
+          "Fúria Sombria (Shadowfury) — stun em AoE",
+          "Praga das Línguas (Blight of Tongues) — slow de cast, essencial em M+",
+          "Pacto Sombrio (Dark Pact) — defensivo, muito útil em Delves solo"
+        ]
+      },
+      "soul_harvester_mplus": {
+        "nome": "Build Ceifador de Almas M+ (Soul Harvester M+)",
+        "contexto": "Variante alternativa para masmorras com múltiplos pacotes pequenos e combate contínuo, onde o foco é Implosão frequente e dano em área estável sem depender de janelas rígidas de recarga do Tirano Demoníaco.",
+        "hero_tree": "Ceifador de Almas (Soul Harvester)",
+        "fonte_wowhead": "https://www.wowhead.com/pt/guide/classes/warlock/demonology/talent-builds-pve-dps",
+        "import_string_wowhead": "CoQAAAAAAAAAAAAAAAAAAAAAAYmhZGNbmx2MzYWGAAAAAAgxyyADYAzwSIjNDGLjZmZmZAgZMzYGgZmZmhZ2AAAzMzMjZGsNzAMA",
+        "codigo_wowhead_rotulo": "Soul Harvester — Mythic+",
+        "verificado_em": "2026-11-06",
+        "talentos_chave_spec_tree_ptbr": [
+          "Implosão (Implosion) — detonador primário de dano em área com diabretes",
+          "Sifão de Poder (Power Siphon) — consome 2 diabretes para gerar 2 Núcleos Demoníacos instantâneos",
+          "Açoite Pavoroso (Dreadlash) — golpe em cone dos Cães Terrentes",
+          "Evocar Tirano Demoníaco (Demonic Tyrant) — amplificador de tropas",
+          "Destino Compartilhado (Shared Fate) — dispersão de dano sombrio passivo",
+          "Entropia Demoníaca (Demonic Entropy) — geração sustentada de fragmentos"
+        ],
+        "talentos_chave_class_tree_ptbr": [
+          "Espiral da Morte (Mortal Coil) — cura de 20% e controle de alvo",
+          "Fúria Sombria (Shadowfury) — atordoamento em área de 3s",
+          "Pacto Sombrio (Dark Pact) — escudo baseado na vida máxima",
+          "Praga das Línguas (Blight of Tongues) — desacelera tempo de conjuração dos inimigos em 30%"
+        ]
+      }
+    },
+    "builds_raid": {
+      "diabolist_raid": {
+        "nome": "Build Diabolista Raid",
+        "contexto": "Builds de Raid e M+ são iguais com pequenos ajustes em talents de 1pt.",
+        "import_string_wowhead": "CoQAAAAAAAAAAAAAAAAAAAAAAYmZMzoZjhZmxsMAAAAAAAgxMGWgB2GtQDLGjxysMzMjZAgZGzMzMzAMzMmZAAAGzMzMDDLzYAD",
+        "fonte_wowhead": "https://www.wowhead.com/pt/guide/classes/warlock/demonology/talent-builds-pve-dps"
+      },
+      "soul_harvester_raid": {
+        "nome": "Build Ceifador de Almas Raide Cleave (Soul Harvester Cleave)",
+        "contexto": "Variante para lutas de raide com 2 a 4 alvos constantes (ex: As Presas Gêmeas / The Twin Fangs) ou ondas frequentes de lacaios (ex: Kith'ix), onde a geração contínua de fragmentos e almas supera o dano de alvo único puro do Diabolista.",
+        "hero_tree": "Ceifador de Almas (Soul Harvester)",
+        "fonte_wowhead": "https://www.wowhead.com/pt/guide/classes/warlock/demonology/talent-builds-pve-dps",
+        "import_string_wowhead": "CoQAAAAAAAAAAAAAAAAAAAAAAYmhZGNbmx2MzYWGAAAAAAgxyyADYAzwSIjNDGLz2MzMmBAmxMzMDwMzMzwMbAAgZmZmxMD2mBwA",
+        "codigo_wowhead_rotulo": "Soul Harvester — Raid Cleave",
+        "codigo_st_alternativo": "CoQAAAAAAAAAAAAAAAAAAAAAAYmZMzoZjhZmxsMAAAAAAAjllBGwAmhlQGbmhZ2mlZmZMDAYMzMzAMzMzMmZAAAmZmZmZMDLDAD",
+        "codigo_st_alternativo_rotulo": "Soul Harvester — Raid (alvo único)",
+        "verificado_em": "2026-11-06",
+        "talentos_chave": [
+          "Colheita de Almas (Harvest of Souls)",
+          "Evocar Tirano Demoníaco (Demonic Tyrant)",
+          "Açoite Pavoroso (Dreadlash)",
+          "Implosão (Implosion)"
+        ]
+      }
+    },
+    "codigos_wowhead_2026_11_06": {
+      "fonte": "https://www.wowhead.com/pt/guide/classes/warlock/demonology/talent-builds-pve-dps",
+      "autor": "NotWarlock",
+      "atualizado_na_fonte": "13/10/2026",
+      "nota": "Os 8 códigos abaixo são cópia literal da tabela 'Demonology Warlock Talent Import Codes'. No Wowhead, Diabolista repete o mesmo código em Raid Cleave, Mythic+ e Delves; Ceifador de Almas repete o de Raid Cleave em Delves. Isso é do guia, não erro de extração.",
+      "diabolista": {
+        "raid": "CoQAAAAAAAAAAAAAAAAAAAAAAYmZMzoZjhZmxsMAAAAAAAgxMGWgB2GtQDLGjxysMzMjZAgZGzMzMzAMzMmZAAAGzMzMDDLzYAD",
+        "raid_cleave": "CoQAAAAAAAAAAAAAAAAAAAAAAYmhZGNbmx2MzYWGAAAAAAAwYGDLwAbj2ohFjZGLz2MzMmBAmZMmZmZAmZGmZDAAMmZmxwwyMGwA",
+        "mythic_plus": "CoQAAAAAAAAAAAAAAAAAAAAAAYmhZGNbmx2MzYWGAAAAAAAwYGDLwAbj2ohFjZGLz2MzMmBAmZMmZmZAmZGmZDAAMmZmxwwyMGwA",
+        "delves": "CoQAAAAAAAAAAAAAAAAAAAAAAYmhZGNbmx2MzYWGAAAAAAAwYGDLwAbj2ohFjZGLz2MzMmBAmZMmZmZAmZGmZDAAMmZmxwwyMGwA"
+      },
+      "ceifador_de_almas": {
+        "raid": "CoQAAAAAAAAAAAAAAAAAAAAAAYmZMzoZjhZmxsMAAAAAAAjllBGwAmhlQGbmhZ2mlZmZMDAYMzMzAMzMzMmZAAAmZmZmZMDLDAD",
+        "raid_cleave": "CoQAAAAAAAAAAAAAAAAAAAAAAYmhZGNbmx2MzYWGAAAAAAgxyyADYAzwSIjNDGLz2MzMmBAmxMzMDwMzMzwMbAAgZmZmxMD2mBwA",
+        "mythic_plus": "CoQAAAAAAAAAAAAAAAAAAAAAAYmhZGNbmx2MzYWGAAAAAAgxyyADYAzwSIjNDGLjZmZmZAgZMzYGgZmZmhZ2AAAzMzMjZGsNzAMA",
+        "delves": "CoQAAAAAAAAAAAAAAAAAAAAAAYmhZGNbmx2MzYWGAAAAAAgxyyADYAzwSIjNDGLz2MzMmBAmxMzMDwMzMzwMbAAgZmZmxMD2mBwA"
+      },
+      "links_calculadora": {
+        "diabolista_raid": "https://www.wowhead.com/pt/talent-calc/blizzard/CoQAAAAAAAAAAAAAAAAAAAAAAYmZMzoZjhZmxsMAAAAAAAgxMGWgB2GtQDLGjxysMzMjZAgZGzMzMzAMzMmZAAAGzMzMDDLzYAD",
+        "diabolista_raid_cleave": "https://www.wowhead.com/pt/talent-calc/blizzard/CoQAAAAAAAAAAAAAAAAAAAAAAYmhZGNbmx2MzYWGAAAAAAAwYGDLwAbj2ohFjZGLz2MzMmBAmZMmZmZAmZGmZDAAMmZmxwwyMGwA",
+        "ceifador_raid": "https://www.wowhead.com/pt/talent-calc/blizzard/CoQAAAAAAAAAAAAAAAAAAAAAAYmZMzoZjhZmxsMAAAAAAAjllBGwAmhlQGbmhZ2mlZmZMDAYMzMzAMzMzMmZAAAmZmZmZMDLDAD",
+        "ceifador_raid_cleave": "https://www.wowhead.com/pt/talent-calc/blizzard/CoQAAAAAAAAAAAAAAAAAAAAAAYmhZGNbmx2MzYWGAAAAAAgxyyADYAzwSIjNDGLz2MzMmBAmxMzMDwMzMzwMbAAgZmZmxMD2mBwA",
+        "ceifador_mythic_plus": "https://www.wowhead.com/pt/talent-calc/blizzard/CoQAAAAAAAAAAAAAAAAAAAAAAYmhZGNbmx2MzYWGAAAAAAgxyyADYAzwSIjNDGLjZmZmZAgZMzYGgZmZmhZ2AAAzMzMjZGsNzAMA"
+      },
+      "frase_do_guia_ptbr": "Diabolista é o Talento Heroico mais diverso no momento; indo estritamente pelo DPS simulado, você jogaria Ceifador de Almas, mas poucos o fazem na prática apesar do DPS simulado maior."
+    },
+    "build_delves": {
+      "nome": "Build Diabolista Delves",
+      "contexto": "Adaptada para solo. Foco em survivability e defensivos.",
+      "import_string_wowhead": "CoQAAAAAAAAAAAAAAAAAAAAAAYmhZGNbmx2MzYWGAAAAAAAwYGDLwAbj2ohFjZGLz2MzMmBAmZMmZmZAmZGmZDAAMmZmxwwyMGwA",
+      "fonte_wowhead": "https://www.wowhead.com/pt/guide/classes/warlock/demonology/talent-builds-pve-dps",
+      "talentos_prioritarios_delves_ptbr": {
+        "arvore_bruxo": [
+          "Dominância Vil (Fel Domination) ✅",
+          "Impulso Ardente (Burning Rush) ✅",
+          "Pele de Demônio 2/2 (Demon Skin) ✅",
+          "Armadura Vil 2/2 (Fel Armor) ✅",
+          "Espiral da Morte (Mortal Coil) ✅",
+          "Pacto Sombrio (Dark Pact) ✅",
+          "Círculo Demoníaco (Demonic Circle) ✅",
+          "Vínculo Anímico 2/2 (Soul Link) ✅"
+        ],
+        "arvore_demonologia": [
+          "Mão de Gul'dan (Hand of Gul'dan) ✅",
+          "Evocar Tirano Demoníaco ✅ — CORE",
+          "Grimório: Lordiabrete (Nether Portal) ✅",
+          "Domínio de Argus 4/4 ✅"
+        ],
+        "arvore_diabolista": [
+          "Ritual Diabólico (Diabolic Rituals) — CORE do arquétipo",
+          "Baluarte Infernal (Infernal Bulwark) ✅ — defensivo!",
+          "Chamas de Zoroth (Flames of Zoroth) ✅"
+        ]
+      }
+    },
+    "resumo_builds": "Diabolista domina S2. Priorize janelas de Evocar Tirano Demoníaco. Em Delves, foque em defensivos — Baluarte Infernal e Vínculo Anímico são essenciais.",
+    "variantes_situacionais": {
+      "descricao": "Ajustes pontuais de talentos na árvore de classe e especialização conforme a necessidade mecânica do encontro ou masmorra.",
+      "variante_defesa_extrema_chaves_altas": {
+        "nome": "Variante de Sobrevivência Crítica (M+ 10+ / Mitigação)",
+        "ajustes": [
+          "Alocar 2/2 em Pele de Demônio (Demon Skin) para escudo passivo de absorção constante.",
+          "Alocar 2/2 em Vínculo Anímico (Soul Link) para transferir 10% do dano sofrido para o demônio.",
+          "Maximizar Pacto Sombrio (Dark Pact) com tempo de recarga reduzido para enfrentar habilidades pontuais de dano letal.",
+          "Pegar Resolução Eterna Reforçada (Strength of Will) para reduzir em 40% todo dano recebido durante feitiços teleguiados."
+        ]
+      },
+      "variante_controle_e_afixos": {
+        "nome": "Variante de Interrupção e Afixos de Masmorra",
+        "ajustes": [
+          "Alocar Fúria Sombria (Shadowfury) para atordoamento coletivo em pacotes com muitos conjuradores perigosos.",
+          "Alocar Praga das Línguas (Blight of Tongues) para desacelerar o cast de inimigos de elite em 30%.",
+          "Manter Banir (Banish) acessível na barra para neutralizar demônios e lacaios em mecânicas de afixos."
+        ]
+      },
+      "variante_mobilidade_e_travessia": {
+        "nome": "Variante de Mobilidade Dinâmica",
+        "ajustes": [
+          "Alocar Círculo Demoníaco: Teleporte (Demonic Circle: Teleport) para transição imediata em lutas com áreas no chão (ex: Ula'tek).",
+          "Manter Portal Demoníaco (Demonic Gateway) aprimorado para travessia estratégica do grupo."
+        ]
+      }
+    }
+  },
+  "warlock_outras_specs": {
+    "_meta": {
+      "papel": "Comparação das outras duas specs do Bruxo (Suplício/Affliction e Destruição/Destruction) contra Demonologia, com os códigos de importação oficiais. Existe para responder 'vale trocar de spec em Delve, raide, Caçada, Ilha Enrolada ou M+?'",
+      "patch": "12.1.5",
+      "pesquisado_em": "2026-11-06",
+      "fontes": [
+        "https://www.icy-veins.com/wow/affliction-warlock-pve-dps-spec-builds-talents (Motoko, revisado 12/10/2026)",
+        "https://www.icy-veins.com/wow/destruction-warlock-pve-dps-spec-builds-talents (Motoko, revisado 12/10/2026)",
+        "https://www.method.gg/guides/affliction-warlock/talents (Omnithic, 13/10/2026)",
+        "https://www.method.gg/guides/destruction-warlock/talents (Omnithic, 13/10/2026)",
+        "https://murlok.io/warlock/demonology/m+ · https://murlok.io/warlock/affliction/m+ · https://murlok.io/warlock/destruction/m+ (dados de top 50 via Battle.net API)",
+        "https://www.icy-veins.com/wow/dps-rankings-tier-list — tier list de raide 12.1.5 (Demo S · Suplício A · Destruição B)",
+        "https://expcarry.com/wow-midnight-solo-tier-list-delves — tier list de Delves S2, atualizada 05/09/2026, com colunas Semanal / Alto (Tier 8–11) / Azta'rec e notas de Sobrevivência, Dano e Facilidade por spec",
+        "https://skycoach.gg/blog/wow/articles/midnight-dps-tier-list — tier list geral S2 (Demo S; Destruição e Suplício B)"
+      ],
+      "forca_das_fontes": {
+        "mais_forte": "Murlok (dado de API, M+) e Icy Veins/Method (autoria de teoria de jogo)",
+        "mais_fraca": "ExpCarry e Skycoach são sites de serviço/boosting: usados só como desempate de Delve, cenário em que nenhuma fonte de teoria publica número. O ExpCarry informa a data da última atualização (05/09/2026) e a base (4 semanas de conteúdo jogado)."
+      },
+      "aviso": "Icy Veins e Method dão build e raciocínio, mas NÃO dão número comparando specs. O único número comparável é o rating do top 50 no Murlok (M+). Para raide, Delve, Caçada e Ilha Enrolada não existe fonte numérica — o veredito desses cenários é por mecanismo, e está marcado como tal."
+    },
+    "affliction_suplicio": {
+      "nome_pt": "Bruxo do Suplício (Affliction)",
+      "hero_talent_recomendado": "Ceifador de Almas (Soul Harvester) em todos os cenários; Saqueador do Inferno (Hellcaller) existe mas está sem sintonia em 12.1.5",
+      "evidencia_icy_veins": "Soul Harvester abre ~2% de vantagem em alvo único e amplia quando há cleave pequeno; em qualquer ambiente de masmorra também é melhor, porque o rework do Hellcaller derrubou o AoE dele.",
+      "evidencia_method": "\"a sintonia atual é tal que quase nunca vale jogar Hellcaller; o burst sob demanda de Soul Harvest e Dark Harvest simplesmente faz mais dano em todo lugar\".",
+      "prioridade_atributos_murlok_mplus": [
+        "Aceleração",
+        "Crítico",
+        "Maestria",
+        "Versatilidade"
+      ],
+      "rating_top50_mplus": {
+        "min": 3732,
+        "max": 4031,
+        "split_hero_talent": "27 Soul Harvester · 23 Hellcaller"
+      },
+      "codigos": {
+        "icy_veins_alvo_unico": "CkQAAAAAAAAAAAAAAAAAAAAAAwMzMzoZhhZmZmlBAAYmZZ2mZmlxAAjllBGwEMDbBG2GAAAmBAAwMDzMjBzwMzMzMGMzMzAAmBG",
+        "icy_veins_aoe_mplus": "CkQAAAAAAAAAAAAAAAAAAAAAAwMjZGNLmxyMzYWGAAwMzsMLzMzyYAgx2yADYCmhtADbDAAAzAAAYmZMzwsxwYmZmZYYmZmBAMDMA",
+        "icy_veins_delves": "CkQAAAAAAAAAAAAAAAAAAAAAAwMjZGNLmxyMzYWGAAwMzsMLzMzyYAgxyyADYAzwWghtBAAgZAAAMzMmZY2GjZwMzMMMzMzAAmBG",
+        "method_alvo_unico_soul_harvester": "CkQAAAAAAAAAAAAAAAAAAAAAAwMzMzoZjhZmZmlBAAYmZZ2mZmFzAAjttBGwAmhlADbDAAAzAAAYmZMjZGDDzYmZGDmZmBAYGYA",
+        "method_mplus_soul_harvester_recomendado": "CkQAAAAAAAAAAAAAAAAAAAAAAwMMzoZzM2mZmZWGAAwMzsMbzMzyYAgx2yADYCmhtADbDAAAGAAAzMjZMzsNGzgZmZGDzMzAAMDMA",
+        "method_cleave_espalhado_hellcaller": "CkQAAAAAAAAAAAAAAAAAAAAAAwMzMzoZjBzMmlBAAYmZZWmZmlxAAWgBmFjGzAysAWGAAAMAAwMDmZGzMMGmZmZmZGMzMzAAmBG"
+      },
+      "codigos_wowhead_para_raid_e_delve": {
+        "_fonte": "https://www.wowhead.com/pt/guide/classes/warlock/affliction/talent-builds-pve-dps — Kalamazi, atualizado 17/10/2026",
+        "_nota": "É a única fonte com tabela explícita de Raid, Raid Cleave, Mythic+ e Delves por talento heroico do Suplício. Usar estes para raide e para Delve solo.",
+        "raid_recomendado_hellcaller": "CkQAAAAAAAAAAAAAAAAAAAAAAwMzMzoZhhZmZmlBAAYmZZWmZmlxAAWgBmFjGzAysAWGAAAmBAAmZAzMjxYGmZMzMGMzMzAAmBG",
+        "raid_cleave_hellcaller": "CkQAAAAAAAAAAAAAAAAAAAAAAwMmZGNbM2mZGzyAAAmZmlZxMzyYAALwAziRjZAZ2ALDAAAzAAAzMYMjZmtxwYmZmZYYmZGAgZgB",
+        "raid_alternativo_soul_harvester": "CkQAAAAAAAAAAAAAAAAAAAAAAwMzMzoZhhZmZmlBAAYmZZ2mZmlxAAjllBGwEMDbBG2GAAAmBAAwMDzMjBzwMzMzMGMzMzAAmBG",
+        "delve_solo_recomendado_soul_harvester": "CkQAAAAAAAAAAAAAAAAAAAAAAwMMzoZzMz2MzYWGAAwMmlZZmZWGDAM22GYATwMsFYYbAAAYAAAYmZmZMjNmxMzMzMMDzMzAAMgB",
+        "delve_solo_hellcaller": "CkQAAAAAAAAAAAAAAAAAAAAAAwMmZGNbM2MzMzyAAAmZmlZZmZWGDAYBGYWMaMDIzCYZAAAwAAAzMYMjZmNwMzYmxMDzMzAAMDMA",
+        "mplus_soul_harvester": "CkQAAAAAAAAAAAAAAAAAAAAAAwMMzoZzMz2MzYWGAAwMmlZZmZWGDAM22GYATwMsFYYbAAAYAAAYmZmZMjNmxMzMzMMDzMzAAMgB",
+        "_codigos_repetidos": "No guia, o código de Delves do Hellcaller é idêntico ao de Mythic+ dele, e o de Raid Cleave do Ceifador de Almas é idêntico ao de Raid. Isso é do guia."
+      },
+      "conflito_de_fonte_hellcaller_vs_soul_harvester": {
+        "wowhead": "Diz duas coisas diferentes na mesma página: o resumo afirma que 'Hellcaller é o talento heroico mais forte tanto em alvo único quanto em Mythic+', mas a seção de Mythic+ afirma que 'Soul Harvester é a nossa melhor opção atualmente em Mythic+' e que 'há um pouco de Hellcaller em M+, mas a maioria ainda é Soul Harvester'. Em raide, o guia é explícito: 'Hellcaller ultrapassou recentemente o Soul Harvester por sintonia e é a sua escolha para raide'.",
+        "icy_veins_e_method": "Ambos afirmam o contrário: Soul Harvester domina em todos os cenários e o Hellcaller está sem sintonia desde o rework de 12.1.",
+        "dado_empirico": "Murlok, top 50 de M+ do Suplício: 27 Soul Harvester contra 23 Hellcaller — divisão quase meio a meio, com leve vantagem do Ceifador.",
+        "como_o_projeto_resolve": "Para M+ e Delve, usar **Soul Harvester** (duas fontes de teoria + a maioria do top 50). Para **raide de alvo único**, usar **Hellcaller** conforme o Wowhead, que é a única fonte com build de raide explícita e datada para o Suplício. Conflito declarado, não silenciado."
+      },
+      "pvp_solo_shuffle_murlok": {
+        "_aviso": "murlok.io/warlock/affliction/soul-harvester/solo NÃO é Delve solo — é **Solo Shuffle (PvP de arena)**. Não usar como build de Delve.",
+        "fonte": "https://murlok.io/warlock/affliction/soul-harvester/solo",
+        "rating_top50": {
+          "min": 2799,
+          "max": 3296
+        },
+        "prioridade_atributos": [
+          "Versatilidade",
+          "Aceleração",
+          "Maestria",
+          "Crítico"
+        ],
+        "valores_medios": "7% Crítico · 26% Aceleração · 32% Maestria · 28% Versatilidade",
+        "observacao": "Versatilidade domina porque é PvP. Nada disso vale para Delve ou raide — em PvE o Suplício usa Aceleração > Crítico > Maestria > Versatilidade."
+      }
+    },
+    "destruction_destruicao": {
+      "nome_pt": "Bruxo da Destruição (Destruction)",
+      "hero_talent_recomendado": "Saqueador do Inferno (Hellcaller) para alvo único e cleave espalhado; Diabolista (Diabolist) para cleave empilhado e AoE",
+      "evidencia_icy_veins": "Hellcaller é melhor em alvo único, 2 alvos e cleave espalhado; Diabolista continua competitivo quando o encontro tem cleave empilhado e é o melhor em AoE em qualquer nível de chave, sobretudo nas baixas.",
+      "evidencia_method": "Hellcaller é o preferido na maioria dos cenários de raide; Diabolista empata em alvo único e ganha quando há cleave; em M+ os dois são viáveis.",
+      "prioridade_atributos_murlok_mplus": [
+        "Maestria",
+        "Aceleração",
+        "Crítico",
+        "Versatilidade"
+      ],
+      "rating_top50_mplus": {
+        "min": 3646,
+        "max": 4152,
+        "split_hero_talent": "36 Diabolista · 14 Hellcaller"
+      },
+      "codigos": {
+        "icy_veins_alvo_unico_hellcaller": "CsQAAAAAAAAAAAAAAAAAAAAAAwMmZGNLMzmZmZWmFzMzsYMWMDAAmZGzMziNYgZxoxMAmtYjBAAGDM2AAmZwYGzYDAAwMzMAAMGG",
+        "icy_veins_aoe_diabolist": "CsQAAAAAAAAAAAAAAAAAAAAAAwMjZGNLmxmZGzysNzYmFzYZZMAAYGjZmZBMmxwCMw2wCNWYAAgxMMsBgZGgxMjZ2AAAMzMzAAYMM",
+        "icy_veins_delves_hellcaller": "CsQAAAAAAAAAAAAAAAAAAAAAAwMjZGNLmxmZGzysZGzsYYZZmBAAzMjZmZxCMwsY0YGAzG2YAAgxMAAAzMYMzMmNAAAzMzMAAMDD",
+        "method_hellcaller_alvo_unico": "CsQAAAAAAAAAAAAAAAAAAAAAAwMmZmpZbMMzMmtZxMzMLGjFzAAgZmxMzsZBGYWMaMDgZL2YAAgxAjNAgZGYmxMDAAAzMzAAwYYA",
+        "method_hellcaller_cleave": "CsQAAAAAAAAAAAAAAAAAAAAAAwMmZmpZbMMzMmtZbmZmZxYWWMDAAmxYmZ2sADMLGNmBwsFbMAAwYA2AAmZgZGzMAAAMzMDAAjhB",
+        "method_hellcaller_mplus": "CsQAAAAAAAAAAAAAAAAAAAAAAwMmZmpZbMMzMmtZbmZmZxMzyyYAAwMGzMzmFYgZxoxMAmtYjBAAGzwAAgZGwMmZ2AAAMzMDAAMM",
+        "method_diabolist_alvo_unico": "CsQAAAAAAAAAAAAAAAAAAAAAAwMmZmpZbMMzMmtZxMzMLGjFzAAgZmxMzsBGzYYhMw2wGNWYAAgxAjNAMzAYmxMDAAAzMzAAwYYA",
+        "method_diabolist_aoe": "CsQAAAAAAAAAAAAAAAAAAAAAAwMmZmpZbMMzMmtZbmZmZxMzyyYAAwMGzMzGYMjhFyAbDb0YhBAAGzwAAMzAwMmZ2AAAMzMDAAMM",
+        "method_diabolist_cleave": "IGUAL ao method_hellcaller_alvo_unico na página do Method — não é erro de cópia deste projeto"
+      }
+    },
+    "comparativo_por_cenario": {
+      "mplus": {
+        "vencedor": "Demonologia",
+        "evidencia": "Top 50 do Murlok em M+: Demonologia 3994–4248 (50 de 50 em Diabolista); Destruição 3646–4152; Suplício 3732–4031. Piso e teto maiores.",
+        "confianca": "alta (dado de API, não opinião)",
+        "contra_argumento": "Destruição chega a 4152 no topo — é a única troca defensável em M+, e só se você joga melhor com ela."
+      },
+      "raide": {
+        "vencedor": "Demonologia",
+        "evidencia": "Tier list de raide 12.1.5 do Icy Veins coloca Demonologia em **S**, Suplício em **A** e Destruição em **B**. Icy Veins e Method concordam que Diabolista domina a Demonologia em raide; Hellcaller domina o alvo único da Destruição e Ceifador de Almas domina o Suplício.",
+        "confianca": "média-alta (ranking de fonte de teoria, sem número de DPS)",
+        "contra_argumento": "Em luta de conselho com 2 alvos constantes, Havoc/Mayhem da Destruição duplica dano de um alvo por 10 s — mecânica que a Demonologia não tem. É o único caso em que a troca se paga."
+      },
+      "delve": {
+        "vencedor": "Demonologia",
+        "evidencia": "Tier list de Delves S2 (ExpCarry, 05/09/2026): Demonologia **S** nas duas listas (semanal e Tier 8–11), Suplício **A** nas duas, Destruição **A** semanal e **B** em Tier 8–11. Notas por spec: Demo Sobrevivência 4/5 · Dano 5/5 · Facilidade 4/5; Suplício 4/5 · 5/5 · 3/5; Destruição 4/5 · 4/5 · 3/5.",
+        "confianca": "média-alta (ranking explícito de spec em Delve, com data), fonte terceira de serviço",
+        "contra_argumento": "Solo sem curador é o terreno do Suplício: Drenar Vida aprimorado + Drenar Essência reduzem até 25% do dano recebido."
+      },
+      "kindojan_tier11": {
+        "pergunta": "Só para matar o Labirinto de Kindo'jan (megadelve, Tier 11), a Destruição não é melhor?",
+        "resposta": "Não. Na lista de progressão Tier 8–11 — que é exatamente onde o Kindo'jan Tier 11 cai — a Destruição é **B**, o Suplício é **A** e a Demonologia é a única spec de Bruxo em **S**.",
+        "evidencia": "ExpCarry, tier list de Delves S2 (05/09/2026): 'Tier 8–11 Progression' → S: Guardian, Vengeance, Protection Paladin, Blood DK, Protection Warrior, Brewmaster **e Demonologia** ('its durable pet, Healthstone and strong sustained damage'); A: … **Suplício** …; B: … **Destruição** … A justificativa do B: 'um interrupt perdido ou uma janela fraca de recuperação é punido muito mais duro no Tier 10+'.",
+        "o_que_a_destruicao_faz_melhor_no_kindojan": [
+          "Burst em elite: Chaos Bolt + Shadowburn resolvem o elite rúnico do glifo mais rápido que DoT.",
+          "Cleave de 2 alvos com Havoc/Mayhem na Emboscada de 3 ondas, e Shadowfury para segurar o pacote.",
+          "Maldição do Sátiro (Hellcaller) como debuff coringa que serve contra melee e conjurador sem trocar de maldição."
+        ],
+        "por_que_perde_no_kindojan": [
+          "Gás Asfixiante drena **5% de vida por segundo**: o perfil de conjuração longa do Chaos Bolt sofre com a movimentação forçada, e você não tem pet segurando o dano enquanto anda.",
+          "A megadelve pune erro: sem pet-tanque, cada pacote da Emboscada vem para cima de você.",
+          "O guia do próprio projeto já recomenda Diabolista Delves com **Baluarte Infernal** e **Vínculo Anímico** — a sobrevivência vem do pet e do vínculo, não do dano.",
+          "Kindo'jan não é teste de dano: o Tetris de gás e os glifos rúnicos são teste de execução e recuperação."
+        ],
+        "veredito": "Mantenha Demonologia. Se quiser trocar para variar o jogo, o Suplício (A) é a segunda melhor escolha no Kindo'jan, não a Destruição (B).",
+        "confianca": "média (ranking explícito por faixa de Tier, fonte terceira; nenhuma fonte de teoria publica nota específica do Kindo'jan)"
+      },
+      "cacada": {
+        "vencedor": "Suplício em risco alto; Demonologia em conforto",
+        "evidencia": "Icy Veins, seção War Mode: 'Rot and Decay combinado com Essence Drain aumenta drasticamente sobrevivência e sustentação e abre muitas portas para solar conteúdo difícil'. Destruição compensa com Fel Fissure (slow 50% + -25% cura recebida).",
+        "confianca": "média",
+        "contra_argumento": "Caçada é conteúdo aberto e curto: o ramp de DoTs do Suplício rende menos que o burst imediato da Demonologia."
+      },
+      "ilha_enrolada": {
+        "vencedor": "Demonologia na instância (Altar das Presas); Suplício no aberto de risco",
+        "evidencia": "A Ilha Enrolada mistura masmorra M+ (Altar das Presas) e área aberta (Anel da Glória, Ilha de Gnarldor). Na parte instanciada vale o dado de M+; no aberto, vale o raciocínio de Caçada.",
+        "confianca": "média",
+        "contra_argumento": "Se o objetivo é só farmar Moxie no aberto sem morrer, Suplício com Drenar Vida é mais perdoador que Demonologia."
+      }
+    },
+    "veredito": {
+      "conclusao": "Nenhuma das duas specs é melhor que Demonologia em M+ nem em raide. Demonologia continua a spec principal do projeto.",
+      "quando_trocar": [
+        "Destruição: luta de raide com exatamente 2 alvos por longos períodos (Havoc/Mayhem), ou se o jogador tem execução muito melhor com ela — o topo do Murlok mostra 4152 de rating.",
+        "Suplício: Caçada / mundo aberto de risco alto e Delve solo sem curador, pelo Drenar Vida aprimorado + Drenar Essência + Maldição do Sátiro.",
+        "Nunca trocar por Suplício em M+ com base em 'mais DoT': o rating do top 50 é o mais baixo dos três."
+      ],
+      "o_que_se_perde_ao_sair_da_demonologia": [
+        "Pet como segunda fonte de ameaça e o Vínculo Anímico — é o principal motivo de a Demonologia ser a melhor spec solo do projeto.",
+        "Burst de janela do Tirano Demoníaco, que casa com o 4pc de tier já catalogado.",
+        "Os códigos de build do Demo já arbitrados neste documento (8 variantes)."
+      ]
+    }
+  },
+  "balance_druid": {
+    "nome": "Druida do Equilíbrio (Balance Druid / Boomkin)",
+    "hero_talents": {
+      "arquetipo_recomendado": "Escolhido de Elune (melhor para M+ e Raid em 12.1.5)",
+      "descricao_elunes_chosen": "Melhor perfil de dano tanto single-target quanto AoE/cleave. Star Cascade tem 30% de chance de lançar Starsurge a 50% de efetividade.",
+      "descricao_keeper_of_the_grove": "Burst AoE mais rápido. Útil em keys mais fáceis onde inimigos morrem rapidamente ou em fights de AoE de Raid.",
+      "comparacao": "Escolhido de Elune: dano sustentado superior, melhor para keys difíceis. Guardião do Bosque: burst imediato, melhor para speed/lower keys."
+    },
+    "builds_mplus": {
+      "elunes_chosen_mplus": {
+        "nome": "Build Escolhido de Elune M+ (Recomendada)",
+        "contexto": "Recomendação padrão para a maioria dos keys em Season 2.",
+        "hero_tree": "Escolhido de Elune",
+        "import_string": "mB-LLPnNOUWX04EZZbpBUYEpzTdFWeeb7j7MyE-UWaBDHXfEKNSmwwADJZYww8grzrYhKj-AAAA-GKOik0AMggBDxC-",
+        "fonte": "IcyVeins 12.1.5"
+      },
+      "keeper_mplus": {
+        "nome": "Build Guardião do Bosque M+ (Burst/Lower Keys)",
+        "contexto": "Para keys onde inimigos morrem rápido.",
+        "hero_tree": "Guardião do Bosque",
+        "import_string": "mB-LLPnNOUWX04YZbpBUYEJpzTdFWeeb7jbsMK-UWaDJHI+IakMtBSywwBDzLDzjKcijFWA-AAAA-GKOik0AIogBDxC-",
+        "fonte": "IcyVeins 12.1.5"
+      }
+    },
+    "builds_raid": {
+      "elunes_chosen_raid_st": {
+        "nome": "Build Escolhido de Elune Raid (Single Target)",
+        "import_string": "mB-LLPnNOUUWX04EZbpBUYEpzbebTd1NsMW2nU-UWaBDIS+ESo0IZCDbDM0wgh5BnHRgCj-AAAA-FGQYcgkQpBQQmF-",
+        "fonte": "IcyVeins 12.1.5"
+      },
+      "keeper_raid_aoe": {
+        "nome": "Build Guardião do Bosque Raid (AoE/Multi-target)",
+        "import_string": "mB-LLPnNOUUWX04YZbpBUYEJpzbe972mqbYZssU-UWaDJfHNSmADJMMUww8yw8kTsYAixNB-AAAA-FGQYcgkUpBYQmF-",
+        "fonte": "IcyVeins 12.1.5"
+      }
+    },
+    "build_delves": {
+      "nome": "Build Druida Delves",
+      "hero_tree": "Guardião do Bosque",
+      "import_string": "mB-LLPnNOUUWX04YZbpBUYEJpzbe972mqbYZssU-UWaDJfHNSmADJMMUww8yw8kTsYAixNB-AAAA-FGQYcgkUpBYQmF-",
+      "fonte": "IcyVeins 12.1.5"
+    },
+    "resumo_builds": "Escolhido de Elune é a pick padrão S2. Guardião do Bosque para speed/lower keys. Priorize Aceleração + Maestria nos stats.",
+    "variantes_situacionais": {
+      "descricao": "Adaptações táticas para Druida do Equilíbrio entre perfil de dano e utilitários da árvore de classe.",
+      "comparativo_situacional": {
+        "elune_vs_guardiao": "Escolhido de Eluna (Elune's Chosen) é o arquétipo superior para dano sustentado, raides e chaves de alta dificuldade; Guardião do Bosque (Keeper of the Grove) é superior para burst imediato em pulls menores e chaves de velocidade.",
+        "alvo_unico_vs_cleave": "Build de Escolhido de Eluna foca em Surto Estelar (Starsurge) e Fogo Estelar em eclipse; para cleave massivo contínuo, a árvore prioriza Chuva Estelar (Starfall) permanente e Alinhamento Celestial estendido."
+      },
+      "variante_controle_e_kiting": {
+        "nome": "Variante de Controle Territorial em Masmorras",
+        "ajustes": [
+          "Alocar Tufão (Typhoon) e Vórtice de Ursol (Ursol's Vortex) para interromper e prender grupos de monstros.",
+          "Alocar Raízes Emaranhadas em Massa (Mass Entanglement) para travar patrulhas perigosas.",
+          "Alocar Rugido Incapacitante (Incapacitating Roar) para interrupção de feitiços em área."
+        ]
+      },
+      "variante_sobrevivencia_chaves_altas": {
+        "nome": "Variante de Alta Mitigação (Forma de Urso + Regeneração)",
+        "ajustes": [
+          "Alocar Pele de Ferro (Ironfur) acessível em Forma de Urso para suportar dano físico mortal.",
+          "Alocar Regeneração Frenética (Frenzied Regeneration) para cura própria imediata.",
+          "Manter Casca Grossa (Barkskin) com tempo de recarga reduzido para uso preventivo."
+        ]
+      }
+    }
+  },
+  "omnium_folio": {
+    "nome_en": "Omnium Folio",
+    "nome_pt": "Fólio Omnium",
+    "patch_introducao": "12.0.7 (Midnight)",
+    "descricao": "Sistema de poder emprestado ativo durante toda Midnight. Oferece runas que fornecem bônus flexíveis de throughput, survivability e utility. Podem ser trocadas a qualquer momento.",
+    "como_desbloquear": "Questline curta disponível após nível 80.",
+    "recomendacao_por_spec": {
+      "demo_warlock": {
+        "ordem_padrao_ptbr": [
+          "1. Runa do Fogo Incontido (Rune of Unleashed Fire) — DPS primário",
+          "2. Runa de Autorrecomposição (Rune of Self-Mending) — survivability, essencial em Delves solo",
+          "3. Runa da Perenidade (Rune of Lingering) — sustain de efeitos",
+          "4. Runa do Poder Crítico (Rune of Critical Power) — throughput",
+          "5. Runa da Sobrecarga (Rune of Overload) — burst extra"
+        ],
+        "nota": "Para Delves, a Runa de Autorrecomposição sobe de prioridade."
+      },
+      "shadow_priest": {
+        "ordem_padrao_ptbr": [
+          "1. Runa do Fogo Incontido (Rune of Unleashed Fire)",
+          "2. Runa de Autorrecomposição (Rune of Self-Mending)",
+          "3. Runa da Perenidade (Rune of Lingering)",
+          "4. Runa do Poder Crítico (Rune of Critical Power)",
+          "5. Runa da Sobrecarga (Rune of Overload)"
+        ],
+        "fonte": "IcyVeins 12.1.5"
+      },
+      "balance_druid": {
+        "ordem_padrao_ptbr": [
+          "1. Runa do Fogo Incontido (Rune of Unleashed Fire)",
+          "2. Runa de Autorrecomposição (Rune of Self-Mending)",
+          "3. Runa da Perenidade (Rune of Lingering)",
+          "4. Runa do Poder Crítico (Rune of Critical Power)",
+          "5. Runa da Sobrecarga (Rune of Overload)"
+        ],
+        "fonte": "IcyVeins 12.1.5"
+      }
+    }
+  },
+  "altar_corroido": {
+    "nome_en": "Altar of Corrosion",
+    "nome_pt": "Altar Corroído",
+    "patch_introducao": "12.1 — Maldição de Ula'tek",
+    "tipo": "PODER EMPRESTADO OUTDOOR — NÃO FUNCIONA em M+, Raid ou PvP instanciado",
+    "funciona_em": [
+      "Ilha Enrolada (The Coiled Isle, zona outdoor)",
+      "Delves",
+      "Cofres de Atal'Utek (outdoor)"
+    ],
+    "nao_funciona_em": [
+      "Masmorras de Pedra-chave Míticas (M+)",
+      "Raides",
+      "Arenas e Campos de Batalha PvP"
+    ],
+    "descricao": "Novo sistema de poder outdoor introduzido em Patch 12.1. Oferece árvore de talentos (24 talentos) + Poderes do Códex Corrosivo (12 poderes equipáveis).",
+    "como_desbloquear": {
+      "passo1": "Chegar à Ilha Enrolada (The Coiled Isle). Voar de Zul'Aman ou usar portal.",
+      "passo2": "Pegar quest 'Nos Cofres de Atal'Utek' de Warleader Abdumati (/way #2509 47.25 61.05).",
+      "passo3": "Completar 'Cofres de Atal'Utek: Ruína Certa'. Pegar Moeda Misteriosa.",
+      "passo4": "Quest follow-up 'Cofres de Atal'Utek: Uma Moeda a Mais'.",
+      "passo5": "Falar com Er'inye (/way #2509 51.14 62.72) para habilitar Corroer Espírito."
+    },
+    "altar_tree_prioridade": {
+      "total_talentos": 24,
+      "prioridade_1": "Passivas de Espírito Corrosivo (I-IV) — aumentam renda de Moedas Corrosivas até +100%.",
+      "prioridade_2": "Caçada Peçonhenta (Venomous Hunt) — primeira linha da árvore. Desbloquear PRIMEIRO.",
+      "deprioritizar": "Talentos cosméticos e passivas situacionais — deixe por último."
+    },
+    "poderes_codex_corrosivo": {
+      "descricao": "12 poderes equipáveis nos slots de Cinto e Pulso. Desbloqueio é account-wide.",
+      "total": 12,
+      "slots_ativos": "1 ativo inicialmente, 2º slot abre ao desbloquear 8 poderes",
+      "tema_principal": "Mecânica de Veneno — a maioria dos poderes reage a alvos Envenenados",
+      "estrategia_basica": [
+        "1. Desbloquear o poder que aplica Veneno no alvo",
+        "2. Desbloquear o poder de maior dano que reage ao Veneno",
+        "3. Prosseguir para 8 poderes (desbloqueia 2º slot ativo)",
+        "4. Completar os 12 poderes restantes"
+      ]
+    },
+    "farm_efficiency": {
+      "melhor_metodo_repeticao": "Patrulhas do Templo — ~60 Moedas Corrosivas/10min base.",
+      "melhor_semanal": "Evento de Zona (primeira conclusão semanal): ~1.000 Moedas Corrosivas. PRIORIDADE no reset.",
+      "mount": {
+        "nome_pt": "Montaria Presas Cáusticas (Caustic Venomfang)",
+        "custo": "10.000 Moedas Corrosivas de Er'inye",
+        "recomendacao": "NÃO priorize na semana 1."
+      }
+    }
+  },
+  "resumo_executivo": {
+    "shadow_priest": {
+      "mplus": "Voidweaver para burst/keys rápidas. Archon para sustained/keys difíceis.",
+      "raid": "Archon como padrão. Voidweaver viável com ajustes por boss.",
+      "omnium_folio": "Fogo Incontido → Auto-Reparação → Persistência → Poder Crítico → Sobrecarga",
+      "altar_corroido": "NÃO funciona em M+ ou Raid. Útil para Delves/outdoor."
+    },
+    "demo_warlock": {
+      "mplus": "Diabolista em TODOS os cenários em 12.1.5.",
+      "raid": "Diabolista. Builds raid/M+ quase idênticas.",
+      "omnium_folio": "Fogo Incontido → Auto-Reparação → Persistência → Poder Crítico → Sobrecarga",
+      "altar_corroido": "FUNCIONA em Delves! NÃO funciona em M+ ou Raid."
+    },
+    "balance_druid": {
+      "mplus": "Escolhido de Elune para a maioria dos keys. Guardião do Bosque para speed/lower keys.",
+      "raid": "Escolhido de Elune ST ou Guardião do Bosque AoE conforme o fight.",
+      "omnium_folio": "Fogo Incontido → Auto-Reparação → Persistência → Poder Crítico → Sobrecarga",
+      "altar_corroido": "NÃO funciona em M+ ou Raid. Farm early para Delves e outdoor."
+    }
+  },
+  "dossie_delves_bruxo": {
+    "_meta": {
+      "nome": "Dossiê de Delves do Bruxo — o que cada fonte realmente publica",
+      "pesquisado_em": "2026-11-06",
+      "patch": "12.1.5",
+      "pergunta": "Qual spec e qual build usar em Delve solo (incluindo Kindo'jan Tier 11) para Bruxo?"
+    },
+    "fontes": [
+      {
+        "fonte": "Icy Veins — Destruction Talent Builds",
+        "url": "https://www.icy-veins.com/wow/destruction-warlock-pve-dps-spec-builds-talents",
+        "data": "12/10/2026",
+        "tipo": "teoria",
+        "o_que_traz": "Tem seção \"Delve Talents\" na página, mas o markdown não expõe o código de import. Texto: \"a escolha do talento heroico não é particularmente definidora; Hellcaller oferece Maldição do Sátiro como debuff coringa para qualquer encontro difícil em Delves\".",
+        "o_que_nao_traz": "Nenhum código de Delve extraível e nenhuma nota numérica."
+      },
+      {
+        "fonte": "ExpCarry — Best Warlock Spec (overview)",
+        "url": "https://expcarry.com/warlock-best-pvp-pve-build",
+        "data": "11/09/2026",
+        "tipo": "serviço (ranking)",
+        "o_que_traz": "Tabela \"Quick Answer\": Delves / Solo = **Demonologia** (\"Felguard tanking, strong defensive tools, sustained ranged damage\"). Affliction é eficaz \"quando vários inimigos duráveis podem ser puxados juntos ou danificados em movimento\". Destruction \"favorece quem quer remover inimigos prioritários rápido\".",
+        "o_que_nao_traz": "Código de build."
+      },
+      {
+        "fonte": "ExpCarry — Affliction Warlock Guide",
+        "url": "https://expcarry.com/wow-affliction-warlock-best-build-guide",
+        "data": "11/09/2026",
+        "tipo": "serviço (guia de spec)",
+        "o_que_traz": "Seção \"Best Affliction Warlock Delve Build\" com código de import, recomendação de Ceifador de Almas para Delve, aviso de que build de Delve própria vale mais que copiar a de M+, e o bônus de tier 2/4 peças do Suplício.",
+        "o_que_nao_traz": "Nenhum número de sobrevivência ou de tier testado."
+      },
+      {
+        "fonte": "Reddit r/wow — Which Warlock Spec for Delves?",
+        "url": "https://www.reddit.com/r/wow/comments/1tv79ig/which_warlock_spec_for_delves/",
+        "data": "thread aberta",
+        "tipo": "comunidade",
+        "o_que_traz": "Trechos capturados por busca (o Firecrawl BLOQUEIA reddit.com e old.reddit.com): \"I enjoy Soul Harvester Affliction with a Voidwalker to tank\"; \"Voidwalker is the best pet but it will go down at times so save the instant summon for those moments\"; em outra thread do mesmo tema, \"Waayyy better than affliction and destro for sure\" (sobre Demonologia em solo).",
+        "o_que_nao_traz": "Discussão completa — acesso negado pela ferramenta."
+      },
+      {
+        "fonte": "Method — Affliction Talents",
+        "url": "https://www.method.gg/guides/affliction-warlock/talents",
+        "data": "13/10/2026",
+        "tipo": "teoria",
+        "o_que_traz": "Não tem build de Delve. Traz o pacote defensivo mais forte da spec: Soulburn + Pedra de Vida (+30% de cura e +20% de vida máxima por 12 s) e Pacto Sombrio escalando com a vida atual; além de \"Hellcaller quase nunca vale a pena jogar\" na sintonia atual.",
+        "o_que_nao_traz": "Build de Delve — lacuna confirmada."
+      },
+      {
+        "fonte": "YouTube — One Button Destruction Warlock (Dvalin Gaming)",
+        "url": "https://www.youtube.com/watch?v=xgllW-GHybY",
+        "data": "31/03/2026",
+        "tipo": "vídeo",
+        "o_que_traz": "Guia de Destruction para o Assistente de Botão Único. Não tem build de Delve. Único ponto aproveitável: \"se você gosta de conteúdo solo como Delves, Versatilidade ajuda porque te deixa mais resistente\".",
+        "o_que_nao_traz": "Publicado em 31/03/2026, ANTES do 12.1 — os talentos do vídeo (Hellcaller para masmorra, Diabolista para raide) estão desatualizados frente ao 12.1.5. Não usar como build."
+      },
+      {
+        "fonte": "YouTube — THE FIVE BEST CLASSES & SPECS FOR DELVES: SEASON 2 (TheWoWCasual)",
+        "url": "https://www.youtube.com/watch?v=JuesXj34o-4",
+        "data": "21/08/2026",
+        "tipo": "vídeo (ranking de classe)",
+        "o_que_traz": "Coloca o Bruxo Demonologia no top 5 de Delves da temporada (bloco em 08:28). Justificativa no vídeo: variedade de pets resolve tanque, dano, roubo de vida e burst; mais banimento, maldições, Pedra de Vida/Soulstone, medo e Domínio Vil — \"versatilidade e sobrevivência que as outras classes conjuradoras não têm\". Sobre as outras duas specs: \"as outras duas não têm nada de especial, mas nada de errado também\"",
+        "o_que_nao_traz": "Nenhum talento, código ou número. É ranking de classe, não build.",
+        "peso": "médio — vídeo de opinião com 17 mil views, mas alinhado com as outras fontes"
+      },
+      {
+        "fonte": "Icy Veins — Destruction: links do calculador de talentos",
+        "url": "https://www.icy-veins.com/wow/destruction-warlock-pve-dps-spec-builds-talents",
+        "data": "12/10/2026",
+        "tipo": "teoria",
+        "o_que_traz": "Raspando os LINKS da página (não o texto) saem 5 builds do calculador do Icy Veins, na ordem das seções: Hellcaller ST, Diabolista AoE/M+, segundo ST, Hellcaller AoE/M+ e — a quinta — a de **Delve**. É o build de Delve da Destruction que faltava.",
+        "o_que_nao_traz": "Não entrega o código de import do jogo: o link é do calculador do Icy Veins (formato LE-...), serve para abrir e exportar.",
+        "peso": "alto — é a própria fonte de teoria"
+      },
+      {
+        "fonte": "Method — Affliction Warlock Guide (overview)",
+        "url": "https://www.method.gg/guides/affliction-warlock",
+        "data": "13/10/2026",
+        "tipo": "teoria",
+        "o_que_traz": "Confirma que o Method NÃO tem seção de Delve. Em compensação, documenta o 4 peças da temporada: \"o novo (4) Set Bonus do Suplício faz a Semente da Corrupção aplicar uma carga de Agonia Instável no alvo principal\", e que isso **removeu Patient Zero e Nocturnal Yield** e adicionou **Impetuous Wrath** e **Hedonic Gorging**; por consequência, talentos de Semente viraram build de área pura e raide pede build de Agonia Instável.",
+        "o_que_nao_traz": "Build de Delve.",
+        "peso": "alto para talentos, nulo para Delve"
+      }
+    ],
+    "convergencia_affliction": {
+      "codigo": "CkQAAAAAAAAAAAAAAAAAAAAAAwMjZGNLmxyMzYWGAAwMzsMLzMzyYAgxyyADYAzwWghtBAAgZAAAMzMmZY2GjZwMzMMMzMzAAmBG",
+      "fontes_que_publicam_o_mesmo_codigo": [
+        "Icy Veins (Delves)",
+        "ExpCarry (Delve Build)"
+      ],
+      "leitura": "Duas fontes independentes publicam literalmente o mesmo código de Delve do Suplício, com Ceifador de Almas. É a recomendação mais sustentada da spec."
+    },
+    "destruction_delve": {
+      "codigo": "CsQAAAAAAAAAAAAAAAAAAAAAAwMjZGNLmxmZGzysZGzsYYZZmBAAzMjZmZxCMwsY0YGAzG2YAAgxMAAAzMYMzMmNAAAzMzMAAMDD",
+      "origem": "Wowhead PT — Destruction Talent Builds (Delves, Hellcaller)",
+      "nota": "O Icy Veins não publica o código de import, mas publica o LINK do calculador da build de Delve (quinta build da página, na ordem das seções). O Wowhead publica o código pronto (Hellcaller Delves). Os dois estão no acervo: use o código do Wowhead para importar no jogo e o link do Icy Veins para conferir talento por talento.",
+      "icy_veins_link_calculadora": "https://www.icy-veins.com/wow/midnight-talent-calculator#LE-ITUUVVDHPfgiklnoELM028MTjehprTwwJbM-lZaswSYEJN1ZY0w55BiCowQxhrrNPSS-AAAA-JQSU2AIQYgxBzC-",
+      "como_foi_obtido": "Raspagem com formats [\"links\"] — o texto da página não contém os códigos, mas os 5 links do calculador aparecem na ordem das seções."
+    },
+    "veredito": {
+      "spec_padrao_delve": "Demonologia (Felguard tanque)",
+      "spec_alternativa": "Suplício com Ceifador de Almas (código convergente em 2 fontes)",
+      "destruction": "Viável, mas é a última das três na tier list de progressão Tier 8–11",
+      "forca_da_evidencia": "média-alta: 2 rankings de spec que concordam (ExpCarry e vídeo TheWoWCasual) + 3 builds de Delve datadas (Icy Veins via calculador, ExpCarry e Wowhead) + Method sem Delve (lacuna confirmada) + Reddit bloqueado."
+    },
+    "conflito_bonus_tier_suplicio": {
+      "expcarry": "2 peças: Corrupção/Murchar +25% e Agonia +15%. 4 peças: cada Agonia Instável ativa dá +2% de dano, até 6%, E a Semente aplica Agonia Instável a 20% no alvo principal (ExpCarry, 11/09/2026).",
+      "method": "4 peças: a Semente da Corrupção aplica uma CARGA de Agonia Instável no alvo principal — e é isso que removeu Patient Zero e Nocturnal Yield (Method, 13/10/2026).",
+      "leitura": "As duas concordam no efeito principal (Semente passa a aplicar Agonia Instável no alvo principal). O \"+2% de dano por Agonia Instável ativa, até 6%\" só aparece no ExpCarry. Pode ser a outra metade do bônus ou texto desatualizado do pré-12.1. **Não arbitrado** — precisa do tooltip oficial do item de tier para fechar.",
+      "acao": "Consultar o tooltip do item de tier do Bruxo antes de tratar os 2% como fato.",
+      "resolucao": {
+        "status": "RESOLVIDO em 2026-11-06",
+        "fonte_oficial": "Wowhead PT — https://www.wowhead.com/pt/item-set=2066 (conjunto 2066, spells 1296568 2pc e 1296569 4pc)",
+        "texto_oficial_4pc": "Cada Agonia Instável ativa aumenta em 2% o dano causado por seus feitiços e habilidades, até um máximo de 6%. A Semente da Corrupção aplica Agonia Instável ao seu alvo com 20% de eficácia.",
+        "veredito": "EXP CARRY CORRETO. Method incompleto (descreveu só a parte da Semente, sem os 2%/6% e sem os 20% de eficácia).",
+        "correcao_de_nome": "PT oficial de Unstable Affliction = Agonia Instável. \"Ferida Instável\" era nome errado do projeto e foi corrigido.",
+        "fonte_adicional": "https://www.wowhead.com/pt/item-set=2066"
+      }
+    }
+  }
+}

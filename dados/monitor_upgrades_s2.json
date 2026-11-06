@@ -1,0 +1,3254 @@
+{
+  "_meta": {
+    "documento": "monitor_upgrades_s2.json",
+    "papel": "Lista de monitoramento de ARMAS, PESCOÇOS, MÃO SECUNDÁRIA e BERLOQUES da Temporada 2, separada pelos dois tetos de upgrade.",
+    "patch": "12.1.5 — A Maldição de Ula'tek",
+    "teto_mitico": {
+      "ilvl": 341,
+      "composicao": "Mito 6/6 (334) + Forjado com Peçonha (+7)"
+    },
+    "teto_heroico": {
+      "ilvl": 328,
+      "composicao": "Herói 6/6 (321) + Forjado com Peçonha (+7)"
+    },
+    "fonte": "nether.wowhead.com/tooltip/item locale=8 (PT-BR) e locale=0 (EN)",
+    "scripts": [
+      "tools/monitorar_upgrades.js",
+      "tools/gerar_doc_monitor_upgrades.js"
+    ],
+    "regra": "Só entram nos baldes os itens cujo tooltip declara o nível exato do teto. Item 334 ou 289 aparece em \"fora_dos_tetos\" e serve apenas como versão-base comparável.",
+    "atualizado": "2026-11-06",
+    "totais": {
+      "teto_341": 73,
+      "teto_328": 15,
+      "acima_do_teto_344": 4,
+      "fora_dos_tetos": 136
+    }
+  },
+  "teto_341": [
+    {
+      "id": 273778,
+      "nome_pt": "Canalizador de Lumineira Polido",
+      "nome_en": "Polished Lightwood Channeler",
+      "slot": "arma 1M",
+      "ilvl": 341,
+      "track": null,
+      "peconha": "Forjado com Peçonha",
+      "dps": "57.2",
+      "atributos": [
+        "+586 Intelecto",
+        "+2.118 Vigor",
+        "Aumenta o índice de aceleração em +58.",
+        "Aumenta o índice de maestria em +46."
+      ]
+    },
+    {
+      "id": 268210,
+      "nome_pt": "Clavalma Malévola",
+      "nome_en": "Malevolent Spiritcudgel",
+      "slot": "arma 1M",
+      "ilvl": 341,
+      "track": null,
+      "peconha": "Forjado com Peçonha",
+      "dps": "57.1",
+      "atributos": [
+        "+586 Intelecto",
+        "+2.118 Vigor",
+        "Aumenta o seu índice de acerto crítico em +31.",
+        "Aumenta o índice de maestria em +72."
+      ]
+    },
+    {
+      "id": 273780,
+      "nome_pt": "Crescente Gravada com Peçonha",
+      "nome_en": "Venom-Etched Crescent",
+      "slot": "arma 1M",
+      "ilvl": 341,
+      "track": null,
+      "peconha": "Forjado com Peçonha",
+      "dps": "57.1",
+      "atributos": [
+        "+586 Intelecto",
+        "+2.118 Vigor",
+        "Aumenta o seu índice de acerto crítico em +49.",
+        "Aumenta o índice de maestria em +55."
+      ]
+    },
+    {
+      "id": 268208,
+      "nome_pt": "Cutelo Cerimonial de Sangueforte",
+      "nome_en": "Strongblood's Ceremonial Cleaver",
+      "slot": "arma 1M",
+      "ilvl": 341,
+      "track": null,
+      "peconha": "Forjado com Peçonha",
+      "dps": "114.4",
+      "atributos": [
+        "+101 Força",
+        "+2.118 Vigor",
+        "Aumenta o seu índice de acerto crítico em +36.",
+        "Aumenta o índice de maestria em +68."
+      ]
+    },
+    {
+      "id": 268204,
+      "nome_pt": "Estoque Peçonhento do Constructo Antigo",
+      "nome_en": "Ancient Construct's Venomshiv",
+      "slot": "arma 1M",
+      "ilvl": 341,
+      "track": null,
+      "peconha": "Forjado com Peçonha",
+      "dps": "114.2",
+      "atributos": [
+        "+101 Agilidade",
+        "+2.118 Vigor",
+        "Aumenta o índice de aceleração em +72.",
+        "??? Atributo não utilizado (+31)"
+      ]
+    },
+    {
+      "id": 251231,
+      "nome_pt": "Fatiador da Singularidade",
+      "nome_en": "Singularity Slicer",
+      "slot": "arma 1M",
+      "ilvl": 341,
+      "track": null,
+      "peconha": "Forjado com Peçonha",
+      "dps": "114.2",
+      "atributos": [
+        "+485 Intelecto",
+        "+101 [Agilidade ou Intelecto]",
+        "+2.118 Vigor",
+        "Aumenta o seu índice de acerto crítico em +60.",
+        "Aumenta o índice de aceleração em +43."
+      ]
+    },
+    {
+      "id": 268201,
+      "nome_pt": "Glaive de Osso Peçonhenta",
+      "nome_en": "Venomous Boneglaive",
+      "slot": "arma 1M",
+      "ilvl": 341,
+      "track": null,
+      "peconha": "Forjado com Peçonha",
+      "dps": "114.2",
+      "atributos": [
+        "+485 Intelecto",
+        "+101 [Agilidade ou Intelecto]",
+        "+2.118 Vigor",
+        "Aumenta o seu índice de acerto crítico em +32.",
+        "Aumenta o índice de maestria em +72."
+      ]
+    },
+    {
+      "id": 251218,
+      "nome_pt": "Gume Cósmico de Taz'Rah",
+      "nome_en": "Taz'Rah's Cosmic Edge",
+      "slot": "arma 1M",
+      "ilvl": 341,
+      "track": null,
+      "peconha": "Forjado com Peçonha",
+      "dps": "114.4",
+      "atributos": [
+        "+101 Força",
+        "+2.118 Vigor",
+        "Aumenta o índice de aceleração em +60.",
+        "Aumenta o índice de maestria em +43."
+      ]
+    },
+    {
+      "id": 251186,
+      "nome_pt": "Gume Garracúleo",
+      "nome_en": "Thorntalon Edge",
+      "slot": "arma 1M",
+      "ilvl": 341,
+      "track": null,
+      "peconha": "Forjado com Peçonha",
+      "dps": "114.2",
+      "atributos": [
+        "+101 Agilidade",
+        "+2.118 Vigor",
+        "Aumenta o seu índice de acerto crítico em +38.",
+        "Aumenta o índice de maestria em +65."
+      ]
+    },
+    {
+      "id": 251180,
+      "nome_pt": "Lâmina Espinhosa",
+      "nome_en": "Thornblade",
+      "slot": "arma 1M",
+      "ilvl": 341,
+      "track": null,
+      "peconha": "Forjado com Peçonha",
+      "dps": "114.2",
+      "atributos": [
+        "+101 Agilidade",
+        "+2.118 Vigor",
+        "Aumenta o índice de aceleração em +41.",
+        "Aumenta o índice de maestria em +63."
+      ]
+    },
+    {
+      "id": 273793,
+      "nome_pt": "Lâminas Gêmeas de Espinha de Hidra",
+      "nome_en": "Hydraspine Twinblade",
+      "slot": "arma 1M",
+      "ilvl": 341,
+      "track": null,
+      "peconha": "Forjado com Peçonha",
+      "dps": "114.2",
+      "atributos": [
+        "+485 Intelecto",
+        "+101 [Agilidade ou Intelecto]",
+        "+2.118 Vigor",
+        "??? Atributo não utilizado (+46)",
+        "Aumenta o índice de maestria em +58."
+      ]
+    },
+    {
+      "id": 251128,
+      "nome_pt": "Laminúrio",
+      "nome_en": "Bladesorrow",
+      "slot": "arma 1M",
+      "ilvl": 341,
+      "track": null,
+      "peconha": "Forjado com Peçonha",
+      "dps": "114.2",
+      "atributos": [
+        "+101 Agilidade",
+        "+2.118 Vigor",
+        "Aumenta o seu índice de acerto crítico em +60.",
+        "Aumenta o índice de maestria em +43."
+      ]
+    },
+    {
+      "id": 251143,
+      "nome_pt": "Luvas da Colheita Sinistra",
+      "nome_en": "Grim Harvest Gloves",
+      "slot": "arma 1M",
+      "ilvl": 341,
+      "track": null,
+      "peconha": "Forjado com Peçonha",
+      "dps": "114.2",
+      "atributos": [
+        "+101 Agilidade",
+        "+2.118 Vigor",
+        "Aumenta o índice de aceleração em +60.",
+        "??? Atributo não utilizado (+43)"
+      ]
+    },
+    {
+      "id": 251224,
+      "nome_pt": "Machadinha Grandiosa",
+      "nome_en": "Hulking Handaxe",
+      "slot": "arma 1M",
+      "ilvl": 341,
+      "track": null,
+      "peconha": "Forjado com Peçonha",
+      "dps": "114.4",
+      "atributos": [
+        "+101 Agilidade",
+        "+2.118 Vigor",
+        "Aumenta o índice de aceleração em +36.",
+        "Aumenta o índice de maestria em +67."
+      ]
+    },
+    {
+      "id": 268206,
+      "nome_pt": "Martelete do Selvagem Serpenteante",
+      "nome_en": "Slithering Savage's Gavel",
+      "slot": "arma 1M",
+      "ilvl": 341,
+      "track": null,
+      "peconha": "Forjado com Peçonha",
+      "dps": "114.4",
+      "atributos": [
+        "+101 Agilidade",
+        "+2.118 Vigor",
+        "Aumenta o seu índice de acerto crítico em +71.",
+        "Aumenta o índice de maestria em +32."
+      ]
+    },
+    {
+      "id": 275070,
+      "nome_pt": "Navalha de Lumineira Afiada",
+      "nome_en": "Sharpened Lightwood Slasher",
+      "slot": "arma 1M",
+      "ilvl": 341,
+      "track": null,
+      "peconha": "Forjado com Peçonha",
+      "dps": "114.2",
+      "atributos": [
+        "+101 Agilidade",
+        "+2.118 Vigor",
+        "Aumenta o seu índice de acerto crítico em +60.",
+        "Aumenta o índice de aceleração em +44."
+      ]
+    },
+    {
+      "id": 251225,
+      "nome_pt": "Presa do Contágio",
+      "nome_en": "Fang of Contagion",
+      "slot": "arma 1M",
+      "ilvl": 341,
+      "track": null,
+      "peconha": "Forjado com Peçonha",
+      "dps": "57.2",
+      "atributos": [
+        "+586 Intelecto",
+        "+2.118 Vigor",
+        "??? Atributo não utilizado (+43)",
+        "Aumenta o índice de maestria em +60."
+      ]
+    },
+    {
+      "id": 268264,
+      "nome_pt": "Presa do Glutão Voraz",
+      "nome_en": "Ravenous Feaster's Fang",
+      "slot": "arma 1M",
+      "ilvl": 341,
+      "track": null,
+      "peconha": "Forjado com Peçonha",
+      "dps": "114.2",
+      "atributos": [
+        "+101 Agilidade",
+        "+2.118 Vigor",
+        "Aumenta o seu índice de acerto crítico em +35.",
+        "Aumenta o índice de maestria em +68."
+      ]
+    },
+    {
+      "id": 268203,
+      "nome_pt": "Rasga-almas de Bagata",
+      "nome_en": "Hexing Spiritrender",
+      "slot": "arma 1M",
+      "ilvl": 341,
+      "track": null,
+      "peconha": "Forjado com Peçonha",
+      "dps": "57.2",
+      "atributos": [
+        "+586 Intelecto",
+        "+2.118 Vigor",
+        "Aumenta o seu índice de acerto crítico em +31.",
+        "Aumenta o índice de maestria em +72."
+      ]
+    },
+    {
+      "id": 251195,
+      "nome_pt": "Resposta Espinhosa",
+      "nome_en": "Thorned Reply",
+      "slot": "arma 1M",
+      "ilvl": 341,
+      "track": null,
+      "peconha": "Forjado com Peçonha",
+      "dps": "114.4",
+      "atributos": [
+        "+101 Força",
+        "+2.118 Vigor",
+        "Aumenta o seu índice de acerto crítico em +43.",
+        "Aumenta o índice de aceleração em +60."
+      ]
+    },
+    {
+      "id": 251123,
+      "nome_pt": "Bastão de Treinamento da Mordisco",
+      "nome_en": "Nibbles' Training Rod",
+      "slot": "arma 2M",
+      "ilvl": 341,
+      "track": null,
+      "peconha": "Forjado com Peçonha",
+      "dps": "75.7",
+      "atributos": [
+        "+895 Intelecto",
+        "+4.235 Vigor",
+        "Aumenta o seu índice de acerto crítico em +125.",
+        "Aumenta o índice de aceleração em +81."
+      ]
+    },
+    {
+      "id": 273783,
+      "nome_pt": "Cajado de Guerra Revestido de Toxinas",
+      "nome_en": "Toxin-Coated Warstaff",
+      "slot": "arma 2M",
+      "ilvl": 341,
+      "track": null,
+      "peconha": "Forjado com Peçonha",
+      "dps": "151.4",
+      "atributos": [
+        "+201 Agilidade",
+        "+4.235 Vigor",
+        "Aumenta o índice de aceleração em +120.",
+        "Aumenta o índice de maestria em +87."
+      ]
+    },
+    {
+      "id": 251156,
+      "nome_pt": "Cajado do Orador Decaído",
+      "nome_en": "Fallen Speaker's Staff",
+      "slot": "arma 2M",
+      "ilvl": 341,
+      "track": null,
+      "peconha": "Forjado com Peçonha",
+      "dps": "75.7",
+      "atributos": [
+        "+895 Intelecto",
+        "+4.235 Vigor",
+        "Aumenta o índice de aceleração em +130.",
+        "??? Atributo não utilizado (+77)"
+      ]
+    },
+    {
+      "id": 268205,
+      "nome_pt": "Canalizador Alado do Peçonhante",
+      "nome_en": "Venomancer's Winged Channeler",
+      "slot": "arma 2M",
+      "ilvl": 341,
+      "track": null,
+      "peconha": "Forjado com Peçonha",
+      "dps": "75.7",
+      "atributos": [
+        "+895 Intelecto",
+        "+4.235 Vigor",
+        "Aumenta o índice de aceleração em +65.",
+        "Aumenta o índice de maestria em +142."
+      ]
+    },
+    {
+      "id": 251230,
+      "nome_pt": "Crescente Carônica",
+      "nome_en": "Charonic Crescent",
+      "slot": "arma 2M",
+      "ilvl": 341,
+      "track": null,
+      "peconha": "Forjado com Peçonha",
+      "dps": "151.4",
+      "atributos": [
+        "+201 Força",
+        "+4.235 Vigor",
+        "??? Atributo não utilizado (+125)",
+        "Aumenta o índice de maestria em +81."
+      ]
+    },
+    {
+      "id": 251134,
+      "nome_pt": "Cutelo de Xathuux",
+      "nome_en": "Xathuux's Cleave",
+      "slot": "arma 2M",
+      "ilvl": 341,
+      "track": null,
+      "peconha": "Forjado com Peçonha",
+      "dps": "151.4",
+      "atributos": [
+        "+201 Força",
+        "+4.235 Vigor",
+        "Aumenta o seu índice de acerto crítico em +121.",
+        "Aumenta o índice de aceleração em +86."
+      ]
+    },
+    {
+      "id": 268198,
+      "nome_pt": "Esmaga-guarda Cáustico",
+      "nome_en": "Caustic Keeper-Crusher",
+      "slot": "arma 2M",
+      "ilvl": 341,
+      "track": null,
+      "peconha": "Forjado com Peçonha",
+      "dps": "151.5",
+      "atributos": [
+        "+201 Força",
+        "+4.235 Vigor",
+        "Aumenta o seu índice de acerto crítico em +141.",
+        "Aumenta o índice de aceleração em +65."
+      ]
+    },
+    {
+      "id": 268199,
+      "nome_pt": "Estoura-bolha da Fura-marés",
+      "nome_en": "Tidepiercer's Bubble Popper",
+      "slot": "arma 2M",
+      "ilvl": 341,
+      "track": null,
+      "peconha": "Forjado com Peçonha",
+      "dps": "151.4",
+      "atributos": [
+        "+201 Agilidade",
+        "+4.235 Vigor",
+        "Aumenta o seu índice de acerto crítico em +140.",
+        "??? Atributo não utilizado (+66)"
+      ]
+    },
+    {
+      "id": 251192,
+      "nome_pt": "Galho de Orgulho",
+      "nome_en": "Branch of Pride",
+      "slot": "arma 2M",
+      "ilvl": 341,
+      "track": null,
+      "peconha": "Forjado com Peçonha",
+      "dps": "151.4",
+      "atributos": [
+        "+201 Agilidade",
+        "+4.235 Vigor",
+        "Aumenta o seu índice de acerto crítico em +134.",
+        "??? Atributo não utilizado (+72)"
+      ]
+    },
+    {
+      "id": 273782,
+      "nome_pt": "Glaive Pulsigarra Torpe",
+      "nome_en": "Vile Writhefang Glaive",
+      "slot": "arma 2M",
+      "ilvl": 341,
+      "track": null,
+      "peconha": "Forjado com Peçonha",
+      "dps": "151.4",
+      "atributos": [
+        "+201 Força",
+        "+4.235 Vigor",
+        "Aumenta o seu índice de acerto crítico em +114.",
+        "Aumenta o índice de aceleração em +93."
+      ]
+    },
+    {
+      "id": 268214,
+      "nome_pt": "Gume Dentado Maligno",
+      "nome_en": "Malignant Toothed Edge",
+      "slot": "arma 2M",
+      "ilvl": 341,
+      "track": null,
+      "peconha": "Forjado com Peçonha",
+      "dps": "151.5",
+      "atributos": [
+        "+201 Força",
+        "+4.235 Vigor",
+        "Aumenta o índice de aceleração em +137.",
+        "Aumenta o índice de maestria em +69."
+      ]
+    },
+    {
+      "id": 251149,
+      "nome_pt": "Lâmina Supercongelada do Vitorioso",
+      "nome_en": "Victor's Flashfrozen Blade",
+      "slot": "arma 2M",
+      "ilvl": 341,
+      "track": null,
+      "peconha": "Forjado com Peçonha",
+      "dps": "151.4",
+      "atributos": [
+        "+201 Agilidade",
+        "+4.235 Vigor",
+        "Aumenta o índice de aceleração em +86.",
+        "Aumenta o índice de maestria em +121."
+      ]
+    },
+    {
+      "id": 251181,
+      "nome_pt": "Lança de poda",
+      "nome_en": "Pruning Lance",
+      "slot": "arma 2M",
+      "ilvl": 341,
+      "track": null,
+      "peconha": "Forjado com Peçonha",
+      "dps": "151.4",
+      "atributos": [
+        "+201 Força",
+        "+4.235 Vigor",
+        "Aumenta o índice de aceleração em +121.",
+        "??? Atributo não utilizado (+86)"
+      ]
+    },
+    {
+      "id": 273784,
+      "nome_pt": "Arco Recurvo Amani Ancestral",
+      "nome_en": "Ancestral Amani Recurve",
+      "slot": "arma de longo alcance",
+      "ilvl": 341,
+      "track": null,
+      "peconha": "Forjado com Peçonha",
+      "dps": "151.5",
+      "atributos": [
+        "+201 Agilidade",
+        "+4.235 Vigor",
+        "Aumenta o índice de aceleração em +118.",
+        "Aumenta o índice de maestria em +89."
+      ]
+    },
+    {
+      "id": 268200,
+      "nome_pt": "Detonador Reserva de Gebbo",
+      "nome_en": "Gebbo's Backup Blaster",
+      "slot": "arma de longo alcance",
+      "ilvl": 341,
+      "track": null,
+      "peconha": "Forjado com Peçonha",
+      "dps": "151.5",
+      "atributos": [
+        "+201 Agilidade",
+        "+4.235 Vigor",
+        "Aumenta o índice de aceleração em +143.",
+        "Aumenta o índice de maestria em +63."
+      ]
+    },
+    {
+      "id": 251188,
+      "nome_pt": "Pétala da ruína",
+      "nome_en": "Doompetal",
+      "slot": "arma de longo alcance",
+      "ilvl": 341,
+      "track": null,
+      "peconha": "Forjado com Peçonha",
+      "dps": "57.0",
+      "atributos": [
+        "+586 Intelecto",
+        "+2.118 Vigor",
+        "Aumenta o índice de aceleração em +65.",
+        "Aumenta o índice de maestria em +38."
+      ]
+    },
+    {
+      "id": 251187,
+      "nome_pt": "Rincão de Amirdrassil",
+      "nome_en": "Amirdrassil's Reach",
+      "slot": "arma de longo alcance",
+      "ilvl": 341,
+      "track": null,
+      "peconha": "Forjado com Peçonha",
+      "dps": "151.3",
+      "atributos": [
+        "+201 Agilidade",
+        "+4.235 Vigor",
+        "Aumenta o seu índice de acerto crítico em +86.",
+        "??? Atributo não utilizado (+121)"
+      ]
+    },
+    {
+      "id": 273796,
+      "nome_pt": "Ampola Torpe de Peçonha Volátil",
+      "nome_en": "Vile Vial of Volatile Venom",
+      "slot": "berloque",
+      "ilvl": 341,
+      "track": null,
+      "peconha": "Forjado com Peçonha",
+      "dps": null,
+      "atributos": []
+    },
+    {
+      "id": 270171,
+      "nome_pt": "Antídoto Sobrenatural",
+      "nome_en": "Preternatural Antivenom",
+      "slot": "berloque",
+      "ilvl": 341,
+      "track": null,
+      "peconha": "Forjado com Peçonha",
+      "dps": null,
+      "atributos": []
+    },
+    {
+      "id": 270164,
+      "nome_pt": "Bolsa sem Fundo de Gebbo",
+      "nome_en": "Gebbo's Bottomless Bag",
+      "slot": "berloque",
+      "ilvl": 341,
+      "track": null,
+      "peconha": "Forjado com Peçonha",
+      "dps": null,
+      "atributos": []
+    },
+    {
+      "id": 250259,
+      "nome_pt": "Broto de Raizaurora",
+      "nome_en": "Sapling of the Dawnroot",
+      "slot": "berloque",
+      "ilvl": 341,
+      "track": null,
+      "peconha": "Forjado com Peçonha",
+      "dps": null,
+      "atributos": []
+    },
+    {
+      "id": 270160,
+      "nome_pt": "Concha Protetora do Imediato",
+      "nome_en": "First Mate's Shellward",
+      "slot": "berloque",
+      "ilvl": 341,
+      "track": null,
+      "peconha": "Forjado com Peçonha",
+      "dps": null,
+      "atributos": []
+    },
+    {
+      "id": 250255,
+      "nome_pt": "Cristal Vilcórdio Instável",
+      "nome_en": "Unstable Felheart Crystal",
+      "slot": "berloque",
+      "ilvl": 341,
+      "track": null,
+      "peconha": "Forjado com Peçonha",
+      "dps": null,
+      "atributos": []
+    },
+    {
+      "id": 273649,
+      "nome_pt": "Emblema Tempestuoso de Dazar",
+      "nome_en": "Stormbound Emblem of Dazar",
+      "slot": "berloque",
+      "ilvl": 341,
+      "track": null,
+      "peconha": "Forjado com Peçonha",
+      "dps": null,
+      "atributos": []
+    },
+    {
+      "id": 250244,
+      "nome_pt": "Essência de Permafrio",
+      "nome_en": "Permafrost Essence",
+      "slot": "berloque",
+      "ilvl": 341,
+      "track": null,
+      "peconha": "Forjado com Peçonha",
+      "dps": null,
+      "atributos": []
+    },
+    {
+      "id": 273797,
+      "nome_pt": "Estandarte de Guerra Amani Esfarrapado",
+      "nome_en": "Tattered Amani War Banner",
+      "slot": "berloque",
+      "ilvl": 341,
+      "track": null,
+      "peconha": "Forjado com Peçonha",
+      "dps": null,
+      "atributos": []
+    },
+    {
+      "id": 270163,
+      "nome_pt": "Ferocidade de Sszorak",
+      "nome_en": "Sszorak's Ferocity",
+      "slot": "berloque",
+      "ilvl": 341,
+      "track": null,
+      "peconha": "Forjado com Peçonha",
+      "dps": null,
+      "atributos": []
+    },
+    {
+      "id": 250215,
+      "nome_pt": "Frasco do Cargueiro",
+      "nome_en": "Freightrunner's Flask",
+      "slot": "berloque",
+      "ilvl": 341,
+      "track": null,
+      "peconha": "Forjado com Peçonha",
+      "dps": null,
+      "atributos": []
+    },
+    {
+      "id": 270170,
+      "nome_pt": "Glândula Transbordante de Vexhul",
+      "nome_en": "Vexhul's Everflowing Gland",
+      "slot": "berloque",
+      "ilvl": 341,
+      "track": null,
+      "peconha": "Forjado com Peçonha",
+      "dps": null,
+      "atributos": []
+    },
+    {
+      "id": 250229,
+      "nome_pt": "Ídolo do Loa da Guerra",
+      "nome_en": "Idol of the War Loa",
+      "slot": "berloque",
+      "ilvl": 341,
+      "track": null,
+      "peconha": "Forjado com Peçonha",
+      "dps": null,
+      "atributos": []
+    },
+    {
+      "id": 270174,
+      "nome_pt": "Ídolo do Nexus Uivante",
+      "nome_en": "Idol of the Howling Nexus",
+      "slot": "berloque",
+      "ilvl": 341,
+      "track": null,
+      "peconha": "Forjado com Peçonha",
+      "dps": null,
+      "atributos": []
+    },
+    {
+      "id": 250225,
+      "nome_pt": "Mandato de Execução do Caos",
+      "nome_en": "Void Execution Mandate",
+      "slot": "berloque",
+      "ilvl": 341,
+      "track": null,
+      "peconha": "Forjado com Peçonha",
+      "dps": null,
+      "atributos": []
+    },
+    {
+      "id": 273794,
+      "nome_pt": "Nó de Serpentes Contorcidas",
+      "nome_en": "Knot of Writhing Serpents",
+      "slot": "berloque",
+      "ilvl": 341,
+      "track": null,
+      "peconha": "Forjado com Peçonha",
+      "dps": null,
+      "atributos": []
+    },
+    {
+      "id": 250214,
+      "nome_pt": "Núcleo Altaluz",
+      "nome_en": "Lightspire Core",
+      "slot": "berloque",
+      "ilvl": 341,
+      "track": null,
+      "peconha": "Forjado com Peçonha",
+      "dps": null,
+      "atributos": []
+    },
+    {
+      "id": 270165,
+      "nome_pt": "Núcleo Fumegante do Guardião",
+      "nome_en": "Keeper's Seething Core",
+      "slot": "berloque",
+      "ilvl": 341,
+      "track": null,
+      "peconha": "Forjado com Peçonha",
+      "dps": null,
+      "atributos": []
+    },
+    {
+      "id": 250228,
+      "nome_pt": "Pedra-fole Ressonante",
+      "nome_en": "Resonant Bellowstone",
+      "slot": "berloque",
+      "ilvl": 341,
+      "track": null,
+      "peconha": "Forjado com Peçonha",
+      "dps": null,
+      "atributos": []
+    },
+    {
+      "id": 273795,
+      "nome_pt": "Pedra-presa Retorcida",
+      "nome_en": "Coiled Fangstone",
+      "slot": "berloque",
+      "ilvl": 341,
+      "track": null,
+      "peconha": "Forjado com Peçonha",
+      "dps": null,
+      "atributos": []
+    },
+    {
+      "id": 270161,
+      "nome_pt": "Presa de Malignidade Umbrática",
+      "nome_en": "Fang of Umbral Malignance",
+      "slot": "berloque",
+      "ilvl": 341,
+      "track": null,
+      "peconha": "Forjado com Peçonha",
+      "dps": null,
+      "atributos": []
+    },
+    {
+      "id": 270166,
+      "nome_pt": "Rancor Sanguíneo de Vashnik",
+      "nome_en": "Vashnik's Sanguine Rancor",
+      "slot": "berloque",
+      "ilvl": 341,
+      "track": null,
+      "peconha": "Forjado com Peçonha",
+      "dps": null,
+      "atributos": []
+    },
+    {
+      "id": 270162,
+      "nome_pt": "Receptáculo Ritual Enrosca-almas",
+      "nome_en": "Soulcoiler Ritual Vessel",
+      "slot": "berloque",
+      "ilvl": 341,
+      "track": null,
+      "peconha": "Forjado com Peçonha",
+      "dps": null,
+      "atributos": []
+    },
+    {
+      "id": 250248,
+      "nome_pt": "Remédio Micólico",
+      "nome_en": "Mycolic Medicine",
+      "slot": "berloque",
+      "ilvl": 341,
+      "track": null,
+      "peconha": "Forjado com Peçonha",
+      "dps": null,
+      "atributos": []
+    },
+    {
+      "id": 270167,
+      "nome_pt": "Rocha Marinha do Clamaondas",
+      "nome_en": "Wavecaller's Seastone",
+      "slot": "berloque",
+      "ilvl": 341,
+      "track": null,
+      "peconha": "Forjado com Peçonha",
+      "dps": null,
+      "atributos": []
+    },
+    {
+      "id": 250254,
+      "nome_pt": "Semente da Esperança Resplandecente",
+      "nome_en": "Seed of Radiant Hope",
+      "slot": "berloque",
+      "ilvl": 341,
+      "track": null,
+      "peconha": "Forjado com Peçonha",
+      "dps": null,
+      "atributos": []
+    },
+    {
+      "id": 250238,
+      "nome_pt": "Semente da Natureza Voraz",
+      "nome_en": "Seed of the Devouring Wild",
+      "slot": "berloque",
+      "ilvl": 341,
+      "track": null,
+      "peconha": "Forjado com Peçonha",
+      "dps": null,
+      "atributos": []
+    },
+    {
+      "id": 250224,
+      "nome_pt": "Signo do Furamentes",
+      "nome_en": "Mindpiercer's Sigil",
+      "slot": "berloque",
+      "ilvl": 341,
+      "track": null,
+      "peconha": "Forjado com Peçonha",
+      "dps": null,
+      "atributos": []
+    },
+    {
+      "id": 250245,
+      "nome_pt": "Tumor do Enxame",
+      "nome_en": "Tumor of the Swarm",
+      "slot": "berloque",
+      "ilvl": 341,
+      "track": null,
+      "peconha": "Forjado com Peçonha",
+      "dps": null,
+      "atributos": []
+    },
+    {
+      "id": 250243,
+      "nome_pt": "Chama Vinculante de Manacárdia",
+      "nome_en": "Manaheart's Binding Flame",
+      "slot": "escudo",
+      "ilvl": 341,
+      "track": null,
+      "peconha": "Forjado com Peçonha",
+      "dps": null,
+      "atributos": []
+    },
+    {
+      "id": 268251,
+      "nome_pt": "Amuleto das Presas Gêmeas",
+      "nome_en": "Amulet of the Twin Fangs",
+      "slot": "pescoço",
+      "ilvl": 341,
+      "track": null,
+      "peconha": "Forjado com Peçonha",
+      "dps": null,
+      "atributos": [
+        "Aumenta o índice de aceleração em +64.",
+        "Aumenta o índice de maestria em +357.Equipar: Dano recebido de Peçonha Mortífera na Ilha Enrolada e dentro do Abismo Peçonhento reduzido em 7%."
+      ]
+    },
+    {
+      "id": 268250,
+      "nome_pt": "Corrente Vitriólica da Sentinela",
+      "nome_en": "Sentinel's Vitriolic Chain",
+      "slot": "pescoço",
+      "ilvl": 341,
+      "track": null,
+      "peconha": "Forjado com Peçonha",
+      "dps": null,
+      "atributos": [
+        "Aumenta o seu índice de acerto crítico em +99.",
+        "Aumenta o índice de aceleração em +323.Equipar: Dano recebido de Peçonha Mortífera na Ilha Enrolada e dentro do Abismo Peçonhento reduzido em 7%."
+      ]
+    },
+    {
+      "id": 251234,
+      "nome_pt": "Enxerto dos Domanaar",
+      "nome_en": "Graft of the Domanaar",
+      "slot": "pescoço",
+      "ilvl": 341,
+      "track": null,
+      "peconha": "Forjado com Peçonha",
+      "dps": null,
+      "atributos": [
+        "Aumenta o seu índice de acerto crítico em +271.",
+        "Aumenta o índice de maestria em +150.Requer Nível 90"
+      ]
+    },
+    {
+      "id": 273781,
+      "nome_pt": "Feixe de Presas Protetoras",
+      "nome_en": "Strand of Warding Fangs",
+      "slot": "pescoço",
+      "ilvl": 341,
+      "track": null,
+      "peconha": "Forjado com Peçonha",
+      "dps": null,
+      "atributos": [
+        "Aumenta o seu índice de acerto crítico em +240.",
+        "Aumenta o índice de aceleração em +182.Requer Nível 90"
+      ]
+    },
+    {
+      "id": 251173,
+      "nome_pt": "Jugo do Urso Atacante",
+      "nome_en": "Yoke of the Charging Bear",
+      "slot": "pescoço",
+      "ilvl": 341,
+      "track": null,
+      "peconha": "Forjado com Peçonha",
+      "dps": null,
+      "atributos": [
+        "Aumenta o seu índice de acerto crítico em +144.",
+        "Aumenta o índice de aceleração em +277.Requer Nível 90"
+      ]
+    },
+    {
+      "id": 251142,
+      "nome_pt": "Pingente da Fúria Maléfica",
+      "nome_en": "Pendant of Malefic Fury",
+      "slot": "pescoço",
+      "ilvl": 341,
+      "track": null,
+      "peconha": "Forjado com Peçonha",
+      "dps": null,
+      "atributos": [
+        "Aumenta o índice de aceleração em +132.",
+        "Aumenta o índice de maestria em +289.Requer Nível 90"
+      ]
+    }
+  ],
+  "teto_328": [
+    {
+      "id": 272266,
+      "nome_pt": "Adaga do Eidolon Esquecido",
+      "nome_en": "Forgotten Eidolon's Dagger",
+      "slot": "arma 1M",
+      "ilvl": 328,
+      "track": null,
+      "peconha": "Forjado com Peçonha",
+      "dps": "50.6",
+      "atributos": [
+        "+519 Intelecto",
+        "+1.824 Vigor",
+        "Aumenta o seu índice de acerto crítico em +60.",
+        "Aumenta o índice de aceleração em +38."
+      ]
+    },
+    {
+      "id": 272277,
+      "nome_pt": "Aniquilador de Espírito",
+      "nome_en": "Spirit-Reaver",
+      "slot": "arma 1M",
+      "ilvl": 328,
+      "track": null,
+      "peconha": "Forjado com Peçonha",
+      "dps": "101.3",
+      "atributos": [
+        "+430 Intelecto",
+        "+89 [Agilidade ou Intelecto]",
+        "+1.824 Vigor",
+        "??? Atributo não utilizado (+61)",
+        "Aumenta o índice de maestria em +37."
+      ]
+    },
+    {
+      "id": 272283,
+      "nome_pt": "Emanação do Espadachim",
+      "nome_en": "Swordsman's Emanation",
+      "slot": "arma 1M",
+      "ilvl": 328,
+      "track": null,
+      "peconha": "Forjado com Peçonha",
+      "dps": "101.2",
+      "atributos": [
+        "+89 Força",
+        "+1.824 Vigor",
+        "Aumenta o seu índice de acerto crítico em +60.",
+        "Aumenta o índice de aceleração em +38."
+      ]
+    },
+    {
+      "id": 272267,
+      "nome_pt": "Lábris Incontido",
+      "nome_en": "Unconfined Labrys",
+      "slot": "arma 1M",
+      "ilvl": 328,
+      "track": null,
+      "peconha": "Forjado com Peçonha",
+      "dps": "101.3",
+      "atributos": [
+        "+89 Força",
+        "+1.824 Vigor",
+        "Aumenta o seu índice de acerto crítico em +61.",
+        "??? Atributo não utilizado (+37)"
+      ]
+    },
+    {
+      "id": 272269,
+      "nome_pt": "Lápide do Sela-almas",
+      "nome_en": "Soulsealer's Headstone",
+      "slot": "arma 1M",
+      "ilvl": 328,
+      "track": null,
+      "peconha": "Forjado com Peçonha",
+      "dps": "101.2",
+      "atributos": [
+        "+89 Agilidade",
+        "+1.824 Vigor",
+        "Aumenta o índice de aceleração em +62.",
+        "Aumenta o índice de maestria em +36."
+      ]
+    },
+    {
+      "id": 272270,
+      "nome_pt": "Pilão de Pó de Osso",
+      "nome_en": "Bonedust Pestle",
+      "slot": "arma 1M",
+      "ilvl": 328,
+      "track": null,
+      "peconha": "Forjado com Peçonha",
+      "dps": "50.6",
+      "atributos": [
+        "+519 Intelecto",
+        "+1.824 Vigor",
+        "Aumenta o seu índice de acerto crítico em +38.",
+        "Aumenta o índice de aceleração em +60."
+      ]
+    },
+    {
+      "id": 272268,
+      "nome_pt": "Talha-máscara",
+      "nome_en": "Mask-Etcher",
+      "slot": "arma 1M",
+      "ilvl": 328,
+      "track": null,
+      "peconha": "Forjado com Peçonha",
+      "dps": "101.1",
+      "atributos": [
+        "+89 Agilidade",
+        "+1.824 Vigor",
+        "Aumenta o índice de aceleração em +58.",
+        "Aumenta o índice de maestria em +40."
+      ]
+    },
+    {
+      "id": 272273,
+      "nome_pt": "Cetro Cerimonial Consagrado",
+      "nome_en": "Enshrined Ceremonial Scepter",
+      "slot": "arma 2M",
+      "ilvl": 328,
+      "track": null,
+      "peconha": "Forjado com Peçonha",
+      "dps": "67.1",
+      "atributos": [
+        "+793 Intelecto",
+        "+3.649 Vigor",
+        "??? Atributo não utilizado (+78)",
+        "Aumenta o índice de maestria em +118."
+      ]
+    },
+    {
+      "id": 272272,
+      "nome_pt": "Partasana Atormentada",
+      "nome_en": "Harrowed Partisan",
+      "slot": "arma 2M",
+      "ilvl": 328,
+      "track": null,
+      "peconha": "Forjado com Peçonha",
+      "dps": "134.2",
+      "atributos": [
+        "+178 Agilidade",
+        "+3.649 Vigor",
+        "Aumenta o seu índice de acerto crítico em +121.",
+        "??? Atributo não utilizado (+75)"
+      ]
+    },
+    {
+      "id": 272280,
+      "nome_pt": "Rachalma Exumado",
+      "nome_en": "Exhumed Soul-Cleaver",
+      "slot": "arma 2M",
+      "ilvl": 328,
+      "track": null,
+      "peconha": "Forjado com Peçonha",
+      "dps": "134.2",
+      "atributos": [
+        "+178 Força",
+        "+3.649 Vigor",
+        "Aumenta o seu índice de acerto crítico em +117.",
+        "Aumenta o índice de aceleração em +79."
+      ]
+    },
+    {
+      "id": 272274,
+      "nome_pt": "Talhadeira de Reinos",
+      "nome_en": "Realm Splitter",
+      "slot": "arma 2M",
+      "ilvl": 328,
+      "track": null,
+      "peconha": "Forjado com Peçonha",
+      "dps": "134.2",
+      "atributos": [
+        "+178 Força",
+        "+3.649 Vigor",
+        "??? Atributo não utilizado (+125)",
+        "Aumenta o índice de maestria em +71."
+      ]
+    },
+    {
+      "id": 272271,
+      "nome_pt": "Foco do Espírito Vinculado",
+      "nome_en": "Spiritbound Focus",
+      "slot": "arma de longo alcance",
+      "ilvl": 328,
+      "track": null,
+      "peconha": "Forjado com Peçonha",
+      "dps": "50.8",
+      "atributos": [
+        "+519 Intelecto",
+        "+1.824 Vigor",
+        "??? Atributo não utilizado (+59)",
+        "Aumenta o índice de maestria em +39."
+      ]
+    },
+    {
+      "id": 272278,
+      "nome_pt": "Lança-fátuos Recurvo",
+      "nome_en": "Recurve Wisp-Shooter",
+      "slot": "arma de longo alcance",
+      "ilvl": 328,
+      "track": null,
+      "peconha": "Forjado com Peçonha",
+      "dps": "134.2",
+      "atributos": [
+        "+178 Agilidade",
+        "+3.649 Vigor",
+        "Aumenta o seu índice de acerto crítico em +80.",
+        "Aumenta o índice de aceleração em +116."
+      ]
+    },
+    {
+      "id": 272228,
+      "nome_pt": "Periapto Sussurrante",
+      "nome_en": "Whispering Periapt",
+      "slot": "pescoço",
+      "ilvl": 328,
+      "track": null,
+      "peconha": "Forjado com Peçonha",
+      "dps": null,
+      "atributos": [
+        "??? Atributo não utilizado (+162)",
+        "Aumenta o índice de maestria em +229.Requer Nível 90"
+      ]
+    },
+    {
+      "id": 272229,
+      "nome_pt": "Talismã Serpentino",
+      "nome_en": "Serpentine Talisman",
+      "slot": "pescoço",
+      "ilvl": 328,
+      "track": null,
+      "peconha": "Forjado com Peçonha",
+      "dps": null,
+      "atributos": [
+        "Aumenta o seu índice de acerto crítico em +229.",
+        "Aumenta o índice de aceleração em +162.Requer Nível 90"
+      ]
+    }
+  ],
+  "acima_do_teto_344": [
+    {
+      "id": 268202,
+      "nome_pt": "Mandíbula da Deusa Agrilhoada",
+      "nome_en": "Jaw of the Shackled Goddess",
+      "slot": "arma 1M",
+      "ilvl": 344,
+      "track": null,
+      "peconha": "Amaldiçoado com Peçonha",
+      "dps": "117.5",
+      "atributos": [
+        "+103 Força",
+        "+2.192 Vigor",
+        "Aumenta o índice de aceleração em +104."
+      ]
+    },
+    {
+      "id": 268215,
+      "nome_pt": "Bardiche do Prolemônio Abissal",
+      "nome_en": "Abyssal Broodfiend's Bardiche",
+      "slot": "arma 2M",
+      "ilvl": 344,
+      "track": null,
+      "peconha": "Amaldiçoado com Peçonha",
+      "dps": "155.7",
+      "atributos": [
+        "+207 Agilidade",
+        "+4.385 Vigor",
+        "Aumenta o índice de maestria em +209."
+      ]
+    },
+    {
+      "id": 268207,
+      "nome_pt": "Grande Arco do Repouso Cáustico",
+      "nome_en": "Caustic Repose Greatbow",
+      "slot": "arma de longo alcance",
+      "ilvl": 344,
+      "track": null,
+      "peconha": "Amaldiçoado com Peçonha",
+      "dps": "155.7",
+      "atributos": [
+        "+207 Agilidade",
+        "+4.385 Vigor",
+        "Aumenta o seu índice de acerto crítico em +209."
+      ]
+    },
+    {
+      "id": 268265,
+      "nome_pt": "Relicário Aqiricida",
+      "nome_en": "Aqirbane Reliquary",
+      "slot": "pescoço",
+      "ilvl": 344,
+      "track": null,
+      "peconha": "Amaldiçoado com Peçonha",
+      "dps": null,
+      "atributos": [
+        "Aumenta o seu índice de acerto crítico em +107.",
+        "Aumenta o índice de aceleração em +107.",
+        "??? Atributo não utilizado (+107)",
+        "Aumenta o índice de maestria em +107."
+      ]
+    }
+  ],
+  "fora_dos_tetos": [
+    {
+      "id": 251111,
+      "nome_pt": "Aguilhão Rasga-mantos",
+      "nome_en": "Splitshroud Stinger",
+      "slot": "arma 1M",
+      "ilvl": 289,
+      "track": "Mito 6/6",
+      "peconha": null,
+      "dps": "35.0",
+      "atributos": [
+        "+361 Intelecto",
+        "+1.163 Vigor",
+        "Aumenta o seu índice de acerto crítico em +53.",
+        "Aumenta o índice de aceleração em +29."
+      ]
+    },
+    {
+      "id": 244679,
+      "nome_pt": "Anzol da Travessa do Assassino",
+      "nome_en": "Murder Row Fishhook",
+      "slot": "arma 1M",
+      "ilvl": 246,
+      "track": null,
+      "peconha": null,
+      "dps": "46.9",
+      "atributos": [
+        "+42 Agilidade",
+        "+692 Vigor",
+        "+32 Atributo Aleatório 1",
+        "+32 Atributo Aleatório 2"
+      ]
+    },
+    {
+      "id": 250288,
+      "nome_pt": "Baselarda em Perda Fásica",
+      "nome_en": "Phase-Lost Baselard",
+      "slot": "arma 1M",
+      "ilvl": 1,
+      "track": null,
+      "peconha": null,
+      "dps": "0.6",
+      "atributos": []
+    },
+    {
+      "id": 250272,
+      "nome_pt": "Borduna em Perda Fásica",
+      "nome_en": "Phase-Lost Cudgel",
+      "slot": "arma 1M",
+      "ilvl": 1,
+      "track": null,
+      "peconha": null,
+      "dps": "0.4",
+      "atributos": []
+    },
+    {
+      "id": 275063,
+      "nome_pt": "Canção de Calor da Volpe",
+      "nome_en": "Foxton's Song of Warmth",
+      "slot": "arma 1M",
+      "ilvl": 1,
+      "track": null,
+      "peconha": null,
+      "dps": "0.4",
+      "atributos": []
+    },
+    {
+      "id": 275066,
+      "nome_pt": "Canção de Força da Volpe",
+      "nome_en": "Foxton's Song of Strength",
+      "slot": "arma 1M",
+      "ilvl": 1,
+      "track": null,
+      "peconha": null,
+      "dps": "0.4",
+      "atributos": []
+    },
+    {
+      "id": 275064,
+      "nome_pt": "Canção de Misericórdia da Volpe",
+      "nome_en": "Foxton's Song of Mercy",
+      "slot": "arma 1M",
+      "ilvl": 1,
+      "track": null,
+      "peconha": null,
+      "dps": "0.4",
+      "atributos": []
+    },
+    {
+      "id": 275065,
+      "nome_pt": "Canção de Vínculo da Volpe",
+      "nome_en": "Foxton's Song of Binding",
+      "slot": "arma 1M",
+      "ilvl": 1,
+      "track": null,
+      "peconha": null,
+      "dps": "0.4",
+      "atributos": []
+    },
+    {
+      "id": 250270,
+      "nome_pt": "Cimitarra em Perda Fásica",
+      "nome_en": "Phase-Lost Scimitar",
+      "slot": "arma 1M",
+      "ilvl": 1,
+      "track": null,
+      "peconha": null,
+      "dps": "0.4",
+      "atributos": []
+    },
+    {
+      "id": 251175,
+      "nome_pt": "Cutelo da Praga Anímica",
+      "nome_en": "Soulblight Cleaver",
+      "slot": "arma 1M",
+      "ilvl": 289,
+      "track": "Mito 6/6",
+      "peconha": null,
+      "dps": "70.4",
+      "atributos": [
+        "+62 Agilidade",
+        "+1.163 Vigor",
+        "Aumenta o seu índice de acerto crítico em +50.",
+        "Aumenta o índice de maestria em +32."
+      ]
+    },
+    {
+      "id": 237844,
+      "nome_pt": "Cutelo do Magíster",
+      "nome_en": "Magister's Cleaver",
+      "slot": "arma 1M",
+      "ilvl": 246,
+      "track": null,
+      "peconha": null,
+      "dps": "23.5",
+      "atributos": [
+        "+242 Intelecto",
+        "+692 Vigor",
+        "+32 Atributo Aleatório 1",
+        "+32 Atributo Aleatório 2"
+      ]
+    },
+    {
+      "id": 237931,
+      "nome_pt": "Divisor Albaforjado",
+      "nome_en": "Dawnforged Splitter",
+      "slot": "arma 1M",
+      "ilvl": 201,
+      "track": null,
+      "peconha": null,
+      "dps": "31.0",
+      "atributos": [
+        "+27 [Agilidade ou Força]",
+        "+390 Vigor",
+        "+23 Atributo Aleatório 1",
+        "+23 Atributo Aleatório 2"
+      ]
+    },
+    {
+      "id": 237843,
+      "nome_pt": "Espada de Mana do Magíster",
+      "nome_en": "Magister's Mana Sword",
+      "slot": "arma 1M",
+      "ilvl": 246,
+      "track": null,
+      "peconha": null,
+      "dps": "23.7",
+      "atributos": [
+        "+242 Intelecto",
+        "+692 Vigor",
+        "+32 Atributo Aleatório 1",
+        "+32 Atributo Aleatório 2"
+      ]
+    },
+    {
+      "id": 237916,
+      "nome_pt": "Espada do Competidor Talassiano",
+      "nome_en": "Thalassian Competitor's Sword",
+      "slot": "arma 1M",
+      "ilvl": 263,
+      "track": null,
+      "peconha": null,
+      "dps": "55.2",
+      "atributos": [
+        "+49 Força",
+        "+847 Vigor",
+        "+36 Atributo Aleatório 1",
+        "+36 Atributo Aleatório 2"
+      ]
+    },
+    {
+      "id": 250269,
+      "nome_pt": "Espada Longa em Perda Fásica",
+      "nome_en": "Phase-Lost Longsword",
+      "slot": "arma 1M",
+      "ilvl": 1,
+      "track": null,
+      "peconha": null,
+      "dps": "0.4",
+      "atributos": []
+    },
+    {
+      "id": 237914,
+      "nome_pt": "Espeto do Competidor Talassiano",
+      "nome_en": "Thalassian Competitor's Skewer",
+      "slot": "arma 1M",
+      "ilvl": 263,
+      "track": null,
+      "peconha": null,
+      "dps": "27.5",
+      "atributos": [
+        "+283 Intelecto",
+        "+847 Vigor",
+        "+36 Atributo Aleatório 1",
+        "+36 Atributo Aleatório 2"
+      ]
+    },
+    {
+      "id": 237910,
+      "nome_pt": "Faca do Competidor Talassiano",
+      "nome_en": "Thalassian Competitor's Knife",
+      "slot": "arma 1M",
+      "ilvl": 263,
+      "track": null,
+      "peconha": null,
+      "dps": "55.0",
+      "atributos": [
+        "+49 Agilidade",
+        "+847 Vigor",
+        "+36 Atributo Aleatório 1",
+        "+36 Atributo Aleatório 2"
+      ]
+    },
+    {
+      "id": 251178,
+      "nome_pt": "Faca Ritual Cerimonial",
+      "nome_en": "Ceremonial Hexblade",
+      "slot": "arma 1M",
+      "ilvl": 289,
+      "track": "Mito 6/6",
+      "peconha": null,
+      "dps": "35.0",
+      "atributos": [
+        "+361 Intelecto",
+        "+1.163 Vigor",
+        "Aumenta o seu índice de acerto crítico em +31.",
+        "Aumenta o índice de aceleração em +52."
+      ]
+    },
+    {
+      "id": 268211,
+      "nome_pt": "Faca Ritual do Infortúnio",
+      "nome_en": "Baleful Hexblade",
+      "slot": "arma 1M",
+      "ilvl": 344,
+      "track": null,
+      "peconha": null,
+      "dps": "58.7",
+      "atributos": [
+        "+603 Intelecto",
+        "+2.192 Vigor",
+        "Aumenta o índice de aceleração em +71.",
+        "Aumenta o índice de maestria em +33."
+      ]
+    },
+    {
+      "id": 237926,
+      "nome_pt": "Faca Ritualística Albaforjada",
+      "nome_en": "Dawnforged Ritual Knife",
+      "slot": "arma 1M",
+      "ilvl": 201,
+      "track": null,
+      "peconha": null,
+      "dps": "15.3",
+      "atributos": [
+        "+159 Intelecto",
+        "+390 Vigor",
+        "+23 Atributo Aleatório 1",
+        "+23 Atributo Aleatório 2"
+      ]
+    },
+    {
+      "id": 237838,
+      "nome_pt": "Faca Ritualística do Magíster",
+      "nome_en": "Magister's Ritual Knife",
+      "slot": "arma 1M",
+      "ilvl": 246,
+      "track": null,
+      "peconha": null,
+      "dps": "23.3",
+      "atributos": [
+        "+242 Intelecto",
+        "+692 Vigor",
+        "+32 Atributo Aleatório 1",
+        "+32 Atributo Aleatório 2"
+      ]
+    },
+    {
+      "id": 251212,
+      "nome_pt": "Fatiador Radiante",
+      "nome_en": "Radiant Slicer",
+      "slot": "arma 1M",
+      "ilvl": 289,
+      "track": "Mito 6/6",
+      "peconha": null,
+      "dps": "70.6",
+      "atributos": [
+        "+62 Agilidade",
+        "+1.163 Vigor",
+        "Aumenta o índice de aceleração em +52.",
+        "??? Atributo não utilizado (+31)"
+      ]
+    },
+    {
+      "id": 251122,
+      "nome_pt": "Fatiador Umbricida",
+      "nome_en": "Shadowslash Slicer",
+      "slot": "arma 1M",
+      "ilvl": 289,
+      "track": "Mito 6/6",
+      "peconha": null,
+      "dps": "70.4",
+      "atributos": [
+        "+62 Agilidade",
+        "+1.163 Vigor",
+        "Aumenta o índice de aceleração em +52.",
+        "Aumenta o índice de maestria em +31."
+      ]
+    },
+    {
+      "id": 237845,
+      "nome_pt": "Garra de Floraforja",
+      "nome_en": "Bloomforged Claw",
+      "slot": "arma 1M",
+      "ilvl": 246,
+      "track": null,
+      "peconha": null,
+      "dps": "47.1",
+      "atributos": [
+        "+42 [Agilidade ou Força]",
+        "+692 Vigor",
+        "+32 Atributo Aleatório 1",
+        "+32 Atributo Aleatório 2"
+      ]
+    },
+    {
+      "id": 250295,
+      "nome_pt": "Garra em Perda Fásica",
+      "nome_en": "Phase-Lost Claw",
+      "slot": "arma 1M",
+      "ilvl": 1,
+      "track": null,
+      "peconha": null,
+      "dps": "0.4",
+      "atributos": []
+    },
+    {
+      "id": 251163,
+      "nome_pt": "Garrabagatas do Berserker",
+      "nome_en": "Berserker's Hexclaws",
+      "slot": "arma 1M",
+      "ilvl": 289,
+      "track": "Mito 6/6",
+      "peconha": null,
+      "dps": "35.2",
+      "atributos": [
+        "+361 Intelecto",
+        "+1.163 Vigor",
+        "Aumenta o seu índice de acerto crítico em +32.",
+        "??? Atributo não utilizado (+50)"
+      ]
+    },
+    {
+      "id": 237840,
+      "nome_pt": "Glaive de Guerra do Quebra-feitiço",
+      "nome_en": "Spellbreaker's Warglaive",
+      "slot": "arma 1M",
+      "ilvl": 246,
+      "track": null,
+      "peconha": null,
+      "dps": "47.1",
+      "atributos": [
+        "+200 Intelecto",
+        "+42 [Agilidade ou Intelecto]",
+        "+692 Vigor",
+        "+32 Atributo Aleatório 1",
+        "+32 Atributo Aleatório 2"
+      ]
+    },
+    {
+      "id": 251106,
+      "nome_pt": "Glaive Rúnica Resoluta",
+      "nome_en": "Resolute Runeglaive",
+      "slot": "arma 1M",
+      "ilvl": 289,
+      "track": "Mito 6/6",
+      "peconha": null,
+      "dps": "70.2",
+      "atributos": [
+        "+299 Intelecto",
+        "+62 [Agilidade ou Intelecto]",
+        "+1.163 Vigor",
+        "??? Atributo não utilizado (+29)",
+        "Aumenta o índice de maestria em +53."
+      ]
+    },
+    {
+      "id": 237927,
+      "nome_pt": "Gume Albaforjado",
+      "nome_en": "Dawnforged Edge",
+      "slot": "arma 1M",
+      "ilvl": 201,
+      "track": null,
+      "peconha": null,
+      "dps": "30.8",
+      "atributos": [
+        "+27 Agilidade",
+        "+390 Vigor",
+        "+23 Atributo Aleatório 1",
+        "+23 Atributo Aleatório 2"
+      ]
+    },
+    {
+      "id": 271092,
+      "nome_pt": "Jan'thrazet, a Presa Anímica",
+      "nome_en": "Jan'thrazet, the Soul Fang",
+      "slot": "arma 1M",
+      "ilvl": 344,
+      "track": null,
+      "peconha": null,
+      "dps": "58.6",
+      "atributos": [
+        "+603 Intelecto",
+        "+2.192 Vigor",
+        "Aumenta o índice de aceleração em +104."
+      ]
+    },
+    {
+      "id": 250294,
+      "nome_pt": "Katar em Perda Fásica",
+      "nome_en": "Phase-Lost Katar",
+      "slot": "arma 1M",
+      "ilvl": 1,
+      "track": null,
+      "peconha": null,
+      "dps": "0.4",
+      "atributos": []
+    },
+    {
+      "id": 237839,
+      "nome_pt": "Lâmina do Quebra-feitiço",
+      "nome_en": "Spellbreaker's Blade",
+      "slot": "arma 1M",
+      "ilvl": 246,
+      "track": null,
+      "peconha": null,
+      "dps": "47.1",
+      "atributos": [
+        "+42 [Agilidade ou Força]",
+        "+692 Vigor",
+        "+32 Atributo Aleatório 1",
+        "+32 Atributo Aleatório 2"
+      ]
+    },
+    {
+      "id": 237928,
+      "nome_pt": "Lâmina Longa Albaforjada",
+      "nome_en": "Dawnforged Long Blade",
+      "slot": "arma 1M",
+      "ilvl": 201,
+      "track": null,
+      "peconha": null,
+      "dps": "31.0",
+      "atributos": [
+        "+27 [Agilidade ou Força]",
+        "+390 Vigor",
+        "+23 Atributo Aleatório 1",
+        "+23 Atributo Aleatório 2"
+      ]
+    },
+    {
+      "id": 250274,
+      "nome_pt": "Machadinha em Perda Fásica",
+      "nome_en": "Phase-Lost Hatchet",
+      "slot": "arma 1M",
+      "ilvl": 1,
+      "track": null,
+      "peconha": null,
+      "dps": "0.6",
+      "atributos": []
+    },
+    {
+      "id": 251100,
+      "nome_pt": "Marreta do Malfeito",
+      "nome_en": "Malfeasance Mallet",
+      "slot": "arma 1M",
+      "ilvl": 289,
+      "track": "Mito 6/6",
+      "peconha": null,
+      "dps": "70.4",
+      "atributos": [
+        "+62 Força",
+        "+1.163 Vigor",
+        "Aumenta o índice de aceleração em +32.",
+        "Aumenta o índice de maestria em +50."
+      ]
+    },
+    {
+      "id": 250271,
+      "nome_pt": "Martelo em Perda Fásica",
+      "nome_en": "Phase-Lost Hammer",
+      "slot": "arma 1M",
+      "ilvl": 1,
+      "track": null,
+      "peconha": null,
+      "dps": "0.4",
+      "atributos": []
+    },
+    {
+      "id": 237911,
+      "nome_pt": "Máxima do Competidor Talassiano",
+      "nome_en": "Thalassian Competitor's Maxim",
+      "slot": "arma 1M",
+      "ilvl": 263,
+      "track": null,
+      "peconha": null,
+      "dps": "27.5",
+      "atributos": [
+        "+283 Intelecto",
+        "+847 Vigor",
+        "+36 Atributo Aleatório 1",
+        "+36 Atributo Aleatório 2"
+      ]
+    },
+    {
+      "id": 237837,
+      "nome_pt": "Misericórdia do Andarilho",
+      "nome_en": "Farstrider's Mercy",
+      "slot": "arma 1M",
+      "ilvl": 246,
+      "track": null,
+      "peconha": null,
+      "dps": "46.9",
+      "atributos": [
+        "+42 Agilidade",
+        "+692 Vigor",
+        "+32 Atributo Aleatório 1",
+        "+32 Atributo Aleatório 2"
+      ]
+    },
+    {
+      "id": 237850,
+      "nome_pt": "Picador do Andarilho",
+      "nome_en": "Farstrider's Chopper",
+      "slot": "arma 1M",
+      "ilvl": 246,
+      "track": null,
+      "peconha": null,
+      "dps": "47.1",
+      "atributos": [
+        "+42 [Agilidade ou Força]",
+        "+692 Vigor",
+        "+32 Atributo Aleatório 1",
+        "+32 Atributo Aleatório 2"
+      ]
+    },
+    {
+      "id": 237909,
+      "nome_pt": "Picareta do Competidor Talassiano",
+      "nome_en": "Thalassian Competitor's Pickaxe",
+      "slot": "arma 1M",
+      "ilvl": 263,
+      "track": null,
+      "peconha": null,
+      "dps": "55.2",
+      "atributos": [
+        "+49 Agilidade",
+        "+847 Vigor",
+        "+36 Atributo Aleatório 1",
+        "+36 Atributo Aleatório 2"
+      ]
+    },
+    {
+      "id": 251207,
+      "nome_pt": "Porrete do Mangual do Pavor",
+      "nome_en": "Dreadflail Bludgeon",
+      "slot": "arma 1M",
+      "ilvl": 289,
+      "track": "Mito 6/6",
+      "peconha": null,
+      "dps": "70.4",
+      "atributos": [
+        "+62 Agilidade",
+        "+1.163 Vigor",
+        "Aumenta o seu índice de acerto crítico em +29.",
+        "??? Atributo não utilizado (+53)"
+      ]
+    },
+    {
+      "id": 250289,
+      "nome_pt": "Punhal em Perda Fásica",
+      "nome_en": "Phase-Lost Dirk",
+      "slot": "arma 1M",
+      "ilvl": 1,
+      "track": null,
+      "peconha": null,
+      "dps": "0.6",
+      "atributos": []
+    },
+    {
+      "id": 237929,
+      "nome_pt": "Soqueiras Primeforjadas",
+      "nome_en": "Primalforged Knuckles",
+      "slot": "arma 1M",
+      "ilvl": 201,
+      "track": null,
+      "peconha": null,
+      "dps": "31.0",
+      "atributos": [
+        "+27 [Agilidade ou Força]",
+        "+390 Vigor",
+        "+23 Atributo Aleatório 1",
+        "+23 Atributo Aleatório 2"
+      ]
+    },
+    {
+      "id": 237913,
+      "nome_pt": "Talhadeira do Competidor Talassiano",
+      "nome_en": "Thalassian Competitor's Splitter",
+      "slot": "arma 1M",
+      "ilvl": 263,
+      "track": null,
+      "peconha": null,
+      "dps": "55.2",
+      "atributos": [
+        "+49 Força",
+        "+847 Vigor",
+        "+36 Atributo Aleatório 1",
+        "+36 Atributo Aleatório 2"
+      ]
+    },
+    {
+      "id": 251250,
+      "nome_pt": "Talhador do Sacrário Recuperado",
+      "nome_en": "Recovered Sanctum Hacker",
+      "slot": "arma 1M",
+      "ilvl": 227,
+      "track": "Aventureiro 3/6",
+      "peconha": null,
+      "dps": "39.4",
+      "atributos": [
+        "+35 Agilidade",
+        "+558 Vigor",
+        "Aumenta o seu índice de acerto crítico em +25.",
+        "Aumenta o índice de aceleração em +32."
+      ]
+    },
+    {
+      "id": 250273,
+      "nome_pt": "Trinchador em Perda Fásica",
+      "nome_en": "Phase-Lost Carver",
+      "slot": "arma 1M",
+      "ilvl": 1,
+      "track": null,
+      "peconha": null,
+      "dps": "0.6",
+      "atributos": []
+    },
+    {
+      "id": 237841,
+      "nome_pt": "Ultimato do Quebra-feitiço",
+      "nome_en": "Spellbreaker's Ultimatum",
+      "slot": "arma 1M",
+      "ilvl": 246,
+      "track": null,
+      "peconha": null,
+      "dps": "47.1",
+      "atributos": [
+        "+42 [Agilidade ou Força]",
+        "+692 Vigor",
+        "+32 Atributo Aleatório 1",
+        "+32 Atributo Aleatório 2"
+      ]
+    },
+    {
+      "id": 251168,
+      "nome_pt": "Alfanje do Arrebatador",
+      "nome_en": "Liferipper's Cutlass",
+      "slot": "arma 2M",
+      "ilvl": 289,
+      "track": "Mito 6/6",
+      "peconha": null,
+      "dps": "93.2",
+      "atributos": [
+        "+124 Força",
+        "+2.326 Vigor",
+        "Aumenta o seu índice de acerto crítico em +61.",
+        "Aumenta o índice de maestria em +103."
+      ]
+    },
+    {
+      "id": 250282,
+      "nome_pt": "Bardiche em Perda Fásica",
+      "nome_en": "Phase-Lost Bardiche",
+      "slot": "arma 2M",
+      "ilvl": 1,
+      "track": null,
+      "peconha": null,
+      "dps": "0.6",
+      "atributos": []
+    },
+    {
+      "id": 250275,
+      "nome_pt": "Bihänder em Perda Fásica",
+      "nome_en": "Phase-Lost Zweihander",
+      "slot": "arma 2M",
+      "ilvl": 1,
+      "track": null,
+      "peconha": null,
+      "dps": "0.6",
+      "atributos": []
+    },
+    {
+      "id": 245771,
+      "nome_pt": "Cajado-pique de Aln'hara",
+      "nome_en": "Aln'hara Pikestaff",
+      "slot": "arma 2M",
+      "ilvl": 246,
+      "track": null,
+      "peconha": null,
+      "dps": "62.5",
+      "atributos": [
+        "+83 Agilidade",
+        "+1.385 Vigor",
+        "+65 Atributo Aleatório 1",
+        "+65 Atributo Aleatório 2"
+      ]
+    },
+    {
+      "id": 237849,
+      "nome_pt": "Despedida do Magíster",
+      "nome_en": "Magister's Valediction",
+      "slot": "arma 2M",
+      "ilvl": 246,
+      "track": null,
+      "peconha": null,
+      "dps": "31.3",
+      "atributos": [
+        "+369 Intelecto",
+        "+1.385 Vigor",
+        "+65 Atributo Aleatório 1",
+        "+65 Atributo Aleatório 2"
+      ]
+    },
+    {
+      "id": 251162,
+      "nome_pt": "Garra do Traidor",
+      "nome_en": "Traitor's Talon",
+      "slot": "arma 2M",
+      "ilvl": 289,
+      "track": "Mito 6/6",
+      "peconha": null,
+      "dps": "93.3",
+      "atributos": [
+        "+124 Agilidade",
+        "+2.326 Vigor",
+        "Aumenta o seu índice de acerto crítico em +61.",
+        "Aumenta o índice de aceleração em +103."
+      ]
+    },
+    {
+      "id": 237847,
+      "nome_pt": "Ímpeto do Cavaleiro Sangrento",
+      "nome_en": "Blood Knight's Impetus",
+      "slot": "arma 2M",
+      "ilvl": 246,
+      "track": null,
+      "peconha": null,
+      "dps": "62.5",
+      "atributos": [
+        "+83 [Agilidade ou Força]",
+        "+1.385 Vigor",
+        "+65 Atributo Aleatório 1",
+        "+65 Atributo Aleatório 2"
+      ]
+    },
+    {
+      "id": 237846,
+      "nome_pt": "Lâmina de Guerra do Cavaleiro Sangrento",
+      "nome_en": "Blood Knight's Warblade",
+      "slot": "arma 2M",
+      "ilvl": 246,
+      "track": null,
+      "peconha": null,
+      "dps": "62.4",
+      "atributos": [
+        "+83 Força",
+        "+1.385 Vigor",
+        "+65 Atributo Aleatório 1",
+        "+65 Atributo Aleatório 2"
+      ]
+    },
+    {
+      "id": 250283,
+      "nome_pt": "Lança em Perda Fásica",
+      "nome_en": "Phase-Lost Spear",
+      "slot": "arma 2M",
+      "ilvl": 1,
+      "track": null,
+      "peconha": null,
+      "dps": "0.6",
+      "atributos": []
+    },
+    {
+      "id": 237930,
+      "nome_pt": "Maça de Guerra Albaforjada",
+      "nome_en": "Dawnforged War Mace",
+      "slot": "arma 2M",
+      "ilvl": 201,
+      "track": null,
+      "peconha": null,
+      "dps": "41.0",
+      "atributos": [
+        "+55 [Agilidade ou Força]",
+        "+781 Vigor",
+        "+46 Atributo Aleatório 1",
+        "+46 Atributo Aleatório 2"
+      ]
+    },
+    {
+      "id": 250278,
+      "nome_pt": "Maça Grande em Perda Fásica",
+      "nome_en": "Phase-Lost Great Mace",
+      "slot": "arma 2M",
+      "ilvl": 1,
+      "track": null,
+      "peconha": null,
+      "dps": "0.4",
+      "atributos": []
+    },
+    {
+      "id": 237842,
+      "nome_pt": "Machadão de Floraforja",
+      "nome_en": "Bloomforged Greataxe",
+      "slot": "arma 2M",
+      "ilvl": 246,
+      "track": null,
+      "peconha": null,
+      "dps": "62.5",
+      "atributos": [
+        "+83 [Agilidade ou Força]",
+        "+1.385 Vigor",
+        "+65 Atributo Aleatório 1",
+        "+65 Atributo Aleatório 2"
+      ]
+    },
+    {
+      "id": 250281,
+      "nome_pt": "Machado de Batalha em Perda Fásica",
+      "nome_en": "Phase-Lost Battleaxe",
+      "slot": "arma 2M",
+      "ilvl": 1,
+      "track": null,
+      "peconha": null,
+      "dps": "0.4",
+      "atributos": []
+    },
+    {
+      "id": 237932,
+      "nome_pt": "Machado Pesado Primeforjado",
+      "nome_en": "Primalforged Heavy Axe",
+      "slot": "arma 2M",
+      "ilvl": 201,
+      "track": null,
+      "peconha": null,
+      "dps": "41.1",
+      "atributos": [
+        "+55 [Agilidade ou Força]",
+        "+781 Vigor",
+        "+46 Atributo Aleatório 1",
+        "+46 Atributo Aleatório 2"
+      ]
+    },
+    {
+      "id": 250277,
+      "nome_pt": "Malho em Perda Fásica",
+      "nome_en": "Phase-Lost Maul",
+      "slot": "arma 2M",
+      "ilvl": 1,
+      "track": null,
+      "peconha": null,
+      "dps": "0.4",
+      "atributos": []
+    },
+    {
+      "id": 268213,
+      "nome_pt": "Maze-roa, Fúria do Senhor da Guerra",
+      "nome_en": "Maze-roa, Warlord's Fury",
+      "slot": "arma 2M",
+      "ilvl": 344,
+      "track": null,
+      "peconha": null,
+      "dps": "155.7",
+      "atributos": [
+        "+207 [Agilidade ou Força]",
+        "+4.385 Vigor",
+        "Aumenta o seu índice de acerto crítico em +148.",
+        "Aumenta o índice de maestria em +61."
+      ]
+    },
+    {
+      "id": 237848,
+      "nome_pt": "Misericórdia do Cavaleiro Sangrento",
+      "nome_en": "Blood Knight's Mercy",
+      "slot": "arma 2M",
+      "ilvl": 246,
+      "track": null,
+      "peconha": null,
+      "dps": "62.4",
+      "atributos": [
+        "+83 [Agilidade ou Força]",
+        "+1.385 Vigor",
+        "+65 Atributo Aleatório 1",
+        "+65 Atributo Aleatório 2"
+      ]
+    },
+    {
+      "id": 237915,
+      "nome_pt": "Montante do Competidor Talassiano",
+      "nome_en": "Thalassian Competitor's Greatsword",
+      "slot": "arma 2M",
+      "ilvl": 263,
+      "track": null,
+      "peconha": null,
+      "dps": "73.2",
+      "atributos": [
+        "+97 Força",
+        "+1.694 Vigor",
+        "+72 Atributo Aleatório 1",
+        "+72 Atributo Aleatório 2"
+      ]
+    },
+    {
+      "id": 250276,
+      "nome_pt": "Montante em Perda Fásica",
+      "nome_en": "Phase-Lost Greatsword",
+      "slot": "arma 2M",
+      "ilvl": 1,
+      "track": null,
+      "peconha": null,
+      "dps": "0.6",
+      "atributos": []
+    },
+    {
+      "id": 251201,
+      "nome_pt": "Multiferramenta da Centelha Nuclear",
+      "nome_en": "Corespark Multitool",
+      "slot": "arma 2M",
+      "ilvl": 289,
+      "track": "Mito 6/6",
+      "peconha": null,
+      "dps": "46.5",
+      "atributos": [
+        "+551 Intelecto",
+        "+2.326 Vigor",
+        "Aumenta o índice de aceleração em +65.",
+        "Aumenta o índice de maestria em +100."
+      ]
+    },
+    {
+      "id": 250280,
+      "nome_pt": "Picador em Perda Fásica",
+      "nome_en": "Phase-Lost Chopper",
+      "slot": "arma 2M",
+      "ilvl": 1,
+      "track": null,
+      "peconha": null,
+      "dps": "0.4",
+      "atributos": []
+    },
+    {
+      "id": 250284,
+      "nome_pt": "Pináculo em Perda Fásica",
+      "nome_en": "Phase-Lost Spire",
+      "slot": "arma 2M",
+      "ilvl": 1,
+      "track": null,
+      "peconha": null,
+      "dps": "0.3",
+      "atributos": []
+    },
+    {
+      "id": 250285,
+      "nome_pt": "Shillelagh em Perda Fásica",
+      "nome_en": "Phase-Lost Shillelagh",
+      "slot": "arma 2M",
+      "ilvl": 1,
+      "track": null,
+      "peconha": null,
+      "dps": "0.3",
+      "atributos": []
+    },
+    {
+      "id": 251117,
+      "nome_pt": "Talhacaos Rodopiante",
+      "nome_en": "Whirling Voidcleaver",
+      "slot": "arma 2M",
+      "ilvl": 289,
+      "track": "Mito 6/6",
+      "peconha": null,
+      "dps": "93.3",
+      "atributos": [
+        "+124 Força",
+        "+2.326 Vigor",
+        "Aumenta o índice de aceleração em +100.",
+        "Aumenta o índice de maestria em +65."
+      ]
+    },
+    {
+      "id": 250287,
+      "nome_pt": "Arco Longo em Perda Fásica",
+      "nome_en": "Phase-Lost Longbow",
+      "slot": "arma de longo alcance",
+      "ilvl": 1,
+      "track": null,
+      "peconha": null,
+      "dps": "0.5",
+      "atributos": []
+    },
+    {
+      "id": 251174,
+      "nome_pt": "Arcopodre do Enganador",
+      "nome_en": "Deceiver's Rotbow",
+      "slot": "arma de longo alcance",
+      "ilvl": 289,
+      "track": "Mito 6/6",
+      "peconha": null,
+      "dps": "93.2",
+      "atributos": [
+        "+124 Agilidade",
+        "+2.326 Vigor",
+        "Aumenta o índice de aceleração em +65.",
+        "Aumenta o índice de maestria em +100."
+      ]
+    },
+    {
+      "id": 237786,
+      "nome_pt": "Bacamarte do Pragalâmina do Ocaso",
+      "nome_en": "Nightfall Curseblade's Blunderbuss",
+      "slot": "arma de longo alcance",
+      "ilvl": 89,
+      "track": null,
+      "peconha": null,
+      "dps": "14.3",
+      "atributos": [
+        "+19 Agilidade",
+        "+51 Vigor",
+        "Aumenta o seu índice de acerto crítico em +11.",
+        "Aumenta o índice de aceleração em +28."
+      ]
+    },
+    {
+      "id": 250286,
+      "nome_pt": "Bacamarte em Perda Fásica",
+      "nome_en": "Phase-Lost Blunderbuss",
+      "slot": "arma de longo alcance",
+      "ilvl": 1,
+      "track": null,
+      "peconha": null,
+      "dps": "0.5",
+      "atributos": []
+    },
+    {
+      "id": 250300,
+      "nome_pt": "Bastão em Perda Fásica",
+      "nome_en": "Phase-Lost Rod",
+      "slot": "arma de longo alcance",
+      "ilvl": 1,
+      "track": null,
+      "peconha": null,
+      "dps": "0.6",
+      "atributos": []
+    },
+    {
+      "id": 237788,
+      "nome_pt": "Escopeta do Andarilho das Sombras do Ocaso",
+      "nome_en": "Nightfall Shadowalker's Shotgun",
+      "slot": "arma de longo alcance",
+      "ilvl": 89,
+      "track": null,
+      "peconha": null,
+      "dps": "14.3",
+      "atributos": [
+        "+19 Agilidade",
+        "+51 Vigor",
+        "??? Atributo não utilizado (+25)",
+        "Aumenta o índice de maestria em +14."
+      ]
+    },
+    {
+      "id": 244179,
+      "nome_pt": "Grande Foco do Magíster",
+      "nome_en": "Magister's Grand Focus",
+      "slot": "arma de longo alcance",
+      "ilvl": 246,
+      "track": null,
+      "peconha": null,
+      "dps": "23.5",
+      "atributos": [
+        "+242 Intelecto",
+        "+692 Vigor",
+        "+32 Atributo Aleatório 1",
+        "+32 Atributo Aleatório 2"
+      ]
+    },
+    {
+      "id": 275223,
+      "nome_pt": "Lançador de Setas Fásicas",
+      "nome_en": "Phasebolt Thrower",
+      "slot": "arma de longo alcance",
+      "ilvl": 289,
+      "track": "Mito 6/6",
+      "peconha": null,
+      "dps": "93.2",
+      "atributos": [
+        "+124 Agilidade",
+        "+2.326 Vigor",
+        "Aumenta o seu índice de acerto crítico em +80.",
+        "??? Atributo não utilizado (+85)"
+      ]
+    },
+    {
+      "id": 268477,
+      "nome_pt": "P.O.U. x3",
+      "nome_en": "P.O.W. x3",
+      "slot": "arma de longo alcance",
+      "ilvl": 246,
+      "track": null,
+      "peconha": null,
+      "dps": "62.5",
+      "atributos": [
+        "+83 Agilidade",
+        "+1.385 Vigor",
+        "+130 Atributo Aleatório 1"
+      ]
+    },
+    {
+      "id": 263894,
+      "nome_pt": "Rifle Tocado pelo Caos",
+      "nome_en": "Void-Touched Rifle",
+      "slot": "arma de longo alcance",
+      "ilvl": 259,
+      "track": "Herói 1/6",
+      "peconha": null,
+      "dps": "70.5",
+      "atributos": [
+        "+94 Agilidade",
+        "+1.617 Vigor",
+        "Aumenta o seu índice de acerto crítico em +57.",
+        "Aumenta o índice de maestria em +83."
+      ]
+    },
+    {
+      "id": 244178,
+      "nome_pt": "Varinha do Tecencantos Talassiano",
+      "nome_en": "Thalassian Spellweaver's Wand",
+      "slot": "arma de longo alcance",
+      "ilvl": 201,
+      "track": null,
+      "peconha": null,
+      "dps": "15.5",
+      "atributos": [
+        "+159 Intelecto",
+        "+390 Vigor",
+        "+23 Atributo Aleatório 1",
+        "+23 Atributo Aleatório 2"
+      ]
+    },
+    {
+      "id": 250256,
+      "nome_pt": "Coração do Vento",
+      "nome_en": "Heart of Wind",
+      "slot": "berloque",
+      "ilvl": 289,
+      "track": "Mito 6/6",
+      "peconha": null,
+      "dps": null,
+      "atributos": []
+    },
+    {
+      "id": 270175,
+      "nome_pt": "Coração Voraz de Ula'tek",
+      "nome_en": "Voracious Heart of Ula'tek",
+      "slot": "berloque",
+      "ilvl": 344,
+      "track": null,
+      "peconha": null,
+      "dps": null,
+      "atributos": []
+    },
+    {
+      "id": 246304,
+      "nome_pt": "Domínio de Negraluna: Caçada",
+      "nome_en": "Darkmoon Dominion: Hunt",
+      "slot": "berloque",
+      "ilvl": 246,
+      "track": null,
+      "peconha": null,
+      "dps": null,
+      "atributos": []
+    },
+    {
+      "id": 246307,
+      "nome_pt": "Domínio de Negraluna: Caos",
+      "nome_en": "Darkmoon Dominion: Void",
+      "slot": "berloque",
+      "ilvl": 246,
+      "track": null,
+      "peconha": null,
+      "dps": null,
+      "atributos": []
+    },
+    {
+      "id": 246306,
+      "nome_pt": "Domínio de Negraluna: Podridão",
+      "nome_en": "Darkmoon Dominion: Rot",
+      "slot": "berloque",
+      "ilvl": 246,
+      "track": null,
+      "peconha": null,
+      "dps": null,
+      "atributos": []
+    },
+    {
+      "id": 246305,
+      "nome_pt": "Domínio de Negraluna: Sangue",
+      "nome_en": "Darkmoon Dominion: Blood",
+      "slot": "berloque",
+      "ilvl": 246,
+      "track": null,
+      "peconha": null,
+      "dps": null,
+      "atributos": []
+    },
+    {
+      "id": 250227,
+      "nome_pt": "Estandarte de Guerra de Kroluk",
+      "nome_en": "Kroluk's Warbanner",
+      "slot": "berloque",
+      "ilvl": 289,
+      "track": "Mito 6/6",
+      "peconha": null,
+      "dps": null,
+      "atributos": []
+    },
+    {
+      "id": 270168,
+      "nome_pt": "Fonte de Raiva Peçonhenta",
+      "nome_en": "Font of Venomous Rage",
+      "slot": "berloque",
+      "ilvl": 344,
+      "track": null,
+      "peconha": null,
+      "dps": null,
+      "atributos": []
+    },
+    {
+      "id": 250226,
+      "nome_pt": "Gancho Torto de Agaturro",
+      "nome_en": "Latch's Crooked Hook",
+      "slot": "berloque",
+      "ilvl": 289,
+      "track": "Mito 6/6",
+      "peconha": null,
+      "dps": null,
+      "atributos": []
+    },
+    {
+      "id": 270169,
+      "nome_pt": "Ídolo da Perdição do Grão-bagateiro",
+      "nome_en": "Hex Lord's Dooming Idol",
+      "slot": "berloque",
+      "ilvl": 344,
+      "track": null,
+      "peconha": null,
+      "dps": null,
+      "atributos": []
+    },
+    {
+      "id": 250241,
+      "nome_pt": "Marca da Luz",
+      "nome_en": "Mark of Light",
+      "slot": "berloque",
+      "ilvl": 289,
+      "track": "Mito 6/6",
+      "peconha": null,
+      "dps": null,
+      "atributos": []
+    },
+    {
+      "id": 250257,
+      "nome_pt": "Olho do Caos Sufocante",
+      "nome_en": "Eye of the Drowning Void",
+      "slot": "berloque",
+      "ilvl": 289,
+      "track": "Mito 6/6",
+      "peconha": null,
+      "dps": null,
+      "atributos": []
+    },
+    {
+      "id": 250246,
+      "nome_pt": "Orbe de Reabastecimento",
+      "nome_en": "Refueling Orb",
+      "slot": "berloque",
+      "ilvl": 289,
+      "track": "Mito 6/6",
+      "peconha": null,
+      "dps": null,
+      "atributos": []
+    },
+    {
+      "id": 250223,
+      "nome_pt": "Patuá do Apanhador de Almas",
+      "nome_en": "Soulcatcher's Charm",
+      "slot": "berloque",
+      "ilvl": 289,
+      "track": "Mito 6/6",
+      "peconha": null,
+      "dps": null,
+      "atributos": []
+    },
+    {
+      "id": 241340,
+      "nome_pt": "Pedra do Alquimista do Magíster",
+      "nome_en": "Magister's Alchemist Stone",
+      "slot": "berloque",
+      "ilvl": 246,
+      "track": null,
+      "peconha": null,
+      "dps": null,
+      "atributos": []
+    },
+    {
+      "id": 250144,
+      "nome_pt": "Pena de Brasalado",
+      "nome_en": "Emberwing Feather",
+      "slot": "berloque",
+      "ilvl": 289,
+      "track": "Mito 6/6",
+      "peconha": null,
+      "dps": null,
+      "atributos": []
+    },
+    {
+      "id": 250258,
+      "nome_pt": "Receptáculo das Almas Torturadas",
+      "nome_en": "Vessel of Tortured Souls",
+      "slot": "berloque",
+      "ilvl": 289,
+      "track": "Mito 6/6",
+      "peconha": null,
+      "dps": null,
+      "atributos": []
+    },
+    {
+      "id": 250242,
+      "nome_pt": "Replicador de Geleia",
+      "nome_en": "Jelly Replicator",
+      "slot": "berloque",
+      "ilvl": 289,
+      "track": "Mito 6/6",
+      "peconha": null,
+      "dps": null,
+      "atributos": []
+    },
+    {
+      "id": 250253,
+      "nome_pt": "Sussurro da Aparição-crepuscular",
+      "nome_en": "Whisper of the Duskwraith",
+      "slot": "berloque",
+      "ilvl": 289,
+      "track": "Mito 6/6",
+      "peconha": null,
+      "dps": null,
+      "atributos": []
+    },
+    {
+      "id": 270173,
+      "nome_pt": "Técnica da Guilhotina de Zul'jin",
+      "nome_en": "Zul'jin's Guillotine Technique",
+      "slot": "berloque",
+      "ilvl": 344,
+      "track": null,
+      "peconha": null,
+      "dps": null,
+      "atributos": []
+    },
+    {
+      "id": 271554,
+      "nome_pt": "Culotes Envolventes do Penitente Cósmico",
+      "nome_en": "Enveloping Legwraps of the Cosmic Penitent",
+      "slot": "escudo",
+      "ilvl": 334,
+      "track": "Mito 6/6",
+      "peconha": null,
+      "dps": null,
+      "atributos": [
+        "+189 Intelecto",
+        "+3.910 Vigor",
+        "Aumenta o índice de aceleração em +143.",
+        "??? Atributo não utilizado (+58)"
+      ]
+    },
+    {
+      "id": 271553,
+      "nome_pt": "Gritos Ecoantes do Penitente Cósmico",
+      "nome_en": "Cosmic Penitent's Echoing Screams",
+      "slot": "escudo",
+      "ilvl": 334,
+      "track": "Mito 6/6",
+      "peconha": null,
+      "dps": null,
+      "atributos": [
+        "+141 Intelecto",
+        "+2.932 Vigor",
+        "Aumenta o seu índice de acerto crítico em +101.",
+        "Aumenta o índice de aceleração em +49."
+      ]
+    },
+    {
+      "id": 271556,
+      "nome_pt": "Guantes Celestiais do Penitente Cósmico",
+      "nome_en": "Cosmic Penitent's Celestial Grips",
+      "slot": "escudo",
+      "ilvl": 334,
+      "track": "Mito 6/6",
+      "peconha": null,
+      "dps": null,
+      "atributos": [
+        "+141 Intelecto",
+        "+2.932 Vigor",
+        "Aumenta o seu índice de acerto crítico em +53.",
+        "Aumenta o índice de maestria em +98."
+      ]
+    },
+    {
+      "id": 271558,
+      "nome_pt": "Vestes Eclipsantes do Penitente Cósmico",
+      "nome_en": "Cosmic Penitent's Eclipsing Robes",
+      "slot": "escudo",
+      "ilvl": 334,
+      "track": "Mito 6/6",
+      "peconha": null,
+      "dps": null,
+      "atributos": [
+        "+189 Intelecto",
+        "+3.910 Vigor",
+        "Aumenta o seu índice de acerto crítico em +62.",
+        "Aumenta o índice de maestria em +139."
+      ]
+    },
+    {
+      "id": 271555,
+      "nome_pt": "Visão Verdadeira do Penitente Cósmico",
+      "nome_en": "Cosmic Penitent's Truesight",
+      "slot": "escudo",
+      "ilvl": 334,
+      "track": "Mito 6/6",
+      "peconha": null,
+      "dps": null,
+      "atributos": [
+        "+189 Intelecto",
+        "+3.910 Vigor",
+        "Aumenta o seu índice de acerto crítico em +141.",
+        "Aumenta o índice de maestria em +60."
+      ]
+    },
+    {
+      "id": 251150,
+      "nome_pt": "Abrigo da Tormenta",
+      "nome_en": "Tempest's Shelter",
+      "slot": "mão secundária",
+      "ilvl": 334,
+      "track": "Mito 6/6",
+      "peconha": null,
+      "dps": null,
+      "atributos": [
+        "+94 Força",
+        "+289 Intelecto",
+        "+1.955 Vigor",
+        "Aumenta o índice de aceleração em +63.",
+        "Aumenta o índice de maestria em +37."
+      ]
+    },
+    {
+      "id": 237912,
+      "nome_pt": "Baluarte do Competidor Talassiano",
+      "nome_en": "Thalassian Competitor's Bulwark",
+      "slot": "mão secundária",
+      "ilvl": 263,
+      "track": null,
+      "peconha": null,
+      "dps": null,
+      "atributos": [
+        "+49 Força",
+        "+149 Intelecto",
+        "+847 Vigor",
+        "+36 Atributo Aleatório 1",
+        "+36 Atributo Aleatório 2"
+      ]
+    },
+    {
+      "id": 250298,
+      "nome_pt": "Baluarte em Perda Fásica",
+      "nome_en": "Phase-Lost Bulwark",
+      "slot": "mão secundária",
+      "ilvl": 1,
+      "track": null,
+      "peconha": null,
+      "dps": null,
+      "atributos": []
+    },
+    {
+      "id": 237920,
+      "nome_pt": "Baluarte Temperado em Sangue",
+      "nome_en": "Blood-Tempered Bulwark",
+      "slot": "mão secundária",
+      "ilvl": 201,
+      "track": null,
+      "peconha": null,
+      "dps": null,
+      "atributos": [
+        "+27 Força",
+        "+84 Intelecto",
+        "+390 Vigor",
+        "+23 Atributo Aleatório 1",
+        "+23 Atributo Aleatório 2"
+      ]
+    },
+    {
+      "id": 272276,
+      "nome_pt": "Baluarte Ululante",
+      "nome_en": "Wailing Bulwark",
+      "slot": "mão secundária",
+      "ilvl": 321,
+      "track": "Herói 6/6",
+      "peconha": null,
+      "dps": null,
+      "atributos": [
+        "+84 Força",
+        "+256 Intelecto",
+        "+1.684 Vigor",
+        "Aumenta o índice de aceleração em +60.",
+        "??? Atributo não utilizado (+36)"
+      ]
+    },
+    {
+      "id": 251191,
+      "nome_pt": "Broto Luminescente",
+      "nome_en": "Luminescent Sprout",
+      "slot": "mão secundária",
+      "ilvl": 334,
+      "track": "Mito 6/6",
+      "peconha": null,
+      "dps": null,
+      "atributos": [
+        "+1.955 Vigor",
+        "Aumenta o índice de aceleração em +42.",
+        "Aumenta o índice de maestria em +59.Requer Nível 90"
+      ]
+    },
+    {
+      "id": 268196,
+      "nome_pt": "Escamparo Retalhado por Peçonha",
+      "nome_en": "Venom-Slashed Scuteward",
+      "slot": "mão secundária",
+      "ilvl": 334,
+      "track": "Mito 6/6",
+      "peconha": null,
+      "dps": null,
+      "atributos": [
+        "+94 Força",
+        "+289 Intelecto",
+        "+1.955 Vigor",
+        "Aumenta o seu índice de acerto crítico em +33.",
+        "Aumenta o índice de aceleração em +67."
+      ]
+    },
+    {
+      "id": 268197,
+      "nome_pt": "Espinha do Abismo Sibilante",
+      "nome_en": "Spine of the Hissing Abyss",
+      "slot": "mão secundária",
+      "ilvl": 334,
+      "track": "Mito 6/6",
+      "peconha": null,
+      "dps": null,
+      "atributos": [
+        "+1.955 Vigor",
+        "Aumenta o índice de aceleração em +32.",
+        "Aumenta o índice de maestria em +68.Requer Nível 90"
+      ]
+    },
+    {
+      "id": 268263,
+      "nome_pt": "Fronde Mística de Escamagelo",
+      "nome_en": "Frostscale's Mystic Frond",
+      "slot": "mão secundária",
+      "ilvl": 334,
+      "track": "Mito 6/6",
+      "peconha": null,
+      "dps": null,
+      "atributos": [
+        "+1.955 Vigor",
+        "Aumenta o seu índice de acerto crítico em +68.",
+        "Aumenta o índice de maestria em +33.Requer Nível 90"
+      ]
+    },
+    {
+      "id": 245769,
+      "nome_pt": "Lanterna de Aln'hara",
+      "nome_en": "Aln'hara Lantern",
+      "slot": "mão secundária",
+      "ilvl": 246,
+      "track": null,
+      "peconha": null,
+      "dps": null,
+      "atributos": [
+        "+692 Vigor",
+        "+32 Atributo Aleatório 1",
+        "+32 Atributo Aleatório 2Requer Nível 90"
+      ]
+    },
+    {
+      "id": 244472,
+      "nome_pt": "Paliçada do Cavaleiro Comandante",
+      "nome_en": "Knight-Commander's Palisade",
+      "slot": "mão secundária",
+      "ilvl": 246,
+      "track": null,
+      "peconha": null,
+      "dps": null,
+      "atributos": [
+        "+42 Força",
+        "+127 Intelecto",
+        "+692 Vigor",
+        "+32 Atributo Aleatório 1",
+        "+32 Atributo Aleatório 2"
+      ]
+    },
+    {
+      "id": 271681,
+      "nome_pt": "Patuá Atagelo Perene",
+      "nome_en": "Perennial Frostbound Charm",
+      "slot": "mão secundária",
+      "ilvl": 334,
+      "track": "Mito 6/6",
+      "peconha": null,
+      "dps": null,
+      "atributos": [
+        "+1.955 Vigor",
+        "Aumenta o seu índice de acerto crítico em +42.",
+        "Aumenta o índice de maestria em +59.Requer Nível 90"
+      ]
+    },
+    {
+      "id": 250299,
+      "nome_pt": "Pavês em Perda Fásica",
+      "nome_en": "Phase-Lost Pavise",
+      "slot": "mão secundária",
+      "ilvl": 1,
+      "track": null,
+      "peconha": null,
+      "dps": null,
+      "atributos": []
+    },
+    {
+      "id": 273779,
+      "nome_pt": "Presa Focal Maléfica",
+      "nome_en": "Nocuous Focal Fang",
+      "slot": "mão secundária",
+      "ilvl": 334,
+      "track": "Mito 6/6",
+      "peconha": null,
+      "dps": null,
+      "atributos": [
+        "+1.955 Vigor",
+        "Aumenta o seu índice de acerto crítico em +57.",
+        "Aumenta o índice de aceleração em +44.Requer Nível 90"
+      ]
+    },
+    {
+      "id": 268262,
+      "nome_pt": "Protetor Aspergente de Borbulhatana",
+      "nome_en": "Bubblefin Splash Guard",
+      "slot": "mão secundária",
+      "ilvl": 334,
+      "track": "Mito 6/6",
+      "peconha": null,
+      "dps": null,
+      "atributos": [
+        "+94 Força",
+        "+289 Intelecto",
+        "+1.955 Vigor",
+        "Aumenta o índice de aceleração em +33.",
+        "Aumenta o índice de maestria em +67."
+      ]
+    },
+    {
+      "id": 251105,
+      "nome_pt": "Reduto do Quebra-feitiço",
+      "nome_en": "Ward of the Spellbreaker",
+      "slot": "mão secundária",
+      "ilvl": 289,
+      "track": "Mito 6/6",
+      "peconha": null,
+      "dps": null,
+      "atributos": [
+        "+62 Força",
+        "+190 Intelecto",
+        "+1.163 Vigor",
+        "Aumenta o seu índice de acerto crítico em +34.",
+        "Aumenta o índice de maestria em +48."
+      ]
+    },
+    {
+      "id": 251202,
+      "nome_pt": "Refletor de Refluxo",
+      "nome_en": "Reflux Reflector",
+      "slot": "mão secundária",
+      "ilvl": 289,
+      "track": "Mito 6/6",
+      "peconha": null,
+      "dps": null,
+      "atributos": [
+        "+62 Força",
+        "+190 Intelecto",
+        "+1.163 Vigor",
+        "Aumenta o seu índice de acerto crítico em +29.",
+        "??? Atributo não utilizado (+53)"
+      ]
+    },
+    {
+      "id": 237831,
+      "nome_pt": "Repreensão do Quebra-feitiço",
+      "nome_en": "Spellbreaker's Rebuke",
+      "slot": "mão secundária",
+      "ilvl": 246,
+      "track": null,
+      "peconha": null,
+      "dps": null,
+      "atributos": [
+        "+42 Força",
+        "+127 Intelecto",
+        "+692 Vigor",
+        "+32 Atributo Aleatório 1",
+        "+32 Atributo Aleatório 2"
+      ]
+    },
+    {
+      "id": 251196,
+      "nome_pt": "Sacrifício de Teldrassil",
+      "nome_en": "Teldrassil's Sacrifice",
+      "slot": "mão secundária",
+      "ilvl": 334,
+      "track": "Mito 6/6",
+      "peconha": null,
+      "dps": null,
+      "atributos": [
+        "+94 Força",
+        "+289 Intelecto",
+        "+1.955 Vigor",
+        "Aumenta o seu índice de acerto crítico em +61.",
+        "??? Atributo não utilizado (+39)"
+      ]
+    },
+    {
+      "id": 250296,
+      "nome_pt": "Signo em Perda Fásica",
+      "nome_en": "Phase-Lost Sigil",
+      "slot": "mão secundária",
+      "ilvl": 1,
+      "track": null,
+      "peconha": null,
+      "dps": null,
+      "atributos": []
+    },
+    {
+      "id": 250297,
+      "nome_pt": "Sinalizador em Perda Fásica",
+      "nome_en": "Phase-Lost Beacon",
+      "slot": "mão secundária",
+      "ilvl": 1,
+      "track": null,
+      "peconha": null,
+      "dps": null,
+      "atributos": []
+    },
+    {
+      "id": 272275,
+      "nome_pt": "Trombeta do Canta-almas",
+      "nome_en": "Soulsinger's Horn",
+      "slot": "mão secundária",
+      "ilvl": 321,
+      "track": "Herói 6/6",
+      "peconha": null,
+      "dps": null,
+      "atributos": [
+        "+1.684 Vigor",
+        "Aumenta o seu índice de acerto crítico em +36.",
+        "??? Atributo não utilizado (+59)Requer Nível 90"
+      ]
+    },
+    {
+      "id": 240952,
+      "nome_pt": "Amuleto do Competidor Talassiano",
+      "nome_en": "Thalassian Competitor's Amulet",
+      "slot": "pescoço",
+      "ilvl": 263,
+      "track": null,
+      "peconha": null,
+      "dps": null,
+      "atributos": [
+        "+122 Atributo Aleatório 1",
+        "+122 Atributo Aleatório 2"
+      ]
+    },
+    {
+      "id": 250247,
+      "nome_pt": "Amuleto do Hino Abissal",
+      "nome_en": "Amulet of the Abyssal Hymn",
+      "slot": "pescoço",
+      "ilvl": 289,
+      "track": "Mito 6/6",
+      "peconha": null,
+      "dps": null,
+      "atributos": [
+        "Aumenta o índice de aceleração em +43.",
+        "Aumenta o índice de maestria em +260."
+      ]
+    },
+    {
+      "id": 240950,
+      "nome_pt": "Amuleto Sin'dorei Magistral",
+      "nome_en": "Masterwork Sin'dorei Amulet",
+      "slot": "pescoço",
+      "ilvl": 246,
+      "track": null,
+      "peconha": null,
+      "dps": null,
+      "atributos": [
+        "+103 Atributo Aleatório 1",
+        "+103 Atributo Aleatório 2"
+      ]
+    },
+    {
+      "id": 251116,
+      "nome_pt": "Fecho do Mata-aberrações",
+      "nome_en": "Clasp of the Voidslayer",
+      "slot": "pescoço",
+      "ilvl": 227,
+      "track": "Aventureiro 3/6",
+      "peconha": null,
+      "dps": null,
+      "atributos": [
+        "Aumenta o seu índice de acerto crítico em +88.",
+        "Aumenta o índice de maestria em +74.Requer Nível 90"
+      ]
+    },
+    {
+      "id": 251073,
+      "nome_pt": "Matriz de Proteção de Pedra do Caos",
+      "nome_en": "Voidstone Shielding Array",
+      "slot": "pescoço",
+      "ilvl": 246,
+      "track": null,
+      "peconha": null,
+      "dps": null,
+      "atributos": [
+        "Aumenta o índice de aceleração em +82.",
+        "??? Atributo não utilizado (+123)"
+      ]
+    },
+    {
+      "id": 240948,
+      "nome_pt": "Patuá Noturno",
+      "nome_en": "Nocturnal Charm",
+      "slot": "pescoço",
+      "ilvl": 165,
+      "track": null,
+      "peconha": null,
+      "dps": null,
+      "atributos": [
+        "+72 Atributo Aleatório 1",
+        "+72 Atributo Aleatório 2"
+      ]
+    },
+    {
+      "id": 241139,
+      "nome_pt": "Torque de Fênix Talassiana",
+      "nome_en": "Thalassian Phoenix Torque",
+      "slot": "pescoço",
+      "ilvl": 246,
+      "track": null,
+      "peconha": null,
+      "dps": null,
+      "atributos": [
+        "Aumenta o índice de aceleração em +111.",
+        "Aumenta o índice de maestria em +94."
+      ]
+    }
+  ]
+}

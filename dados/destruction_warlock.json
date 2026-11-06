@@ -1,0 +1,506 @@
+{
+  "_meta": {
+    "spec": "Destruction Warlock (Bruxo da Destruição)",
+    "patch": "12.1.5 — A Maldição de Ula'tek",
+    "classe": "Warlock (Bruxo)",
+    "funcao": "DPS à distância (Dano de Fogo e Caos)",
+    "atualizado": "2026-11-06",
+    "fontes": [
+      "Murlok.io top 50 M+ (Battle.net API)",
+      "Icy Veins 12.1.5 (Motoko)",
+      "Method 12.1.5 (Omnithic)",
+      "Wowhead PT-BR (conjunto 2066, spells 1296571 e 1296572)"
+    ]
+  },
+  "prioridade_atributos": {
+    "ordem": [
+      "Maestria",
+      "Aceleração",
+      "Acerto Crítico",
+      "Versatilidade"
+    ],
+    "medias_top50_murlok": {
+      "maestria": "65% (+974)",
+      "aceleracao": "23% (+924)",
+      "critico": "27% (+889)",
+      "versatilidade": "3% (+179)"
+    },
+    "regra_diminishing_returns": "Penalidade progressiva após atingir +20% a partir de atributos de equipamento."
+  },
+  "conjunto_tier_2066": {
+    "nome_pt": "Grilhões Despedaçados do Necrólito Maldito",
+    "nome_en": "Shattered Shackles of the Damned Necrolyte",
+    "bonus": {
+      "2_pecas": "Dano de Incinerar aumentado em 25%, e Incinerar tem mais 10% de chance de evocar um Eco de Sargeras.",
+      "4_pecas": "Alvos que recebem dano de Eco de Sargeras recebem mais 6% de dano dos seus feitiços e habilidades por 6 s.",
+      "spell_2pc": 1296571,
+      "spell_4pc": 1296572
+    },
+    "pecas": [
+      {
+        "slot": "cabeça",
+        "id": 271546,
+        "nome_pt": "Crânio do Necrólito Maldito",
+        "ilvl": 334,
+        "stats": "Int 189, Vig 3.910, Ace 141, Mae 60"
+      },
+      {
+        "slot": "ombros",
+        "id": 271544,
+        "nome_pt": "Pináculos do Necrólito Maldito",
+        "ilvl": 334,
+        "stats": "Int 141, Vig 2.932, Ace 101, Crí 49"
+      },
+      {
+        "slot": "peitoral",
+        "id": 271549,
+        "nome_pt": "Vestes Chacoalhantes do Necrólito Maldito",
+        "ilvl": 334,
+        "stats": "Int 189, Vig 3.910, Ace 62, Mae 139"
+      },
+      {
+        "slot": "mãos",
+        "id": 271547,
+        "nome_pt": "Agarres Calcinados do Necrólito Maldito",
+        "ilvl": 334,
+        "stats": "Int 141, Vig 2.932, Ace 53, Mae 98"
+      },
+      {
+        "slot": "pernas",
+        "id": 271545,
+        "nome_pt": "Amarras de Perna do Necrólito Maldito",
+        "ilvl": 334,
+        "stats": "Int 189, Vig 3.910, Crí 143, Mae 58"
+      }
+    ]
+  },
+  "bis_mplus_top50": {
+    "cabeca": {
+      "id": 271546,
+      "nome_pt": "Crânio do Necrólito Maldito",
+      "fonte": "Tier Raide / Catalyst",
+      "uso_top50": "41/50"
+    },
+    "pescoco": {
+      "id": 268265,
+      "nome_pt": "Relicário Aqiricida",
+      "fonte": "Ula'tek (Raide)",
+      "ilvl": 344,
+      "uso_top50": "46/50"
+    },
+    "ombros": {
+      "id": 271544,
+      "nome_pt": "Pináculos do Necrólito Maldito",
+      "fonte": "Tier Raide / Catalyst",
+      "uso_top50": "41/50"
+    },
+    "costas": {
+      "id": 239656,
+      "nome_pt": "Mortalha Sedosa do Seguidor",
+      "fonte": "Craft Alfaiataria (331)",
+      "uso_top50": "25/50"
+    },
+    "peitoral": {
+      "id": 271549,
+      "nome_pt": "Vestes Chacoalhantes do Necrólito Maldito",
+      "fonte": "Tier Raide / Catalyst",
+      "uso_top50": "49/50"
+    },
+    "pulsos": {
+      "id": 239648,
+      "nome_pt": "Braceletes do Mártir",
+      "fonte": "Craft Alfaiataria (331, Embelezado)",
+      "uso_top50": "42/50"
+    },
+    "maos": {
+      "id": 271547,
+      "nome_pt": "Agarres Calcinados do Necrólito Maldito",
+      "fonte": "Tier Raide / Catalyst",
+      "uso_top50": "40/50"
+    },
+    "cinto": {
+      "id": 239649,
+      "nome_pt": "Banda do Mártir",
+      "fonte": "Craft Alfaiataria (331, Embelezado)",
+      "uso_top50": "30/50"
+    },
+    "pernas": {
+      "id": 271545,
+      "nome_pt": "Amarras de Perna do Necrólito Maldito",
+      "fonte": "Tier Raide / Catalyst",
+      "uso_top50": "45/50"
+    },
+    "botas": {
+      "id": 271548,
+      "nome_pt": "Solas do Necrólito Maldito",
+      "fonte": "Raide",
+      "uso_top50": "18/50"
+    },
+    "anel_1": {
+      "id": 281029,
+      "nome_pt": "Elo do Chama-enxame",
+      "fonte": "Kith'ix (Raide)",
+      "uso_top50": "35/50"
+    },
+    "anel_2": {
+      "id": 240949,
+      "nome_pt": "Elo Sin'dorei Magistral",
+      "fonte": "Craft Joalheria (331)",
+      "uso_top50": "17/50"
+    },
+    "berloque_1": {
+      "id": 270164,
+      "nome_pt": "Bolsa sem Fundo de Gebbo",
+      "fonte": "Mor'zahi (Raide)",
+      "ilvl": 341,
+      "uso_top50": "41/50"
+    },
+    "berloque_2": {
+      "id": 281215,
+      "nome_pt": "Tentáculo do Terror Pervertido",
+      "fonte": "Kith'ix (Raide)",
+      "ilvl": 341,
+      "uso_top50": "39/50"
+    },
+    "arma_principal": {
+      "id": 271092,
+      "nome_pt": "Jan'thrazet, a Presa Anímica",
+      "fonte": "Ula'tek (Raide)",
+      "ilvl": 344,
+      "uso_top50": "42/50"
+    },
+    "mao_secundaria": {
+      "id": 268197,
+      "nome_pt": "Espinha do Abismo Sibilante",
+      "fonte": "Raide",
+      "uso_top50": "21/50"
+    }
+  },
+  "bis_sem_raide": {
+    "perfil": "Masmorras M+, Imersões (Delves), Craft 331 e Matrix Catalyst semanal",
+    "cabeca": {
+      "id": 271546,
+      "nome_pt": "Crânio do Necrólito Maldito",
+      "fonte": "Catalyst (via elmo de M+)"
+    },
+    "pescoco": {
+      "id": 273781,
+      "nome_pt": "Feixe de Presas Protetoras",
+      "fonte": "M+ Altar das Presas",
+      "ilvl": 341
+    },
+    "ombros": {
+      "id": 271544,
+      "nome_pt": "Pináculos do Necrólito Maldito",
+      "fonte": "Catalyst"
+    },
+    "costas": {
+      "id": 251132,
+      "nome_pt": "Mortalha do Inferninho",
+      "fonte": "M+ Travessa dos Assassinos",
+      "ilvl": 334
+    },
+    "peitoral": {
+      "id": 271549,
+      "nome_pt": "Vestes Chacoalhantes do Necrólito Maldito",
+      "fonte": "Catalyst"
+    },
+    "pulsos": {
+      "id": 239648,
+      "nome_pt": "Braceletes do Mártir",
+      "fonte": "Craft Alfaiataria (331, Forro de Arcanotrama)"
+    },
+    "maos": {
+      "id": 271547,
+      "nome_pt": "Agarres Calcinados do Necrólito Maldito",
+      "fonte": "Catalyst"
+    },
+    "cinto": {
+      "id": 239649,
+      "nome_pt": "Banda do Mártir",
+      "fonte": "Craft Alfaiataria (331, Forro de Arcanotrama)"
+    },
+    "pernas": {
+      "id": 271545,
+      "nome_pt": "Amarras de Perna do Necrólito Maldito",
+      "fonte": "Catalyst"
+    },
+    "botas": {
+      "id": 239654,
+      "nome_pt": "Sapatilhas do Mártir",
+      "fonte": "Craft Alfaiataria (331)"
+    },
+    "anel_1": {
+      "id": 240949,
+      "nome_pt": "Elo Sin'dorei Magistral",
+      "fonte": "Craft Joalheria (331)"
+    },
+    "anel_2": {
+      "id": 273792,
+      "nome_pt": "Elo do Senhor da Guerra Amani",
+      "fonte": "M+ Altar das Presas",
+      "ilvl": 341
+    },
+    "berloque_1": {
+      "id": 273649,
+      "nome_pt": "Emblema Tempestuoso de Dazar",
+      "fonte": "M+ Repouso dos Reis",
+      "ilvl": 341
+    },
+    "berloque_2": {
+      "id": 273796,
+      "nome_pt": "Ampola Torpe de Peçonha Volátil",
+      "fonte": "M+ Altar das Presas",
+      "ilvl": 341
+    },
+    "arma_principal": {
+      "id": 273778,
+      "nome_pt": "Canalizador de Lumineira Polido",
+      "fonte": "M+ Altar das Presas",
+      "ilvl": 341
+    },
+    "mao_secundaria": {
+      "id": 245769,
+      "nome_pt": "Lanterna de Aln'hara",
+      "fonte": "Craft Escrivania (331)"
+    }
+  },
+  "ranking_berloques": [
+    {
+      "pos": 1,
+      "id": 270164,
+      "nome_pt": "Bolsa sem Fundo de Gebbo",
+      "tipo": "Passivo",
+      "fonte": "Raide",
+      "uso_top50": "41/50"
+    },
+    {
+      "pos": 2,
+      "id": 281215,
+      "nome_pt": "Tentáculo do Terror Pervertido",
+      "tipo": "Passivo",
+      "fonte": "Raide",
+      "uso_top50": "39/50"
+    },
+    {
+      "pos": 3,
+      "id": 250215,
+      "nome_pt": "Frasco do Cargueiro",
+      "tipo": "Ativo",
+      "fonte": "M+ Travessa dos Assassinos",
+      "uso_top50": "13/50"
+    },
+    {
+      "pos": 4,
+      "id": 273796,
+      "nome_pt": "Ampola Torpe de Peçonha Volátil",
+      "tipo": "Ativo",
+      "fonte": "M+ Altar das Presas",
+      "uso_top50": "2/50"
+    },
+    {
+      "pos": 5,
+      "id": 273649,
+      "nome_pt": "Emblema Tempestuoso de Dazar",
+      "tipo": "Ativo",
+      "fonte": "M+ Repouso dos Reis",
+      "uso_top50": "Alternativa M+"
+    }
+  ],
+  "embelezamentos_recomendados": [
+    {
+      "nome_pt": "Forro de Arcanotrama",
+      "nome_en": "Arcanoweave Lining",
+      "id_reagente": 244588,
+      "adesao_top50": "73%",
+      "efeito": "Concede bônus massivo de Maestria enquanto estiver acima de 80% de vida. Duplo forro em Pulsos e Cinto craftados."
+    }
+  ],
+  "folio_omnico": {
+    "alvo_unico_raide": "C13 (1A-2B-3A-4A-5A) — Fogo Incontido, Autorrecomposição, Perenidade, Poder Crítico, Sobrecarga",
+    "mplus_aoe": "C02 (1A-2A-3A-4A-5B) — Fogo Incontido, Carapaça, Perenidade, Poder Crítico, Energia Residual",
+    "delves_solo": "C24 (1A-2B-3A-4D-5C) — Defesa com Versatilidade e Eco"
+  },
+  "estatisticas_murlok_mplus": {
+    "data_coleta": "2026-11-06",
+    "patch": "12.1.5",
+    "temporada": "Midnight Season 2",
+    "amostra": "Top 50 Destruction Warlocks globais de Mythic+ (US, EU, KR, TW)",
+    "faixa_rating": "3646 a 4152",
+    "distribuicao_hero_talents": {
+      "diabolista": {
+        "jogadores": 37,
+        "porcentagem": 74
+      },
+      "convocador_do_inferno": {
+        "jogadores": 13,
+        "porcentagem": 26
+      }
+    },
+    "prioridade_atributos_secundarios": [
+      {
+        "atributo": "Maestria",
+        "ordem": 1,
+        "media_porcentagem": 65,
+        "media_pontos": 975,
+        "nota": "Maestria: Energias Caóticas aumenta drasticamente o dano aleatório e reduz dano recebido."
+      },
+      {
+        "atributo": "Aceleração",
+        "ordem": 2,
+        "media_porcentagem": 24,
+        "media_pontos": 927,
+        "nota": "Reduz o tempo de cast de Caos Bolt e Incinerar, aumentando a cadência de geração de fragmentos."
+      },
+      {
+        "atributo": "Acerto Crítico",
+        "ordem": 3,
+        "media_porcentagem": 27,
+        "media_pontos": 890,
+        "nota": "Sinergia nativa com Caos Bolt (crítico garantido se multiplica pelo valor de Crítico)."
+      },
+      {
+        "atributo": "Versatilidade",
+        "ordem": 4,
+        "media_porcentagem": 3,
+        "media_pontos": 182,
+        "nota": "Menor prioridade matemática em relação ao escalamento de dano dos outros atributos."
+      }
+    ],
+    "atributos_menores": [
+      {
+        "atributo": "Evasão",
+        "ordem": 1,
+        "media_porcentagem": 4,
+        "media_pontos": 165
+      },
+      {
+        "atributo": "Sorver",
+        "ordem": 2,
+        "media_porcentagem": 3,
+        "media_pontos": 64
+      },
+      {
+        "atributo": "Velocidade",
+        "ordem": 3,
+        "media_porcentagem": 3,
+        "media_pontos": 0
+      }
+    ],
+    "embelezamentos_mais_usados": [
+      {
+        "nome_pt": "Forro de Tramarcana",
+        "nome_en": "Arcanoweave Lining",
+        "item_base": "Martyr's Bindings",
+        "item_id": 239648,
+        "icone": "https://render.worldofwarcraft.com/us/icons/56/7266375.jpg",
+        "contagem_recomendada": 2,
+        "efeito": "Concede bônus massivo de Maestria/Aceleração com vida acima de 80%."
+      },
+      {
+        "nome_pt": "Pedra Ritual do Caçador",
+        "nome_en": "Hunter's Ritual Stone",
+        "item_base": "Aln'hara Lantern",
+        "item_id": 245769,
+        "icone": "https://render.worldofwarcraft.com/us/icons/56/7431122.jpg",
+        "contagem_recomendada": 1,
+        "efeito": "Alternativa viável para pulls em cadeia."
+      },
+      {
+        "nome_pt": "Amolita Polida",
+        "nome_en": "Polished Ammolite",
+        "item_base": "Masterwork Sin'dorei Band",
+        "item_id": 240949,
+        "icone": "https://render.worldofwarcraft.com/us/icons/56/7431122.jpg",
+        "contagem_recomendada": 1,
+        "efeito": "Garante estabilidade de dano elemental caótico."
+      }
+    ],
+    "encantamentos_populares": [
+      {
+        "slot": "Peitoral",
+        "encantamento": "Enchant Chest - Mark of the Worldsoul",
+        "efeito": "+Intelecto"
+      },
+      {
+        "slot": "Braçadeiras",
+        "encantamento": "Enchant Bracer - Chant of Armored Avoidance",
+        "efeito": "+Evasão"
+      },
+      {
+        "slot": "Botas",
+        "encantamento": "Enchant Boots - Defender's March",
+        "efeito": "+Vigor e Velocidade"
+      },
+      {
+        "slot": "Anéis",
+        "encantamento": "Enchant Ring - Radiant Mastery",
+        "efeito": "+Maestria"
+      },
+      {
+        "slot": "Arma Principal",
+        "encantamento": "Enchant Weapon - Authority of Fiery Resolve",
+        "efeito": "Proc de Intelecto"
+      }
+    ],
+    "gemas_populares": [
+      {
+        "gema": "Indecipherable Eversong Diamond",
+        "id": 240983,
+        "tipo": "Diamante Primário",
+        "icone": "https://render.worldofwarcraft.com/us/icons/56/7549096.jpg"
+      },
+      {
+        "gema": "Powerful Eversong Diamond",
+        "id": 240967,
+        "tipo": "Diamante Primário",
+        "icone": "https://render.worldofwarcraft.com/us/icons/56/7549097.jpg"
+      },
+      {
+        "gema": "Flawless Masterful Garnet",
+        "id": 240908,
+        "tipo": "Maestria Prismática",
+        "icone": "https://render.worldofwarcraft.com/us/icons/56/7549144.jpg"
+      },
+      {
+        "gema": "Flawless Quick Garnet",
+        "id": 240906,
+        "tipo": "Aceleração Prismática",
+        "icone": "https://render.worldofwarcraft.com/us/icons/56/7549138.jpg"
+      },
+      {
+        "gema": "Flawless Deadly Peridot",
+        "id": 240890,
+        "tipo": "Crítico Prismático",
+        "icone": "https://render.worldofwarcraft.com/us/icons/56/7549127.jpg"
+      }
+    ],
+    "racas_mais_jogadas": [
+      {
+        "raca": "Orc",
+        "porcentagem": 10,
+        "motivo": "Fúria Sangrenta sincroniza perfeitamente com Invocação do Infernal."
+      },
+      {
+        "raca": "Humano",
+        "porcentagem": 10,
+        "motivo": "Atributos secundários passivos ampliados beneficiando a alta Maestria."
+      },
+      {
+        "raca": "Elfo Noturno (Night Elf)",
+        "porcentagem": 8,
+        "motivo": "Fusão Ínclita para imunizar mecânicas críticas de masmorras."
+      },
+      {
+        "raca": "Anão (Dwarf)",
+        "porcentagem": 8,
+        "motivo": "Forma de Pedra para dispensar sangramentos letais."
+      },
+      {
+        "raca": "Elfo Sangrento",
+        "porcentagem": 6,
+        "motivo": "Torrente Arcana e aumento passivo de Acerto Crítico."
+      }
+    ]
+  }
+}

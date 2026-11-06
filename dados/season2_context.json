@@ -1,0 +1,980 @@
+{
+  "_meta": {
+    "type": "season_context",
+    "expansion": "World of Warcraft: Midnight",
+    "patch": "12.1.5",
+    "patch_nome": "Maldição de Ula'tek",
+    "season": "Season 2",
+    "last_updated": "2026-11-05",
+    "language": "pt-BR",
+    "proposito": "Contexto de temporada compartilhado por todos os specs. Use junto com os documentos de spec para: qual item é melhor, onde farmá-lo, em qual dungeon/boss fazer extra roll com Núcleo Vazio Nebuloso.",
+    "fontes": [
+      "https://www.wowhead.com/pt — nomes PT-BR de itens (fonte oficial)",
+      "https://www.wowhead.com/pt/news/special-effect-gear-and-trinkets-in-midnight-season-2-381991 — fontes de items cantrip e trinkets",
+      "https://www.icy-veins.com/wow — BiS por spec"
+    ]
+  },
+  "protocolo_arvore_talentos": {
+    "descricao": "Protocolo para responder pedidos de build de árvore de talentos",
+    "regra": "NUNCA montar artefato visual de árvore de talentos. O sandbox do claude.ai bloqueia imagens externas (wow.zamimg.com), tornando o artefato inútil sem os ícones originais do jogo.",
+    "acao_correta": "Sempre fornecer: (1) o código de exportação da build para importar no jogo, (2) os talentos recomendados em texto com nomes PT-BR, (3) link para o Wowhead Talent Calc com a string de importação.",
+    "formato_resposta": {
+      "passo1": "Código de exportação (string de importação do jogo/Wowhead)",
+      "passo2": "Talentos recomendados por árvore em PT-BR (texto estruturado)",
+      "passo3": "Link: https://www.wowhead.com/pt/talent-calc/{classe}/{spec}?{import_string}"
+    },
+    "exemplo_demo_warlock_delves": {
+      "codigo_exportacao": "CoQAAAAAAAAAAAAAAAAAAAAAAYmhZGNbmx2MzYWGAAAAAAAwYGDLwAbj2ohFjZGLz2MzMmBAmZMmZmZAmZGmZDAAMmZmxwwyMGwA",
+      "wowhead_link": "https://www.wowhead.com/pt/talent-calc/warlock/demonology"
+    }
+  },
+  "visao_geral_temporada": {
+    "nome": "Season 2 — Maldição de Ula'tek",
+    "raid": {
+      "nome_en": "The Venomous Abyss",
+      "nome_pt": "Abismo Peçonhento",
+      "localizacao": "Vaults of Atal'Utek, The Coiled Isle",
+      "num_bosses": 9
+    },
+    "mythic_plus": {
+      "num_dungeons": 8,
+      "composicao": "5 novas (Midnight) + 3 retornando"
+    },
+    "extra_roll": {
+      "nome_en": "Nebulous Voidcore",
+      "nome_pt": "Núcleo Vazio Nebuloso",
+      "descricao": "Extra roll da Season 2. Use em bosses específicos para aumentar chances de itens BiS.",
+      "dica": "Sempre use o Voidcore em bosses que dropam seus itens BiS mais importantes para o seu spec."
+    },
+    "catalyst": {
+      "nome": "Matrix Catalyst",
+      "nome_pt": "Catalisador Matricial",
+      "mudanca_s2": "Na Season 2, o Catalyst preserva os stats base E os efeitos especiais do item original ao converter para tier. IDEAL: catalyze itens cantrip para ganhar bônus de tier mantendo o efeito especial do item.",
+      "o_que_faz": "Converte uma peça de armadura elegível na peça correspondente do conjunto de tier do seu spec. A peça de saída MANTÉM o track e o nível de aprimoramento da peça usada como entrada.",
+      "regra_central": "Peça Mítica 6/6 catalisada vira tier Mítico 6/6 (334). Peça Heroica 6/6 catalisada vira tier Heroico 6/6 (321). O Catalisador troca o item, não o nível — ele nunca sobe de track.",
+      "slots_de_tier": [
+        "Head",
+        "Shoulder",
+        "Chest",
+        "Hands",
+        "Legs"
+      ],
+      "slots_sem_tier": [
+        "Cloak",
+        "Wrist",
+        "Waist",
+        "Feet",
+        "Neck",
+        "Ring",
+        "Trinket",
+        "Weapon",
+        "OffHand"
+      ],
+      "teto_de_ilvl_por_track": {
+        "heroico_6_6": 321,
+        "mitico_6_6": 334,
+        "mitico_raid_cantrip": 344
+      },
+      "consequencia_pratica": "Todo drop de armadura em Head, Shoulder, Chest, Hands ou Legs é um drop POTENCIAL de tier, independentemente de os atributos secundários serem ou não BiS. Basta uma carga do Catalisador para transformá-lo na peça de tier do seu spec.",
+      "efeito_na_decisao_de_bonus_roll": "O valor de um boss para o Núcleo Vazio Nebuloso não pode ser medido só pela lista de BiS: se o boss dropa um slot de tier no track Mítico, o drop tem valor de tier mesmo quando os secundários não batem com o BiS. Isso aumenta a nota do boss e pode torná-lo melhor alvo de Voidcore do que um boss que dropa BiS de slot não-tier.",
+      "regra_para_decisao_de_voidcore": [
+        "Passo 1 — Liste os bosses que dropam peça em Head, Shoulder, Chest, Hands ou Legs no track Mítico. Esses são candidatos a fechar tier por Catalisador.",
+        "Passo 2 — Cruze com a distância para o 4pc: faltando 2 ou mais peças, um drop de slot de tier no Mítico vale mais que um item de BiS isolado de slot não-tier.",
+        "Passo 3 — Se faltar apenas 1 peça e ela já estiver coberta por peça Heroica catalisada, o Voidcore passa a valer mais em boss que dropa item de BiS de slot sem tier (Cloak, Wrist, Waist, Feet, Neck, Ring, Trinket, Weapon, OffHand), porque o Catalisador não resolve esses slots.",
+        "Passo 4 — Boss que dropa BiS E slot de tier ao mesmo tempo é o alvo prioritário absoluto.",
+        "Passo 5 — Nunca gaste Voidcore em boss cujo único item relevante é tier de track Heroico se você já consegue aquele tier catalisando peça Heroica: o Voidcore não sobe o track do Catalisador."
+      ],
+      "checklist_antes_de_gastar_voidcore": [
+        "O boss dropa algum dos 5 slots de tier no track Mítico?",
+        "Quantas peças de tier você ainda precisa para o 4pc?",
+        "O item de BiS do boss é de um slot que o Catalisador cobre ou não cobre?",
+        "Você já tem carga de Catalisador sobrando nesta semana? Se sim, o drop de tier perde prioridade.",
+        "Existe outro boss com BiS de slot sem tier que o Catalisador nunca vai resolver?"
+      ]
+    }
+  },
+  "raid_abismo_peconhento": {
+    "nome_en": "The Venomous Abyss",
+    "nome_pt": "Abismo Peçonhento",
+    "localizacao": "Vaults of Atal'Utek, The Coiled Isle",
+    "num_bosses": 9,
+    "dificuldades": [
+      "LFR",
+      "Normal",
+      "Heroic",
+      "Mythic"
+    ],
+    "bosses": [
+      {
+        "num": 1,
+        "nome": "Nek'zali the Soulcaller",
+        "drops_notaveis": "Loot geral de raid"
+      },
+      {
+        "num": 2,
+        "nome": "Entombed Sentinels",
+        "drops_notaveis": "Loot geral de raid"
+      },
+      {
+        "num": 3,
+        "nome": "Vashnik the Malignant",
+        "drops_notaveis_pt": [
+          "Espaldares de Peçonha Espumante (ombros — Balance Druid BiS)"
+        ],
+        "drops_notaveis_en": [
+          "Frothing Venom Spaulders"
+        ],
+        "ids": {
+          "Frothing Venom Spaulders": 268246
+        }
+      },
+      {
+        "num": 4,
+        "nome": "The Lost Explorers",
+        "drops_notaveis_pt": [
+          "Bolsa sem Fundo de Gebbo (berloque — BiS Demo Warlock, Shadow Priest)"
+        ],
+        "drops_notaveis_en": [
+          "Gebbo's Bottomless Bag"
+        ],
+        "ids": {
+          "Gebbo's Bottomless Bag": 270164
+        }
+      },
+      {
+        "num": 5,
+        "nome": "Sszorak",
+        "drops_notaveis": "Pernas de tier (Damned Necrolyte's Leg Bindings para Warlock via Catalyst)"
+      },
+      {
+        "num": 6,
+        "nome": "The Twin Fangs",
+        "drops_notaveis": "Loot geral de raid"
+      },
+      {
+        "num": 7,
+        "nome": "The Coiled Altar",
+        "nome_pt_boss_interno": "Grão-bagateiro Malacrass",
+        "drops_notaveis_pt": [
+          "Ídolo da Perdição do Grão-bagateiro (berloque — Shadow Priest BiS M+, Demo Warlock A-tier)",
+          "Botinas Anímicas Crepitantes (botas — Demo Warlock BiS)"
+        ],
+        "drops_notaveis_en": [
+          "Hex Lord's Dooming Idol",
+          "Cackling Soultreads"
+        ],
+        "ids": {
+          "Hex Lord's Dooming Idol": 270169,
+          "Cackling Soultreads": 268255
+        }
+      },
+      {
+        "num": 8,
+        "nome": "Kith'ix",
+        "nome_pt_zona": "A Libertação de Kith'ix",
+        "drops_notaveis_pt": [
+          "Tentáculo do Terror Pervertido (berloque — BiS Demo Warlock, Balance Druid M+, Shadow Priest)",
+          "Elo do Chama-enxame (anel — Demo Warlock BiS)"
+        ],
+        "drops_notaveis_en": [
+          "Twisted Horror's Tendril",
+          "Band of the Swarmcaller"
+        ],
+        "ids": {
+          "Twisted Horror's Tendril": 281215,
+          "Band of the Swarmcaller": 281029
+        }
+      },
+      {
+        "num": 9,
+        "nome": "Ula'tek",
+        "importancia": "BOSS MAIS IMPORTANTE DA TEMPORADA — dropa todos os itens cantrip e a arma BiS universal",
+        "drops_notaveis_pt": [
+          "Jan'thrazet, a Presa Anímica (arma — BiS universal #1 para todos os 3 specs)",
+          "Relicário Aqiricida (pescoço — Demo Warlock BiS)",
+          "Capucho Horrendo do Guardião da Peçonha (elmo — cantrip cloth/all, Demo Warlock tier helm)",
+          "Olhar da Observadora Enrolada (elmo — cantrip leather, Balance Druid BiS)",
+          "Chausses do Rancor Liberto (pernas — cantrip plate)"
+        ],
+        "drops_notaveis_en": [
+          "Jan'thrazet, the Soul Fang",
+          "Aqirbane Reliquary",
+          "Venomkeeper's Horrific Cowl",
+          "Gaze of the Coiled Watcher",
+          "Chausses of Unbound Rancor"
+        ],
+        "ids": {
+          "Jan'thrazet, the Soul Fang": 271092,
+          "Aqirbane Reliquary": 268265,
+          "Venomkeeper's Horrific Cowl": 271874,
+          "Gaze of the Coiled Watcher": 271875,
+          "Chausses of Unbound Rancor": 271878
+        },
+        "nota_loot_spec": "Shadow Priest e Balance Druid devem usar loot spec Holy/Restoration ao matar Ula'tek para aumentar chances de itens cantrip específicos de cada spec"
+      }
+    ]
+  },
+  "dungeons_mythic_plus": {
+    "descricao": "8 dungeons no pool da Season 2 (5 Midnight + 3 retornando)",
+    "altar_das_presas": {
+      "nome_en": "Altar of Fangs",
+      "nome_pt": "Altar das Presas",
+      "origem": "Midnight (nova)",
+      "bosses": [
+        "Rav'i",
+        "The Writhing Coil",
+        "Zul'jan"
+      ],
+      "drops_notaveis_pt": [
+        "Ampola Torpe de Peçonha Volátil (berloque on-use — BiS Balance Druid M+, Demo Warlock M+)",
+        "Veste de Ritos Primordial (manto — Shadow Priest BiS M+)"
+      ],
+      "drops_notaveis_en": [
+        "Vile Vial of Volatile Venom",
+        "Primordial Robe of Rites"
+      ],
+      "ids": {
+        "Vile Vial of Volatile Venom": 273796,
+        "Primordial Robe of Rites": 273785
+      }
+    },
+    "covil_de_nalorakk": {
+      "nome_en": "Den of Nalorakk",
+      "nome_pt": "Covil de Nalorakk",
+      "origem": "Midnight (nova)",
+      "bosses": [
+        "The Hoardmonger",
+        "Sentinel of Winter",
+        "Nalorakk"
+      ],
+      "drops_notaveis_pt": [
+        "Guarda-pernas do Sonho Florestal (pernas — Shadow Priest BiS M+)"
+      ],
+      "drops_notaveis_en": [
+        "Forest Dream Leg-guards"
+      ],
+      "ids": {
+        "Forest Dream Leg-guards": 251160
+      },
+      "nao_relevante_para_casters": [
+        "Ídolo do Loa da Guerra (250229) — CORRIGIDO em 2026-11-05: o tooltip oficial concede +148 de Crítico e 290 de FORÇA por 15s. É trinket de melee, sem valor para Bruxo, Sacerdote ou Druida Balance. Estava listado indevidamente como BiS de M+ do Demo Warlock."
+      ]
+    },
+    "murder_row": {
+      "nome_en": "Murder Row",
+      "nome_pt": "Travessa dos Assassinos",
+      "origem": "Midnight (nova)",
+      "bosses": [
+        "Kystia Manaheart",
+        "Zaen Bladesorrow",
+        "Xanthuux the Annihilator",
+        "Lithiel Cinderfury"
+      ],
+      "drops_notaveis_pt": [
+        "Mortalha do Inferninho (capa — BiS Cloak para Demo Warlock, Shadow Priest, Balance Druid)"
+      ],
+      "drops_notaveis_en": [
+        "Hellfire Shroud"
+      ],
+      "ids": {
+        "Hellfire Shroud": 251132
+      }
+    },
+    "vale_ofuscante": {
+      "nome_en": "The Blinding Vale",
+      "nome_pt": "O Vale Ofuscante",
+      "origem": "Midnight (nova)",
+      "bosses": [
+        "Lightblossom Trinity",
+        "Ikuzz the Light Hunter",
+        "Lightwarden Ruia",
+        "Ziekket"
+      ],
+      "drops_notaveis": "Loot geral de M+"
+    },
+    "arena_voidscarda": {
+      "nome_en": "Voidscar Arena",
+      "nome_pt": "Arena da Chaga do Caos",
+      "origem": "Midnight (nova)",
+      "bosses": [
+        "Taz'Rah",
+        "Atroxus",
+        "Charonus"
+      ],
+      "drops_notaveis_pt": [
+        "Atadura do Éter Etérea (cinto — Demo Warlock BiS)"
+      ],
+      "drops_notaveis_en": [
+        "Ethereal Netherwrap"
+      ],
+      "ids": {
+        "Ethereal Netherwrap": 251222
+      }
+    },
+    "ruby_life_pools": {
+      "nome_en": "Ruby Life Pools",
+      "nome_pt": "Poços da Vida Rubi",
+      "origem": "Retornando (Dragonflight)",
+      "bosses": [
+        "Melidrussa Chillworn",
+        "Kokia Blazehoof",
+        "Kyrakka and Erkhart Stormvein"
+      ],
+      "drops_notaveis": "Kyrakka's Searing Embers (trinket)"
+    },
+    "templo_de_sethraliss": {
+      "nome_en": "Temple of Sethraliss",
+      "nome_pt": "Templo de Sethraliss",
+      "origem": "Retornando (Battle for Azeroth)",
+      "bosses": [
+        "Adderis & Aspix",
+        "Avatar of Sethraliss",
+        "Merektha",
+        "Galvazzt"
+      ],
+      "drops_notaveis_pt": [
+        "Elo de Arenito Carregado (anel — Demo Warlock BiS M+)"
+      ],
+      "drops_notaveis_en": [
+        "Charged Sandstone Band"
+      ],
+      "ids": {
+        "Charged Sandstone Band": 158366
+      },
+      "nota": "Demo Warlock tier shoulders (Spires of the Damned Necrolyte) vêm via Catalyst de item do Temple of Sethraliss"
+    },
+    "kings_rest": {
+      "nome_en": "King's Rest",
+      "nome_pt": "Repouso do Rei",
+      "origem": "Retornando (Battle for Azeroth)",
+      "bosses": [
+        "The Golden Serpent",
+        "Mchimba the Embalmer",
+        "Council of Tribes",
+        "King Dazar"
+      ],
+      "drops_notaveis_pt": [
+        "Emblema Tempestuoso de Dazar (berloque — Demo Warlock S-tier, BiS M+)",
+        "Mantle of Ceremonial Ascension (ombros — Shadow Priest BiS)"
+      ],
+      "drops_notaveis_en": [
+        "Stormbound Emblem of Dazar",
+        "Mantle of Ceremonial Ascension"
+      ],
+      "ids": {
+        "Stormbound Emblem of Dazar": 273649,
+        "Mantle of Ceremonial Ascension": 239045
+      }
+    }
+  },
+  "itens_cantrip": {
+    "descricao": "Itens especiais de alto ilvl com efeitos proc únicos. Dropam APENAS de Ula'tek (boss final do Abismo Peçonhento). O Catalyst preserva seus efeitos especiais na conversão para tier.",
+    "armas_cantrip": [
+      {
+        "nome_en": "Jan'thrazet, the Soul Fang",
+        "nome_pt": "Jan'thrazet, a Presa Anímica",
+        "slot": "Arma principal (1H)",
+        "fonte": "Ula'tek (Abismo Peçonhento) — drop muito raro",
+        "id": 271092,
+        "importancia": "BiS universal para Demo Warlock, Shadow Priest E Balance Druid. Arma mais valiosa da temporada."
+      }
+    ],
+    "armaduras_cantrip_ula_tek": [
+      {
+        "nome_en": "Venomkeeper's Horrific Cowl",
+        "nome_pt": "Capucho Horrendo do Guardião da Peçonha",
+        "slot": "Elmo (Cloth/Universal)",
+        "tipo_armadura": "Tecido",
+        "fonte": "Ula'tek (Abismo Peçonhento)",
+        "id": 271874,
+        "relevante_para": [
+          "Demo Warlock (tier helm)",
+          "Shadow Priest (cantrip helm)"
+        ]
+      },
+      {
+        "nome_en": "Gaze of the Coiled Watcher",
+        "nome_pt": "Olhar da Observadora Enrolada",
+        "slot": "Elmo (Couro)",
+        "tipo_armadura": "Couro",
+        "fonte": "Ula'tek (Abismo Peçonhento)",
+        "id": 271875,
+        "relevante_para": [
+          "Balance Druid (cantrip helm BiS)"
+        ]
+      },
+      {
+        "nome_en": "Chausses of Unbound Rancor",
+        "nome_pt": "Chausses do Rancor Liberto",
+        "slot": "Pernas (Placa)",
+        "tipo_armadura": "Placa",
+        "fonte": "Ula'tek (Abismo Peçonhento)",
+        "id": 271878
+      }
+    ],
+    "acessorios_cantrip": [
+      {
+        "nome_en": "Aqirbane Reliquary",
+        "nome_pt": "Relicário Aqiricida",
+        "slot": "Pescoço",
+        "fonte": "Ula'tek (Abismo Peçonhento)",
+        "id": 268265,
+        "relevante_para": [
+          "Demo Warlock (BiS pescoço)"
+        ]
+      }
+    ]
+  },
+  "todos_itens_bis_pt_br": {
+    "descricao": "Dicionário completo EN→PT-BR de todos os itens BiS mencionados nos docs de spec.",
+    "armas": [
+      {
+        "nome_en": "Jan'thrazet, the Soul Fang",
+        "nome_pt": "Jan'thrazet, a Presa Anímica",
+        "slot": "Arma 1H",
+        "fonte": "Ula'tek — Abismo Peçonhento (Raid)",
+        "id": 271092,
+        "specs_relevantes": [
+          "Demo Warlock",
+          "Shadow Priest",
+          "Balance Druid"
+        ],
+        "extra_roll": "SIM — boss mais importante. Use Núcleo Vazio Nebuloso em Ula'tek toda semana.",
+        "nota": "Drop muito raro de Ula'tek. Pode sair na Great Vault também."
+      },
+      {
+        "nome_en": "Aln'hara Lantern",
+        "slot": "Off-hand",
+        "fonte": "Craft (Tailoring)",
+        "specs_relevantes": [
+          "Demo Warlock"
+        ],
+        "nota": "Murlok: 39/50 Demo Warlocks — preferível ao drop de M+ por customização de stats",
+        "nome_pt": "Lanterna de Aln'hara",
+        "item_id": 245769
+      },
+      {
+        "nome_en": "Spine of the Hissing Abyss",
+        "slot": "Off-hand",
+        "fonte": "Entombed Sentinels — Abismo Peçonhento (Raid)",
+        "specs_relevantes": [
+          "Demo Warlock"
+        ],
+        "nota": "Alternativa ao craft se não tiver acesso",
+        "nome_pt": "Espinha do Abismo Sibilante",
+        "item_id": 268197
+      }
+    ],
+    "elmos": [
+      {
+        "nome_en": "Venomkeeper's Horrific Cowl",
+        "nome_pt": "Capucho Horrendo do Guardião da Peçonha",
+        "slot": "Elmo",
+        "fonte": "Ula'tek — Abismo Peçonhento (Raid)",
+        "id": 271874,
+        "tipo": "Cantrip + Tier",
+        "specs_relevantes": [
+          "Demo Warlock (Tier Head)",
+          "Shadow Priest"
+        ],
+        "extra_roll": "SIM — Ula'tek. Peça crítica para tier 4pc."
+      },
+      {
+        "nome_en": "Gaze of the Coiled Watcher",
+        "nome_pt": "Olhar da Observadora Enrolada",
+        "slot": "Elmo (Couro)",
+        "fonte": "Ula'tek — Abismo Peçonhento (Raid)",
+        "id": 271875,
+        "tipo": "Cantrip",
+        "specs_relevantes": [
+          "Balance Druid"
+        ],
+        "extra_roll": "SIM — Ula'tek. BiS elmo para Balance Druid."
+      }
+    ],
+    "pescocos": [
+      {
+        "nome_en": "Aqirbane Reliquary",
+        "nome_pt": "Relicário Aqiricida",
+        "slot": "Pescoço",
+        "fonte": "Ula'tek — Abismo Peçonhento (Raid)",
+        "id": 268265,
+        "tipo": "Cantrip",
+        "specs_relevantes": [
+          "Demo Warlock"
+        ],
+        "extra_roll": "SIM — Ula'tek. Pescoço BiS para Demo Warlock."
+      }
+    ],
+    "ombros": [
+      {
+        "nome_en": "Spires of the Damned Necrolyte",
+        "slot": "Ombros (Tier)",
+        "fonte": "Catalyst de item de Temple of Sethraliss (M+)",
+        "tipo": "Tier (via Catalyst)",
+        "specs_relevantes": [
+          "Demo Warlock"
+        ],
+        "extra_roll": "NÃO — vem via Catalyst de gear de Temple of Sethraliss",
+        "nome_pt": "Pináculos do Necrólito Maldito",
+        "item_id": 271544
+      },
+      {
+        "nome_en": "Frothing Venom Spaulders",
+        "slot": "Ombros",
+        "fonte": "Vashnik the Malignant — Abismo Peçonhento (Raid boss 3)",
+        "specs_relevantes": [
+          "Balance Druid"
+        ],
+        "extra_roll": "Sim — Vashnik se for BiS para seu slot",
+        "nome_pt": "Espaldares de Peçonha Espumante",
+        "item_id": 268246
+      },
+      {
+        "nome_en": "Mantle of Ceremonial Ascension",
+        "slot": "Ombros",
+        "fonte": "King's Rest (M+)",
+        "specs_relevantes": [
+          "Shadow Priest"
+        ],
+        "extra_roll": "Sim — farme King's Rest M+",
+        "nome_pt": "Dragonas da Ascensão Cerimonial",
+        "item_id": 239045
+      }
+    ],
+    "capas": [
+      {
+        "nome_en": "Speakeasy Shroud",
+        "nome_pt": "Mortalha do Inferninho",
+        "slot": "Capa",
+        "fonte": "Murder Row (M+)",
+        "id": 251132,
+        "specs_relevantes": [
+          "Demo Warlock",
+          "Shadow Priest",
+          "Balance Druid"
+        ],
+        "extra_roll": "Sim — farme Murder Row M+"
+      }
+    ],
+    "peitorais": [
+      {
+        "nome_en": "Damned Necrolyte's Rattling Robes",
+        "slot": "Peitoral (Tier)",
+        "fonte": "Vashnik — Abismo Peçonhento (Raid) ou Catalyst",
+        "tipo": "Tier",
+        "specs_relevantes": [
+          "Demo Warlock"
+        ],
+        "extra_roll": "Sim — Vashnik se precisar do tier chest",
+        "nome_pt": "Vestes Chacoalhantes do Necrólito Maldito",
+        "item_id": 271549
+      },
+      {
+        "nome_en": "Primordial Robe of Rites",
+        "slot": "Peitoral",
+        "fonte": "Altar of Fangs (M+) — Zul'jan boss",
+        "specs_relevantes": [
+          "Shadow Priest"
+        ],
+        "extra_roll": "Sim — farme Altar of Fangs M+",
+        "nome_pt": "Veste de Ritos Primordial",
+        "item_id": 273785
+      }
+    ],
+    "pulsos": [
+      {
+        "nome_en": "Martyr's Bindings",
+        "slot": "Pulsos",
+        "fonte": "Craft (Tailoring)",
+        "tipo": "Craft",
+        "specs_relevantes": [
+          "Demo Warlock"
+        ],
+        "nota": "Peça craftada — compre no AH ou encomende ao alfaiate",
+        "nome_pt": "Braceletes do Mártir",
+        "item_id": 239648
+      }
+    ],
+    "maos": [
+      {
+        "nome_en": "Damned Necrolyte's Charred Grasps",
+        "slot": "Mãos (Tier)",
+        "fonte": "Catalyst de The Coiled Altar (Raid boss 7)",
+        "tipo": "Tier (via Catalyst)",
+        "specs_relevantes": [
+          "Demo Warlock"
+        ],
+        "nome_pt": "Agarres Calcinados do Necrólito Maldito",
+        "item_id": 271547
+      }
+    ],
+    "cintos": [
+      {
+        "nome_en": "Ethereal Netherwrap",
+        "nome_pt": "Atadura do Éter Etérea",
+        "slot": "Cinto",
+        "fonte": "Voidscar Arena (M+)",
+        "id": 251222,
+        "specs_relevantes": [
+          "Demo Warlock"
+        ],
+        "extra_roll": "Sim — farme Voidscar Arena M+"
+      },
+      {
+        "nome_en": "Sash of the Forlorn Vessel",
+        "slot": "Cinto",
+        "fonte": "The Coiled Altar — Abismo Peçonhento (Raid boss 7)",
+        "specs_relevantes": [
+          "Balance Druid"
+        ],
+        "extra_roll": "Sim — The Coiled Altar",
+        "nome_pt": "Faixa do Receptáculo Desolado",
+        "item_id": 268256
+      }
+    ],
+    "pernas": [
+      {
+        "nome_en": "Damned Necrolyte's Leg Bindings",
+        "slot": "Pernas (Tier)",
+        "fonte": "Sszorak — Abismo Peçonhento (Raid boss 5) ou Catalyst",
+        "tipo": "Tier",
+        "specs_relevantes": [
+          "Demo Warlock"
+        ],
+        "nome_pt": "Amarras de Perna do Necrólito Maldito",
+        "item_id": 271545
+      },
+      {
+        "nome_en": "Forest Dream Leg-guards",
+        "nome_pt": "Guarda-pernas do Sonho Florestal",
+        "slot": "Pernas",
+        "fonte": "Den of Nalorakk (M+)",
+        "id": 251160,
+        "specs_relevantes": [
+          "Shadow Priest"
+        ],
+        "extra_roll": "Sim — farme Den of Nalorakk M+"
+      },
+      {
+        "nome_en": "Coiled Hex Legguards",
+        "slot": "Pernas",
+        "fonte": "The Coiled Altar — Abismo Peçonhento (Raid boss 7)",
+        "specs_relevantes": [
+          "Balance Druid"
+        ],
+        "extra_roll": "Sim — The Coiled Altar",
+        "nome_pt": "Guarda-pernas da Bagata Enrolada",
+        "item_id": 268225
+      }
+    ],
+    "botas": [
+      {
+        "nome_en": "Cackling Soultreads",
+        "nome_pt": "Botinas Anímicas Crepitantes",
+        "slot": "Botas",
+        "fonte": "The Coiled Altar — Abismo Peçonhento (Raid boss 7)",
+        "id": 268255,
+        "specs_relevantes": [
+          "Demo Warlock"
+        ],
+        "extra_roll": "Sim — The Coiled Altar"
+      }
+    ],
+    "aneis": [
+      {
+        "nome_en": "Band of the Swarmcaller",
+        "nome_pt": "Elo do Chama-enxame",
+        "slot": "Anel",
+        "fonte": "Kith'ix — Abismo Peçonhento (Raid boss 8)",
+        "id": 281029,
+        "specs_relevantes": [
+          "Demo Warlock",
+          "Shadow Priest"
+        ],
+        "extra_roll": "Sim — Kith'ix"
+      },
+      {
+        "nome_en": "Charged Sandstone Band",
+        "nome_pt": "Elo de Arenito Carregado",
+        "slot": "Anel",
+        "fonte": "Temple of Sethraliss (M+)",
+        "id": 158366,
+        "specs_relevantes": [
+          "Demo Warlock"
+        ],
+        "extra_roll": "Sim — farme Temple of Sethraliss M+"
+      }
+    ],
+    "berloques": [
+      {
+        "nome_en": "Twisted Horror's Tendril",
+        "nome_pt": "Tentáculo do Terror Pervertido",
+        "slot": "Berloque",
+        "tipo_efeito": "passivo",
+        "fonte": "Kith'ix — Abismo Peçonhento (Raid boss 8)",
+        "id": 281215,
+        "specs_relevantes": [
+          "Demo Warlock (S-tier)",
+          "Balance Druid (BiS passivo)",
+          "Shadow Priest (BiS M+, 48/50)"
+        ],
+        "extra_roll": "SIM — Kith'ix."
+      },
+      {
+        "nome_en": "Idol of the War Loa",
+        "nome_pt": "Ídolo do Loa da Guerra",
+        "slot": "Berloque",
+        "tipo_efeito": "passivo",
+        "fonte": "Covil de Nalorakk (M+)",
+        "id": 250229,
+        "atributo_concedido": "Força (+290 por 15s)",
+        "specs_relevantes": [],
+        "excluido": true,
+        "motivo_exclusao": "CORRIGIDO em 2026-11-05. O tooltip oficial do Wowhead confirma 290 de Força por 15s. Trinket de melee. Estava indevidamente listado como BiS de M+ do Demo Warlock.",
+        "extra_roll": "NÃO — não serve a nenhum dos 3 specs do projeto"
+      },
+      {
+        "nome_en": "Hex Lord's Dooming Idol",
+        "nome_pt": "Ídolo da Perdição do Grão-bagateiro",
+        "slot": "Berloque",
+        "tipo_efeito": "hibrido",
+        "fonte": "The Coiled Altar — Abismo Peçonhento (Raid boss 7)",
+        "id": 270169,
+        "specs_relevantes": [
+          "Shadow Priest (22/50 Murlok)",
+          "Demo Warlock (A-tier)"
+        ],
+        "extra_roll": "Sim — The Coiled Altar"
+      },
+      {
+        "nome_en": "Gebbo's Bottomless Bag",
+        "nome_pt": "Bolsa sem Fundo de Gebbo",
+        "slot": "Berloque",
+        "tipo_efeito": "passivo",
+        "fonte": "The Lost Explorers — Abismo Peçonhento (Raid boss 4)",
+        "id": 270164,
+        "specs_relevantes": [
+          "Demo Warlock (melhor berloque da temporada per IV)",
+          "Shadow Priest"
+        ],
+        "extra_roll": "SIM — The Lost Explorers. Nerfado em 29% (ago/26) mas ainda top."
+      },
+      {
+        "nome_en": "Vile Vial of Volatile Venom",
+        "nome_pt": "Ampola Torpe de Peçonha Volátil",
+        "slot": "Berloque",
+        "tipo_efeito": "ativo",
+        "fonte": "Altar of Fangs (M+) — boss Zul'jan",
+        "id": 273796,
+        "specs_relevantes": [
+          "Balance Druid (BiS on-use M+)",
+          "Demo Warlock (S-tier M+)"
+        ],
+        "extra_roll": "Sim — farme Altar of Fangs M+"
+      },
+      {
+        "nome_en": "Stormbound Emblem of Dazar",
+        "nome_pt": "Emblema Tempestuoso de Dazar",
+        "slot": "Berloque",
+        "tipo_efeito": "ativo",
+        "fonte": "King's Rest (M+)",
+        "id": 273649,
+        "specs_relevantes": [
+          "Demo Warlock (S-tier, 46/50 Murlok)",
+          "Shadow Priest"
+        ],
+        "extra_roll": "Sim — farme King's Rest M+"
+      }
+    ]
+  },
+  "extra_roll_por_spec": {
+    "descricao": "Prioridade de uso do Núcleo Vazio Nebuloso (Nebulous Voidcore) por spec.",
+    "demo_warlock": {
+      "prioridade": [
+        {
+          "rank": 1,
+          "boss": "Ula'tek (Abismo Peçonhento)",
+          "motivo": "Jan'thrazet, a Presa Anímica (arma BiS) + Capucho Horrendo (tier helm) + Relicário Aqiricida (pescoço BiS)."
+        },
+        {
+          "rank": 2,
+          "boss": "Kith'ix (Abismo Peçonhento)",
+          "motivo": "Tentáculo do Terror Pervertido (berloque S-tier) + Elo do Chama-enxame (anel BiS)"
+        },
+        {
+          "rank": 3,
+          "boss": "The Lost Explorers (Abismo Peçonhento)",
+          "motivo": "Bolsa sem Fundo de Gebbo (berloque top-tier segundo IV)"
+        },
+        {
+          "rank": 4,
+          "boss": "The Coiled Altar (Abismo Peçonhento)",
+          "motivo": "Ídolo da Perdição do Grão-bagateiro (berloque A-tier) + Botinas Anímicas Crepitantes (botas BiS)"
+        },
+        {
+          "rank": 5,
+          "boss": "King's Rest (M+)",
+          "motivo": "Emblema Tempestuoso de Dazar (berloque S-tier M+)"
+        }
+      ]
+    },
+    "shadow_priest": {
+      "prioridade": [
+        {
+          "rank": 1,
+          "boss": "Ula'tek (Abismo Peçonhento)",
+          "motivo": "Jan'thrazet, a Presa Anímica (arma BiS #1 — 49/50 Murlok) + Capucho Horrendo. Use loot spec Holy.",
+          "loot_spec": "Holy para cantrip armor"
+        },
+        {
+          "rank": 2,
+          "boss": "Kith'ix (Abismo Peçonhento)",
+          "motivo": "Tentáculo do Terror Pervertido (berloque BiS #1 — 48/50 Murlok)"
+        },
+        {
+          "rank": 3,
+          "boss": "The Coiled Altar (Abismo Peçonhento)",
+          "motivo": "Ídolo da Perdição do Grão-bagateiro (berloque BiS #2 — 22/50 Murlok)"
+        },
+        {
+          "rank": 4,
+          "boss": "King's Rest (M+)",
+          "motivo": "Mantle of Ceremonial Ascension (ombros BiS)"
+        }
+      ]
+    },
+    "balance_druid": {
+      "prioridade": [
+        {
+          "rank": 1,
+          "boss": "Ula'tek (Abismo Peçonhento)",
+          "motivo": "Jan'thrazet, a Presa Anímica (arma BiS) + Olhar da Observadora Enrolada (elmo cantrip BiS). Use loot spec Resto/Bear.",
+          "loot_spec": "Resto/Bear para cantrip leather armor"
+        },
+        {
+          "rank": 2,
+          "boss": "Kith'ix (Abismo Peçonhento)",
+          "motivo": "Tentáculo do Terror Pervertido (berloque passivo BiS)"
+        },
+        {
+          "rank": 3,
+          "boss": "Altar of Fangs (M+)",
+          "motivo": "Ampola Torpe de Peçonha Volátil (berloque on-use BiS M+)"
+        },
+        {
+          "rank": 4,
+          "boss": "Vashnik the Malignant (Abismo Peçonhento)",
+          "motivo": "Frothing Venom Spaulders (ombros BiS)"
+        }
+      ]
+    }
+  },
+  "tier_sets_season2": {
+    "descricao": "Bônus de tier set da Season 2. Priorize sempre o 4pc.",
+    "demo_warlock": {
+      "nome": "Damned Necrolyte Set",
+      "slots_tier": [
+        "Head (Helm)",
+        "Shoulder",
+        "Chest",
+        "Hands",
+        "Legs"
+      ],
+      "bonus_2pc": "Wild Imp damage +10%. Implosion damage +20%.",
+      "bonus_4pc": "Quando Wild Imps ficam sem energia, 20% de chance de se lançarem e Implodirem com 350% eficiência no alvo principal e 315% nos outros.",
+      "bonus_4pc_fonte": "CORRIGIDO em 2026-11-05 pelo tooltip oficial do item 271546 no Wowhead. O valor anterior (250%/225%) estava errado e contrariava demonology_warlock.json (350%/315%). Detalhes em bonus_ids_s2.json#conflito_resolvido."
+    },
+    "shadow_priest": {
+      "nome": "Cosmic Penitent Set"
+    },
+    "balance_druid": {
+      "nome": "Enigmatic Dreamwatcher"
+    }
+  },
+  "sistema_forjado_com_peconha": {
+    "nome_en": "Ascendant Venomforged",
+    "nome_pt": "Ascendente Forjado com Peçonha",
+    "descricao": "Itens de Peçonha elevados pelo sistema sazonal recebem +7 de nível de item acima do teto normal do track. Confirmado em 2026-11-05 pelo rótulo do tooltip do Wowhead PT-BR em itens de 328 e 341.",
+    "slots_afetados": [
+      "Pescoço",
+      "Berloque",
+      "Arma (uma mão, duas mãos e mão secundária)"
+    ],
+    "tabela_ilvl": {
+      "forjado_heroi": {
+        "rotulo_tooltip": "Ascendente Forjado com Peçonha: Herói",
+        "ilvl": 328,
+        "base_sem_forja": 321,
+        "diferenca": 7
+      },
+      "forjado_mitico": {
+        "rotulo_tooltip": "Ascendente Forjado com Peçonha: Mito",
+        "ilvl": 341,
+        "base_sem_forja": 334,
+        "diferenca": 7
+      }
+    },
+    "evidencias": [
+      {
+        "item_id": 272228,
+        "nome_pt": "Periapto Sussurrante",
+        "slot": "Pescoço",
+        "rotulo": "Ascendente Forjado com Peçonha: Herói",
+        "ilvl": 328
+      },
+      {
+        "item_id": 272229,
+        "nome_pt": "Talismã Serpentino",
+        "slot": "Pescoço",
+        "rotulo": "Ascendente Forjado com Peçonha: Herói",
+        "ilvl": 328
+      },
+      {
+        "item_id": 272266,
+        "nome_pt": "Adaga do Eidolon Esquecido",
+        "slot": "Adaga",
+        "rotulo": "Ascendente Forjado com Peçonha: Herói",
+        "ilvl": 328
+      },
+      {
+        "item_id": 273781,
+        "nome_pt": "Feixe de Presas Protetoras",
+        "slot": "Pescoço",
+        "rotulo": "Ascendente Forjado com Peçonha: Mito",
+        "ilvl": 341
+      },
+      {
+        "item_id": 275070,
+        "nome_pt": "Navalha de Lumineira Afiada",
+        "slot": "Adaga",
+        "rotulo": "Ascendente Forjado com Peçonha: Mito",
+        "ilvl": 341
+      },
+      {
+        "item_id": 273794,
+        "nome_pt": "Nó de Serpentes Contorcidas",
+        "slot": "Berloque",
+        "rotulo": "Ascendente Forjado com Peçonha: Mito",
+        "ilvl": 341
+      }
+    ],
+    "total_itens_forjados_no_acervo": 49,
+    "distribuicao": {
+      "328_heroi": 14,
+      "341_mitico": 35
+    },
+    "regra_para_comparacao": "Ao comparar um item Forjado com Peçonha contra outro item comum, normalizar o ilvl antes: um colar forjado de 341 equivale a um coloqar comum de 334 mais 7 níveis, não a um item de 341 de outra família.",
+    "nota": "Existe também o rótulo 'Amaldiçoado com Peçonha' (Venom-Cursed) nos itens cantrip de raide, que ficam em 344 — esse é um bônus diferente, de +10 sobre o tier mítico de 334."
+  },
+  "affixes_season2": {
+    "descricao": "Affixes rotativos do Mythic+ da Season 2",
+    "niveis": {
+      "plus2": "Lindormi's Guidance",
+      "plus5": "Xal'atath's Bargain (rotacional): Ascendant / Voidbound / Devour / Pulsar",
+      "plus7": "Tyrannical / Fortified (alternados)",
+      "plus10": "Tyrannical + Fortified (ambos ativos)",
+      "plus12": "Xal'atath's Guile (substitui o +5)"
+    }
+  }
+}

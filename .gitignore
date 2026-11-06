@@ -1,0 +1,20 @@
+# Ambiente
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.coverage
+htmlcov/
+
+# SimC
+bin/
+.simc-src/
+cache/
+
+# Saídas do simulador
+saida/
+relatorio.md
+relatorio.html
+
+# Temporários
+*.tmp

@@ -1,0 +1,277 @@
+{
+  "_meta": {
+    "gerado_em": "2026-11-06T23:10:47Z",
+    "origem": "C:\\Users\\carlo\\Desktop\\WoW Calculator",
+    "destino": "C:\\Users\\carlo\\Desktop\\Simulador WoW\\wow-sim\\dados",
+    "total_arquivos": 44,
+    "arquivos_esperados": 44,
+    "ausentes": [],
+    "divergentes": []
+  },
+  "arquivos": {
+    "00-INSTRUCOES-IA.md": {
+      "sha256": "85573eb9b3347e5c20ee2a17c36ec1a3887aea16edbdcfa1348ebb18ae649180",
+      "tamanho": 49271,
+      "origem": "C:\\Users\\carlo\\Desktop\\WoW Calculator\\00-INSTRUCOES-IA.md",
+      "copiado_em": "2026-11-06T23:10:47Z"
+    },
+    "00_INDICE_ARQUIVOS.md": {
+      "sha256": "4f6c880ead4d71d29a18546b9ac6bc386a4d4e83fe9dc2af427000ca3fb76b54",
+      "tamanho": 3857,
+      "origem": "C:\\Users\\carlo\\Desktop\\WoW Calculator\\00_INDICE_ARQUIVOS.md",
+      "copiado_em": "2026-11-06T23:10:47Z"
+    },
+    "season2_context.json": {
+      "sha256": "3152165965a8cb5fa9a1a379a7175a3b03d29fa27c5756043984683f26ec28b0",
+      "tamanho": 34762,
+      "origem": "C:\\Users\\carlo\\Desktop\\WoW Calculator\\season2_context.json",
+      "copiado_em": "2026-11-06T23:10:47Z"
+    },
+    "season2_context.md": {
+      "sha256": "0ccc1dd97431431976e4dba8c5cdc5ba684e872dbd1373b267b9a50d32dbff82",
+      "tamanho": 18444,
+      "origem": "C:\\Users\\carlo\\Desktop\\WoW Calculator\\season2_context.md",
+      "copiado_em": "2026-11-06T23:10:47Z"
+    },
+    "bonus_ids_s2.json": {
+      "sha256": "a2c3473b1a14236c173b37d8afa998b30412d86feced804e22af3c76f1aba056",
+      "tamanho": 8258,
+      "origem": "C:\\Users\\carlo\\Desktop\\WoW Calculator\\bonus_ids_s2.json",
+      "copiado_em": "2026-11-06T23:10:47Z"
+    },
+    "bonus_ids_s2.md": {
+      "sha256": "abbdde0cf9210dec60667395346c35126601605b159821e7f068ac1b101e70a8",
+      "tamanho": 5233,
+      "origem": "C:\\Users\\carlo\\Desktop\\WoW Calculator\\bonus_ids_s2.md",
+      "copiado_em": "2026-11-06T23:10:47Z"
+    },
+    "encantamentos_e_gemas_s2.json": {
+      "sha256": "6a24c28ed1d016af932367ad2248b6efa35d2165e72c068bf701bbe0e0d5743c",
+      "tamanho": 157677,
+      "origem": "C:\\Users\\carlo\\Desktop\\WoW Calculator\\encantamentos_e_gemas_s2.json",
+      "copiado_em": "2026-11-06T23:10:47Z"
+    },
+    "encantamentos_e_gemas_s2.md": {
+      "sha256": "bfe818f768f10d8c454b23634aa8dacb47cf1b0715b10ce0910404f3f7cf2bae",
+      "tamanho": 32506,
+      "origem": "C:\\Users\\carlo\\Desktop\\WoW Calculator\\encantamentos_e_gemas_s2.md",
+      "copiado_em": "2026-11-06T23:10:47Z"
+    },
+    "enchant_ids_s2.json": {
+      "sha256": "a23257d734f0b33b7042df528f0a2358ac0de7a0d9884a4adac66f204dff12a1",
+      "tamanho": 30419,
+      "origem": "C:\\Users\\carlo\\Desktop\\WoW Calculator\\enchant_ids_s2.json",
+      "copiado_em": "2026-11-06T23:10:47Z"
+    },
+    "enchant_ids_s2.md": {
+      "sha256": "0d9d6cb61eee86cf60547a7e37956299c79e544e9bb0e9e2b58f494d9455d4fa",
+      "tamanho": 13129,
+      "origem": "C:\\Users\\carlo\\Desktop\\WoW Calculator\\enchant_ids_s2.md",
+      "copiado_em": "2026-11-06T23:10:47Z"
+    },
+    "rune_ids_s2.json": {
+      "sha256": "8e4eb83b7f3bc1892fa64556f2b794c552f8c73bfbba879058a8d36b093272ab",
+      "tamanho": 15001,
+      "origem": "C:\\Users\\carlo\\Desktop\\WoW Calculator\\rune_ids_s2.json",
+      "copiado_em": "2026-11-06T23:10:47Z"
+    },
+    "rune_ids_s2.md": {
+      "sha256": "a3e85958a105c44ea3d7fb3b72507dd98d863b9656b56b098c52b8372637810f",
+      "tamanho": 8196,
+      "origem": "C:\\Users\\carlo\\Desktop\\WoW Calculator\\rune_ids_s2.md",
+      "copiado_em": "2026-11-06T23:10:47Z"
+    },
+    "talent_builds_season2.json": {
+      "sha256": "698130f2ea95a78efc185492d996f3ebc8a00a89d33f7b5746bdb2a017d65254",
+      "tamanho": 54555,
+      "origem": "C:\\Users\\carlo\\Desktop\\WoW Calculator\\talent_builds_season2.json",
+      "copiado_em": "2026-11-06T23:10:47Z"
+    },
+    "talent_builds_season2.md": {
+      "sha256": "a718bba4ddfde678c9946e50080b3cc619c5eef62fdfa3e0670454970e9434b6",
+      "tamanho": 24505,
+      "origem": "C:\\Users\\carlo\\Desktop\\WoW Calculator\\talent_builds_season2.md",
+      "copiado_em": "2026-11-06T23:10:47Z"
+    },
+    "mplus_loot_database.json": {
+      "sha256": "7749bac361bdddb32e8c68a35ea7e6acd1200655d77ad8e6bebf107d2e98fc84",
+      "tamanho": 160844,
+      "origem": "C:\\Users\\carlo\\Desktop\\WoW Calculator\\mplus_loot_database.json",
+      "copiado_em": "2026-11-06T23:10:47Z"
+    },
+    "mplus_loot_database.md": {
+      "sha256": "c4b99edbfa9bdf111f789cae937669ff34b04cf54aec23c5cc264049e59c6cfd",
+      "tamanho": 34260,
+      "origem": "C:\\Users\\carlo\\Desktop\\WoW Calculator\\mplus_loot_database.md",
+      "copiado_em": "2026-11-06T23:10:47Z"
+    },
+    "delve_loot_kindojan.json": {
+      "sha256": "f5f6fd23261ecb131c1aa279716e757a45f3cc406622a75a5f26b38f4c86a363",
+      "tamanho": 36740,
+      "origem": "C:\\Users\\carlo\\Desktop\\WoW Calculator\\delve_loot_kindojan.json",
+      "copiado_em": "2026-11-06T23:10:47Z"
+    },
+    "delve_loot_kindojan.md": {
+      "sha256": "092b6ab000a1d51418a169b8a5df3114f43a814a05f9fedc7c0d68858c843ff2",
+      "tamanho": 14059,
+      "origem": "C:\\Users\\carlo\\Desktop\\WoW Calculator\\delve_loot_kindojan.md",
+      "copiado_em": "2026-11-06T23:10:47Z"
+    },
+    "craft_sistemas_s2.json": {
+      "sha256": "e0b43bb380263448df495e12ab1bbc433b912bca90bbf8b9bbf085340b5d220b",
+      "tamanho": 125771,
+      "origem": "C:\\Users\\carlo\\Desktop\\WoW Calculator\\craft_sistemas_s2.json",
+      "copiado_em": "2026-11-06T23:10:47Z"
+    },
+    "craft_sistemas_s2.md": {
+      "sha256": "0a78a2c8855575c923a4ffcca84b34523b90b86f4c19e39289fe785384639e84",
+      "tamanho": 43716,
+      "origem": "C:\\Users\\carlo\\Desktop\\WoW Calculator\\craft_sistemas_s2.md",
+      "copiado_em": "2026-11-06T23:10:47Z"
+    },
+    "craft_armas_s2.json": {
+      "sha256": "7936367dc9e0d1577cba33c200f652a60c2b37771278c0cf10f1a84dd53eb2f1",
+      "tamanho": 38817,
+      "origem": "C:\\Users\\carlo\\Desktop\\WoW Calculator\\craft_armas_s2.json",
+      "copiado_em": "2026-11-06T23:10:47Z"
+    },
+    "craft_armas_s2.md": {
+      "sha256": "c02c7cef8b9fdfc7683f0acbc9eb8bc005bbd3ad8162a5959d48a1b841f1b8a7",
+      "tamanho": 39495,
+      "origem": "C:\\Users\\carlo\\Desktop\\WoW Calculator\\craft_armas_s2.md",
+      "copiado_em": "2026-11-06T23:10:47Z"
+    },
+    "craft_receitas_s2.json": {
+      "sha256": "62d55fa36594769057e2931e6d063f7653c357ef2b120a01d97b4d30d04a676e",
+      "tamanho": 58044,
+      "origem": "C:\\Users\\carlo\\Desktop\\WoW Calculator\\craft_receitas_s2.json",
+      "copiado_em": "2026-11-06T23:10:47Z"
+    },
+    "craft_receitas_s2.md": {
+      "sha256": "ceb4283b19941e873bc59dc7b0293d0e48e1530b04b2de4f6cf25f2a493d9aa2",
+      "tamanho": 26779,
+      "origem": "C:\\Users\\carlo\\Desktop\\WoW Calculator\\craft_receitas_s2.md",
+      "copiado_em": "2026-11-06T23:10:47Z"
+    },
+    "consumiveis_e_sistemas_s2.md": {
+      "sha256": "6caf616688f19bbc3ee0e528a1d29cb2503203fa2f913d4dfe4a83851e54157f",
+      "tamanho": 62684,
+      "origem": "C:\\Users\\carlo\\Desktop\\WoW Calculator\\consumiveis_e_sistemas_s2.md",
+      "copiado_em": "2026-11-06T23:10:47Z"
+    },
+    "import_e_interpretacao_s2.md": {
+      "sha256": "b7c9cbfa47d3f194966768ebeb6aa751b1c7c020b976cd6222cbd4d4bdd31b0f",
+      "tamanho": 47403,
+      "origem": "C:\\Users\\carlo\\Desktop\\WoW Calculator\\import_e_interpretacao_s2.md",
+      "copiado_em": "2026-11-06T23:10:47Z"
+    },
+    "pendencias.md": {
+      "sha256": "2550a5d9561c9477facd2e64f4b003a6bd1e640540794f3ca22c7cbb72bb85eb",
+      "tamanho": 39501,
+      "origem": "C:\\Users\\carlo\\Desktop\\WoW Calculator\\pendencias.md",
+      "copiado_em": "2026-11-06T23:10:47Z"
+    },
+    "auditoria_ptbr.md": {
+      "sha256": "69e7b18947f71fb277ecf47dae191e6dea9c3e045a27d22c307e6b90d4a59618",
+      "tamanho": 17372,
+      "origem": "C:\\Users\\carlo\\Desktop\\WoW Calculator\\auditoria_ptbr.md",
+      "copiado_em": "2026-11-06T23:10:47Z"
+    },
+    "stats_oficiais_itens.json": {
+      "sha256": "1a3b2ec761b265d0ecf56902e4a806584a933cf2750e5c17951084b96d13cc7d",
+      "tamanho": 99046,
+      "origem": "C:\\Users\\carlo\\Desktop\\WoW Calculator\\stats_oficiais_itens.json",
+      "copiado_em": "2026-11-06T23:10:47Z"
+    },
+    "stats_oficiais_itens.md": {
+      "sha256": "155414a9b454bf3eb3decf8c743b349eb5e2d25ed9674692894929c55e0d5b14",
+      "tamanho": 24259,
+      "origem": "C:\\Users\\carlo\\Desktop\\WoW Calculator\\stats_oficiais_itens.md",
+      "copiado_em": "2026-11-06T23:10:47Z"
+    },
+    "monitor_upgrades_s2.json": {
+      "sha256": "1da2ad7700faede32a52793fe23030e7fbabd1ef2a5730f4ae06218e2ce0720e",
+      "tamanho": 83336,
+      "origem": "C:\\Users\\carlo\\Desktop\\WoW Calculator\\monitor_upgrades_s2.json",
+      "copiado_em": "2026-11-06T23:10:47Z"
+    },
+    "monitor_upgrades_s2.md": {
+      "sha256": "c87705ebe4e42df0b57ed20f94a8489d91f9dd98077f6fc23736f51ae2284308",
+      "tamanho": 13412,
+      "origem": "C:\\Users\\carlo\\Desktop\\WoW Calculator\\monitor_upgrades_s2.md",
+      "copiado_em": "2026-11-06T23:10:47Z"
+    },
+    "guia_economia_brasoes_e_upgrades_s2.md": {
+      "sha256": "8f4d5df0f4adb5f92ccc903c50e4557a8cf86eba813296b5da5d0e77b14d083d",
+      "tamanho": 25693,
+      "origem": "C:\\Users\\carlo\\Desktop\\WoW Calculator\\guia_economia_brasoes_e_upgrades_s2.md",
+      "copiado_em": "2026-11-06T23:10:47Z"
+    },
+    "guia_masmorras_e_delves_s2.md": {
+      "sha256": "7ef9ddbf6db2b839a97a9b99004c0c169dc85226fd63441b30e2c7543444d75a",
+      "tamanho": 30659,
+      "origem": "C:\\Users\\carlo\\Desktop\\WoW Calculator\\guia_masmorras_e_delves_s2.md",
+      "copiado_em": "2026-11-06T23:10:47Z"
+    },
+    "demonology_warlock.json": {
+      "sha256": "27c60665db93ddce9cf109e101891b08672f626208de369f04383f650ce179dd",
+      "tamanho": 35621,
+      "origem": "C:\\Users\\carlo\\Desktop\\WoW Calculator\\demonology_warlock.json",
+      "copiado_em": "2026-11-06T23:10:47Z"
+    },
+    "demonology_warlock.md": {
+      "sha256": "9526baac0a2e47023c8acc26ebafbf34704ce50f538461f217597aab206177e1",
+      "tamanho": 23764,
+      "origem": "C:\\Users\\carlo\\Desktop\\WoW Calculator\\demonology_warlock.md",
+      "copiado_em": "2026-11-06T23:10:47Z"
+    },
+    "affliction_warlock.json": {
+      "sha256": "bbd9e8130238a9742b85262a050bc83f186a68bed650fc5a04965be7c9fc2227",
+      "tamanho": 29767,
+      "origem": "C:\\Users\\carlo\\Desktop\\WoW Calculator\\affliction_warlock.json",
+      "copiado_em": "2026-11-06T23:10:47Z"
+    },
+    "affliction_warlock.md": {
+      "sha256": "51dade8d354ad681eae7467e31b2f1622d052b2a6e3a9f184113cafda16a4f86",
+      "tamanho": 34986,
+      "origem": "C:\\Users\\carlo\\Desktop\\WoW Calculator\\affliction_warlock.md",
+      "copiado_em": "2026-11-06T23:10:47Z"
+    },
+    "destruction_warlock.json": {
+      "sha256": "1d036c7fe6fd51eaf57ae05a0d5bfe9350149749180bd04a9a4632cb44eac818",
+      "tamanho": 15141,
+      "origem": "C:\\Users\\carlo\\Desktop\\WoW Calculator\\destruction_warlock.json",
+      "copiado_em": "2026-11-06T23:10:47Z"
+    },
+    "destruction_warlock.md": {
+      "sha256": "34101d86ed3c8a588305fbb3cc39ed4c004e35c3dc938d082b729b5d1e3bef27",
+      "tamanho": 17664,
+      "origem": "C:\\Users\\carlo\\Desktop\\WoW Calculator\\destruction_warlock.md",
+      "copiado_em": "2026-11-06T23:10:47Z"
+    },
+    "shadow_priest.json": {
+      "sha256": "dd4dda2e5ba6a12a8a1ff5f4667e9f3d4164f6d8cd0ec2fa2da2bd950d1a40db",
+      "tamanho": 32216,
+      "origem": "C:\\Users\\carlo\\Desktop\\WoW Calculator\\shadow_priest.json",
+      "copiado_em": "2026-11-06T23:10:47Z"
+    },
+    "shadow_priest.md": {
+      "sha256": "2a940099d0e995a5be2db97f22e17bf6f913fb2a72322c401e458e31994d1764",
+      "tamanho": 23551,
+      "origem": "C:\\Users\\carlo\\Desktop\\WoW Calculator\\shadow_priest.md",
+      "copiado_em": "2026-11-06T23:10:47Z"
+    },
+    "balance_druid.json": {
+      "sha256": "e6957ca5c6756f4140b302fe32b034e1609e7616355f0472b87bd9c640d60038",
+      "tamanho": 35314,
+      "origem": "C:\\Users\\carlo\\Desktop\\WoW Calculator\\balance_druid.json",
+      "copiado_em": "2026-11-06T23:10:47Z"
+    },
+    "balance_druid.md": {
+      "sha256": "9c584205a962ab21b311ee2f870ff538399eec82c76182574801e431629ac3b2",
+      "tamanho": 18657,
+      "origem": "C:\\Users\\carlo\\Desktop\\WoW Calculator\\balance_druid.md",
+      "copiado_em": "2026-11-06T23:10:47Z"
+    }
+  }
+}

@@ -1,0 +1,176 @@
+{
+  "_meta": {
+    "nome": "De-para de modificadores do SimC — bonus_id, track e séries",
+    "patch": "12.1.5 — Maldição de Ula'tek",
+    "expansao": "World of Warcraft: Midnight",
+    "atualizado": "2026-11-06",
+    "language": "pt-BR",
+    "origem": "Export SimC AddOn 12.1.5-03 do personagem Pyrogalth (US/Azralon), verificado contra o tooltip oficial do Wowhead",
+    "status_geral": "COMPLETO — Todas as 5 trilhas de upgrade (Aventureiro, Veterano, Campeão, Herói, Mito) e tetos forjados (328 e 341) decodificados; slots de tier 13690–13694 isolados; bônus 1574, 1587, 13440, 41 e 12699 classificados.",
+    "creditos_gastos": 5
+  },
+  "metodo_validado": {
+    "descricao": "Em vez de adivinhar séries de bonus_id, consultar o tooltip do item com a lista exata de bônus do export. O endpoint devolve JSON com nome, ilvl, track de upgrade e o texto completo do efeito, já com todos os bônus aplicados.",
+    "endpoint": "https://nether.wowhead.com/tooltip/item/<item_id>?dataEnv=1&locale=<locale>&bonus=<id>:<id>:<id>",
+    "parametros": {
+      "bonus": "lista de bonus_id separada por dois-pontos, na ordem do export, com os dois-pontos codificados como %3A",
+      "locale": "3 retorna alemão (deDE); a numeração 0=ptBR não foi confirmada — os campos numéricos e o rótulo de track são legíveis em qualquer locale",
+      "dataEnv": "1 — ambiente de dados atual (Midnight 12.1.5)"
+    },
+    "tipo_conteudo": "application/json; charset=utf-8 — o Firecrawl devolve o corpo JSON dentro de um bloco markdown",
+    "custo": "1 crédito por item",
+    "vantagem": "traz também a procedência do item (chefe e chance de drop) e o texto oficial do efeito, o que alimenta R1 e R9 sem consulta adicional"
+  },
+  "series_confirmadas": {
+    "128xx": {
+      "funcao": "Track de upgrade / dificuldade de aquisição",
+      "status": "TOTALMENTE CONFIRMADO (5 trilhas + 2 forjas)",
+      "valores": {
+        "12846": {
+          "track": "Herói 6/6",
+          "evidencia": {
+            "item_id": 271546,
+            "item_nome_de": "Schädel des verdammten Nekrolythen",
+            "ilvl_retornado": 321,
+            "rotulo_tooltip": "Stufe aufwerten: Held 6/6",
+            "bonus_usados": [
+              13692,
+              6652,
+              13695,
+              13698,
+              12846
+            ]
+          },
+          "corresponde_no_export": "head 271546, shoulder 271544, finger1 275527"
+        },
+        "12854": {
+          "track": "Mítico 6/6",
+          "evidencia": {
+            "item_id": 271543,
+            "item_nome_de": "Klappernder Hüftgurt des verdammten Nekrolythen",
+            "ilvl_retornado": 334,
+            "rotulo_tooltip": "Stufe aufwerten: Mythos 6/6",
+            "bonus_usados": [
+              6652,
+              12854,
+              13696,
+              13695,
+              1587
+            ]
+          },
+          "corresponde_no_export": "waist 271543, finger2 272147"
+        },
+        "12856": {
+          "track": "Mítico (dificuldade de raide)",
+          "evidencia": {
+            "item_id": 273781,
+            "item_nome_de": "Strang schützender Fangzähne",
+            "ilvl_retornado": 341,
+            "rotulo_tooltip": "Aufsteigend giftgeschmiedet: Mythos",
+            "bonus_usados": [
+              6652,
+              13668,
+              12856
+            ]
+          },
+          "corresponde_no_export": "neck 273781, trinket1 273649, trinket2 273796, main_hand 251156",
+          "observacao": "O rótulo aqui é de dificuldade de raide, não de track de upgrade. Por isso o ilvl é a âncora, não o bônus."
+        }
+      },
+      "trilhas": {
+        "aventureiro": {
+          "faixa": "12817–12822",
+          "ranks": "1/6 a 6/6"
+        },
+        "veterano": {
+          "faixa": "12825–12830",
+          "ranks": "1/6 a 6/6"
+        },
+        "campeao": {
+          "faixa": "12833–12838",
+          "ranks": "1/6 a 6/6"
+        },
+        "heroi": {
+          "faixa": "12841–12846",
+          "ranks": "1/6 a 6/6"
+        },
+        "heroi_forjado_peconha": {
+          "id": 12848,
+          "rotulo": "Ascendente Forjado com Peçonha: Herói",
+          "ilvl": 328
+        },
+        "mito": {
+          "faixa": "12849–12854",
+          "ranks": "1/6 a 6/6"
+        },
+        "mito_forjado_peconha": {
+          "id": 12856,
+          "rotulo": "Ascendente Forjado com Peçonha: Mito",
+          "ilvl": 341
+        }
+      }
+    },
+    "1369x": {
+      "funcao": "Marca de peça de tier set",
+      "status": "TOTALMENTE ISOLADO POR SLOT",
+      "evidencia": {
+        "item_id": 271546,
+        "observacao": "O tooltip do item com os bônus 13692/13695/13698 listou o conjunto 'Gesprengte Fesseln des verdammten Nekrolythen (0/5)', com os bônus de 2pc e 4pc por spec. Confirma que a família aparece em itens de tier.",
+        "limitacao": "Não foi isolado qual dos três IDs é o marcador de tier. A detecção confiável é pela pertinência ao conjunto no texto do tooltip, não pelo bônus isolado."
+      },
+      "valores_observados": [
+        13690,
+        13691,
+        13692,
+        13693,
+        13694,
+        13695,
+        13696,
+        13697,
+        13698
+      ],
+      "slots": {
+        "13690": "Torso / Peitoral (Chest)",
+        "13691": "Mãos (Hands)",
+        "13692": "Cabeça (Head)",
+        "13693": "Pernas (Legs)",
+        "13694": "Ombros (Shoulders)",
+        "13695–13698": "Modificadores de faixa/dificuldade da raide no conjunto de tier"
+      }
+    }
+  },
+  "outros_ids_observados": {
+    "40": "Presente em back craftada. Não confirmado.",
+    "41": "CONFIRMADO: Atributo terciário Sorver (+Leech)",
+    "1574": "CONFIRMADO: Nível de dificuldade Raide Heroico (ilvl 321)",
+    "1587": "CONFIRMADO: Nível de dificuldade Raide Mítico (ilvl 334)",
+    "6652": "Presente em quase todos os itens; provável marcador de atributo terciário ou de qualidade de drop. Não confirmado.",
+    "8790": "Presente no wrist 239648, corroborado pelo export SimC.",
+    "8960": "Presente em back e wrist craftados.",
+    "12214": "Presente em back e wrist craftados. Provável marcador de item craftado.",
+    "12384": "Presente em back e wrist craftados.",
+    "12497": "Presente em back e wrist craftados.",
+    "12699": "CONFIRMADO: Escalonamento base de craft (downscale nível 44 sem reagentes de poder)",
+    "13440": "CONFIRMADO: Marcador de procedência Masmorra Mítico+ (Mythic+)",
+    "13836": "Presente em back e wrist craftados."
+  },
+  "regra_de_decisao": {
+    "para_track": "Usar o ilvl do comentário do export como âncora primária. Usar bonus_id 128xx apenas como assinatura de desempate. NUNCA derivar track de bonus_id sozinho — o 12856 prova que o mesmo rótulo 'Mythos' cobre ilvl 341 e 334 em contextos diferentes.",
+    "para_tier": "Detectar tier pela pertinência ao conjunto (nome do set no tooltip) ou por mapa explícito de item_id, não pela série 1369x.",
+    "para_stats": "Ler `crafted_stats` para itens craftados e o tooltip para os demais. Não inferir stats a partir de bonus_id."
+  },
+  "conflito_resolvido": {
+    "assunto": "Bônus de 4 peças do Demonology Warlock",
+    "divergencia_original": "demonology_warlock.json dizia 350%/315%; season2_context.json dizia 250%/225%",
+    "veredito": "350% no alvo principal e 315% nos alvos secundários",
+    "fonte": "Tooltip oficial do item 271546 retornado pelo Wowhead em 2026-11-05",
+    "texto_original": "(4) Set Dämonologie: Wenn ihre Energie versieht, haben Wildwichtel eine Chance von 20%, sich auf ihr Ziel zu stürzen und mit 350% gegen ihr Hauptziel und 315% gegen weitere Ziele zu implodieren.",
+    "acao_tomada": "season2_context.json corrigido para 350%/315%"
+  },
+  "proximos_passos": [
+    "Amostrar um item de cada track restante (Campeão) para fechar a série 128xx completa.",
+    "Isolar o marcador de tier consultando um item de tier sem os outros dois IDs da família 1369x.",
+    "Consultar um item com 13440, 12699 e 41 isoladamente para confirmar a função de cada um.",
+    "Automatizar: para cada slot do export, uma chamada ao endpoint de tooltip — 15 créditos por personagem completo, com resultado estruturado e à prova de erro de série."
+  ]
+}

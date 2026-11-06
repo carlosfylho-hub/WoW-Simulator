@@ -1,0 +1,117 @@
+# Export cru do Pyrogalth — 2026-11-06
+
+> **Uso:** este arquivo preserva o texto literal recebido do usuário. Na Fase 1, copie **exatamente** o conteúdo do bloco abaixo para `fixtures/pyrogalth.simc`, sem reformatar, sem remover comentários e sem reordenar linhas. O teste de round-trip da Fase 2 compara byte a byte.
+
+**Checksum:** `70553fc1`
+**Addon:** `12.1.5-04`
+**Cliente:** `12.1.5.70783`
+**Observação:** o texto foi normalizado apenas para `\n` na transcrição; nenhum espaço, vírgula ou `=` foi alterado.
+
+```text
+# Pyrogalth - Demonology - 2026-11-06 20:04 - US/Azralon
+# SimC Addon 12.1.5-04
+# WoW 12.1.5.70783, TOC 120105
+# Requires SimulationCraft 1000-01 or newer
+
+warlock="Pyrogalth"
+level=90
+race=dracthyr
+region=us
+server=azralon
+role=spell
+professions=alchemy=100/enchanting=100
+spec=demonology
+# loot_spec=demonology
+
+talents=CoQAMrNP5kak+EBqLfUa3dMm+amZmZGNLMMzMmlBAAAAAAAMmxwCMw2oFaYxYMWmtZmZMDAMzYmZmZGAmZmZAAAGzMzYYYZGDYA
+
+# Saved Loadout: raid maxroll
+# talents=CoQAMrNP5kak+EBqLfUa3dMm+yMzMzMmFGmZGz2AAAAAAAMWMjZMsADzsNb2wMWMGjlZZmZGzAAzMmZmZmBzMMjZGAAgxMzMzwwyMGwA
+# Saved Loadout: Diabolist Delves
+# talents=CoQAMrNP5kak+EBqLfUa3dMm+amxMzwswYbmZMLDAAAAAAAYMjhFYgthNMsYMzYZ2mZmxMAwMjxMzMDAzMzMAAAjZmZMMsMjBMA
+# Saved Loadout: m+ icy
+# talents=CoQAMrNP5kak+EBqLfUa3dMm+yMegZGmFzYbmZMLDAAAAAAAYMjhFYgthFMsYMzYZ2mZmxMAwMjZmZmZAGzMzMAAAjZmZMgtZMgB
+# Saved Loadout: delves icy
+# talents=CoQAMrNP5kak+EBqLfUa3dMm+yMjZGmFzYxMjZZAAAAAAAGLLDMgBMDbAjNjZGbjZMzMDAMzMjxAMzMmZMzGAAYMzMzMGsNzAMA
+# Saved Loadout: Diabolist Single
+# talents=CoQAMrNP5kak+EBqLfUa3dMm+amZmZGmFGmZGzyAAAAAAAAGzYYBGYbYBDLGjxysNzMjZAgZGzMzMzAwMzMDAAwYmZGDDLzYAD
+# Saved Loadout: single icy
+# talents=CoQAMrNP5kak+EBqLfUa3dMm+yMzMzwswwMzY2GAAAAAAgx2yADYAzwGwYzYM2mlZmZMDAYmZmZGgZGmZmZ2AAAjZmZMmhlBgB
+
+omnium_talents=136814:1/136815:1/136817:1/136819:1/136822:1
+
+# Crânio do Necrólito Maldito (321)
+head=,id=271546,enchant_id=8017,gem_id=240983,bonus_id=13692/6652/13695/13698/12846
+# Feixe de Presas Protetoras (341)
+neck=,id=273781,gem_id=240908,bonus_id=6652/13668/12856
+# Pináculos do Necrólito Maldito (321)
+shoulder=,id=271544,enchant_id=8001,bonus_id=13694/6652/13697/12846
+# Mortalha Sedosa do Seguidor (331)
+back=,id=239656,bonus_id=12214/13667/12497/13751/14001/8960/12384/8790/13836,content_tuning=3615,crafted_stats=32/40,crafting_quality=5
+# Vestes Chacoalhantes do Necrólito Maldito (321)
+chest=,id=271549,enchant_id=7987,bonus_id=12846/6652/13690/13698/1574,redirected_base_stats=272231
+# Tabardo do Templário Sagrado (1)
+tabard=,id=233290,content_tuning=2832
+# Braceletes do Mártir (331)
+wrist=,id=239648,bonus_id=12214/13667/12497/13751/14001/8960/12384/8790/13836/13696,content_tuning=3615,crafted_stats=36/32,crafting_quality=5
+# Agarres Calcinados do Necrólito Maldito (321)
+hands=,id=271547,enchant_id=8730,bonus_id=13691/6652/13697/12846
+# Cilha Tilintante do Necrólito Maldito (334)
+waist=,id=271543,gem_id=240908,bonus_id=6652/12854/13696/13695/1587,redirected_base_stats=251185
+# Amarras de Perna do Necrólito Maldito (321)
+legs=,id=271545,enchant_id=7935,bonus_id=41/13440/13693/13698/12846,redirected_base_stats=273786
+# Solas do Necrólito Maldito (321)
+feet=,id=271548,enchant_id=7963,bonus_id=12846/1574,redirected_base_stats=156350
+# Sinete do Rapinador (321)
+finger1=,id=275527,enchant_id=7967,gem_id=240908,bonus_id=6652/13668/12846
+# Elo Colubrino (334)
+finger2=,id=272147,enchant_id=7967,gem_id=240908,bonus_id=13668/12854,content_tuning=7481
+# Emblema Tempestuoso de Dazar (341)
+trinket1=,id=273649,bonus_id=6652/12856
+# Ampola Torpe de Peçonha Volátil (341)
+trinket2=,id=273796,bonus_id=13440/6652/12699/12856
+# Cajado do Orador Decaído (341)
+main_hand=,id=251156,enchant_id=7981,bonus_id=6652/12856
+
+### Gear from Bags
+#
+# Coração de Azeroth (207)
+# neck=,id=158075,bonus_id=4932/4933/6316/1550,content_tuning=2658
+#
+# Mortalha do Espreitador das Brumas (305)
+# back=,id=272226,bonus_id=12841/6652/13662,content_tuning=6015
+#
+# Mortalha do Portador do Juramento (308)
+# back=,id=272230,bonus_id=12842/13662
+#
+# Anel de Socar Poderoso do Pugilista (17)
+# finger1=,id=144392,content_tuning=623
+#
+# Pedra Filosofal Primeva (165)
+# trinket1=,id=241291,bonus_id=12249/12248/4785/12493,content_tuning=3615,crafting_quality=1
+
+### Additional Character Info
+#
+# catalyst_currencies=2813:8/3269:8/3116:8/3378:8/3465:7
+#
+# upgrade_currencies=c:1792:4668/c:2122:22/c:1931:69558/c:3442:158/c:3445:48/c:3443:55/c:1813:664/c:3444:72/c:3446:69/i:280562:6/i:274476:5/i:231756:3/i:230287:9/i:231769:2
+#
+# slot_high_watermarks=0:321:321/1:341:341/2:321:324/3:321:321/4:334:334/5:321:321/6:321:321/7:331:331/8:321:321/9:321:321/10:341:341/11:331:331/12:341:341/13:321:321/14:259:305/15:256:256/16:334:334
+#
+# upgrade_achievements=19577/19578/19579/40107/40115/40118/40942/41886/41887/41888/41892/42767/42768/42769/42770/61809/62410/62411/62412/62414
+#
+# bonus_roll_currencies=3418:0/3511:0
+#
+# bonus_roll_items=3418:279621:190:12:273649:266
+
+# Checksum: 70553fc1
+```
+
+## Fatos conferidos neste export
+
+- 6 loadouts salvos, não 7 como diz o documento de importação.
+- `omnium_talents` com `136814`, não `136824`; pela tabela do prompt, seleção `1A-2B-3A-4A-5A`.
+- `hands` com `enchant_id=8730`, que o DB2 identifica como Arte de Batalha Hash'ey, camada diferente de encantamento.
+- `legs` com `enchant_id=7935`, Magilinha Tier 2 fora do mapa de 97 IDs.
+- `trinket1=273649` e `trinket2=273796`, ambos on-use, portanto caso da regra R4.
+- `chest` com `redirected_base_stats=272231` e 5 peças de tier fechadas.

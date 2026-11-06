@@ -1,0 +1,769 @@
+{
+  "_meta": {
+    "nome": "Bruxo Suplício (Affliction Warlock) — ficha da Temporada 2",
+    "patch": "12.1.5",
+    "atualizado": "2026-11-06",
+    "fonte_principal": "https://murlok.io/warlock/affliction/m+ — top 50 de M+ via Battle.net API (frequência real de uso)",
+    "fontes_secundarias": [
+      "https://www.wowhead.com/pt/guide/classes/warlock/affliction/talent-builds-pve-dps (Kalamazi, 17/10/2026) — builds de Raid / Raid Cleave / M+ / Delves",
+      "https://www.icy-veins.com/wow/affliction-warlock-pve-dps-spec-builds-talents (Motoko, 12/10/2026)",
+      "https://www.method.gg/guides/affliction-warlock/talents (Omnithic, 13/10/2026)",
+      "https://www.icy-veins.com/wow/dps-rankings-tier-list — raide 12.1.5 (Suplício em A)",
+      "https://expcarry.com/wow-midnight-solo-tier-list-delves — Delves S2 (Suplício em A nas duas listas)"
+    ],
+    "nota_de_confianca": "A coluna de frequência vem de API e é dado duro. As decisões de Folio e Códice são arbitragem sobre os guias internos do projeto, marcadas como tal.",
+    "arquivo_par": "affliction_warlock.md"
+  },
+  "prioridade_atributos": {
+    "ordem": [
+      "Aceleração",
+      "Acerto Crítico",
+      "Maestria",
+      "Versatilidade"
+    ],
+    "valores_medios_top50_mplus": {
+      "Aceleração": "28% (+1123)",
+      "Acerto Crítico": "27% (+928)",
+      "Maestria": "69% (+766)",
+      "Versatilidade": "4% (+204)"
+    },
+    "menores": [
+      "Evasão 5%",
+      "Sanguessuga 3%",
+      "Velocidade 2%"
+    ],
+    "observacao_folio": "O Murlok registra retorno decrescente após +20% de atributo vindo de gear. Aceleração já está em 28% e Crítico em 27%: por isso a linha 4 do Folio padrão é Crítico, não Aceleração.",
+    "corroboracao": {
+      "fonte": "ExpCarry — Affliction Warlock Guide (11/09/2026)",
+      "pve": "Item Level / Intelecto → Aceleração → Crítico → Maestria / Versatilidade",
+      "pvp": "Intelecto → Versatilidade → Aceleração → Crítico → Maestria"
+    }
+  },
+  "talentos": {
+    "hero_talent_por_cenario": {
+      "mplus": "Ceifador de Almas (Soul Harvester)",
+      "delve": "Ceifador de Almas (Soul Harvester)",
+      "raide_alvo_unico": "Saqueador do Inferno (Hellcaller)"
+    },
+    "split_top50_mplus": "27 Ceifador de Almas · 23 Saqueador do Inferno",
+    "conflito": "Wowhead afirma Hellcaller no resumo e Soul Harvester na seção de M+; Icy Veins e Method afirmam Soul Harvester em tudo. Resolução e detalhes em talent_builds_season2.json → warlock_outras_specs.affliction_suplicio.conflito_de_fonte_hellcaller_vs_soul_harvester",
+    "codigos": {
+      "mplus_ceifador_de_almas": "CkQAAAAAAAAAAAAAAAAAAAAAAwMMzoZzMz2MzYWGAAwMmlZZmZWGDAM22GYATwMsFYYbAAAYAAAYmZmZMjNmxMzMzMMDzMzAAMgB",
+      "delve_solo_ceifador_de_almas": "CkQAAAAAAAAAAAAAAAAAAAAAAwMMzoZzMz2MzYWGAAwMmlZZmZWGDAM22GYATwMsFYYbAAAYAAAYmZmZMjNmxMzMzMMDzMzAAMgB",
+      "raide_hellcaller": "CkQAAAAAAAAAAAAAAAAAAAAAAwMzMzoZhhZmZmlBAAYmZZWmZmlxAAWgBmFjGzAysAWGAAAmBAAmZAzMjxYGmZMzMGMzMzAAmBG",
+      "raide_cleave_hellcaller": "CkQAAAAAAAAAAAAAAAAAAAAAAwMmZGNbM2mZGzyAAAmZmlZxMzyYAALwAziRjZAZ2ALDAAAzAAAzMYMjZmtxwYmZmZYYmZGAgZgB",
+      "raide_alternativo_ceifador_de_almas": "CkQAAAAAAAAAAAAAAAAAAAAAAwMzMzoZhhZmZmlBAAYmZZ2mZmlxAAjllBGwEMDbBG2GAAAmBAAwMDzMjBzwMzMzMGMzMzAAmBG",
+      "delve_hellcaller": "CkQAAAAAAAAAAAAAAAAAAAAAAwMmZGNbM2MzMzyAAAmZmlZZmZWGDAYBGYWMaMDIzCYZAAAwAAAzMYMjZmNwMzYmxMDzMzAAMDMA"
+    },
+    "delve": {
+      "hero": "Ceifador de Almas (Soul Harvester)",
+      "codigo": "CkQAAAAAAAAAAAAAAAAAAAAAAwMjZGNLmxyMzYWGAAwMzsMLzMzyYAgxyyADYAzwWghtBAAgZAAAMzMmZY2GjZwMzMMMzMzAAmBG",
+      "fontes_convergentes": [
+        "Icy Veins — Delves",
+        "ExpCarry — Best Affliction Warlock Delve Build"
+      ],
+      "porque_nao_copiar_a_de_mplus": "Conteúdo solo valoriza defesa e utilidade acima de teto de dano; por isso existe build de Delve separada (ExpCarry).",
+      "rotina_de_sobrevivencia": [
+        "Use o pet para reduzir a pressão recebida (Voidwalker tanque segundo a comunidade; Felhunter quando precisar de interrupção).",
+        "Deixe o Círculo Demoníaco armado antes de puxar qualquer encontro perigoso.",
+        "Priorize sobreviver a terminar um cast extra.",
+        "Combo defensivo máximo: Soulburn + Pedra de Vida (+30% de cura e +20% de vida máxima por 12 s) e só então Pacto Sombrio, que escala com a vida atual (Method).",
+        "Domínio Vil devolve o pet instantaneamente se ele morrer — guarde para esse momento.",
+        "Drenar Vida com Soulburn dá absorção além da cura: é o último recurso quando não há mais defesa."
+      ]
+    }
+  },
+  "armadura": {
+    "conjunto_de_tier": {
+      "nome": "Necrólito Maldito (Damned Necrolyte)",
+      "pecas_usadas_pelo_top50": 5,
+      "diferenca_vs_demonologia": "A Demonologia troca a cabeça pelo cantrip Capucho Horrendo do Guardião da Peçonha; no Suplício 44 de 50 mantêm a cabeça do conjunto.",
+      "slots": {
+        "Cabeca": {
+          "item": "Crânio do Necrólito Maldito",
+          "en": "Skull of the Damned Necrolyte",
+          "id": 271546,
+          "frequencia": 44,
+          "stats": "Int 189 · Vig 3910 · Mae 136 · Ver 65"
+        },
+        "Ombros": {
+          "item": "Pináculos do Necrólito Maldito",
+          "en": "Spires of the Damned Necrolyte",
+          "id": 271544,
+          "frequencia": 42,
+          "stats": "Int 141 · Vig 2932 · Ace 50 · Ver 101"
+        },
+        "Peito": {
+          "item": "Vestes Chacoalhantes do Necrólito Maldito",
+          "en": "Damned Necrolyte's Rattling Robes",
+          "id": 271549,
+          "frequencia": 43,
+          "stats": "Int 189 · Vig 3910 · Ace 141 · Mae 60"
+        },
+        "Maos": {
+          "item": "Agarres Calcinados do Necrólito Maldito",
+          "en": "Damned Necrolyte's Charred Grasps",
+          "id": 271547,
+          "frequencia": 39,
+          "stats": "Int 141 · Vig 2932 · Crí 45 · Ace 106"
+        },
+        "Pernas": {
+          "item": "Amarras de Perna do Necrólito Maldito",
+          "en": "Damned Necrolyte's Leg Bindings",
+          "id": 271545,
+          "frequencia": 46,
+          "stats": "Int 189 · Vig 3910 · Ace 141 · Mae 60"
+        }
+      },
+      "bonus_de_conjunto": "Capturado em 2026-11-06 via ExpCarry. Ver campo \"bonus\".",
+      "bonus": {
+        "2_pecas": "Dano de [Murchar / Corrupção] aumentado em 25%. Dano de Agonia aumentado em 15%.",
+        "4_pecas": "Cada Agonia Instável ativa aumenta em 2% o dano causado por seus feitiços e habilidades, até um máximo de 6%. A Semente da Corrupção aplica Agonia Instável ao seu alvo com 20% de eficácia.",
+        "fonte_oficial": "Wowhead PT — conjunto 2066 \"Grilhões Despedaçados do Necrólito Maldito\" (spells 1296568 e 1296569), consultado em 2026-11-06",
+        "verificado_em": "2026-11-06 por tooltip oficial do conjunto",
+        "arbitragem": "O ExpCarry estava certo nas duas metades (2% por Agonia Instável ativa até 6% + Semente a 20% de eficácia). O Method descreveu só metade do efeito (\"a Semente aplica uma carga de Agonia Instável\"), sem os 2%/6% e sem o \"20% de eficácia\" — está INCOMPLETO, não errado no que diz.",
+        "nome_pt_correto": "O nome PT de Unstable Affliction é **Agonia Instável** (não \"Ferida Instável\"). \"Agonia\" sozinho é Agony. Corrigido em 2026-11-06 em todos os documentos."
+      },
+      "consequencia_de_talentos": {
+        "fonte": "Method (13/10/2026)",
+        "removeram": [
+          "Patient Zero",
+          "Nocturnal Yield"
+        ],
+        "adicionaram": [
+          "Impetuous Wrath",
+          "Hedonic Gorging"
+        ],
+        "efeito_pratico": "Talentos de Semente da Corrupção viraram build de área pura; raide pede build de Agonia Instável."
+      }
+    },
+    "fora_do_conjunto": {
+      "Pescoco": {
+        "item": "Relicário Aqiricida",
+        "en": "Aqirbane Reliquary",
+        "id": 268265,
+        "frequencia": 48,
+        "stats": "Vig 2466 · Crí/Ace/Mae/Ver 107 cada",
+        "fonte": "Ula'tek (raide)"
+      },
+      "Costas": {
+        "item": "Mortalha Sedosa do Seguidor",
+        "en": "Adherent's Silken Shroud",
+        "id": 239656,
+        "frequencia": 25,
+        "fonte": "Craft (Alfaiataria)"
+      },
+      "Pulsos": {
+        "item": "Braceletes do Mártir",
+        "en": "Martyr's Bindings",
+        "id": 239648,
+        "frequencia": 43,
+        "fonte": "Craft (Alfaiataria)"
+      },
+      "Cinto": {
+        "item": "Banda do Mártir",
+        "en": "Martyr's Waistwrap",
+        "id": 239649,
+        "frequencia": 23,
+        "fonte": "Craft (Alfaiataria)"
+      },
+      "Pes": {
+        "item": "Sapatilhas do Mártir",
+        "en": "Martyr's Slippers",
+        "id": 239654,
+        "frequencia": 14,
+        "fonte": "Craft (Alfaiataria)"
+      },
+      "Anel_1": {
+        "item": "Elo do Chama-enxame",
+        "en": "Band of the Swarmcaller",
+        "id": 281029,
+        "frequencia": 32,
+        "stats": "Vig · Ace 110 · Mae 295",
+        "fonte": "Kith'ix (raide)"
+      },
+      "Anel_2": {
+        "item": "Elo Sin'dorei Magistral",
+        "en": "Masterwork Sin'dorei Band",
+        "id": 240949,
+        "frequencia": 23,
+        "fonte": "Craft / Joalheria"
+      },
+      "Arma": {
+        "item": "Jan'thrazet, a Presa Anímica",
+        "en": "Jan'thrazet, the Soul Fang",
+        "id": 271092,
+        "frequencia": 49,
+        "stats": "Int 603 · Vig 2192 · Ace 104",
+        "fonte": "Ula'tek (raide)"
+      },
+      "Mao_secundaria": {
+        "item": "Lanterna de Aln'hara",
+        "en": "Aln'hara Lantern",
+        "id": 245769,
+        "frequencia": 31,
+        "stats": "Int 127 · Vig 692",
+        "fonte": "Craft (Escrivania)"
+      }
+    },
+    "alternativas_por_slot": {
+      "Cabeca": [
+        "Capucho Horrendo do Guardião da Peçonha 271874 (4)",
+        "Capuz do Sábio dos Pergaminhos Errante 268242 (1)",
+        "Coroa do Mártir 239652 (1)"
+      ],
+      "Ombros": [
+        "Dragonas do Mártir 239650 (7)",
+        "Dragonas do Pisa-piras 272236 (1)"
+      ],
+      "Costas": [
+        "Clâmide de Vodu Sedosa 268253 (7)",
+        "Dragonas do Pisa-piras 272225 (6)",
+        "Manto de Elos do Necrólito Maldito 271541 (4)",
+        "Mortalha do Portador do Juramento 272230 (4)"
+      ],
+      "Peito": [
+        "Vestimenta do Mártir 239655 (3)",
+        "Vestes da Feiticeira Marejante 268221 (2)",
+        "Veste de Ritos Primordial 273785 (1)",
+        "Perponte do Pisa-piras 272231 (1)"
+      ],
+      "Pulsos": [
+        "Grilhões do Necrólito Maldito 271542 (3)",
+        "Manilhas Chamuscadas por Peçonha 268228 (3)",
+        "Embraces Mordisqueiros 251127 (1)"
+      ],
+      "Maos": [
+        "Luvas do Mártir 239653 (9)",
+        "Agarres da Sombra Eterna 268243 (2)"
+      ],
+      "Cinto": [
+        "Faixa Cáustica Envolta em Correntes 268257 (8)",
+        "Cilha Tilintante do Necrólito Maldito 271543 (7)",
+        "Atadura do Éter Etérea 251222 (5)",
+        "Cíngulo da Gruta Abissal 268232 (4)"
+      ],
+      "Pernas": [
+        "Perneiras do Tececaos 281235 (3)",
+        "Perneiras do Mártir 239651 (1)"
+      ],
+      "Pes": [
+        "Solas do Necrólito Maldito 271548 (9)",
+        "Botinas Anímicas Crepitantes 268255 (7)",
+        "Andarilhos Espirituais de Nek'zali 268218 (6)",
+        "Alpargatas do Pisa-piras 272232 (5)"
+      ],
+      "Aneis": [
+        "Anel de Garra do Brutamontes Alfa 268252 (22)",
+        "Elo do Senhor da Guerra Amani 273792 (11)",
+        "Elo de Bolhas Tentador 268266 (5)"
+      ],
+      "Mao_secundaria": [
+        "Fronde Mística de Escamagelo 268263 (8)",
+        "Espinha do Abismo Sibilante 268197 (5)",
+        "Presa Focal Maléfica 273779 (4)",
+        "Trombeta do Canta-almas 272275 (2)"
+      ]
+    },
+    "berloques": [
+      {
+        "item": "Tentáculo do Terror Pervertido",
+        "en": "Twisted Horror's Tendril",
+        "id": 281215,
+        "frequencia": 38
+      },
+      {
+        "item": "Bolsa sem Fundo de Gebbo",
+        "en": "Gebbo's Bottomless Bag",
+        "id": 270164,
+        "frequencia": 28
+      },
+      {
+        "item": "Ampola Torpe de Peçonha Volátil",
+        "en": "Vile Vial of Volatile Venom",
+        "id": 273796,
+        "frequencia": 15
+      },
+      {
+        "item": "Ídolo da Perdição do Grão-bagateiro",
+        "en": "Hex Lord's Dooming Idol",
+        "id": 270169,
+        "frequencia": 9
+      },
+      {
+        "item": "Rocha Marinha do Clamaondas",
+        "en": "Wavecaller's Seastone",
+        "id": 270167,
+        "frequencia": 6
+      }
+    ]
+  },
+  "embelezamentos": [
+    {
+      "nome": "Forro de Arcanotrama",
+      "en": "Arcanoweave Lining",
+      "onde": "Braceletes do Mártir 239648",
+      "frequencia": 70
+    },
+    {
+      "nome": "Pedra Ritual do Caçador",
+      "en": "Hunter's Ritual Stone",
+      "onde": "Lanterna de Aln'hara 245769",
+      "frequencia": 27
+    }
+  ],
+  "encantamentos": {
+    "Cabeca": "Encantamento de Elmo — Runa Empoderada de Evasão (41)",
+    "Ombros": "Encantamento de Ombros — Graça de Amirdrassil (46)",
+    "Peito": "Encantamento de Peito — Marca da Alma-mundo (49)",
+    "Maos": "Antiga Arte de Batalha Hash'ey: Olho do Lince 283998 (17)",
+    "Pernas": "Fio Mágico de Seda Fogo-solar 240133 (50)",
+    "Pes": "Encantamento de Botas — Destreza do Lince (42)",
+    "Aneis": "Encantamento de Anel — Olhos da Águia (91)",
+    "Arma": "Rito dos Hash'ey (38)"
+  },
+  "gemas": {
+    "diamante_eversong": "Diamante Eversong Indecifrável 240983 (42)",
+    "prismaticas": [
+      "Granada Rápida Impecável 240906 — Aceleração (106)",
+      "Peridoto Mortal Impecável 240890 — Crítico (63)",
+      "Granada Versátil Impecável 240910 (9)",
+      "Granada Magistral Impecável 240908 (7)"
+    ]
+  },
+  "folio_omnium": {
+    "funciona_em": "todos os ambientes (mundo aberto, Delve, M+, raide)",
+    "arbitragem_class_wide": {
+      "fonte": "Icy Veins — guia de Bruxo, seção Omnium Folio (já registrada no projeto)",
+      "frase": "The default choice for Warlocks is Rune of Critical Power. If you have somehow managed to hit >35% Critical Strike chance and neglected Mastery in the process, consider using Rune of Masterful Cunning.",
+      "linha_5": "Sobrecarga e Energia Residual 'offer similar output'",
+      "consequencia": "A recomendação do Folio NÃO muda por spec. Suplício segue a mesma matriz da Demonologia."
+    },
+    "por_cenario": {
+      "raide_alvo_unico": {
+        "codigo": "C13",
+        "runas": "1A-2B-3A-4A-5A",
+        "motivo": "padrão confirmado do Bruxo"
+      },
+      "raide_grupos_densos": {
+        "codigo": "C02",
+        "runas": "1A-2A-3A-4A-5B",
+        "motivo": "Concha Maculada + Energia Residual"
+      },
+      "mplus_chaves_medias": {
+        "codigo": "C29",
+        "runas": "1A-2C-3A-4B-5B",
+        "motivo": "Reflexos de Lince + Aceleração Ardente"
+      },
+      "mplus_10_ou_mais": {
+        "codigo": "C10",
+        "runas": "1A-2A-3A-4D-5A",
+        "motivo": "única linha 4 com mitigação embutida"
+      },
+      "delve_tier11_solo": {
+        "codigo": "C24",
+        "runas": "1A-2B-3A-4D-5C",
+        "motivo": "defesa máxima com eco"
+      },
+      "delve_farm_rapido": {
+        "codigo": "C23",
+        "runas": "1A-2B-3A-4D-5B",
+        "motivo": "mitigação + Perenidade ampliada"
+      }
+    },
+    "regra_linha_4": [
+      "Padrão do Suplício (Aceleração 28% · Crítico 27%): 4A Poder Crítico — Aceleração já passou do ponto doce de +20% e Crítico é o nº 2.",
+      "Aceleração abaixo de ~20% com Crítico acima de 35%: 4B Aceleração Ardente.",
+      "Maestria negligenciada com Crítico >35%: 4C Astúcia Magistral (regra textual da fonte)."
+    ],
+    "divergencias_abertas": [
+      "consumiveis_e_sistemas_s2.md marca C06 como 'não suportado' (linha 549) e recomenda C06 para raide de alvo único na checklist (linha 568).",
+      "guia_masmorras_e_delves_s2.md linha 261 chama C23 de '1A-2C-3A-4B-5B'; pela matriz C23 = 1A-2B-3A-4D-5B e 1A-2C-3A-4B-5B é o C29."
+    ]
+  },
+  "codice_corrosivo_altar": {
+    "restricao": "Só mundo aberto e Delves. Inativo em raide, M+, arena e campo de batalha.",
+    "ranking": [
+      {
+        "posicao": 1,
+        "codigo": "P52",
+        "poderes": "Peçonha Insidiosa + Veneno Amaldiçoado",
+        "perfil": "agressivo seguro",
+        "motivo": "+15% de Intelecto permanente e o custo de vida é anulado pela cura do Veneno"
+      },
+      {
+        "posicao": 2,
+        "codigo": "P24",
+        "poderes": "Praga da Corrosão + Veneno Amaldiçoado",
+        "perfil": "dano periódico puro",
+        "motivo": "+25% de dano de veneno e cada pulso cura"
+      },
+      {
+        "posicao": 3,
+        "codigo": "P01 / P12",
+        "poderes": "Ciclo Ourobórico + Praga · Fauce Ofídica + Praga",
+        "perfil": "farm Tier 8–10"
+      },
+      {
+        "posicao": 4,
+        "codigo": "P39",
+        "poderes": "Olhar do Gorgoneion + Muco Virulento",
+        "perfil": "Tier 11 solo"
+      },
+      {
+        "posicao": 5,
+        "codigo": "P41",
+        "poderes": "Olhar do Gorgoneion + Veneno Amaldiçoado",
+        "perfil": "sobrevivência com dano"
+      }
+    ],
+    "evitar": [
+      "Plumagem Lítica e todos os pares com ela (P37, P44, P55, P59, P62, P64, P66): +30% de armadura física é ganho defensivo de corpo a corpo",
+      "Aperto Viperino e derivados: puxa os inimigos para perto de um conjurador de alcance"
+    ]
+  },
+  "consumiveis": {
+    "comida_padrao": "Costeletas Temperadas com Peçonha 275258 / Prato de Baiacu 275260 / Espetinhos Agridoces 275261 (+65 do maior secundário = Aceleração)",
+    "comida_fixa": "Lula Carmesim / Filé Beijado pela Vileza (+58 Aceleração) se o maior secundário virar Crítico",
+    "frasco": "Frasco dos Cavaleiros Sangrentos; Frasco da Resistência Talassiana no Tier 11",
+    "runa_vantus": "272195 (+162 Vers) — única válida na raide da temporada",
+    "oleo": "Óleo de Fênix Talassiano. NÃO usar Óleo da Aurora (só feitiços de cura)"
+  },
+  "lacunas": [
+    "Nenhuma simulação de DPS do Suplício em 12.1.5 no acervo: o ranking usado é tier list, não medição.",
+    "Folio Ômnico não tem recomendação por spec em nenhuma fonte — a matriz é class-wide.",
+    "Atributos de algumas peças do Mártir incompletos: o tooltip oficial trouxe o nome mas não o bloco de stats.",
+    "Build de Delve do Icy Veins para Destruction: a página tem a seção, mas o código de import não é exposto no HTML raspado. O código usado é o do Wowhead.",
+    "Reddit não pode ser raspado pelo Firecrawl (bloqueio de domínio, inclusive old.reddit): a opinião da comunidade entrou apenas por trechos de busca."
+  ],
+  "bis_sem_raide": {
+    "_descricao": "Recorte só com M+ (dungeons da temporada), Delve, craft e Catalyst (tier convertido de item de M+). Exclui todo drop de raide.",
+    "Cabeca": {
+      "item": "Crânio do Necrólito Maldito",
+      "id": 271546,
+      "origem": "Catalyst"
+    },
+    "Pescoco": {
+      "item": "Feixe de Presas Protetoras",
+      "id": 273781,
+      "origem": "M+ Altar das Presas",
+      "stats": "341 · Crí 240 · Ace 182"
+    },
+    "Ombros": {
+      "item": "Pináculos do Necrólito Maldito",
+      "id": 271544,
+      "origem": "Catalyst"
+    },
+    "Costas": {
+      "item": "Mortalha Sedosa do Seguidor",
+      "id": 239656,
+      "origem": "Craft"
+    },
+    "Peito": {
+      "item": "Vestes Chacoalhantes do Necrólito Maldito",
+      "id": 271549,
+      "origem": "Catalyst"
+    },
+    "Pulsos": {
+      "item": "Braceletes do Mártir",
+      "id": 239648,
+      "origem": "Craft",
+      "nota": "leva o Forro de Arcanotrama"
+    },
+    "Maos": {
+      "item": "Agarres Calcinados do Necrólito Maldito",
+      "id": 271547,
+      "origem": "Catalyst"
+    },
+    "Cinto": {
+      "item": "Banda do Mártir",
+      "id": 239649,
+      "origem": "Craft",
+      "alternativa_mplus": "Atadura do Éter Etérea 251222 (Arena da Chaga do Caos)"
+    },
+    "Pernas": {
+      "item": "Amarras de Perna do Necrólito Maldito",
+      "id": 271545,
+      "origem": "Catalyst"
+    },
+    "Pes": {
+      "item": "Sapatilhas do Mártir",
+      "id": 239654,
+      "origem": "Craft",
+      "alternativa": "Alpargatas do Pisa-piras 272232 (M+/Delve)"
+    },
+    "Anel_1": {
+      "item": "Elo do Senhor da Guerra Amani",
+      "id": 273792,
+      "origem": "M+ Altar das Presas"
+    },
+    "Anel_2": {
+      "item": "Elo Sin'dorei Magistral",
+      "id": 240949,
+      "origem": "Craft / Joalheria"
+    },
+    "Berloques": [
+      "Ampola Torpe de Peçonha Volátil 273796 (M+)",
+      "Rocha Marinha do Clamaondas 270167 (M+)"
+    ],
+    "Arma": {
+      "item": "Canalizador de Lumineira Polido",
+      "id": 273778,
+      "origem": "M+ Altar das Presas"
+    },
+    "Mao_secundaria": {
+      "item": "Lanterna de Aln'hara",
+      "id": 245769,
+      "origem": "Craft (Escrivania)",
+      "nota": "leva a Pedra Ritual do Caçador"
+    }
+  },
+  "arma_sem_raide": {
+    "restricao": "A Lanterna de Aln'hara ocupa a mão secundária, então a arma principal tem de ser de UMA mão. Cajados ficam incompatíveis (272273 Cetro Cerimonial Consagrado e 245771 Cajado-pique de Aln'hara estão fora).",
+    "ranking": [
+      {
+        "posicao": 1,
+        "item": "Canalizador de Lumineira Polido",
+        "en": "Polished Lightwood Channeler",
+        "id": 273778,
+        "origem": "M+ Altar das Presas",
+        "ilvl": 341,
+        "Int": 586,
+        "Aceleracao": 58,
+        "Maestria": 46,
+        "efeito": "Proc de dano Sagrado dividido entre inimigos próximos, +30% por alvo adicional até 150%",
+        "porque": "Único de 341 que junta Aceleração (nº1 do spec) com Maestria (nº3) e ainda ganha dano em pacote"
+      },
+      {
+        "posicao": 2,
+        "item": "Dente de Serpente Folheado",
+        "en": "Gilded Serpent's Tooth",
+        "id": 159137,
+        "origem": "M+ Descanso do Rei",
+        "ilvl": 341,
+        "Int": 586,
+        "Aceleracao": 45,
+        "Versatilidade": 58
+      },
+      {
+        "posicao": 3,
+        "item": "Presa do Contágio",
+        "en": "Fang of Contagion",
+        "id": 251225,
+        "origem": "M+ Arena da Chaga do Caos",
+        "ilvl": 341,
+        "Int": 586,
+        "Maestria": 60,
+        "Versatilidade": 43,
+        "porque": "Pior das três: sem Aceleração"
+      },
+      {
+        "posicao": "reserva",
+        "item": "Adaga do Eidolon Esquecido",
+        "en": "Forgotten Eidolon's Dagger",
+        "id": 272266,
+        "origem": "Delve",
+        "ilvl": 328,
+        "Int": 519,
+        "Aceleracao": 38,
+        "Critico": 60,
+        "porque": "Melhor par de secundários do spec, mas 13 ilvl abaixo (−67 Int)"
+      },
+      {
+        "posicao": "reserva",
+        "item": "Pilão de Pó de Osso",
+        "en": "Bonedust Pestle",
+        "id": 272270,
+        "origem": "Delve",
+        "ilvl": 328,
+        "Int": 519,
+        "Aceleracao": 60,
+        "Critico": 38
+      }
+    ],
+    "encantamento": "Rito dos Hash'ey (38/50) ou Acuidade dos Ren'dorei (11/50)",
+    "excluido": "Jan'thrazet, a Presa Anímica 271092 — 49/50 do top 50 usam, mas é drop de Ula'tek na RAIDE"
+  },
+  "estatisticas_murlok_mplus": {
+    "data_coleta": "2026-11-06",
+    "patch": "12.1.5",
+    "temporada": "Midnight Season 2",
+    "amostra": "Top 50 Affliction Warlocks globais de Mythic+ (US, EU, KR, TW)",
+    "faixa_rating": "3736 a 4031",
+    "distribuicao_hero_talents": {
+      "convocador_do_inferno": {
+        "jogadores": 25,
+        "porcentagem": 50
+      },
+      "ceifador_de_almas": {
+        "jogadores": 25,
+        "porcentagem": 50
+      }
+    },
+    "prioridade_atributos_secundarios": [
+      {
+        "atributo": "Aceleração",
+        "ordem": 1,
+        "media_porcentagem": 28,
+        "media_pontos": 1121,
+        "nota": "Aumenta a frequência de tiques de DoTs (Agonia, Corrupção, Aflição Instável) e gera fragmentos."
+      },
+      {
+        "atributo": "Acerto Crítico",
+        "ordem": 2,
+        "media_porcentagem": 28,
+        "media_pontos": 948,
+        "nota": "Permite que os tiques de DoT e o Êxtase Malévolo causem dano crítico dobrado com frequência."
+      },
+      {
+        "atributo": "Maestria",
+        "ordem": 3,
+        "media_porcentagem": 69,
+        "media_pontos": 755,
+        "nota": "Maestria: Aflições Potentes amplifica diretamente o dano periódico de todos os efeitos de sombra."
+      },
+      {
+        "atributo": "Versatilidade",
+        "ordem": 4,
+        "media_porcentagem": 4,
+        "media_pontos": 201,
+        "nota": "Mantida como atributo residual para maximizar escalonamento ofensivo."
+      }
+    ],
+    "atributos_menores": [
+      {
+        "atributo": "Evasão",
+        "ordem": 1,
+        "media_porcentagem": 5,
+        "media_pontos": 173
+      },
+      {
+        "atributo": "Sorver",
+        "ordem": 2,
+        "media_porcentagem": 3,
+        "media_pontos": 50
+      },
+      {
+        "atributo": "Velocidade",
+        "ordem": 3,
+        "media_porcentagem": 3,
+        "media_pontos": 0
+      }
+    ],
+    "embelezamentos_mais_usados": [
+      {
+        "nome_pt": "Forro de Tramarcana",
+        "nome_en": "Arcanoweave Lining",
+        "item_base": "Martyr's Bindings",
+        "item_id": 239648,
+        "icone": "https://render.worldofwarcraft.com/us/icons/56/7266375.jpg",
+        "contagem_recomendada": 2,
+        "efeito": "Concede bônus massivo de Maestria/Aceleração quando acima de 80% de vida."
+      },
+      {
+        "nome_pt": "Pedra Ritual do Caçador",
+        "nome_en": "Hunter's Ritual Stone",
+        "item_base": "Aln'hara Lantern",
+        "item_id": 245769,
+        "icone": "https://render.worldofwarcraft.com/us/icons/56/7431122.jpg",
+        "contagem_recomendada": 1,
+        "efeito": "Alternativa com proc de dano de sombra direto."
+      },
+      {
+        "nome_pt": "Presa Adornada",
+        "nome_en": "Adorned Fang",
+        "item_base": "Martyr's Mantle",
+        "item_id": 239650,
+        "icone": "https://render.worldofwarcraft.com/us/icons/56/7431122.jpg",
+        "contagem_recomendada": 1,
+        "efeito": "Aumento sustentado de atributos secundários de sombra."
+      }
+    ],
+    "encantamentos_populares": [
+      {
+        "slot": "Peitoral",
+        "encantamento": "Enchant Chest - Mark of the Worldsoul",
+        "efeito": "+Intelecto"
+      },
+      {
+        "slot": "Braçadeiras",
+        "encantamento": "Enchant Bracer - Chant of Armored Avoidance",
+        "efeito": "+Evasão"
+      },
+      {
+        "slot": "Botas",
+        "encantamento": "Enchant Boots - Defender's March",
+        "efeito": "+Vigor e Velocidade"
+      },
+      {
+        "slot": "Anéis",
+        "encantamento": "Enchant Ring - Radiant Haste",
+        "efeito": "+Aceleração"
+      },
+      {
+        "slot": "Arma Principal",
+        "encantamento": "Enchant Weapon - Authority of Fiery Resolve",
+        "efeito": "Proc de Intelecto"
+      }
+    ],
+    "gemas_populares": [
+      {
+        "gema": "Indecipherable Eversong Diamond",
+        "id": 240983,
+        "tipo": "Diamante Primário",
+        "icone": "https://render.worldofwarcraft.com/us/icons/56/7549096.jpg"
+      },
+      {
+        "gema": "Powerful Eversong Diamond",
+        "id": 240967,
+        "tipo": "Diamante Primário",
+        "icone": "https://render.worldofwarcraft.com/us/icons/56/7549097.jpg"
+      },
+      {
+        "gema": "Flawless Quick Garnet",
+        "id": 240906,
+        "tipo": "Aceleração Prismática",
+        "icone": "https://render.worldofwarcraft.com/us/icons/56/7549138.jpg"
+      },
+      {
+        "gema": "Flawless Deadly Peridot",
+        "id": 240890,
+        "tipo": "Crítico Prismático",
+        "icone": "https://render.worldofwarcraft.com/us/icons/56/7549127.jpg"
+      },
+      {
+        "gema": "Flawless Versatile Garnet",
+        "id": 240910,
+        "tipo": "Versatilidade Prismática",
+        "icone": "https://render.worldofwarcraft.com/us/icons/56/7549133.jpg"
+      }
+    ],
+    "racas_mais_jogadas": [
+      {
+        "raca": "Orc",
+        "porcentagem": 14,
+        "motivo": "Fúria Sangrenta amplia o dano de janelas de Êxtase Malévolo."
+      },
+      {
+        "raca": "Elfo Noturno (Night Elf)",
+        "porcentagem": 6,
+        "motivo": "Fusão Ínclita para cancelar mecânicas letais."
+      },
+      {
+        "raca": "Morto-vivo",
+        "porcentagem": 4,
+        "motivo": "Determinação dos Renegados e Toque do Túmulo passivo de sombra."
+      },
+      {
+        "raca": "Anão (Dwarf)",
+        "porcentagem": 4,
+        "motivo": "Forma de Pedra para dispersar sangramentos em masmorras míticas."
+      },
+      {
+        "raca": "Humano",
+        "porcentagem": 4,
+        "motivo": "Atributos secundários aumentados para acelerar os DoTs."
+      }
+    ]
+  }
+}

@@ -1,0 +1,2376 @@
+{
+  "_meta": {
+    "documento": "encantamentos_e_gemas_s2.json",
+    "patch": "12.1.5 — A Maldição de Ula'tek",
+    "temporada": "Midnight Season 2",
+    "fonte": "nether.wowhead.com/tooltip/item locale=8 (ptBR) e locale=0 (enUS)",
+    "descoberta": "varredura por faixa de ID — varredura_itens.json",
+    "faixas_varridas": [
+      "243900–244100 (encantamentos)",
+      "240860–240990 (gemas)",
+      "273065–273080 (T2)"
+    ],
+    "gerado_em": "2026-11-05T21:07:27.949Z",
+    "script": "tools/auditar_encantamentos_gemas.js"
+  },
+  "encantamentos": {
+    "243946": {
+      "grupo": "encantamento",
+      "nome_pt": "Encantamento da Marca de Nalorakk - Torso",
+      "nome_en": "Enchant Chest - Mark of Nalorakk",
+      "qualidade": 3,
+      "ilvl": 80,
+      "atributos": [],
+      "efeito": "Encanta permanentemente uma armadura de torso com a Marca de Nalorakk, aumentando em 32 a Força e em 93 o Vigor.",
+      "categoria": "Aprimoramentos Amani - Zelo de Zul'Aman",
+      "texto_pt": "Encantamento da Marca de Nalorakk - Torso\nNível do Item: 80Uso: Encanta permanentemente uma armadura de torso com a Marca de Nalorakk, aumentando em 32 a Força e em 93 o Vigor. Não é possível aplicar a itens abaixo do nível 120.\nAprimoramentos Amani - Zelo de Zul'Aman\nRequer Nível 70\nEmpilhamento máx: 200Preço de Venda: 5",
+      "texto_en": "Enchant Chest - Mark of Nalorakk\nItem Level 80Use: Permanently enchants chest armor with Mark of Nalorakk, increasing Strength by 32 and Stamina by 93. Cannot be applied to items lower than level 120.\nAmani Augments - Zul'Aman Zeal\nRequires Level 70\nMax Stack: 200Sell Price: 5",
+      "slot": "peitoral",
+      "nome_base": "Enchant Chest - Mark of Nalorakk"
+    },
+    "243947": {
+      "grupo": "encantamento",
+      "nome_pt": "Encantamento da Marca de Nalorakk - Torso",
+      "nome_en": "Enchant Chest - Mark of Nalorakk",
+      "qualidade": 3,
+      "ilvl": 85,
+      "atributos": [],
+      "efeito": "Encanta permanentemente uma armadura de torso com a Marca de Nalorakk, aumentando em 40 a Força e em 116 o Vigor.",
+      "categoria": "Aprimoramentos Amani - Zelo de Zul'Aman",
+      "texto_pt": "Encantamento da Marca de Nalorakk - Torso\nNível do Item: 85Uso: Encanta permanentemente uma armadura de torso com a Marca de Nalorakk, aumentando em 40 a Força e em 116 o Vigor. Não é possível aplicar a itens abaixo do nível 120.\nAprimoramentos Amani - Zelo de Zul'Aman\nRequer Nível 70\nEmpilhamento máx: 200Preço de Venda: 5",
+      "texto_en": "Enchant Chest - Mark of Nalorakk\nItem Level 85Use: Permanently enchants chest armor with Mark of Nalorakk, increasing Strength by 40 and Stamina by 116. Cannot be applied to items lower than level 120.\nAmani Augments - Zul'Aman Zeal\nRequires Level 70\nMax Stack: 200Sell Price: 5",
+      "slot": "peitoral",
+      "nome_base": "Enchant Chest - Mark of Nalorakk"
+    },
+    "243948": {
+      "grupo": "encantamento",
+      "nome_pt": "Encantamento de Bagata Sorvedora - Elmo",
+      "nome_en": "Enchant Helm - Hex of Leeching",
+      "qualidade": 3,
+      "ilvl": 80,
+      "atributos": [],
+      "efeito": "Encanta permanentemente um elmo com a Bagata Sorvedora, aumentando em 22 o Sorver.",
+      "categoria": "Aprimoramentos Amani - Brutalidade de Berserker",
+      "texto_pt": "Encantamento de Bagata Sorvedora - Elmo\nNível do Item: 80Uso: Encanta permanentemente um elmo com a Bagata Sorvedora, aumentando em 22 o Sorver. Não é possível aplicar a itens abaixo do nível 120.\nAprimoramentos Amani - Brutalidade de Berserker \nRequer Nível 70\nEmpilhamento máx: 200Preço de Venda: 5",
+      "texto_en": "Enchant Helm - Hex of Leeching\nItem Level 80Use: Permanently enchants helm armor with Hex of Leeching, increasing Leech by 22. Cannot be applied to items lower than level 120.\nAmani Augments - Berserker Brawn \nRequires Level 70\nMax Stack: 200Sell Price: 5",
+      "slot": "cabeça",
+      "nome_base": "Enchant Helm - Hex of Leeching"
+    },
+    "243949": {
+      "grupo": "encantamento",
+      "nome_pt": "Encantamento de Bagata Sorvedora - Elmo",
+      "nome_en": "Enchant Helm - Hex of Leeching",
+      "qualidade": 3,
+      "ilvl": 85,
+      "atributos": [],
+      "efeito": "Encanta permanentemente um elmo com a Bagata Sorvedora, aumentando em 33 o Sorver.",
+      "categoria": "Aprimoramentos Amani - Brutalidade de Berserker",
+      "texto_pt": "Encantamento de Bagata Sorvedora - Elmo\nNível do Item: 85Uso: Encanta permanentemente um elmo com a Bagata Sorvedora, aumentando em 33 o Sorver. Não é possível aplicar a itens abaixo do nível 120.\nAprimoramentos Amani - Brutalidade de Berserker \nRequer Nível 70\nEmpilhamento máx: 200Preço de Venda: 5",
+      "texto_en": "Enchant Helm - Hex of Leeching\nItem Level 85Use: Permanently enchants helm armor with Hex of Leeching, increasing Leech by 33. Cannot be applied to items lower than level 120.\nAmani Augments - Berserker Brawn \nRequires Level 70\nMax Stack: 200Sell Price: 5",
+      "slot": "cabeça",
+      "nome_base": "Enchant Helm - Hex of Leeching"
+    },
+    "243950": {
+      "grupo": "encantamento",
+      "nome_pt": "Encantamento de Bagata Sorvedora Potencializada - Elmo",
+      "nome_en": "Enchant Helm - Empowered Hex of Leeching",
+      "qualidade": 3,
+      "ilvl": 80,
+      "atributos": [],
+      "efeito": "Encanta permanentemente um elmo com a Bagata Sorvedora Potencializada, aumentando em 44 o Sorver. Também cura 2% dos seus pontos de vida sempre que você derrotar um inimigo a céu aberto em uma área de Midnight, uma vez a cada 5 s.",
+      "categoria": "Aprimoramentos Amani - Brutalidade de Berserker",
+      "texto_pt": "Encantamento de Bagata Sorvedora Potencializada - Elmo\nNível do Item: 80Uso: Encanta permanentemente um elmo com a Bagata Sorvedora Potencializada, aumentando em 44 o Sorver. Também cura 2% dos seus pontos de vida sempre que você derrotar um inimigo a céu aberto em uma área de Midnight, uma vez a cada 5 s. Não é possível aplicar a itens abaixo do nível 120.\nAprimoramentos Amani - Brutalidade de Berserker \nRequer Nível 70\nEmpilhamento máx: 200Preço de Venda: 5",
+      "texto_en": "Enchant Helm - Empowered Hex of Leeching\nItem Level 80Use: Permanently enchants helm armor with Empowered Hex of Leeching, increasing Leech by 44. Also heals you for 2% Health whenever you defeat a foe outdoors in a Midnight zone once per 5 sec. Cannot be applied to items lower than level 120.\nAmani Augments - Berserker Brawn \nRequires Level 70\nMax Stack: 200Sell Price: 5",
+      "slot": "cabeça",
+      "nome_base": "Enchant Helm - Empowered Hex of Leeching"
+    },
+    "243951": {
+      "grupo": "encantamento",
+      "nome_pt": "Encantamento de Bagata Sorvedora Potencializada - Elmo",
+      "nome_en": "Enchant Helm - Empowered Hex of Leeching",
+      "qualidade": 3,
+      "ilvl": 85,
+      "atributos": [],
+      "efeito": "Encanta permanentemente um elmo com a Bagata Sorvedora Potencializada, aumentando em 55 o Sorver. Também cura 3% dos seus pontos de vida sempre que você derrotar um inimigo a céu aberto em uma área de Midnight, uma vez a cada 5 s.",
+      "categoria": "Aprimoramentos Amani - Brutalidade de Berserker",
+      "texto_pt": "Encantamento de Bagata Sorvedora Potencializada - Elmo\nNível do Item: 85Uso: Encanta permanentemente um elmo com a Bagata Sorvedora Potencializada, aumentando em 55 o Sorver. Também cura 3% dos seus pontos de vida sempre que você derrotar um inimigo a céu aberto em uma área de Midnight, uma vez a cada 5 s. Não é possível aplicar a itens abaixo do nível 120.\nAprimoramentos Amani - Brutalidade de Berserker \nRequer Nível 70\nEmpilhamento máx: 200Preço de Venda: 5",
+      "texto_en": "Enchant Helm - Empowered Hex of Leeching\nItem Level 85Use: Permanently enchants helm armor with Empowered Hex of Leeching, increasing Leech by 55. Also heals you for 3% Health whenever you defeat a foe outdoors in a Midnight zone once per 5 sec. Cannot be applied to items lower than level 120.\nAmani Augments - Berserker Brawn \nRequires Level 70\nMax Stack: 200Sell Price: 5",
+      "slot": "cabeça",
+      "nome_base": "Enchant Helm - Empowered Hex of Leeching"
+    },
+    "243952": {
+      "grupo": "encantamento",
+      "nome_pt": "Encantamento de Destreza do Lince - Botas",
+      "nome_en": "Enchant Boots - Lynx's Dexterity",
+      "qualidade": 3,
+      "ilvl": 80,
+      "atributos": [],
+      "efeito": "Encanta permanentemente um par de botas com a Destreza do Lince, aumentando em 15 a Evasão e em 186 o Vigor.",
+      "categoria": "Aprimoramentos Amani - Brutalidade de Berserker",
+      "texto_pt": "Encantamento de Destreza do Lince - Botas\nNível do Item: 80Uso: Encanta permanentemente um par de botas com a Destreza do Lince, aumentando em 15 a Evasão e em 186 o Vigor. Não é possível aplicar a itens abaixo do nível 120.\nAprimoramentos Amani - Brutalidade de Berserker \nRequer Nível 70\nEmpilhamento máx: 200Preço de Venda: 5",
+      "texto_en": "Enchant Boots - Lynx's Dexterity\nItem Level 80Use: Permanently enchants boots with Lynx's Dexterity, increasing Avoidance by 15 and Stamina by 186. Cannot be applied to items lower than level 120.\nAmani Augments - Berserker Brawn \nRequires Level 70\nMax Stack: 200Sell Price: 5",
+      "slot": "pés",
+      "nome_base": "Enchant Boots - Lynx's Dexterity"
+    },
+    "243953": {
+      "grupo": "encantamento",
+      "nome_pt": "Encantamento de Destreza do Lince - Botas",
+      "nome_en": "Enchant Boots - Lynx's Dexterity",
+      "qualidade": 3,
+      "ilvl": 85,
+      "atributos": [],
+      "efeito": "Encanta permanentemente um par de botas com a Destreza do Lince, aumentando em 19 a Evasão e em 232 o Vigor.",
+      "categoria": "Aprimoramentos Amani - Brutalidade de Berserker",
+      "texto_pt": "Encantamento de Destreza do Lince - Botas\nNível do Item: 85Uso: Encanta permanentemente um par de botas com a Destreza do Lince, aumentando em 19 a Evasão e em 232 o Vigor. Não é possível aplicar a itens abaixo do nível 120.\nAprimoramentos Amani - Brutalidade de Berserker \nRequer Nível 70\nEmpilhamento máx: 200Preço de Venda: 5",
+      "texto_en": "Enchant Boots - Lynx's Dexterity\nItem Level 85Use: Permanently enchants boots with Lynx's Dexterity, increasing Avoidance by 19 and Stamina by 232. Cannot be applied to items lower than level 120.\nAmani Augments - Berserker Brawn \nRequires Level 70\nMax Stack: 200Sell Price: 5",
+      "slot": "pés",
+      "nome_base": "Enchant Boots - Lynx's Dexterity"
+    },
+    "243954": {
+      "grupo": "encantamento",
+      "nome_pt": "Encantamento de Maestria Amani - Anel",
+      "nome_en": "Enchant Ring - Amani Mastery",
+      "qualidade": 3,
+      "ilvl": 80,
+      "atributos": [],
+      "efeito": "Encanta permanentemente um anel com Maestria Amani, aumentando em 22 a Maestria.",
+      "categoria": "Aprimoramentos Amani - Zelo de Zul'Aman",
+      "texto_pt": "Encantamento de Maestria Amani - Anel\nNível do Item: 80Uso: Encanta permanentemente um anel com Maestria Amani, aumentando em 22 a Maestria. Não é possível aplicar a itens abaixo do nível 120.\nAprimoramentos Amani - Zelo de Zul'Aman \nRequer Nível 70\nEmpilhamento máx: 200Preço de Venda: 3",
+      "texto_en": "Enchant Ring - Amani Mastery\nItem Level 80Use: Permanently enchants a ring with Amani Mastery, increasing Mastery by 22. Cannot be applied to items lower than level 120.\nAmani Augments - Zul'Aman Zeal \nRequires Level 70\nMax Stack: 200Sell Price: 3",
+      "slot": "anel",
+      "nome_base": "Enchant Ring - Amani Mastery"
+    },
+    "243955": {
+      "grupo": "encantamento",
+      "nome_pt": "Encantamento de Maestria Amani - Anel",
+      "nome_en": "Enchant Ring - Amani Mastery",
+      "qualidade": 3,
+      "ilvl": 85,
+      "atributos": [],
+      "efeito": "Encanta permanentemente um anel com Maestria Amani, aumentando em 24 a Maestria.",
+      "categoria": "Aprimoramentos Amani - Zelo de Zul'Aman",
+      "texto_pt": "Encantamento de Maestria Amani - Anel\nNível do Item: 85Uso: Encanta permanentemente um anel com Maestria Amani, aumentando em 24 a Maestria. Não é possível aplicar a itens abaixo do nível 120.\nAprimoramentos Amani - Zelo de Zul'Aman \nRequer Nível 70\nEmpilhamento máx: 200Preço de Venda: 3",
+      "texto_en": "Enchant Ring - Amani Mastery\nItem Level 85Use: Permanently enchants a ring with Amani Mastery, increasing Mastery by 24. Cannot be applied to items lower than level 120.\nAmani Augments - Zul'Aman Zeal \nRequires Level 70\nMax Stack: 200Sell Price: 3",
+      "slot": "anel",
+      "nome_base": "Enchant Ring - Amani Mastery"
+    },
+    "243956": {
+      "grupo": "encantamento",
+      "nome_pt": "Encantamento de Olhos da Águia - Anel",
+      "nome_en": "Enchant Ring - Eyes of the Eagle",
+      "qualidade": 3,
+      "ilvl": 80,
+      "atributos": [],
+      "efeito": "Encanta permanentemente um anel com Olhos da Águia, aumentando em 1% a eficácia do Acerto Crítico.",
+      "categoria": "Aprimoramentos Amani - Zelo de Zul'Aman",
+      "texto_pt": "Encantamento de Olhos da Águia - Anel\nNível do Item: 80Uso: Encanta permanentemente um anel com Olhos da Águia, aumentando em 1% a eficácia do Acerto Crítico. Não é possível aplicar a itens abaixo do nível 120.\nAprimoramentos Amani - Zelo de Zul'Aman \nRequer Nível 70\nEmpilhamento máx: 200Preço de Venda: 3",
+      "texto_en": "Enchant Ring - Eyes of the Eagle\nItem Level 80Use: Permanently enchants a ring with Eyes of the Eagle, increasing critical strike effectiveness by 1%. Cannot be applied to items lower than level 120.\nAmani Augments - Zul'Aman Zeal \nRequires Level 70\nMax Stack: 200Sell Price: 3",
+      "slot": "anel",
+      "nome_base": "Enchant Ring - Eyes of the Eagle"
+    },
+    "243957": {
+      "grupo": "encantamento",
+      "nome_pt": "Encantamento de Olhos da Águia - Anel",
+      "nome_en": "Enchant Ring - Eyes of the Eagle",
+      "qualidade": 3,
+      "ilvl": 85,
+      "atributos": [],
+      "efeito": "Encanta permanentemente um anel com Olhos da Águia, aumentando em 2% a eficácia do Acerto Crítico.",
+      "categoria": "Aprimoramentos Amani - Zelo de Zul'Aman",
+      "texto_pt": "Encantamento de Olhos da Águia - Anel\nNível do Item: 85Uso: Encanta permanentemente um anel com Olhos da Águia, aumentando em 2% a eficácia do Acerto Crítico. Não é possível aplicar a itens abaixo do nível 120.\nAprimoramentos Amani - Zelo de Zul'Aman \nRequer Nível 70\nEmpilhamento máx: 200Preço de Venda: 3",
+      "texto_en": "Enchant Ring - Eyes of the Eagle\nItem Level 85Use: Permanently enchants a ring with Eyes of the Eagle, increasing critical strike effectiveness by 2%. Cannot be applied to items lower than level 120.\nAmani Augments - Zul'Aman Zeal \nRequires Level 70\nMax Stack: 200Sell Price: 3",
+      "slot": "anel",
+      "nome_base": "Enchant Ring - Eyes of the Eagle"
+    },
+    "243958": {
+      "grupo": "encantamento",
+      "nome_pt": "Encantamento de Maestria de Zul'jin - Anel",
+      "nome_en": "Enchant Ring - Zul'jin's Mastery",
+      "qualidade": 3,
+      "ilvl": 80,
+      "atributos": [],
+      "efeito": "Encanta permanentemente um anel com Maestria de Zul'jin, aumentando em 27 a Maestria.",
+      "categoria": "Aprimoramentos Amani - Zelo de Zul'Aman",
+      "texto_pt": "Encantamento de Maestria de Zul'jin - Anel\nNível do Item: 80Uso: Encanta permanentemente um anel com Maestria de Zul'jin, aumentando em 27 a Maestria. Não é possível aplicar a itens abaixo do nível 120.\nAprimoramentos Amani - Zelo de Zul'Aman \nRequer Nível 70\nEmpilhamento máx: 200Preço de Venda: 3",
+      "texto_en": "Enchant Ring - Zul'jin's Mastery\nItem Level 80Use: Permanently enchants a ring with Zul'jin's Mastery, increasing Mastery by 27. Cannot be applied to items lower than level 120.\nAmani Augments - Zul'Aman Zeal \nRequires Level 70\nMax Stack: 200Sell Price: 3",
+      "slot": "anel",
+      "nome_base": "Enchant Ring - Zul'jin's Mastery"
+    },
+    "243959": {
+      "grupo": "encantamento",
+      "nome_pt": "Encantamento de Maestria de Zul'jin - Anel",
+      "nome_en": "Enchant Ring - Zul'jin's Mastery",
+      "qualidade": 3,
+      "ilvl": 85,
+      "atributos": [],
+      "efeito": "Encanta permanentemente um anel com Maestria de Zul'jin, aumentando em 29 a Maestria.",
+      "categoria": "Aprimoramentos Amani - Zelo de Zul'Aman",
+      "texto_pt": "Encantamento de Maestria de Zul'jin - Anel\nNível do Item: 85Uso: Encanta permanentemente um anel com Maestria de Zul'jin, aumentando em 29 a Maestria. Não é possível aplicar a itens abaixo do nível 120.\nAprimoramentos Amani - Zelo de Zul'Aman \nRequer Nível 70\nEmpilhamento máx: 200Preço de Venda: 3",
+      "texto_en": "Enchant Ring - Zul'jin's Mastery\nItem Level 85Use: Permanently enchants a ring with Zul'jin's Mastery, increasing Mastery by 29. Cannot be applied to items lower than level 120.\nAmani Augments - Zul'Aman Zeal \nRequires Level 70\nMax Stack: 200Sell Price: 3",
+      "slot": "anel",
+      "nome_base": "Enchant Ring - Zul'jin's Mastery"
+    },
+    "243960": {
+      "grupo": "encantamento",
+      "nome_pt": "Encantamento do Voo da Águia - Ombros",
+      "nome_en": "Enchant Shoulders - Flight of the Eagle",
+      "qualidade": 3,
+      "ilvl": 80,
+      "atributos": [],
+      "efeito": "Encanta permanentemente ombreiras com o Voo da Águia, aumentando em 26 a Velocidade.",
+      "categoria": "Aprimoramentos Amani - Brutalidade de Berserker",
+      "texto_pt": "Encantamento do Voo da Águia - Ombros\nNível do Item: 80Uso: Encanta permanentemente ombreiras com o Voo da Águia, aumentando em 26 a Velocidade. Não é possível aplicar a itens abaixo do nível 120.\nAprimoramentos Amani - Brutalidade de Berserker \nRequer Nível 70\nEmpilhamento máx: 200Preço de Venda: 5",
+      "texto_en": "Enchant Shoulders - Flight of the Eagle\nItem Level 80Use: Permanently enchants shoulder armor with Flight of the Eagle, increasing Speed by 26. Cannot be applied to items lower than level 120.\nAmani Augments - Berserker Brawn \nRequires Level 70\nMax Stack: 200Sell Price: 5",
+      "slot": "ombros",
+      "nome_base": "Enchant Shoulders - Flight of the Eagle"
+    },
+    "243961": {
+      "grupo": "encantamento",
+      "nome_pt": "Encantamento do Voo da Águia - Ombros",
+      "nome_en": "Enchant Shoulders - Flight of the Eagle",
+      "qualidade": 3,
+      "ilvl": 85,
+      "atributos": [],
+      "efeito": "Encanta permanentemente ombreiras com o Voo da Águia, aumentando em 39 a Velocidade.",
+      "categoria": "Aprimoramentos Amani - Brutalidade de Berserker",
+      "texto_pt": "Encantamento do Voo da Águia - Ombros\nNível do Item: 85Uso: Encanta permanentemente ombreiras com o Voo da Águia, aumentando em 39 a Velocidade. Não é possível aplicar a itens abaixo do nível 120.\nAprimoramentos Amani - Brutalidade de Berserker \nRequer Nível 70\nEmpilhamento máx: 200Preço de Venda: 5",
+      "texto_en": "Enchant Shoulders - Flight of the Eagle\nItem Level 85Use: Permanently enchants shoulder armor with Flight of the Eagle, increasing Speed by 39. Cannot be applied to items lower than level 120.\nAmani Augments - Berserker Brawn \nRequires Level 70\nMax Stack: 200Sell Price: 5",
+      "slot": "ombros",
+      "nome_base": "Enchant Shoulders - Flight of the Eagle"
+    },
+    "243962": {
+      "grupo": "encantamento",
+      "nome_pt": "Encantamento da Rapidez de Akil'zon - Ombros",
+      "nome_en": "Enchant Shoulders - Akil'zon's Swiftness",
+      "qualidade": 3,
+      "ilvl": 80,
+      "atributos": [],
+      "efeito": "Encanta permanentemente ombreiras com a Rapidez de Akil'zon, aumentando em 52 a Velocidade.",
+      "categoria": "Aprimoramentos Amani - Brutalidade de Berserker",
+      "texto_pt": "Encantamento da Rapidez de Akil'zon - Ombros\nNível do Item: 80Uso: Encanta permanentemente ombreiras com a Rapidez de Akil'zon, aumentando em 52 a Velocidade. Não é possível aplicar a itens abaixo do nível 120.\nAprimoramentos Amani - Brutalidade de Berserker \nRequer Nível 70\nEmpilhamento máx: 200Preço de Venda: 5",
+      "texto_en": "Enchant Shoulders - Akil'zon's Swiftness\nItem Level 80Use: Permanently enchants shoulder armor with Akil'zon's Swiftness, increasing Speed by 52. Cannot be applied to items lower than level 120.\nAmani Augments - Berserker Brawn \nRequires Level 70\nMax Stack: 200Sell Price: 5",
+      "slot": "ombros",
+      "nome_base": "Enchant Shoulders - Akil'zon's Swiftness"
+    },
+    "243963": {
+      "grupo": "encantamento",
+      "nome_pt": "Encantamento da Rapidez de Akil'zon - Ombros",
+      "nome_en": "Enchant Shoulders - Akil'zon's Swiftness",
+      "qualidade": 3,
+      "ilvl": 85,
+      "atributos": [],
+      "efeito": "Encanta permanentemente ombreiras com a Rapidez de Akil'zon, aumentando em 65 a Velocidade.",
+      "categoria": "Aprimoramentos Amani - Brutalidade de Berserker",
+      "texto_pt": "Encantamento da Rapidez de Akil'zon - Ombros\nNível do Item: 85Uso: Encanta permanentemente ombreiras com a Rapidez de Akil'zon, aumentando em 65 a Velocidade. Não é possível aplicar a itens abaixo do nível 120.\nAprimoramentos Amani - Brutalidade de Berserker \nRequer Nível 70\nEmpilhamento máx: 200Preço de Venda: 5",
+      "texto_en": "Enchant Shoulders - Akil'zon's Swiftness\nItem Level 85Use: Permanently enchants shoulder armor with Akil'zon's Swiftness, increasing Speed by 65. Cannot be applied to items lower than level 120.\nAmani Augments - Berserker Brawn \nRequires Level 70\nMax Stack: 200Sell Price: 5",
+      "slot": "ombros",
+      "nome_base": "Enchant Shoulders - Akil'zon's Swiftness"
+    },
+    "243968": {
+      "grupo": "encantamento",
+      "nome_pt": "Encantamento de Força de Halazzi - Arma",
+      "nome_en": "Enchant Weapon - Strength of Halazzi",
+      "qualidade": 3,
+      "ilvl": 80,
+      "atributos": [],
+      "efeito": "Encanta permanentemente uma arma com a Força de Halazzi. Seus danos às vezes chamam o loa para talhar o seu alvo, fazendo-os sangrar e causando (1 * 1533) de dano ao longo de 18 s.",
+      "categoria": "Aprimoramentos Amani - Zelo de Zul'Aman",
+      "texto_pt": "Encantamento de Força de Halazzi - Arma\nNível do Item: 80Uso: Encanta permanentemente uma arma com a Força de Halazzi. Seus danos às vezes chamam o loa para talhar o seu alvo, fazendo-os sangrar e causando (1 * 1533) de dano ao longo de 18 s. Não é possível aplicar a itens abaixo do nível 120.\nAprimoramentos Amani - Zelo de Zul'Aman \nRequer Nível 70\nEmpilhamento máx: 200Preço de Venda: 5",
+      "texto_en": "Enchant Weapon - Strength of Halazzi\nItem Level 80Use: Permanently enchants a weapon with Strength of Halazzi, causing your damage to sometimes call upon the loa to slash your target, causing them to bleed for (1 * 1533) damage over 18 sec. Cannot be applied to items lower than level 120.\nAmani Augments - Zul'Aman Zeal \nRequires Level 70\nMax Stack: 200Sell Price: 5",
+      "slot": "arma",
+      "nome_base": "Enchant Weapon - Strength of Halazzi"
+    },
+    "243969": {
+      "grupo": "encantamento",
+      "nome_pt": "Encantamento de Força de Halazzi - Arma",
+      "nome_en": "Enchant Weapon - Strength of Halazzi",
+      "qualidade": 3,
+      "ilvl": 85,
+      "atributos": [],
+      "efeito": "Encanta permanentemente uma arma com a Força de Halazzi. Seus danos às vezes chamam o loa para talhar o seu alvo, fazendo-os sangrar e causando (1 * 1893) de dano ao longo de 18 s.",
+      "categoria": "Aprimoramentos Amani - Zelo de Zul'Aman",
+      "texto_pt": "Encantamento de Força de Halazzi - Arma\nNível do Item: 85Uso: Encanta permanentemente uma arma com a Força de Halazzi. Seus danos às vezes chamam o loa para talhar o seu alvo, fazendo-os sangrar e causando (1 * 1893) de dano ao longo de 18 s. Não é possível aplicar a itens abaixo do nível 120.\nAprimoramentos Amani - Zelo de Zul'Aman \nRequer Nível 70\nEmpilhamento máx: 200Preço de Venda: 5",
+      "texto_en": "Enchant Weapon - Strength of Halazzi\nItem Level 85Use: Permanently enchants a weapon with Strength of Halazzi, causing your damage to sometimes call upon the loa to slash your target, causing them to bleed for (1 * 1893) damage over 18 sec. Cannot be applied to items lower than level 120.\nAmani Augments - Zul'Aman Zeal \nRequires Level 70\nMax Stack: 200Sell Price: 5",
+      "slot": "arma",
+      "nome_base": "Enchant Weapon - Strength of Halazzi"
+    },
+    "243970": {
+      "grupo": "encantamento",
+      "nome_pt": "Encantamento de Precisão de Jan'alai - Arma",
+      "nome_en": "Enchant Weapon - Jan'alai's Precision",
+      "qualidade": 3,
+      "ilvl": 80,
+      "atributos": [],
+      "efeito": "Encanta permanentemente uma arma com Precisão de Jan'alai, fazendo seus feitiços e habilidades às vezes concederem Precisão do Falcodrago, aumentando em 99 o seu Acerto Crítico por 15 s.",
+      "categoria": "Aprimoramentos Amani - Zelo de Zul'Aman",
+      "texto_pt": "Encantamento de Precisão de Jan'alai - Arma\nNível do Item: 80Uso: Encanta permanentemente uma arma com Precisão de Jan'alai, fazendo seus feitiços e habilidades às vezes concederem Precisão do Falcodrago, aumentando em 99 o seu Acerto Crítico por 15 s. Não é possível aplicar a itens abaixo do nível 120.\nAprimoramentos Amani - Zelo de Zul'Aman \nRequer Nível 70\nEmpilhamento máx: 200Preço de Venda: 5",
+      "texto_en": "Enchant Weapon - Jan'alai's Precision\nItem Level 80Use: Permanently enchants a weapon with Jan'alai's Precision, causing your spells and abilities to sometimes grant you Precision of the Dragonhawk, increasing your Critical Strike by 99 for 15 sec. Cannot be applied to items lower than level 120.\nAmani Augments - Zul'Aman Zeal \nRequires Level 70\nMax Stack: 200Sell Price: 5",
+      "slot": "arma",
+      "nome_base": "Enchant Weapon - Jan'alai's Precision"
+    },
+    "243971": {
+      "grupo": "encantamento",
+      "nome_pt": "Encantamento de Precisão de Jan'alai - Arma",
+      "nome_en": "Enchant Weapon - Jan'alai's Precision",
+      "qualidade": 3,
+      "ilvl": 85,
+      "atributos": [],
+      "efeito": "Encanta permanentemente uma arma com Precisão de Jan'alai, fazendo seus feitiços e habilidades às vezes concederem Precisão do Falcodrago, aumentando em 124 o seu Acerto Crítico por 15 s.",
+      "categoria": "Aprimoramentos Amani - Zelo de Zul'Aman",
+      "texto_pt": "Encantamento de Precisão de Jan'alai - Arma\nNível do Item: 85Uso: Encanta permanentemente uma arma com Precisão de Jan'alai, fazendo seus feitiços e habilidades às vezes concederem Precisão do Falcodrago, aumentando em 124 o seu Acerto Crítico por 15 s. Não é possível aplicar a itens abaixo do nível 120.\nAprimoramentos Amani - Zelo de Zul'Aman \nRequer Nível 70\nEmpilhamento máx: 200Preço de Venda: 5",
+      "texto_en": "Enchant Weapon - Jan'alai's Precision\nItem Level 85Use: Permanently enchants a weapon with Jan'alai's Precision, causing your spells and abilities to sometimes grant you Precision of the Dragonhawk, increasing your Critical Strike by 124 for 15 sec. Cannot be applied to items lower than level 120.\nAmani Augments - Zul'Aman Zeal \nRequires Level 70\nMax Stack: 200Sell Price: 5",
+      "slot": "arma",
+      "nome_base": "Enchant Weapon - Jan'alai's Precision"
+    },
+    "243972": {
+      "grupo": "encantamento",
+      "nome_pt": "Encantamento de Raiva Incontrolada - Arma",
+      "nome_en": "Enchant Weapon - Berserker's Rage",
+      "qualidade": 3,
+      "ilvl": 80,
+      "atributos": [],
+      "efeito": "Encanta permanentemente uma arma com Raiva Incontrolada, fazendo seus feitiços e habilidades concederem Foco Frenético, aumentando em 99 a sua Aceleração por 15 s.",
+      "categoria": "Aprimoramentos Amani - Zelo de Zul'Aman",
+      "texto_pt": "Encantamento de Raiva Incontrolada - Arma\nNível do Item: 80Uso: Encanta permanentemente uma arma com Raiva Incontrolada, fazendo seus feitiços e habilidades concederem Foco Frenético, aumentando em 99 a sua Aceleração por 15 s. Não é possível aplicar a itens abaixo do nível 120.\nAprimoramentos Amani - Zelo de Zul'Aman \nRequer Nível 70\nEmpilhamento máx: 200Preço de Venda: 5",
+      "texto_en": "Enchant Weapon - Berserker's Rage\nItem Level 80Use: Permanently enchants a weapon with Berserker's Rage, causing your spells and abilities to grant you Frenzied Focus, increasing your Haste by 99 for 15 sec. Cannot be applied to items lower than level 120.\nAmani Augments - Zul'Aman Zeal \nRequires Level 70\nMax Stack: 200Sell Price: 5",
+      "slot": "arma",
+      "nome_base": "Enchant Weapon - Berserker's Rage"
+    },
+    "243973": {
+      "grupo": "encantamento",
+      "nome_pt": "Encantamento de Raiva Incontrolada - Arma",
+      "nome_en": "Enchant Weapon - Berserker's Rage",
+      "qualidade": 3,
+      "ilvl": 85,
+      "atributos": [],
+      "efeito": "Encanta permanentemente uma arma com Raiva Incontrolada, fazendo seus feitiços e habilidades concederem Foco Frenético, aumentando em 124 a sua Aceleração por 15 s.",
+      "categoria": "Aprimoramentos Amani - Zelo de Zul'Aman",
+      "texto_pt": "Encantamento de Raiva Incontrolada - Arma\nNível do Item: 85Uso: Encanta permanentemente uma arma com Raiva Incontrolada, fazendo seus feitiços e habilidades concederem Foco Frenético, aumentando em 124 a sua Aceleração por 15 s. Não é possível aplicar a itens abaixo do nível 120.\nAprimoramentos Amani - Zelo de Zul'Aman \nRequer Nível 70\nEmpilhamento máx: 200Preço de Venda: 5",
+      "texto_en": "Enchant Weapon - Berserker's Rage\nItem Level 85Use: Permanently enchants a weapon with Berserker's Rage, causing your spells and abilities to grant you Frenzied Focus, increasing your Haste by 124 for 15 sec. Cannot be applied to items lower than level 120.\nAmani Augments - Zul'Aman Zeal \nRequires Level 70\nMax Stack: 200Sell Price: 5",
+      "slot": "arma",
+      "nome_base": "Enchant Weapon - Berserker's Rage"
+    },
+    "243974": {
+      "grupo": "encantamento",
+      "nome_pt": "Encantamento da Marca do Guardirraiz - Torso",
+      "nome_en": "Enchant Chest - Mark of the Rootwarden",
+      "qualidade": 3,
+      "ilvl": 80,
+      "atributos": [],
+      "efeito": "Encanta permanentemente uma armadura de torso com a Marca do Guardirraiz, aumentando em 32 a Agilidade e em 12 a Velocidade.",
+      "categoria": null,
+      "texto_pt": "Encantamento da Marca do Guardirraiz - Torso\nNível do Item: 80Uso: Encanta permanentemente uma armadura de torso com a Marca do Guardirraiz, aumentando em 32 a Agilidade e em 12 a Velocidade. Não é possível aplicar a itens abaixo do nível 120.\nHegemonia Haranir - Armas Azerothianas \nRequer Nível 70\nEmpilhamento máx: 200Preço de Venda: 5",
+      "texto_en": "Enchant Chest - Mark of the Rootwarden\nItem Level 80Use: Permanently enchants chest armor with Mark of the Rootwarden, increasing Agility by 32 and Speed by 12. Cannot be applied to items lower than level 120.\nHaranir Heightening - Azerothian Arms \nRequires Level 70\nMax Stack: 200Sell Price: 5",
+      "slot": "peitoral",
+      "nome_base": "Enchant Chest - Mark of the Rootwarden"
+    },
+    "243975": {
+      "grupo": "encantamento",
+      "nome_pt": "Encantamento da Marca do Guardirraiz - Torso",
+      "nome_en": "Enchant Chest - Mark of the Rootwarden",
+      "qualidade": 3,
+      "ilvl": 85,
+      "atributos": [],
+      "efeito": "Encanta permanentemente uma armadura de torso com a Marca do Guardirraiz, aumentando em 40 a Agilidade e em 15 a Velocidade.",
+      "categoria": null,
+      "texto_pt": "Encantamento da Marca do Guardirraiz - Torso\nNível do Item: 85Uso: Encanta permanentemente uma armadura de torso com a Marca do Guardirraiz, aumentando em 40 a Agilidade e em 15 a Velocidade. Não é possível aplicar a itens abaixo do nível 120.\nHegemonia Haranir - Armas Azerothianas \nRequer Nível 70\nEmpilhamento máx: 200Preço de Venda: 5",
+      "texto_en": "Enchant Chest - Mark of the Rootwarden\nItem Level 85Use: Permanently enchants chest armor with Mark of the Rootwarden, increasing Agility by 40 and Speed by 15. Cannot be applied to items lower than level 120.\nHaranir Heightening - Azerothian Arms \nRequires Level 70\nMax Stack: 200Sell Price: 5",
+      "slot": "peitoral",
+      "nome_base": "Enchant Chest - Mark of the Rootwarden"
+    },
+    "243976": {
+      "grupo": "encantamento",
+      "nome_pt": "Encantamento da Marca da Alma do Mundo - Torso",
+      "nome_en": "Enchant Chest - Mark of the Worldsoul",
+      "qualidade": 3,
+      "ilvl": 80,
+      "atributos": [],
+      "efeito": "Encanta permanentemente uma armadura de torso com a Marca da Alma do Mundo, aumentando em 36 seu Atributo Primário.",
+      "categoria": null,
+      "texto_pt": "Encantamento da Marca da Alma do Mundo - Torso\nNível do Item: 80Uso: Encanta permanentemente uma armadura de torso com a Marca da Alma do Mundo, aumentando em 36 seu Atributo Primário. Não é possível aplicar a itens abaixo do nível 120.\nHegemonia Haranir - Armas Azerothianas \nRequer Nível 70\nEmpilhamento máx: 200Preço de Venda: 5",
+      "texto_en": "Enchant Chest - Mark of the Worldsoul\nItem Level 80Use: Permanently enchants chest armor with Mark of the Worldsoul, increasing your Primary stat by 36. Cannot be applied to items lower than level 120.\nHaranir Heightening - Azerothian Arms \nRequires Level 70\nMax Stack: 200Sell Price: 5",
+      "slot": "peitoral",
+      "nome_base": "Enchant Chest - Mark of the Worldsoul"
+    },
+    "243977": {
+      "grupo": "encantamento",
+      "nome_pt": "Encantamento da Marca da Alma do Mundo - Torso",
+      "nome_en": "Enchant Chest - Mark of the Worldsoul",
+      "qualidade": 3,
+      "ilvl": 85,
+      "atributos": [],
+      "efeito": "Encanta permanentemente uma armadura de torso com a Marca da Alma do Mundo, aumentando em 50 seu Atributo Primário.",
+      "categoria": null,
+      "texto_pt": "Encantamento da Marca da Alma do Mundo - Torso\nNível do Item: 85Uso: Encanta permanentemente uma armadura de torso com a Marca da Alma do Mundo, aumentando em 50 seu Atributo Primário. Não é possível aplicar a itens abaixo do nível 120.\nHegemonia Haranir - Armas Azerothianas \nRequer Nível 70\nEmpilhamento máx: 200Preço de Venda: 5",
+      "texto_en": "Enchant Chest - Mark of the Worldsoul\nItem Level 85Use: Permanently enchants chest armor with Mark of the Worldsoul, increasing your Primary stat by 50. Cannot be applied to items lower than level 120.\nHaranir Heightening - Azerothian Arms \nRequires Level 70\nMax Stack: 200Sell Price: 5",
+      "slot": "peitoral",
+      "nome_base": "Enchant Chest - Mark of the Worldsoul"
+    },
+    "243978": {
+      "grupo": "encantamento",
+      "nome_pt": "Encantamento da Bênção da Velocidade - Elmo",
+      "nome_en": "Enchant Helm - Blessing of Speed",
+      "qualidade": 3,
+      "ilvl": 80,
+      "atributos": [],
+      "efeito": "Encanta permanentemente um elmo com a Bênção da Velocidade, aumentando em 9 a Velocidade.",
+      "categoria": null,
+      "texto_pt": "Encantamento da Bênção da Velocidade - Elmo\nNível do Item: 80Uso: Encanta permanentemente um elmo com a Bênção da Velocidade, aumentando em 9 a Velocidade. Não é possível aplicar a itens abaixo do nível 120.\nHegemonia Haranir - Amuletos da Alma do Mundo \nRequer Nível 70\nEmpilhamento máx: 200Preço de Venda: 5",
+      "texto_en": "Enchant Helm - Blessing of Speed\nItem Level 80Use: Permanently enchants helm armor with Blessing of Speed, increasing Speed by 9. Cannot be applied to items lower than level 120.\nHaranir Heightening - Worldsoul Wards \nRequires Level 70\nMax Stack: 200Sell Price: 5",
+      "slot": "cabeça",
+      "nome_base": "Enchant Helm - Blessing of Speed"
+    },
+    "243979": {
+      "grupo": "encantamento",
+      "nome_pt": "Encantamento da Bênção da Velocidade - Elmo",
+      "nome_en": "Enchant Helm - Blessing of Speed",
+      "qualidade": 3,
+      "ilvl": 85,
+      "atributos": [],
+      "efeito": "Encanta permanentemente um elmo com a Bênção da Velocidade, aumentando em 13 a Velocidade.",
+      "categoria": null,
+      "texto_pt": "Encantamento da Bênção da Velocidade - Elmo\nNível do Item: 85Uso: Encanta permanentemente um elmo com a Bênção da Velocidade, aumentando em 13 a Velocidade. Não é possível aplicar a itens abaixo do nível 120.\nHegemonia Haranir - Amuletos da Alma do Mundo \nRequer Nível 70\nEmpilhamento máx: 200Preço de Venda: 5",
+      "texto_en": "Enchant Helm - Blessing of Speed\nItem Level 85Use: Permanently enchants helm armor with Blessing of Speed, increasing Speed by 13. Cannot be applied to items lower than level 120.\nHaranir Heightening - Worldsoul Wards \nRequires Level 70\nMax Stack: 200Sell Price: 5",
+      "slot": "cabeça",
+      "nome_base": "Enchant Helm - Blessing of Speed"
+    },
+    "243980": {
+      "grupo": "encantamento",
+      "nome_pt": "Encantamento da Bênção da Velocidade Potencializada - Elmo",
+      "nome_en": "Enchant Helm - Empowered Blessing of Speed",
+      "qualidade": 3,
+      "ilvl": 80,
+      "atributos": [],
+      "efeito": "Encanta permanentemente um elmo com a Bênção da Velocidade Potencializada, aumentando em 17 a Velocidade. Também concede 1 de carga de habilidades de Pilotagem Aérea sempre que você derrota um inimigo em ambientes externos em uma área de Midnight, uma vez a cada 60 s.",
+      "categoria": null,
+      "texto_pt": "Encantamento da Bênção da Velocidade Potencializada - Elmo\nNível do Item: 80Uso: Encanta permanentemente um elmo com a Bênção da Velocidade Potencializada, aumentando em 17 a Velocidade. Também concede 1 de carga de habilidades de Pilotagem Aérea sempre que você derrota um inimigo em ambientes externos em uma área de Midnight, uma vez a cada 60 s. Não é possível aplicar a itens abaixo do nível 120.\nHegemonia Haranir - Amuletos da Alma do Mundo \nRequer Nível 70\nEmpilhamento máx: 200Preço de Venda: 5",
+      "texto_en": "Enchant Helm - Empowered Blessing of Speed\nItem Level 80Use: Permanently enchants helm armor with Empowered Blessing of Speed, increasing Speed by 17. Also grants you 1 charge of skyriding abilities whenever you defeat a foe while outdoors in Midnight zones once per 60 sec. Cannot be applied to items lower than level 120.\nHaranir Heightening - Worldsoul Wards \nRequires Level 70\nMax Stack: 200Sell Price: 5",
+      "slot": "cabeça",
+      "nome_base": "Enchant Helm - Empowered Blessing of Speed"
+    },
+    "243981": {
+      "grupo": "encantamento",
+      "nome_pt": "Encantamento da Bênção da Velocidade Potencializada - Elmo",
+      "nome_en": "Enchant Helm - Empowered Blessing of Speed",
+      "qualidade": 3,
+      "ilvl": 85,
+      "atributos": [],
+      "efeito": "Encanta permanentemente um elmo com a Bênção da Velocidade Potencializada, aumentando em 22 a Velocidade. Também concede 1 de carga de habilidades de Pilotagem Aérea sempre que você derrota um inimigo em ambientes externos em uma área de Midnight, uma vez a cada 30 s.",
+      "categoria": null,
+      "texto_pt": "Encantamento da Bênção da Velocidade Potencializada - Elmo\nNível do Item: 85Uso: Encanta permanentemente um elmo com a Bênção da Velocidade Potencializada, aumentando em 22 a Velocidade. Também concede 1 de carga de habilidades de Pilotagem Aérea sempre que você derrota um inimigo em ambientes externos em uma área de Midnight, uma vez a cada 30 s. Não é possível aplicar a itens abaixo do nível 120.\nHegemonia Haranir - Amuletos da Alma do Mundo \nRequer Nível 70\nEmpilhamento máx: 200Preço de Venda: 5",
+      "texto_en": "Enchant Helm - Empowered Blessing of Speed\nItem Level 85Use: Permanently enchants helm armor with Empowered Blessing of Speed, increasing Speed by 22. Also grants you 1 charge of skyriding abilities whenever you defeat a foe while outdoors in Midnight zones once per 30 sec. Cannot be applied to items lower than level 120.\nHaranir Heightening - Worldsoul Wards \nRequires Level 70\nMax Stack: 200Sell Price: 5",
+      "slot": "cabeça",
+      "nome_base": "Enchant Helm - Empowered Blessing of Speed"
+    },
+    "243982": {
+      "grupo": "encantamento",
+      "nome_pt": "Encantamento das Raízes de Shaladrassil - Botas",
+      "nome_en": "Enchant Boots - Shaladrassil's Roots",
+      "qualidade": 3,
+      "ilvl": 80,
+      "atributos": [],
+      "efeito": "Encanta permanentemente um par de botas com a Raízes de Shaladrassil, aumentando em 22 o Sorver e em 186 o Vigor.",
+      "categoria": null,
+      "texto_pt": "Encantamento das Raízes de Shaladrassil - Botas\nNível do Item: 80Uso: Encanta permanentemente um par de botas com a Raízes de Shaladrassil, aumentando em 22 o Sorver e em 186 o Vigor. Não é possível aplicar a itens abaixo do nível 120.\nHegemonia Haranir - Amuletos da Alma do Mundo \nRequer Nível 70\nEmpilhamento máx: 200Preço de Venda: 5",
+      "texto_en": "Enchant Boots - Shaladrassil's Roots\nItem Level 80Use: Permanently enchants boots with Shaladrassil's Roots, increasing Leech by 22 and Stamina by 186. Cannot be applied to items lower than level 120.\nHaranir Heightening - Worldsoul Wards \nRequires Level 70\nMax Stack: 200Sell Price: 5",
+      "slot": "pés",
+      "nome_base": "Enchant Boots - Shaladrassil's Roots"
+    },
+    "243983": {
+      "grupo": "encantamento",
+      "nome_pt": "Encantamento das Raízes de Shaladrassil - Botas",
+      "nome_en": "Enchant Boots - Shaladrassil's Roots",
+      "qualidade": 3,
+      "ilvl": 85,
+      "atributos": [],
+      "efeito": "Encanta permanentemente um par de botas com a Raízes de Shaladrassil, aumentando em 28 o Sorver e em 232 o Vigor.",
+      "categoria": null,
+      "texto_pt": "Encantamento das Raízes de Shaladrassil - Botas\nNível do Item: 85Uso: Encanta permanentemente um par de botas com a Raízes de Shaladrassil, aumentando em 28 o Sorver e em 232 o Vigor. Não é possível aplicar a itens abaixo do nível 120.\nHegemonia Haranir - Amuletos da Alma do Mundo \nRequer Nível 70\nEmpilhamento máx: 200Preço de Venda: 5",
+      "texto_en": "Enchant Boots - Shaladrassil's Roots\nItem Level 85Use: Permanently enchants boots with Shaladrassil's Roots, increasing Leech by 28 and Stamina by 232. Cannot be applied to items lower than level 120.\nHaranir Heightening - Worldsoul Wards \nRequires Level 70\nMax Stack: 200Sell Price: 5",
+      "slot": "pés",
+      "nome_base": "Enchant Boots - Shaladrassil's Roots"
+    },
+    "243984": {
+      "grupo": "encantamento",
+      "nome_pt": "Encantamento da Cólera da Natureza - Anel",
+      "nome_en": "Enchant Ring - Nature's Wrath",
+      "qualidade": 3,
+      "ilvl": 80,
+      "atributos": [],
+      "efeito": "Encanta permanentemente um anel com a Cólera da Natureza, aumentando em 22 o Acerto Crítico.",
+      "categoria": null,
+      "texto_pt": "Encantamento da Cólera da Natureza - Anel\nNível do Item: 80Uso: Encanta permanentemente um anel com a Cólera da Natureza, aumentando em 22 o Acerto Crítico. Não é possível aplicar a itens abaixo do nível 120.\nHegemonia Haranir - Armas Azerothianas \nRequer Nível 70\nEmpilhamento máx: 200Preço de Venda: 3",
+      "texto_en": "Enchant Ring - Nature's Wrath\nItem Level 80Use: Permanently enchants a ring with Nature's Wrath, increasing Critical Strike by 22. Cannot be applied to items lower than level 120.\nHaranir Heightening - Azerothian Arms \nRequires Level 70\nMax Stack: 200Sell Price: 3",
+      "slot": "anel",
+      "nome_base": "Enchant Ring - Nature's Wrath"
+    },
+    "243985": {
+      "grupo": "encantamento",
+      "nome_pt": "Encantamento da Cólera da Natureza - Anel",
+      "nome_en": "Enchant Ring - Nature's Wrath",
+      "qualidade": 3,
+      "ilvl": 85,
+      "atributos": [],
+      "efeito": "Encanta permanentemente um anel com a Cólera da Natureza, aumentando em 24 o Acerto Crítico.",
+      "categoria": null,
+      "texto_pt": "Encantamento da Cólera da Natureza - Anel\nNível do Item: 85Uso: Encanta permanentemente um anel com a Cólera da Natureza, aumentando em 24 o Acerto Crítico. Não é possível aplicar a itens abaixo do nível 120.\nHegemonia Haranir - Armas Azerothianas \nRequer Nível 70\nEmpilhamento máx: 200Preço de Venda: 3",
+      "texto_en": "Enchant Ring - Nature's Wrath\nItem Level 85Use: Permanently enchants a ring with Nature's Wrath, increasing Critical Strike by 24. Cannot be applied to items lower than level 120.\nHaranir Heightening - Azerothian Arms \nRequires Level 70\nMax Stack: 200Sell Price: 3",
+      "slot": "anel",
+      "nome_base": "Enchant Ring - Nature's Wrath"
+    },
+    "243986": {
+      "grupo": "encantamento",
+      "nome_pt": "Encantamento da Fúria da Natureza - Anel",
+      "nome_en": "Enchant Ring - Nature's Fury",
+      "qualidade": 3,
+      "ilvl": 80,
+      "atributos": [],
+      "efeito": "Encanta permanentemente um anel com a Fúria da Natureza, aumentando em 27 o Acerto Crítico.",
+      "categoria": null,
+      "texto_pt": "Encantamento da Fúria da Natureza - Anel\nNível do Item: 80Uso: Encanta permanentemente um anel com a Fúria da Natureza, aumentando em 27 o Acerto Crítico. Não é possível aplicar a itens abaixo do nível 120.\nHegemonia Haranir - Armas Azerothianas \nRequer Nível 70\nEmpilhamento máx: 200Preço de Venda: 3",
+      "texto_en": "Enchant Ring - Nature's Fury\nItem Level 80Use: Permanently enchants a ring with Nature's Fury, increasing Critical Strike by 27. Cannot be applied to items lower than level 120.\nHaranir Heightening - Azerothian Arms \nRequires Level 70\nMax Stack: 200Sell Price: 3",
+      "slot": "anel",
+      "nome_base": "Enchant Ring - Nature's Fury"
+    },
+    "243987": {
+      "grupo": "encantamento",
+      "nome_pt": "Encantamento da Fúria da Natureza - Anel",
+      "nome_en": "Enchant Ring - Nature's Fury",
+      "qualidade": 3,
+      "ilvl": 85,
+      "atributos": [],
+      "efeito": "Encanta permanentemente um anel com a Fúria da Natureza, aumentando em 29 o Acerto Crítico.",
+      "categoria": null,
+      "texto_pt": "Encantamento da Fúria da Natureza - Anel\nNível do Item: 85Uso: Encanta permanentemente um anel com a Fúria da Natureza, aumentando em 29 o Acerto Crítico. Não é possível aplicar a itens abaixo do nível 120.\nHegemonia Haranir - Armas Azerothianas \nRequer Nível 70\nEmpilhamento máx: 200Preço de Venda: 3",
+      "texto_en": "Enchant Ring - Nature's Fury\nItem Level 85Use: Permanently enchants a ring with Nature's Fury, increasing Critical Strike by 29. Cannot be applied to items lower than level 120.\nHaranir Heightening - Azerothian Arms \nRequires Level 70\nMax Stack: 200Sell Price: 3",
+      "slot": "anel",
+      "nome_base": "Enchant Ring - Nature's Fury"
+    },
+    "243988": {
+      "grupo": "encantamento",
+      "nome_pt": "Encantamento da Graça da Natureza - Ombros",
+      "nome_en": "Enchant Shoulders - Nature's Grace",
+      "qualidade": 3,
+      "ilvl": 80,
+      "atributos": [],
+      "efeito": "Encanta permanentemente ombreiras com a Graça da Natureza, aumentando em 44 a Evasão.",
+      "categoria": null,
+      "texto_pt": "Encantamento da Graça da Natureza - Ombros\nNível do Item: 80Uso: Encanta permanentemente ombreiras com a Graça da Natureza, aumentando em 44 a Evasão. Não é possível aplicar a itens abaixo do nível 120.\nHegemonia Haranir - Amuletos da Alma do Mundo \nRequer Nível 70\nEmpilhamento máx: 200Preço de Venda: 5",
+      "texto_en": "Enchant Shoulders - Nature's Grace\nItem Level 80Use: Permanently enchants shoulder armor with Nature's Grace, increasing Avoidance by 44. Cannot be applied to items lower than level 120.\nHaranir Heightening - Worldsoul Wards \nRequires Level 70\nMax Stack: 200Sell Price: 5",
+      "slot": "ombros",
+      "nome_base": "Enchant Shoulders - Nature's Grace"
+    },
+    "243989": {
+      "grupo": "encantamento",
+      "nome_pt": "Encantamento da Graça da Natureza - Ombros",
+      "nome_en": "Enchant Shoulders - Nature's Grace",
+      "qualidade": 3,
+      "ilvl": 85,
+      "atributos": [],
+      "efeito": "Encanta permanentemente ombreiras com a Graça da Natureza, aumentando em 67 a Evasão.",
+      "categoria": null,
+      "texto_pt": "Encantamento da Graça da Natureza - Ombros\nNível do Item: 85Uso: Encanta permanentemente ombreiras com a Graça da Natureza, aumentando em 67 a Evasão. Não é possível aplicar a itens abaixo do nível 120.\nHegemonia Haranir - Amuletos da Alma do Mundo \nRequer Nível 70\nEmpilhamento máx: 200Preço de Venda: 5",
+      "texto_en": "Enchant Shoulders - Nature's Grace\nItem Level 85Use: Permanently enchants shoulder armor with Nature's Grace, increasing Avoidance by 67. Cannot be applied to items lower than level 120.\nHaranir Heightening - Worldsoul Wards \nRequires Level 70\nMax Stack: 200Sell Price: 5",
+      "slot": "ombros",
+      "nome_base": "Enchant Shoulders - Nature's Grace"
+    },
+    "243990": {
+      "grupo": "encantamento",
+      "nome_pt": "Encantamento da Graça de Amirdrassil - Ombros",
+      "nome_en": "Enchant Shoulders - Amirdrassil's Grace",
+      "qualidade": 3,
+      "ilvl": 80,
+      "atributos": [],
+      "efeito": "Encanta permanentemente ombreiras com a Graça de Amirdrassil, aumentando em 89 a Evasão.",
+      "categoria": null,
+      "texto_pt": "Encantamento da Graça de Amirdrassil - Ombros\nNível do Item: 80Uso: Encanta permanentemente ombreiras com a Graça de Amirdrassil, aumentando em 89 a Evasão. Não é possível aplicar a itens abaixo do nível 120.\nHegemonia Haranir - Amuletos da Alma do Mundo \nRequer Nível 70\nEmpilhamento máx: 200Preço de Venda: 5",
+      "texto_en": "Enchant Shoulders - Amirdrassil's Grace\nItem Level 80Use: Permanently enchants shoulder armor with Amirdrassil's Grace, increasing Avoidance by 89. Cannot be applied to items lower than level 120.\nHaranir Heightening - Worldsoul Wards \nRequires Level 70\nMax Stack: 200Sell Price: 5",
+      "slot": "ombros",
+      "nome_base": "Enchant Shoulders - Amirdrassil's Grace"
+    },
+    "243991": {
+      "grupo": "encantamento",
+      "nome_pt": "Encantamento da Graça de Amirdrassil - Ombros",
+      "nome_en": "Enchant Shoulders - Amirdrassil's Grace",
+      "qualidade": 3,
+      "ilvl": 85,
+      "atributos": [],
+      "efeito": "Encanta permanentemente ombreiras com a Graça de Amirdrassil, aumentando em 111 a Evasão.",
+      "categoria": null,
+      "texto_pt": "Encantamento da Graça de Amirdrassil - Ombros\nNível do Item: 85Uso: Encanta permanentemente ombreiras com a Graça de Amirdrassil, aumentando em 111 a Evasão. Não é possível aplicar a itens abaixo do nível 120.\nHegemonia Haranir - Amuletos da Alma do Mundo \nRequer Nível 70\nEmpilhamento máx: 200Preço de Venda: 5",
+      "texto_en": "Enchant Shoulders - Amirdrassil's Grace\nItem Level 85Use: Permanently enchants shoulder armor with Amirdrassil's Grace, increasing Avoidance by 111. Cannot be applied to items lower than level 120.\nHaranir Heightening - Worldsoul Wards \nRequires Level 70\nMax Stack: 200Sell Price: 5",
+      "slot": "ombros",
+      "nome_base": "Enchant Shoulders - Amirdrassil's Grace"
+    },
+    "243996": {
+      "grupo": "encantamento",
+      "nome_pt": "Encantamento de Berço da Alma do Mundo - Arma",
+      "nome_en": "Enchant Weapon - Worldsoul Cradle",
+      "qualidade": 3,
+      "ilvl": 80,
+      "atributos": [],
+      "efeito": "Encanta permanentemente uma arma com o Berço da Alma do Mundo. Suas habilidades e feitiços de cura às vezes concedem ao seu alvo uma barreira que absorve os próximos (1 * 10020) de dano.",
+      "categoria": null,
+      "texto_pt": "Encantamento de Berço da Alma do Mundo - Arma\nNível do Item: 80Uso: Encanta permanentemente uma arma com o Berço da Alma do Mundo. Suas habilidades e feitiços de cura às vezes concedem ao seu alvo uma barreira que absorve os próximos (1 * 10020) de dano. Não é possível aplicar a itens abaixo do nível 120.\nHegemonia Haranir - Armas Azerothianas \nRequer Nível 70\nEmpilhamento máx: 200Preço de Venda: 5",
+      "texto_en": "Enchant Weapon - Worldsoul Cradle\nItem Level 80Use: Permanently enchants a weapon with Worldsoul Cradle, causing your healing spells and abilities to sometimes grant your target a barrier absorbing the next (1 * 10020) damage. Cannot be applied to items lower than level 120.\nHaranir Heightening - Azerothian Arms \nRequires Level 70\nMax Stack: 200Sell Price: 5",
+      "slot": "arma",
+      "nome_base": "Enchant Weapon - Worldsoul Cradle"
+    },
+    "243997": {
+      "grupo": "encantamento",
+      "nome_pt": "Encantamento de Berço da Alma do Mundo - Arma",
+      "nome_en": "Enchant Weapon - Worldsoul Cradle",
+      "qualidade": 3,
+      "ilvl": 85,
+      "atributos": [],
+      "efeito": "Encanta permanentemente uma arma com o Berço da Alma do Mundo. Suas habilidades e feitiços de cura às vezes concedem ao seu alvo uma barreira que absorve os próximos (1 * 12525) de dano.",
+      "categoria": null,
+      "texto_pt": "Encantamento de Berço da Alma do Mundo - Arma\nNível do Item: 85Uso: Encanta permanentemente uma arma com o Berço da Alma do Mundo. Suas habilidades e feitiços de cura às vezes concedem ao seu alvo uma barreira que absorve os próximos (1 * 12525) de dano. Não é possível aplicar a itens abaixo do nível 120.\nHegemonia Haranir - Armas Azerothianas \nRequer Nível 70\nEmpilhamento máx: 200Preço de Venda: 5",
+      "texto_en": "Enchant Weapon - Worldsoul Cradle\nItem Level 85Use: Permanently enchants a weapon with Worldsoul Cradle, causing your healing spells and abilities to sometimes grant your target a barrier absorbing the next (1 * 12525) damage. Cannot be applied to items lower than level 120.\nHaranir Heightening - Azerothian Arms \nRequires Level 70\nMax Stack: 200Sell Price: 5",
+      "slot": "arma",
+      "nome_base": "Enchant Weapon - Worldsoul Cradle"
+    },
+    "243998": {
+      "grupo": "encantamento",
+      "nome_pt": "Encantamento de Égide da Alma do Mundo - Arma",
+      "nome_en": "Enchant Weapon - Worldsoul Aegis",
+      "qualidade": 3,
+      "ilvl": 80,
+      "atributos": [],
+      "efeito": "Encanta permanentemente uma arma com a Égide da Alma do Mundo. Ao receber dano, a Égide tem chance de conceder a você uma barreira que protege contra os próximos 14039 de dano. Quando se esgota, a barreira irrompe, causando 2221 de dano de Natureza dividido entre os inimigos próximos.",
+      "categoria": null,
+      "texto_pt": "Encantamento de Égide da Alma do Mundo - Arma\nNível do Item: 80Uso: Encanta permanentemente uma arma com a Égide da Alma do Mundo. Ao receber dano, a Égide tem chance de conceder a você uma barreira que protege contra os próximos 14039 de dano. Quando se esgota, a barreira irrompe, causando 2221 de dano de Natureza dividido entre os inimigos próximos. Não é possível aplicar a itens abaixo do nível 120.\nHegemonia Haranir - Armas Azerothianas \nRequer Nível 70\nEmpilhamento máx: 200Preço de Venda: 5",
+      "texto_en": "Enchant Weapon - Worldsoul Aegis\nItem Level 80Use: Permanently enchants a weapon with Worldsoul Aegis. When damaged, the Aegis has a chance to grant you a barrier against the next 14039 damage. When depleted, the barrier erupts for 2221 Nature damage split between nearby enemies. Cannot be applied to items lower than level 120.\nHaranir Heightening - Azerothian Arms \nRequires Level 70\nMax Stack: 200Sell Price: 5",
+      "slot": "arma",
+      "nome_base": "Enchant Weapon - Worldsoul Aegis"
+    },
+    "243999": {
+      "grupo": "encantamento",
+      "nome_pt": "Encantamento de Égide da Alma do Mundo - Arma",
+      "nome_en": "Enchant Weapon - Worldsoul Aegis",
+      "qualidade": 3,
+      "ilvl": 85,
+      "atributos": [],
+      "efeito": "Encanta permanentemente uma arma com a Égide da Alma do Mundo. Ao receber dano, a Égide tem chance de conceder a você uma barreira que protege contra os próximos 14039 de dano. Quando se esgota, a barreira irrompe, causando 2776 de dano de Natureza dividido entre os inimigos próximos.",
+      "categoria": null,
+      "texto_pt": "Encantamento de Égide da Alma do Mundo - Arma\nNível do Item: 85Uso: Encanta permanentemente uma arma com a Égide da Alma do Mundo. Ao receber dano, a Égide tem chance de conceder a você uma barreira que protege contra os próximos 14039 de dano. Quando se esgota, a barreira irrompe, causando 2776 de dano de Natureza dividido entre os inimigos próximos. Não é possível aplicar a itens abaixo do nível 120.\nHegemonia Haranir - Armas Azerothianas \nRequer Nível 70\nEmpilhamento máx: 200Preço de Venda: 5",
+      "texto_en": "Enchant Weapon - Worldsoul Aegis\nItem Level 85Use: Permanently enchants a weapon with Worldsoul Aegis. When damaged, the Aegis has a chance to grant you a barrier against the next 14039 damage. When depleted, the barrier erupts for 2776 Nature damage split between nearby enemies. Cannot be applied to items lower than level 120.\nHaranir Heightening - Azerothian Arms \nRequires Level 70\nMax Stack: 200Sell Price: 5",
+      "slot": "arma",
+      "nome_base": "Enchant Weapon - Worldsoul Aegis"
+    },
+    "244000": {
+      "grupo": "encantamento",
+      "nome_pt": "Encantamento de Tenacidade da Alma do Mundo - Arma",
+      "nome_en": "Enchant Weapon - Worldsoul Tenacity",
+      "qualidade": 3,
+      "ilvl": 80,
+      "atributos": [],
+      "efeito": "Encanta permanentemente uma arma com a Tenacidade da Alma do Mundo. Seus feitiços e habilidades concedem a você a Tenacidade da Natureza, aumentando em 99 a sua Versatilidade por 15 s.",
+      "categoria": null,
+      "texto_pt": "Encantamento de Tenacidade da Alma do Mundo - Arma\nNível do Item: 80Uso: Encanta permanentemente uma arma com a Tenacidade da Alma do Mundo. Seus feitiços e habilidades concedem a você a Tenacidade da Natureza, aumentando em 99 a sua Versatilidade por 15 s. Não é possível aplicar a itens abaixo do nível 120.\nHegemonia Haranir - Armas Azerothianas \nRequer Nível 70\nEmpilhamento máx: 200Preço de Venda: 5",
+      "texto_en": "Enchant Weapon - Worldsoul Tenacity\nItem Level 80Use: Permanently enchants a weapon with Worldsoul Tenacity, causing your spells and abilities to grant you Nature's Tenacity, increasing your Versatility by 99 for 15 sec. Cannot be applied to items lower than level 120.\nHaranir Heightening - Azerothian Arms \nRequires Level 70\nMax Stack: 200Sell Price: 5",
+      "slot": "arma",
+      "nome_base": "Enchant Weapon - Worldsoul Tenacity"
+    },
+    "244001": {
+      "grupo": "encantamento",
+      "nome_pt": "Encantamento de Tenacidade da Alma do Mundo - Arma",
+      "nome_en": "Enchant Weapon - Worldsoul Tenacity",
+      "qualidade": 3,
+      "ilvl": 85,
+      "atributos": [],
+      "efeito": "Encanta permanentemente uma arma com a Tenacidade da Alma do Mundo. Seus feitiços e habilidades concedem a você a Tenacidade da Natureza, aumentando em 124 a sua Versatilidade por 15 s.",
+      "categoria": null,
+      "texto_pt": "Encantamento de Tenacidade da Alma do Mundo - Arma\nNível do Item: 85Uso: Encanta permanentemente uma arma com a Tenacidade da Alma do Mundo. Seus feitiços e habilidades concedem a você a Tenacidade da Natureza, aumentando em 124 a sua Versatilidade por 15 s. Não é possível aplicar a itens abaixo do nível 120.\nHegemonia Haranir - Armas Azerothianas \nRequer Nível 70\nEmpilhamento máx: 200Preço de Venda: 5",
+      "texto_en": "Enchant Weapon - Worldsoul Tenacity\nItem Level 85Use: Permanently enchants a weapon with Worldsoul Tenacity, causing your spells and abilities to grant you Nature's Tenacity, increasing your Versatility by 124 for 15 sec. Cannot be applied to items lower than level 120.\nHaranir Heightening - Azerothian Arms \nRequires Level 70\nMax Stack: 200Sell Price: 5",
+      "slot": "arma",
+      "nome_base": "Enchant Weapon - Worldsoul Tenacity"
+    },
+    "244002": {
+      "grupo": "encantamento",
+      "nome_pt": "Encantamento da Marca do Magíster - Torso",
+      "nome_en": "Enchant Chest - Mark of the Magister",
+      "qualidade": 3,
+      "ilvl": 80,
+      "atributos": [],
+      "efeito": "Encanta permanentemente uma armadura de torso com a Marca do Magíster, aumentando em 32 o Intelecto e em 3 o total de Mana.",
+      "categoria": "Talentos Talassianos - Latência de Luaprata",
+      "texto_pt": "Encantamento da Marca do Magíster - Torso\nNível do Item: 80Uso: Encanta permanentemente uma armadura de torso com a Marca do Magíster, aumentando em 32 o Intelecto e em 3 o total de Mana. Não é possível aplicar a itens abaixo do nível 120.\nTalentos Talassianos - Latência de Luaprata \nRequer Nível 70\nEmpilhamento máx: 200Preço de Venda: 5",
+      "texto_en": "Enchant Chest - Mark of the Magister\nItem Level 80Use: Permanently enchants chest armor with Mark of the Magister, increasing Intellect by 32 and total Mana by 3%. Cannot be applied to items lower than level 120.\nThalassian Talents - Silvermoon's Spellpower \nRequires Level 70\nMax Stack: 200Sell Price: 5",
+      "slot": "peitoral",
+      "nome_base": "Enchant Chest - Mark of the Magister"
+    },
+    "244003": {
+      "grupo": "encantamento",
+      "nome_pt": "Encantamento da Marca do Magíster - Torso",
+      "nome_en": "Enchant Chest - Mark of the Magister",
+      "qualidade": 3,
+      "ilvl": 85,
+      "atributos": [],
+      "efeito": "Encanta permanentemente uma armadura de torso com a Marca do Magíster, aumentando em 40 o Intelecto e em 5 o total de Mana.",
+      "categoria": "Talentos Talassianos - Latência de Luaprata",
+      "texto_pt": "Encantamento da Marca do Magíster - Torso\nNível do Item: 85Uso: Encanta permanentemente uma armadura de torso com a Marca do Magíster, aumentando em 40 o Intelecto e em 5 o total de Mana. Não é possível aplicar a itens abaixo do nível 120.\nTalentos Talassianos - Latência de Luaprata \nRequer Nível 70\nEmpilhamento máx: 200Preço de Venda: 5",
+      "texto_en": "Enchant Chest - Mark of the Magister\nItem Level 85Use: Permanently enchants chest armor with Mark of the Magister, increasing Intellect by 40 and total Mana by 5%. Cannot be applied to items lower than level 120.\nThalassian Talents - Silvermoon's Spellpower \nRequires Level 70\nMax Stack: 200Sell Price: 5",
+      "slot": "peitoral",
+      "nome_base": "Enchant Chest - Mark of the Magister"
+    },
+    "244004": {
+      "grupo": "encantamento",
+      "nome_pt": "Encantamento da Runa da Evasão - Elmo",
+      "nome_en": "Enchant Helm - Rune of Avoidance",
+      "qualidade": 3,
+      "ilvl": 80,
+      "atributos": [],
+      "efeito": "Encanta permanentemente um elmo com a Runa da Evasão, aumentando em 15 a Evasão.",
+      "categoria": "Talentos Talassianos - Catalisadores de Canto Eterno",
+      "texto_pt": "Encantamento da Runa da Evasão - Elmo\nNível do Item: 80Uso: Encanta permanentemente um elmo com a Runa da Evasão, aumentando em 15 a Evasão. Não é possível aplicar a itens abaixo do nível 120.\nTalentos Talassianos - Catalisadores de Canto Eterno \nRequer Nível 70\nEmpilhamento máx: 200Preço de Venda: 5",
+      "texto_en": "Enchant Helm - Rune of Avoidance\nItem Level 80Use: Permanently enchants helm armor with Rune of Avoidance, increasing Avoidance by 15. Cannot be applied to items lower than level 120.\nThalassian Talents - Eversong Empowerments \nRequires Level 70\nMax Stack: 200Sell Price: 5",
+      "slot": "cabeça",
+      "nome_base": "Enchant Helm - Rune of Avoidance"
+    },
+    "244005": {
+      "grupo": "encantamento",
+      "nome_pt": "Encantamento da Runa da Evasão - Elmo",
+      "nome_en": "Enchant Helm - Rune of Avoidance",
+      "qualidade": 3,
+      "ilvl": 85,
+      "atributos": [],
+      "efeito": "Encanta permanentemente um elmo com a Runa da Evasão, aumentando em 22 a Evasão.",
+      "categoria": "Talentos Talassianos - Catalisadores de Canto Eterno",
+      "texto_pt": "Encantamento da Runa da Evasão - Elmo\nNível do Item: 85Uso: Encanta permanentemente um elmo com a Runa da Evasão, aumentando em 22 a Evasão. Não é possível aplicar a itens abaixo do nível 120.\nTalentos Talassianos - Catalisadores de Canto Eterno \nRequer Nível 70\nEmpilhamento máx: 200Preço de Venda: 5",
+      "texto_en": "Enchant Helm - Rune of Avoidance\nItem Level 85Use: Permanently enchants helm armor with Rune of Avoidance, increasing Avoidance by 22. Cannot be applied to items lower than level 120.\nThalassian Talents - Eversong Empowerments \nRequires Level 70\nMax Stack: 200Sell Price: 5",
+      "slot": "cabeça",
+      "nome_base": "Enchant Helm - Rune of Avoidance"
+    },
+    "244006": {
+      "grupo": "encantamento",
+      "nome_pt": "Encantamento da Runa da Evasão Potencializada - Elmo",
+      "nome_en": "Enchant Helm - Empowered Rune of Avoidance",
+      "qualidade": 3,
+      "ilvl": 80,
+      "atributos": [],
+      "efeito": "Encanta permanentemente um elmo com a Runa da Evasão Potencializada, aumentando em 30 a Evasão. Também concede a você um rompante de Velocidade de Movimento sempre que você derrotar um inimigo a céu aberto em uma área de Midnight, uma vez a cada 60 s.",
+      "categoria": "Talentos Talassianos - Catalisadores de Canto Eterno",
+      "texto_pt": "Encantamento da Runa da Evasão Potencializada - Elmo\nNível do Item: 80Uso: Encanta permanentemente um elmo com a Runa da Evasão Potencializada, aumentando em 30 a Evasão. Também concede a você um rompante de Velocidade de Movimento sempre que você derrotar um inimigo a céu aberto em uma área de Midnight, uma vez a cada 60 s. Não é possível aplicar a itens abaixo do nível 120.\nTalentos Talassianos - Catalisadores de Canto Eterno \nRequer Nível 70\nEmpilhamento máx: 200Preço de Venda: 5",
+      "texto_en": "Enchant Helm - Empowered Rune of Avoidance\nItem Level 80Use: Permanently enchants helm armor with Empowered Rune of Avoidance, increasing Avoidance by 30. Also grants you a burst of Movement Speed whenever you defeat a foe outdoors in a Midnight zone once per 60 sec. Cannot be applied to items lower than level 120.\nThalassian Talents - Eversong Empowerments \nRequires Level 70\nMax Stack: 200Sell Price: 5",
+      "slot": "cabeça",
+      "nome_base": "Enchant Helm - Empowered Rune of Avoidance"
+    },
+    "244007": {
+      "grupo": "encantamento",
+      "nome_pt": "Encantamento da Runa da Evasão Potencializada - Elmo",
+      "nome_en": "Enchant Helm - Empowered Rune of Avoidance",
+      "qualidade": 3,
+      "ilvl": 85,
+      "atributos": [],
+      "efeito": "Encanta permanentemente um elmo com a Runa da Evasão Potencializada, aumentando em 37 a Evasão. Também concede a você um rompante de Velocidade de Movimento sempre que você derrotar um inimigo a céu aberto em uma área de Midnight, uma vez a cada 60 s.",
+      "categoria": "Talentos Talassianos - Catalisadores de Canto Eterno",
+      "texto_pt": "Encantamento da Runa da Evasão Potencializada - Elmo\nNível do Item: 85Uso: Encanta permanentemente um elmo com a Runa da Evasão Potencializada, aumentando em 37 a Evasão. Também concede a você um rompante de Velocidade de Movimento sempre que você derrotar um inimigo a céu aberto em uma área de Midnight, uma vez a cada 60 s. Não é possível aplicar a itens abaixo do nível 120.\nTalentos Talassianos - Catalisadores de Canto Eterno \nRequer Nível 70\nEmpilhamento máx: 200Preço de Venda: 5",
+      "texto_en": "Enchant Helm - Empowered Rune of Avoidance\nItem Level 85Use: Permanently enchants helm armor with Empowered Rune of Avoidance, increasing Avoidance by 37. Also grants you a burst of Movement Speed whenever you defeat a foe outdoors in a Midnight zone once per 60 sec. Cannot be applied to items lower than level 120.\nThalassian Talents - Eversong Empowerments \nRequires Level 70\nMax Stack: 200Sell Price: 5",
+      "slot": "cabeça",
+      "nome_base": "Enchant Helm - Empowered Rune of Avoidance"
+    },
+    "244008": {
+      "grupo": "encantamento",
+      "nome_pt": "Encantamento da Caça do Andarilho - Botas",
+      "nome_en": "Enchant Boots - Farstrider's Hunt",
+      "qualidade": 3,
+      "ilvl": 80,
+      "atributos": [],
+      "efeito": "Encanta permanentemente um par de botas com a Caça do Andarilho, aumentando em 9 a Velocidade e em 186 o Vigor.",
+      "categoria": "Talentos Talassianos - Catalisadores de Canto Eterno",
+      "texto_pt": "Encantamento da Caça do Andarilho - Botas\nNível do Item: 80Uso: Encanta permanentemente um par de botas com a Caça do Andarilho, aumentando em 9 a Velocidade e em 186 o Vigor. Não é possível aplicar a itens abaixo do nível 120.\nTalentos Talassianos - Catalisadores de Canto Eterno \nRequer Nível 70\nEmpilhamento máx: 200Preço de Venda: 5",
+      "texto_en": "Enchant Boots - Farstrider's Hunt\nItem Level 80Use: Permanently enchants boots with Farstrider's Hunt, increasing Speed by 9 and Stamina by 186. Cannot be applied to items lower than level 120.\nThalassian Talents - Eversong Empowerments \nRequires Level 70\nMax Stack: 200Sell Price: 5",
+      "slot": "pés",
+      "nome_base": "Enchant Boots - Farstrider's Hunt"
+    },
+    "244009": {
+      "grupo": "encantamento",
+      "nome_pt": "Encantamento da Caça do Andarilho - Botas",
+      "nome_en": "Enchant Boots - Farstrider's Hunt",
+      "qualidade": 3,
+      "ilvl": 85,
+      "atributos": [],
+      "efeito": "Encanta permanentemente um par de botas com a Caça do Andarilho, aumentando em 11 a Velocidade e em 232 o Vigor.",
+      "categoria": "Talentos Talassianos - Catalisadores de Canto Eterno",
+      "texto_pt": "Encantamento da Caça do Andarilho - Botas\nNível do Item: 85Uso: Encanta permanentemente um par de botas com a Caça do Andarilho, aumentando em 11 a Velocidade e em 232 o Vigor. Não é possível aplicar a itens abaixo do nível 120.\nTalentos Talassianos - Catalisadores de Canto Eterno \nRequer Nível 70\nEmpilhamento máx: 200Preço de Venda: 5",
+      "texto_en": "Enchant Boots - Farstrider's Hunt\nItem Level 85Use: Permanently enchants boots with Farstrider's Hunt, increasing Speed by 11 and Stamina by 232. Cannot be applied to items lower than level 120.\nThalassian Talents - Eversong Empowerments \nRequires Level 70\nMax Stack: 200Sell Price: 5",
+      "slot": "pés",
+      "nome_base": "Enchant Boots - Farstrider's Hunt"
+    },
+    "244010": {
+      "grupo": "encantamento",
+      "nome_pt": "Encantamento da Aceleração Talassiana - Anel",
+      "nome_en": "Enchant Ring - Thalassian Haste",
+      "qualidade": 3,
+      "ilvl": 80,
+      "atributos": [],
+      "efeito": "Encanta permanentemente um anel com a Aceleração Talassiana, aumentando em 22 a Aceleração.",
+      "categoria": "Talentos Talassianos - Latência de Luaprata",
+      "texto_pt": "Encantamento da Aceleração Talassiana - Anel\nNível do Item: 80Uso: Encanta permanentemente um anel com a Aceleração Talassiana, aumentando em 22 a Aceleração. Não é possível aplicar a itens abaixo do nível 120.\nTalentos Talassianos - Latência de Luaprata \nRequer Nível 70\nEmpilhamento máx: 200Preço de Venda: 3",
+      "texto_en": "Enchant Ring - Thalassian Haste\nItem Level 80Use: Permanently enchants a ring with Thalassian Haste, increasing Haste by 22. Cannot be applied to items lower than level 120.\nThalassian Talents - Silvermoon's Spellpower \nRequires Level 70\nMax Stack: 200Sell Price: 3",
+      "slot": "anel",
+      "nome_base": "Enchant Ring - Thalassian Haste"
+    },
+    "244011": {
+      "grupo": "encantamento",
+      "nome_pt": "Encantamento da Aceleração Talassiana - Anel",
+      "nome_en": "Enchant Ring - Thalassian Haste",
+      "qualidade": 3,
+      "ilvl": 85,
+      "atributos": [],
+      "efeito": "Encanta permanentemente um anel com a Aceleração Talassiana, aumentando em 24 a Aceleração.",
+      "categoria": "Talentos Talassianos - Latência de Luaprata",
+      "texto_pt": "Encantamento da Aceleração Talassiana - Anel\nNível do Item: 85Uso: Encanta permanentemente um anel com a Aceleração Talassiana, aumentando em 24 a Aceleração. Não é possível aplicar a itens abaixo do nível 120.\nTalentos Talassianos - Latência de Luaprata \nRequer Nível 70\nEmpilhamento máx: 200Preço de Venda: 3",
+      "texto_en": "Enchant Ring - Thalassian Haste\nItem Level 85Use: Permanently enchants a ring with Thalassian Haste, increasing Haste by 24. Cannot be applied to items lower than level 120.\nThalassian Talents - Silvermoon's Spellpower \nRequires Level 70\nMax Stack: 200Sell Price: 3",
+      "slot": "anel",
+      "nome_base": "Enchant Ring - Thalassian Haste"
+    },
+    "244012": {
+      "grupo": "encantamento",
+      "nome_pt": "Encantamento da Versatilidade Talassiana - Anel",
+      "nome_en": "Enchant Ring - Thalassian Versatility",
+      "qualidade": 3,
+      "ilvl": 80,
+      "atributos": [],
+      "efeito": "Encanta permanentemente um anel com a Versatilidade Talassiana, aumentando em 22 a Versatilidade.",
+      "categoria": "Talentos Talassianos - Latência de Luaprata",
+      "texto_pt": "Encantamento da Versatilidade Talassiana - Anel\nNível do Item: 80Uso: Encanta permanentemente um anel com a Versatilidade Talassiana, aumentando em 22 a Versatilidade. Não é possível aplicar a itens abaixo do nível 120.\nTalentos Talassianos - Latência de Luaprata \nRequer Nível 70\nEmpilhamento máx: 200Preço de Venda: 3",
+      "texto_en": "Enchant Ring - Thalassian Versatility\nItem Level 80Use: Permanently enchants a ring with Thalassian Versatility, increasing Versatility by 22. Cannot be applied to items lower than level 120.\nThalassian Talents - Silvermoon's Spellpower \nRequires Level 70\nMax Stack: 200Sell Price: 3",
+      "slot": "anel",
+      "nome_base": "Enchant Ring - Thalassian Versatility"
+    },
+    "244013": {
+      "grupo": "encantamento",
+      "nome_pt": "Encantamento da Versatilidade Talassiana - Anel",
+      "nome_en": "Enchant Ring - Thalassian Versatility",
+      "qualidade": 3,
+      "ilvl": 85,
+      "atributos": [],
+      "efeito": "Encanta permanentemente um anel com a Versatilidade Talassiana, aumentando em 24 a Versatilidade.",
+      "categoria": "Talentos Talassianos - Latência de Luaprata",
+      "texto_pt": "Encantamento da Versatilidade Talassiana - Anel\nNível do Item: 85Uso: Encanta permanentemente um anel com a Versatilidade Talassiana, aumentando em 24 a Versatilidade. Não é possível aplicar a itens abaixo do nível 120.\nTalentos Talassianos - Latência de Luaprata \nRequer Nível 70\nEmpilhamento máx: 200Preço de Venda: 3",
+      "texto_en": "Enchant Ring - Thalassian Versatility\nItem Level 85Use: Permanently enchants a ring with Thalassian Versatility, increasing Versatility by 24. Cannot be applied to items lower than level 120.\nThalassian Talents - Silvermoon's Spellpower \nRequires Level 70\nMax Stack: 200Sell Price: 3",
+      "slot": "anel",
+      "nome_base": "Enchant Ring - Thalassian Versatility"
+    },
+    "244014": {
+      "grupo": "encantamento",
+      "nome_pt": "Encantamento da Diligência de Luaprata - Anel",
+      "nome_en": "Enchant Ring - Silvermoon's Alacrity",
+      "qualidade": 3,
+      "ilvl": 80,
+      "atributos": [],
+      "efeito": "Encanta permanentemente um anel com a Diligência de Luaprata, aumentando em 27 a Aceleração.",
+      "categoria": "Talentos Talassianos - Latência de Luaprata",
+      "texto_pt": "Encantamento da Diligência de Luaprata - Anel\nNível do Item: 80Uso: Encanta permanentemente um anel com a Diligência de Luaprata, aumentando em 27 a Aceleração. Não é possível aplicar a itens abaixo do nível 120.\nTalentos Talassianos - Latência de Luaprata \nRequer Nível 70\nEmpilhamento máx: 200Preço de Venda: 3",
+      "texto_en": "Enchant Ring - Silvermoon's Alacrity\nItem Level 80Use: Permanently enchants a ring with Silvermoon's Alacrity, increasing Haste by 27. Cannot be applied to items lower than level 120.\nThalassian Talents - Silvermoon's Spellpower \nRequires Level 70\nMax Stack: 200Sell Price: 3",
+      "slot": "anel",
+      "nome_base": "Enchant Ring - Silvermoon's Alacrity"
+    },
+    "244015": {
+      "grupo": "encantamento",
+      "nome_pt": "Encantamento da Diligência de Luaprata - Anel",
+      "nome_en": "Enchant Ring - Silvermoon's Alacrity",
+      "qualidade": 3,
+      "ilvl": 85,
+      "atributos": [],
+      "efeito": "Encanta permanentemente um anel com a Diligência de Luaprata, aumentando em 29 a Aceleração.",
+      "categoria": "Talentos Talassianos - Latência de Luaprata",
+      "texto_pt": "Encantamento da Diligência de Luaprata - Anel\nNível do Item: 85Uso: Encanta permanentemente um anel com a Diligência de Luaprata, aumentando em 29 a Aceleração. Não é possível aplicar a itens abaixo do nível 120.\nTalentos Talassianos - Latência de Luaprata \nRequer Nível 70\nEmpilhamento máx: 200Preço de Venda: 3",
+      "texto_en": "Enchant Ring - Silvermoon's Alacrity\nItem Level 85Use: Permanently enchants a ring with Silvermoon's Alacrity, increasing Haste by 29. Cannot be applied to items lower than level 120.\nThalassian Talents - Silvermoon's Spellpower \nRequires Level 70\nMax Stack: 200Sell Price: 3",
+      "slot": "anel",
+      "nome_base": "Enchant Ring - Silvermoon's Alacrity"
+    },
+    "244016": {
+      "grupo": "encantamento",
+      "nome_pt": "Encantamento da Tenacidade de Luaprata - Anel",
+      "nome_en": "Enchant Ring - Silvermoon's Tenacity",
+      "qualidade": 3,
+      "ilvl": 80,
+      "atributos": [],
+      "efeito": "Encanta permanentemente um anel com a Tenacidade de Luaprata, aumentando em 27 a Versatilidade.",
+      "categoria": "Talentos Talassianos - Latência de Luaprata",
+      "texto_pt": "Encantamento da Tenacidade de Luaprata - Anel\nNível do Item: 80Uso: Encanta permanentemente um anel com a Tenacidade de Luaprata, aumentando em 27 a Versatilidade. Não é possível aplicar a itens abaixo do nível 120.\nTalentos Talassianos - Latência de Luaprata \nRequer Nível 70\nEmpilhamento máx: 200Preço de Venda: 3",
+      "texto_en": "Enchant Ring - Silvermoon's Tenacity\nItem Level 80Use: Permanently enchants a ring with Silvermoon's Tenacity, increasing Versatility by 27. Cannot be applied to items lower than level 120.\nThalassian Talents - Silvermoon's Spellpower \nRequires Level 70\nMax Stack: 200Sell Price: 3",
+      "slot": "anel",
+      "nome_base": "Enchant Ring - Silvermoon's Tenacity"
+    },
+    "244017": {
+      "grupo": "encantamento",
+      "nome_pt": "Encantamento da Tenacidade de Luaprata - Anel",
+      "nome_en": "Enchant Ring - Silvermoon's Tenacity",
+      "qualidade": 3,
+      "ilvl": 85,
+      "atributos": [],
+      "efeito": "Encanta permanentemente um anel com a Tenacidade de Luaprata, aumentando em 29 a Versatilidade.",
+      "categoria": "Talentos Talassianos - Latência de Luaprata",
+      "texto_pt": "Encantamento da Tenacidade de Luaprata - Anel\nNível do Item: 85Uso: Encanta permanentemente um anel com a Tenacidade de Luaprata, aumentando em 29 a Versatilidade. Não é possível aplicar a itens abaixo do nível 120.\nTalentos Talassianos - Latência de Luaprata \nRequer Nível 70\nEmpilhamento máx: 200Preço de Venda: 3",
+      "texto_en": "Enchant Ring - Silvermoon's Tenacity\nItem Level 85Use: Permanently enchants a ring with Silvermoon's Tenacity, increasing Versatility by 29. Cannot be applied to items lower than level 120.\nThalassian Talents - Silvermoon's Spellpower \nRequires Level 70\nMax Stack: 200Sell Price: 3",
+      "slot": "anel",
+      "nome_base": "Enchant Ring - Silvermoon's Tenacity"
+    },
+    "244018": {
+      "grupo": "encantamento",
+      "nome_pt": "Encantamento da Recuperação Talassiana - Ombros",
+      "nome_en": "Enchant Shoulders - Thalassian Recovery",
+      "qualidade": 3,
+      "ilvl": 80,
+      "atributos": [],
+      "efeito": "Encanta permanentemente ombreiras com a Recuperação Talassiana, aumentando em 66 o Sorver.",
+      "categoria": "Talentos Talassianos - Catalisadores de Canto Eterno",
+      "texto_pt": "Encantamento da Recuperação Talassiana - Ombros\nNível do Item: 80Uso: Encanta permanentemente ombreiras com a Recuperação Talassiana, aumentando em 66 o Sorver. Não é possível aplicar a itens abaixo do nível 120.\nTalentos Talassianos - Catalisadores de Canto Eterno \nRequer Nível 70\nEmpilhamento máx: 200Preço de Venda: 5",
+      "texto_en": "Enchant Shoulders - Thalassian Recovery\nItem Level 80Use: Permanently enchants shoulder armor with Thalassian Recovery, increasing Leech by 66. Cannot be applied to items lower than level 120.\nThalassian Talents - Eversong Empowerments \nRequires Level 70\nMax Stack: 200Sell Price: 5",
+      "slot": "ombros",
+      "nome_base": "Enchant Shoulders - Thalassian Recovery"
+    },
+    "244019": {
+      "grupo": "encantamento",
+      "nome_pt": "Encantamento da Recuperação Talassiana - Ombros",
+      "nome_en": "Enchant Shoulders - Thalassian Recovery",
+      "qualidade": 3,
+      "ilvl": 85,
+      "atributos": [],
+      "efeito": "Encanta permanentemente ombreiras com a Recuperação Talassiana, aumentando em 99 o Sorver.",
+      "categoria": "Talentos Talassianos - Catalisadores de Canto Eterno",
+      "texto_pt": "Encantamento da Recuperação Talassiana - Ombros\nNível do Item: 85Uso: Encanta permanentemente ombreiras com a Recuperação Talassiana, aumentando em 99 o Sorver. Não é possível aplicar a itens abaixo do nível 120.\nTalentos Talassianos - Catalisadores de Canto Eterno \nRequer Nível 70\nEmpilhamento máx: 200Preço de Venda: 5",
+      "texto_en": "Enchant Shoulders - Thalassian Recovery\nItem Level 85Use: Permanently enchants shoulder armor with Thalassian Recovery, increasing Leech by 99. Cannot be applied to items lower than level 120.\nThalassian Talents - Eversong Empowerments \nRequires Level 70\nMax Stack: 200Sell Price: 5",
+      "slot": "ombros",
+      "nome_base": "Enchant Shoulders - Thalassian Recovery"
+    },
+    "244020": {
+      "grupo": "encantamento",
+      "nome_pt": "Encantamento da Recomposição de Luaprata - Ombros",
+      "nome_en": "Enchant Shoulders - Silvermoon's Mending",
+      "qualidade": 3,
+      "ilvl": 80,
+      "atributos": [],
+      "efeito": "Encanta permanentemente ombreiras com a Recomposição de Luaprata, aumentando em 132 o Sorver.",
+      "categoria": "Talentos Talassianos - Catalisadores de Canto Eterno",
+      "texto_pt": "Encantamento da Recomposição de Luaprata - Ombros\nNível do Item: 80Uso: Encanta permanentemente ombreiras com a Recomposição de Luaprata, aumentando em 132 o Sorver. Não é possível aplicar a itens abaixo do nível 120.\nTalentos Talassianos - Catalisadores de Canto Eterno \nRequer Nível 70\nEmpilhamento máx: 200Preço de Venda: 5",
+      "texto_en": "Enchant Shoulders - Silvermoon's Mending\nItem Level 80Use: Permanently enchants shoulder armor with Silvermoon's Mending, increasing Leech by 132. Cannot be applied to items lower than level 120.\nThalassian Talents - Eversong Empowerments \nRequires Level 70\nMax Stack: 200Sell Price: 5",
+      "slot": "ombros",
+      "nome_base": "Enchant Shoulders - Silvermoon's Mending"
+    },
+    "244021": {
+      "grupo": "encantamento",
+      "nome_pt": "Encantamento da Recomposição de Luaprata - Ombros",
+      "nome_en": "Enchant Shoulders - Silvermoon's Mending",
+      "qualidade": 3,
+      "ilvl": 85,
+      "atributos": [],
+      "efeito": "Encanta permanentemente ombreiras com a Recomposição de Luaprata, aumentando em 166 o Sorver.",
+      "categoria": "Talentos Talassianos - Catalisadores de Canto Eterno",
+      "texto_pt": "Encantamento da Recomposição de Luaprata - Ombros\nNível do Item: 85Uso: Encanta permanentemente ombreiras com a Recomposição de Luaprata, aumentando em 166 o Sorver. Não é possível aplicar a itens abaixo do nível 120.\nTalentos Talassianos - Catalisadores de Canto Eterno \nRequer Nível 70\nEmpilhamento máx: 200Preço de Venda: 5",
+      "texto_en": "Enchant Shoulders - Silvermoon's Mending\nItem Level 85Use: Permanently enchants shoulder armor with Silvermoon's Mending, increasing Leech by 166. Cannot be applied to items lower than level 120.\nThalassian Talents - Eversong Empowerments \nRequires Level 70\nMax Stack: 200Sell Price: 5",
+      "slot": "ombros",
+      "nome_base": "Enchant Shoulders - Silvermoon's Mending"
+    },
+    "244026": {
+      "grupo": "encantamento",
+      "nome_pt": "Encantamento das Chamas dos Sin'dorei - Arma",
+      "nome_en": "Enchant Weapon - Flames of the Sin'dorei",
+      "qualidade": 3,
+      "ilvl": 80,
+      "atributos": [],
+      "efeito": "Encanta permanentemente uma arma com as Chamas dos Sin'dorei, fazendo seus feitiços e habilidades às vezes queimarem o seu alvo. Isso causa (1 * (1964)) de dano de Fogo ao longo de 10 s e depois detona, causando mais (1 * 4176) de dano de Fogo dividido entre inimigos próximos.",
+      "categoria": "Talentos Talassianos - Latência de Luaprata",
+      "texto_pt": "Encantamento das Chamas dos Sin'dorei - Arma\nNível do Item: 80Uso: Encanta permanentemente uma arma com as Chamas dos Sin'dorei, fazendo seus feitiços e habilidades às vezes queimarem o seu alvo. Isso causa (1 * (1964)) de dano de Fogo ao longo de 10 s e depois detona, causando mais (1 * 4176) de dano de Fogo dividido entre inimigos próximos. Não é possível aplicar a itens abaixo do nível 120.\nTalentos Talassianos - Latência de Luaprata \nRequer Nível 70\nEmpilhamento máx: 200Preço de Venda: 5",
+      "texto_en": "Enchant Weapon - Flames of the Sin'dorei\nItem Level 80Use: Permanently enchants a weapon with Flames of the Sin'dorei, causing your spells and abilities to sometimes ignite your target. This inflicts (1 * (1964)) Fire damage over 10 sec before detonating for (1 * 4176) Fire damage split among nearby enemies. Cannot be applied to items lower than level 120.\nThalassian Talents - Silvermoon's Spellpower \nRequires Level 70\nMax Stack: 200Sell Price: 5",
+      "slot": "arma",
+      "nome_base": "Enchant Weapon - Flames of the Sin'dorei"
+    },
+    "244027": {
+      "grupo": "encantamento",
+      "nome_pt": "Encantamento das Chamas dos Sin'dorei - Arma",
+      "nome_en": "Enchant Weapon - Flames of the Sin'dorei",
+      "qualidade": 3,
+      "ilvl": 85,
+      "atributos": [],
+      "efeito": "Encanta permanentemente uma arma com as Chamas dos Sin'dorei, fazendo seus feitiços e habilidades às vezes queimarem o seu alvo. Isso causa (1 * (2456)) de dano de Fogo ao longo de 10 s e depois detona, causando mais (1 * 5220) de dano de Fogo dividido entre inimigos próximos.",
+      "categoria": "Talentos Talassianos - Latência de Luaprata",
+      "texto_pt": "Encantamento das Chamas dos Sin'dorei - Arma\nNível do Item: 85Uso: Encanta permanentemente uma arma com as Chamas dos Sin'dorei, fazendo seus feitiços e habilidades às vezes queimarem o seu alvo. Isso causa (1 * (2456)) de dano de Fogo ao longo de 10 s e depois detona, causando mais (1 * 5220) de dano de Fogo dividido entre inimigos próximos. Não é possível aplicar a itens abaixo do nível 120.\nTalentos Talassianos - Latência de Luaprata \nRequer Nível 70\nEmpilhamento máx: 200Preço de Venda: 5",
+      "texto_en": "Enchant Weapon - Flames of the Sin'dorei\nItem Level 85Use: Permanently enchants a weapon with Flames of the Sin'dorei, causing your spells and abilities to sometimes ignite your target. This inflicts (1 * (2456)) Fire damage over 10 sec before detonating for (1 * 5220) Fire damage split among nearby enemies. Cannot be applied to items lower than level 120.\nThalassian Talents - Silvermoon's Spellpower \nRequires Level 70\nMax Stack: 200Sell Price: 5",
+      "slot": "arma",
+      "nome_base": "Enchant Weapon - Flames of the Sin'dorei"
+    },
+    "244028": {
+      "grupo": "encantamento",
+      "nome_pt": "Encantamento da Acuidade dos Ren'dorei - Arma",
+      "nome_en": "Enchant Weapon - Acuity of the Ren'dorei",
+      "qualidade": 3,
+      "ilvl": 80,
+      "atributos": [],
+      "efeito": "Encanta permanentemente uma arma com a Acuidade dos Ren'dorei, fazendo seus feitiços e habilidades lhe conferirem Poder do Caos, concedendo Atributo primário de 53 por 15 s.",
+      "categoria": "Talentos Talassianos - Latência de Luaprata",
+      "texto_pt": "Encantamento da Acuidade dos Ren'dorei - Arma\nNível do Item: 80Uso: Encanta permanentemente uma arma com a Acuidade dos Ren'dorei, fazendo seus feitiços e habilidades lhe conferirem Poder do Caos, concedendo Atributo primário de 53 por 15 s. Não é possível aplicar a itens abaixo do nível 120.\nTalentos Talassianos - Latência de Luaprata \nRequer Nível 70\nEmpilhamento máx: 200Preço de Venda: 5",
+      "texto_en": "Enchant Weapon - Acuity of the Ren'dorei\nItem Level 80Use: Permanently enchants a weapon with Acuity of the Ren'dorei, causing your spells and abilities to grant you Might of the Void, providing you with 53 Primary Stat for 15 sec. Cannot be applied to items lower than level 120.\nThalassian Talents - Silvermoon's Spellpower \nRequires Level 70\nMax Stack: 200Sell Price: 5",
+      "slot": "arma",
+      "nome_base": "Enchant Weapon - Acuity of the Ren'dorei"
+    },
+    "244029": {
+      "grupo": "encantamento",
+      "nome_pt": "Encantamento da Acuidade dos Ren'dorei - Arma",
+      "nome_en": "Enchant Weapon - Acuity of the Ren'dorei",
+      "qualidade": 3,
+      "ilvl": 85,
+      "atributos": [],
+      "efeito": "Encanta permanentemente uma arma com a Acuidade dos Ren'dorei, fazendo seus feitiços e habilidades lhe conferirem Poder do Caos, concedendo Atributo primário de 67 por 15 s.",
+      "categoria": "Talentos Talassianos - Latência de Luaprata",
+      "texto_pt": "Encantamento da Acuidade dos Ren'dorei - Arma\nNível do Item: 85Uso: Encanta permanentemente uma arma com a Acuidade dos Ren'dorei, fazendo seus feitiços e habilidades lhe conferirem Poder do Caos, concedendo Atributo primário de 67 por 15 s. Não é possível aplicar a itens abaixo do nível 120.\nTalentos Talassianos - Latência de Luaprata \nRequer Nível 70\nEmpilhamento máx: 200Preço de Venda: 5",
+      "texto_en": "Enchant Weapon - Acuity of the Ren'dorei\nItem Level 85Use: Permanently enchants a weapon with Acuity of the Ren'dorei, causing your spells and abilities to grant you Might of the Void, providing you with 67 Primary Stat for 15 sec. Cannot be applied to items lower than level 120.\nThalassian Talents - Silvermoon's Spellpower \nRequires Level 70\nMax Stack: 200Sell Price: 5",
+      "slot": "arma",
+      "nome_base": "Enchant Weapon - Acuity of the Ren'dorei"
+    },
+    "244030": {
+      "grupo": "encantamento",
+      "nome_pt": "Encantamento da Maestria Arcana - Arma",
+      "nome_en": "Enchant Weapon - Arcane Mastery",
+      "qualidade": 3,
+      "ilvl": 80,
+      "atributos": [],
+      "efeito": "Encanta permanentemente uma arma com Maestria Arcana, fazendo seus feitiços e habilidades lhe concederem Percepção Genial, aumentando em 99 sua Maestria por 15 s.",
+      "categoria": "Talentos Talassianos - Latência de Luaprata",
+      "texto_pt": "Encantamento da Maestria Arcana - Arma\nNível do Item: 80Uso: Encanta permanentemente uma arma com Maestria Arcana, fazendo seus feitiços e habilidades lhe concederem Percepção Genial, aumentando em 99 sua Maestria por 15 s. Não é possível aplicar a itens abaixo do nível 120.\nTalentos Talassianos - Latência de Luaprata \nRequer Nível 70\nEmpilhamento máx: 200Preço de Venda: 5",
+      "texto_en": "Enchant Weapon - Arcane Mastery\nItem Level 80Use: Permanently enchants a weapon with Arcane Mastery, causing your spells and abilities to grant you Genius Insight, increasing your Mastery by 99 for 15 sec. Cannot be applied to items lower than level 120.\nThalassian Talents - Silvermoon's Spellpower \nRequires Level 70\nMax Stack: 200Sell Price: 5",
+      "slot": "arma",
+      "nome_base": "Enchant Weapon - Arcane Mastery"
+    },
+    "244031": {
+      "grupo": "encantamento",
+      "nome_pt": "Encantamento da Maestria Arcana - Arma",
+      "nome_en": "Enchant Weapon - Arcane Mastery",
+      "qualidade": 3,
+      "ilvl": 85,
+      "atributos": [],
+      "efeito": "Encanta permanentemente uma arma com Maestria Arcana, fazendo seus feitiços e habilidades lhe concederem Percepção Genial, aumentando em 124 sua Maestria por 15 s.",
+      "categoria": "Talentos Talassianos - Latência de Luaprata",
+      "texto_pt": "Encantamento da Maestria Arcana - Arma\nNível do Item: 85Uso: Encanta permanentemente uma arma com Maestria Arcana, fazendo seus feitiços e habilidades lhe concederem Percepção Genial, aumentando em 124 sua Maestria por 15 s. Não é possível aplicar a itens abaixo do nível 120.\nTalentos Talassianos - Latência de Luaprata \nRequer Nível 70\nEmpilhamento máx: 200Preço de Venda: 5",
+      "texto_en": "Enchant Weapon - Arcane Mastery\nItem Level 85Use: Permanently enchants a weapon with Arcane Mastery, causing your spells and abilities to grant you Genius Insight, increasing your Mastery by 124 for 15 sec. Cannot be applied to items lower than level 120.\nThalassian Talents - Silvermoon's Spellpower \nRequires Level 70\nMax Stack: 200Sell Price: 5",
+      "slot": "arma",
+      "nome_base": "Enchant Weapon - Arcane Mastery"
+    },
+    "273071": {
+      "grupo": "encantamento",
+      "nome_pt": "Encantamento de Rito dos Hash'ey - Arma",
+      "nome_en": "Enchant Weapon - Rite of the Hash'ey",
+      "qualidade": 3,
+      "ilvl": 580,
+      "receita_id": 273073,
+      "receita_nome_pt": "Fórmula: Rito dos Hash'ey",
+      "nota_ilvl": "O 580 é o nível do PERGAMINHO, não de outra trilha. A receita que o ensina é a Fórmula 273073, no mesmo bloco 273059-273073 das outras receitas de Midnight, e a especialização é 'Aprimoramentos Amani — Zelo de Zul'Aman'. As linhas 'Não é possível aplicar a itens abaixo do nível 120' e 'Requer Nível 70' são texto legado repetido em todos os encantamentos deste build.",
+      "atributos": [],
+      "efeito": "Encanta permanentemente uma arma com Rito dos Hash'ey, fazendo seus feitiços e habilidades concederem Poder dos Hash'ey, concedendo 120 de um atributo secundário aleatório por 15 s e favorecendo seu atributo secundário mais alto quando você está com mais de 80% dos pontos de vida.",
+      "categoria": "Aprimoramentos Amani - Zelo de Zul'Aman",
+      "texto_pt": "Encantamento de Rito dos Hash'ey - Arma\nNível do Item: 580Uso: Encanta permanentemente uma arma com Rito dos Hash'ey, fazendo seus feitiços e habilidades concederem Poder dos Hash'ey, concedendo 120 de um atributo secundário aleatório por 15 s e favorecendo seu atributo secundário mais alto quando você está com mais de 80% dos pontos de vida. Não é possível aplicar a itens abaixo do nível 120.\nAprimoramentos Amani - Zelo de Zul'Aman \nRequer Nível 70\nEmpilhamento máx: 200Preço de Venda: 5",
+      "texto_en": "Enchant Weapon - Rite of the Hash'ey\nItem Level 580Use: Permanently enchants a weapon with Rite of the Hash'ey, causing your spells and abilities to grant you Hash'ey's Might, granting you 120 of a random secondary stat for 15 sec and favors your highest secondary stat when you're above 80% health. Cannot be applied to items lower than level 120.\nAmani Augments - Zul'Aman Zeal \nRequires Level 70\nMax Stack: 200Sell Price: 5",
+      "slot": "arma",
+      "nome_base": "Enchant Weapon - Rite of the Hash'ey"
+    },
+    "273072": {
+      "grupo": "encantamento",
+      "nome_pt": "Encantamento de Rito dos Hash'ey - Arma",
+      "nome_en": "Enchant Weapon - Rite of the Hash'ey",
+      "qualidade": 3,
+      "ilvl": 580,
+      "receita_id": 273073,
+      "receita_nome_pt": "Fórmula: Rito dos Hash'ey",
+      "nota_ilvl": "Segunda qualidade da mesma Fórmula (273073): 139 em vez de 120. Mesma observação de nível do pergaminho do registro 273071.",
+      "atributos": [],
+      "efeito": "Encanta permanentemente uma arma com Rito dos Hash'ey, fazendo seus feitiços e habilidades concederem Poder dos Hash'ey, concedendo 139 de um atributo secundário aleatório por 15 s e favorecendo seu atributo secundário mais alto quando você está com mais de 80% dos pontos de vida.",
+      "categoria": "Aprimoramentos Amani - Zelo de Zul'Aman",
+      "texto_pt": "Encantamento de Rito dos Hash'ey - Arma\nNível do Item: 580Uso: Encanta permanentemente uma arma com Rito dos Hash'ey, fazendo seus feitiços e habilidades concederem Poder dos Hash'ey, concedendo 139 de um atributo secundário aleatório por 15 s e favorecendo seu atributo secundário mais alto quando você está com mais de 80% dos pontos de vida. Não é possível aplicar a itens abaixo do nível 120.\nAprimoramentos Amani - Zelo de Zul'Aman \nRequer Nível 70\nEmpilhamento máx: 200Preço de Venda: 5",
+      "texto_en": "Enchant Weapon - Rite of the Hash'ey\nItem Level 580Use: Permanently enchants a weapon with Rite of the Hash'ey, causing your spells and abilities to grant you Hash'ey's Might, granting you 139 of a random secondary stat for 15 sec and favors your highest secondary stat when you're above 80% health. Cannot be applied to items lower than level 120.\nAmani Augments - Zul'Aman Zeal \nRequires Level 70\nMax Stack: 200Sell Price: 5",
+      "slot": "arma",
+      "nome_base": "Enchant Weapon - Rite of the Hash'ey"
+    }
+  },
+  "gemas": {
+    "240855": {
+      "grupo": "gema",
+      "nome_pt": "Peridoto Veloz",
+      "nome_en": "Quick Peridot",
+      "qualidade": 2,
+      "ilvl": 278,
+      "atributos": [
+        "+12 de Aceleração"
+      ],
+      "efeito": "",
+      "categoria": null,
+      "texto_pt": "Peridoto Veloz\nPeridoto\nNível do Item: 278\n+12  de AceleraçãoUso: \nEmpilhamento máx: 200Preço de Venda: 1",
+      "texto_en": "Quick Peridot\nPeridot\nItem Level 278\n+12  HasteUse: \nMax Stack: 200Sell Price: 1",
+      "tipo": "Peridot (Aceleração)"
+    },
+    "240856": {
+      "grupo": "gema",
+      "nome_pt": "Peridoto Veloz",
+      "nome_en": "Quick Peridot",
+      "qualidade": 2,
+      "ilvl": 295,
+      "atributos": [
+        "+13 de Aceleração"
+      ],
+      "efeito": "",
+      "categoria": null,
+      "texto_pt": "Peridoto Veloz\nPeridoto\nNível do Item: 295\n+13  de AceleraçãoUso: \nEmpilhamento máx: 200Preço de Venda: 1",
+      "texto_en": "Quick Peridot\nPeridot\nItem Level 295\n+13  HasteUse: \nMax Stack: 200Sell Price: 1",
+      "tipo": "Peridot (Aceleração)"
+    },
+    "240857": {
+      "grupo": "gema",
+      "nome_pt": "Peridoto Mortal",
+      "nome_en": "Deadly Peridot",
+      "qualidade": 2,
+      "ilvl": 278,
+      "atributos": [
+        "+11 de Aceleração e +4 de Acerto Crítico"
+      ],
+      "efeito": "",
+      "categoria": null,
+      "texto_pt": "Peridoto Mortal\nPeridoto\nNível do Item: 278\n+11  de Aceleração e +4  de Acerto CríticoUso: \nEmpilhamento máx: 200Preço de Venda: 50",
+      "texto_en": "Deadly Peridot\nPeridot\nItem Level 278\n+11  Haste &amp; +4  Critical StrikeUse: \nMax Stack: 200Sell Price: 50",
+      "tipo": "Peridot (Aceleração)"
+    },
+    "240858": {
+      "grupo": "gema",
+      "nome_pt": "Peridoto Mortal",
+      "nome_en": "Deadly Peridot",
+      "qualidade": 2,
+      "ilvl": 295,
+      "atributos": [
+        "+12 de Aceleração e +5 de Acerto Crítico"
+      ],
+      "efeito": "",
+      "categoria": null,
+      "texto_pt": "Peridoto Mortal\nPeridoto\nNível do Item: 295\n+12  de Aceleração e +5  de Acerto CríticoUso: \nEmpilhamento máx: 200Preço de Venda: 50",
+      "texto_en": "Deadly Peridot\nPeridot\nItem Level 295\n+12  Haste &amp; +5  Critical StrikeUse: \nMax Stack: 200Sell Price: 50",
+      "tipo": "Peridot (Aceleração)"
+    },
+    "240859": {
+      "grupo": "gema",
+      "nome_pt": "Peridoto Primoroso",
+      "nome_en": "Masterful Peridot",
+      "qualidade": 2,
+      "ilvl": 278,
+      "atributos": [
+        "+11 de Aceleração e +4 de Maestria"
+      ],
+      "efeito": "",
+      "categoria": null,
+      "texto_pt": "Peridoto Primoroso\nPeridoto\nNível do Item: 278\n+11  de Aceleração e +4  de MaestriaUso: \nEmpilhamento máx: 200Preço de Venda: 50",
+      "texto_en": "Masterful Peridot\nPeridot\nItem Level 278\n+11  Haste &amp; +4  MasteryUse: \nMax Stack: 200Sell Price: 50",
+      "tipo": "Peridot (Aceleração)"
+    },
+    "240860": {
+      "grupo": "gema",
+      "nome_pt": "Peridoto Primoroso",
+      "nome_en": "Masterful Peridot",
+      "qualidade": 2,
+      "ilvl": 295,
+      "atributos": [
+        "+12 de Aceleração e +5 de Maestria"
+      ],
+      "efeito": "",
+      "categoria": null,
+      "texto_pt": "Peridoto Primoroso\nPeridoto\nNível do Item: 295\n+12  de Aceleração e +5  de MaestriaUso: \nEmpilhamento máx: 200Preço de Venda: 50",
+      "texto_en": "Masterful Peridot\nPeridot\nItem Level 295\n+12  Haste &amp; +5  MasteryUse: \nMax Stack: 200Sell Price: 50",
+      "tipo": "Peridot (Aceleração)"
+    },
+    "240861": {
+      "grupo": "gema",
+      "nome_pt": "Peridoto Versátil",
+      "nome_en": "Versatile Peridot",
+      "qualidade": 2,
+      "ilvl": 278,
+      "atributos": [
+        "+11 de Aceleração e +4 de Versatilidade"
+      ],
+      "efeito": "",
+      "categoria": null,
+      "texto_pt": "Peridoto Versátil\nPeridoto\nNível do Item: 278\n+11  de Aceleração e +4  de VersatilidadeUso: \nEmpilhamento máx: 200Preço de Venda: 50",
+      "texto_en": "Versatile Peridot\nPeridot\nItem Level 278\n+11  Haste &amp; +4  VersatilityUse: \nMax Stack: 200Sell Price: 50",
+      "tipo": "Peridot (Aceleração)"
+    },
+    "240862": {
+      "grupo": "gema",
+      "nome_pt": "Peridoto Versátil",
+      "nome_en": "Versatile Peridot",
+      "qualidade": 2,
+      "ilvl": 295,
+      "atributos": [
+        "+12 de Aceleração e +5 de Versatilidade"
+      ],
+      "efeito": "",
+      "categoria": null,
+      "texto_pt": "Peridoto Versátil\nPeridoto\nNível do Item: 295\n+12  de Aceleração e +5  de VersatilidadeUso: \nEmpilhamento máx: 200Preço de Venda: 50",
+      "texto_en": "Versatile Peridot\nPeridot\nItem Level 295\n+12  Haste &amp; +5  VersatilityUse: \nMax Stack: 200Sell Price: 50",
+      "tipo": "Peridot (Aceleração)"
+    },
+    "240863": {
+      "grupo": "gema",
+      "nome_pt": "Ametista Primorosa",
+      "nome_en": "Masterful Amethyst",
+      "qualidade": 2,
+      "ilvl": 278,
+      "atributos": [
+        "+12 de Maestria"
+      ],
+      "efeito": "",
+      "categoria": null,
+      "texto_pt": "Ametista Primorosa\nAmetista\nNível do Item: 278\n+12  de MaestriaUso: \nEmpilhamento máx: 200Preço de Venda: 1",
+      "texto_en": "Masterful Amethyst\nAmethyst\nItem Level 278\n+12  MasteryUse: \nMax Stack: 200Sell Price: 1",
+      "tipo": "Amethyst (Maestria)"
+    },
+    "240864": {
+      "grupo": "gema",
+      "nome_pt": "Ametista Primorosa",
+      "nome_en": "Masterful Amethyst",
+      "qualidade": 2,
+      "ilvl": 295,
+      "atributos": [
+        "+13 de Maestria"
+      ],
+      "efeito": "",
+      "categoria": null,
+      "texto_pt": "Ametista Primorosa\nAmetista\nNível do Item: 295\n+13  de MaestriaUso: \nEmpilhamento máx: 200Preço de Venda: 1",
+      "texto_en": "Masterful Amethyst\nAmethyst\nItem Level 295\n+13  MasteryUse: \nMax Stack: 200Sell Price: 1",
+      "tipo": "Amethyst (Maestria)"
+    },
+    "240865": {
+      "grupo": "gema",
+      "nome_pt": "Ametista Mortal",
+      "nome_en": "Deadly Amethyst",
+      "qualidade": 2,
+      "ilvl": 278,
+      "atributos": [
+        "+11 de Maestria e +4 de Acerto Crítico"
+      ],
+      "efeito": "",
+      "categoria": null,
+      "texto_pt": "Ametista Mortal\nAmetista\nNível do Item: 278\n+11  de Maestria e +4  de Acerto CríticoUso: \nEmpilhamento máx: 200Preço de Venda: 50",
+      "texto_en": "Deadly Amethyst\nAmethyst\nItem Level 278\n+11  Mastery &amp; +4  Critical StrikeUse: \nMax Stack: 200Sell Price: 50",
+      "tipo": "Amethyst (Maestria)"
+    },
+    "240866": {
+      "grupo": "gema",
+      "nome_pt": "Ametista Mortal",
+      "nome_en": "Deadly Amethyst",
+      "qualidade": 2,
+      "ilvl": 295,
+      "atributos": [
+        "+12 de Maestria e +5 de Acerto Crítico"
+      ],
+      "efeito": "",
+      "categoria": null,
+      "texto_pt": "Ametista Mortal\nAmetista\nNível do Item: 295\n+12  de Maestria e +5  de Acerto CríticoUso: \nEmpilhamento máx: 200Preço de Venda: 50",
+      "texto_en": "Deadly Amethyst\nAmethyst\nItem Level 295\n+12  Mastery &amp; +5  Critical StrikeUse: \nMax Stack: 200Sell Price: 50",
+      "tipo": "Amethyst (Maestria)"
+    },
+    "240867": {
+      "grupo": "gema",
+      "nome_pt": "Ametista Veloz",
+      "nome_en": "Quick Amethyst",
+      "qualidade": 2,
+      "ilvl": 278,
+      "atributos": [
+        "+11 de Maestria e +4 de Aceleração"
+      ],
+      "efeito": "",
+      "categoria": null,
+      "texto_pt": "Ametista Veloz\nAmetista\nNível do Item: 278\n+11  de Maestria e +4  de AceleraçãoUso: \nEmpilhamento máx: 200Preço de Venda: 50",
+      "texto_en": "Quick Amethyst\nAmethyst\nItem Level 278\n+11  Mastery &amp; +4  HasteUse: \nMax Stack: 200Sell Price: 50",
+      "tipo": "Amethyst (Maestria)"
+    },
+    "240868": {
+      "grupo": "gema",
+      "nome_pt": "Ametista Veloz",
+      "nome_en": "Quick Amethyst",
+      "qualidade": 2,
+      "ilvl": 295,
+      "atributos": [
+        "+12 de Maestria e +5 de Aceleração"
+      ],
+      "efeito": "",
+      "categoria": null,
+      "texto_pt": "Ametista Veloz\nAmetista\nNível do Item: 295\n+12  de Maestria e +5  de AceleraçãoUso: \nEmpilhamento máx: 200Preço de Venda: 50",
+      "texto_en": "Quick Amethyst\nAmethyst\nItem Level 295\n+12  Mastery &amp; +5  HasteUse: \nMax Stack: 200Sell Price: 50",
+      "tipo": "Amethyst (Maestria)"
+    },
+    "240869": {
+      "grupo": "gema",
+      "nome_pt": "Ametista Versátil",
+      "nome_en": "Versatile Amethyst",
+      "qualidade": 2,
+      "ilvl": 278,
+      "atributos": [
+        "+11 de Maestria e +4 de Versatilidade"
+      ],
+      "efeito": "",
+      "categoria": null,
+      "texto_pt": "Ametista Versátil\nAmetista\nNível do Item: 278\n+11  de Maestria e +4  de VersatilidadeUso: \nEmpilhamento máx: 200Preço de Venda: 50",
+      "texto_en": "Versatile Amethyst\nAmethyst\nItem Level 278\n+11  Mastery &amp; +4  VersatilityUse: \nMax Stack: 200Sell Price: 50",
+      "tipo": "Amethyst (Maestria)"
+    },
+    "240870": {
+      "grupo": "gema",
+      "nome_pt": "Ametista Versátil",
+      "nome_en": "Versatile Amethyst",
+      "qualidade": 2,
+      "ilvl": 295,
+      "atributos": [
+        "+12 de Maestria e +5 de Versatilidade"
+      ],
+      "efeito": "",
+      "categoria": null,
+      "texto_pt": "Ametista Versátil\nAmetista\nNível do Item: 295\n+12  de Maestria e +5  de VersatilidadeUso: \nEmpilhamento máx: 200Preço de Venda: 50",
+      "texto_en": "Versatile Amethyst\nAmethyst\nItem Level 295\n+12  Mastery &amp; +5  VersatilityUse: \nMax Stack: 200Sell Price: 50",
+      "tipo": "Amethyst (Maestria)"
+    },
+    "240871": {
+      "grupo": "gema",
+      "nome_pt": "Granada Mortal",
+      "nome_en": "Deadly Garnet",
+      "qualidade": 2,
+      "ilvl": 278,
+      "atributos": [
+        "+12 de Acerto Crítico"
+      ],
+      "efeito": "",
+      "categoria": null,
+      "texto_pt": "Granada Mortal\nGranada\nNível do Item: 278\n+12  de Acerto CríticoUso: \nEmpilhamento máx: 200Preço de Venda: 1",
+      "texto_en": "Deadly Garnet\nGarnet\nItem Level 278\n+12  Critical StrikeUse: \nMax Stack: 200Sell Price: 1",
+      "tipo": "Garnet (Acerto Crítico)"
+    },
+    "240872": {
+      "grupo": "gema",
+      "nome_pt": "Granada Mortal",
+      "nome_en": "Deadly Garnet",
+      "qualidade": 2,
+      "ilvl": 295,
+      "atributos": [
+        "+13 de Acerto Crítico"
+      ],
+      "efeito": "",
+      "categoria": null,
+      "texto_pt": "Granada Mortal\nGranada\nNível do Item: 295\n+13  de Acerto CríticoUso: \nEmpilhamento máx: 200Preço de Venda: 1",
+      "texto_en": "Deadly Garnet\nGarnet\nItem Level 295\n+13  Critical StrikeUse: \nMax Stack: 200Sell Price: 1",
+      "tipo": "Garnet (Acerto Crítico)"
+    },
+    "240873": {
+      "grupo": "gema",
+      "nome_pt": "Granada Veloz",
+      "nome_en": "Quick Garnet",
+      "qualidade": 2,
+      "ilvl": 278,
+      "atributos": [
+        "+11 de Acerto Crítico e +4 de Aceleração"
+      ],
+      "efeito": "",
+      "categoria": null,
+      "texto_pt": "Granada Veloz\nGranada\nNível do Item: 278\n+11  de Acerto Crítico e +4  de AceleraçãoUso: \nEmpilhamento máx: 200Preço de Venda: 50",
+      "texto_en": "Quick Garnet\nGarnet\nItem Level 278\n+11  Critical Strike &amp; +4  HasteUse: \nMax Stack: 200Sell Price: 50",
+      "tipo": "Garnet (Acerto Crítico)"
+    },
+    "240874": {
+      "grupo": "gema",
+      "nome_pt": "Granada Veloz",
+      "nome_en": "Quick Garnet",
+      "qualidade": 2,
+      "ilvl": 295,
+      "atributos": [
+        "+12 de Acerto Crítico e +5 de Aceleração"
+      ],
+      "efeito": "",
+      "categoria": null,
+      "texto_pt": "Granada Veloz\nGranada\nNível do Item: 295\n+12  de Acerto Crítico e +5  de AceleraçãoUso: \nEmpilhamento máx: 200Preço de Venda: 50",
+      "texto_en": "Quick Garnet\nGarnet\nItem Level 295\n+12  Critical Strike &amp; +5  HasteUse: \nMax Stack: 200Sell Price: 50",
+      "tipo": "Garnet (Acerto Crítico)"
+    },
+    "240875": {
+      "grupo": "gema",
+      "nome_pt": "Granada Primorosa",
+      "nome_en": "Masterful Garnet",
+      "qualidade": 2,
+      "ilvl": 278,
+      "atributos": [
+        "+11 de Acerto Crítico e +4 de Maestria"
+      ],
+      "efeito": "",
+      "categoria": null,
+      "texto_pt": "Granada Primorosa\nGranada\nNível do Item: 278\n+11  de Acerto Crítico e +4  de MaestriaUso: \nEmpilhamento máx: 200Preço de Venda: 50",
+      "texto_en": "Masterful Garnet\nGarnet\nItem Level 278\n+11  Critical Strike &amp; +4  MasteryUse: \nMax Stack: 200Sell Price: 50",
+      "tipo": "Garnet (Acerto Crítico)"
+    },
+    "240876": {
+      "grupo": "gema",
+      "nome_pt": "Granada Primorosa",
+      "nome_en": "Masterful Garnet",
+      "qualidade": 2,
+      "ilvl": 295,
+      "atributos": [
+        "+12 de Acerto Crítico e +5 de Maestria"
+      ],
+      "efeito": "",
+      "categoria": null,
+      "texto_pt": "Granada Primorosa\nGranada\nNível do Item: 295\n+12  de Acerto Crítico e +5  de MaestriaUso: \nEmpilhamento máx: 200Preço de Venda: 50",
+      "texto_en": "Masterful Garnet\nGarnet\nItem Level 295\n+12  Critical Strike &amp; +5  MasteryUse: \nMax Stack: 200Sell Price: 50",
+      "tipo": "Garnet (Acerto Crítico)"
+    },
+    "240877": {
+      "grupo": "gema",
+      "nome_pt": "Granada Versátil",
+      "nome_en": "Versatile Garnet",
+      "qualidade": 2,
+      "ilvl": 278,
+      "atributos": [
+        "+11 de Acerto Crítico e +4 de Versatilidade"
+      ],
+      "efeito": "",
+      "categoria": null,
+      "texto_pt": "Granada Versátil\nGranada\nNível do Item: 278\n+11  de Acerto Crítico e +4  de VersatilidadeUso: \nEmpilhamento máx: 200Preço de Venda: 50",
+      "texto_en": "Versatile Garnet\nGarnet\nItem Level 278\n+11  Critical Strike &amp; +4  VersatilityUse: \nMax Stack: 200Sell Price: 50",
+      "tipo": "Garnet (Acerto Crítico)"
+    },
+    "240878": {
+      "grupo": "gema",
+      "nome_pt": "Granada Versátil",
+      "nome_en": "Versatile Garnet",
+      "qualidade": 2,
+      "ilvl": 295,
+      "atributos": [
+        "+12 de Acerto Crítico e +5 de Versatilidade"
+      ],
+      "efeito": "",
+      "categoria": null,
+      "texto_pt": "Granada Versátil\nGranada\nNível do Item: 295\n+12  de Acerto Crítico e +5  de VersatilidadeUso: \nEmpilhamento máx: 200Preço de Venda: 50",
+      "texto_en": "Versatile Garnet\nGarnet\nItem Level 295\n+12  Critical Strike &amp; +5  VersatilityUse: \nMax Stack: 200Sell Price: 50",
+      "tipo": "Garnet (Acerto Crítico)"
+    },
+    "240879": {
+      "grupo": "gema",
+      "nome_pt": "Lápis Versátil",
+      "nome_en": "Versatile Lapis",
+      "qualidade": 2,
+      "ilvl": 278,
+      "atributos": [
+        "+12 de Versatilidade"
+      ],
+      "efeito": "",
+      "categoria": null,
+      "texto_pt": "Lápis Versátil\nLápis\nNível do Item: 278\n+12  de VersatilidadeUso: \nEmpilhamento máx: 200Preço de Venda: 1",
+      "texto_en": "Versatile Lapis\nLapis\nItem Level 278\n+12  VersatilityUse: \nMax Stack: 200Sell Price: 1",
+      "tipo": "Lapis (Versatilidade)"
+    },
+    "240880": {
+      "grupo": "gema",
+      "nome_pt": "Lápis Versátil",
+      "nome_en": "Versatile Lapis",
+      "qualidade": 2,
+      "ilvl": 295,
+      "atributos": [
+        "+13 de Versatilidade"
+      ],
+      "efeito": "",
+      "categoria": null,
+      "texto_pt": "Lápis Versátil\nLápis\nNível do Item: 295\n+13  de VersatilidadeUso: \nEmpilhamento máx: 200Preço de Venda: 1",
+      "texto_en": "Versatile Lapis\nLapis\nItem Level 295\n+13  VersatilityUse: \nMax Stack: 200Sell Price: 1",
+      "tipo": "Lapis (Versatilidade)"
+    },
+    "240881": {
+      "grupo": "gema",
+      "nome_pt": "Lápis Mortal",
+      "nome_en": "Deadly Lapis",
+      "qualidade": 2,
+      "ilvl": 278,
+      "atributos": [
+        "+11 de Versatilidade e +4 de Acerto Crítico"
+      ],
+      "efeito": "",
+      "categoria": null,
+      "texto_pt": "Lápis Mortal\nLápis\nNível do Item: 278\n+11  de Versatilidade e +4  de Acerto CríticoUso: \nEmpilhamento máx: 200Preço de Venda: 50",
+      "texto_en": "Deadly Lapis\nLapis\nItem Level 278\n+11  Versatility &amp; +4  Critical StrikeUse: \nMax Stack: 200Sell Price: 50",
+      "tipo": "Lapis (Versatilidade)"
+    },
+    "240882": {
+      "grupo": "gema",
+      "nome_pt": "Lápis Mortal",
+      "nome_en": "Deadly Lapis",
+      "qualidade": 2,
+      "ilvl": 295,
+      "atributos": [
+        "+12 de Versatilidade e +5 de Acerto Crítico"
+      ],
+      "efeito": "",
+      "categoria": null,
+      "texto_pt": "Lápis Mortal\nLápis\nNível do Item: 295\n+12  de Versatilidade e +5  de Acerto CríticoUso: \nEmpilhamento máx: 200Preço de Venda: 50",
+      "texto_en": "Deadly Lapis\nLapis\nItem Level 295\n+12  Versatility &amp; +5  Critical StrikeUse: \nMax Stack: 200Sell Price: 50",
+      "tipo": "Lapis (Versatilidade)"
+    },
+    "240883": {
+      "grupo": "gema",
+      "nome_pt": "Lápis Veloz",
+      "nome_en": "Quick Lapis",
+      "qualidade": 2,
+      "ilvl": 278,
+      "atributos": [
+        "+11 de Versatilidade e +4 de Aceleração"
+      ],
+      "efeito": "",
+      "categoria": null,
+      "texto_pt": "Lápis Veloz\nLápis\nNível do Item: 278\n+11  de Versatilidade e +4  de AceleraçãoUso: \nEmpilhamento máx: 200Preço de Venda: 50",
+      "texto_en": "Quick Lapis\nLapis\nItem Level 278\n+11  Versatility &amp; +4  HasteUse: \nMax Stack: 200Sell Price: 50",
+      "tipo": "Lapis (Versatilidade)"
+    },
+    "240884": {
+      "grupo": "gema",
+      "nome_pt": "Lápis Veloz",
+      "nome_en": "Quick Lapis",
+      "qualidade": 2,
+      "ilvl": 295,
+      "atributos": [
+        "+12 de Versatilidade e +5 de Aceleração"
+      ],
+      "efeito": "",
+      "categoria": null,
+      "texto_pt": "Lápis Veloz\nLápis\nNível do Item: 295\n+12  de Versatilidade e +5  de AceleraçãoUso: \nEmpilhamento máx: 200Preço de Venda: 50",
+      "texto_en": "Quick Lapis\nLapis\nItem Level 295\n+12  Versatility &amp; +5  HasteUse: \nMax Stack: 200Sell Price: 50",
+      "tipo": "Lapis (Versatilidade)"
+    },
+    "240885": {
+      "grupo": "gema",
+      "nome_pt": "Lápis Primoroso",
+      "nome_en": "Masterful Lapis",
+      "qualidade": 2,
+      "ilvl": 278,
+      "atributos": [
+        "+11 de Versatilidade e +4 de Maestria"
+      ],
+      "efeito": "",
+      "categoria": null,
+      "texto_pt": "Lápis Primoroso\nLápis\nNível do Item: 278\n+11  de Versatilidade e +4  de MaestriaUso: \nEmpilhamento máx: 200Preço de Venda: 50",
+      "texto_en": "Masterful Lapis\nLapis\nItem Level 278\n+11  Versatility &amp; +4  MasteryUse: \nMax Stack: 200Sell Price: 50",
+      "tipo": "Lapis (Versatilidade)"
+    },
+    "240886": {
+      "grupo": "gema",
+      "nome_pt": "Lápis Primoroso",
+      "nome_en": "Masterful Lapis",
+      "qualidade": 2,
+      "ilvl": 295,
+      "atributos": [
+        "+12 de Versatilidade e +5 de Maestria"
+      ],
+      "efeito": "",
+      "categoria": null,
+      "texto_pt": "Lápis Primoroso\nLápis\nNível do Item: 295\n+12  de Versatilidade e +5  de MaestriaUso: \nEmpilhamento máx: 200Preço de Venda: 50",
+      "texto_en": "Masterful Lapis\nLapis\nItem Level 295\n+12  Versatility &amp; +5  MasteryUse: \nMax Stack: 200Sell Price: 50",
+      "tipo": "Lapis (Versatilidade)"
+    },
+    "240887": {
+      "grupo": "gema",
+      "nome_pt": "Peridoto Veloz Impecável",
+      "nome_en": "Flawless Quick Peridot",
+      "qualidade": 3,
+      "ilvl": 278,
+      "atributos": [
+        "+15 de Aceleração"
+      ],
+      "efeito": "",
+      "categoria": null,
+      "texto_pt": "Peridoto Veloz Impecável\nPeridoto\nNível do Item: 278\n+15  de AceleraçãoUso: \nEmpilhamento máx: 200Preço de Venda: 3 10",
+      "texto_en": "Flawless Quick Peridot\nPeridot\nItem Level 278\n+15  HasteUse: \nMax Stack: 200Sell Price: 3 10",
+      "tipo": "Peridot (Aceleração)"
+    },
+    "240888": {
+      "grupo": "gema",
+      "nome_pt": "Peridoto Veloz Impecável",
+      "nome_en": "Flawless Quick Peridot",
+      "qualidade": 3,
+      "ilvl": 295,
+      "atributos": [
+        "+17 de Aceleração"
+      ],
+      "efeito": "",
+      "categoria": null,
+      "texto_pt": "Peridoto Veloz Impecável\nPeridoto\nNível do Item: 295\n+17  de AceleraçãoUso: \nEmpilhamento máx: 200Preço de Venda: 3 10",
+      "texto_en": "Flawless Quick Peridot\nPeridot\nItem Level 295\n+17  HasteUse: \nMax Stack: 200Sell Price: 3 10",
+      "tipo": "Peridot (Aceleração)"
+    },
+    "240889": {
+      "grupo": "gema",
+      "nome_pt": "Peridoto Mortal Impecável",
+      "nome_en": "Flawless Deadly Peridot",
+      "qualidade": 3,
+      "ilvl": 278,
+      "atributos": [
+        "+14 de Aceleração e +6 de Acerto Crítico"
+      ],
+      "efeito": "",
+      "categoria": null,
+      "texto_pt": "Peridoto Mortal Impecável\nPeridoto\nNível do Item: 278\n+14  de Aceleração e +6  de Acerto CríticoUso: \nEmpilhamento máx: 200Preço de Venda: 2 60",
+      "texto_en": "Flawless Deadly Peridot\nPeridot\nItem Level 278\n+14  Haste &amp; +6  Critical StrikeUse: \nMax Stack: 200Sell Price: 2 60",
+      "tipo": "Peridot (Aceleração)"
+    },
+    "240890": {
+      "grupo": "gema",
+      "nome_pt": "Peridoto Mortal Impecável",
+      "nome_en": "Flawless Deadly Peridot",
+      "qualidade": 3,
+      "ilvl": 295,
+      "atributos": [
+        "+16 de Aceleração e +7 de Acerto Crítico"
+      ],
+      "efeito": "",
+      "categoria": null,
+      "texto_pt": "Peridoto Mortal Impecável\nPeridoto\nNível do Item: 295\n+16  de Aceleração e +7  de Acerto CríticoUso: \nEmpilhamento máx: 200Preço de Venda: 2 60",
+      "texto_en": "Flawless Deadly Peridot\nPeridot\nItem Level 295\n+16  Haste &amp; +7  Critical StrikeUse: \nMax Stack: 200Sell Price: 2 60",
+      "tipo": "Peridot (Aceleração)"
+    },
+    "240891": {
+      "grupo": "gema",
+      "nome_pt": "Peridoto Primoroso Impecável",
+      "nome_en": "Flawless Masterful Peridot",
+      "qualidade": 3,
+      "ilvl": 278,
+      "atributos": [
+        "+14 de Aceleração e +6 de Maestria"
+      ],
+      "efeito": "",
+      "categoria": null,
+      "texto_pt": "Peridoto Primoroso Impecável\nPeridoto\nNível do Item: 278\n+14  de Aceleração e +6  de MaestriaUso: \nEmpilhamento máx: 200Preço de Venda: 2 60",
+      "texto_en": "Flawless Masterful Peridot\nPeridot\nItem Level 278\n+14  Haste &amp; +6  MasteryUse: \nMax Stack: 200Sell Price: 2 60",
+      "tipo": "Peridot (Aceleração)"
+    },
+    "240892": {
+      "grupo": "gema",
+      "nome_pt": "Peridoto Primoroso Impecável",
+      "nome_en": "Flawless Masterful Peridot",
+      "qualidade": 3,
+      "ilvl": 295,
+      "atributos": [
+        "+16 de Aceleração e +7 de Maestria"
+      ],
+      "efeito": "",
+      "categoria": null,
+      "texto_pt": "Peridoto Primoroso Impecável\nPeridoto\nNível do Item: 295\n+16  de Aceleração e +7  de MaestriaUso: \nEmpilhamento máx: 200Preço de Venda: 2 60",
+      "texto_en": "Flawless Masterful Peridot\nPeridot\nItem Level 295\n+16  Haste &amp; +7  MasteryUse: \nMax Stack: 200Sell Price: 2 60",
+      "tipo": "Peridot (Aceleração)"
+    },
+    "240893": {
+      "grupo": "gema",
+      "nome_pt": "Peridoto Versátil Impecável",
+      "nome_en": "Flawless Versatile Peridot",
+      "qualidade": 3,
+      "ilvl": 278,
+      "atributos": [
+        "+14 de Aceleração e +6 de Versatilidade"
+      ],
+      "efeito": "",
+      "categoria": null,
+      "texto_pt": "Peridoto Versátil Impecável\nPeridoto\nNível do Item: 278\n+14  de Aceleração e +6  de VersatilidadeUso: \nEmpilhamento máx: 200Preço de Venda: 2 60",
+      "texto_en": "Flawless Versatile Peridot\nPeridot\nItem Level 278\n+14  Haste &amp; +6  VersatilityUse: \nMax Stack: 200Sell Price: 2 60",
+      "tipo": "Peridot (Aceleração)"
+    },
+    "240894": {
+      "grupo": "gema",
+      "nome_pt": "Peridoto Versátil Impecável",
+      "nome_en": "Flawless Versatile Peridot",
+      "qualidade": 3,
+      "ilvl": 295,
+      "atributos": [
+        "+16 de Aceleração e +7 de Versatilidade"
+      ],
+      "efeito": "",
+      "categoria": null,
+      "texto_pt": "Peridoto Versátil Impecável\nPeridoto\nNível do Item: 295\n+16  de Aceleração e +7  de VersatilidadeUso: \nEmpilhamento máx: 200Preço de Venda: 2 60",
+      "texto_en": "Flawless Versatile Peridot\nPeridot\nItem Level 295\n+16  Haste &amp; +7  VersatilityUse: \nMax Stack: 200Sell Price: 2 60",
+      "tipo": "Peridot (Aceleração)"
+    },
+    "240895": {
+      "grupo": "gema",
+      "nome_pt": "Ametista Primorosa Impecável",
+      "nome_en": "Flawless Masterful Amethyst",
+      "qualidade": 3,
+      "ilvl": 278,
+      "atributos": [
+        "+15 de Maestria"
+      ],
+      "efeito": "",
+      "categoria": null,
+      "texto_pt": "Ametista Primorosa Impecável\nAmetista\nNível do Item: 278\n+15  de MaestriaUso: \nEmpilhamento máx: 200Preço de Venda: 3 10",
+      "texto_en": "Flawless Masterful Amethyst\nAmethyst\nItem Level 278\n+15  MasteryUse: \nMax Stack: 200Sell Price: 3 10",
+      "tipo": "Amethyst (Maestria)"
+    },
+    "240896": {
+      "grupo": "gema",
+      "nome_pt": "Ametista Primorosa Impecável",
+      "nome_en": "Flawless Masterful Amethyst",
+      "qualidade": 3,
+      "ilvl": 295,
+      "atributos": [
+        "+17 de Maestria"
+      ],
+      "efeito": "",
+      "categoria": null,
+      "texto_pt": "Ametista Primorosa Impecável\nAmetista\nNível do Item: 295\n+17  de MaestriaUso: \nEmpilhamento máx: 200Preço de Venda: 3 10",
+      "texto_en": "Flawless Masterful Amethyst\nAmethyst\nItem Level 295\n+17  MasteryUse: \nMax Stack: 200Sell Price: 3 10",
+      "tipo": "Amethyst (Maestria)"
+    },
+    "240897": {
+      "grupo": "gema",
+      "nome_pt": "Ametista Mortal Impecável",
+      "nome_en": "Flawless Deadly Amethyst",
+      "qualidade": 3,
+      "ilvl": 278,
+      "atributos": [
+        "+14 de Maestria e +6 de Acerto Crítico"
+      ],
+      "efeito": "",
+      "categoria": null,
+      "texto_pt": "Ametista Mortal Impecável\nAmetista\nNível do Item: 278\n+14  de Maestria e +6  de Acerto CríticoUso: \nEmpilhamento máx: 200Preço de Venda: 2 60",
+      "texto_en": "Flawless Deadly Amethyst\nAmethyst\nItem Level 278\n+14  Mastery &amp; +6  Critical StrikeUse: \nMax Stack: 200Sell Price: 2 60",
+      "tipo": "Amethyst (Maestria)"
+    },
+    "240898": {
+      "grupo": "gema",
+      "nome_pt": "Ametista Mortal Impecável",
+      "nome_en": "Flawless Deadly Amethyst",
+      "qualidade": 3,
+      "ilvl": 295,
+      "atributos": [
+        "+16 de Maestria e +7 de Acerto Crítico"
+      ],
+      "efeito": "",
+      "categoria": null,
+      "texto_pt": "Ametista Mortal Impecável\nAmetista\nNível do Item: 295\n+16  de Maestria e +7  de Acerto CríticoUso: \nEmpilhamento máx: 200Preço de Venda: 2 60",
+      "texto_en": "Flawless Deadly Amethyst\nAmethyst\nItem Level 295\n+16  Mastery &amp; +7  Critical StrikeUse: \nMax Stack: 200Sell Price: 2 60",
+      "tipo": "Amethyst (Maestria)"
+    },
+    "240899": {
+      "grupo": "gema",
+      "nome_pt": "Ametista Veloz Impecável",
+      "nome_en": "Flawless Quick Amethyst",
+      "qualidade": 3,
+      "ilvl": 278,
+      "atributos": [
+        "+14 de Maestria e +6 de Aceleração"
+      ],
+      "efeito": "",
+      "categoria": null,
+      "texto_pt": "Ametista Veloz Impecável\nAmetista\nNível do Item: 278\n+14  de Maestria e +6  de AceleraçãoUso: \nEmpilhamento máx: 200Preço de Venda: 2 60",
+      "texto_en": "Flawless Quick Amethyst\nAmethyst\nItem Level 278\n+14  Mastery &amp; +6  HasteUse: \nMax Stack: 200Sell Price: 2 60",
+      "tipo": "Amethyst (Maestria)"
+    },
+    "240900": {
+      "grupo": "gema",
+      "nome_pt": "Ametista Veloz Impecável",
+      "nome_en": "Flawless Quick Amethyst",
+      "qualidade": 3,
+      "ilvl": 295,
+      "atributos": [
+        "+16 de Maestria e +7 de Aceleração"
+      ],
+      "efeito": "",
+      "categoria": null,
+      "texto_pt": "Ametista Veloz Impecável\nAmetista\nNível do Item: 295\n+16  de Maestria e +7  de AceleraçãoUso: \nEmpilhamento máx: 200Preço de Venda: 2 60",
+      "texto_en": "Flawless Quick Amethyst\nAmethyst\nItem Level 295\n+16  Mastery &amp; +7  HasteUse: \nMax Stack: 200Sell Price: 2 60",
+      "tipo": "Amethyst (Maestria)"
+    },
+    "240901": {
+      "grupo": "gema",
+      "nome_pt": "Ametista Versátil Impecável",
+      "nome_en": "Flawless Versatile Amethyst",
+      "qualidade": 3,
+      "ilvl": 278,
+      "atributos": [
+        "+14 de Maestria e +6 de Versatilidade"
+      ],
+      "efeito": "",
+      "categoria": null,
+      "texto_pt": "Ametista Versátil Impecável\nAmetista\nNível do Item: 278\n+14  de Maestria e +6  de VersatilidadeUso: \nEmpilhamento máx: 200Preço de Venda: 2 60",
+      "texto_en": "Flawless Versatile Amethyst\nAmethyst\nItem Level 278\n+14  Mastery &amp; +6  VersatilityUse: \nMax Stack: 200Sell Price: 2 60",
+      "tipo": "Amethyst (Maestria)"
+    },
+    "240902": {
+      "grupo": "gema",
+      "nome_pt": "Ametista Versátil Impecável",
+      "nome_en": "Flawless Versatile Amethyst",
+      "qualidade": 3,
+      "ilvl": 295,
+      "atributos": [
+        "+16 de Maestria e +7 de Versatilidade"
+      ],
+      "efeito": "",
+      "categoria": null,
+      "texto_pt": "Ametista Versátil Impecável\nAmetista\nNível do Item: 295\n+16  de Maestria e +7  de VersatilidadeUso: \nEmpilhamento máx: 200Preço de Venda: 2 60",
+      "texto_en": "Flawless Versatile Amethyst\nAmethyst\nItem Level 295\n+16  Mastery &amp; +7  VersatilityUse: \nMax Stack: 200Sell Price: 2 60",
+      "tipo": "Amethyst (Maestria)"
+    },
+    "240903": {
+      "grupo": "gema",
+      "nome_pt": "Granada Mortal Impecável",
+      "nome_en": "Flawless Deadly Garnet",
+      "qualidade": 3,
+      "ilvl": 278,
+      "atributos": [
+        "+15 de Acerto Crítico"
+      ],
+      "efeito": "",
+      "categoria": null,
+      "texto_pt": "Granada Mortal Impecável\nGranada\nNível do Item: 278\n+15  de Acerto CríticoUso: \nEmpilhamento máx: 200Preço de Venda: 3 10",
+      "texto_en": "Flawless Deadly Garnet\nGarnet\nItem Level 278\n+15  Critical StrikeUse: \nMax Stack: 200Sell Price: 3 10",
+      "tipo": "Garnet (Acerto Crítico)"
+    },
+    "240904": {
+      "grupo": "gema",
+      "nome_pt": "Granada Mortal Impecável",
+      "nome_en": "Flawless Deadly Garnet",
+      "qualidade": 3,
+      "ilvl": 295,
+      "atributos": [
+        "+17 de Acerto Crítico"
+      ],
+      "efeito": "",
+      "categoria": null,
+      "texto_pt": "Granada Mortal Impecável\nGranada\nNível do Item: 295\n+17  de Acerto CríticoUso: \nEmpilhamento máx: 200Preço de Venda: 3 10",
+      "texto_en": "Flawless Deadly Garnet\nGarnet\nItem Level 295\n+17  Critical StrikeUse: \nMax Stack: 200Sell Price: 3 10",
+      "tipo": "Garnet (Acerto Crítico)"
+    },
+    "240905": {
+      "grupo": "gema",
+      "nome_pt": "Granada Veloz Impecável",
+      "nome_en": "Flawless Quick Garnet",
+      "qualidade": 3,
+      "ilvl": 278,
+      "atributos": [
+        "+14 de Acerto Crítico e +6 de Aceleração"
+      ],
+      "efeito": "",
+      "categoria": null,
+      "texto_pt": "Granada Veloz Impecável\nGranada\nNível do Item: 278\n+14  de Acerto Crítico e +6  de AceleraçãoUso: \nEmpilhamento máx: 200Preço de Venda: 2 60",
+      "texto_en": "Flawless Quick Garnet\nGarnet\nItem Level 278\n+14  Critical Strike &amp; +6  HasteUse: \nMax Stack: 200Sell Price: 2 60",
+      "tipo": "Garnet (Acerto Crítico)"
+    },
+    "240906": {
+      "grupo": "gema",
+      "nome_pt": "Granada Veloz Impecável",
+      "nome_en": "Flawless Quick Garnet",
+      "qualidade": 3,
+      "ilvl": 295,
+      "atributos": [
+        "+16 de Acerto Crítico e +7 de Aceleração"
+      ],
+      "efeito": "",
+      "categoria": null,
+      "texto_pt": "Granada Veloz Impecável\nGranada\nNível do Item: 295\n+16  de Acerto Crítico e +7  de AceleraçãoUso: \nEmpilhamento máx: 200Preço de Venda: 2 60",
+      "texto_en": "Flawless Quick Garnet\nGarnet\nItem Level 295\n+16  Critical Strike &amp; +7  HasteUse: \nMax Stack: 200Sell Price: 2 60",
+      "tipo": "Garnet (Acerto Crítico)"
+    },
+    "240907": {
+      "grupo": "gema",
+      "nome_pt": "Granada Primorosa Impecável",
+      "nome_en": "Flawless Masterful Garnet",
+      "qualidade": 3,
+      "ilvl": 278,
+      "atributos": [
+        "+14 de Acerto Crítico e +6 de Maestria"
+      ],
+      "efeito": "",
+      "categoria": null,
+      "texto_pt": "Granada Primorosa Impecável\nGranada\nNível do Item: 278\n+14  de Acerto Crítico e +6  de MaestriaUso: \nEmpilhamento máx: 200Preço de Venda: 2 60",
+      "texto_en": "Flawless Masterful Garnet\nGarnet\nItem Level 278\n+14  Critical Strike &amp; +6  MasteryUse: \nMax Stack: 200Sell Price: 2 60",
+      "tipo": "Garnet (Acerto Crítico)"
+    },
+    "240908": {
+      "grupo": "gema",
+      "nome_pt": "Granada Primorosa Impecável",
+      "nome_en": "Flawless Masterful Garnet",
+      "qualidade": 3,
+      "ilvl": 295,
+      "atributos": [
+        "+16 de Acerto Crítico e +7 de Maestria"
+      ],
+      "efeito": "",
+      "categoria": null,
+      "texto_pt": "Granada Primorosa Impecável\nGranada\nNível do Item: 295\n+16  de Acerto Crítico e +7  de MaestriaUso: \nEmpilhamento máx: 200Preço de Venda: 2 60",
+      "texto_en": "Flawless Masterful Garnet\nGarnet\nItem Level 295\n+16  Critical Strike &amp; +7  MasteryUse: \nMax Stack: 200Sell Price: 2 60",
+      "tipo": "Garnet (Acerto Crítico)"
+    },
+    "240909": {
+      "grupo": "gema",
+      "nome_pt": "Granada Versátil Impecável",
+      "nome_en": "Flawless Versatile Garnet",
+      "qualidade": 3,
+      "ilvl": 278,
+      "atributos": [
+        "+14 de Acerto Crítico e +6 de Versatilidade"
+      ],
+      "efeito": "",
+      "categoria": null,
+      "texto_pt": "Granada Versátil Impecável\nGranada\nNível do Item: 278\n+14  de Acerto Crítico e +6  de VersatilidadeUso: \nEmpilhamento máx: 200Preço de Venda: 2 60",
+      "texto_en": "Flawless Versatile Garnet\nGarnet\nItem Level 278\n+14  Critical Strike &amp; +6  VersatilityUse: \nMax Stack: 200Sell Price: 2 60",
+      "tipo": "Garnet (Acerto Crítico)"
+    },
+    "240910": {
+      "grupo": "gema",
+      "nome_pt": "Granada Versátil Impecável",
+      "nome_en": "Flawless Versatile Garnet",
+      "qualidade": 3,
+      "ilvl": 295,
+      "atributos": [
+        "+16 de Acerto Crítico e +7 de Versatilidade"
+      ],
+      "efeito": "",
+      "categoria": null,
+      "texto_pt": "Granada Versátil Impecável\nGranada\nNível do Item: 295\n+16  de Acerto Crítico e +7  de VersatilidadeUso: \nEmpilhamento máx: 200Preço de Venda: 2 60",
+      "texto_en": "Flawless Versatile Garnet\nGarnet\nItem Level 295\n+16  Critical Strike &amp; +7  VersatilityUse: \nMax Stack: 200Sell Price: 2 60",
+      "tipo": "Garnet (Acerto Crítico)"
+    },
+    "240911": {
+      "grupo": "gema",
+      "nome_pt": "Lápis Versátil Impecável",
+      "nome_en": "Flawless Versatile Lapis",
+      "qualidade": 3,
+      "ilvl": 278,
+      "atributos": [
+        "+15 de Versatilidade"
+      ],
+      "efeito": "",
+      "categoria": null,
+      "texto_pt": "Lápis Versátil Impecável\nLápis\nNível do Item: 278\n+15  de VersatilidadeUso: \nEmpilhamento máx: 200Preço de Venda: 3 10",
+      "texto_en": "Flawless Versatile Lapis\nLapis\nItem Level 278\n+15  VersatilityUse: \nMax Stack: 200Sell Price: 3 10",
+      "tipo": "Lapis (Versatilidade)"
+    },
+    "240912": {
+      "grupo": "gema",
+      "nome_pt": "Lápis Versátil Impecável",
+      "nome_en": "Flawless Versatile Lapis",
+      "qualidade": 3,
+      "ilvl": 295,
+      "atributos": [
+        "+17 de Versatilidade"
+      ],
+      "efeito": "",
+      "categoria": null,
+      "texto_pt": "Lápis Versátil Impecável\nLápis\nNível do Item: 295\n+17  de VersatilidadeUso: \nEmpilhamento máx: 200Preço de Venda: 3 10",
+      "texto_en": "Flawless Versatile Lapis\nLapis\nItem Level 295\n+17  VersatilityUse: \nMax Stack: 200Sell Price: 3 10",
+      "tipo": "Lapis (Versatilidade)"
+    },
+    "240913": {
+      "grupo": "gema",
+      "nome_pt": "Lápis Mortal Impecável",
+      "nome_en": "Flawless Deadly Lapis",
+      "qualidade": 3,
+      "ilvl": 278,
+      "atributos": [
+        "+14 de Versatilidade e +6 de Acerto Crítico"
+      ],
+      "efeito": "",
+      "categoria": null,
+      "texto_pt": "Lápis Mortal Impecável\nLápis\nNível do Item: 278\n+14  de Versatilidade e +6  de Acerto CríticoUso: \nEmpilhamento máx: 200Preço de Venda: 2 60",
+      "texto_en": "Flawless Deadly Lapis\nLapis\nItem Level 278\n+14  Versatility &amp; +6  Critical StrikeUse: \nMax Stack: 200Sell Price: 2 60",
+      "tipo": "Lapis (Versatilidade)"
+    },
+    "240914": {
+      "grupo": "gema",
+      "nome_pt": "Lápis Mortal Impecável",
+      "nome_en": "Flawless Deadly Lapis",
+      "qualidade": 3,
+      "ilvl": 295,
+      "atributos": [
+        "+16 de Versatilidade e +7 de Acerto Crítico"
+      ],
+      "efeito": "",
+      "categoria": null,
+      "texto_pt": "Lápis Mortal Impecável\nLápis\nNível do Item: 295\n+16  de Versatilidade e +7  de Acerto CríticoUso: \nEmpilhamento máx: 200Preço de Venda: 2 60",
+      "texto_en": "Flawless Deadly Lapis\nLapis\nItem Level 295\n+16  Versatility &amp; +7  Critical StrikeUse: \nMax Stack: 200Sell Price: 2 60",
+      "tipo": "Lapis (Versatilidade)"
+    },
+    "240915": {
+      "grupo": "gema",
+      "nome_pt": "Lápis Veloz Impecável",
+      "nome_en": "Flawless Quick Lapis",
+      "qualidade": 3,
+      "ilvl": 278,
+      "atributos": [
+        "+14 de Versatilidade e +6 de Aceleração"
+      ],
+      "efeito": "",
+      "categoria": null,
+      "texto_pt": "Lápis Veloz Impecável\nLápis\nNível do Item: 278\n+14  de Versatilidade e +6  de AceleraçãoUso: \nEmpilhamento máx: 200Preço de Venda: 2 60",
+      "texto_en": "Flawless Quick Lapis\nLapis\nItem Level 278\n+14  Versatility &amp; +6  HasteUse: \nMax Stack: 200Sell Price: 2 60",
+      "tipo": "Lapis (Versatilidade)"
+    },
+    "240916": {
+      "grupo": "gema",
+      "nome_pt": "Lápis Veloz Impecável",
+      "nome_en": "Flawless Quick Lapis",
+      "qualidade": 3,
+      "ilvl": 295,
+      "atributos": [
+        "+16 de Versatilidade e +7 de Aceleração"
+      ],
+      "efeito": "",
+      "categoria": null,
+      "texto_pt": "Lápis Veloz Impecável\nLápis\nNível do Item: 295\n+16  de Versatilidade e +7  de AceleraçãoUso: \nEmpilhamento máx: 200Preço de Venda: 2 60",
+      "texto_en": "Flawless Quick Lapis\nLapis\nItem Level 295\n+16  Versatility &amp; +7  HasteUse: \nMax Stack: 200Sell Price: 2 60",
+      "tipo": "Lapis (Versatilidade)"
+    },
+    "240917": {
+      "grupo": "gema",
+      "nome_pt": "Lápis Primoroso Impecável",
+      "nome_en": "Flawless Masterful Lapis",
+      "qualidade": 3,
+      "ilvl": 278,
+      "atributos": [
+        "+14 de Versatilidade e +6 de Maestria"
+      ],
+      "efeito": "",
+      "categoria": null,
+      "texto_pt": "Lápis Primoroso Impecável\nLápis\nNível do Item: 278\n+14  de Versatilidade e +6  de MaestriaUso: \nEmpilhamento máx: 200Preço de Venda: 2 60",
+      "texto_en": "Flawless Masterful Lapis\nLapis\nItem Level 278\n+14  Versatility &amp; +6  MasteryUse: \nMax Stack: 200Sell Price: 2 60",
+      "tipo": "Lapis (Versatilidade)"
+    },
+    "240918": {
+      "grupo": "gema",
+      "nome_pt": "Lápis Primoroso Impecável",
+      "nome_en": "Flawless Masterful Lapis",
+      "qualidade": 3,
+      "ilvl": 295,
+      "atributos": [
+        "+16 de Versatilidade e +7 de Maestria"
+      ],
+      "efeito": "",
+      "categoria": null,
+      "texto_pt": "Lápis Primoroso Impecável\nLápis\nNível do Item: 295\n+16  de Versatilidade e +7  de MaestriaUso: \nEmpilhamento máx: 200Preço de Venda: 2 60",
+      "texto_en": "Flawless Masterful Lapis\nLapis\nItem Level 295\n+16  Versatility &amp; +7  MasteryUse: \nMax Stack: 200Sell Price: 2 60",
+      "tipo": "Lapis (Versatilidade)"
+    },
+    "240966": {
+      "grupo": "gema",
+      "nome_pt": "Diamante do Canto Eterno Poderoso",
+      "nome_en": "Powerful Eversong Diamond",
+      "qualidade": 4,
+      "ilvl": 278,
+      "atributos": [
+        "+18 de Atributo Primário e +0,15% de eficácia de acerto crítico por cor de gema de Midnight única"
+      ],
+      "efeito": null,
+      "categoria": null,
+      "texto_pt": "Diamante do Canto Eterno Poderoso\nNível do Item: 278\nÚnico-equipado: Diamante Talassiano (1)\n+18  de Atributo Primário e +0,15% de eficácia de acerto crítico por cor de gema de Midnight únicaEmpilhamento máx: 200Preço de Venda: 6",
+      "texto_en": "Powerful Eversong Diamond\nItem Level 278\nUnique-Equipped: Thalassian Diamond (1)\n+18  Primary Stat and +0.15% critical strike effectiveness per unique Midnight gem colorMax Stack: 200Sell Price: 6",
+      "tipo": "Diamante de Eversong (prismático, único-equipado 1)"
+    },
+    "240967": {
+      "grupo": "gema",
+      "nome_pt": "Diamante do Canto Eterno Poderoso",
+      "nome_en": "Powerful Eversong Diamond",
+      "qualidade": 4,
+      "ilvl": 295,
+      "atributos": [
+        "+23 de Atributo Primário e +0,15% de eficácia de acerto crítico por cor de gema de Midnight única"
+      ],
+      "efeito": null,
+      "categoria": null,
+      "texto_pt": "Diamante do Canto Eterno Poderoso\nNível do Item: 295\nÚnico-equipado: Diamante Talassiano (1)\n+23  de Atributo Primário e +0,15% de eficácia de acerto crítico por cor de gema de Midnight únicaEmpilhamento máx: 200Preço de Venda: 6",
+      "texto_en": "Powerful Eversong Diamond\nItem Level 295\nUnique-Equipped: Thalassian Diamond (1)\n+23  Primary Stat and +0.15% critical strike effectiveness per unique Midnight gem colorMax Stack: 200Sell Price: 6",
+      "tipo": "Diamante de Eversong (prismático, único-equipado 1)"
+    },
+    "240968": {
+      "grupo": "gema",
+      "nome_pt": "Diamante do Canto Eterno Telúrico",
+      "nome_en": "Telluric Eversong Diamond",
+      "qualidade": 4,
+      "ilvl": 278,
+      "atributos": [
+        "+18 de Atributo Primário e +1% de Máximo de Mana por cor de gema de Midnight única"
+      ],
+      "efeito": null,
+      "categoria": null,
+      "texto_pt": "Diamante do Canto Eterno Telúrico\nNível do Item: 278\nÚnico-equipado: Diamante Talassiano (1)\n+18  de Atributo Primário e +1% de Máximo de Mana por cor de gema de Midnight únicaEmpilhamento máx: 200Preço de Venda: 6",
+      "texto_en": "Telluric Eversong Diamond\nItem Level 278\nUnique-Equipped: Thalassian Diamond (1)\n+18  Primary Stat and +1% Maximum Mana per unique Midnight gem colorMax Stack: 200Sell Price: 6",
+      "tipo": "Diamante de Eversong (prismático, único-equipado 1)"
+    },
+    "240969": {
+      "grupo": "gema",
+      "nome_pt": "Diamante do Canto Eterno Telúrico",
+      "nome_en": "Telluric Eversong Diamond",
+      "qualidade": 4,
+      "ilvl": 295,
+      "atributos": [
+        "+23 de Atributo Primário e +1% de Máximo de Mana por cor de gema de Midnight única"
+      ],
+      "efeito": null,
+      "categoria": null,
+      "texto_pt": "Diamante do Canto Eterno Telúrico\nNível do Item: 295\nÚnico-equipado: Diamante Talassiano (1)\n+23  de Atributo Primário e +1% de Máximo de Mana por cor de gema de Midnight únicaEmpilhamento máx: 200Preço de Venda: 6",
+      "texto_en": "Telluric Eversong Diamond\nItem Level 295\nUnique-Equipped: Thalassian Diamond (1)\n+23  Primary Stat and +1% Maximum Mana per unique Midnight gem colorMax Stack: 200Sell Price: 6",
+      "tipo": "Diamante de Eversong (prismático, único-equipado 1)"
+    },
+    "240970": {
+      "grupo": "gema",
+      "nome_pt": "Diamante do Canto Eterno Estoico",
+      "nome_en": "Stoic Eversong Diamond",
+      "qualidade": 4,
+      "ilvl": 278,
+      "atributos": [
+        "+18 de Atributo Primário e +10 de Armadura"
+      ],
+      "efeito": null,
+      "categoria": null,
+      "texto_pt": "Diamante do Canto Eterno Estoico\nNível do Item: 278\nÚnico-equipado: Diamante Talassiano (1)\n+18  de Atributo Primário e +10 de ArmaduraEmpilhamento máx: 200Preço de Venda: 6",
+      "texto_en": "Stoic Eversong Diamond\nItem Level 278\nUnique-Equipped: Thalassian Diamond (1)\n+18  Primary Stat and +10 ArmorMax Stack: 200Sell Price: 6",
+      "tipo": "Diamante de Eversong (prismático, único-equipado 1)"
+    },
+    "240971": {
+      "grupo": "gema",
+      "nome_pt": "Diamante do Canto Eterno Estoico",
+      "nome_en": "Stoic Eversong Diamond",
+      "qualidade": 4,
+      "ilvl": 295,
+      "atributos": [
+        "+23 de Atributo Primário e +13 de Armadura"
+      ],
+      "efeito": null,
+      "categoria": null,
+      "texto_pt": "Diamante do Canto Eterno Estoico\nNível do Item: 295\nÚnico-equipado: Diamante Talassiano (1)\n+23  de Atributo Primário e +13 de ArmaduraEmpilhamento máx: 200Preço de Venda: 6",
+      "texto_en": "Stoic Eversong Diamond\nItem Level 295\nUnique-Equipped: Thalassian Diamond (1)\n+23  Primary Stat and +13 ArmorMax Stack: 200Sell Price: 6",
+      "tipo": "Diamante de Eversong (prismático, único-equipado 1)"
+    },
+    "240982": {
+      "grupo": "gema",
+      "nome_pt": "Diamante do Canto Eterno Indecifrável",
+      "nome_en": "Indecipherable Eversong Diamond",
+      "qualidade": 4,
+      "ilvl": 278,
+      "atributos": [
+        "+26 de Atributo Primário"
+      ],
+      "efeito": null,
+      "categoria": null,
+      "texto_pt": "Diamante do Canto Eterno Indecifrável\nNível do Item: 278\nÚnico-equipado: Diamante Talassiano (1)\n+26  de Atributo PrimárioEmpilhamento máx: 200Preço de Venda: 6",
+      "texto_en": "Indecipherable Eversong Diamond\nItem Level 278\nUnique-Equipped: Thalassian Diamond (1)\n+26  Primary StatMax Stack: 200Sell Price: 6",
+      "tipo": "Diamante de Eversong (prismático, único-equipado 1)"
+    },
+    "240983": {
+      "grupo": "gema",
+      "nome_pt": "Diamante do Canto Eterno Indecifrável",
+      "nome_en": "Indecipherable Eversong Diamond",
+      "qualidade": 4,
+      "ilvl": 295,
+      "atributos": [
+        "+32 de Atributo Primário"
+      ],
+      "efeito": null,
+      "categoria": null,
+      "texto_pt": "Diamante do Canto Eterno Indecifrável\nNível do Item: 295\nÚnico-equipado: Diamante Talassiano (1)\n+32  de Atributo PrimárioEmpilhamento máx: 200Preço de Venda: 6",
+      "texto_en": "Indecipherable Eversong Diamond\nItem Level 295\nUnique-Equipped: Thalassian Diamond (1)\n+32  Primary StatMax Stack: 200Sell Price: 6",
+      "tipo": "Diamante de Eversong (prismático, único-equipado 1)"
+    }
+  },
+  "pernas": {
+    "240094": {
+      "grupo": "perna",
+      "nome_pt": "Magilinha de Seda de Fogo Solar",
+      "nome_en": "Sunfire Silk Spellthread",
+      "qualidade": 4,
+      "ilvl": 278,
+      "atributos": [],
+      "efeito": "Aplica Magilinha de Seda de Fogo Solar às suas perneiras, aumentando em 32 o Intelecto e em 70 o Vigor delas permanentemente.",
+      "categoria": null,
+      "texto_pt": "Magilinha de Seda de Fogo Solar\nNível do Item: 278Uso: Aplica Magilinha de Seda de Fogo Solar às suas perneiras, aumentando em 32 o Intelecto e em 70 o Vigor delas permanentemente.\nRequer Nível 81\nEmpilhamento máx: 50Preço de Venda: 41 35",
+      "texto_en": "Sunfire Silk Spellthread\nItem Level 278Use: Apply Sunfire Silk Spellthread to your leggings, permanently increasing its Intellect by 32 and Stamina by 70.\nRequires Level 81\nMax Stack: 50Sell Price: 41 35",
+      "slot": "pernas",
+      "nome_base": "Sunfire Silk Spellthread",
+      "fonte": "Alfaiataria"
+    },
+    "240133": {
+      "grupo": "perna",
+      "nome_pt": "Magilinha de Seda de Fogo Solar",
+      "nome_en": "Sunfire Silk Spellthread",
+      "qualidade": 4,
+      "ilvl": 290,
+      "atributos": [],
+      "efeito": "Aplica Magilinha de Seda de Fogo Solar às suas perneiras, aumentando em 41 o Intelecto e em 115 o Vigor delas permanentemente.",
+      "categoria": null,
+      "texto_pt": "Magilinha de Seda de Fogo Solar\nNível do Item: 290Uso: Aplica Magilinha de Seda de Fogo Solar às suas perneiras, aumentando em 41 o Intelecto e em 115 o Vigor delas permanentemente.\nRequer Nível 81\nEmpilhamento máx: 50Preço de Venda: 41 35",
+      "texto_en": "Sunfire Silk Spellthread\nItem Level 290Use: Apply Sunfire Silk Spellthread to your leggings, permanently increasing its Intellect by 41 and Stamina by 115.\nRequires Level 81\nMax Stack: 50Sell Price: 41 35",
+      "slot": "pernas",
+      "nome_base": "Sunfire Silk Spellthread",
+      "fonte": "Alfaiataria"
+    },
+    "240154": {
+      "grupo": "perna",
+      "nome_pt": "Magilinha de Arcanotrama",
+      "nome_en": "Arcanoweave Spellthread",
+      "qualidade": 4,
+      "ilvl": 278,
+      "atributos": [],
+      "efeito": "Aplica Magilinha de Arcanotrama às suas perneiras, aumentando em 32 o Intelecto delas permanentemente e em 3% o máximo de pontos de mana do usuário.",
+      "categoria": null,
+      "texto_pt": "Magilinha de Arcanotrama\nNível do Item: 278Uso: Aplica Magilinha de Arcanotrama às suas perneiras, aumentando em 32 o Intelecto delas permanentemente e em 3% o máximo de pontos de mana do usuário.\nRequer Nível 81\nEmpilhamento máx: 50Preço de Venda: 41 35",
+      "texto_en": "Arcanoweave Spellthread\nItem Level 278Use: Apply Arcanoweave Spellthread to your leggings, permanently increasing its Intellect by 32 and increasing the wearer's maximum mana by 3%.\nRequires Level 81\nMax Stack: 50Sell Price: 41 35",
+      "slot": "pernas",
+      "nome_base": "Arcanoweave Spellthread",
+      "fonte": "Alfaiataria"
+    },
+    "240155": {
+      "grupo": "perna",
+      "nome_pt": "Magilinha de Arcanotrama",
+      "nome_en": "Arcanoweave Spellthread",
+      "qualidade": 4,
+      "ilvl": 290,
+      "atributos": [],
+      "efeito": "Aplica Magilinha de Arcanotrama às suas perneiras, aumentando em 41 o Intelecto delas permanentemente e em 4% o máximo de pontos de mana do usuário.",
+      "categoria": null,
+      "texto_pt": "Magilinha de Arcanotrama\nNível do Item: 290Uso: Aplica Magilinha de Arcanotrama às suas perneiras, aumentando em 41 o Intelecto delas permanentemente e em 4% o máximo de pontos de mana do usuário.\nRequer Nível 81\nEmpilhamento máx: 50Preço de Venda: 41 35",
+      "texto_en": "Arcanoweave Spellthread\nItem Level 290Use: Apply Arcanoweave Spellthread to your leggings, permanently increasing its Intellect by 41 and increasing the wearer's maximum mana by 4%.\nRequires Level 81\nMax Stack: 50Sell Price: 41 35",
+      "slot": "pernas",
+      "nome_base": "Arcanoweave Spellthread",
+      "fonte": "Alfaiataria"
+    },
+    "240156": {
+      "grupo": "perna",
+      "nome_pt": "Magilinha de Linho Brilhante",
+      "nome_en": "Bright Linen Spellthread",
+      "qualidade": 3,
+      "ilvl": 278,
+      "atributos": [],
+      "efeito": "Aplica Magilinha de Linho Brilhante às suas perneiras, aumentando em 16 o Intelecto delas permanentemente.",
+      "categoria": null,
+      "texto_pt": "Magilinha de Linho Brilhante\nNível do Item: 278Uso: Aplica Magilinha de Linho Brilhante às suas perneiras, aumentando em 16 o Intelecto delas permanentemente.\nRequer Nível 80\nEmpilhamento máx: 50Preço de Venda: 3",
+      "texto_en": "Bright Linen Spellthread\nItem Level 278Use: Apply Bright Linen Spellthread to your leggings, permanently increasing its Intellect by 16.\nRequires Level 80\nMax Stack: 50Sell Price: 3",
+      "slot": "pernas",
+      "nome_base": "Bright Linen Spellthread",
+      "fonte": "Alfaiataria"
+    },
+    "240157": {
+      "grupo": "perna",
+      "nome_pt": "Magilinha de Linho Brilhante",
+      "nome_en": "Bright Linen Spellthread",
+      "qualidade": 3,
+      "ilvl": 290,
+      "atributos": [],
+      "efeito": "Aplica Magilinha de Linho Brilhante às suas perneiras, aumentando em 24 o Intelecto delas permanentemente.",
+      "categoria": null,
+      "texto_pt": "Magilinha de Linho Brilhante\nNível do Item: 290Uso: Aplica Magilinha de Linho Brilhante às suas perneiras, aumentando em 24 o Intelecto delas permanentemente.\nRequer Nível 80\nEmpilhamento máx: 50Preço de Venda: 3",
+      "texto_en": "Bright Linen Spellthread\nItem Level 290Use: Apply Bright Linen Spellthread to your leggings, permanently increasing its Intellect by 24.\nRequires Level 80\nMax Stack: 50Sell Price: 3",
+      "slot": "pernas",
+      "nome_base": "Bright Linen Spellthread",
+      "fonte": "Alfaiataria"
+    },
+    "244640": {
+      "grupo": "perna",
+      "nome_pt": "Kit de Armadura do Caçador da Floresta",
+      "nome_en": "Forest Hunter's Armor Kit",
+      "qualidade": 3,
+      "ilvl": 278,
+      "atributos": [],
+      "efeito": "Aplica um Kit de Armadura do Caçador da Floresta à sua armadura de perna, concedendo mais 32 de Agilidade ou Força permanentemente. Além disso, o item ganha 70 de Vigor.",
+      "categoria": null,
+      "texto_pt": "Kit de Armadura do Caçador da Floresta\nNível do Item: 278Uso: Aplica um Kit de Armadura do Caçador da Floresta à sua armadura de perna, concedendo mais 32 de Agilidade ou Força permanentemente. Além disso, o item ganha 70 de Vigor.\nRequer Nível 81\nEmpilhamento máx: 20Preço de Venda: 16 20",
+      "texto_en": "Forest Hunter's Armor Kit\nItem Level 278Use: Apply a Forest Hunter's Armor Kit to your leg armor, permanently increasing its Agility or Strength by 32. Additionally, the item also gains 70 Stamina.\nRequires Level 81\nMax Stack: 20Sell Price: 16 20",
+      "slot": "pernas",
+      "nome_base": "Forest Hunter's Armor Kit",
+      "fonte": "Couraria"
+    },
+    "244641": {
+      "grupo": "perna",
+      "nome_pt": "Kit de Armadura do Caçador da Floresta",
+      "nome_en": "Forest Hunter's Armor Kit",
+      "qualidade": 3,
+      "ilvl": 290,
+      "atributos": [],
+      "efeito": "Aplica um Kit de Armadura do Caçador da Floresta à sua armadura de perna, concedendo mais 41 de Agilidade ou Força permanentemente. Além disso, o item ganha 115 de Vigor.",
+      "categoria": null,
+      "texto_pt": "Kit de Armadura do Caçador da Floresta\nNível do Item: 290Uso: Aplica um Kit de Armadura do Caçador da Floresta à sua armadura de perna, concedendo mais 41 de Agilidade ou Força permanentemente. Além disso, o item ganha 115 de Vigor.\nRequer Nível 81\nEmpilhamento máx: 20Preço de Venda: 16 20",
+      "texto_en": "Forest Hunter's Armor Kit\nItem Level 290Use: Apply a Forest Hunter's Armor Kit to your leg armor, permanently increasing its Agility or Strength by 41. Additionally, the item also gains 115 Stamina.\nRequires Level 81\nMax Stack: 20Sell Price: 16 20",
+      "slot": "pernas",
+      "nome_base": "Forest Hunter's Armor Kit",
+      "fonte": "Couraria"
+    },
+    "244642": {
+      "grupo": "perna",
+      "nome_pt": "Kit de Armadura do Cavaleiro Sangrento",
+      "nome_en": "Blood Knight's Armor Kit",
+      "qualidade": 3,
+      "ilvl": 278,
+      "atributos": [],
+      "efeito": "Aplica um Kit de Armadura do Cavaleiro Sangrento à sua armadura de perna, concedendo mais 32 de Agilidade ou Força permanentemente. Além disso, o item ganha 16 de Armadura.",
+      "categoria": null,
+      "texto_pt": "Kit de Armadura do Cavaleiro Sangrento\nNível do Item: 278Uso: Aplica um Kit de Armadura do Cavaleiro Sangrento à sua armadura de perna, concedendo mais 32 de Agilidade ou Força permanentemente. Além disso, o item ganha 16 de Armadura.\nRequer Nível 81\nEmpilhamento máx: 20Preço de Venda: 16 20",
+      "texto_en": "Blood Knight's Armor Kit\nItem Level 278Use: Apply a Blood Knight's Armor Kit to your leg armor, permanently increasing its Agility or Strength by 32. Additionally, the item also gains 16 armor.\nRequires Level 81\nMax Stack: 20Sell Price: 16 20",
+      "slot": "pernas",
+      "nome_base": "Blood Knight's Armor Kit",
+      "fonte": "Couraria"
+    },
+    "244643": {
+      "grupo": "perna",
+      "nome_pt": "Kit de Armadura do Cavaleiro Sangrento",
+      "nome_en": "Blood Knight's Armor Kit",
+      "qualidade": 3,
+      "ilvl": 290,
+      "atributos": [],
+      "efeito": "Aplica um Kit de Armadura do Cavaleiro Sangrento à sua armadura de perna, concedendo mais 41 de Agilidade ou Força permanentemente. Além disso, o item ganha 27 de Armadura.",
+      "categoria": null,
+      "texto_pt": "Kit de Armadura do Cavaleiro Sangrento\nNível do Item: 290Uso: Aplica um Kit de Armadura do Cavaleiro Sangrento à sua armadura de perna, concedendo mais 41 de Agilidade ou Força permanentemente. Além disso, o item ganha 27 de Armadura.\nRequer Nível 81\nEmpilhamento máx: 20Preço de Venda: 8",
+      "texto_en": "Blood Knight's Armor Kit\nItem Level 290Use: Apply a Blood Knight's Armor Kit to your leg armor, permanently increasing its Agility or Strength by 41. Additionally, the item also gains 27 armor.\nRequires Level 81\nMax Stack: 20Sell Price: 8",
+      "slot": "pernas",
+      "nome_base": "Blood Knight's Armor Kit",
+      "fonte": "Couraria"
+    },
+    "244644": {
+      "grupo": "perna",
+      "nome_pt": "Kit de Armadura do Batedor Talassiano",
+      "nome_en": "Thalassian Scout Armor Kit",
+      "qualidade": 2,
+      "ilvl": 278,
+      "atributos": [],
+      "efeito": "Aplica um Kit de Armadura do Batedor Talassiano à sua armadura de perna, concedendo mais 16 de Agilidade ou Força permanentemente.",
+      "categoria": null,
+      "texto_pt": "Kit de Armadura do Batedor Talassiano\nNível do Item: 278Uso: Aplica um Kit de Armadura do Batedor Talassiano à sua armadura de perna, concedendo mais 16 de Agilidade ou Força permanentemente.\nRequer Nível 81\nEmpilhamento máx: 20Preço de Venda: 3 60",
+      "texto_en": "Thalassian Scout Armor Kit\nItem Level 278Use: Apply a Thalassian Scout Armor Kit to your leg armor, permanently increasing its Agility or Strength by 16.\nRequires Level 81\nMax Stack: 20Sell Price: 3 60",
+      "slot": "pernas",
+      "nome_base": "Thalassian Scout Armor Kit",
+      "fonte": "Couraria"
+    },
+    "244645": {
+      "grupo": "perna",
+      "nome_pt": "Kit de Armadura do Batedor Talassiano",
+      "nome_en": "Thalassian Scout Armor Kit",
+      "qualidade": 2,
+      "ilvl": 290,
+      "atributos": [],
+      "efeito": "Aplica um Kit de Armadura do Batedor Talassiano à sua armadura de perna, concedendo mais 24 de Agilidade ou Força permanentemente.",
+      "categoria": null,
+      "texto_pt": "Kit de Armadura do Batedor Talassiano\nNível do Item: 290Uso: Aplica um Kit de Armadura do Batedor Talassiano à sua armadura de perna, concedendo mais 24 de Agilidade ou Força permanentemente.\nRequer Nível 81\nEmpilhamento máx: 20Preço de Venda: 2 55",
+      "texto_en": "Thalassian Scout Armor Kit\nItem Level 290Use: Apply a Thalassian Scout Armor Kit to your leg armor, permanently increasing its Agility or Strength by 24.\nRequires Level 81\nMax Stack: 20Sell Price: 2 55",
+      "slot": "pernas",
+      "nome_base": "Thalassian Scout Armor Kit",
+      "fonte": "Couraria"
+    }
+  },
+  "mira_de_arma": {
+    "_meta": {
+      "papel": "Aponta o ITEM que carrega o enchant 8612/8613. Até 2026-11-06 o projeto só tinha o nome do FEITIÇO.",
+      "fonte": "nether.wowhead.com/tooltip/item locale=8, item 257747; rastreio do enchant em enchant_ids_s2.json"
+    },
+    "257747": {
+      "grupo": "mira de arma (scope)",
+      "nome_pt": "Olho de Lince do Contrabandista",
+      "nome_en": "Smuggler's Lynx Eye",
+      "ilvl": 1,
+      "requer_nivel": 81,
+      "slot": "arma de longo alcance (armas de fogo e arcos/bestas)",
+      "efeito_pt": "Uso: Encanta permanentemente uma arma de longo alcance para aumentar em 15 de forma esporádica a Maestria.",
+      "efeito_en": "Use: Permanently enchants a ranged weapon to occasionally increase your Mastery by 15.",
+      "enchant_ids": [
+        "8612",
+        "8613"
+      ],
+      "origem": "Fabricado por Engenharia de Midnight (habilidade 70) — a página do reagente Aeterlúmen (243579) lista o item entre as receitas da profissão",
+      "texto_pt": "Olho de Lince do Contrabandista\nNível do Item: 1Uso: Encanta permanentemente uma arma de longo alcance para aumentar em 15 de forma esporádica a Maestria.\nRequer Nível 81\nEmpilhamento máx: 200Preço de Venda: 6 92 10",
+      "fecha_pendencia": "O item existe e o número está no tooltip: +15 de Maestria por proc. O '3 procs por minuto' do feitiço complementa, mas o valor que entra na conta é 15."
+    }
+  },
+  "falhas": []
+}

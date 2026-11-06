@@ -1,0 +1,922 @@
+{
+  "_meta": {
+    "spec": "Balance Druid",
+    "expansion": "World of Warcraft: Midnight",
+    "patch": "12.1.5",
+    "season": "Season 2",
+    "last_updated": "2026-11-06",
+    "language": "pt-BR",
+    "sources": [
+      {
+        "name": "Icy Veins",
+        "priority": 1,
+        "url": "https://www.icy-veins.com/wow/balance-druid-pve-dps-guide",
+        "updated": "2026-11"
+      },
+      {
+        "name": "Wow.gg",
+        "priority": 2,
+        "url": "https://wow.gg/guides/druid-balance",
+        "updated": "2026-11"
+      },
+      {
+        "name": "Murlok.io",
+        "priority": 3,
+        "url": "https://murlok.io/druid/balance/m+",
+        "note": "dados empíricos top 50 jogadores globais (US/EU/KR/TW), atualizado a cada 8h"
+      },
+      {
+        "name": "Wowhead PT-BR",
+        "priority": 4,
+        "url": "https://www.wowhead.com/pt",
+        "note": "fonte de nomes PT-BR de itens, tier sets e bosses"
+      }
+    ]
+  },
+  "tier_set": {
+    "nome_en": "Bark of the Enigmatic Dreamwatcher",
+    "nome_pt": "Casca do Velassonhos Enigmático",
+    "item_set_id": 2057,
+    "nome_raid": "The Venomous Abyss (Abismo Peçonhento)",
+    "season": "Season 2",
+    "patch_adicionado": "12.1.0",
+    "bosses_raid": [
+      "Nek'zali",
+      "Entombed Sentinels",
+      "The Lost Explorers",
+      "Vashnik",
+      "Sszorak",
+      "The Twin Fangs",
+      "The Coiled Altar",
+      "Kith'ix",
+      "Ula'tek"
+    ],
+    "pecas": [
+      {
+        "slot": "Head",
+        "item_en": "Enigmatic Dreamwatcher's Somnolent Stare",
+        "item_pt": "Olhar Soporífero do Velassonhos Enigmático",
+        "item_id": 271528,
+        "stats": {
+          "ilvl_referencia": 334,
+          "track_referencia": "Mito 6/6",
+          "stats_fonte": "nether.wowhead.com locale=8, ilvl maximo do item, 2026-11-05",
+          "AtributoPrimario": 189,
+          "primario_dual": "Agilidade ou Intelecto",
+          "Vigor": 3910,
+          "Aceleração": 142,
+          "Versatilidade": 59
+        }
+      },
+      {
+        "slot": "Shoulder",
+        "item_en": "Enigmatic Dreamwatcher's Plumage",
+        "item_pt": "Plumagem do Velassonhos Enigmático",
+        "item_id": 271526,
+        "stats": {
+          "ilvl_referencia": 334,
+          "track_referencia": "Mito 6/6",
+          "stats_fonte": "nether.wowhead.com locale=8, ilvl maximo do item, 2026-11-05",
+          "AtributoPrimario": 141,
+          "primario_dual": "Agilidade ou Intelecto",
+          "Vigor": 2932,
+          "Critico": 104,
+          "Maestria": 47
+        }
+      },
+      {
+        "slot": "Chest",
+        "item_en": "Enigmatic Dreamwatcher's Lunar Raiment",
+        "item_pt": "Traje Lunar do Velassonhos Enigmático",
+        "item_id": 271531,
+        "stats": {
+          "ilvl_referencia": 334,
+          "track_referencia": "Mito 6/6",
+          "stats_fonte": "nether.wowhead.com locale=8, ilvl maximo do item, 2026-11-05",
+          "AtributoPrimario": 189,
+          "primario_dual": "Agilidade ou Intelecto",
+          "Vigor": 3910,
+          "Critico": 131,
+          "Aceleração": 70
+        }
+      },
+      {
+        "slot": "Hands",
+        "item_en": "Enigmatic Dreamwatcher's Gauntlets",
+        "item_pt": "Manoplas do Velassonhos Enigmático",
+        "item_id": 271529,
+        "stats": {
+          "ilvl_referencia": 334,
+          "track_referencia": "Mito 6/6",
+          "stats_fonte": "nether.wowhead.com locale=8, ilvl maximo do item, 2026-11-05",
+          "AtributoPrimario": 141,
+          "primario_dual": "Agilidade ou Intelecto",
+          "Vigor": 2932,
+          "Maestria": 44,
+          "Versatilidade": 106
+        }
+      },
+      {
+        "slot": "Legs",
+        "item_en": "Enigmatic Dreamwatcher's Leggings",
+        "item_pt": "Perneiras do Velassonhos Enigmático",
+        "item_id": 271527,
+        "stats": {
+          "ilvl_referencia": 334,
+          "track_referencia": "Mito 6/6",
+          "stats_fonte": "nether.wowhead.com locale=8, ilvl maximo do item, 2026-11-05",
+          "AtributoPrimario": 189,
+          "primario_dual": "Agilidade ou Intelecto",
+          "Vigor": 3910,
+          "Critico": 67,
+          "Aceleração": 134
+        }
+      }
+    ],
+    "bonus_2pc": {
+      "descricao_pt": "O dano de Surto Estelar aumenta em 20%. A Chuva Estelar também causa dano Astral instantaneamente a todos os inimigos válidos ao alcance quando lançada.",
+      "nota": "Ativa com 2 peças do set Abismo Peçonhento equipadas"
+    },
+    "bonus_4pc": {
+      "descricao_pt": "Dano aumentado em 10% em qualquer Eclipse. Esse bônus diminui para 2% no ponto intermediário do Eclipse e volta a aumentar para 10% no final dele.",
+      "nota": "Maximiza poder do tier set — prioridade alta obter 4pc"
+    },
+    "recomendacao": "Priorize 4pc. Use os slots com maior ilvl disponível para os 2 slots não-tier.",
+    "como_obter_sem_raid": {
+      "descricao": "É possível obter o tier set SEM entrar em Raid usando dois métodos:",
+      "metodo_1": "Great Vault semanal de M+ — tem chance de dar peças de tier do Abismo Peçonhento como recompensa semanal",
+      "metodo_2": "Matrix Catalyst S2 — converte qualquer peça elegível de M+ em peça de tier com mesmos stats e ilvl",
+      "recomendacao": "Faça Great Vault toda semana. Use Catalyst nos slots que ainda faltam para completar 4pc."
+    },
+    "matrix_catalyst": "Pode ser usado para converter peças não-tier em peças de tier com Matrix Catalyst S2 (mantém stats secundários e efeito Cantrip se aplicável)"
+  },
+  "gear": {
+    "bis_mplus_sem_raid": {
+      "descricao": "Melhor gear acessível exclusivamente via M+ + Craft para Balance Druid.",
+      "nota_tier": "Tier set SEM RAID: (1) Great Vault semanal de M+ tem chance de dar peças de tier do Abismo Peçonhento; (2) Matrix Catalyst S2 — converte qualquer peça elegível de M+ em peça de tier.",
+      "itens_confirmados_mplus": {
+        "Trinket (melhor M+)": {
+          "item_pt": "Ampola Torpe de Peçonha Volátil",
+          "dungeon": "Altar das Presas (M+)",
+          "item_id": 273796,
+          "fonte_tipo": "M+",
+          "nota": "Rank #3 (14/50 Murlok) — melhor trinket de M+ disponível para Boomkin.",
+          "item_en": "Vile Vial of Volatile Venom",
+          "dungeon_en": "Altar of Fangs",
+          "stats": {
+            "efeito": "Uso: Bebe um pequeno gole de peçonha, ganhando +992 de um atributo secundário aleatório por 15 s. Em seguida, um atributo secundário aleatório é reduzido em −142 por 15 s (2 min de recarga).",
+            "ilvl_referencia": 341,
+            "stats_fonte": "nether.wowhead.com locale=8, ilvl maximo do item, 2026-11-05",
+            "AtributoPrimario": 191,
+            "primario_dual": "Agilidade ou Força ou Intelecto"
+          }
+        },
+        "OffHand": {
+          "item_pt": "Lanterna de Aln'hara",
+          "dungeon": "Craftado (Escrivania)",
+          "item_id": 245769,
+          "fonte_tipo": "Craft",
+          "nota": "38/50 Murlok — craft é acessível sem raid e altamente competitivo",
+          "item_en": "Aln'hara Lantern",
+          "stats": {
+            "tipo": "Missiva de Artesanato",
+            "secundarios_fixos": "nenhum — o tooltip traz 'Atributo Aleatório 1/2'; os dois secundários vêm da missiva escolhida na ordem",
+            "secundarios_recomendados": "Aceleração + Maestria",
+            "missivas_possiveis": [
+              245781,
+              245783,
+              245785,
+              245787,
+              245789,
+              245791
+            ],
+            "embelezamento_fixo": false,
+            "embelezamentos_possiveis": [
+              245872,
+              245876,
+              245878,
+              245874,
+              244608,
+              244675,
+              273069
+            ],
+            "nota_embelezamento": "Nao ha embelezamento fixo: e reagente opcional. A Pedra Ritual do Cacador (273060) e declarada no tooltip como exclusiva de 'Armas de Ferraria', mas ha Lanternas com esse proc (101 de secundario, +50% em Caca as Presas) — divergencia aberta; o que vale e o texto do item equipado.",
+            "ilvl_referencia": 246,
+            "stats_fonte": "nether.wowhead.com locale=8, ilvl maximo do item, 2026-11-05",
+            "Intelecto": 127,
+            "Vigor": 692
+          }
+        },
+        "Cloak": {
+          "item_pt": "Mortalha do Inferninho",
+          "dungeon": "Murder Row (M+)",
+          "item_id": 251132,
+          "fonte_tipo": "M+",
+          "wowhead": "https://www.wowhead.com/pt/item=251132",
+          "item_en": "Speakeasy Shroud",
+          "dungeon_en": "Murder Row",
+          "stats": {
+            "ilvl_referencia": 334,
+            "track_referencia": "Mito 6/6",
+            "stats_fonte": "nether.wowhead.com locale=8, ilvl maximo do item, 2026-11-05",
+            "AtributoPrimario": 106,
+            "primario_dual": "Agilidade ou Força ou Intelecto",
+            "Vigor": 2199,
+            "Critico": 66,
+            "Maestria": 47
+          }
+        },
+        "Bracers": {
+          "item_pt": "Defletores do Agente de Luaprata",
+          "item_en": "Silvermoon Agent's Deflectors",
+          "item_id": 244576,
+          "dungeon": "Craftado (Couraria)",
+          "fonte_tipo": "Craft",
+          "nota": "36/50 jogadores Murlok. Stats moldáveis via Missiva (Aceleração + Maestria). Embellishment: Arcanoweave Lining."
+        },
+        "Boots": {
+          "item_pt": "Calçados do Agente de Luaprata",
+          "item_en": "Silvermoon Agent's Sneakers",
+          "item_id": 244569,
+          "dungeon": "Craftado (Couraria)",
+          "fonte_tipo": "Craft",
+          "nota": "32/50 jogadores Murlok. Stats moldáveis via Missiva (Aceleração + Maestria)."
+        },
+        "Tier (via Catalyst)": {
+          "item_pt": "Casca do Velassonhos Enigmático (4 peças)",
+          "dungeon": "Great Vault M+ + Matrix Catalyst",
+          "fonte_tipo": "M+/Catalyst"
+        }
+      },
+      "slots_raid_sem_alternativa_mplus_conhecida": {
+        "Neck": {
+          "item_pt": "Amuleto das Presas Gêmeas (Vexhul — Raid)"
+        },
+        "Shoulder": {
+          "item_pt": "Espaldares de Peçonha Espumante (Vashnik — Raid)"
+        },
+        "Belt": {
+          "item_pt": "Faixa do Receptáculo Desolado (Altar Enrolado — Raid)"
+        },
+        "Trinket1": {
+          "item_pt": "Tentáculo do Terror Pervertido (Kith'ix — Raid)"
+        },
+        "Trinket2": {
+          "item_pt": "Bolsa sem Fundo de Gebbo (Exploradores Perdidos — Raid)"
+        },
+        "MainHand": {
+          "item_pt": "Jan'thrazet, a Presa Anímica (Ula'tek — Raid)"
+        }
+      },
+      "dungeons_mplus_prioridade": [
+        {
+          "rank": 1,
+          "dungeon": "Altar das Presas",
+          "motivo": "Ampola Torpe de Peçonha Volátil (melhor trinket de M+ para Boomkin, rank #3, 14/50 Murlok)",
+          "dungeon_en": "Altar of Fangs"
+        },
+        {
+          "rank": 2,
+          "dungeon": "Murder Row",
+          "motivo": "Mortalha do Inferninho (capa M+)",
+          "dungeon_en": "Murder Row"
+        },
+        {
+          "rank": 3,
+          "dungeon": "Todas as dungeons",
+          "motivo": "Acumular gear para Matrix Catalyst → converter em peças de tier (Casca do Velassonhos Enigmático)"
+        },
+        {
+          "rank": 4,
+          "dungeon": "Couraria (Craft)",
+          "motivo": "Defletores do Agente de Luaprata (Bracers, 36/50) e Calçados do Agente de Luaprata (Boots, 32/50) são BiS fabricados com Missiva Aceleração+Maestria"
+        }
+      ]
+    },
+    "bis_mplus": {
+      "fonte": "Murlok.io (empírico top 50 M+)",
+      "slots": {
+        "Head": {
+          "item_en": "Enigmatic Dreamwatcher's Somnolent Stare (tier)",
+          "item_pt": "Olhar Soporífero do Velassonhos Enigmático (tier)",
+          "fonte_tipo": "Raid/Catalyst",
+          "item_id": 271528,
+          "stats": {
+            "ilvl_referencia": 334,
+            "track_referencia": "Mito 6/6",
+            "stats_fonte": "nether.wowhead.com locale=8, ilvl maximo do item, 2026-11-05",
+            "AtributoPrimario": 189,
+            "primario_dual": "Agilidade ou Intelecto",
+            "Vigor": 3910,
+            "Aceleração": 142,
+            "Versatilidade": 59
+          }
+        },
+        "Neck": {
+          "item_en": "Amulet of the Twin Fangs",
+          "item_pt": "Amuleto das Presas Gêmeas",
+          "fonte_tipo": "Raid",
+          "item_id": 268251,
+          "stats": {
+            "efeito": "Redução de 7% de dano de Peçonha Mortífera no Abismo Peçonhento",
+            "ilvl_referencia": 341,
+            "stats_fonte": "nether.wowhead.com locale=8, ilvl maximo do item, 2026-11-05",
+            "Vigor": 2382,
+            "Aceleração": 64,
+            "Maestria": 357
+          }
+        },
+        "Shoulder": {
+          "item_en": "Frothing Venom Spaulders",
+          "item_pt": "Espaldares de Peçonha Espumante",
+          "fonte_tipo": "Raid",
+          "item_id": 268246,
+          "alternativo_tier": "Plumagem do Velassonhos Enigmático (tier ID 271526) via Catalyst",
+          "stats": {
+            "ilvl_referencia": 334,
+            "track_referencia": "Mito 6/6",
+            "stats_fonte": "nether.wowhead.com locale=8, ilvl maximo do item, 2026-11-05",
+            "AtributoPrimario": 141,
+            "primario_dual": "Agilidade ou Intelecto",
+            "Vigor": 2932,
+            "Critico": 99,
+            "Maestria": 52
+          }
+        },
+        "Cloak": {
+          "item_en": "Speakeasy Shroud",
+          "item_pt": "Mortalha do Inferninho",
+          "fonte_tipo": "M+",
+          "item_id": 251132,
+          "stats": {
+            "nota": "Escala com ilvl",
+            "ilvl_referencia": 334,
+            "track_referencia": "Mito 6/6",
+            "stats_fonte": "nether.wowhead.com locale=8, ilvl maximo do item, 2026-11-05",
+            "AtributoPrimario": 106,
+            "primario_dual": "Agilidade ou Força ou Intelecto",
+            "Vigor": 2199,
+            "Critico": 66,
+            "Maestria": 47
+          }
+        },
+        "Chest": {
+          "item_en": "Enigmatic Dreamwatcher's Lunar Raiment (tier)",
+          "item_pt": "Traje Lunar do Velassonhos Enigmático (tier)",
+          "fonte_tipo": "Raid/Catalyst",
+          "item_id": 271531,
+          "stats": {
+            "ilvl_referencia": 334,
+            "track_referencia": "Mito 6/6",
+            "stats_fonte": "nether.wowhead.com locale=8, ilvl maximo do item, 2026-11-05",
+            "AtributoPrimario": 189,
+            "primario_dual": "Agilidade ou Intelecto",
+            "Vigor": 3910,
+            "Critico": 131,
+            "Aceleração": 70
+          }
+        },
+        "Bracers": {
+          "item_en": "Silvermoon Agent's Deflectors",
+          "item_pt": "Defletores do Agente de Luaprata",
+          "fonte_tipo": "Craft (Couraria)",
+          "item_id": 244576,
+          "jogadores": 36,
+          "stats": {
+            "tipo": "Missiva de Artesanato",
+            "secundarios_recomendados": "Aceleração + Maestria",
+            "embellishment": "Arcanoweave Lining",
+            "ilvl_referencia": 246,
+            "stats_fonte": "nether.wowhead.com locale=8, ilvl maximo do item, 2026-11-05",
+            "AtributoPrimario": 47,
+            "primario_dual": "Agilidade ou Intelecto",
+            "Vigor": 779
+          },
+          "alternativa_raid": {
+            "item_en": "Restless Spirit Shackles",
+            "item_pt": "Grilhões do Espírito Indócil",
+            "item_id": 268240,
+            "boss": "Nek'zali (Abismo Peçonhento)",
+            "jogadores": 9,
+            "stats": {
+              "ilvl_referencia": 334,
+              "track_referencia": "Mito 6/6",
+              "stats_fonte": "nether.wowhead.com locale=8, ilvl maximo do item, 2026-11-05",
+              "AtributoPrimario": 106,
+              "primario_dual": "Agilidade ou Intelecto",
+              "Vigor": 2199,
+              "Critico": 74,
+              "Aceleração": 39
+            }
+          }
+        },
+        "Hands": {
+          "item_en": "Enigmatic Dreamwatcher's Gauntlets (tier)",
+          "item_pt": "Manoplas do Velassonhos Enigmático (tier)",
+          "fonte_tipo": "Raid/Catalyst",
+          "item_id": 271529,
+          "stats": {
+            "ilvl_referencia": 334,
+            "track_referencia": "Mito 6/6",
+            "stats_fonte": "nether.wowhead.com locale=8, ilvl maximo do item, 2026-11-05",
+            "AtributoPrimario": 141,
+            "primario_dual": "Agilidade ou Intelecto",
+            "Vigor": 2932,
+            "Maestria": 44,
+            "Versatilidade": 106
+          }
+        },
+        "Belt": {
+          "item_en": "Sash of the Forlorn Vessel",
+          "item_pt": "Faixa do Receptáculo Desolado",
+          "fonte_tipo": "Raid",
+          "item_id": 268256,
+          "stats": {
+            "ilvl_referencia": 344,
+            "stats_fonte": "nether.wowhead.com locale=8, ilvl maximo do item, 2026-11-05",
+            "AtributoPrimario": 155,
+            "primario_dual": "Agilidade ou Intelecto",
+            "Vigor": 3288,
+            "Aceleração": 49,
+            "Maestria": 108
+          }
+        },
+        "Legs": {
+          "item_en": "Enigmatic Dreamwatcher's Leggings (tier)",
+          "item_pt": "Perneiras do Velassonhos Enigmático (tier)",
+          "fonte_tipo": "Raid/Catalyst",
+          "item_id": 271527,
+          "stats": {
+            "ilvl_referencia": 334,
+            "track_referencia": "Mito 6/6",
+            "stats_fonte": "nether.wowhead.com locale=8, ilvl maximo do item, 2026-11-05",
+            "AtributoPrimario": 189,
+            "primario_dual": "Agilidade ou Intelecto",
+            "Vigor": 3910,
+            "Critico": 67,
+            "Aceleração": 134
+          }
+        },
+        "Boots": {
+          "item_en": "Silvermoon Agent's Sneakers",
+          "item_pt": "Calçados do Agente de Luaprata",
+          "fonte_tipo": "Craft (Couraria)",
+          "item_id": 244569,
+          "jogadores": 32,
+          "stats": {
+            "tipo": "Missiva de Artesanato",
+            "secundarios_recomendados": "Aceleração + Maestria",
+            "ilvl_referencia": 246,
+            "stats_fonte": "nether.wowhead.com locale=8, ilvl maximo do item, 2026-11-05",
+            "AtributoPrimario": 62,
+            "primario_dual": "Agilidade ou Intelecto",
+            "Vigor": 1039
+          },
+          "alternativa_raid": {
+            "item_en": "Bespittled Slitherslippers",
+            "item_pt": "Sapatilhas Rastejantes Perdigotadas",
+            "item_id": 268261,
+            "boss": "Vexhul (Abismo Peçonhento)",
+            "jogadores": 7,
+            "stats": {
+              "ilvl_referencia": 334,
+              "track_referencia": "Mito 6/6",
+              "stats_fonte": "nether.wowhead.com locale=8, ilvl maximo do item, 2026-11-05",
+              "AtributoPrimario": 141,
+              "primario_dual": "Agilidade ou Intelecto",
+              "Vigor": 2932,
+              "Critico": 105,
+              "Aceleração": 46
+            }
+          }
+        },
+        "Ring1": {
+          "item_en": "Band of the Swarmcaller",
+          "item_pt": "Elo do Chama-enxame",
+          "fonte_tipo": "Raid",
+          "boss": "Kith'ix (Abismo Peçonhento)",
+          "item_id": 281029,
+          "jogadores": 47,
+          "stats": {
+            "efeito_cantrip": "Chance de evocar Flagelo da Ninhada Ácida que causa dano de Natureza em área",
+            "ilvl_referencia": 334,
+            "track_referencia": "Mito 6/6",
+            "stats_fonte": "nether.wowhead.com locale=8, ilvl maximo do item, 2026-11-05",
+            "Vigor": 2199,
+            "Aceleração": 110,
+            "Maestria": 295
+          }
+        },
+        "Ring2": {
+          "item_en": "Vile Alchemist's Band",
+          "item_pt": "Elo do Alquimista Torpe",
+          "fonte_tipo": "Raid",
+          "boss": "Vashnik (Abismo Peçonhento)",
+          "item_id": 268249,
+          "jogadores": 34,
+          "stats": {
+            "efeito": "Redução de dano de Peçonha Mortífera no Abismo Peçonhento em 7%",
+            "ilvl_referencia": 334,
+            "track_referencia": "Mito 6/6",
+            "stats_fonte": "nether.wowhead.com locale=8, ilvl maximo do item, 2026-11-05",
+            "Vigor": 2199,
+            "Critico": 73,
+            "Maestria": 332
+          },
+          "alternativa_craft": {
+            "item_en": "Masterwork Sin'dorei Band",
+            "item_pt": "Elo Sin'dorei Magistral",
+            "item_id": 240949,
+            "jogadores": 7,
+            "stats": "Aceleração + Maestria (Missiva) + Engaste Prismático"
+          },
+          "alternativa_mplus": {
+            "item_en": "Charged Sandstone Band",
+            "item_pt": "Elo de Arenito Carregado",
+            "item_id": 158366,
+            "dungeon": "Templo de Sethraliss (Galvazzt)",
+            "jogadores": 4,
+            "stats": {
+              "ilvl_referencia": 334,
+              "track_referencia": "Mito 6/6",
+              "stats_fonte": "nether.wowhead.com locale=8, ilvl maximo do item, 2026-11-05",
+              "Vigor": 2199,
+              "Critico": 232,
+              "Maestria": 174
+            }
+          }
+        },
+        "Trinket1": {
+          "item_en": "Twisted Horror's Tendril",
+          "item_pt": "Tentáculo do Terror Pervertido",
+          "fonte_tipo": "Raid",
+          "jogadores": 44,
+          "item_id": 281215,
+          "stats": {
+            "efeito": "Equipar: Seu dano tem alta chance de ressonância com o tentáculo e de conceder Poder Devastador, aumentando em +35 o Acerto Crítico por 15 s. Várias aplicações podem se sobrepor. Uma vez a cada 5 s, seu primeiro golpe contra um novo alvo concede 3 aplicações de Poder Devastador.",
+            "ilvl_referencia": 341,
+            "stats_fonte": "nether.wowhead.com locale=8, ilvl maximo do item, 2026-11-05",
+            "AtributoPrimario": 191,
+            "primario_dual": "Agilidade ou Força ou Intelecto"
+          }
+        },
+        "Trinket2": {
+          "item_en": "Gebbo's Bottomless Bag",
+          "item_pt": "Bolsa sem Fundo de Gebbo",
+          "fonte_tipo": "Raid",
+          "item_id": 270164,
+          "jogadores": 19,
+          "alternativo": "Ampola Torpe de Peçonha Volátil (ID 273796, 14/50 jogadores - Altar das Presas M+)",
+          "stats": {
+            "efeito": "Equipar: Retira periodicamente artefatos misteriosos da bolsa concedendo buffs secundários substanciais (Aceleração, Maestria ou Crítico).",
+            "ilvl_referencia": 341,
+            "stats_fonte": "nether.wowhead.com locale=8, ilvl maximo do item, 2026-11-05",
+            "AtributoPrimario": 191,
+            "primario_dual": "Agilidade ou Força ou Intelecto"
+          }
+        },
+        "MainHand": {
+          "item_en": "Jan'thrazet, the Soul Fang",
+          "item_pt": "Jan'thrazet, a Presa Anímica",
+          "fonte_tipo": "Raid",
+          "item_id": 271092,
+          "jogadores": 44,
+          "stats": {
+            "cantrip": "Ataques de feitiço reduzem a velocidade de lançamento do inimigo em 10% e concedem +71 de Aceleração por 12s.",
+            "ilvl_referencia": 344,
+            "stats_fonte": "nether.wowhead.com locale=8, ilvl maximo do item, 2026-11-05",
+            "Intelecto": 603,
+            "Vigor": 2192,
+            "Aceleração": 104
+          }
+        },
+        "OffHand": {
+          "item_en": "Aln'hara Lantern",
+          "item_pt": "Lanterna de Aln'hara",
+          "fonte_tipo": "Craft",
+          "item_id": 245769,
+          "jogadores": 38,
+          "stats": {
+            "tipo": "Missiva de Artesanato",
+            "secundarios_fixos": "nenhum — o tooltip traz 'Atributo Aleatório 1/2'; os dois secundários vêm da missiva escolhida na ordem",
+            "secundarios_recomendados": "Aceleração + Maestria",
+            "missivas_possiveis": [
+              245781,
+              245783,
+              245785,
+              245787,
+              245789,
+              245791
+            ],
+            "embelezamento_fixo": false,
+            "embelezamentos_possiveis": [
+              245872,
+              245876,
+              245878,
+              245874,
+              244608,
+              244675,
+              273069
+            ],
+            "nota_embelezamento": "Nao ha embelezamento fixo: e reagente opcional. A Pedra Ritual do Cacador (273060) e declarada no tooltip como exclusiva de 'Armas de Ferraria', mas ha Lanternas com esse proc (101 de secundario, +50% em Caca as Presas) — divergencia aberta; o que vale e o texto do item equipado.",
+            "ilvl_referencia": 246,
+            "stats_fonte": "nether.wowhead.com locale=8, ilvl maximo do item, 2026-11-05",
+            "Intelecto": 127,
+            "Vigor": 692
+          }
+        }
+      }
+    },
+    "trinkets_ranking": {
+      "fonte": "Murlok.io (empírico top 50)",
+      "ranking": [
+        {
+          "rank": 1,
+          "item_en": "Twisted Horror's Tendril",
+          "item_pt": "Tentáculo do Terror Pervertido",
+          "fonte_tipo": "Raid",
+          "jogadores": 44,
+          "tipo_efeito": "passivo"
+        },
+        {
+          "rank": 2,
+          "item_en": "Gebbo's Bottomless Bag",
+          "item_pt": "Bolsa sem Fundo de Gebbo",
+          "fonte_tipo": "Raid",
+          "item_id": 270164,
+          "jogadores": 19,
+          "tipo_efeito": "passivo"
+        },
+        {
+          "rank": 3,
+          "item_en": "Vile Vial of Volatile Venom",
+          "item_pt": "Ampola Torpe de Peçonha Volátil",
+          "fonte_tipo": "M+",
+          "item_id": 273796,
+          "jogadores": 14,
+          "tipo_efeito": "ativo",
+          "nota": "MELHOR TRINKET DE M+"
+        },
+        {
+          "rank": 4,
+          "item_en": "Hex Lord's Dooming Idol",
+          "item_pt": "Ídolo da Perdição do Grão-bagateiro",
+          "fonte_tipo": "Raid",
+          "item_id": 270169,
+          "jogadores": 10,
+          "tipo_efeito": "hibrido"
+        },
+        {
+          "rank": 5,
+          "item_en": "Wavecaller's Seastone",
+          "item_pt": "Rocha Marinha do Clamaondas",
+          "fonte_tipo": "Raid",
+          "item_id": 270167,
+          "jogadores": 8,
+          "tipo_efeito": "passivo"
+        },
+        {
+          "rank": 6,
+          "item_en": "Vexhul's Everflowing Gland",
+          "item_pt": "Glândula Transbordante de Vexhul",
+          "fonte_tipo": "Raid",
+          "item_id": 270170,
+          "tipo_efeito": "ativo"
+        }
+      ]
+    },
+    "extra_roll_voidcore": {
+      "nome_pt": "Núcleo Vazio Nebuloso",
+      "nome_en": "Nebulous Voidcore",
+      "prioridade": [
+        {
+          "rank": 1,
+          "boss_pt": "Kith'ix",
+          "boss_en": "Kith'ix",
+          "item_pt": "Tentáculo do Terror Pervertido",
+          "item_en": "Twisted Horror's Tendril"
+        },
+        {
+          "rank": 2,
+          "boss_pt": "Ula'tek",
+          "boss_en": "Ula'tek",
+          "item_pt": "Jan'thrazet, a Presa Anímica",
+          "item_en": "Jan'thrazet, the Soul Fang",
+          "item_id": 271092
+        },
+        {
+          "rank": 3,
+          "boss_pt": "Os Exploradores Perdidos",
+          "boss_en": "The Lost Explorers",
+          "item_pt": "Bolsa sem Fundo de Gebbo",
+          "item_en": "Gebbo's Bottomless Bag",
+          "item_id": 270164
+        },
+        {
+          "rank": 4,
+          "boss_pt": "Qualquer boss com peça de tier faltando",
+          "boss_en": "Any missing tier",
+          "item_pt": "Peças de Casca do Velassonhos Enigmático"
+        },
+        {
+          "rank": 5,
+          "boss_pt": "Vexhul (Presas Gêmeas)",
+          "boss_en": "The Twin Fangs",
+          "item_pt": "Glândula Transbordante de Vexhul",
+          "item_en": "Vexhul's Everflowing Gland",
+          "item_id": 270170
+        }
+      ]
+    }
+  },
+  "arvores_de_talentos_e_variantes": {
+    "arquivo_fonte_completo": "talent_builds_season2.json",
+    "arquetipos_hero_talents": {
+      "escolhido_de_eluna": "Escolhido de Eluna (Elune's Chosen) — Dano sustentado de alta densidade e canalizações arcanas. Superior para Raide Alvo Único e chaves altas de M+.",
+      "guardiao_do_bosque": "Guardião do Bosque (Keeper of the Grove) — Burst rápido e geração massiva de tropas de Ents. Superior para chaves de velocidade e Raide com ondas frequentes de lacaios."
+    },
+    "builds_disponiveis": {
+      "mplus_escolhido_elune": "Build Escolhido de Elune M+ (Recomendada)",
+      "mplus_guardiao_speed": "Build Guardião do Bosque M+ (Burst/Lower Keys)",
+      "raid_escolhido_st": "Build Escolhido de Elune Raid (Single Target)",
+      "raid_guardiao_aoe": "Build Guardião do Bosque Raid (AoE/Multi-target)",
+      "delves_solo_controle": "Build Druida Delves"
+    },
+    "variantes_situacionais": {
+      "descricao": "Adaptações táticas para Druida do Equilíbrio entre perfil de dano e utilitários da árvore de classe.",
+      "comparativo_situacional": {
+        "elune_vs_guardiao": "Escolhido de Eluna (Elune's Chosen) é o arquétipo superior para dano sustentado, raides e chaves de alta dificuldade; Guardião do Bosque (Keeper of the Grove) é superior para burst imediato em pulls menores e chaves de velocidade.",
+        "alvo_unico_vs_cleave": "Build de Escolhido de Eluna foca em Surto Estelar (Starsurge) e Fogo Estelar em eclipse; para cleave massivo contínuo, a árvore prioriza Chuva Estelar (Starfall) permanente e Alinhamento Celestial estendido."
+      },
+      "variante_controle_e_kiting": {
+        "nome": "Variante de Controle Territorial em Masmorras",
+        "ajustes": [
+          "Alocar Tufão (Typhoon) e Vórtice de Ursol (Ursol's Vortex) para interromper e prender grupos de monstros.",
+          "Alocar Raízes Emaranhadas em Massa (Mass Entanglement) para travar patrulhas perigosas.",
+          "Alocar Rugido Incapacitante (Incapacitating Roar) para interrupção de feitiços em área."
+        ]
+      },
+      "variante_sobrevivencia_chaves_altas": {
+        "nome": "Variante de Alta Mitigação (Forma de Urso + Regeneração)",
+        "ajustes": [
+          "Alocar Pele de Ferro (Ironfur) acessível em Forma de Urso para suportar dano físico mortal.",
+          "Alocar Regeneração Frenética (Frenzied Regeneration) para cura própria imediata.",
+          "Manter Casca Grossa (Barkskin) com tempo de recarga reduzido para uso preventivo."
+        ]
+      }
+    }
+  },
+  "estatisticas_murlok_mplus": {
+    "data_coleta": "2026-11-06",
+    "patch": "12.1.5",
+    "temporada": "Midnight Season 2",
+    "amostra": "Top 50 Balance Druids globais (US, EU, KR, TW)",
+    "faixa_rating": "3880 a 4245",
+    "distribuicao_hero_talents": {
+      "escolhido_de_eluna": {
+        "jogadores": 38,
+        "porcentagem": 76
+      },
+      "guardiao_do_bosque": {
+        "jogadores": 12,
+        "porcentagem": 24
+      }
+    },
+    "prioridade_atributos_secundarios": [
+      {
+        "atributo": "Maestria",
+        "ordem": 1,
+        "media_porcentagem": 26,
+        "pontos": 1230
+      },
+      {
+        "atributo": "Aceleração",
+        "ordem": 2,
+        "media_porcentagem": 23,
+        "pontos": 983
+      },
+      {
+        "atributo": "Acerto Crítico",
+        "ordem": 3,
+        "media_porcentagem": 19,
+        "pontos": 656
+      },
+      {
+        "atributo": "Versatilidade",
+        "ordem": 4,
+        "media_porcentagem": 3,
+        "pontos": 151
+      }
+    ],
+    "atributos_menores": [
+      {
+        "atributo": "Evasão (Avoidance)",
+        "ordem": 1,
+        "media_porcentagem": 5,
+        "pontos": 174
+      },
+      {
+        "atributo": "Sorver (Leech)",
+        "ordem": 2,
+        "media_porcentagem": 1,
+        "pontos": 58
+      },
+      {
+        "atributo": "Velocidade (Speed)",
+        "ordem": 3,
+        "media_porcentagem": 3,
+        "pontos": 0
+      }
+    ],
+    "embelezamentos_mais_usados": [
+      {
+        "nome_pt": "Forro de Arcanotrama",
+        "nome_en": "Arcanoweave Lining",
+        "slot_tipico": "Pulsos (Defletores do Agente de Luaprata)",
+        "item_id": 244576
+      },
+      {
+        "nome_pt": "Pedra Ritual do Caçador",
+        "nome_en": "Hunter's Ritual Stone",
+        "slot_tipico": "Mão Secundária (Lanterna de Aln'hara)",
+        "item_id": 245769
+      },
+      {
+        "nome_pt": "Poder de Azeroth",
+        "nome_en": "Azerothian Power",
+        "slot_tipico": "Pés (Envoltórios da Raiz da Árvore do Mundo)",
+        "item_id": 244601
+      },
+      {
+        "nome_pt": "Elo do Adorador dos Loas",
+        "nome_en": "Loa Worshiper's Band",
+        "slot_tipico": "Dedo",
+        "item_id": 251513
+      }
+    ],
+    "encantamentos_populares": {
+      "cabeca": "Encantamento de Elmo — Runa Empoderada de Evasão (Empowered Rune of Avoidance)",
+      "ombros": "Encantamento de Ombros — Graça de Amirdrassil (Amirdrassil's Grace)",
+      "peito": "Encantamento de Peito — Marca da Alma-mundo (Mark of the Worldsoul)",
+      "maos": "Arte de Batalha Hash'ey Antiga: Olho do Lince (Ancient Hash'ey Battle Art: Eye of the Lynx) 283998",
+      "pernas": "Fio Mágico de Seda Fogo-solar (Sunfire Silk Spellthread) 240133 / Kit de Armadura do Caçador Florestal (Forest Hunter's Armor Kit) 244641",
+      "pes": "Encantamento de Botas — Destreza do Lince (Lynx's Dexterity)",
+      "aneis": "Encantamento de Anel — Olhos da Águia (Eyes of the Eagle)",
+      "arma": "Rito dos Hash'ey (Rite of the Hash'ey) / Encantamento de Arma — Maestria Arcana (Arcane Mastery)"
+    },
+    "gemas_populares": {
+      "meta_eversong": [
+        {
+          "nome_pt": "Diamante do Canto Eterno Indecifrável",
+          "nome_en": "Indecipherable Eversong Diamond",
+          "item_id": 240983,
+          "efeito": "+32 de Atributo Primário"
+        },
+        {
+          "nome_pt": "Diamante do Canto Eterno Poderoso",
+          "nome_en": "Powerful Eversong Diamond",
+          "item_id": 240967
+        }
+      ],
+      "prismaticas": [
+        {
+          "nome_pt": "Ametista Mortal Impecável",
+          "nome_en": "Flawless Deadly Amethyst",
+          "item_id": 240898,
+          "atributo": "Crítico / Maestria"
+        },
+        {
+          "nome_pt": "Granada Primorosa Impecável",
+          "nome_en": "Flawless Masterful Garnet",
+          "item_id": 240908,
+          "atributo": "Maestria"
+        },
+        {
+          "nome_pt": "Ametista Rápida Impecável",
+          "nome_en": "Flawless Quick Amethyst",
+          "item_id": 240900,
+          "atributo": "Aceleração"
+        },
+        {
+          "nome_pt": "Peridoto Primoroso Impecável",
+          "nome_en": "Flawless Masterful Peridot",
+          "item_id": 240892,
+          "atributo": "Maestria / Aceleração"
+        },
+        {
+          "nome_pt": "Peridoto Mortal Impecável",
+          "nome_en": "Flawless Deadly Peridot",
+          "item_id": 240890,
+          "atributo": "Crítico / Aceleração"
+        }
+      ]
+    },
+    "racas_mais_jogadas": [
+      "Elfo Noturno (Night Elf)",
+      "Troll",
+      "Tauren",
+      "Haranir",
+      "Tauren de Alta Montanha (Highmountain Tauren)"
+    ]
+  }
+}

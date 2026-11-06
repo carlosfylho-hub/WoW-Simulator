@@ -1,0 +1,366 @@
+{
+  "_meta": {
+    "nome": "Runas do Folio Ômnico (Omnium Folio) — Season 2",
+    "patch": "12.1.5 — Maldição de Ula'tek (sistema introduzido em 12.0.7)",
+    "expansao": "World of Warcraft: Midnight",
+    "atualizado": "2026-11-05",
+    "language": "pt-BR",
+    "status_geral": "RESOLVIDO — 13 runas, nomes PT oficiais, IDs duplos mapeados e configuração do personagem decodificada",
+    "fonte_primaria": "nether.wowhead.com/tooltip/spell/<id>?dataEnv=1&locale=8 (Wowhead PT-BR), consultado em 2026-11-05",
+    "fonte_secundaria": "https://www.wowhead.com/guide/midnight/omnium-folio-unlock-buffs-rewards — estrutura das 5 linhas e nomes em inglês",
+    "creditos_gastos": 0,
+    "metodo": "Coleta local via Node no endpoint de tooltip, sem consumo de créditos Firecrawl"
+  },
+  "descoberta_importante_ids_duplos": {
+    "descricao": "Cada runa da linha 4 e a runa da linha 3 possuem DOIS IDs de feitiço no banco: um ID de NÓ (aparece em exports do AMR e do jogo) e um ID de BUFF (aparece nos guias).",
+    "consequencia": "Comparar por ID exige aceitar os dois. Comparar por ID único geraria falso negativo em toda comparação de linha 3 e 4.",
+    "exemplo": "Runa do Poder Crítico aparece como 1279609 (nó) e 1287772 (buff). Runa da Astúcia Magistral como 1279612 e 1287771."
+  },
+  "estrutura": {
+    "linhas": 5,
+    "total_runas": 13,
+    "combinacoes_possiveis": 72,
+    "calculo": "2 x 3 x 1 x 4 x 3 = 72",
+    "distribuicao": {
+      "linha_1": {
+        "rotulo": "Runa Central (Core)",
+        "opcoes": 2
+      },
+      "linha_2": {
+        "rotulo": "Suporte",
+        "opcoes": 3
+      },
+      "linha_3": {
+        "rotulo": "Perenidade (Lingering)",
+        "opcoes": 1
+      },
+      "linha_4": {
+        "rotulo": "Atributo secundário",
+        "opcoes": 4
+      },
+      "linha_5": {
+        "rotulo": "Ápice (Capstone)",
+        "opcoes": 3
+      }
+    }
+  },
+  "runas": [
+    {
+      "linha": 1,
+      "escolha": "1A",
+      "id_base": 1279599,
+      "id_buff": null,
+      "nome_pt": "Runa do Fogo Incontido",
+      "nome_en": "Rune of Unleashed Fire",
+      "efeito_pt": "Seus feitiços e habilidades têm chance de chamar um pilar de fogo, causando dano de Fogo a um inimigo ou restaurando vida de um aliado próximo.",
+      "status_verificacao": "confirmado",
+      "correcao": "O projeto chamava de 'Runa do Fogo Desencadeado'. O nome oficial no Wowhead PT-BR é Runa do Fogo Incontido."
+    },
+    {
+      "linha": 1,
+      "escolha": "1B",
+      "id_base": 1279596,
+      "id_buff": null,
+      "nome_pt": "Runa dos Orbes Tocados pelo Caos",
+      "nome_en": "Rune of Void-Touched Orbs",
+      "efeito_pt": "A cada 10 s você atrai um orbe do Caos, até 5. Seus ataques lançam esses orbes no inimigo, causando dano Cósmico por orbe. Suas curas enviam os orbes ao aliado mais ferido, restaurando vida por orbe.",
+      "status_verificacao": "confirmado",
+      "correcao": "O projeto chamava de 'Runa das Esferas Tocadas pelo Vazio'. O nome oficial é Runa dos Orbes Tocados pelo Caos."
+    },
+    {
+      "linha": 2,
+      "escolha": "2A",
+      "id_base": 1279604,
+      "id_buff": null,
+      "nome_pt": "Runa da Concha Maculada de Caos",
+      "nome_en": "Rune of Void-Tainted Shell",
+      "efeito_pt": "Ao sofrer um golpe maior que 10% da vida máxima, ganha um escudo de absorção. Metade do dano absorvido permanece e é aplicado ao longo de 10 s.",
+      "status_verificacao": "confirmado",
+      "correcao": "O projeto chamava de 'Carapaça Maculada pelo Vazio'."
+    },
+    {
+      "linha": 2,
+      "escolha": "2B",
+      "id_base": 1279603,
+      "id_buff": null,
+      "nome_pt": "Runa de Autorrecomposição",
+      "nome_en": "Rune of Self-Mending",
+      "efeito_pt": "Abaixo de 75% de vida, sua Runa Central também cura você.",
+      "status_verificacao": "confirmado",
+      "correcao": "O projeto chamava de 'Runa de Autorrecuperação' e, em outro arquivo, 'Runa da Auto-Reparação'. O nome oficial é Runa de Autorrecomposição."
+    },
+    {
+      "linha": 2,
+      "escolha": "2C",
+      "id_base": 1279605,
+      "id_buff": null,
+      "nome_pt": "Runa dos Reflexos de Lince",
+      "nome_en": "Rune of Lynxlike Reflexes",
+      "efeito_pt": "Ao ser atingido em combate, ganha +77,5 de velocidade por 10 s.",
+      "status_verificacao": "confirmado"
+    },
+    {
+      "linha": 3,
+      "escolha": "3A",
+      "id_base": 1287555,
+      "id_buff": 1287663,
+      "nome_pt": "Runa da Perenidade",
+      "nome_en": "Rune of Lingering",
+      "efeito_pt": "Os efeitos da sua Runa Central deixam um efeito periódico que causa dano Cósmico ou restaura vida por 8 s. Sua Runa Central prioriza alvos que ainda não estão sob o efeito.",
+      "status_verificacao": "confirmado",
+      "correcao": "O projeto chamava de 'Runa Remanescente' / 'Runa da Persistência'. O nome oficial é Runa da Perenidade. Os dois IDs (1287555 e 1287663) retornam o mesmo nome no Wowhead PT-BR."
+    },
+    {
+      "linha": 4,
+      "escolha": "4A",
+      "id_base": 1279609,
+      "id_buff": 1287772,
+      "nome_pt": "Runa do Poder Crítico",
+      "nome_en": "Rune of Critical Power",
+      "efeito_pt": "Quando sua Runa Central é ativada, concede +52,7 de Acerto Crítico por 10 s. Várias aplicações podem se sobrepor.",
+      "status_verificacao": "confirmado"
+    },
+    {
+      "linha": 4,
+      "escolha": "4B",
+      "id_base": 1279610,
+      "id_buff": 1287774,
+      "nome_pt": "Runa da Aceleração Ardente",
+      "nome_en": "Rune of Burning Haste",
+      "efeito_pt": "Quando sua Runa Central é ativada, concede +52,7 de Aceleração por 10 s. Várias aplicações podem se sobrepor.",
+      "status_verificacao": "confirmado",
+      "correcao": "O projeto chamava de 'Aceleração Focada (Focused Haste)'."
+    },
+    {
+      "linha": 4,
+      "escolha": "4C",
+      "id_base": 1279612,
+      "id_buff": 1287771,
+      "nome_pt": "Runa da Astúcia Magistral",
+      "nome_en": "Rune of Masterful Cunning",
+      "efeito_pt": "Quando sua Runa Central é ativada, concede +52,7 de Maestria por 10 s. Várias aplicações podem se sobrepor.",
+      "status_verificacao": "confirmado",
+      "correcao": "O projeto chamava de 'Ressonância de Maestria (Mastery Resonance)'."
+    },
+    {
+      "linha": 4,
+      "escolha": "4D",
+      "id_base": 1279613,
+      "id_buff": 1287770,
+      "nome_pt": "Runa do Guerreiro Versátil",
+      "nome_en": "Rune of The Versatile Warrior",
+      "efeito_pt": "Quando sua Runa Central é ativada, concede +52,7 de Versatilidade por 10 s. Várias aplicações podem se sobrepor.",
+      "status_verificacao": "confirmado_oficial",
+      "correcao": "ID de nó 1279613 e ID de buff 1287770 confirmados no endpoint de feitiço oficial Wowhead em 2026-11-06."
+    },
+    {
+      "linha": 5,
+      "escolha": "5A",
+      "id_base": 1279614,
+      "id_buff": null,
+      "nome_pt": "Runa da Sobrecarga",
+      "nome_en": "Rune of Overload",
+      "efeito_pt": "Aumenta em 100% a eficácia da sua Runa Central.",
+      "status_verificacao": "confirmado"
+    },
+    {
+      "linha": 5,
+      "escolha": "5B",
+      "id_base": 1279615,
+      "id_buff": null,
+      "nome_pt": "Runa da Energia Residual",
+      "nome_en": "Rune of Residual Energy",
+      "efeito_pt": "Aumenta em 100% a eficácia da sua Runa da Perenidade.",
+      "status_verificacao": "confirmado"
+    },
+    {
+      "linha": 5,
+      "escolha": "5C",
+      "id_base": 1279616,
+      "id_buff": null,
+      "nome_pt": "Runa dos Ecos",
+      "nome_en": "Rune of Echoes",
+      "efeito_pt": "Os efeitos da sua Runa Central deixam uma maldição no alvo. Após 10 s, uma eco de todo o dano e cura feitos pelas suas Runas Central e da Perenidade é repetido com 50% de eficácia.",
+      "status_verificacao": "confirmado"
+    }
+  ],
+  "derivacao_codigo_cxx": {
+    "formula": "Cxx = 36 * (bloco - 1) + 12 * (familia_linha2 - 1) + 3 * (escolha_linha4 - 1) + (escolha_linha5 - 1) + 1",
+    "total": 72,
+    "variaveis": {
+      "bloco": "1 para 1A (Fogo Incontido, 1279599); 2 para 1B (Orbes Tocados pelo Caos, 1279596)",
+      "familia_linha2": "1 para 2A (Concha, 1279604); 2 para 2B (Autorrecomposição, 1279603); 3 para 2C (Reflexos de Lince, 1279605)",
+      "escolha_linha4": "1 para 4A (Crítico); 2 para 4B (Aceleração); 3 para 4C (Maestria); 4 para 4D (Versatilidade)",
+      "escolha_linha5": "1 para 5A (Sobrecarga); 2 para 5B (Energia Residual); 3 para 5C (Ecos)"
+    },
+    "exemplo": "1A-2B-3A-4A-5B = 0 + 12 + 0 + 1 + 1 = C14"
+  },
+  "configuracao_do_personagem_analisado": {
+    "origem": "Export AMR v181, seções .s2 e .s3, formato <id do feitiço>=<rank>",
+    "runas_do_export": [
+      1279599,
+      1279603,
+      1279609,
+      1279615,
+      1287555
+    ],
+    "traducao": [
+      {
+        "id": 1279599,
+        "nome_pt": "Runa do Fogo Incontido",
+        "linha": 1,
+        "escolha": "1A"
+      },
+      {
+        "id": 1279603,
+        "nome_pt": "Runa de Autorrecomposição",
+        "linha": 2,
+        "escolha": "2B"
+      },
+      {
+        "id": 1287555,
+        "nome_pt": "Runa da Perenidade",
+        "linha": 3,
+        "escolha": "3A"
+      },
+      {
+        "id": 1279609,
+        "nome_pt": "Runa do Poder Crítico",
+        "linha": 4,
+        "escolha": "4A"
+      },
+      {
+        "id": 1279615,
+        "nome_pt": "Runa da Energia Residual",
+        "linha": 5,
+        "escolha": "5B"
+      }
+    ],
+    "combinacao_resultante": "1A-2B-3A-4A-5B",
+    "codigo_cxx": "C14",
+    "observacao": "A runa 1279609 estava marcada como desconhecida até 2026-11-05. O Wowhead PT-BR confirma que é a Runa do Poder Crítico, o que fecha a combinação do personagem.",
+    "veredito": "A configuração atual do personagem já coincide com uma das combinações recomendadas pelo Icy Veins. Não há correção a fazer no jogo."
+  },
+  "arbitragem_por_spec": {
+    "demo_warlock": {
+      "status": "arbitrado",
+      "fontes": [
+        "Icy Veins 12.1.5",
+        "Method 12.1.5"
+      ],
+      "consenso": "Linhas 1, 3 e 4 idênticas nas duas fontes: Fogo Incontido, Perenidade e Poder Crítico",
+      "divergencia": "Icy Veins aceita Autorrecomposição ou Concha na linha 2 e Sobrecarga ou Energia Residual na linha 5; Method indica Reflexos de Lince e Sobrecarga",
+      "recomendacao_principal": {
+        "combinacao": "1A-2B-3A-4A-5A",
+        "codigo_cxx": "C13"
+      },
+      "equivalentes": [
+        {
+          "combinacao": "1A-2B-3A-4A-5B",
+          "codigo_cxx": "C14",
+          "nota": "É a configuração atual do personagem analisado"
+        },
+        {
+          "combinacao": "1A-2A-3A-4A-5A",
+          "codigo_cxx": "C01",
+          "nota": "Concha no lugar de Autorrecomposição"
+        },
+        {
+          "combinacao": "1A-2A-3A-4A-5B",
+          "codigo_cxx": "C02",
+          "nota": "Concha com Energia Residual, melhor em grupos densos"
+        },
+        {
+          "combinacao": "1A-2C-3A-4A-5A",
+          "codigo_cxx": "C25",
+          "nota": "Indicação do Method, troca cura por mobilidade"
+        }
+      ],
+      "regra_de_atributo": "Com Crítico acima de 35% e Maestria negligenciada, trocar a linha 4 para 4C: 1A-2B-3A-4C-5B = C20",
+      "descartado": {
+        "combinacao": "1A-2A-3A-4B-5C",
+        "codigo_cxx": "C06",
+        "motivo": "Nenhuma das fontes usa Aceleração Ardente na linha 4 nem Ecos na linha 5"
+      }
+    },
+    "shadow_priest": {
+      "status": "arbitrado",
+      "fontes": [
+        "Icy Veins 12.1.5"
+      ],
+      "consenso": "Icy Veins recomenda como baseline Fogo Incontido (1A), Autorrecomposição (2B), Perenidade (3A), Poder Crítico (4A) e Sobrecarga (5A). A fonte explicita que 4A é padrão para evitar retornos decrescentes do excesso de Aceleração e Maestria nesta fase do patch.",
+      "recomendacao_principal": {
+        "combinacao": "1A-2B-3A-4A-5A",
+        "codigo_cxx": "C13"
+      },
+      "alternativas": [
+        {
+          "combinacao": "1A-2B-3A-4B-5A",
+          "codigo_cxx": "C16",
+          "motivo": "Aceleração Ardente durante progressão inicial de gear"
+        },
+        {
+          "combinacao": "1A-2B-3A-4C-5A",
+          "codigo_cxx": "C19",
+          "motivo": "Astúcia Magistral se faltar Maestria"
+        },
+        {
+          "combinacao": "1B-2A-3A-4D-5A",
+          "codigo_cxx": "C46",
+          "motivo": "M+ altas defensiva com Orbes e Versatilidade"
+        }
+      ]
+    },
+    "balance_druid": {
+      "status": "arbitrado",
+      "fontes": [
+        "Icy Veins 12.1.5"
+      ],
+      "consenso": "Icy Veins recomenda como baseline Fogo Incontido (1A), Autorrecomposição (2B), Perenidade (3A), Poder Crítico (4A) e Sobrecarga (5A).",
+      "recomendacao_principal": {
+        "combinacao": "1A-2B-3A-4A-5A",
+        "codigo_cxx": "C13"
+      },
+      "alternativas": [
+        {
+          "combinacao": "1A-2A-3A-4D-5A",
+          "codigo_cxx": "C10",
+          "motivo": "M+ altas defensiva com Versatilidade"
+        },
+        {
+          "combinacao": "1A-2C-3A-4B-5B",
+          "codigo_cxx": "C29",
+          "motivo": "M+ médias com mobilidade (Reflexos de Lince)"
+        },
+        {
+          "combinacao": "1A-2B-3A-4D-5C",
+          "codigo_cxx": "C24",
+          "motivo": "Delve Tier 11 com defesa e eco"
+        }
+      ]
+    }
+  },
+  "fontes_sem_cobertura": {
+    "maxroll": "Não possui seção sobre o Omnium Folio no guia de Demonologia M+ (verificado em 2026-11-05)",
+    "murlok": "Não possui seção sobre o Omnium Folio, mas entrega dados empíricos de atributos e berloques"
+  },
+  "pendencias": [
+    "Consultar as páginas do Icy Veins e do Method de Shadow Priest e Balance Druid para arbitrar as runas dessas duas specs."
+  ],
+  "resolvido_2026_11_06": {
+    "id_1279611": {
+      "pergunta": "A runa 1279611 existe?",
+      "resposta": "NÃO. O endpoint de feitiço devolve HTTP 404 nos dois locales (PT-BR e EN), enquanto 1279610 (4B), 1279612 (4C) e 1279613 (4D) respondem normalmente.",
+      "evidencia": "node tools/consultar_spells.js 1279611 1279613 — 1279611: HTTP 404 em locale=8 e locale=0; 1279613: 'Runa do Guerreiro Versátil / Rune of the Versatile Warrior'.",
+      "conclusao": "É um buraco no número de ID entre a 4B e a 4C, não uma runa secreta. Fica registrado para ninguém procurar de novo."
+    },
+    "id_1279613_texto_oficial": {
+      "nome_pt": "Runa do Guerreiro Versátil",
+      "nome_en": "Rune of the Versatile Warrior",
+      "efeito_pt": "Quando a sua Runa Central (Orbes Tocados pelo Caos) for ativada, concede [(((1 / 100 * 47))) * 170] de Versatilidade por 10 s. Várias aplicações podem se sobrepor.",
+      "nota": "A fórmula do tooltip é placeholder do cliente; o valor por aplicação é o que o projeto já cataloga (+52,7 de rating). O texto confirma que 4D é Versatilidade e que as aplicações SOBREPÕEM."
+    },
+    "id_buff_4D": 1287770,
+    "arbitragem_shadow_priest_e_balance": "Concluída via Icy Veins 12.1.5 (ambos com C13 baseline)"
+  }
+}

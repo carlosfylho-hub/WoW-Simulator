@@ -1,0 +1,899 @@
+{
+  "_meta": {
+    "spec": "Demonology Warlock",
+    "expansion": "World of Warcraft: Midnight",
+    "patch": "12.1.5",
+    "season": "Season 2",
+    "last_updated": "2026-11-05",
+    "language": "pt-BR"
+  },
+  "gear": {
+    "tier_set": {
+      "nome_en": "Damned Necrolyte's Shattered Restraints",
+      "nome_pt": "Grilhões Despedaçados do Necrólito Maldito",
+      "id_set": 2066,
+      "pecas": {
+        "head_pt": "Capucho Horrendo do Guardião da Peçonha (Cantrip BiS) ou Crânio do Necrólito Maldito (regular)",
+        "shoulders_pt": "Pináculos do Necrólito Maldito",
+        "chest_pt": "Vestes Chacoalhantes do Necrólito Maldito",
+        "hands_pt": "Agarres Calcinados do Necrólito Maldito",
+        "legs_pt": "Amarras de Perna do Necrólito Maldito"
+      },
+      "bonus_2pc_pt": "Aumenta em 10% o dano do Diabrete Selvagem. Aumenta em 20% o dano da Implosão.",
+      "bonus_4pc_pt": "Quando a energia deles se esvai, os Diabretes Selvagens têm 20% de chance de se atirar no alvo deles e implodir com 350% de eficácia contra o alvo principal e 315% de eficácia contra alvos secundários."
+    },
+    "embellishments": {
+      "recomendado": "2x Arcanoweave Lining",
+      "nota_murlok": "50/50 usage (todos os 50 jogadores do topo usam 2 slots) — consenso absoluto",
+      "alternativa": "Hunter's Ritual Stone (Murlok: 36/50)"
+    },
+    "bis_mplus_sem_raid": {
+      "descricao": "Melhor gear acessível exclusivamente via M+ + Craft. Não requer Raid.",
+      "itens_confirmados_mplus": {
+        "Cloak": {
+          "item_pt": "Mortalha do Inferninho",
+          "dungeon": "Murder Row",
+          "item_id": 251132,
+          "fonte_tipo": "M+",
+          "wowhead": "https://www.wowhead.com/pt/item=251132",
+          "item_en": "Speakeasy Shroud",
+          "dungeon_en": "Murder Row",
+          "stats": {
+            "ilvl_referencia": 334,
+            "track_referencia": "Mito 6/6",
+            "stats_fonte": "nether.wowhead.com locale=8, ilvl maximo do item, 2026-11-05",
+            "AtributoPrimario": 106,
+            "primario_dual": "Agilidade ou Força ou Intelecto",
+            "Vigor": 2199,
+            "Critico": 66,
+            "Maestria": 47
+          }
+        },
+        "Waist": {
+          "item_pt": "Atadura do Éter Etérea",
+          "dungeon": "Arena da Chaga do Caos",
+          "item_id": 251222,
+          "fonte_tipo": "M+",
+          "item_en": "Ethereal Netherwrap",
+          "dungeon_en": "Voidscar Arena",
+          "stats": {
+            "ilvl_referencia": 334,
+            "track_referencia": "Mito 6/6",
+            "stats_fonte": "nether.wowhead.com locale=8, ilvl maximo do item, 2026-11-05",
+            "Intelecto": 141,
+            "Vigor": 2932,
+            "Critico": 56,
+            "Aceleração": 95
+          }
+        },
+        "Ring": {
+          "item_pt": "Elo de Arenito Carregado",
+          "dungeon": "Templo de Sethraliss",
+          "item_id": 158366,
+          "fonte_tipo": "M+",
+          "item_en": "Charged Sandstone Band",
+          "dungeon_en": "Temple of Sethraliss",
+          "stats": {
+            "ilvl_referencia": 334,
+            "track_referencia": "Mito 6/6",
+            "stats_fonte": "nether.wowhead.com locale=8, ilvl maximo do item, 2026-11-05",
+            "Vigor": 2199,
+            "Critico": 232,
+            "Maestria": 174
+          }
+        },
+        "Trinket1": {
+          "item_pt": "Emblema Tempestuoso de Dazar",
+          "dungeon": "Descanso do Rei",
+          "item_id": 273649,
+          "fonte_tipo": "M+",
+          "tipo_efeito": "ativo",
+          "nota": "S-tier — melhor trinket acessível sem raid",
+          "item_en": "Stormbound Emblem of Dazar",
+          "dungeon_en": "King's Rest",
+          "stats": {
+            "efeito": "Uso: Canaliza por 2 s enquanto o vento obedece à ordem de Dazar, aumentando em +1.082 a Aceleração por até 20 s (2 min de recarga).",
+            "ilvl_referencia": 341,
+            "stats_fonte": "nether.wowhead.com locale=8, ilvl maximo do item, 2026-11-05",
+            "Intelecto": 191
+          }
+        },
+        "Trinket2": {
+          "item_pt": "Nó de Serpentes Contorcidas",
+          "dungeon": "Altar das Presas",
+          "item_id": 273794,
+          "fonte_tipo": "M+",
+          "tipo_efeito": "passivo",
+          "item_en": "Knot of Writhing Serpents",
+          "dungeon_en": "Altar of Fangs",
+          "stats": {
+            "efeito": "Equipar: Seus feitiços nocivos têm chance de enfeitiçar uma serpente e fazê-la lançar peçonha contra o alvo, causando dano de Natureza dividido entre inimigos próximos. O dano é aumentado em 30% por inimigo adicional, até o máximo de 150%. O alvo primário também recebe dano de Natureza adicional ao longo de 15 s.",
+            "ilvl_referencia": 341,
+            "stats_fonte": "nether.wowhead.com locale=8, ilvl maximo do item, 2026-11-05",
+            "Intelecto": 191
+          },
+          "nota_escolha": "Escolhido por ser PASSIVO. O Trinket1 (Emblema Tempestuoso de Dazar) é on-use e a regra R4 proíbe dois on-use simultâneos. Evidência de tier: MaxRoll B-tier.",
+          "correcao_2026_11_05": "Substitui o Ídolo do Loa da Guerra (250229), removido porque o tooltip oficial do Wowhead confirma que concede 290 de FORÇA. Era item de melee listado como BiS de conjurador."
+        },
+        "OffHand": {
+          "item_pt": "Lanterna de Aln'hara",
+          "dungeon": "Craftado (Escrivania)",
+          "item_id": 245769,
+          "fonte_tipo": "Craft",
+          "item_en": "Aln'hara Lantern",
+          "stats": {
+            "tipo": "Missiva de Artesanato",
+            "secundarios_fixos": "nenhum — o tooltip traz 'Atributo Aleatório 1/2'; os dois secundários vêm da missiva escolhida na ordem",
+            "secundarios_recomendados": "Aceleração + Maestria",
+            "missivas_possiveis": [
+              245781,
+              245783,
+              245785,
+              245787,
+              245789,
+              245791
+            ],
+            "embelezamento_fixo": false,
+            "embelezamentos_possiveis": [
+              245872,
+              245876,
+              245878,
+              245874,
+              244608,
+              244675,
+              273069
+            ],
+            "nota_embelezamento": "Nao ha embelezamento fixo: e reagente opcional. A Pedra Ritual do Cacador (273060) e declarada no tooltip como exclusiva de 'Armas de Ferraria', mas ha Lanternas com esse proc (101 de secundario, +50% em Caca as Presas) — divergencia aberta; o que vale e o texto do item equipado.",
+            "ilvl_referencia": 246,
+            "stats_fonte": "nether.wowhead.com locale=8, ilvl maximo do item, 2026-11-05",
+            "Intelecto": 127,
+            "Vigor": 692
+          }
+        },
+        "Bracers": {
+          "item_pt": "Braceletes do Mártir",
+          "dungeon": "Craftado (Alfaiataria)",
+          "fonte_tipo": "Craft",
+          "item_id": 239648,
+          "item_en": "Martyr's Bindings",
+          "stats": {
+            "tipo": "Missiva de Artesanato",
+            "secundarios_recomendados": "Aceleração + Crítico",
+            "embellishment": "Arcanoweave Lining",
+            "ilvl_referencia": 246,
+            "stats_fonte": "nether.wowhead.com locale=8, ilvl maximo do item, 2026-11-05",
+            "Intelecto": 47,
+            "Vigor": 779
+          }
+        },
+        "Tier (via Catalyst)": {
+          "item_pt": "Grilhões Despedaçados do Necrólito Maldito (4 peças)",
+          "dungeon": "Great Vault M+ + Matrix Catalyst",
+          "fonte_tipo": "M+/Catalyst"
+        }
+      },
+      "slots_sem_alternativa_mplus_conhecida": {
+        "Neck": {
+          "item_pt": "Relicário Aqiricida (Raid: Ula'tek)",
+          "alternativa": "Usar alto ilvl de M+ ou Great Vault"
+        },
+        "Feet": {
+          "item_pt": "Botinas Anímicas Crepitantes (Raid: Altar Enrolado)",
+          "alternativa": "Usar alto ilvl de M+"
+        },
+        "Ring2": {
+          "item_pt": "Elo do Chama-enxame (Raid: Kith'ix)",
+          "alternativa": "2º Elo de Arenito Carregado ou outro anel M+"
+        },
+        "Weapon": {
+          "item_pt": "Jan'thrazet, a Presa Anímica (Raid: Ula'tek)",
+          "alternativa": "Arma de alto ilvl via Great Vault M+"
+        }
+      },
+      "dungeons_mplus_prioridade": [
+        {
+          "rank": 1,
+          "dungeon": "Descanso do Rei",
+          "motivo": "Emblema Tempestuoso de Dazar (S-tier trinket)"
+        },
+        {
+          "rank": 2,
+          "dungeon": "Altar das Presas",
+          "motivo": "Nó de Serpentes Contorcidas (trinket passivo M+, Intelecto) — substitui o Ídolo do Loa da Guerra, que é trinket de Força"
+        },
+        {
+          "rank": 3,
+          "dungeon": "Arena da Chaga do Caos",
+          "motivo": "Atadura do Éter Etérea (belt BiS M+)"
+        },
+        {
+          "rank": 4,
+          "dungeon": "Templo de Sethraliss",
+          "motivo": "Elo de Arenito Carregado (ring BiS M+)"
+        },
+        {
+          "rank": 5,
+          "dungeon": "Murder Row",
+          "motivo": "Mortalha do Inferninho (capa M+ — item_id 251132)"
+        },
+        {
+          "rank": 6,
+          "dungeon": "Todas as dungeons",
+          "motivo": "Acumular gear para Matrix Catalyst → converter em peças de tier"
+        }
+      ]
+    },
+    "bis_overall": {
+      "descricao": "Melhor setup combinando todas as fontes de gear. Todos os nomes em PT-BR (fonte: wowhead.com/pt)",
+      "slots": {
+        "helm": {
+          "item_pt": "Capucho Horrendo do Guardião da Peçonha",
+          "fonte_pt": "Ula'tek (Abismo Peçonhento — Raid)",
+          "fonte_tipo": "Raid",
+          "item_id": 271874,
+          "tipo": "Tier (Cantrip)",
+          "item_en": "Venomkeeper's Horrific Cowl",
+          "stats": {
+            "cantrip": "Capucho do Guardião da Peçonha (efeito cantrip passivo)",
+            "ilvl_referencia": 344,
+            "stats_fonte": "nether.wowhead.com locale=8, ilvl maximo do item, 2026-11-05",
+            "Intelecto": 207,
+            "Vigor": 4385,
+            "Maestria": 209
+          }
+        },
+        "neck": {
+          "item_pt": "Relicário Aqiricida",
+          "fonte_pt": "Ula'tek (Abismo Peçonhento — Raid)",
+          "fonte_tipo": "Raid",
+          "item_id": 268265,
+          "item_en": "Aqirbane Reliquary",
+          "stats": {
+            "socket": "Engaste Prismático",
+            "efeito": "Chance de conceder +434 a um atributo secundário aleatório (-73 nos outros por 12s)",
+            "ilvl_referencia": 344,
+            "stats_fonte": "nether.wowhead.com locale=8, ilvl maximo do item, 2026-11-05",
+            "Vigor": 2466,
+            "Critico": 107,
+            "Aceleração": 107,
+            "Maestria": 107,
+            "Versatilidade": 107
+          }
+        },
+        "shoulders": {
+          "item_pt": "Pináculos do Necrólito Maldito",
+          "fonte_pt": "Catalyst de Templo de Sethraliss (M+) ou token de raid",
+          "fonte_tipo": "M+/Catalyst",
+          "item_id": 271544,
+          "tipo": "Tier",
+          "item_en": "Spires of the Damned Necrolyte",
+          "stats": {
+            "ilvl_referencia": 334,
+            "track_referencia": "Mito 6/6",
+            "stats_fonte": "nether.wowhead.com locale=8, ilvl maximo do item, 2026-11-05",
+            "Intelecto": 141,
+            "Vigor": 2932,
+            "Aceleração": 50,
+            "Versatilidade": 101
+          }
+        },
+        "cloak": {
+          "item_pt": "Mortalha do Inferninho",
+          "fonte_pt": "Murder Row (M+)",
+          "fonte_tipo": "M+",
+          "item_id": 251132,
+          "item_en": "Speakeasy Shroud",
+          "stats": {
+            "nota": "Escala com ilvl até ~50 Crítico / ~33 Maestria em track Mítico",
+            "ilvl_referencia": 334,
+            "track_referencia": "Mito 6/6",
+            "stats_fonte": "nether.wowhead.com locale=8, ilvl maximo do item, 2026-11-05",
+            "AtributoPrimario": 106,
+            "primario_dual": "Agilidade ou Força ou Intelecto",
+            "Vigor": 2199,
+            "Critico": 66,
+            "Maestria": 47
+          }
+        },
+        "chest": {
+          "item_pt": "Vestes Chacoalhantes do Necrólito Maldito",
+          "fonte_pt": "Vashnik (Raid) ou Catalyst de M+",
+          "fonte_tipo": "Raid",
+          "item_id": 271549,
+          "tipo": "Tier",
+          "item_en": "Damned Necrolyte's Rattling Robes",
+          "stats": {
+            "ilvl_referencia": 334,
+            "track_referencia": "Mito 6/6",
+            "stats_fonte": "nether.wowhead.com locale=8, ilvl maximo do item, 2026-11-05",
+            "Intelecto": 189,
+            "Vigor": 3910,
+            "Aceleração": 141,
+            "Maestria": 60
+          }
+        },
+        "wrists": {
+          "item_pt": "Braceletes do Mártir",
+          "fonte_pt": "Alfaiataria (Profissão)",
+          "fonte_tipo": "Craft",
+          "item_id": 239648,
+          "item_en": "Martyr's Bindings",
+          "stats": {
+            "tipo": "Missiva de Artesanato",
+            "secundarios_recomendados": "Aceleração + Crítico",
+            "embellishment": "Arcanoweave Lining",
+            "ilvl_referencia": 246,
+            "stats_fonte": "nether.wowhead.com locale=8, ilvl maximo do item, 2026-11-05",
+            "Intelecto": 47,
+            "Vigor": 779
+          }
+        },
+        "hands": {
+          "item_pt": "Agarres Calcinados do Necrólito Maldito",
+          "fonte_pt": "Catalyst de Altar Enrolado (Raid) ou M+",
+          "fonte_tipo": "Raid",
+          "item_id": 271547,
+          "tipo": "Tier",
+          "item_en": "Damned Necrolyte's Charred Grasps",
+          "stats": {
+            "ilvl_referencia": 334,
+            "track_referencia": "Mito 6/6",
+            "stats_fonte": "nether.wowhead.com locale=8, ilvl maximo do item, 2026-11-05",
+            "Intelecto": 141,
+            "Vigor": 2932,
+            "Critico": 45,
+            "Aceleração": 106
+          }
+        },
+        "waist": {
+          "item_pt": "Atadura do Éter Etérea",
+          "fonte_pt": "Arena da Chaga do Caos (M+)",
+          "fonte_tipo": "M+",
+          "item_id": 251222,
+          "item_en": "Ethereal Netherwrap",
+          "stats": {
+            "nota": "Escala com ilvl até ~45 Crítico / ~70 Aceleração em track Mítico",
+            "ilvl_referencia": 334,
+            "track_referencia": "Mito 6/6",
+            "stats_fonte": "nether.wowhead.com locale=8, ilvl maximo do item, 2026-11-05",
+            "Intelecto": 141,
+            "Vigor": 2932,
+            "Critico": 56,
+            "Aceleração": 95
+          }
+        },
+        "legs": {
+          "item_pt": "Amarras de Perna do Necrólito Maldito",
+          "fonte_pt": "Sszorak (Raid) ou Catalyst de M+",
+          "fonte_tipo": "Raid",
+          "item_id": 271545,
+          "tipo": "Tier",
+          "item_en": "Damned Necrolyte's Leg Bindings",
+          "stats": {
+            "ilvl_referencia": 334,
+            "track_referencia": "Mito 6/6",
+            "stats_fonte": "nether.wowhead.com locale=8, ilvl maximo do item, 2026-11-05",
+            "Intelecto": 189,
+            "Vigor": 3910,
+            "Aceleração": 141,
+            "Maestria": 60
+          }
+        },
+        "feet": {
+          "item_pt": "Botinas Anímicas Crepitantes",
+          "fonte_pt": "Altar Enrolado (Abismo Peçonhento — Raid)",
+          "fonte_tipo": "Raid",
+          "item_id": 268255,
+          "item_en": "Cackling Soultreads",
+          "stats": {
+            "ilvl_referencia": 344,
+            "stats_fonte": "nether.wowhead.com locale=8, ilvl maximo do item, 2026-11-05",
+            "Intelecto": 155,
+            "Vigor": 3288,
+            "Aceleração": 105,
+            "Maestria": 52
+          }
+        },
+        "ring1": {
+          "item_pt": "Elo de Arenito Carregado",
+          "fonte_pt": "Templo de Sethraliss (M+)",
+          "fonte_tipo": "M+",
+          "item_id": 158366,
+          "item_en": "Charged Sandstone Band",
+          "stats": {
+            "nota": "Escala com ilvl até 232 Crítico / 174 Maestria em ilvl 219 (Mítico)",
+            "ilvl_referencia": 334,
+            "track_referencia": "Mito 6/6",
+            "stats_fonte": "nether.wowhead.com locale=8, ilvl maximo do item, 2026-11-05",
+            "Vigor": 2199,
+            "Critico": 232,
+            "Maestria": 174
+          }
+        },
+        "ring2": {
+          "item_pt": "Elo do Chama-enxame",
+          "fonte_pt": "Kith'ix (Abismo Peçonhento — Raid)",
+          "fonte_tipo": "Raid",
+          "item_id": 281029,
+          "item_en": "Band of the Swarmcaller",
+          "stats": {
+            "efeito_cantrip": "Chance de evocar Flagelo da Ninhada Ácida causando dano de Natureza em área",
+            "ilvl_referencia": 334,
+            "track_referencia": "Mito 6/6",
+            "stats_fonte": "nether.wowhead.com locale=8, ilvl maximo do item, 2026-11-05",
+            "Vigor": 2199,
+            "Aceleração": 110,
+            "Maestria": 295
+          }
+        },
+        "trinket1": {
+          "item_pt": "Tentáculo do Terror Pervertido",
+          "fonte_pt": "Kith'ix (Abismo Peçonhento — Raid)",
+          "fonte_tipo": "Raid",
+          "tipo_efeito": "passivo",
+          "nota": "46/50 Murlok — alternativa M+: Emblema Tempestuoso de Dazar (Descanso do Rei)",
+          "item_id": 281215,
+          "item_en": "Twisted Horror's Tendril",
+          "stats": {
+            "efeito": "Equipar: Seu dano tem alta chance de ressonância com o tentáculo e de conceder Poder Devastador, aumentando em +35 o Acerto Crítico por 15 s. Várias aplicações podem se sobrepor. Uma vez a cada 5 s, seu primeiro golpe contra um novo alvo concede 3 aplicações de Poder Devastador.",
+            "ilvl_referencia": 341,
+            "stats_fonte": "nether.wowhead.com locale=8, ilvl maximo do item, 2026-11-05",
+            "AtributoPrimario": 191,
+            "primario_dual": "Agilidade ou Força ou Intelecto"
+          }
+        },
+        "trinket2": {
+          "item_pt": "Bolsa sem Fundo de Gebbo",
+          "fonte_pt": "Os Exploradores Perdidos (Abismo Peçonhento — Raid)",
+          "fonte_tipo": "Raid",
+          "item_id": 270164,
+          "tipo_efeito": "passivo",
+          "item_en": "Gebbo's Bottomless Bag",
+          "stats": {
+            "efeito": "Equipar: Retira periodicamente artefatos misteriosos da bolsa concedendo buffs substanciais a um atributo secundário (Aceleração, Maestria ou Crítico).",
+            "ilvl_referencia": 341,
+            "stats_fonte": "nether.wowhead.com locale=8, ilvl maximo do item, 2026-11-05",
+            "AtributoPrimario": 191,
+            "primario_dual": "Agilidade ou Força ou Intelecto"
+          }
+        },
+        "weapon": {
+          "item_pt": "Jan'thrazet, a Presa Anímica",
+          "fonte_pt": "Ula'tek (Abismo Peçonhento — Raid)",
+          "fonte_tipo": "Raid",
+          "item_id": 271092,
+          "nota": "48/50 Murlok",
+          "item_en": "Jan'thrazet, the Soul Fang",
+          "stats": {
+            "cantrip": "Ataques de feitiço reduzem a velocidade de lançamento do inimigo em 10% e concedem +71 de Aceleração por 12s.",
+            "ilvl_referencia": 344,
+            "stats_fonte": "nether.wowhead.com locale=8, ilvl maximo do item, 2026-11-05",
+            "Intelecto": 603,
+            "Vigor": 2192,
+            "Aceleração": 104
+          }
+        },
+        "offhand": {
+          "item_pt": "Lanterna de Aln'hara",
+          "fonte_pt": "Craftado (Escrivania)",
+          "fonte_tipo": "Craft",
+          "item_id": 245769,
+          "nota": "39/50 Murlok",
+          "alternativa_raid_pt": "Espinha do Abismo Sibilante (Sentinelas Entombadas — Raid)",
+          "item_en": "Aln'hara Lantern",
+          "stats": {
+            "tipo": "Missiva de Artesanato",
+            "secundarios_fixos": "nenhum — o tooltip traz 'Atributo Aleatório 1/2'; os dois secundários vêm da missiva escolhida na ordem",
+            "secundarios_recomendados": "Aceleração + Maestria",
+            "missivas_possiveis": [
+              245781,
+              245783,
+              245785,
+              245787,
+              245789,
+              245791
+            ],
+            "embelezamento_fixo": false,
+            "embelezamentos_possiveis": [
+              245872,
+              245876,
+              245878,
+              245874,
+              244608,
+              244675,
+              273069
+            ],
+            "nota_embelezamento": "Nao ha embelezamento fixo: e reagente opcional. A Pedra Ritual do Cacador (273060) e declarada no tooltip como exclusiva de 'Armas de Ferraria', mas ha Lanternas com esse proc (101 de secundario, +50% em Caca as Presas) — divergencia aberta; o que vale e o texto do item equipado.",
+            "ilvl_referencia": 246,
+            "stats_fonte": "nether.wowhead.com locale=8, ilvl maximo do item, 2026-11-05",
+            "Intelecto": 127,
+            "Vigor": 692
+          }
+        }
+      }
+    },
+    "trinkets_ranking": {
+      "descricao": "Ranking geral. Use Raidbots para comparação exata no seu char.",
+      "s_tier": [
+        {
+          "item_pt": "Emblema Tempestuoso de Dazar",
+          "fonte_pt": "Descanso do Rei (M+)",
+          "fonte_tipo": "M+",
+          "item_id": 273649,
+          "tipo_efeito": "ativo",
+          "nota": "MELHOR trinket acessível sem raid",
+          "item_en": "Stormbound Emblem of Dazar"
+        },
+        {
+          "item_pt": "Tentáculo do Terror Pervertido",
+          "fonte_pt": "Kith'ix (Raid)",
+          "fonte_tipo": "Raid",
+          "tipo_efeito": "passivo",
+          "nota": "46/50 Murlok"
+        },
+        {
+          "item_pt": "Bolsa sem Fundo de Gebbo",
+          "fonte_pt": "Os Exploradores Perdidos (Raid)",
+          "fonte_tipo": "Raid",
+          "tipo_efeito": "passivo"
+        },
+        {
+          "item_pt": "Frasco Vil de Veneno Volátil",
+          "fonte_pt": "Abismo Peçonhento (Raid)",
+          "fonte_tipo": "Raid",
+          "tipo_efeito": "ativo"
+        },
+        {
+          "item_pt": "Frasco do Cargueiro",
+          "fonte_pt": "M+ — verificar dungeon específica",
+          "fonte_tipo": "M+",
+          "tipo_efeito": "ativo"
+        }
+      ],
+      "a_tier": [
+        {
+          "item_pt": "Nó de Serpentes Contorcidas",
+          "fonte_pt": "Altar das Presas (M+)",
+          "fonte_tipo": "M+",
+          "item_id": 273794,
+          "tipo_efeito": "passivo",
+          "item_en": "Knot of Writhing Serpents",
+          "nota": "Entrou no lugar do Ídolo do Loa da Guerra (250229), removido em 2026-11-05 por conceder 290 de Força."
+        },
+        {
+          "item_pt": "Pedra do Mar do Conjurador de Ondas",
+          "fonte_pt": "Raid",
+          "fonte_tipo": "Raid",
+          "tipo_efeito": "passivo"
+        },
+        {
+          "item_pt": "Fonte da Fúria Peçonhenta",
+          "fonte_pt": "Raid",
+          "fonte_tipo": "Raid",
+          "tipo_efeito": "verificar"
+        },
+        {
+          "item_pt": "Glândula Perene de Vexhul",
+          "fonte_pt": "Raid",
+          "fonte_tipo": "Raid",
+          "tipo_efeito": "ativo"
+        },
+        {
+          "item_pt": "Sigilo do Perfurador Mental",
+          "fonte_pt": "M+ — verificar dungeon específica",
+          "fonte_tipo": "M+",
+          "tipo_efeito": "verificar"
+        }
+      ]
+    },
+    "extra_roll_voidcore": {
+      "nome_pt": "Núcleo Vazio Nebuloso",
+      "descricao": "Use para garantir um drop bônus dos bosses mais importantes",
+      "prioridade": [
+        {
+          "rank": 1,
+          "boss_pt": "Ula'tek (Abismo Peçonhento)",
+          "item_pt": "Jan'thrazet, a Presa Anímica",
+          "motivo": "Melhor arma caster da temporada"
+        },
+        {
+          "rank": 2,
+          "boss_pt": "Ula'tek (Abismo Peçonhento)",
+          "item_pt": "Capucho Horrendo do Guardião da Peçonha",
+          "motivo": "Tier helm Cantrip BiS"
+        },
+        {
+          "rank": 3,
+          "boss_pt": "Kith'ix (Abismo Peçonhento)",
+          "item_pt": "Tentáculo do Terror Pervertido",
+          "motivo": "S-tier trinket (46/50 Murlok)"
+        },
+        {
+          "rank": 4,
+          "boss_pt": "Os Exploradores Perdidos (Abismo Peçonhento)",
+          "item_pt": "Bolsa sem Fundo de Gebbo",
+          "motivo": "Melhor trinket da tier segundo IV"
+        },
+        {
+          "rank": 5,
+          "boss_pt": "Qualquer boss com peça de tier faltando",
+          "item_pt": "Peças de tier para bônus 2pc/4pc",
+          "motivo": "Prioridade de progressão"
+        }
+      ]
+    },
+    "upgrade_system": {
+      "notas": [
+        "Gear de conteúdo mais difícil = track mais alta = item level maior",
+        "Catalyst preserva stats base, ilvl E cantrip effects do item original na Season 2",
+        "Max ilvl Craft pode ser ótimo em slots fora de Tier (customize stats secundários)"
+      ]
+    }
+  },
+  "mythic_plus": {
+    "avaliacao_geral": "Excelente. Burst AoE muito alto após setup. Múltiplas CDs curtas adequadas para ritmo de dungeon.",
+    "builds_recomendadas": {
+      "principal": "Diabolist (100% top 50 Murlok)",
+      "alternativa": "Soul Harvester (pulls pequenos, keys normais)"
+    },
+    "dungeons_season2_pt": [
+      {
+        "nome_pt": "Altar das Presas",
+        "nome_en": "Altar of Fangs"
+      },
+      {
+        "nome_pt": "Covil de Nalorakk",
+        "nome_en": "Den of Nalorakk"
+      },
+      {
+        "nome_pt": "Murder Row",
+        "nome_en": "Murder Row"
+      },
+      {
+        "nome_pt": "O Vale Ofuscante",
+        "nome_en": "The Blinding Vale"
+      },
+      {
+        "nome_pt": "Arena da Chaga do Caos",
+        "nome_en": "Voidscar Arena"
+      },
+      {
+        "nome_pt": "Descanso do Rei",
+        "nome_en": "King's Rest"
+      },
+      {
+        "nome_pt": "Piscinas da Vida Rubi",
+        "nome_en": "Ruby Life Pools"
+      },
+      {
+        "nome_pt": "Templo de Sethraliss",
+        "nome_en": "Temple of Sethraliss"
+      }
+    ],
+    "utilidade_classe": {
+      "curses": {
+        "tongues": "Reduz velocidade de cast (funciona em qualquer ability que pode ser interrompida)",
+        "weakness": "Atrasa ataques melee (use em pulls com maioria de mobs melee)",
+        "exhaustion": "Slow de movimento (kiting)"
+      },
+      "healthstone": "CD de 1 minuto, cura 25% da vida máxima",
+      "soulstone": "Ressurreição em combate (reativa ou preventiva)",
+      "demonic_gateway": "Habilidade única de skip de partes do mapa em vários dungeons",
+      "shadowfury": "Stun AoE de 3 segundos"
+    }
+  },
+  "arvores_de_talentos_e_variantes": {
+    "arquivo_fonte_completo": "talent_builds_season2.json",
+    "arquetipos_hero_talents": {
+      "diabolista": "Diabolista (Diabolist) — Foco em dano explosivo e janelas do Tirano Demoníaco. Ideal para Raide Alvo Único e Míticas+ padrão.",
+      "ceifador_de_almas": "Ceifador de Almas (Soul Harvester) — Foco em Implosão cíclica e dano de área contínuo. Ideal para masmorras com múltiplos pacotes e Raide Cleave sustentado."
+    },
+    "builds_disponiveis": {
+      "mplus_diabolista": "Build Diabolista M+",
+      "mplus_ceifador": "Build Ceifador de Almas M+ (Soul Harvester M+)",
+      "raid_diabolista_st": "Build Diabolista Raid",
+      "raid_ceifador_cleave": "Build Ceifador de Almas Raide Cleave (Soul Harvester Cleave)",
+      "delves_solo_sobrevivencia": "Build Diabolista Delves"
+    },
+    "variantes_situacionais": {
+      "descricao": "Ajustes pontuais de talentos na árvore de classe e especialização conforme a necessidade mecânica do encontro ou masmorra.",
+      "variante_defesa_extrema_chaves_altas": {
+        "nome": "Variante de Sobrevivência Crítica (M+ 10+ / Mitigação)",
+        "ajustes": [
+          "Alocar 2/2 em Pele de Demônio (Demon Skin) para escudo passivo de absorção constante.",
+          "Alocar 2/2 em Vínculo Anímico (Soul Link) para transferir 10% do dano sofrido para o demônio.",
+          "Maximizar Pacto Sombrio (Dark Pact) com tempo de recarga reduzido para enfrentar habilidades pontuais de dano letal.",
+          "Pegar Resolução Eterna Reforçada (Strength of Will) para reduzir em 40% todo dano recebido durante feitiços teleguiados."
+        ]
+      },
+      "variante_controle_e_afixos": {
+        "nome": "Variante de Interrupção e Afixos de Masmorra",
+        "ajustes": [
+          "Alocar Fúria Sombria (Shadowfury) para atordoamento coletivo em pacotes com muitos conjuradores perigosos.",
+          "Alocar Praga das Línguas (Blight of Tongues) para desacelerar o cast de inimigos de elite em 30%.",
+          "Manter Banir (Banish) acessível na barra para neutralizar demônios e lacaios em mecânicas de afixos."
+        ]
+      },
+      "variante_mobilidade_e_travessia": {
+        "nome": "Variante de Mobilidade Dinâmica",
+        "ajustes": [
+          "Alocar Círculo Demoníaco: Teleporte (Demonic Circle: Teleport) para transição imediata em lutas com áreas no chão (ex: Ula'tek).",
+          "Manter Portal Demoníaco (Demonic Gateway) aprimorado para travessia estratégica do grupo."
+        ]
+      }
+    }
+  },
+  "estatisticas_murlok_mplus": {
+    "data_coleta": "2026-11-06",
+    "patch": "12.1.5",
+    "temporada": "Midnight Season 2",
+    "amostra": "Top 50 Demonology Warlocks globais de Mythic+ (US, EU, KR, TW)",
+    "faixa_rating": "4002 a 4248",
+    "distribuicao_hero_talents": {
+      "diabolista": {
+        "jogadores": 50,
+        "porcentagem": 100
+      },
+      "ceifador_de_almas": {
+        "jogadores": 0,
+        "porcentagem": 0
+      }
+    },
+    "prioridade_atributos_secundarios": [
+      {
+        "atributo": "Aceleração",
+        "ordem": 1,
+        "media_porcentagem": 25,
+        "media_pontos": 984,
+        "nota": "Essencial para reduzir tempo de lançamento de Mão de Gul'dan e acelerar geração de Estilhaços."
+      },
+      {
+        "atributo": "Acerto Crítico",
+        "ordem": 2,
+        "media_porcentagem": 28,
+        "media_pontos": 967,
+        "nota": "Multiplica o dano massivo dos demônios maiores e proc de Diabolista."
+      },
+      {
+        "atributo": "Maestria",
+        "ordem": 3,
+        "media_porcentagem": 47,
+        "media_pontos": 912,
+        "nota": "Aumenta o dano base de todos os demônios invocados e do Tirano Demoníaco."
+      },
+      {
+        "atributo": "Versatilidade",
+        "ordem": 4,
+        "media_porcentagem": 4,
+        "media_pontos": 219,
+        "nota": "Mitigação passiva mantida baixa em detrimento de atributos com maior retorno de DPS."
+      }
+    ],
+    "atributos_menores": [
+      {
+        "atributo": "Evasão",
+        "ordem": 1,
+        "media_porcentagem": 6,
+        "media_pontos": 204
+      },
+      {
+        "atributo": "Sorver",
+        "ordem": 2,
+        "media_porcentagem": 2,
+        "media_pontos": 26
+      },
+      {
+        "atributo": "Velocidade",
+        "ordem": 3,
+        "media_porcentagem": 2,
+        "media_pontos": 0
+      }
+    ],
+    "embelezamentos_mais_usados": [
+      {
+        "nome_pt": "Forro de Tramarcana",
+        "nome_en": "Arcanoweave Lining",
+        "item_base": "Martyr's Bindings",
+        "item_id": 239648,
+        "icone": "https://render.worldofwarcraft.com/us/icons/56/7266375.jpg",
+        "contagem_recomendada": 2,
+        "efeito": "Concede bônus massivo de Maestria/Aceleração mantendo vida alta acima de 80%."
+      },
+      {
+        "nome_pt": "Pedra Ritual do Caçador",
+        "nome_en": "Hunter's Ritual Stone",
+        "item_base": "Aln'hara Lantern",
+        "item_id": 245769,
+        "icone": "https://render.worldofwarcraft.com/us/icons/56/7431122.jpg",
+        "contagem_recomendada": 1,
+        "efeito": "Alternativa de dano direto para frentes de masmorras com pulls densos."
+      }
+    ],
+    "encantamentos_populares": [
+      {
+        "slot": "Peitoral",
+        "encantamento": "Enchant Chest - Mark of the Worldsoul",
+        "efeito": "+Atributo Primário"
+      },
+      {
+        "slot": "Braçadeiras",
+        "encantamento": "Enchant Bracer - Chant of Armored Avoidance",
+        "efeito": "+Evasão"
+      },
+      {
+        "slot": "Botas",
+        "encantamento": "Enchant Boots - Defender's March",
+        "efeito": "+Vigor e Velocidade"
+      },
+      {
+        "slot": "Anéis",
+        "encantamento": "Enchant Ring - Radiant Haste / Critical Strike",
+        "efeito": "+Aceleração / Crítico"
+      },
+      {
+        "slot": "Arma Principal",
+        "encantamento": "Enchant Weapon - Authority of Fiery Resolve",
+        "efeito": "Proc de Intelecto"
+      }
+    ],
+    "gemas_populares": [
+      {
+        "gema": "Indecipherable Eversong Diamond",
+        "id": 240983,
+        "tipo": "Diamante Meta / Égide",
+        "icone": "https://render.worldofwarcraft.com/us/icons/56/7549096.jpg"
+      },
+      {
+        "gema": "Powerful Eversong Diamond",
+        "id": 240967,
+        "tipo": "Diamante Primário",
+        "icone": "https://render.worldofwarcraft.com/us/icons/56/7549097.jpg"
+      },
+      {
+        "gema": "Flawless Quick Garnet",
+        "id": 240906,
+        "tipo": "Aceleração Pura / Prismática",
+        "icone": "https://render.worldofwarcraft.com/us/icons/56/7549138.jpg"
+      },
+      {
+        "gema": "Flawless Deadly Peridot",
+        "id": 240890,
+        "tipo": "Crítico / Prismática",
+        "icone": "https://render.worldofwarcraft.com/us/icons/56/7549127.jpg"
+      },
+      {
+        "gema": "Flawless Masterful Garnet",
+        "id": 240908,
+        "tipo": "Maestria / Prismática",
+        "icone": "https://render.worldofwarcraft.com/us/icons/56/7549144.jpg"
+      }
+    ],
+    "racas_mais_jogadas": [
+      {
+        "raca": "Anão (Dwarf)",
+        "porcentagem": 26,
+        "motivo": "Forma de Pedra remove sangramentos, venenos e maldições em chaves altas."
+      },
+      {
+        "raca": "Elfo Noturno (Night Elf)",
+        "porcentagem": 22,
+        "motivo": "Fusão Ínclita permite resetar aggro e anular projéteis teleguiados de chefes."
+      },
+      {
+        "raca": "Orc",
+        "porcentagem": 6,
+        "motivo": "Fúria Sangrenta concede bônus alinhado com dano explosivo de Tirano."
+      },
+      {
+        "raca": "Humano",
+        "porcentagem": 2,
+        "motivo": "Espírito Humano concede atributos secundários aumentados."
+      },
+      {
+        "raca": "Morto-vivo",
+        "porcentagem": 2,
+        "motivo": "Determinação dos Renegados contra efeitos de medo e sono."
+      }
+    ]
+  }
+}

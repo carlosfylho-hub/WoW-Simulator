@@ -1,0 +1,3747 @@
+{
+  "_meta": {
+    "nome": "Banco de Dados M+ Season 2 — Armaduras Tecido e Couro",
+    "patch": "12.1.5 — Maldição de Ula'tek",
+    "expansao": "World of Warcraft: Midnight",
+    "atualizado": "2026-11-05",
+    "fonte": "wowhead.com/pt — Season 2 Mythic+ Rewards Guide + raspagem direta de itens de Delve (nov/2026)",
+    "descricao": "Referência completa de todos os drops de armadura Tecido (Bruxo Demo + Sacerdote Sombra) e Couro (Druida Equilíbrio) disponíveis via M+ na Season 2. Inclui acessórios, trinkets, armas relevantes para casters, gear craftado BiS e recompensas do Labirinto de Kindo'jan (Delves Herói/Mito) com stats secundários confirmados via raspagem Wowhead nov/2026.",
+    "uso": "Quando tiver dois itens para comparar, informe slot, nomes e contexto (M+/Raid). Este documento fornece as prioridades de stat por spec e a lista completa de opções disponíveis para o slot.",
+    "nota_importante": "Stats secundários (Aceleração, Crítico, Maestria, Versatilidade) variam por item. Itens de Delve têm stats confirmados via raspagem direta nov/2026. 'Atributo não utilizado' em Wowhead PT = Versatilidade.",
+    "errata": {
+      "capa_murder_row": "CORREÇÃO: 'Clâmide de Vodu Sedosa' de Murder Row NÃO existe. A capa de Murder Row é 'Mortalha do Inferninho' (item=251132).",
+      "idolo_covil_nalorakk": "CORRIGIDO em 2026-11-05: 'Ídolo do Loa da Guerra' (item=250229) NÃO serve a conjurador. Tooltip oficial: +148 de Crítico e 290 de FORÇA por 15s. É trinket de melee e foi removido de todos os rankings de Bruxo, Sacerdote e Druida.",
+      "dragonas_ascensao": "CONFIRMADO: Dragonas da Ascensão Cerimonial (Shoulder, Cloth) é de Kings' Rest, item=239045.",
+      "boomkin_arma": "CORREÇÃO 12.1.5: Balance Druid usa 1H Dagger + Off-Hand. Jan'thrazet + Aln'hara Lantern = BiS.",
+      "mito_track_delves": "CORREÇÃO: Mythical Soul Fragment gera Mito 2/6 (ilvl 321) — NÃO Mito 1/6/318 como estava listado."
+    },
+    "dungeons_temporada": {
+      "Altar das Presas": "Altar of Fangs",
+      "Covil de Nalorakk": "Den of Nalorakk",
+      "Murder Row": "Murder Row",
+      "O Vale Ofuscante": "The Blinding Vale",
+      "Arena da Chaga do Caos": "Voidscar Arena",
+      "Piscinas da Vida Rubi": "Ruby Life Pools",
+      "Templo de Sethraliss": "Temple of Sethraliss",
+      "Descanso do Rei": "King's Rest"
+    }
+  },
+  "tabela_ilvl_mplus": {
+    "descricao": "ilvl do gear ao final da dungeon, baseado no nível da chave completada no timer",
+    "niveis": [
+      {
+        "chave": 2,
+        "ilvl_drop": 295,
+        "track": "Campeão 2/6",
+        "crest": "Brasão Brumoso do Campeão"
+      },
+      {
+        "chave": 3,
+        "ilvl_drop": 298,
+        "track": "Campeão 3/6",
+        "crest": "Brasão Brumoso do Campeão"
+      },
+      {
+        "chave": 4,
+        "ilvl_drop": 301,
+        "track": "Campeão 4/6",
+        "crest": "Brasão Brumoso do Campeão"
+      },
+      {
+        "chave": 5,
+        "ilvl_drop": 304,
+        "track": "Campeão 5/6",
+        "crest": "Brasão Brumoso do Campeão"
+      },
+      {
+        "chave": 6,
+        "ilvl_drop": 307,
+        "track": "Campeão 6/6",
+        "crest": "Brasão Brumoso do Campeão"
+      },
+      {
+        "chave": 7,
+        "ilvl_drop": 311,
+        "track": "Herói 1/6",
+        "crest": "Brasão Nebuloso do Herói"
+      },
+      {
+        "chave": 8,
+        "ilvl_drop": 314,
+        "track": "Herói 2/6",
+        "crest": "Brasão Nebuloso do Herói"
+      },
+      {
+        "chave": 9,
+        "ilvl_drop": 317,
+        "track": "Herói 3/6",
+        "crest": "Brasão Nebuloso do Herói"
+      },
+      {
+        "chave": 10,
+        "ilvl_drop": 320,
+        "track": "Herói 4/6",
+        "crest": "Brasão Nebuloso do Herói"
+      },
+      {
+        "chave": 11,
+        "ilvl_drop": 323,
+        "track": "Herói 5/6",
+        "crest": "Brasão Nebuloso do Herói"
+      },
+      {
+        "chave": 12,
+        "ilvl_drop": 326,
+        "track": "Herói 6/6",
+        "crest": "Brasão Nebuloso do Herói"
+      }
+    ],
+    "great_vault": "Great Vault de M+ pode oferecer ilvl Mítico mesmo com chaves mais baixas.",
+    "regra_ilvl_vs_stats": "REGRA GERAL: +13 ilvl geralmente compensa uma combinação de stats secundários subótima.",
+    "bonus_forjado_com_peconha": {
+      "descricao": "Itens de pescoço, berloque e arma marcados como 'Ascendente Forjado com Peçonha' no tooltip recebem +7 de nível de item sobre o teto do track. Ver season2_context.json#sistema_forjado_com_peconha.",
+      "heroi": {
+        "ilvl_com_forja": 328,
+        "base": 321
+      },
+      "mitico": {
+        "ilvl_com_forja": 341,
+        "base": 334
+      },
+      "implicacao": "Um berloque forjado de 341 não é comparável diretamente com uma peça comum de 341: é um item de track mítico com a forja aplicada. Normalize pelo ilvl de referência antes de comparar."
+    }
+  },
+  "pesos_de_atributo": {
+    "descricao": "Prioridade relativa de stats secundários por spec e contexto. Valores normalizados (1.0 = melhor stat).",
+    "aviso": "Pesos aproximados — para simulação precisa use Raidbots.",
+    "demo_lock": {
+      "nome": "Bruxo da Demonologia",
+      "mplus": {
+        "prioridade": [
+          "Aceleração",
+          "Crítico",
+          "Maestria",
+          "Versatilidade"
+        ],
+        "pesos": {
+          "Aceleração": 1,
+          "Crítico": 0.85,
+          "Maestria": 0.65,
+          "Versatilidade": 0.5
+        },
+        "stat_secundario_bis_combo": "Aceleração + Crítico"
+      },
+      "raid": {
+        "prioridade": [
+          "Crítico",
+          "Aceleração",
+          "Maestria",
+          "Versatilidade"
+        ],
+        "pesos": {
+          "Crítico": 1,
+          "Aceleração": 0.95,
+          "Maestria": 0.7,
+          "Versatilidade": 0.55
+        },
+        "stat_secundario_bis_combo": "Crítico + Aceleração"
+      }
+    },
+    "shadow_priest": {
+      "nome": "Sacerdote Sombra",
+      "mplus": {
+        "prioridade": [
+          "Aceleração",
+          "Crítico",
+          "Maestria",
+          "Versatilidade"
+        ],
+        "pesos": {
+          "Aceleração": 1,
+          "Crítico": 0.85,
+          "Maestria": 0.7,
+          "Versatilidade": 0.55
+        },
+        "stat_secundario_bis_combo": "Aceleração + Crítico ou Aceleração + Maestria"
+      },
+      "raid": {
+        "prioridade": [
+          "Crítico",
+          "Aceleração",
+          "Versatilidade",
+          "Maestria"
+        ],
+        "pesos": {
+          "Crítico": 1,
+          "Aceleração": 0.9,
+          "Versatilidade": 0.65,
+          "Maestria": 0.6
+        },
+        "stat_secundario_bis_combo": "Crítico + Aceleração"
+      }
+    },
+    "balance_druid": {
+      "nome": "Druida do Equilíbrio (Boomkin)",
+      "mplus": {
+        "prioridade": [
+          "Aceleração",
+          "Maestria",
+          "Crítico",
+          "Versatilidade"
+        ],
+        "pesos": {
+          "Aceleração": 1,
+          "Maestria": 0.75,
+          "Crítico": 0.65,
+          "Versatilidade": 0.5
+        },
+        "stat_secundario_bis_combo": "Aceleração + Maestria"
+      },
+      "raid": {
+        "prioridade": [
+          "Aceleração",
+          "Maestria",
+          "Crítico",
+          "Versatilidade"
+        ],
+        "pesos": {
+          "Aceleração": 1,
+          "Maestria": 0.8,
+          "Crítico": 0.7,
+          "Versatilidade": 0.55
+        },
+        "stat_secundario_bis_combo": "Aceleração + Maestria"
+      }
+    }
+  },
+  "gear_craftado_bis": {
+    "descricao": "Gear craftado BiS (Best in Slot) para cada spec em Midnight Season 2. Apenas 2 embellishments podem ser equipados simultaneamente.",
+    "moeda_craft": "Spark of Tides (substitui Spark of Dreams da S1) — use com sabedoria.",
+    "limite_embellishments": "MÁXIMO 2 embellishments equipados ao mesmo tempo.",
+    "embellishments_disponiveis": {
+      "arcanoweave_lining": {
+        "nome_en": "Arcanoweave Lining",
+        "tipo": "Armor embellishment",
+        "efeito": "Aumenta atributos primários no portador E buffa aliado próximo (dentro de 15 jardas).",
+        "melhor_para": "Todos os slots de armadura (Wrist, Waist, Shoulder etc.)",
+        "uso": "BiS late season para todos os 3 casters."
+      },
+      "hunters_ritual_stone": {
+        "nome_en": "Hunter's Ritual Stone",
+        "tipo": "Weapon/Off-hand embellishment",
+        "efeito": "Proc/efeito ativo em arma ou off-hand.",
+        "melhor_para": "Off-hand ou arma craftada",
+        "uso": "Padrão para off-hand craftada (Aln'hara Lantern)."
+      },
+      "darkmoon_sigil_hunt": {
+        "nome_en": "Darkmoon Sigil: Hunt",
+        "tipo": "Weapon embellishment",
+        "efeito": "Proc em arma craftada. Especialmente forte em armas 2H early season.",
+        "melhor_para": "Arma craftada early season (Aln'hara Cane para Boomkin)",
+        "uso": "Temporário — substituir quando conseguir BiS weapon de raid."
+      }
+    },
+    "itens_craftados_principais": {
+      "martyrs_bindings": {
+        "nome_en": "Martyr's Bindings",
+        "slot": "Wrist",
+        "armadura": "Tecido",
+        "profissao": "Alfaiataria",
+        "embellishment_bis": "Arcanoweave Lining",
+        "specs": [
+          "Shadow Priest",
+          "Demonology Warlock"
+        ],
+        "notas": "BiS Wrist para Shadow e Demo."
+      },
+      "martyrs_waistwrap": {
+        "nome_en": "Martyr's Waistwrap",
+        "slot": "Waist",
+        "armadura": "Tecido",
+        "profissao": "Alfaiataria",
+        "embellishment_bis": "Arcanoweave Lining",
+        "specs": [
+          "Shadow Priest",
+          "Demonology Warlock"
+        ],
+        "notas": "BiS Waist para Shadow e Demo."
+      },
+      "alnhara_lantern": {
+        "nome_en": "Aln'hara Lantern",
+        "slot": "Off-hand",
+        "armadura": "N/A",
+        "profissao": "Verificar",
+        "embellishment_bis": "Hunter's Ritual Stone",
+        "specs": [
+          "Balance Druid",
+          "Demonology Warlock"
+        ],
+        "notas": "BiS Off-hand para Boomkin e Demo. Boomkin: PRIMERA craft da season."
+      },
+      "alnhara_cane": {
+        "nome_en": "Aln'hara Cane",
+        "slot": "Main Hand (2H Staff)",
+        "armadura": "N/A",
+        "profissao": "Verificar",
+        "embellishment_bis": "Hunter's Ritual Stone",
+        "specs": [
+          "Balance Druid (early season)"
+        ],
+        "notas": "APENAS early season para Boomkin. Substituir quando conseguir Jan'thrazet."
+      },
+      "silvermoon_agents_mantle": {
+        "nome_en": "Silvermoon Agent's Mantle",
+        "slot": "Shoulder",
+        "armadura": "Couro",
+        "profissao": "Couraria",
+        "embellishment_bis": "Arcanoweave Lining",
+        "specs": [
+          "Balance Druid"
+        ],
+        "notas": "BiS Shoulder late season para Boomkin."
+      },
+      "silvermoon_agents_deflectors": {
+        "nome_en": "Silvermoon Agent's Deflectors",
+        "slot": "Wrist",
+        "armadura": "Couro",
+        "profissao": "Couraria",
+        "embellishment_bis": "Arcanoweave Lining",
+        "specs": [
+          "Balance Druid"
+        ],
+        "notas": "BiS Wrist para Boomkin."
+      }
+    },
+    "resumo_por_spec": {
+      "balance_druid": {
+        "craft_prioridade": [
+          "1º — Aln'hara Lantern + Hunter's Ritual Stone (Off-hand, semana 1)",
+          "2º — Silvermoon Agent's Mantle + Arcanoweave Lining (Shoulder, late season)"
+        ],
+        "weapon_bis_nao_craftada": "Jan'thrazet, the Soul Fang — Dagger 1H, dropa de Ula'tek (raid).",
+        "embellishments_finais": "Hunter's Ritual Stone (off-hand) + Arcanoweave Lining (shoulder)"
+      },
+      "shadow_priest": {
+        "craft_prioridade": [
+          "1º — Martyr's Bindings + Arcanoweave Lining (Wrist)",
+          "2º — Martyr's Waistwrap + Arcanoweave Lining (Waist)"
+        ],
+        "offhand_bis_nao_craftada": "Spine of the Hissing Abyss — de Entombed Sentinels (raid).",
+        "embellishments_finais": "Arcanoweave Lining (wrist) + Arcanoweave Lining (waist)"
+      },
+      "demo_lock": {
+        "craft_prioridade": [
+          "1º — Aln'hara Lantern + Hunter's Ritual Stone (Off-hand)",
+          "2º — Martyr's Waistwrap + Arcanoweave Lining (Waist)",
+          "3º — Martyr's Bindings + Arcanoweave Lining (Wrist)"
+        ],
+        "embellishments_finais": "Arcanoweave Lining (waist) + Arcanoweave Lining (wrist)"
+      }
+    },
+    "stat_para_craftar": {
+      "demo_lock": "Aceleração + Crítico",
+      "shadow_priest": "Aceleração + Crítico (ou Aceleração + Maestria se preferir multi-target)",
+      "balance_druid": "Aceleração + Maestria"
+    }
+  },
+  "labyrinth_kindojan_delves": {
+    "descricao": "Labirinto de Kindo'jan — sistema de Delves expandido (Megadelve) adicionado no Patch 12.1.5. 9 câmaras, Tiers 1-11, acompanhado de Valeera Sanguinar. Único Labyrinth disponível até o momento. Fonte: wowhead.com (raspa direta dos itens), Method.gg, skycoach.gg (nov/2026).",
+    "url_guia": "https://www.wowhead.com/guide/midnight/delves/labyrinth-of-kindojan-megadelve-nemesis-rewards",
+    "nota_importante": "O sistema combina loot direto (sets de armadura nos baús) + tokens/fragmentos que permitem ESCOLHER o slot desejado. Sets Pisa-piras (Cloth) e Espreitador das Brumas (Leather) são ilvl 321, Herói 6/6, BoP — stats secundários confirmados via raspagem Wowhead nov/2026.",
+    "sistema_de_recompensas": {
+      "heavy_trunks": {
+        "descricao": "Baús pesados concedidos ao limpar câmaras",
+        "tabela": [
+          {
+            "camaras": 1,
+            "recompensa": "1 Heavy Trunk"
+          },
+          {
+            "camaras": 2,
+            "recompensa": "2 Heavy Trunks"
+          },
+          {
+            "camaras": 3,
+            "recompensa": "2 Heavy Trunks + 1 Bountiful Coffer"
+          },
+          {
+            "camaras": 4,
+            "recompensa": "3 Heavy Trunks + 1 Bountiful Coffer"
+          },
+          {
+            "camaras": 5,
+            "recompensa": "4 Heavy Trunks + 1 Bountiful Coffer"
+          },
+          {
+            "camaras": 6,
+            "recompensa": "4 Heavy Trunks + 2 Bountiful Coffers"
+          }
+        ],
+        "nota": "Usar Restored Coffer Keys (3x) para abrir todos os Bountiful Coffers e maximizar loot"
+      },
+      "great_vault_credito": "3 câmaras = 1 crédito de Delve na Great Vault. 9 câmaras completas = 3 créditos.",
+      "ancestral_bounty": "Derrotar Kindo'jan no Tier 8+ concede Ancestral Bounty: loot extra + 10 Mistcrests do Herói + 10 Mistcrests do Mito."
+    },
+    "tokens_gear": {
+      "heroic_soul_fragment": {
+        "nome_en": "Heroic Soul Fragment",
+        "origem": "Bountiful Coffers dentro do Labyrinth (Tier 11 garante em maior quantidade)",
+        "uso": "Combine 3 → item Herói 2/6 ALEATÓRIO (ilvl 308)",
+        "track": "Herói 2/6",
+        "ilvl": 308,
+        "escolha_slot": false,
+        "notas": "Item aleatório — útil para gear rápido de alts ou slots sem Herói ainda."
+      },
+      "blessed_loa_armament": {
+        "nome_en": "Blessed Loa Armament",
+        "origem": "Ancient Chests (baús escondidos dentro das câmaras)",
+        "uso": "Trocar por peça de armadura Herói 1/6 no SLOT ESCOLHIDO (Warbound until equipped)",
+        "track": "Herói 1/6",
+        "ilvl": "Herói 1/6",
+        "escolha_slot": true,
+        "slots_disponiveis": "Apenas armadura (não inclui armas, trinkets, acessórios)",
+        "warbound": true,
+        "notas": "Warbound until equipped = pode ser usado por qualquer char da conta antes de equipar."
+      },
+      "mythical_soul_fragment": {
+        "nome_en": "Mythical Soul Fragment",
+        "origem": "Quests semanais dentro do Labyrinth (requer Tier 8 ou superior)",
+        "uso": "Combine 3 → Venerated Loa Armament → escolher peça de armadura Mito 2/6",
+        "track": "Mito 2/6",
+        "ilvl": 321,
+        "escolha_slot": true,
+        "slots_disponiveis": "Armadura, capa, joias (Neck, Rings). NÃO inclui armas nem trinkets.",
+        "requisito_tier": "Tier 8+ para dropar Mythical Soul Fragments via quests",
+        "frequencia": "Semanal — cadeia de quests dentro do Labyrinth",
+        "notas": "MELHOR recompensa do Labyrinth. Permite garantir um slot específico de Mito 2/6 (ilvl 321) sem depender de M+ ou Raid. CORREÇÃO: versões anteriores listavam incorretamente como Mito 1/6 / 318 ilvl."
+      }
+    },
+    "set_tecido_pisapiras": {
+      "nome_pt": "Conjunto Pisa-piras",
+      "nome_en": "Footpad's Set",
+      "armadura": "Tecido (Cloth)",
+      "ilvl": 321,
+      "track": "Herói 6/6",
+      "bind": "BoP",
+      "specs_relevantes": [
+        "Sacerdote Sombra",
+        "Bruxo da Demonologia"
+      ],
+      "ids_set": [
+        272231,
+        272232,
+        272233,
+        272234,
+        272235,
+        272236,
+        272237,
+        272238
+      ],
+      "itens": [
+        {
+          "item_id": 272231,
+          "nome_pt": "Perponte do Pisa-piras",
+          "slot": "Torso (Chest)",
+          "stats_secundarios": {
+            "Crítico": 122,
+            "Maestria": 68
+          },
+          "pct_lvl90": {
+            "Crítico": "2.65%",
+            "Maestria": "1.48%"
+          },
+          "score_shadow": 151.3,
+          "score_demo": 147.9,
+          "veredito_shadow": "BOM — Crítico alto + Maestria. Sem Aceleração mas combo ok. Vale equipar se não tiver peito com Aceleração.",
+          "veredito_demo": "BOM — Crit+Mastery Sem Aceleração. Aceitável early season.",
+          "nome_en": "Pyrewalker's Doublet",
+          "stats_oficiais": {
+            "stats_fonte": "nether.wowhead.com locale=8 (+ locale=0 para Versatilidade), ilvl maximo, 2026-11-05",
+            "ilvl_referencia": 321,
+            "track": "Herói 6/6",
+            "Intelecto": 167,
+            "Vigor": 3369,
+            "Critico": 122,
+            "Maestria": 68
+          },
+          "icone": "inv_robe_cloth_outdooramaniloa_c_01",
+          "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_robe_cloth_outdooramaniloa_c_01.jpg",
+          "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_robe_cloth_outdooramaniloa_c_01.jpg"
+        },
+        {
+          "item_id": 272234,
+          "nome_pt": "Mitra do Pisa-piras",
+          "slot": "Cabeça (Head)",
+          "stats_secundarios": {
+            "Aceleração": 71,
+            "Maestria": 119
+          },
+          "pct_lvl90": {
+            "Aceleração": "1.61%",
+            "Maestria": "2.59%"
+          },
+          "score_shadow": 154.3,
+          "score_demo": 148.4,
+          "veredito_shadow": "BOM — Aceleração + Maestria. Aceleração é o 1º stat, Maestria é 3º. Combo sólido para M+ multi-target.",
+          "veredito_demo": "BOM — Aceleração + Maestria. Score alto mesmo sem Crítico. Equipa com confiança.",
+          "nome_en": "Pyrewalker's Miter",
+          "stats_oficiais": {
+            "stats_fonte": "nether.wowhead.com locale=8 (+ locale=0 para Versatilidade), ilvl maximo, 2026-11-05",
+            "ilvl_referencia": 321,
+            "track": "Herói 6/6",
+            "Intelecto": 167,
+            "Vigor": 3369,
+            "Aceleracao": 71,
+            "Maestria": 119
+          },
+          "icone": "inv_helm_cloth_outdooramaniloa_c_01",
+          "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_helm_cloth_outdooramaniloa_c_01.jpg",
+          "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_helm_cloth_outdooramaniloa_c_01.jpg"
+        },
+        {
+          "item_id": 272236,
+          "nome_pt": "Dragonas do Pisa-piras",
+          "slot": "Ombros (Shoulder)",
+          "stats_secundarios": {
+            "Aceleração": 87,
+            "Versatilidade": 56
+          },
+          "pct_lvl90": {
+            "Aceleração": "1.98%",
+            "Versatilidade": "1.04%"
+          },
+          "score_shadow": 117.8,
+          "score_demo": 115,
+          "veredito_shadow": "MEDIANO — Aceleração excelente, mas Versatilidade é o pior 2º stat. Usar só se não houver ombro com Aceleração+Crit/Maestria.",
+          "veredito_demo": "MEDIANO — Aceleração ótima, Vers desperdiça o budget. Substituir quando surgir ombro melhor.",
+          "nome_en": "Pyrewalker's Mantlet",
+          "stats_oficiais": {
+            "stats_fonte": "nether.wowhead.com locale=8 (+ locale=0 para Versatilidade), ilvl maximo, 2026-11-05",
+            "ilvl_referencia": 321,
+            "track": "Herói 6/6",
+            "Intelecto": 125,
+            "Vigor": 2527,
+            "Aceleracao": 87,
+            "Versatilidade": 56
+          },
+          "icone": "inv_shoulder_cloth_outdooramaniloa_c_01",
+          "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_shoulder_cloth_outdooramaniloa_c_01.jpg",
+          "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_shoulder_cloth_outdooramaniloa_c_01.jpg"
+        },
+        {
+          "item_id": 272237,
+          "nome_pt": "Obi do Pisa-piras",
+          "slot": "Cintura (Waist)",
+          "stats_secundarios": {
+            "Versatilidade": 56,
+            "Maestria": 87
+          },
+          "pct_lvl90": {
+            "Versatilidade": "1.04%",
+            "Maestria": "1.89%"
+          },
+          "score_shadow": 91.7,
+          "score_demo": 84.6,
+          "veredito_shadow": "FRACO — Vers+Maestria Sem Aceleração ou Crítico. Priorizar Atadura do Éter Etérea (Voidscar Arena) ou craft.",
+          "veredito_demo": "FRACO — Craft Martyr's Waistwrap imediatamente se tiver Spark disponível.",
+          "nome_en": "Pyrewalker's Obi",
+          "stats_oficiais": {
+            "stats_fonte": "nether.wowhead.com locale=8 (+ locale=0 para Versatilidade), ilvl maximo, 2026-11-05",
+            "ilvl_referencia": 321,
+            "track": "Herói 6/6",
+            "Intelecto": 125,
+            "Vigor": 2527,
+            "Maestria": 87,
+            "Versatilidade": 56
+          },
+          "icone": "inv_belt_cloth_outdooramaniloa_c_01",
+          "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_belt_cloth_outdooramaniloa_c_01.jpg",
+          "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_belt_cloth_outdooramaniloa_c_01.jpg"
+        },
+        {
+          "item_id": 272233,
+          "nome_pt": "Luvas do Pisa-piras",
+          "slot": "Mãos (Hands)",
+          "stats_secundarios": {
+            "Crítico": 86,
+            "Maestria": 56
+          },
+          "pct_lvl90": {
+            "Crítico": "1.87%",
+            "Maestria": "1.22%"
+          },
+          "score_shadow": 112.3,
+          "score_demo": 109.5,
+          "veredito_shadow": "OK — Crítico+Maestria Sem Aceleração. Aceitável como placeholder early season.",
+          "veredito_demo": "OK — usar até dropar mãos com Aceleração de M+.",
+          "nome_en": "Pyrewalker's Gloves",
+          "stats_oficiais": {
+            "stats_fonte": "nether.wowhead.com locale=8 (+ locale=0 para Versatilidade), ilvl maximo, 2026-11-05",
+            "ilvl_referencia": 321,
+            "track": "Herói 6/6",
+            "Intelecto": 125,
+            "Vigor": 2527,
+            "Critico": 86,
+            "Maestria": 56
+          },
+          "icone": "inv_glove_cloth_outdooramaniloa_c_01",
+          "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_glove_cloth_outdooramaniloa_c_01.jpg",
+          "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_glove_cloth_outdooramaniloa_c_01.jpg"
+        },
+        {
+          "item_id": 272235,
+          "nome_pt": "Botinas do Pisa-piras",
+          "slot": "Pernas (Legs)",
+          "stats_secundarios": {
+            "Aceleração": 73,
+            "Versatilidade": 117
+          },
+          "pct_lvl90": {
+            "Aceleração": "1.66%",
+            "Versatilidade": "2.17%"
+          },
+          "score_shadow": 137.4,
+          "score_demo": 131.5,
+          "veredito_shadow": "MEDIANO — Aceleração boa mas 117 de Vers desperdiça muito. Preferir calções de M+ com Aceleração+Crit ou Aceleração+Maestria.",
+          "veredito_demo": "MEDIANO — mesmo problema. 117 de Vers é enorme budget gasto no pior stat.",
+          "nome_en": "Pyrewalker's Treads",
+          "stats_oficiais": {
+            "stats_fonte": "nether.wowhead.com locale=8 (+ locale=0 para Versatilidade), ilvl maximo, 2026-11-05",
+            "ilvl_referencia": 321,
+            "track": "Herói 6/6",
+            "Intelecto": 167,
+            "Vigor": 3369,
+            "Aceleracao": 73,
+            "Versatilidade": 117
+          },
+          "icone": "inv_pant_cloth_outdooramaniloa_c_01",
+          "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_pant_cloth_outdooramaniloa_c_01.jpg",
+          "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_pant_cloth_outdooramaniloa_c_01.jpg"
+        },
+        {
+          "item_id": 272238,
+          "nome_pt": "Cingidouro do Pisa-piras",
+          "slot": "Pulsos (Wrist)",
+          "stats_secundarios": {
+            "Versatilidade": 69,
+            "Maestria": 38
+          },
+          "pct_lvl90": {
+            "Versatilidade": "1.28%",
+            "Maestria": "0.83%"
+          },
+          "score_shadow": 64.5,
+          "score_demo": 59.2,
+          "veredito_shadow": "RUIM — Vers+Maestria com valores baixíssimos. Pior peça do set. Craft Martyr's Bindings imediatamente.",
+          "veredito_demo": "RUIM — não equipe se tiver qualquer alternativa. Craft é prioridade.",
+          "nome_en": "Pyrewalker's Wraps",
+          "stats_oficiais": {
+            "stats_fonte": "nether.wowhead.com locale=8 (+ locale=0 para Versatilidade), ilvl maximo, 2026-11-05",
+            "ilvl_referencia": 321,
+            "track": "Herói 6/6",
+            "Intelecto": 94,
+            "Vigor": 1895,
+            "Maestria": 38,
+            "Versatilidade": 69
+          },
+          "icone": "inv_bracer_cloth_outdooramaniloa_c_01",
+          "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_bracer_cloth_outdooramaniloa_c_01.jpg",
+          "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_bracer_cloth_outdooramaniloa_c_01.jpg"
+        },
+        {
+          "item_id": 272232,
+          "nome_pt": "Alpargatas do Pisa-piras",
+          "slot": "Pés (Feet)",
+          "stats_secundarios": {
+            "Crítico": 50,
+            "Aceleração": 92
+          },
+          "pct_lvl90": {
+            "Crítico": "1.09%",
+            "Aceleração": "2.09%"
+          },
+          "score_shadow": 134.5,
+          "score_demo": 134.5,
+          "veredito_shadow": "EXCELENTE — Aceleração+Crítico! Os dois melhores stats para M+. Melhor peça do set. Equipa imediatamente.",
+          "veredito_demo": "EXCELENTE — Aceleração+Crítico, combo perfeito para Demo. Prioridade máxima.",
+          "nome_en": "Pyrewalker's Buskins",
+          "stats_oficiais": {
+            "stats_fonte": "nether.wowhead.com locale=8 (+ locale=0 para Versatilidade), ilvl maximo, 2026-11-05",
+            "ilvl_referencia": 321,
+            "track": "Herói 6/6",
+            "Intelecto": 125,
+            "Vigor": 2527,
+            "Critico": 50,
+            "Aceleracao": 92
+          },
+          "icone": "inv_boot_cloth_outdooramaniloa_c_01",
+          "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_boot_cloth_outdooramaniloa_c_01.jpg",
+          "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_boot_cloth_outdooramaniloa_c_01.jpg"
+        }
+      ],
+      "ranking_interno": {
+        "nota": "Rankings baseados no score ponderado (peso stat × valor). Itens de slots maiores (Cabeça, Torso, Pernas) naturalmente têm mais budget total que slots menores (Pés, Pulsos) — compare sempre itens do MESMO slot entre si.",
+        "shadow_priest": [
+          "Mitra (Cabeça) ★★★ — score 154.3 (Aceleração+Maestria)",
+          "Perponte (Torso) ★★★ — score 151.3 (Crítico+Maestria)",
+          "Botinas (Pernas) ★★ — score 137.4 (Aceleração+Vers — Vers ruim mas slot grande)",
+          "Alpargatas (Pés) ★★ — score 134.5 (Aceleração+Crítico — melhor combo, slot menor)",
+          "Dragonas (Ombros) ★ — score 117.8 (Aceleração+Vers)",
+          "Luvas (Mãos) ★ — score 112.3 (Crítico+Maestria)",
+          "Obi (Cintura) ✗ — score 91.7 (Vers+Maestria — evitar)",
+          "Cingidouro (Pulsos) ✗ — score 64.5 (Vers+Maestria — craft imediatamente)"
+        ],
+        "demo_lock": [
+          "Mitra (Cabeça) ★★★ — score 148.4 (Aceleração+Maestria)",
+          "Perponte (Torso) ★★★ — score 147.9 (Crítico+Maestria)",
+          "Alpargatas (Pés) ★★ — score 134.5 (Aceleração+Crítico — melhor combo do set)",
+          "Botinas (Pernas) ★★ — score 131.5 (Aceleração+Vers)",
+          "Dragonas (Ombros) ★ — score 115.0 (Aceleração+Vers)",
+          "Luvas (Mãos) ★ — score 109.5 (Crítico+Maestria)",
+          "Obi (Cintura) ✗ — score 84.6 (Vers+Maestria — evitar)",
+          "Cingidouro (Pulsos) ✗ — score 59.2 (Vers+Maestria — craft imediatamente)"
+        ]
+      },
+      "resumo_veredito": "Mitra e Perponte são as melhores peças em score absoluto (slots grandes com boa combo). Alpargatas têm o melhor stat combo do set (Aceleração+Crítico) mas slot menor. Obi e Cingidouro ruins — craft ou M+ imediatamente. Dragonas e Botinas medianas (Aceleração mas Vers no 2º stat)."
+    },
+    "set_couro_espreitador": {
+      "nome_pt": "Conjunto Espreitador das Brumas",
+      "nome_en": "Miststalker's Set",
+      "armadura": "Couro (Leather)",
+      "ilvl": 321,
+      "track": "Herói 6/6",
+      "bind": "BoP",
+      "specs_relevantes": [
+        "Druida do Equilíbrio (Boomkin)"
+      ],
+      "ids_set": [
+        272239,
+        272240,
+        272241,
+        272242,
+        272243,
+        272244,
+        272245,
+        272246
+      ],
+      "itens": [
+        {
+          "item_id": 272239,
+          "nome_pt": "Brigandina do Espreitador das Brumas",
+          "slot": "Torso (Chest)",
+          "stats_secundarios": {
+            "Crítico": 79,
+            "Maestria": 112
+          },
+          "pct_lvl90": {
+            "Crítico": "1.72%",
+            "Maestria": "2.43%"
+          },
+          "score_boomkin": 135.3,
+          "veredito_boomkin": "BOM — Crítico+Maestria, 2º e 3º stats. Sem Aceleração mas combo aceitável em M+ multi-target. Vale equipar.",
+          "nome_en": "Miststalker's Brigandine",
+          "stats_oficiais": {
+            "stats_fonte": "nether.wowhead.com locale=8 (+ locale=0 para Versatilidade), ilvl maximo, 2026-11-05",
+            "ilvl_referencia": 321,
+            "track": "Herói 6/6",
+            "Intelecto": 167,
+            "Agilidade": 167,
+            "Vigor": 3369,
+            "Critico": 79,
+            "Maestria": 112,
+            "primario_dual": "Agilidade ou Intelecto"
+          },
+          "icone": "inv_chest_leather_outdooramaniloa_c_01",
+          "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_chest_leather_outdooramaniloa_c_01.jpg",
+          "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_chest_leather_outdooramaniloa_c_01.jpg"
+        },
+        {
+          "item_id": 272240,
+          "nome_pt": "Chapins do Espreitador das Brumas",
+          "slot": "Pés (Feet)",
+          "stats_secundarios": {
+            "Crítico": 53,
+            "Versatilidade": 90
+          },
+          "pct_lvl90": {
+            "Crítico": "1.15%",
+            "Versatilidade": "1.67%"
+          },
+          "score_boomkin": 79.5,
+          "veredito_boomkin": "FRACO — Crítico baixo + 90 de Versatilidade. Budget desperdiçado. Substituir quando possível.",
+          "nome_en": "Miststalker's Striders",
+          "stats_oficiais": {
+            "stats_fonte": "nether.wowhead.com locale=8 (+ locale=0 para Versatilidade), ilvl maximo, 2026-11-05",
+            "ilvl_referencia": 321,
+            "track": "Herói 6/6",
+            "Intelecto": 125,
+            "Agilidade": 125,
+            "Vigor": 2527,
+            "Critico": 53,
+            "Versatilidade": 90,
+            "primario_dual": "Agilidade ou Intelecto"
+          },
+          "icone": "inv_boot_leather_outdooramaniloa_c_01",
+          "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_boot_leather_outdooramaniloa_c_01.jpg",
+          "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_boot_leather_outdooramaniloa_c_01.jpg"
+        },
+        {
+          "item_id": 272241,
+          "nome_pt": "Guantes do Espreitador das Brumas",
+          "slot": "Mãos (Hands)",
+          "stats_secundarios": {
+            "Aceleração": 91,
+            "Versatilidade": 52
+          },
+          "pct_lvl90": {
+            "Aceleração": "2.07%",
+            "Versatilidade": "0.96%"
+          },
+          "score_boomkin": 117,
+          "veredito_boomkin": "BOM — 91 de Aceleração é excelente! Vers no 2º stat é ruim, mas Aceleração compensa. Melhor mãos early season para Boomkin.",
+          "nome_en": "Miststalker's Grips",
+          "stats_oficiais": {
+            "stats_fonte": "nether.wowhead.com locale=8 (+ locale=0 para Versatilidade), ilvl maximo, 2026-11-05",
+            "ilvl_referencia": 321,
+            "track": "Herói 6/6",
+            "Intelecto": 125,
+            "Agilidade": 125,
+            "Vigor": 2527,
+            "Aceleracao": 91,
+            "Versatilidade": 52,
+            "primario_dual": "Agilidade ou Intelecto"
+          },
+          "icone": "inv_glove_leather_outdooramaniloa_c_01",
+          "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_glove_leather_outdooramaniloa_c_01.jpg",
+          "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_glove_leather_outdooramaniloa_c_01.jpg"
+        },
+        {
+          "item_id": 272242,
+          "nome_pt": "Capucho do Espreitador das Brumas",
+          "slot": "Cabeça (Head)",
+          "stats_secundarios": {
+            "Versatilidade": 120,
+            "Maestria": 71
+          },
+          "pct_lvl90": {
+            "Versatilidade": "2.22%",
+            "Maestria": "1.54%"
+          },
+          "score_boomkin": 113.2,
+          "veredito_boomkin": "MEDIANO — 120 de Vers é enorme budget no pior stat. Maestria salvável mas Sem Aceleração ou Crítico. Substituir por capacete de M+ com Aceleração.",
+          "nome_en": "Miststalker's Cowl",
+          "stats_oficiais": {
+            "stats_fonte": "nether.wowhead.com locale=8 (+ locale=0 para Versatilidade), ilvl maximo, 2026-11-05",
+            "ilvl_referencia": 321,
+            "track": "Herói 6/6",
+            "Intelecto": 167,
+            "Agilidade": 167,
+            "Vigor": 3369,
+            "Maestria": 71,
+            "Versatilidade": 120,
+            "primario_dual": "Agilidade ou Intelecto"
+          },
+          "icone": "inv_helm_leather_outdooramaniloa_c_01",
+          "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_helm_leather_outdooramaniloa_c_01.jpg",
+          "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_helm_leather_outdooramaniloa_c_01.jpg"
+        },
+        {
+          "item_id": 272243,
+          "nome_pt": "Cuísses do Espreitador das Brumas",
+          "slot": "Pernas (Legs)",
+          "stats_secundarios": {
+            "Aceleração": 76,
+            "Maestria": 115
+          },
+          "pct_lvl90": {
+            "Aceleração": "1.73%",
+            "Maestria": "2.50%"
+          },
+          "score_boomkin": 162.2,
+          "veredito_boomkin": "EXCELENTE — Aceleração+Maestria! Combo perfeito para Boomkin M+. Melhor peça do set com folga. Equipa imediatamente.",
+          "nome_en": "Miststalker's Cuisses",
+          "stats_oficiais": {
+            "stats_fonte": "nether.wowhead.com locale=8 (+ locale=0 para Versatilidade), ilvl maximo, 2026-11-05",
+            "ilvl_referencia": 321,
+            "track": "Herói 6/6",
+            "Intelecto": 167,
+            "Agilidade": 167,
+            "Vigor": 3369,
+            "Aceleracao": 76,
+            "Maestria": 115,
+            "primario_dual": "Agilidade ou Intelecto"
+          },
+          "icone": "inv_pant_leather_outdooramaniloa_c_01",
+          "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_pant_leather_outdooramaniloa_c_01.jpg",
+          "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_pant_leather_outdooramaniloa_c_01.jpg"
+        },
+        {
+          "item_id": 272244,
+          "nome_pt": "Espaldares do Espreitador das Brumas",
+          "slot": "Ombros (Shoulder)",
+          "stats_secundarios": {
+            "Crítico": 54,
+            "Aceleração": 88
+          },
+          "pct_lvl90": {
+            "Crítico": "1.17%",
+            "Aceleração": "2.00%"
+          },
+          "score_boomkin": 123.1,
+          "veredito_boomkin": "EXCELENTE — Aceleração+Crítico! 2º melhor combo para Boomkin. Equipa. Substituir futuramente pelo craft Silvermoon Agent's Mantle.",
+          "nome_en": "Miststalker's Spaulders",
+          "stats_oficiais": {
+            "stats_fonte": "nether.wowhead.com locale=8 (+ locale=0 para Versatilidade), ilvl maximo, 2026-11-05",
+            "ilvl_referencia": 321,
+            "track": "Herói 6/6",
+            "Intelecto": 125,
+            "Agilidade": 125,
+            "Vigor": 2527,
+            "Critico": 54,
+            "Aceleracao": 88,
+            "primario_dual": "Agilidade ou Intelecto"
+          },
+          "icone": "inv_shoulder_leather_outdooramaniloa_c_01",
+          "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_shoulder_leather_outdooramaniloa_c_01.jpg",
+          "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_shoulder_leather_outdooramaniloa_c_01.jpg"
+        },
+        {
+          "item_id": 272245,
+          "nome_pt": "Cilha do Espreitador das Brumas",
+          "slot": "Cintura (Waist)",
+          "stats_secundarios": {
+            "Crítico": 84,
+            "Versatilidade": 59
+          },
+          "pct_lvl90": {
+            "Crítico": "1.83%",
+            "Versatilidade": "1.09%"
+          },
+          "score_boomkin": 84.1,
+          "veredito_boomkin": "MEDIANO — Crítico bom mas Vers no 2º stat. Usar como placeholder. Priorizar cintura com Aceleração ou Maestria de M+.",
+          "nome_en": "Miststalker's Cinch",
+          "stats_oficiais": {
+            "stats_fonte": "nether.wowhead.com locale=8 (+ locale=0 para Versatilidade), ilvl maximo, 2026-11-05",
+            "ilvl_referencia": 321,
+            "track": "Herói 6/6",
+            "Intelecto": 125,
+            "Agilidade": 125,
+            "Vigor": 2527,
+            "Critico": 84,
+            "Versatilidade": 59,
+            "primario_dual": "Agilidade ou Intelecto"
+          },
+          "icone": "inv_belt_leather_outdooramaniloa_c_01",
+          "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_belt_leather_outdooramaniloa_c_01.jpg",
+          "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_belt_leather_outdooramaniloa_c_01.jpg"
+        },
+        {
+          "item_id": 272246,
+          "nome_pt": "Pulseiras do Espreitador das Brumas",
+          "slot": "Pulsos (Wrist)",
+          "stats_secundarios": {
+            "Crítico": 69,
+            "Maestria": 38
+          },
+          "pct_lvl90": {
+            "Crítico": "1.50%",
+            "Maestria": "0.83%"
+          },
+          "score_boomkin": 73.3,
+          "veredito_boomkin": "OK — Crítico+Maestria com valores baixos (slot de pulso tem budget menor). Craft Silvermoon Agent's Deflectors é prioridade para este slot.",
+          "nome_en": "Miststalker's Wristbands",
+          "stats_oficiais": {
+            "stats_fonte": "nether.wowhead.com locale=8 (+ locale=0 para Versatilidade), ilvl maximo, 2026-11-05",
+            "ilvl_referencia": 321,
+            "track": "Herói 6/6",
+            "Intelecto": 94,
+            "Agilidade": 94,
+            "Vigor": 1895,
+            "Critico": 69,
+            "Maestria": 38,
+            "primario_dual": "Agilidade ou Intelecto"
+          },
+          "icone": "inv_bracer_leather_outdooramaniloa_c_01",
+          "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_bracer_leather_outdooramaniloa_c_01.jpg",
+          "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_bracer_leather_outdooramaniloa_c_01.jpg"
+        }
+      ],
+      "ranking_interno": {
+        "nota": "Rankings baseados no score ponderado. Slots maiores (Pernas, Torso) têm mais budget — compare sempre itens do MESMO slot entre si.",
+        "balance_druid": [
+          "Cuísses (Pernas) ★★★ — score 162.2 (Aceleração+Maestria — combo PERFEITO para Boomkin)",
+          "Brigandina (Torso) ★★ — score 135.3 (Crítico+Maestria)",
+          "Espaldares (Ombros) ★★ — score 123.1 (Crítico+Aceleração — ótimo combo, slot menor)",
+          "Guantes (Mãos) ★★ — score 117.0 (Aceleração+Vers — Aceleração compensa Vers)",
+          "Capucho (Cabeça) ★ — score 113.2 (Vers+Maestria — slot grande mas stats ruins)",
+          "Cilha (Cintura) ★ — score 84.1 (Crítico+Vers — placeholder apenas)",
+          "Chapins (Pés) ✗ — score 79.5 (Crítico+Vers — substituir logo)",
+          "Pulseiras (Pulsos) ✗ — score 73.3 (Crítico+Maestria — craft Silvermoon Deflectors)"
+        ]
+      },
+      "resumo_veredito": "Cuísses são disparado as melhores (Aceleração+Maestria, combo perfeito, slot grande). Brigandina aceitável. Espaldares e Guantes boas opções. Capucho mediano apesar do slot grande (Vers domina). Chapins e Pulseiras fracos — substituir. Craft Silvermoon Agent's Deflectors para Pulsos."
+    },
+    "contexto_progressao_casters": {
+      "descricao": "Como o Labyrinth se encaixa no gearing de Bruxo Demo, Sacerdote Sombra e Druida Boomkin",
+      "hero_track": {
+        "valor": "Hero 2/6 (ilvl 308) via Heroic Soul Fragments serve bem no início da season",
+        "estrategia": "Usar Blessed Loa Armament (slot escolhido) para slots prioritários: Waist, Wrist ou outro slot fora do tier set"
+      },
+      "myth_track": {
+        "valor": "Mito 2/6 (ilvl 321) via Mythical Soul Fragments — upgrade SIGNIFICATIVO. Permite escolher o slot desejado.",
+        "estrategia_casters": [
+          "Priorizar slots fora do tier set: Wrist, Waist, Neck ou Ring",
+          "Demo Lock/Shadow: Waist ou Wrist Mito 2/6 é valioso antes de conseguir craftado",
+          "Boomkin: Neck ou Ring Mito 2/6 se ainda não tiver BiS de M+",
+          "LEMBRAR: armas e trinkets NÃO podem ser obtidos via fragmentos — focar nesses slots via M+/Raid"
+        ],
+        "comparacao_com_mplus": "Mito 2/6 (321) = mesmo ilvl que o set Herói 6/6 do Labyrinth. A vantagem é poder ESCOLHER o slot específico."
+      }
+    },
+    "cosmetics_e_conquistas": {
+      "mount_loa_blessed_wayfarer": "Derrotar Kindo'jan SOLO no Tier 11 durante Midnight Season 2",
+      "toy_loa_blessed_victory": "Derrotar Kindo'jan e lootar o Ancestral Bounty",
+      "titulo_fabled": "Derrotar Kindo'jan solo no Tier 11 antes do reset semanal limitado",
+      "outros_titulos": "7 títulos disponíveis no total dentro do Labyrinth"
+    },
+    "resumo_semanal": {
+      "rotina_recomendada": [
+        "1. Completar ao menos 6 câmaras para 4 Heavy Trunks + 2 Bountiful Coffers",
+        "2. Usar 3 Restored Coffer Keys nos Bountiful Coffers",
+        "3. Completar quests de Wah'du no Tier 8+ para acumular Mythical Soul Fragments",
+        "4. Derrotar Kindo'jan para Ancestral Bounty (Mistcrests + loot extra)",
+        "5. 9 câmaras = 3 créditos na Great Vault — vale completar run inteiro"
+      ]
+    }
+  },
+  "acessorios_mplus": {
+    "descricao": "Neck, rings, back (cloaks) disponíveis em M+ Season 2.",
+    "neck": [
+      {
+        "nome_pt": "Feixe de Presas Protetoras",
+        "item_id": 273781,
+        "dungeon_pt": "Altar das Presas",
+        "wowhead": "https://www.wowhead.com/pt/item=273781",
+        "notas": "Novo — Midnight S2",
+        "nome_en": "Strand of Warding Fangs",
+        "dungeon_en": "Altar of Fangs",
+        "stats_secundarios": {
+          "Crítico": 16,
+          "Aceleração": 12
+        },
+        "combo_stats": "Crítico + Aceleração",
+        "icone": "inv_121_jewelry_neck03_teal",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_121_jewelry_neck03_teal.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_121_jewelry_neck03_teal.jpg"
+      },
+      {
+        "nome_pt": "Pingente da Fúria Maléfica",
+        "item_id": 251142,
+        "dungeon_pt": "Murder Row",
+        "wowhead": "https://www.wowhead.com/pt/item=251142",
+        "nome_en": "Pendant of Malefic Fury",
+        "dungeon_en": "Murder Row",
+        "stats_secundarios": {
+          "Aceleração": 6,
+          "Maestria": 14
+        },
+        "combo_stats": "Aceleração + Maestria",
+        "icone": "inv_12_jewelry_silvermoonelf_necklace_green",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_12_jewelry_silvermoonelf_necklace_green.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_12_jewelry_silvermoonelf_necklace_green.jpg"
+      },
+      {
+        "nome_pt": "Enxerto dos Domanaar",
+        "item_id": 251234,
+        "dungeon_pt": "Arena da Chaga do Caos",
+        "wowhead": "https://www.wowhead.com/pt/item=251234",
+        "nome_en": "Graft of the Domanaar",
+        "dungeon_en": "Voidscar Arena",
+        "stats_secundarios": {
+          "Crítico": 13,
+          "Maestria": 7
+        },
+        "combo_stats": "Crítico + Maestria",
+        "icone": "inv_12_jewelry_devouringhost_necklace_silver2",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_12_jewelry_devouringhost_necklace_silver2.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_12_jewelry_devouringhost_necklace_silver2.jpg"
+      },
+      {
+        "nome_pt": "Jugo do Urso Atacante",
+        "item_id": 251173,
+        "dungeon_pt": "Covil de Nalorakk",
+        "wowhead": "https://www.wowhead.com/pt/item=251173",
+        "notas": "Verificar stats para casters",
+        "nome_en": "Yoke of the Charging Bear",
+        "dungeon_en": "Den of Nalorakk",
+        "stats_secundarios": {
+          "Crítico": 7,
+          "Aceleração": 13
+        },
+        "combo_stats": "Aceleração + Crítico",
+        "icone": "inv_12_jewelry_zulaman_troll_necklace_green1",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_12_jewelry_zulaman_troll_necklace_green1.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_12_jewelry_zulaman_troll_necklace_green1.jpg"
+      }
+    ],
+    "ring": [
+      {
+        "nome_pt": "Elo do Senhor da Guerra Amani",
+        "item_id": 273792,
+        "dungeon_pt": "Altar das Presas",
+        "wowhead": "https://www.wowhead.com/pt/item=273792",
+        "notas": "Novo — Midnight S2",
+        "nome_en": "Band of the Amani Warlord",
+        "dungeon_en": "Altar of Fangs",
+        "stats_secundarios": {
+          "Crítico": 10,
+          "Aceleração": 17
+        },
+        "combo_stats": "Aceleração + Crítico",
+        "icone": "inv_121_jewelry_ring02_green",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_121_jewelry_ring02_green.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_121_jewelry_ring02_green.jpg"
+      },
+      {
+        "nome_pt": "Sinete da Servidão Sibilante",
+        "item_id": 251136,
+        "dungeon_pt": "Murder Row",
+        "wowhead": "https://www.wowhead.com/pt/item=251136",
+        "nome_en": "Signet of Snarling Servitude",
+        "dungeon_en": "Murder Row",
+        "stats_secundarios": {
+          "Crítico": 12,
+          "Maestria": 8
+        },
+        "combo_stats": "Crítico + Maestria",
+        "icone": "inv_12_jewelry_voidelf_ring_teal",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_12_jewelry_voidelf_ring_teal.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_12_jewelry_voidelf_ring_teal.jpg"
+      },
+      {
+        "nome_pt": "Vínculo do Guardião da Luz",
+        "item_id": 251194,
+        "dungeon_pt": "O Vale Ofuscante",
+        "wowhead": "https://www.wowhead.com/pt/item=251194",
+        "nome_en": "Lightwarden's Bind",
+        "dungeon_en": "The Blinding Vale",
+        "stats_secundarios": {
+          "Maestria": 13,
+          "Versatilidade": 7
+        },
+        "combo_stats": "Maestria + Versatilidade",
+        "icone": "inv12_jewelrytrinkets_rutaani_ring_yellow",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv12_jewelrytrinkets_rutaani_ring_yellow.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv12_jewelrytrinkets_rutaani_ring_yellow.jpg"
+      },
+      {
+        "nome_pt": "Sinete Doentio de Atroxus",
+        "item_id": 252258,
+        "dungeon_pt": "Arena da Chaga do Caos",
+        "wowhead": "https://www.wowhead.com/pt/item=252258",
+        "nome_en": "Sickening Signet of Atroxus",
+        "dungeon_en": "Voidscar Arena",
+        "stats_secundarios": {
+          "Aceleração": 14,
+          "Maestria": 6
+        },
+        "combo_stats": "Aceleração + Maestria",
+        "icone": "inv_12_jewelry_devouringhost_ring_bronze2",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_12_jewelry_devouringhost_ring_bronze2.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_12_jewelry_devouringhost_ring_bronze2.jpg"
+      },
+      {
+        "nome_pt": "Elo Precioso Surrupiado",
+        "item_id": 251148,
+        "dungeon_pt": "Covil de Nalorakk",
+        "wowhead": "https://www.wowhead.com/pt/item=251148",
+        "nome_en": "Pilfered Precious Band",
+        "dungeon_en": "Den of Nalorakk",
+        "stats_secundarios": {
+          "Crítico": 8,
+          "Versatilidade": 12
+        },
+        "combo_stats": "Crítico + Versatilidade",
+        "icone": "inv_12_jewelry_zulaman_troll_ring_green2",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_12_jewelry_zulaman_troll_ring_green2.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_12_jewelry_zulaman_troll_ring_green2.jpg"
+      },
+      {
+        "nome_pt": "Elo Ofídico de Jade",
+        "item_id": 162544,
+        "dungeon_pt": "Templo de Sethraliss",
+        "wowhead": "https://www.wowhead.com/pt/item=162544",
+        "notas": "Item de BfA retornando",
+        "nome_en": "Jade Ophidian Band",
+        "dungeon_en": "Temple of Sethraliss",
+        "stats_secundarios": {
+          "Maestria": 10,
+          "Versatilidade": 6
+        },
+        "combo_stats": "Maestria + Versatilidade",
+        "icone": "inv_ring_80_04c",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_ring_80_04c.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_ring_80_04c.jpg"
+      },
+      {
+        "nome_pt": "Elo de Arenito Carregado",
+        "item_id": 158366,
+        "dungeon_pt": "Templo de Sethraliss",
+        "wowhead": "https://www.wowhead.com/pt/item=158366",
+        "notas": "BiS Ring M+ confirmado para Demo Lock e Shadow Priest (Murlok.io).",
+        "nome_en": "Charged Sandstone Band",
+        "dungeon_en": "Temple of Sethraliss",
+        "stats_secundarios": {
+          "Crítico": 19,
+          "Maestria": 15
+        },
+        "combo_stats": "Crítico + Maestria",
+        "icone": "inv_ring_80_03d",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_ring_80_03d.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_ring_80_03d.jpg"
+      },
+      {
+        "nome_pt": "Anel do Vinculador Ritual",
+        "item_id": 159459,
+        "dungeon_pt": "Descanso do Rei",
+        "wowhead": "https://www.wowhead.com/pt/item=159459",
+        "notas": "Item de BfA retornando",
+        "nome_en": "Ritual Binder's Ring",
+        "dungeon_en": "King's Rest",
+        "stats_secundarios": {
+          "Aceleração": 11,
+          "Versatilidade": 6
+        },
+        "combo_stats": "Aceleração + Versatilidade",
+        "icone": "inv_ring_80_03e",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_ring_80_03e.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_ring_80_03e.jpg"
+      }
+    ],
+    "back_capa": {
+      "itens": [
+        {
+          "nome_pt": "Mortalha do Inferninho",
+          "item_id": 251132,
+          "dungeon_pt": "Murder Row",
+          "wowhead": "https://www.wowhead.com/pt/item=251132",
+          "notas": "Capa de Murder Row (CORREÇÃO)",
+          "nome_en": "Speakeasy Shroud",
+          "dungeon_en": "Murder Row",
+          "stats_secundarios": {
+            "Crítico": 15,
+            "Maestria": 10
+          },
+          "combo_stats": "Crítico + Maestria",
+          "icone": "inv_cape_leather_dungeonharronir_c_01",
+          "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_cape_leather_dungeonharronir_c_01.jpg",
+          "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_cape_leather_dungeonharronir_c_01.jpg"
+        },
+        {
+          "nome_pt": "Burnous do Espinho Sangrento",
+          "item_id": 251190,
+          "dungeon_pt": "O Vale Ofuscante",
+          "wowhead": "https://www.wowhead.com/pt/item=251190",
+          "nome_en": "Bloodthorn Burnous",
+          "dungeon_en": "The Blinding Vale",
+          "stats_secundarios": {
+            "Aceleração": 5,
+            "Maestria": 3
+          },
+          "combo_stats": "Aceleração + Maestria",
+          "icone": "inv_cape_mail_dungeonharronir_c_01",
+          "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_cape_mail_dungeonharronir_c_01.jpg",
+          "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_cape_mail_dungeonharronir_c_01.jpg"
+        },
+        {
+          "nome_pt": "Clâmide à Prova de Fogo",
+          "item_id": 193763,
+          "dungeon_pt": "Piscinas da Vida Rubi",
+          "wowhead": "https://www.wowhead.com/pt/item=193763",
+          "notas": "Item de Dragonflight retornando",
+          "nome_en": "Fireproof Drape",
+          "dungeon_en": "Ruby Life Pools",
+          "stats_secundarios": {
+            "Crítico": 4,
+            "Aceleração": 8
+          },
+          "combo_stats": "Aceleração + Crítico",
+          "icone": "inv_mail_dragondungeon_c_01_cape",
+          "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_mail_dragondungeon_c_01_cape.jpg",
+          "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_mail_dragondungeon_c_01_cape.jpg"
+        },
+        {
+          "nome_pt": "Manto das Tribos Irrequietas",
+          "item_id": 159288,
+          "dungeon_pt": "Descanso do Rei",
+          "wowhead": "https://www.wowhead.com/pt/item=159288",
+          "notas": "Item de BfA retornando",
+          "nome_en": "Cloak of the Restless Tribes",
+          "dungeon_en": "King's Rest",
+          "stats_secundarios": {
+            "Maestria": 3,
+            "Versatilidade": 4
+          },
+          "combo_stats": "Maestria + Versatilidade",
+          "efeito": "Equipar: Ficar parado por 4 s aumenta em +101 a sua Velocidade. Dura 4 s após começar a se mover.",
+          "icone": "inv_cape_mail_zandalardungeon_c_01",
+          "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_cape_mail_zandalardungeon_c_01.jpg",
+          "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_cape_mail_zandalardungeon_c_01.jpg"
+        }
+      ]
+    }
+  },
+  "trinkets_mplus": {
+    "descricao": "Trinkets disponíveis em M+ Season 2.",
+    "tipo_efeito_legenda": {
+      "ativo": "Requer clique para ativar — tem Uso: com cooldown",
+      "passivo": "Proca automaticamente — tem apenas Equipar:",
+      "hibrido": "Tem ambos Uso: e Equipar:",
+      "verificar": "Tipo de efeito não confirmado"
+    },
+    "altar_das_presas": [
+      {
+        "nome_pt": "Pedra-presa Retorcida",
+        "item_id": 273795,
+        "atributo_concedido": "Força",
+        "usavel_por_conjurador": false,
+        "tipo_efeito": "ativo",
+        "wowhead": "https://www.wowhead.com/pt/item=273795",
+        "role": "Genérico",
+        "notas": "Novo Midnight S2",
+        "nome_en": "Coiled Fangstone",
+        "stats": {
+          "tipo": "Ativo (1 Min Recarga)",
+          "efeito": "Uso: Desfere 3 Mordidas Empeçonhadas causando dano de Natureza dividido entre inimigos próximos (aumentado em 30% por inimigo até 150%).",
+          "ilvl_referencia": 341,
+          "stats_fonte": "nether.wowhead.com locale=8, ilvl maximo do item, 2026-11-05",
+          "Força": 191
+        },
+        "icone": "inv_121_trinket_dungeon_ulatek_fangstone",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_121_trinket_dungeon_ulatek_fangstone.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_121_trinket_dungeon_ulatek_fangstone.jpg"
+      },
+      {
+        "nome_pt": "Ampola Torpe de Peçonha Volátil",
+        "item_id": 273796,
+        "tipo_efeito": "ativo",
+        "wowhead": "https://www.wowhead.com/pt/item=273796",
+        "role": "DPS",
+        "notas": "Rank 3 Murlok para Balance Druid.",
+        "nome_en": "Vile Vial of Volatile Venom",
+        "stats": {
+          "tipo": "Ativo (2 Min Recarga)",
+          "efeito": "Uso: Bebe um pequeno gole de peçonha, ganhando +992 de um atributo secundário aleatório por 15 s. Em seguida, um atributo secundário aleatório é reduzido em −142 por 15 s (2 min de recarga).",
+          "ilvl_referencia": 341,
+          "stats_fonte": "nether.wowhead.com locale=8, ilvl maximo do item, 2026-11-05",
+          "AtributoPrimario": 191,
+          "primario_dual": "Agilidade ou Força ou Intelecto"
+        },
+        "icone": "inv_121_trinket_dungeon_ulatek_vile",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_121_trinket_dungeon_ulatek_vile.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_121_trinket_dungeon_ulatek_vile.jpg"
+      },
+      {
+        "nome_pt": "Nó de Serpentes Contorcidas",
+        "item_id": 273794,
+        "tipo_efeito": "passivo",
+        "wowhead": "https://www.wowhead.com/pt/item=273794",
+        "role": "Genérico",
+        "nome_en": "Knot of Writhing Serpents",
+        "stats": {
+          "tipo": "Passivo",
+          "efeito": "Equipar: Seus feitiços nocivos têm chance de enfeitiçar uma serpente e fazê-la lançar peçonha contra o alvo, causando dano de Natureza dividido entre inimigos próximos. O dano é aumentado em 30% por inimigo adicional, até o máximo de 150%. O alvo primário também recebe dano de Natureza adicional ao longo de 15 s.",
+          "ilvl_referencia": 341,
+          "stats_fonte": "nether.wowhead.com locale=8, ilvl maximo do item, 2026-11-05",
+          "Intelecto": 191
+        },
+        "icone": "inv_121_trinket_dungeon_ulatek_writhe",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_121_trinket_dungeon_ulatek_writhe.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_121_trinket_dungeon_ulatek_writhe.jpg"
+      },
+      {
+        "nome_pt": "Estandarte de Guerra Amani Esfarrapado",
+        "item_id": 273797,
+        "atributo_concedido": "Agilidade ou Força",
+        "usavel_por_conjurador": false,
+        "tipo_efeito": "ativo",
+        "wowhead": "https://www.wowhead.com/pt/item=273797",
+        "role": "Genérico",
+        "nome_en": "Tattered Amani War Banner",
+        "nota_atributo": "Tooltip oficial: +191 [Agilidade ou Força]. Não concede Intelecto — inutilizável pelas três specs do projeto.",
+        "stats": {
+          "tipo": "Ativo (1 Min 30 Seg Recarga)",
+          "efeito": "Uso: Finque o estandarte no chão por 15 s. Enquanto lutar em um raio de 12 m dele, o Fervor da Batalha concede +590 do seu atributo secundário mais alto. Derrotar pelo menos 1 inimigo com o estandarte erguido prolonga a duração em 5 s (1 min 30 s de recarga).",
+          "ilvl_referencia": 341,
+          "stats_fonte": "nether.wowhead.com locale=8, ilvl maximo do item, 2026-11-05",
+          "AtributoPrimario": 191,
+          "primario_dual": "Agilidade ou Força"
+        },
+        "icone": "inv_121_trinket_dungeon_ulatek_banner",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_121_trinket_dungeon_ulatek_banner.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_121_trinket_dungeon_ulatek_banner.jpg"
+      }
+    ],
+    "murder_row": [
+      {
+        "nome_pt": "Frasco do Cargueiro",
+        "item_id": 250215,
+        "tipo_efeito": "ativo",
+        "wowhead": "https://www.wowhead.com/pt/item=250215",
+        "role": "DPS",
+        "nome_en": "Freightrunner's Flask",
+        "stats": {
+          "tipo": "Ativo (1 Min 30 Seg Recarga)",
+          "efeito": "Uso: Toma um gole da bebida surrupiada da carga, aumentando em +709 o Acerto Crítico por 15 s (1 min 30 s de recarga).",
+          "ilvl_referencia": 341,
+          "stats_fonte": "nether.wowhead.com locale=8, ilvl maximo do item, 2026-11-05",
+          "AtributoPrimario": 191,
+          "primario_dual": "Agilidade ou Intelecto"
+        },
+        "icone": "inv_alchemy_90_flask_red",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_alchemy_90_flask_red.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_alchemy_90_flask_red.jpg"
+      },
+      {
+        "nome_pt": "Pedra-fole Ressonante",
+        "item_id": 250228,
+        "atributo_concedido": "Agilidade ou Força",
+        "usavel_por_conjurador": false,
+        "tipo_efeito": "passivo",
+        "wowhead": "https://www.wowhead.com/pt/item=250228",
+        "role": "DPS",
+        "nome_en": "Resonant Bellowstone",
+        "nota_atributo": "Tooltip oficial: +191 [Agilidade ou Força]. Não concede Intelecto — inutilizável pelas três specs do projeto.",
+        "stats": {
+          "tipo": "Passivo",
+          "efeito": "Equipar: Suas habilidades que causam dano têm chance de ecoar com o rugido furioso de Xathuux, aumentando em +199 o Acerto Crítico por 30 s. Durante esse período, cada ataque aumenta em mais +27 o Acerto Crítico, acumulando até 5 vezes (30 s de recarga).",
+          "ilvl_referencia": 341,
+          "stats_fonte": "nether.wowhead.com locale=8, ilvl maximo do item, 2026-11-05",
+          "AtributoPrimario": 191,
+          "primario_dual": "Agilidade ou Força"
+        },
+        "icone": "inv_alchemy_90_stone_green",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_alchemy_90_stone_green.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_alchemy_90_stone_green.jpg"
+      }
+    ],
+    "o_vale_ofuscante": [
+      {
+        "nome_pt": "Semente da Natureza Voraz",
+        "item_id": 250238,
+        "atributo_concedido": "Força",
+        "usavel_por_conjurador": false,
+        "tipo_efeito": "ativo",
+        "wowhead": "https://www.wowhead.com/pt/item=250238",
+        "role": "DPS",
+        "nome_en": "Seed of the Devouring Wild",
+        "stats": {
+          "tipo": "Ativo (1 Min 30 Seg Recarga)",
+          "efeito": "Uso: Desperta as Raízes do Espinho Sangrento, que irrompem ao redor do alvo e causam dano de Natureza dividido entre os inimigos próximos. Você absorve a essência deles, obtendo +424 de Maestria por 10 s (1 min 30 s de recarga).",
+          "ilvl_referencia": 341,
+          "stats_fonte": "nether.wowhead.com locale=8, ilvl maximo do item, 2026-11-05",
+          "Força": 191
+        },
+        "icone": "inv12_jewelrytrinkets_dungeon_seedofthedevouringwild",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv12_jewelrytrinkets_dungeon_seedofthedevouringwild.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv12_jewelrytrinkets_dungeon_seedofthedevouringwild.jpg"
+      },
+      {
+        "nome_pt": "Núcleo Altaluz",
+        "item_id": 250214,
+        "tipo_efeito": "passivo",
+        "wowhead": "https://www.wowhead.com/pt/item=250214",
+        "role": "DPS",
+        "nome_en": "Lightspire Core",
+        "stats": {
+          "tipo": "Passivo",
+          "efeito": "Equipar: A Luz envolve você, aumentando a Maestria em +118. Suas habilidades e feitiços de dano podem evocar um feixe de luz radiante; entrar na luz concede +206 de Maestria enquanto você permanecer dentro dela.",
+          "ilvl_referencia": 341,
+          "stats_fonte": "nether.wowhead.com locale=8, ilvl maximo do item, 2026-11-05",
+          "AtributoPrimario": 191,
+          "primario_dual": "Agilidade ou Intelecto"
+        },
+        "icone": "inv_enchant_essenceastrallarge",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_enchant_essenceastrallarge.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_enchant_essenceastrallarge.jpg"
+      }
+    ],
+    "arena_rasgada_pelo_vazio": [
+      {
+        "nome_pt": "Mandato de Execução do Caos",
+        "item_id": 250225,
+        "atributo_concedido": "Agilidade",
+        "usavel_por_conjurador": false,
+        "tipo_efeito": "ativo",
+        "wowhead": "https://www.wowhead.com/pt/item=250225",
+        "role": "DPS",
+        "nome_en": "Void Execution Mandate",
+        "stats": {
+          "tipo": "Ativo (2 Min Recarga)",
+          "efeito": "Uso: Marca o alvo para execução, aumentando em +354 a Aceleração por 20 s. Cada ataque contra o alvo marcado concede mais +25 de Acerto Crítico, até o máximo de +375 (2 min de recarga).",
+          "ilvl_referencia": 341,
+          "stats_fonte": "nether.wowhead.com locale=8, ilvl maximo do item, 2026-11-05",
+          "Agilidade": 191
+        },
+        "icone": "inv_inscription_80_warscroll_intellect",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_inscription_80_warscroll_intellect.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_inscription_80_warscroll_intellect.jpg"
+      },
+      {
+        "nome_pt": "Signo do Furamentes",
+        "item_id": 250224,
+        "tipo_efeito": "passivo",
+        "wowhead": "https://www.wowhead.com/pt/item=250224",
+        "role": "DPS",
+        "nome_en": "Mindpiercer's Sigil",
+        "stats": {
+          "tipo": "Passivo",
+          "efeito": "Equipar: Seus feitiços de dano têm chance de agitar o Caos próximo ao alvo, causando dano de Sombra dividido entre os inimigos próximos. Você suga energia do Caos, recebendo +599 de Intelecto por 10 s.",
+          "ilvl_referencia": 341,
+          "stats_fonte": "nether.wowhead.com locale=8, ilvl maximo do item, 2026-11-05"
+        },
+        "icone": "inv_icon_shadowcouncilorb_purple",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_icon_shadowcouncilorb_purple.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_icon_shadowcouncilorb_purple.jpg"
+      }
+    ],
+    "covil_de_nalorakk": [
+      {
+        "nome_pt": "Ídolo do Loa da Guerra",
+        "item_id": 250229,
+        "tipo_efeito": "passivo",
+        "wowhead": "https://www.wowhead.com/pt/item=250229",
+        "role": "DPS melee (FORÇA)",
+        "atributo_concedido": "Força",
+        "usavel_por_conjurador": false,
+        "notas": "CORRIGIDO em 2026-11-05 com base no tooltip oficial. NÃO é trinket de caster.",
+        "nome_en": "Idol of the War Loa",
+        "stats": {
+          "tipo": "Passivo",
+          "efeito": "Equipar: concede 290 de FORÇA por 15s e +25% de velocidade de movimento a aliados próximos por 10s. Fonte: tooltip do Wowhead em ilvl 341 (Mítico).",
+          "ilvl_referencia": 341,
+          "stats_fonte": "nether.wowhead.com locale=8, ilvl maximo do item, 2026-11-05",
+          "Critico": 148
+        },
+        "icone": "inv12_jewelrytrinkets_dungeon_idolofthewargod",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv12_jewelrytrinkets_dungeon_idolofthewargod.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv12_jewelrytrinkets_dungeon_idolofthewargod.jpg"
+      }
+    ],
+    "piscinas_da_vida_rubi": [
+      {
+        "nome_pt": "Casca de Dragonete Rubi",
+        "item_id": 193757,
+        "tipo_efeito": "hibrido",
+        "wowhead": "https://www.wowhead.com/pt/item=193757",
+        "role": "DPS",
+        "nome_en": "Ruby Whelp Shell",
+        "stats": {
+          "tipo": "Híbrido (Passivo + Uso diário)",
+          "efeito": "Equipar: Chance de evocar um Dragonete Rubi para ajudar em combate. Uso diário para treinar as habilidades e preferências do Dragonete. Escala com ilvl.",
+          "ilvl_referencia": 341,
+          "stats_fonte": "nether.wowhead.com locale=8, ilvl maximo do item, 2026-11-05",
+          "AtributoPrimario": 191,
+          "primario_dual": "Agilidade ou Força ou Intelecto"
+        },
+        "icone": "inv_item_dragonegg_redbroken01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_item_dragonegg_redbroken01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_item_dragonegg_redbroken01.jpg"
+      },
+      {
+        "nome_pt": "Casco de Ataflamas",
+        "item_id": 193762,
+        "atributo_concedido": "Força (via efeito)",
+        "usavel_por_conjurador": false,
+        "tipo_efeito": "ativo",
+        "wowhead": "https://www.wowhead.com/pt/item=193762",
+        "role": "DPS",
+        "nome_en": "Blazebinder's Hoof",
+        "stats": {
+          "tipo": "Ativo (2 Min Recarga)",
+          "efeito": "Uso: Vincula-se às chamas por 20s; ataques dão chance de Força acumulando até 6 vezes. Ao final do vínculo, emite onda de dano de Fogo dividida em área. Escala com ilvl.",
+          "ilvl_referencia": 341,
+          "stats_fonte": "nether.wowhead.com locale=8, ilvl maximo do item, 2026-11-05",
+          "Aceleração": 148
+        },
+        "icone": "inv_10_dungeonjewelry_primalist_trinket_2_fire",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_10_dungeonjewelry_primalist_trinket_2_fire.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_10_dungeonjewelry_primalist_trinket_2_fire.jpg"
+      }
+    ],
+    "templo_de_sethraliss": [
+      {
+        "nome_pt": "Presa de Merektha",
+        "item_id": 158367,
+        "atributo_concedido": "Força",
+        "usavel_por_conjurador": false,
+        "tipo_efeito": "ativo",
+        "wowhead": "https://www.wowhead.com/pt/item=158367",
+        "role": "DPS",
+        "nome_en": "Merektha's Fang",
+        "stats": {
+          "tipo": "Ativo (2 Min Recarga)",
+          "efeito": "Uso: Cria névoa venenosa cônica à frente causando dano de Natureza a cada 1s por 3s (acumula até 3x). Escala com ilvl.",
+          "ilvl_referencia": 341,
+          "stats_fonte": "nether.wowhead.com locale=8, ilvl maximo do item, 2026-11-05",
+          "Força": 191
+        },
+        "icone": "inv_misc_food_87_sporelingsnack",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_misc_food_87_sporelingsnack.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_misc_food_87_sporelingsnack.jpg"
+      },
+      {
+        "nome_pt": "Eletromental Pequeno no Pote",
+        "item_id": 158374,
+        "atributo_concedido": "Agilidade",
+        "usavel_por_conjurador": false,
+        "tipo_efeito": "passivo",
+        "wowhead": "https://www.wowhead.com/pt/item=158374",
+        "role": "DPS",
+        "nome_en": "Tiny Electromental in a Jar",
+        "stats": {
+          "tipo": "Passivo",
+          "efeito": "Equipar: Ataques têm chance de conceder Poder Fenomenal; ao acumular 12 aplicações, dispara Desencadear Raio com alto dano de Natureza. Escala com ilvl.",
+          "ilvl_referencia": 341,
+          "stats_fonte": "nether.wowhead.com locale=8, ilvl maximo do item, 2026-11-05",
+          "Agilidade": 191
+        },
+        "icone": "inv_alchemy_71_potion4",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_alchemy_71_potion4.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_alchemy_71_potion4.jpg"
+      }
+    ],
+    "descanso_do_rei": [
+      {
+        "nome_pt": "Plumagem Dourada Lustrosa",
+        "item_id": 159617,
+        "atributo_concedido": "Agilidade",
+        "usavel_por_conjurador": false,
+        "tipo_efeito": "ativo",
+        "wowhead": "https://www.wowhead.com/pt/item=159617",
+        "role": "DPS",
+        "nome_en": "Lustrous Golden Plumage",
+        "stats": {
+          "tipo": "Ativo (2 Min Recarga)",
+          "efeito": "Uso: Seus movimentos reluzem em meio a plumas douradas, aumentando em +709 a sua Versatilidade por 20 s (2 min de recarga). +191 de Agilidade passivo.",
+          "ilvl_referencia": 341,
+          "stats_fonte": "nether.wowhead.com locale=8, ilvl maximo do item, 2026-11-05",
+          "Agilidade": 191
+        },
+        "icone": "inv_icon_feather06a",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_icon_feather06a.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_icon_feather06a.jpg"
+      },
+      {
+        "nome_pt": "Emblema Tempestuoso de Dazar",
+        "item_id": 273649,
+        "tipo_efeito": "ativo",
+        "wowhead": "https://www.wowhead.com/pt/item=273649",
+        "role": "DPS",
+        "notas": "S-TIER para Demo Lock e Shadow Priest (1/50 Murlok). MELHOR trinket acessível sem raid.",
+        "nome_en": "Stormbound Emblem of Dazar",
+        "stats": {
+          "tipo": "Ativo (2 Min Recarga)",
+          "efeito": "Uso: Canaliza por 2 s enquanto o vento obedece à ordem de Dazar, aumentando em +1.082 a Aceleração por até 20 s (2 min de recarga).",
+          "ilvl_referencia": 341,
+          "stats_fonte": "nether.wowhead.com locale=8, ilvl maximo do item, 2026-11-05",
+          "Intelecto": 191
+        },
+        "icone": "inv_7_0raid_necklace_14a",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_7_0raid_necklace_14a.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_7_0raid_necklace_14a.jpg"
+      }
+    ],
+    "trinkets_raid_bis": {
+      "twisted_horrors_tendril": {
+        "nome_en": "Twisted Horror's Tendril",
+        "nome_pt": "Tentáculo do Terror Pervertido",
+        "item_id": 281215,
+        "origem": "Kith'ix (Raid)",
+        "role": "DPS",
+        "tipo_efeito": "passivo",
+        "notas": "Trinket passivo novo do patch 12.1.5. Alto valor para Boomkin e Shadow.",
+        "stats": {
+          "tipo": "Passivo",
+          "efeito": "Equipar: Seu dano tem alta chance de ressonância com o tentáculo e de conceder Poder Devastador, aumentando em +35 o Acerto Crítico por 15 s. Várias aplicações podem se sobrepor. Uma vez a cada 5 s, seu primeiro golpe contra um novo alvo concede 3 aplicações de Poder Devastador.",
+          "ilvl_referencia": 341,
+          "stats_fonte": "nether.wowhead.com locale=8, ilvl maximo do item, 2026-11-05",
+          "AtributoPrimario": 191,
+          "primario_dual": "Agilidade ou Força ou Intelecto"
+        }
+      },
+      "wavecallers_seastone": {
+        "nome_en": "Wavecaller's Seastone",
+        "nome_pt": "Rocha Marinha do Clamaondas",
+        "item_id": 270167,
+        "origem": "Nymrissa Wavecaller (Raid)",
+        "role": "DPS",
+        "tipo_efeito": "passivo",
+        "notas": "BiS trinket para Shadow Priest.",
+        "stats": {
+          "tipo": "Passivo",
+          "efeito": "Equipar: Seus feitiços têm chance elevada de clamar ao mar, concedendo Intuição das Marés, que aumenta em +69 o Intelecto até 6 vezes (+414 no máximo). Ao atingir o máximo, os feitiços passam a reduzir a Intuição das Marés antes que o ciclo recomece.",
+          "ilvl_referencia": 341,
+          "stats_fonte": "nether.wowhead.com locale=8, ilvl maximo do item, 2026-11-05",
+          "Aceleração": 148
+        }
+      }
+    },
+    "ranking_trinkets_casters_mplus": {
+      "S_tier": [
+        "Emblema Tempestuoso de Dazar (Descanso do Rei) — melhor trinket M+ sem raid"
+      ],
+      "A_tier": [
+        "Ampola Torpe de Peçonha Volátil (Altar das Presas) — especialmente Balance Druid",
+        "Nó de Serpentes Contorcidas (Altar das Presas) — passivo, Intelecto; escolha segura contra o Emblema de Dazar, que é on-use"
+      ],
+      "B_tier": [
+        "Frasco do Cargueiro",
+        "Signo do Furamentes"
+      ],
+      "excluidos_por_atributo_incorreto": {
+        "descricao": "Itens que estavam em rankings de caster e concedem Força ou Agilidade. Removidos em 2026-11-05.",
+        "forca": [
+          "Ídolo do Loa da Guerra (250229)",
+          "Pedra-presa Retorcida (273795)",
+          "Semente da Natureza Voraz (250238)",
+          "Presa de Merektha (158367)",
+          "Casco de Ataflamas (193762) — concede Força no efeito"
+        ],
+        "agilidade": [
+          "Mandato de Execução do Caos (250225)",
+          "Eletromental Pequeno no Pote (158374)",
+          "Plumagem Dourada Lustrosa (159617)"
+        ]
+      }
+    }
+  },
+  "armadura_tecido_mplus": {
+    "descricao": "Todas as peças de Tecido (Cloth) disponíveis em M+ Season 2. Relevantes para: Bruxo da Demonologia e Sacerdote Sombra.",
+    "specs_relevantes": [
+      "Bruxo da Demonologia",
+      "Sacerdote Sombra"
+    ],
+    "helm": [
+      {
+        "nome_pt": "Copa da Raiz-Mundo",
+        "item_id": 251199,
+        "dungeon_pt": "O Vale Ofuscante",
+        "wowhead": "https://www.wowhead.com/pt/item=251199",
+        "nome_en": "Worldroot Canopy",
+        "dungeon_en": "The Blinding Vale",
+        "stats_secundarios": {
+          "Crítico": 5,
+          "Maestria": 9
+        },
+        "combo_stats": "Crítico + Maestria",
+        "stats_oficiais": {
+          "stats_fonte": "nether.wowhead.com locale=8 (+ locale=0 para Versatilidade), ilvl maximo, 2026-11-05",
+          "ilvl_referencia": 334,
+          "track": "Mito 6/6",
+          "Intelecto": 189,
+          "Vigor": 3910,
+          "Critico": 75,
+          "Maestria": 126
+        },
+        "icone": "inv_helm_cloth_dungeonharronir_c_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_helm_cloth_dungeonharronir_c_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_helm_cloth_dungeonharronir_c_01.jpg"
+      },
+      {
+        "nome_pt": "Diadema do Feitor",
+        "item_id": 251232,
+        "dungeon_pt": "Arena da Chaga do Caos",
+        "wowhead": "https://www.wowhead.com/pt/item=251232",
+        "nome_en": "Overseer's Diadem",
+        "dungeon_en": "Voidscar Arena",
+        "stats_secundarios": {
+          "Aceleração": 9,
+          "Maestria": 6
+        },
+        "combo_stats": "Aceleração + Maestria",
+        "stats_oficiais": {
+          "stats_fonte": "nether.wowhead.com locale=8 (+ locale=0 para Versatilidade), ilvl maximo, 2026-11-05",
+          "ilvl_referencia": 334,
+          "track": "Mito 6/6",
+          "Intelecto": 189,
+          "Vigor": 3910,
+          "Aceleracao": 122,
+          "Maestria": 79
+        },
+        "icone": "inv_helm_cloth_dungeonharronir_c_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_helm_cloth_dungeonharronir_c_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_helm_cloth_dungeonharronir_c_01.jpg"
+      },
+      {
+        "nome_pt": "Turbante do Primeiro Império",
+        "item_id": 239047,
+        "dungeon_pt": "Descanso do Rei",
+        "wowhead": "https://www.wowhead.com/pt/item=239047",
+        "notas": "Item BfA retornando",
+        "nome_en": "Headdress of the First Empire",
+        "dungeon_en": "King's Rest",
+        "stats_secundarios": {
+          "Crítico": 5,
+          "Versatilidade": 7
+        },
+        "combo_stats": "Crítico + Versatilidade",
+        "stats_oficiais": {
+          "stats_fonte": "nether.wowhead.com locale=8 (+ locale=0 para Versatilidade), ilvl maximo, 2026-11-05",
+          "ilvl_referencia": 334,
+          "track": "Mito 6/6",
+          "Intelecto": 189,
+          "Vigor": 3910,
+          "Critico": 88,
+          "Versatilidade": 113
+        },
+        "icone": "inv_helm_cloth_zandalardungeon_c_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_helm_cloth_zandalardungeon_c_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_helm_cloth_zandalardungeon_c_01.jpg"
+      }
+    ],
+    "shoulder": [
+      {
+        "nome_pt": "Brafoneiras do Envenenador",
+        "item_id": 251227,
+        "dungeon_pt": "Arena da Chaga do Caos",
+        "wowhead": "https://www.wowhead.com/pt/item=251227",
+        "nome_en": "Poisoner's Pauldrons",
+        "dungeon_en": "Voidscar Arena",
+        "stats_secundarios": {
+          "Maestria": 4,
+          "Versatilidade": 6
+        },
+        "combo_stats": "Maestria + Versatilidade",
+        "stats_oficiais": {
+          "stats_fonte": "nether.wowhead.com locale=8 (+ locale=0 para Versatilidade), ilvl maximo, 2026-11-05",
+          "ilvl_referencia": 334,
+          "track": "Mito 6/6",
+          "Intelecto": 141,
+          "Vigor": 2932,
+          "Maestria": 62,
+          "Versatilidade": 88
+        },
+        "icone": "inv_shoulder_cloth_dungeonharronir_c_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_shoulder_cloth_dungeonharronir_c_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_shoulder_cloth_dungeonharronir_c_01.jpg"
+      },
+      {
+        "nome_pt": "Sobreveste do Purificador da Ninhada",
+        "item_id": 239031,
+        "dungeon_pt": "Templo de Sethraliss",
+        "wowhead": "https://www.wowhead.com/pt/item=239031",
+        "nome_en": "Brood Cleanser's Amice",
+        "dungeon_en": "Temple of Sethraliss",
+        "stats_secundarios": {
+          "Crítico": 4,
+          "Aceleração": 4
+        },
+        "combo_stats": "Crítico + Aceleração",
+        "stats_oficiais": {
+          "stats_fonte": "nether.wowhead.com locale=8 (+ locale=0 para Versatilidade), ilvl maximo, 2026-11-05",
+          "ilvl_referencia": 334,
+          "track": "Mito 6/6",
+          "Intelecto": 141,
+          "Vigor": 2932,
+          "Critico": 73,
+          "Aceleracao": 77
+        },
+        "icone": "inv_shoulder_cloth_zandalardungeon_c_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_shoulder_cloth_zandalardungeon_c_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_shoulder_cloth_zandalardungeon_c_01.jpg"
+      },
+      {
+        "nome_pt": "Dragonas da Ascensão Cerimonial",
+        "item_id": 239045,
+        "dungeon_pt": "Descanso do Rei",
+        "wowhead": "https://www.wowhead.com/pt/item=239045",
+        "notas": "BiS Shoulder confirmado Shadow Priest (Murlok.io).",
+        "nome_en": "Mantle of Ceremonial Ascension",
+        "dungeon_en": "King's Rest",
+        "stats_secundarios": {
+          "Aceleração": 3,
+          "Maestria": 6
+        },
+        "combo_stats": "Aceleração + Maestria",
+        "stats_oficiais": {
+          "stats_fonte": "nether.wowhead.com locale=8 (+ locale=0 para Versatilidade), ilvl maximo, 2026-11-05",
+          "ilvl_referencia": 334,
+          "track": "Mito 6/6",
+          "Intelecto": 141,
+          "Vigor": 2932,
+          "Aceleracao": 52,
+          "Maestria": 99
+        },
+        "icone": "inv_shoulder_cloth_zandalardungeon_c_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_shoulder_cloth_zandalardungeon_c_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_shoulder_cloth_zandalardungeon_c_01.jpg"
+      }
+    ],
+    "chest": [
+      {
+        "nome_pt": "Veste de Ritos Primordial",
+        "item_id": 273785,
+        "dungeon_pt": "Altar das Presas",
+        "wowhead": "https://www.wowhead.com/pt/item=273785",
+        "nome_en": "Primordial Robe of Rites",
+        "dungeon_en": "Altar of Fangs",
+        "stats_secundarios": {
+          "Aceleração": 10,
+          "Maestria": 9
+        },
+        "combo_stats": "Aceleração + Maestria",
+        "stats_oficiais": {
+          "stats_fonte": "nether.wowhead.com locale=8 (+ locale=0 para Versatilidade), ilvl maximo, 2026-11-05",
+          "ilvl_referencia": 334,
+          "track": "Mito 6/6",
+          "Intelecto": 189,
+          "Vigor": 3910,
+          "Aceleracao": 105,
+          "Maestria": 96
+        },
+        "icone": "inv_robe_cloth_outdooramaniloa_c_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_robe_cloth_outdooramaniloa_c_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_robe_cloth_outdooramaniloa_c_01.jpg"
+      },
+      {
+        "nome_pt": "Camisa Calcinante do Evocador",
+        "item_id": 251139,
+        "dungeon_pt": "Murder Row",
+        "wowhead": "https://www.wowhead.com/pt/item=251139",
+        "nome_en": "Summoner's Searing Shirt",
+        "dungeon_en": "Murder Row",
+        "stats_secundarios": {
+          "Crítico": 5,
+          "Aceleração": 9
+        },
+        "combo_stats": "Aceleração + Crítico",
+        "stats_oficiais": {
+          "stats_fonte": "nether.wowhead.com locale=8 (+ locale=0 para Versatilidade), ilvl maximo, 2026-11-05",
+          "ilvl_referencia": 334,
+          "track": "Mito 6/6",
+          "Intelecto": 189,
+          "Vigor": 3910,
+          "Critico": 70,
+          "Aceleracao": 131
+        },
+        "icone": "inv_chest_cloth_dungeonharronir_c_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_chest_cloth_dungeonharronir_c_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_chest_cloth_dungeonharronir_c_01.jpg"
+      },
+      {
+        "nome_pt": "Mantelete da Colheita Acumulado",
+        "item_id": 251147,
+        "dungeon_pt": "Covil de Nalorakk",
+        "wowhead": "https://www.wowhead.com/pt/item=251147",
+        "nome_en": "Hoarded Harvest Wrap",
+        "dungeon_en": "Den of Nalorakk",
+        "stats_secundarios": {
+          "Maestria": 9,
+          "Versatilidade": 6
+        },
+        "combo_stats": "Maestria + Versatilidade",
+        "stats_oficiais": {
+          "stats_fonte": "nether.wowhead.com locale=8 (+ locale=0 para Versatilidade), ilvl maximo, 2026-11-05",
+          "ilvl_referencia": 334,
+          "track": "Mito 6/6",
+          "Intelecto": 189,
+          "Vigor": 3910,
+          "Maestria": 122,
+          "Versatilidade": 79
+        },
+        "icone": "inv_chest_cloth_dungeonharronir_c_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_chest_cloth_dungeonharronir_c_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_chest_cloth_dungeonharronir_c_01.jpg"
+      },
+      {
+        "nome_pt": "Vestes da Serpente Renascida",
+        "item_id": 239032,
+        "dungeon_pt": "Templo de Sethraliss",
+        "wowhead": "https://www.wowhead.com/pt/item=239032",
+        "nome_en": "Robes of the Reborn Serpent",
+        "dungeon_en": "Temple of Sethraliss",
+        "stats_secundarios": {
+          "Crítico": 5,
+          "Maestria": 7
+        },
+        "combo_stats": "Crítico + Maestria",
+        "stats_oficiais": {
+          "stats_fonte": "nether.wowhead.com locale=8 (+ locale=0 para Versatilidade), ilvl maximo, 2026-11-05",
+          "ilvl_referencia": 334,
+          "track": "Mito 6/6",
+          "Intelecto": 189,
+          "Vigor": 3910,
+          "Critico": 88,
+          "Maestria": 113
+        },
+        "icone": "inv_chest_cloth_zandalardungeon_c_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_chest_cloth_zandalardungeon_c_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_chest_cloth_zandalardungeon_c_01.jpg"
+      }
+    ],
+    "wrist": [
+      {
+        "nome_pt": "Embraces Mordisqueiros",
+        "item_id": 251127,
+        "dungeon_pt": "Murder Row",
+        "wowhead": "https://www.wowhead.com/pt/item=251127",
+        "nome_en": "Nibbling Armbands",
+        "dungeon_en": "Murder Row",
+        "stats_secundarios": {
+          "Crítico": 3,
+          "Aceleração": 5
+        },
+        "combo_stats": "Aceleração + Crítico",
+        "stats_oficiais": {
+          "stats_fonte": "nether.wowhead.com locale=8 (+ locale=0 para Versatilidade), ilvl maximo, 2026-11-05",
+          "ilvl_referencia": 334,
+          "track": "Mito 6/6",
+          "Intelecto": 106,
+          "Vigor": 2199,
+          "Critico": 44,
+          "Aceleracao": 69
+        },
+        "icone": "inv_bracer_cloth_dungeonharronir_c_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_bracer_cloth_dungeonharronir_c_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_bracer_cloth_dungeonharronir_c_01.jpg"
+      },
+      {
+        "nome_pt": "Braçadeiras do Abraço do Inverno",
+        "item_id": 251154,
+        "dungeon_pt": "Covil de Nalorakk",
+        "wowhead": "https://www.wowhead.com/pt/item=251154",
+        "nome_en": "Winter's Embrace Bracers",
+        "dungeon_en": "Den of Nalorakk",
+        "stats_secundarios": {
+          "Crítico": 5,
+          "Maestria": 3
+        },
+        "combo_stats": "Crítico + Maestria",
+        "stats_oficiais": {
+          "stats_fonte": "nether.wowhead.com locale=8 (+ locale=0 para Versatilidade), ilvl maximo, 2026-11-05",
+          "ilvl_referencia": 334,
+          "track": "Mito 6/6",
+          "Intelecto": 106,
+          "Vigor": 2199,
+          "Critico": 71,
+          "Maestria": 42
+        },
+        "icone": "inv_bracer_cloth_dungeonharronir_c_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_bracer_cloth_dungeonharronir_c_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_bracer_cloth_dungeonharronir_c_01.jpg"
+      },
+      {
+        "nome_pt": "Braceletes da Correnteza Serpeante",
+        "item_id": 159263,
+        "dungeon_pt": "Templo de Sethraliss",
+        "wowhead": "https://www.wowhead.com/pt/item=159263",
+        "nome_en": "Bindings of the Slithering Current",
+        "dungeon_en": "Temple of Sethraliss",
+        "stats_secundarios": {
+          "Crítico": 4,
+          "Versatilidade": 3
+        },
+        "combo_stats": "Crítico + Versatilidade",
+        "stats_oficiais": {
+          "stats_fonte": "nether.wowhead.com locale=8 (+ locale=0 para Versatilidade), ilvl maximo, 2026-11-05",
+          "ilvl_referencia": 334,
+          "track": "Mito 6/6",
+          "Intelecto": 106,
+          "Vigor": 2199,
+          "Critico": 66,
+          "Versatilidade": 47
+        },
+        "icone": "inv_bracer_cloth_zandalardungeon_c_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_bracer_cloth_zandalardungeon_c_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_bracer_cloth_zandalardungeon_c_01.jpg"
+      }
+    ],
+    "hands": [
+      {
+        "nome_pt": "Mitenes de Ritos Blasfemos",
+        "item_id": 273773,
+        "dungeon_pt": "Altar das Presas",
+        "wowhead": "https://www.wowhead.com/pt/item=273773",
+        "nome_en": "Handwraps of Blasphemous Rites",
+        "dungeon_en": "Altar of Fangs",
+        "stats_secundarios": {
+          "Crítico": 7,
+          "Maestria": 8
+        },
+        "combo_stats": "Crítico + Maestria",
+        "stats_oficiais": {
+          "stats_fonte": "nether.wowhead.com locale=8 (+ locale=0 para Versatilidade), ilvl maximo, 2026-11-05",
+          "ilvl_referencia": 334,
+          "track": "Mito 6/6",
+          "Intelecto": 141,
+          "Vigor": 2932,
+          "Critico": 69,
+          "Maestria": 82
+        },
+        "icone": "inv_glove_cloth_outdooramaniloa_c_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_glove_cloth_outdooramaniloa_c_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_glove_cloth_outdooramaniloa_c_01.jpg"
+      },
+      {
+        "nome_pt": "Amarras Adulteradas",
+        "item_id": 251129,
+        "dungeon_pt": "Murder Row",
+        "wowhead": "https://www.wowhead.com/pt/item=251129",
+        "nome_en": "Counterfeit Clutches",
+        "dungeon_en": "Murder Row",
+        "stats_secundarios": {
+          "Maestria": 7,
+          "Versatilidade": 4
+        },
+        "combo_stats": "Maestria + Versatilidade",
+        "stats_oficiais": {
+          "stats_fonte": "nether.wowhead.com locale=8 (+ locale=0 para Versatilidade), ilvl maximo, 2026-11-05",
+          "ilvl_referencia": 334,
+          "track": "Mito 6/6",
+          "Intelecto": 141,
+          "Vigor": 2932,
+          "Maestria": 95,
+          "Versatilidade": 56
+        },
+        "icone": "inv_glove_cloth_dungeonharronir_c_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_glove_cloth_dungeonharronir_c_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_glove_cloth_dungeonharronir_c_01.jpg"
+      },
+      {
+        "nome_pt": "Mitenes da Polaridade Oscilante",
+        "item_id": 159247,
+        "dungeon_pt": "Templo de Sethraliss",
+        "wowhead": "https://www.wowhead.com/pt/item=159247",
+        "nome_en": "Handwraps of Oscillating Polarity",
+        "dungeon_en": "Temple of Sethraliss",
+        "stats_secundarios": {
+          "Crítico": 6,
+          "Aceleração": 3
+        },
+        "combo_stats": "Crítico + Aceleração",
+        "stats_oficiais": {
+          "stats_fonte": "nether.wowhead.com locale=8 (+ locale=0 para Versatilidade), ilvl maximo, 2026-11-05",
+          "ilvl_referencia": 334,
+          "track": "Mito 6/6",
+          "Intelecto": 141,
+          "Vigor": 2932,
+          "Critico": 101,
+          "Aceleracao": 50
+        },
+        "icone": "inv_glove_cloth_zandalardungeon_c_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_glove_cloth_zandalardungeon_c_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_glove_cloth_zandalardungeon_c_01.jpg"
+      }
+    ],
+    "waist": [
+      {
+        "nome_pt": "Cilha Botão de Luz",
+        "item_id": 251185,
+        "dungeon_pt": "O Vale Ofuscante",
+        "wowhead": "https://www.wowhead.com/pt/item=251185",
+        "nome_en": "Lightblossom Cinch",
+        "dungeon_en": "The Blinding Vale",
+        "stats_secundarios": {
+          "Aceleração": 4,
+          "Maestria": 6
+        },
+        "combo_stats": "Aceleração + Maestria",
+        "stats_oficiais": {
+          "stats_fonte": "nether.wowhead.com locale=8 (+ locale=0 para Versatilidade), ilvl maximo, 2026-11-05",
+          "ilvl_referencia": 334,
+          "track": "Mito 6/6",
+          "Intelecto": 141,
+          "Vigor": 2932,
+          "Aceleracao": 62,
+          "Maestria": 88
+        },
+        "icone": "inv_belt_cloth_dungeonharronir_c_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_belt_cloth_dungeonharronir_c_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_belt_cloth_dungeonharronir_c_01.jpg"
+      },
+      {
+        "nome_pt": "Atadura do Éter Etérea",
+        "item_id": 251222,
+        "dungeon_pt": "Arena da Chaga do Caos",
+        "wowhead": "https://www.wowhead.com/pt/item=251222",
+        "notas": "BiS Belt M+ para Demo Lock e Shadow Priest.",
+        "nome_en": "Ethereal Netherwrap",
+        "dungeon_en": "Voidscar Arena",
+        "stats_secundarios": {
+          "Crítico": 13,
+          "Aceleração": 21
+        },
+        "combo_stats": "Aceleração + Crítico",
+        "stats_oficiais": {
+          "stats_fonte": "nether.wowhead.com locale=8 (+ locale=0 para Versatilidade), ilvl maximo, 2026-11-05",
+          "ilvl_referencia": 334,
+          "track": "Mito 6/6",
+          "Intelecto": 141,
+          "Vigor": 2932,
+          "Critico": 56,
+          "Aceleracao": 95
+        },
+        "icone": "inv_belt_cloth_dungeonharronir_c_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_belt_cloth_dungeonharronir_c_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_belt_cloth_dungeonharronir_c_01.jpg"
+      },
+      {
+        "nome_pt": "Cordão Sela Celeste",
+        "item_id": 193691,
+        "dungeon_pt": "Piscinas da Vida Rubi",
+        "wowhead": "https://www.wowhead.com/pt/item=193691",
+        "nome_en": "Sky Saddle Cord",
+        "dungeon_en": "Ruby Life Pools",
+        "stats_secundarios": {
+          "Aceleração": 10,
+          "Maestria": 6
+        },
+        "combo_stats": "Aceleração + Maestria",
+        "stats_oficiais": {
+          "stats_fonte": "nether.wowhead.com locale=8 (+ locale=0 para Versatilidade), ilvl maximo, 2026-11-05",
+          "ilvl_referencia": 334,
+          "track": "Mito 6/6",
+          "Intelecto": 141,
+          "Vigor": 2932,
+          "Aceleracao": 95,
+          "Maestria": 56
+        },
+        "icone": "inv_belt_dragondungeon_c_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_belt_dragondungeon_c_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_belt_dragondungeon_c_01.jpg"
+      },
+      {
+        "nome_pt": "Faixa Ouroborial",
+        "item_id": 159255,
+        "dungeon_pt": "Templo de Sethraliss",
+        "wowhead": "https://www.wowhead.com/pt/item=159255",
+        "nome_en": "Ouroborial Sash",
+        "dungeon_en": "Temple of Sethraliss",
+        "stats_secundarios": {
+          "Maestria": 5,
+          "Versatilidade": 4
+        },
+        "combo_stats": "Maestria + Versatilidade",
+        "stats_oficiais": {
+          "stats_fonte": "nether.wowhead.com locale=8 (+ locale=0 para Versatilidade), ilvl maximo, 2026-11-05",
+          "ilvl_referencia": 334,
+          "track": "Mito 6/6",
+          "Intelecto": 141,
+          "Vigor": 2932,
+          "Maestria": 88,
+          "Versatilidade": 62
+        },
+        "icone": "inv_belt_cloth_zandalardungeon_c_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_belt_cloth_zandalardungeon_c_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_belt_cloth_zandalardungeon_c_01.jpg"
+      }
+    ],
+    "legs": [
+      {
+        "nome_pt": "Perneiras de Serpentes Entrelaçadas",
+        "item_id": 273786,
+        "dungeon_pt": "Altar das Presas",
+        "wowhead": "https://www.wowhead.com/pt/item=273786",
+        "nome_en": "Leggings of Entwined Serpents",
+        "dungeon_en": "Altar of Fangs",
+        "stats_secundarios": {
+          "Crítico": 11,
+          "Aceleração": 9
+        },
+        "combo_stats": "Crítico + Aceleração",
+        "stats_oficiais": {
+          "stats_fonte": "nether.wowhead.com locale=8 (+ locale=0 para Versatilidade), ilvl maximo, 2026-11-05",
+          "ilvl_referencia": 334,
+          "track": "Mito 6/6",
+          "Intelecto": 189,
+          "Vigor": 3910,
+          "Critico": 110,
+          "Aceleracao": 90
+        },
+        "icone": "inv_pant_cloth_outdooramaniloa_c_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_pant_cloth_outdooramaniloa_c_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_pant_cloth_outdooramaniloa_c_01.jpg"
+      },
+      {
+        "nome_pt": "Guarda-pernas do Sonho Florestal",
+        "item_id": 251160,
+        "dungeon_pt": "Covil de Nalorakk",
+        "wowhead": "https://www.wowhead.com/pt/item=251160",
+        "nome_en": "Forest Dream Leg-guards",
+        "dungeon_en": "Den of Nalorakk",
+        "stats_secundarios": {
+          "Crítico": 5,
+          "Aceleração": 9
+        },
+        "combo_stats": "Aceleração + Crítico",
+        "stats_oficiais": {
+          "stats_fonte": "nether.wowhead.com locale=8 (+ locale=0 para Versatilidade), ilvl maximo, 2026-11-05",
+          "ilvl_referencia": 334,
+          "track": "Mito 6/6",
+          "Intelecto": 189,
+          "Vigor": 3910,
+          "Critico": 75,
+          "Aceleracao": 126
+        },
+        "icone": "inv_pant_cloth_dungeonharronir_c_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_pant_cloth_dungeonharronir_c_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_pant_cloth_dungeonharronir_c_01.jpg"
+      },
+      {
+        "nome_pt": "Calções do Dispara-vento",
+        "item_id": 193750,
+        "dungeon_pt": "Piscinas da Vida Rubi",
+        "wowhead": "https://www.wowhead.com/pt/item=193750",
+        "nome_en": "Wind Soarer's Breeches",
+        "dungeon_en": "Ruby Life Pools",
+        "stats_secundarios": {
+          "Crítico": 8,
+          "Maestria": 14
+        },
+        "combo_stats": "Crítico + Maestria",
+        "stats_oficiais": {
+          "stats_fonte": "nether.wowhead.com locale=8 (+ locale=0 para Versatilidade), ilvl maximo, 2026-11-05",
+          "ilvl_referencia": 334,
+          "track": "Mito 6/6",
+          "Intelecto": 189,
+          "Vigor": 3910,
+          "Critico": 70,
+          "Maestria": 131
+        },
+        "icone": "inv_pant_cloth_dragondungeon_c_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_pant_cloth_dragondungeon_c_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_pant_cloth_dragondungeon_c_01.jpg"
+      },
+      {
+        "nome_pt": "Calções Forrados de Penugem",
+        "item_id": 159234,
+        "dungeon_pt": "Descanso do Rei",
+        "wowhead": "https://www.wowhead.com/pt/item=159234",
+        "nome_en": "Down-Lined Breeches",
+        "dungeon_en": "King's Rest",
+        "stats_secundarios": {
+          "Crítico": 7,
+          "Maestria": 5
+        },
+        "combo_stats": "Crítico + Maestria",
+        "stats_oficiais": {
+          "stats_fonte": "nether.wowhead.com locale=8 (+ locale=0 para Versatilidade), ilvl maximo, 2026-11-05",
+          "ilvl_referencia": 334,
+          "track": "Mito 6/6",
+          "Intelecto": 189,
+          "Vigor": 3910,
+          "Critico": 113,
+          "Maestria": 88
+        },
+        "icone": "inv_pant_cloth_zandalardungeon_c_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_pant_cloth_zandalardungeon_c_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_pant_cloth_zandalardungeon_c_01.jpg"
+      }
+    ],
+    "feet": [
+      {
+        "nome_pt": "Sandálias Tempestuosas",
+        "item_id": 251137,
+        "dungeon_pt": "Murder Row",
+        "wowhead": "https://www.wowhead.com/pt/item=251137",
+        "nome_en": "Tempestuous Sandals",
+        "dungeon_en": "Murder Row",
+        "stats_secundarios": {
+          "Aceleração": 4,
+          "Maestria": 7
+        },
+        "combo_stats": "Aceleração + Maestria",
+        "stats_oficiais": {
+          "stats_fonte": "nether.wowhead.com locale=8 (+ locale=0 para Versatilidade), ilvl maximo, 2026-11-05",
+          "ilvl_referencia": 334,
+          "track": "Mito 6/6",
+          "Intelecto": 141,
+          "Vigor": 2932,
+          "Aceleracao": 56,
+          "Maestria": 95
+        },
+        "icone": "inv_boot_cloth_dungeonharronir_c_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_boot_cloth_dungeonharronir_c_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_boot_cloth_dungeonharronir_c_01.jpg"
+      },
+      {
+        "nome_pt": "Sandálias de Areeiro",
+        "item_id": 159259,
+        "dungeon_pt": "Templo de Sethraliss",
+        "wowhead": "https://www.wowhead.com/pt/item=159259",
+        "nome_en": "Sandswept Sandals",
+        "dungeon_en": "Temple of Sethraliss",
+        "stats_secundarios": {
+          "Crítico": 5,
+          "Aceleração": 3
+        },
+        "combo_stats": "Crítico + Aceleração",
+        "stats_oficiais": {
+          "stats_fonte": "nether.wowhead.com locale=8 (+ locale=0 para Versatilidade), ilvl maximo, 2026-11-05",
+          "ilvl_referencia": 334,
+          "track": "Mito 6/6",
+          "Intelecto": 141,
+          "Vigor": 2932,
+          "Critico": 91,
+          "Aceleracao": 59
+        },
+        "icone": "inv_boot_cloth_zandalardungeon_c_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_boot_cloth_zandalardungeon_c_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_boot_cloth_zandalardungeon_c_01.jpg"
+      },
+      {
+        "nome_pt": "Sandálias do Vodu Sábio",
+        "item_id": 159243,
+        "dungeon_pt": "Descanso do Rei",
+        "wowhead": "https://www.wowhead.com/pt/item=159243",
+        "nome_en": "Sandals of Wise Voodoo",
+        "dungeon_en": "King's Rest",
+        "stats_secundarios": {
+          "Aceleração": 3,
+          "Versatilidade": 6
+        },
+        "combo_stats": "Aceleração + Versatilidade",
+        "stats_oficiais": {
+          "stats_fonte": "nether.wowhead.com locale=8 (+ locale=0 para Versatilidade), ilvl maximo, 2026-11-05",
+          "ilvl_referencia": 334,
+          "track": "Mito 6/6",
+          "Intelecto": 141,
+          "Vigor": 2932,
+          "Aceleracao": 53,
+          "Versatilidade": 98
+        },
+        "icone": "inv_boot_cloth_zandalardungeon_c_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_boot_cloth_zandalardungeon_c_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_boot_cloth_zandalardungeon_c_01.jpg"
+      }
+    ]
+  },
+  "armadura_couro_mplus": {
+    "descricao": "Todas as peças de Couro (Leather) disponíveis em M+ Season 2. Relevantes para: Druida do Equilíbrio (Boomkin).",
+    "specs_relevantes": [
+      "Druida do Equilíbrio (Boomkin)"
+    ],
+    "helm": [
+      {
+        "nome_pt": "Capuz do Porta-voz Sobressalente",
+        "item_id": 273791,
+        "dungeon_pt": "Altar das Presas",
+        "wowhead": "https://www.wowhead.com/pt/item=273791",
+        "nome_en": "Spare Speaker's Hood",
+        "dungeon_en": "Altar of Fangs",
+        "stats_secundarios": {
+          "Crítico": 8,
+          "Aceleração": 11
+        },
+        "combo_stats": "Aceleração + Crítico",
+        "stats_oficiais": {
+          "stats_fonte": "nether.wowhead.com locale=8 (+ locale=0 para Versatilidade), ilvl maximo, 2026-11-05",
+          "ilvl_referencia": 334,
+          "track": "Mito 6/6",
+          "Intelecto": 189,
+          "Agilidade": 189,
+          "Vigor": 3910,
+          "Critico": 86,
+          "Aceleracao": 115,
+          "primario_dual": "Agilidade ou Intelecto"
+        },
+        "icone": "inv_helm_leather_outdooramaniloa_c_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_helm_leather_outdooramaniloa_c_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_helm_leather_outdooramaniloa_c_01.jpg"
+      },
+      {
+        "nome_pt": "Socapa do Diabo Vil",
+        "item_id": 251140,
+        "dungeon_pt": "Murder Row",
+        "wowhead": "https://www.wowhead.com/pt/item=251140",
+        "nome_en": "Vilefiend's Guise",
+        "dungeon_en": "Murder Row",
+        "stats_secundarios": {
+          "Aceleração": 8,
+          "Maestria": 6
+        },
+        "combo_stats": "Aceleração + Maestria",
+        "stats_oficiais": {
+          "stats_fonte": "nether.wowhead.com locale=8 (+ locale=0 para Versatilidade), ilvl maximo, 2026-11-05",
+          "ilvl_referencia": 334,
+          "track": "Mito 6/6",
+          "Intelecto": 189,
+          "Agilidade": 189,
+          "Vigor": 3910,
+          "Aceleracao": 118,
+          "Maestria": 83,
+          "primario_dual": "Agilidade ou Intelecto"
+        },
+        "icone": "inv_helm_leather_dungeonharronir_c_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_helm_leather_dungeonharronir_c_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_helm_leather_dungeonharronir_c_01.jpg"
+      },
+      {
+        "nome_pt": "Coroa das Tempestades Estrondosas",
+        "item_id": 193751,
+        "dungeon_pt": "Piscinas da Vida Rubi",
+        "wowhead": "https://www.wowhead.com/pt/item=193751",
+        "nome_en": "Crown of Roaring Storms",
+        "dungeon_en": "Ruby Life Pools",
+        "stats_secundarios": {
+          "Crítico": 8,
+          "Versatilidade": 14
+        },
+        "combo_stats": "Crítico + Versatilidade",
+        "stats_oficiais": {
+          "stats_fonte": "nether.wowhead.com locale=8 (+ locale=0 para Versatilidade), ilvl maximo, 2026-11-05",
+          "ilvl_referencia": 334,
+          "track": "Mito 6/6",
+          "Intelecto": 189,
+          "Agilidade": 189,
+          "Vigor": 3910,
+          "Critico": 75,
+          "Versatilidade": 126,
+          "primario_dual": "Agilidade ou Intelecto"
+        },
+        "icone": "inv_leather_dragondungeon_c_01_helm",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_leather_dragondungeon_c_01_helm.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_leather_dragondungeon_c_01_helm.jpg"
+      },
+      {
+        "nome_pt": "Capuz do Loa Serpenteante",
+        "item_id": 239033,
+        "dungeon_pt": "Templo de Sethraliss",
+        "wowhead": "https://www.wowhead.com/pt/item=239033",
+        "nome_en": "Hood of the Slithering Loa",
+        "dungeon_en": "Temple of Sethraliss",
+        "stats_secundarios": {
+          "Crítico": 7,
+          "Aceleração": 5
+        },
+        "combo_stats": "Crítico + Aceleração",
+        "stats_oficiais": {
+          "stats_fonte": "nether.wowhead.com locale=8 (+ locale=0 para Versatilidade), ilvl maximo, 2026-11-05",
+          "ilvl_referencia": 334,
+          "track": "Mito 6/6",
+          "Intelecto": 189,
+          "Agilidade": 189,
+          "Vigor": 3910,
+          "Critico": 118,
+          "Aceleracao": 83,
+          "primario_dual": "Agilidade ou Intelecto"
+        },
+        "icone": "inv_helm_leather_zandalardungeon_c_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_helm_leather_zandalardungeon_c_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_helm_leather_zandalardungeon_c_01.jpg"
+      }
+    ],
+    "shoulder": [
+      {
+        "nome_pt": "Espaldares de Couro de Cobra",
+        "item_id": 273774,
+        "dungeon_pt": "Altar das Presas",
+        "wowhead": "https://www.wowhead.com/pt/item=273774",
+        "nome_en": "Snakeskin Spaulders",
+        "dungeon_en": "Altar of Fangs",
+        "stats_secundarios": {
+          "Crítico": 9,
+          "Versatilidade": 6
+        },
+        "combo_stats": "Crítico + Versatilidade",
+        "stats_oficiais": {
+          "stats_fonte": "nether.wowhead.com locale=8 (+ locale=0 para Versatilidade), ilvl maximo, 2026-11-05",
+          "ilvl_referencia": 334,
+          "track": "Mito 6/6",
+          "Intelecto": 141,
+          "Agilidade": 141,
+          "Vigor": 2932,
+          "Critico": 88,
+          "Versatilidade": 62,
+          "primario_dual": "Agilidade ou Intelecto"
+        },
+        "icone": "inv_shoulder_leather_outdooramaniloa_c_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_shoulder_leather_outdooramaniloa_c_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_shoulder_leather_outdooramaniloa_c_01.jpg"
+      },
+      {
+        "nome_pt": "Espaldares Lúgubres",
+        "item_id": 251223,
+        "dungeon_pt": "Arena da Chaga do Caos",
+        "wowhead": "https://www.wowhead.com/pt/item=251223",
+        "nome_en": "Somber Spaulders",
+        "dungeon_en": "Voidscar Arena",
+        "stats_secundarios": {
+          "Crítico": 7,
+          "Aceleração": 4
+        },
+        "combo_stats": "Crítico + Aceleração",
+        "stats_oficiais": {
+          "stats_fonte": "nether.wowhead.com locale=8 (+ locale=0 para Versatilidade), ilvl maximo, 2026-11-05",
+          "ilvl_referencia": 334,
+          "track": "Mito 6/6",
+          "Intelecto": 141,
+          "Agilidade": 141,
+          "Vigor": 2932,
+          "Critico": 95,
+          "Aceleracao": 56,
+          "primario_dual": "Agilidade ou Intelecto"
+        },
+        "icone": "inv_shoulder_leather_dungeonharronir_c_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_shoulder_leather_dungeonharronir_c_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_shoulder_leather_dungeonharronir_c_01.jpg"
+      },
+      {
+        "nome_pt": "Espaldares do Catador",
+        "item_id": 251146,
+        "dungeon_pt": "Covil de Nalorakk",
+        "wowhead": "https://www.wowhead.com/pt/item=251146",
+        "nome_en": "Scavenger's Spaulders",
+        "dungeon_en": "Den of Nalorakk",
+        "stats_secundarios": {
+          "Crítico": 4,
+          "Versatilidade": 6
+        },
+        "combo_stats": "Crítico + Versatilidade",
+        "stats_oficiais": {
+          "stats_fonte": "nether.wowhead.com locale=8 (+ locale=0 para Versatilidade), ilvl maximo, 2026-11-05",
+          "ilvl_referencia": 334,
+          "track": "Mito 6/6",
+          "Intelecto": 141,
+          "Agilidade": 141,
+          "Vigor": 2932,
+          "Critico": 62,
+          "Versatilidade": 88,
+          "primario_dual": "Agilidade ou Intelecto"
+        },
+        "icone": "inv_shoulder_leather_dungeonharronir_c_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_shoulder_leather_dungeonharronir_c_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_shoulder_leather_dungeonharronir_c_01.jpg"
+      }
+    ],
+    "chest": [
+      {
+        "nome_pt": "Pelego da Pestilência",
+        "item_id": 251226,
+        "dungeon_pt": "Arena da Chaga do Caos",
+        "wowhead": "https://www.wowhead.com/pt/item=251226",
+        "nome_en": "Hide of Pestilence",
+        "dungeon_en": "Voidscar Arena",
+        "stats_secundarios": {
+          "Crítico": 8,
+          "Versatilidade": 6
+        },
+        "combo_stats": "Crítico + Versatilidade",
+        "stats_oficiais": {
+          "stats_fonte": "nether.wowhead.com locale=8 (+ locale=0 para Versatilidade), ilvl maximo, 2026-11-05",
+          "ilvl_referencia": 334,
+          "track": "Mito 6/6",
+          "Intelecto": 189,
+          "Agilidade": 189,
+          "Vigor": 3910,
+          "Critico": 118,
+          "Versatilidade": 83,
+          "primario_dual": "Agilidade ou Intelecto"
+        },
+        "icone": "inv_chest_leather_dungeonharronir_c_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_chest_leather_dungeonharronir_c_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_chest_leather_dungeonharronir_c_01.jpg"
+      },
+      {
+        "nome_pt": "Vestimenta da Provação de Guerra",
+        "item_id": 251159,
+        "dungeon_pt": "Covil de Nalorakk",
+        "wowhead": "https://www.wowhead.com/pt/item=251159",
+        "nome_en": "War Trial Vestments",
+        "dungeon_en": "Den of Nalorakk",
+        "stats_secundarios": {
+          "Aceleração": 5,
+          "Maestria": 9
+        },
+        "combo_stats": "Aceleração + Maestria",
+        "stats_oficiais": {
+          "stats_fonte": "nether.wowhead.com locale=8 (+ locale=0 para Versatilidade), ilvl maximo, 2026-11-05",
+          "ilvl_referencia": 334,
+          "track": "Mito 6/6",
+          "Intelecto": 189,
+          "Agilidade": 189,
+          "Vigor": 3910,
+          "Aceleracao": 75,
+          "Maestria": 126,
+          "primario_dual": "Agilidade ou Intelecto"
+        },
+        "icone": "inv_chest_leather_dungeonharronir_c_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_chest_leather_dungeonharronir_c_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_chest_leather_dungeonharronir_c_01.jpg"
+      },
+      {
+        "nome_pt": "Couraça da Tempestade de Fogo do Invasor",
+        "item_id": 193764,
+        "dungeon_pt": "Piscinas da Vida Rubi",
+        "wowhead": "https://www.wowhead.com/pt/item=193764",
+        "nome_en": "Invader's Firestorm Chestguard",
+        "dungeon_en": "Ruby Life Pools",
+        "stats_secundarios": {
+          "Maestria": 13,
+          "Versatilidade": 8
+        },
+        "combo_stats": "Maestria + Versatilidade",
+        "stats_oficiais": {
+          "stats_fonte": "nether.wowhead.com locale=8 (+ locale=0 para Versatilidade), ilvl maximo, 2026-11-05",
+          "ilvl_referencia": 334,
+          "track": "Mito 6/6",
+          "Intelecto": 189,
+          "Agilidade": 189,
+          "Vigor": 3910,
+          "Maestria": 122,
+          "Versatilidade": 79,
+          "primario_dual": "Agilidade ou Intelecto"
+        },
+        "icone": "inv_leather_dragondungeon_c_01_chest",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_leather_dragondungeon_c_01_chest.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_leather_dragondungeon_c_01_chest.jpg"
+      },
+      {
+        "nome_pt": "Colete da Adoração Reverente",
+        "item_id": 239048,
+        "dungeon_pt": "Descanso do Rei",
+        "wowhead": "https://www.wowhead.com/pt/item=239048",
+        "nome_en": "Vest of Reverent Adoration",
+        "dungeon_en": "King's Rest",
+        "stats_secundarios": {
+          "Crítico": 7,
+          "Maestria": 5
+        },
+        "combo_stats": "Crítico + Maestria",
+        "stats_oficiais": {
+          "stats_fonte": "nether.wowhead.com locale=8 (+ locale=0 para Versatilidade), ilvl maximo, 2026-11-05",
+          "ilvl_referencia": 334,
+          "track": "Mito 6/6",
+          "Intelecto": 189,
+          "Agilidade": 189,
+          "Vigor": 3910,
+          "Critico": 113,
+          "Maestria": 88,
+          "primario_dual": "Agilidade ou Intelecto"
+        },
+        "icone": "inv_chest_leather_zandalardungeon_c_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_chest_leather_zandalardungeon_c_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_chest_leather_zandalardungeon_c_01.jpg"
+      }
+    ],
+    "wrist": [
+      {
+        "nome_pt": "Vírias Furiadornadas",
+        "item_id": 251135,
+        "dungeon_pt": "Murder Row",
+        "wowhead": "https://www.wowhead.com/pt/item=251135",
+        "nome_en": "Fury-fletched Armlets",
+        "dungeon_en": "Murder Row",
+        "stats_secundarios": {
+          "Crítico": 3,
+          "Aceleração": 5
+        },
+        "combo_stats": "Aceleração + Crítico",
+        "stats_oficiais": {
+          "stats_fonte": "nether.wowhead.com locale=8 (+ locale=0 para Versatilidade), ilvl maximo, 2026-11-05",
+          "ilvl_referencia": 334,
+          "track": "Mito 6/6",
+          "Intelecto": 106,
+          "Agilidade": 106,
+          "Vigor": 2199,
+          "Critico": 42,
+          "Aceleracao": 71,
+          "primario_dual": "Agilidade ou Intelecto"
+        },
+        "icone": "inv_bracer_leather_dungeonharronir_c_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_bracer_leather_dungeonharronir_c_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_bracer_leather_dungeonharronir_c_01.jpg"
+      },
+      {
+        "nome_pt": "Munhequeiras de Guardirraiz",
+        "item_id": 251183,
+        "dungeon_pt": "O Vale Ofuscante",
+        "wowhead": "https://www.wowhead.com/pt/item=251183",
+        "nome_en": "Rootwarden Wraps",
+        "dungeon_en": "The Blinding Vale",
+        "stats_secundarios": {
+          "Crítico": 5,
+          "Maestria": 3
+        },
+        "combo_stats": "Crítico + Maestria",
+        "stats_oficiais": {
+          "stats_fonte": "nether.wowhead.com locale=8 (+ locale=0 para Versatilidade), ilvl maximo, 2026-11-05",
+          "ilvl_referencia": 334,
+          "track": "Mito 6/6",
+          "Intelecto": 106,
+          "Agilidade": 106,
+          "Vigor": 2199,
+          "Critico": 73,
+          "Maestria": 40,
+          "primario_dual": "Agilidade ou Intelecto"
+        },
+        "icone": "inv_bracer_leather_dungeonharronir_c_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_bracer_leather_dungeonharronir_c_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_bracer_leather_dungeonharronir_c_01.jpg"
+      },
+      {
+        "nome_pt": "Munhequeiras Carniceiras de Kula",
+        "item_id": 159300,
+        "dungeon_pt": "Descanso do Rei",
+        "wowhead": "https://www.wowhead.com/pt/item=159300",
+        "nome_en": "Kula's Butchering Wristwraps",
+        "dungeon_en": "King's Rest",
+        "stats_secundarios": {
+          "Crítico": 4,
+          "Versatilidade": 2
+        },
+        "combo_stats": "Crítico + Versatilidade",
+        "stats_oficiais": {
+          "stats_fonte": "nether.wowhead.com locale=8 (+ locale=0 para Versatilidade), ilvl maximo, 2026-11-05",
+          "ilvl_referencia": 334,
+          "track": "Mito 6/6",
+          "Intelecto": 106,
+          "Agilidade": 106,
+          "Vigor": 2199,
+          "Critico": 71,
+          "Versatilidade": 42,
+          "primario_dual": "Agilidade ou Intelecto"
+        },
+        "icone": "inv_bracer_leather_zandalardungeon_c_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_bracer_leather_zandalardungeon_c_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_bracer_leather_zandalardungeon_c_01.jpg"
+      }
+    ],
+    "hands": [
+      {
+        "nome_pt": "Manoplas da Defesa Febril",
+        "item_id": 251124,
+        "dungeon_pt": "Murder Row",
+        "wowhead": "https://www.wowhead.com/pt/item=251124",
+        "nome_en": "Gauntlets of Fevered Defense",
+        "dungeon_en": "Murder Row",
+        "stats_secundarios": {
+          "Crítico": 7,
+          "Aceleração": 4
+        },
+        "combo_stats": "Crítico + Aceleração",
+        "stats_oficiais": {
+          "stats_fonte": "nether.wowhead.com locale=8 (+ locale=0 para Versatilidade), ilvl maximo, 2026-11-05",
+          "ilvl_referencia": 334,
+          "track": "Mito 6/6",
+          "Intelecto": 141,
+          "Agilidade": 141,
+          "Vigor": 2932,
+          "Critico": 98,
+          "Aceleracao": 53,
+          "primario_dual": "Agilidade ou Intelecto"
+        },
+        "icone": "inv_glove_leather_dungeonharronir_c_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_glove_leather_dungeonharronir_c_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_glove_leather_dungeonharronir_c_01.jpg"
+      },
+      {
+        "nome_pt": "Garras Congelantes do Subjugante",
+        "item_id": 193758,
+        "dungeon_pt": "Piscinas da Vida Rubi",
+        "wowhead": "https://www.wowhead.com/pt/item=193758",
+        "nome_en": "Subjugator's Chilling Grips",
+        "dungeon_en": "Ruby Life Pools",
+        "stats_secundarios": {
+          "Crítico": 9,
+          "Versatilidade": 7
+        },
+        "combo_stats": "Crítico + Versatilidade",
+        "stats_oficiais": {
+          "stats_fonte": "nether.wowhead.com locale=8 (+ locale=0 para Versatilidade), ilvl maximo, 2026-11-05",
+          "ilvl_referencia": 334,
+          "track": "Mito 6/6",
+          "Intelecto": 141,
+          "Agilidade": 141,
+          "Vigor": 2932,
+          "Critico": 88,
+          "Versatilidade": 62,
+          "primario_dual": "Agilidade ou Intelecto"
+        },
+        "icone": "inv_leather_dragondungeon_c_01_glove",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_leather_dragondungeon_c_01_glove.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_leather_dragondungeon_c_01_glove.jpg"
+      },
+      {
+        "nome_pt": "Guantes da Defesa Eletrizada",
+        "item_id": 159337,
+        "dungeon_pt": "Templo de Sethraliss",
+        "wowhead": "https://www.wowhead.com/pt/item=159337",
+        "nome_en": "Grips of Electrified Defense",
+        "dungeon_en": "Temple of Sethraliss",
+        "stats_secundarios": {
+          "Maestria": 5,
+          "Versatilidade": 4
+        },
+        "combo_stats": "Maestria + Versatilidade",
+        "stats_oficiais": {
+          "stats_fonte": "nether.wowhead.com locale=8 (+ locale=0 para Versatilidade), ilvl maximo, 2026-11-05",
+          "ilvl_referencia": 334,
+          "track": "Mito 6/6",
+          "Intelecto": 141,
+          "Agilidade": 141,
+          "Vigor": 2932,
+          "Maestria": 82,
+          "Versatilidade": 69,
+          "primario_dual": "Agilidade ou Intelecto"
+        },
+        "icone": "inv_glove_leather_zandalardungeon_c_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_glove_leather_zandalardungeon_c_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_glove_leather_zandalardungeon_c_01.jpg"
+      },
+      {
+        "nome_pt": "Luvas Abençoadas do Dissecador",
+        "item_id": 159312,
+        "dungeon_pt": "Descanso do Rei",
+        "wowhead": "https://www.wowhead.com/pt/item=159312",
+        "nome_en": "Desiccator's Blessed Gloves",
+        "dungeon_en": "King's Rest",
+        "stats_secundarios": {
+          "Crítico": 5,
+          "Maestria": 3
+        },
+        "combo_stats": "Crítico + Maestria",
+        "stats_oficiais": {
+          "stats_fonte": "nether.wowhead.com locale=8 (+ locale=0 para Versatilidade), ilvl maximo, 2026-11-05",
+          "ilvl_referencia": 334,
+          "track": "Mito 6/6",
+          "Intelecto": 141,
+          "Agilidade": 141,
+          "Vigor": 2932,
+          "Critico": 91,
+          "Maestria": 59,
+          "primario_dual": "Agilidade ou Intelecto"
+        },
+        "icone": "inv_glove_leather_zandalardungeon_c_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_glove_leather_zandalardungeon_c_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_glove_leather_zandalardungeon_c_01.jpg"
+      }
+    ],
+    "waist": [
+      {
+        "nome_pt": "Arnês do Andarraiz",
+        "item_id": 251189,
+        "dungeon_pt": "O Vale Ofuscante",
+        "wowhead": "https://www.wowhead.com/pt/item=251189",
+        "nome_en": "Rootwalker Harness",
+        "dungeon_en": "The Blinding Vale",
+        "stats_secundarios": {
+          "Crítico": 4,
+          "Versatilidade": 7
+        },
+        "combo_stats": "Crítico + Versatilidade",
+        "stats_oficiais": {
+          "stats_fonte": "nether.wowhead.com locale=8 (+ locale=0 para Versatilidade), ilvl maximo, 2026-11-05",
+          "ilvl_referencia": 334,
+          "track": "Mito 6/6",
+          "Intelecto": 141,
+          "Agilidade": 141,
+          "Vigor": 2932,
+          "Critico": 56,
+          "Versatilidade": 95,
+          "primario_dual": "Agilidade ou Intelecto"
+        },
+        "icone": "inv_belt_leather_dungeonharronir_c_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_belt_leather_dungeonharronir_c_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_belt_leather_dungeonharronir_c_01.jpg"
+      },
+      {
+        "nome_pt": "Cinturão Gravítico",
+        "item_id": 251235,
+        "dungeon_pt": "Arena da Chaga do Caos",
+        "wowhead": "https://www.wowhead.com/pt/item=251235",
+        "nome_en": "Gravitic Girdle",
+        "dungeon_en": "Voidscar Arena",
+        "stats_secundarios": {
+          "Maestria": 4,
+          "Versatilidade": 7
+        },
+        "combo_stats": "Maestria + Versatilidade",
+        "stats_oficiais": {
+          "stats_fonte": "nether.wowhead.com locale=8 (+ locale=0 para Versatilidade), ilvl maximo, 2026-11-05",
+          "ilvl_referencia": 334,
+          "track": "Mito 6/6",
+          "Intelecto": 141,
+          "Agilidade": 141,
+          "Vigor": 2932,
+          "Maestria": 53,
+          "Versatilidade": 98,
+          "primario_dual": "Agilidade ou Intelecto"
+        },
+        "icone": "inv_belt_leather_dungeonharronir_c_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_belt_leather_dungeonharronir_c_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_belt_leather_dungeonharronir_c_01.jpg"
+      },
+      {
+        "nome_pt": "Faixa do Dervixe Giratório",
+        "item_id": 159317,
+        "dungeon_pt": "Templo de Sethraliss",
+        "wowhead": "https://www.wowhead.com/pt/item=159317",
+        "nome_en": "Whirling Dervish Sash",
+        "dungeon_en": "Temple of Sethraliss",
+        "stats_secundarios": {
+          "Aceleração": 3,
+          "Maestria": 5
+        },
+        "combo_stats": "Aceleração + Maestria",
+        "stats_oficiais": {
+          "stats_fonte": "nether.wowhead.com locale=8 (+ locale=0 para Versatilidade), ilvl maximo, 2026-11-05",
+          "ilvl_referencia": 334,
+          "track": "Mito 6/6",
+          "Intelecto": 141,
+          "Agilidade": 141,
+          "Vigor": 2932,
+          "Aceleracao": 59,
+          "Maestria": 91,
+          "primario_dual": "Agilidade ou Intelecto"
+        },
+        "icone": "inv_belt_leather_zandalardungeon_c_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_belt_leather_zandalardungeon_c_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_belt_leather_zandalardungeon_c_01.jpg"
+      },
+      {
+        "nome_pt": "Cinto do Dinomante Primevo",
+        "item_id": 159301,
+        "dungeon_pt": "Descanso do Rei",
+        "wowhead": "https://www.wowhead.com/pt/item=159301",
+        "nome_en": "Primal Dinomancer's Belt",
+        "dungeon_en": "King's Rest",
+        "stats_secundarios": {
+          "Crítico": 5,
+          "Aceleração": 4
+        },
+        "combo_stats": "Crítico + Aceleração",
+        "stats_oficiais": {
+          "stats_fonte": "nether.wowhead.com locale=8 (+ locale=0 para Versatilidade), ilvl maximo, 2026-11-05",
+          "ilvl_referencia": 334,
+          "track": "Mito 6/6",
+          "Intelecto": 141,
+          "Agilidade": 141,
+          "Vigor": 2932,
+          "Critico": 85,
+          "Aceleracao": 66,
+          "primario_dual": "Agilidade ou Intelecto"
+        },
+        "icone": "inv_belt_leather_zandalardungeon_c_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_belt_leather_zandalardungeon_c_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_belt_leather_zandalardungeon_c_01.jpg"
+      }
+    ],
+    "legs": [
+      {
+        "nome_pt": "Calções do Acordo Célere",
+        "item_id": 251130,
+        "dungeon_pt": "Murder Row",
+        "wowhead": "https://www.wowhead.com/pt/item=251130",
+        "notas": "'Célere' sugere Aceleração",
+        "nome_en": "Breeches of Deft Deals",
+        "dungeon_en": "Murder Row",
+        "stats_secundarios": {
+          "Crítico": 8,
+          "Maestria": 6
+        },
+        "combo_stats": "Crítico + Maestria",
+        "stats_oficiais": {
+          "stats_fonte": "nether.wowhead.com locale=8 (+ locale=0 para Versatilidade), ilvl maximo, 2026-11-05",
+          "ilvl_referencia": 334,
+          "track": "Mito 6/6",
+          "Intelecto": 189,
+          "Agilidade": 189,
+          "Vigor": 3910,
+          "Critico": 118,
+          "Maestria": 83,
+          "primario_dual": "Agilidade ou Intelecto"
+        },
+        "icone": "inv_pant_leather_dungeonharronir_c_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_pant_leather_dungeonharronir_c_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_pant_leather_dungeonharronir_c_01.jpg"
+      },
+      {
+        "nome_pt": "Perneiras de Esporo Luminoso",
+        "item_id": 251198,
+        "dungeon_pt": "O Vale Ofuscante",
+        "wowhead": "https://www.wowhead.com/pt/item=251198",
+        "nome_en": "Lightspore Leggings",
+        "dungeon_en": "The Blinding Vale",
+        "stats_secundarios": {
+          "Maestria": 5,
+          "Versatilidade": 9
+        },
+        "combo_stats": "Maestria + Versatilidade",
+        "stats_oficiais": {
+          "stats_fonte": "nether.wowhead.com locale=8 (+ locale=0 para Versatilidade), ilvl maximo, 2026-11-05",
+          "ilvl_referencia": 334,
+          "track": "Mito 6/6",
+          "Intelecto": 189,
+          "Agilidade": 189,
+          "Vigor": 3910,
+          "Maestria": 75,
+          "Versatilidade": 126,
+          "primario_dual": "Agilidade ou Intelecto"
+        },
+        "icone": "inv_pant_leather_dungeonharronir_c_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_pant_leather_dungeonharronir_c_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_pant_leather_dungeonharronir_c_01.jpg"
+      },
+      {
+        "nome_pt": "Perneiras da Víbora Borrascante",
+        "item_id": 159329,
+        "dungeon_pt": "Templo de Sethraliss",
+        "wowhead": "https://www.wowhead.com/pt/item=159329",
+        "nome_en": "Leggings of the Galeforce Viper",
+        "dungeon_en": "Temple of Sethraliss",
+        "stats_secundarios": {
+          "Maestria": 6,
+          "Versatilidade": 5
+        },
+        "combo_stats": "Maestria + Versatilidade",
+        "stats_oficiais": {
+          "stats_fonte": "nether.wowhead.com locale=8 (+ locale=0 para Versatilidade), ilvl maximo, 2026-11-05",
+          "ilvl_referencia": 334,
+          "track": "Mito 6/6",
+          "Intelecto": 189,
+          "Agilidade": 189,
+          "Vigor": 3910,
+          "Maestria": 109,
+          "Versatilidade": 92,
+          "primario_dual": "Agilidade ou Intelecto"
+        },
+        "icone": "inv_pant_leather_zandalardungeon_c_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_pant_leather_zandalardungeon_c_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_pant_leather_zandalardungeon_c_01.jpg"
+      },
+      {
+        "nome_pt": "Calções do Salão Sagrado",
+        "item_id": 159313,
+        "dungeon_pt": "Descanso do Rei",
+        "wowhead": "https://www.wowhead.com/pt/item=159313",
+        "notas": "Boss The Golden Serpent dentro de King's Rest",
+        "nome_en": "Breeches of the Sacred Hall",
+        "dungeon_en": "King's Rest",
+        "stats_secundarios": {
+          "Aceleração": 5,
+          "Versatilidade": 7
+        },
+        "combo_stats": "Aceleração + Versatilidade",
+        "stats_oficiais": {
+          "stats_fonte": "nether.wowhead.com locale=8 (+ locale=0 para Versatilidade), ilvl maximo, 2026-11-05",
+          "ilvl_referencia": 334,
+          "track": "Mito 6/6",
+          "Intelecto": 189,
+          "Agilidade": 189,
+          "Vigor": 3910,
+          "Aceleracao": 83,
+          "Versatilidade": 118,
+          "primario_dual": "Agilidade ou Intelecto"
+        },
+        "icone": "inv_pant_leather_zandalardungeon_c_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_pant_leather_zandalardungeon_c_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_pant_leather_zandalardungeon_c_01.jpg"
+      }
+    ],
+    "feet": [
+      {
+        "nome_pt": "Culotes do Explorador Ártico",
+        "item_id": 251153,
+        "dungeon_pt": "Covil de Nalorakk",
+        "wowhead": "https://www.wowhead.com/pt/item=251153",
+        "nome_en": "Arctic Explorer's Legwraps",
+        "dungeon_en": "Den of Nalorakk",
+        "stats_secundarios": {
+          "Crítico": 4,
+          "Aceleração": 7
+        },
+        "combo_stats": "Aceleração + Crítico",
+        "stats_oficiais": {
+          "stats_fonte": "nether.wowhead.com locale=8 (+ locale=0 para Versatilidade), ilvl maximo, 2026-11-05",
+          "ilvl_referencia": 334,
+          "track": "Mito 6/6",
+          "Intelecto": 141,
+          "Agilidade": 141,
+          "Vigor": 2932,
+          "Critico": 56,
+          "Aceleracao": 95,
+          "primario_dual": "Agilidade ou Intelecto"
+        },
+        "icone": "inv_boot_leather_dungeonharronir_c_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_boot_leather_dungeonharronir_c_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_boot_leather_dungeonharronir_c_01.jpg"
+      },
+      {
+        "nome_pt": "Sandálias de Couro de Cobra Polido com Areia",
+        "item_id": 159327,
+        "dungeon_pt": "Templo de Sethraliss",
+        "wowhead": "https://www.wowhead.com/pt/item=159327",
+        "nome_en": "Sand-Shined Snakeskin Sandals",
+        "dungeon_en": "Temple of Sethraliss",
+        "stats_secundarios": {
+          "Crítico": 5,
+          "Maestria": 4
+        },
+        "combo_stats": "Crítico + Maestria",
+        "stats_oficiais": {
+          "stats_fonte": "nether.wowhead.com locale=8 (+ locale=0 para Versatilidade), ilvl maximo, 2026-11-05",
+          "ilvl_referencia": 334,
+          "track": "Mito 6/6",
+          "Intelecto": 141,
+          "Agilidade": 141,
+          "Vigor": 2932,
+          "Critico": 88,
+          "Maestria": 62,
+          "primario_dual": "Agilidade ou Intelecto"
+        },
+        "icone": "inv_boot_leather_zandalardungeon_c_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_boot_leather_zandalardungeon_c_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_boot_leather_zandalardungeon_c_01.jpg"
+      },
+      {
+        "nome_pt": "Botas Plumáurea",
+        "item_id": 159304,
+        "dungeon_pt": "Descanso do Rei",
+        "wowhead": "https://www.wowhead.com/pt/item=159304",
+        "nome_en": "Goldfeather Boots",
+        "dungeon_en": "King's Rest",
+        "stats_secundarios": {
+          "Maestria": 4,
+          "Versatilidade": 5
+        },
+        "combo_stats": "Maestria + Versatilidade",
+        "stats_oficiais": {
+          "stats_fonte": "nether.wowhead.com locale=8 (+ locale=0 para Versatilidade), ilvl maximo, 2026-11-05",
+          "ilvl_referencia": 334,
+          "track": "Mito 6/6",
+          "Intelecto": 141,
+          "Agilidade": 141,
+          "Vigor": 2932,
+          "Maestria": 66,
+          "Versatilidade": 85,
+          "primario_dual": "Agilidade ou Intelecto"
+        },
+        "icone": "inv_boot_leather_zandalardungeon_c_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_boot_leather_zandalardungeon_c_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_boot_leather_zandalardungeon_c_01.jpg"
+      }
+    ]
+  },
+  "armas_e_off_hands_mplus": {
+    "descricao": "Armas e off-hands relevantes para casters. NOTA 12.1.5: Balance Druid usa 1H Dagger + Off-hand.",
+    "daggers_mplus": [
+      {
+        "nome_pt": "Navalha de Lumineira Afiada",
+        "item_id": 275070,
+        "dungeon_pt": "Altar das Presas",
+        "wowhead": "https://www.wowhead.com/pt/item=275070",
+        "nome_en": "Sharpened Lightwood Slasher",
+        "dungeon_en": "Altar of Fangs",
+        "stats_secundarios": {
+          "Crítico": 31,
+          "Aceleração": 23
+        },
+        "atributo_primario": "Agilidade",
+        "combo_stats": "Crítico + Aceleração",
+        "efeito": "Equipar: Chance de calcinar o alvo causando dano Sagrado.",
+        "stats_oficiais": {
+          "stats_fonte": "nether.wowhead.com locale=8 (+ locale=0 para Versatilidade), ilvl maximo, 2026-11-05",
+          "ilvl_referencia": 341,
+          "track": "Mythic+",
+          "Agilidade": 101,
+          "Vigor": 2118,
+          "Critico": 60,
+          "Aceleracao": 44
+        },
+        "icone": "inv_knife_1h_zuljin_d_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_knife_1h_zuljin_d_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_knife_1h_zuljin_d_01.jpg",
+        "arma_dados": {
+          "dano_min": 154,
+          "dano_max": 257,
+          "velocidade": 1.8,
+          "dps": 114.2
+        }
+      },
+      {
+        "nome_pt": "Canalizador de Lumineira Polido",
+        "item_id": 273778,
+        "dungeon_pt": "Altar das Presas",
+        "wowhead": "https://www.wowhead.com/pt/item=273778",
+        "nome_en": "Polished Lightwood Channeler",
+        "dungeon_en": "Altar of Fangs",
+        "stats_secundarios": {
+          "Aceleração": 5,
+          "Maestria": 4
+        },
+        "atributo_primario": "Intelecto",
+        "combo_stats": "Aceleração + Maestria",
+        "efeito": "Equipar: Chance de lançar partícula de luz causando dano Sagrado dividido entre inimigos próximos.",
+        "stats_oficiais": {
+          "stats_fonte": "nether.wowhead.com locale=8 (+ locale=0 para Versatilidade), ilvl maximo, 2026-11-05",
+          "ilvl_referencia": 341,
+          "track": "Mythic+",
+          "Intelecto": 586,
+          "Vigor": 2118,
+          "Aceleracao": 58,
+          "Maestria": 46
+        },
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_knife_1h_zuljin_d_01.jpg",
+        "arma_dados": {
+          "dano_min": 77,
+          "dano_max": 129,
+          "velocidade": 1.8,
+          "dps": 57.2
+        },
+        "icone": "inv_knife_1h_zuljin_d_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_knife_1h_zuljin_d_01.jpg"
+      },
+      {
+        "nome_pt": "Laminúrio",
+        "item_id": 251128,
+        "dungeon_pt": "Murder Row",
+        "wowhead": "https://www.wowhead.com/pt/item=251128",
+        "nome_en": "Bladesorrow",
+        "dungeon_en": "Murder Row",
+        "stats_secundarios": {
+          "Crítico": 4,
+          "Maestria": 3
+        },
+        "atributo_primario": "Agilidade",
+        "combo_stats": "Crítico + Maestria",
+        "stats_oficiais": {
+          "stats_fonte": "nether.wowhead.com locale=8 (+ locale=0 para Versatilidade), ilvl maximo, 2026-11-05",
+          "ilvl_referencia": 341,
+          "track": "Mythic+",
+          "Agilidade": 101,
+          "Vigor": 2118,
+          "Critico": 60,
+          "Maestria": 43
+        },
+        "icone": "inv_knife_1h_dungeonharronir_c_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_knife_1h_dungeonharronir_c_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_knife_1h_dungeonharronir_c_01.jpg",
+        "arma_dados": {
+          "dano_min": 154,
+          "dano_max": 257,
+          "velocidade": 1.8,
+          "dps": 114.2
+        }
+      },
+      {
+        "nome_pt": "Lâmina Espinhosa",
+        "item_id": 251180,
+        "dungeon_pt": "O Vale Ofuscante",
+        "wowhead": "https://www.wowhead.com/pt/item=251180",
+        "nome_en": "Thornblade",
+        "dungeon_en": "The Blinding Vale",
+        "stats_secundarios": {
+          "Aceleração": 3,
+          "Maestria": 4
+        },
+        "atributo_primario": "Agilidade",
+        "combo_stats": "Aceleração + Maestria",
+        "stats_oficiais": {
+          "stats_fonte": "nether.wowhead.com locale=8 (+ locale=0 para Versatilidade), ilvl maximo, 2026-11-05",
+          "ilvl_referencia": 341,
+          "track": "Mythic+",
+          "Agilidade": 101,
+          "Vigor": 2118,
+          "Aceleracao": 41,
+          "Maestria": 63
+        },
+        "icone": "inv_knife_1h_rutaani_b_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_knife_1h_rutaani_b_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_knife_1h_rutaani_b_01.jpg",
+        "arma_dados": {
+          "dano_min": 154,
+          "dano_max": 257,
+          "velocidade": 1.8,
+          "dps": 114.2
+        }
+      },
+      {
+        "nome_pt": "Presa do Contágio",
+        "item_id": 251225,
+        "dungeon_pt": "Arena da Chaga do Caos",
+        "wowhead": "https://www.wowhead.com/pt/item=251225",
+        "nome_en": "Fang of Contagion",
+        "dungeon_en": "Voidscar Arena",
+        "stats_secundarios": {
+          "Maestria": 4,
+          "Versatilidade": 3
+        },
+        "atributo_primario": "Intelecto",
+        "combo_stats": "Maestria + Versatilidade",
+        "stats_oficiais": {
+          "stats_fonte": "nether.wowhead.com locale=8 (+ locale=0 para Versatilidade), ilvl maximo, 2026-11-05",
+          "ilvl_referencia": 341,
+          "track": "Mythic+",
+          "Intelecto": 586,
+          "Vigor": 2118,
+          "Maestria": 60,
+          "Versatilidade": 43
+        },
+        "icone": "inv_knife_1h_dungeonharronir_c_02",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_knife_1h_dungeonharronir_c_02.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_knife_1h_dungeonharronir_c_02.jpg",
+        "arma_dados": {
+          "dano_min": 77,
+          "dano_max": 129,
+          "velocidade": 1.8,
+          "dps": 57.2
+        }
+      },
+      {
+        "nome_pt": "Rondel Céu-ferno",
+        "item_id": 193756,
+        "dungeon_pt": "Piscinas da Vida Rubi",
+        "wowhead": "https://www.wowhead.com/pt/item=193756",
+        "nome_en": "Skyferno Rondel",
+        "dungeon_en": "Ruby Life Pools",
+        "stats_secundarios": {
+          "Aceleração": 4,
+          "Versatilidade": 7
+        },
+        "atributo_primario": "Agilidade",
+        "combo_stats": "Aceleração + Versatilidade",
+        "stats_oficiais": {
+          "stats_fonte": "nether.wowhead.com locale=8 (+ locale=0 para Versatilidade), ilvl maximo, 2026-11-05",
+          "ilvl_referencia": 341,
+          "track": "Mythic+",
+          "Agilidade": 101,
+          "Vigor": 2118,
+          "Aceleracao": 41,
+          "Versatilidade": 63
+        },
+        "icone": "inv_knife_1h_dragondungeon_c_02",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_knife_1h_dragondungeon_c_02.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_knife_1h_dragondungeon_c_02.jpg",
+        "arma_dados": {
+          "dano_min": 154,
+          "dano_max": 257,
+          "velocidade": 1.8,
+          "dps": 114.2
+        }
+      },
+      {
+        "nome_pt": "Dente de Serpente Folheado",
+        "item_id": 159137,
+        "dungeon_pt": "Descanso do Rei",
+        "wowhead": "https://www.wowhead.com/pt/item=159137",
+        "nome_en": "Gilded Serpent's Tooth",
+        "dungeon_en": "King's Rest",
+        "stats_secundarios": {
+          "Aceleração": 3,
+          "Versatilidade": 3
+        },
+        "atributo_primario": "Intelecto",
+        "combo_stats": "Aceleração + Versatilidade",
+        "stats_oficiais": {
+          "stats_fonte": "nether.wowhead.com locale=8 (+ locale=0 para Versatilidade), ilvl maximo, 2026-11-05",
+          "ilvl_referencia": 341,
+          "track": "Mythic+",
+          "Intelecto": 586,
+          "Vigor": 2118,
+          "Aceleracao": 45,
+          "Versatilidade": 58
+        },
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_knife_1h_battledungeon_c_01.jpg",
+        "arma_dados": {
+          "dano_min": 77,
+          "dano_max": 129,
+          "velocidade": 1.8,
+          "dps": 57.2
+        },
+        "icone": "inv_knife_1h_battledungeon_c_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_knife_1h_battledungeon_c_01.jpg"
+      },
+      {
+        "nome_pt": "Adaga Ornamentada da Subjugação",
+        "item_id": 159136,
+        "dungeon_pt": "Descanso do Rei",
+        "wowhead": "https://www.wowhead.com/pt/item=159136",
+        "nome_en": "Jeweled Dagger of Subjugation",
+        "dungeon_en": "King's Rest",
+        "stats_secundarios": {
+          "Aceleração": 3,
+          "Maestria": 3
+        },
+        "atributo_primario": "Agilidade",
+        "combo_stats": "Aceleração + Maestria",
+        "stats_oficiais": {
+          "stats_fonte": "nether.wowhead.com locale=8 (+ locale=0 para Versatilidade), ilvl maximo, 2026-11-05",
+          "ilvl_referencia": 341,
+          "track": "Mythic+",
+          "Agilidade": 101,
+          "Vigor": 2118,
+          "Aceleracao": 54,
+          "Maestria": 49
+        },
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_knife_1h_battledungeon_c_01.jpg",
+        "arma_dados": {
+          "dano_min": 154,
+          "dano_max": 257,
+          "velocidade": 1.8,
+          "dps": 114.2
+        },
+        "icone": "inv_knife_1h_battledungeon_c_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_knife_1h_battledungeon_c_01.jpg"
+      }
+    ],
+    "weapon_bis_raid": {
+      "janthrazet_the_soul_fang": {
+        "nome_en": "Jan'thrazet, the Soul Fang",
+        "tipo": "Dagger 1H (Main Hand)",
+        "origem": "Ula'tek (Raid)",
+        "specs": [
+          "Balance Druid",
+          "Shadow Priest",
+          "Demonology Warlock"
+        ],
+        "notas": "BiS Main Hand para todos os 3 casters.",
+        "item_id": 271092,
+        "stats": {
+          "cantrip": "Ataques de feitiço reduzem a velocidade de lançamento do inimigo em 10% e concedem +71 de Aceleração por 12s.",
+          "ilvl_referencia": 344,
+          "stats_fonte": "nether.wowhead.com locale=8, ilvl maximo do item, 2026-11-05",
+          "Intelecto": 603,
+          "Vigor": 2192,
+          "Aceleração": 104
+        }
+      }
+    },
+    "off_hands_mplus": [
+      {
+        "nome_pt": "Presa Focal Maléfica",
+        "item_id": 273779,
+        "dungeon_pt": "Altar das Presas",
+        "wowhead": "https://www.wowhead.com/pt/item=273779",
+        "nome_en": "Nocuous Focal Fang",
+        "dungeon_en": "Altar of Fangs",
+        "stats_secundarios": {
+          "Crítico": 5,
+          "Aceleração": 4
+        },
+        "atributo_primario": "Intelecto",
+        "combo_stats": "Crítico + Aceleração",
+        "stats_oficiais": {
+          "stats_fonte": "nether.wowhead.com locale=8 (+ locale=0 para Versatilidade), ilvl maximo, 2026-11-05",
+          "ilvl_referencia": 334,
+          "track": "Mito 6/6",
+          "Intelecto": 289,
+          "Vigor": 1955,
+          "Critico": 57,
+          "Aceleracao": 44
+        },
+        "icone": "inv_offhand_1h_outdooramaniloa_c_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_offhand_1h_outdooramaniloa_c_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_offhand_1h_outdooramaniloa_c_01.jpg"
+      },
+      {
+        "nome_pt": "Broto Luminescente",
+        "item_id": 251191,
+        "dungeon_pt": "O Vale Ofuscante",
+        "wowhead": "https://www.wowhead.com/pt/item=251191",
+        "nome_en": "Luminescent Sprout",
+        "dungeon_en": "The Blinding Vale",
+        "stats_secundarios": {
+          "Aceleração": 3,
+          "Maestria": 4
+        },
+        "atributo_primario": "Intelecto",
+        "combo_stats": "Aceleração + Maestria",
+        "stats_oficiais": {
+          "stats_fonte": "nether.wowhead.com locale=8 (+ locale=0 para Versatilidade), ilvl maximo, 2026-11-05",
+          "ilvl_referencia": 334,
+          "track": "Mito 6/6",
+          "Intelecto": 289,
+          "Vigor": 1955,
+          "Aceleracao": 42,
+          "Maestria": 59
+        },
+        "icone": "inv_offhand_1h_dungeonharronir_c_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_offhand_1h_dungeonharronir_c_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_offhand_1h_dungeonharronir_c_01.jpg"
+      },
+      {
+        "nome_pt": "Patuá Atagelo Perene",
+        "item_id": 271681,
+        "dungeon_pt": "Covil de Nalorakk",
+        "wowhead": "https://www.wowhead.com/pt/item=271681",
+        "nome_en": "Perennial Frostbound Charm",
+        "dungeon_en": "Den of Nalorakk",
+        "stats_secundarios": {
+          "Crítico": 10,
+          "Maestria": 14
+        },
+        "atributo_primario": "Intelecto",
+        "combo_stats": "Crítico + Maestria",
+        "stats_oficiais": {
+          "stats_fonte": "nether.wowhead.com locale=8 (+ locale=0 para Versatilidade), ilvl maximo, 2026-11-05",
+          "ilvl_referencia": 334,
+          "track": "Mito 6/6",
+          "Intelecto": 289,
+          "Vigor": 1955,
+          "Critico": 42,
+          "Maestria": 59
+        },
+        "icone": "inv_offhand_1h_dungeonharronir_c_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_offhand_1h_dungeonharronir_c_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_offhand_1h_dungeonharronir_c_01.jpg"
+      },
+      {
+        "nome_pt": "Bastão da Combustão de Kokia",
+        "item_id": 193766,
+        "dungeon_pt": "Piscinas da Vida Rubi",
+        "wowhead": "https://www.wowhead.com/pt/item=193766",
+        "nome_en": "Kokia's Burnout Rod",
+        "dungeon_en": "Ruby Life Pools",
+        "stats_secundarios": {
+          "Crítico": 7,
+          "Versatilidade": 4
+        },
+        "atributo_primario": "Intelecto",
+        "combo_stats": "Crítico + Versatilidade",
+        "stats_oficiais": {
+          "stats_fonte": "nether.wowhead.com locale=8 (+ locale=0 para Versatilidade), ilvl maximo, 2026-11-05",
+          "ilvl_referencia": 334,
+          "track": "Mito 6/6",
+          "Intelecto": 289,
+          "Vigor": 1955,
+          "Critico": 65,
+          "Versatilidade": 35
+        },
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_offhand_1h_drakonid_c_01.jpg",
+        "icone": "inv_offhand_1h_drakonid_c_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_offhand_1h_drakonid_c_01.jpg"
+      },
+      {
+        "nome_pt": "Receptáculo dos Últimos Ritos",
+        "item_id": 159667,
+        "dungeon_pt": "Descanso do Rei",
+        "wowhead": "https://www.wowhead.com/pt/item=159667",
+        "nome_en": "Vessel of Last Rites",
+        "dungeon_en": "King's Rest",
+        "stats_secundarios": {
+          "Aceleração": 4,
+          "Versatilidade": 2
+        },
+        "atributo_primario": "Intelecto",
+        "combo_stats": "Aceleração + Versatilidade",
+        "stats_oficiais": {
+          "stats_fonte": "nether.wowhead.com locale=8 (+ locale=0 para Versatilidade), ilvl maximo, 2026-11-05",
+          "ilvl_referencia": 334,
+          "track": "Mito 6/6",
+          "Intelecto": 289,
+          "Vigor": 1955,
+          "Aceleracao": 61,
+          "Versatilidade": 39
+        },
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_offhand_1h_battledungeon_c_02.jpg",
+        "icone": "inv_offhand_1h_battledungeon_c_02",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_offhand_1h_battledungeon_c_02.jpg"
+      }
+    ],
+    "off_hands_bis": {
+      "alnhara_lantern_craftado": {
+        "nome_en": "Aln'hara Lantern",
+        "nome_pt": "Lanterna de Aln'hara",
+        "tipo": "Off-hand (Craftado, Escrivania)",
+        "specs": [
+          "Balance Druid",
+          "Demonology Warlock"
+        ],
+        "embelezamento_fixo": false,
+        "embelezamentos_possiveis": {
+          "244608": "Vínculo de Esporos Primevos",
+          "244675": "Elo Devorador",
+          "245872": "Signo de Negraluna: Sangue",
+          "245874": "Signo de Negraluna: Caos",
+          "245876": "Signo de Negraluna: Caçada",
+          "245878": "Signo de Negraluna: Podridão",
+          "273069": "Presa Adornada"
+        },
+        "item_id": 245769,
+        "stats_fixos": "Intelecto 127 · Vigor 692 — o tooltip traz 'Atributo Aleatório 1/2' no lugar dos secundários",
+        "secundarios_recomendados": "Aceleração + Maestria (definida pela missiva escolhida)",
+        "missivas_possiveis": [
+          245781,
+          245783,
+          245785,
+          245787,
+          245789,
+          245791
+        ],
+        "nota_craft": "Peca craftada nao tem missiva nem embelezamento fixos: sao escolhas na ordem de criacao. A Pedra Ritual do Cacador (273060) e declarada no tooltip como exclusiva de 'Armas de Ferraria', porem ha Lanternas com esse proc (101 de secundario, +50% em Caca as Presas) — divergencia aberta, resolvida a favor do item equipado. Ver craft_sistemas_s2.md, secao 5.1.",
+        "limite_embelezamento": "Unico-equipado: Embelezado (2) — maximo de 2 efeitos por personagem; nao ha limite de pecas craftadas"
+      },
+      "spine_of_hissing_abyss_raid": {
+        "nome_en": "Spine of the Hissing Abyss",
+        "tipo": "Off-hand (Raid)",
+        "origem": "Entombed Sentinels (Raid)",
+        "specs": [
+          "Shadow Priest"
+        ],
+        "item_id": 268197,
+        "stats": {
+          "ilvl_referencia": 334,
+          "track_referencia": "Mito 6/6",
+          "stats_fonte": "nether.wowhead.com locale=8, ilvl maximo do item, 2026-11-05",
+          "Intelecto": 289,
+          "Vigor": 1955,
+          "Aceleração": 32,
+          "Maestria": 68
+        }
+      }
+    }
+  },
+  "guia_comparacao_itens": {
+    "descricao": "Framework rápido para responder 'qual item é melhor entre X e Y'.",
+    "informacoes_necessarias": [
+      "Nome dos dois itens",
+      "Slot",
+      "Sua spec",
+      "Contexto (M+ ou Raid)",
+      "ilvl de cada item"
+    ],
+    "logica_decisao": {
+      "passo1_ilvl": "Se diferença de ilvl >= 13: o item de ilvl maior provavelmente é melhor.",
+      "passo2_stats": "Se diferença de ilvl <= 6: compare stat combos usando os pesos da spec/contexto.",
+      "passo3_procs": "Se algum item tem proc/on-use especial: valor do efeito ativo pode superar stats passivos.",
+      "passo4_sinergias": "Considere sinergia com outros itens equipados.",
+      "passo5_catalisador": "Se o slot for Head, Shoulder, Chest, Hands ou Legs, o item é matéria-prima de tier: o Matrix Catalyst converte a peça no tier do spec MANTENDO o track e o nível de aprimoramento. Um item de stats ruins nesses 5 slots ainda vale se estiver faltando peça de tier."
+    },
+    "catalisador_na_comparacao": {
+      "regra": "Uma peça Mítica 6/6 catalisada vira tier Mítico 6/6 (ilvl 334). Uma Heroica 6/6 vira tier Heroico 6/6 (ilvl 321). O Catalisador troca o item, nunca sobe o track.",
+      "slots_de_tier": [
+        "Head",
+        "Shoulder",
+        "Chest",
+        "Hands",
+        "Legs"
+      ],
+      "slots_sem_tier": [
+        "Cloak",
+        "Wrist",
+        "Waist",
+        "Feet",
+        "Neck",
+        "Ring",
+        "Trinket",
+        "Weapon",
+        "OffHand"
+      ],
+      "como_isso_muda_o_ranking_de_masmorras": "Uma masmorra que dropa Head/Shoulder/Chest/Hands/Legs no track Mítico é uma masmorra de TIER, não só de stats. Ao decidir onde gastar o Núcleo Vazio Nebuloso, some esse valor ao valor de BiS: o boss pode ser o melhor alvo mesmo que os secundários do drop não sejam o combo BiS.",
+      "ordem_de_prioridade_do_voidcore": [
+        "1. Boss que dropa BiS E slot de tier no Mítico.",
+        "2. Boss que dropa slot de tier no Mítico quando faltam 2+ peças para o 4pc.",
+        "3. Boss que dropa BiS de slot sem tier (o Catalisador nunca resolve esses slots).",
+        "4. Boss que dropa slot de tier no Mítico quando falta só 1 peça.",
+        "5. Boss que dropa apenas tier de track Heroico — o Catalisador já resolve isso com peça Heroica."
+      ]
+    },
+    "cenarios_comuns": {
+      "craftado_vs_mplus": "Craftado tem embellishment que pode valer mais que stats passivos.",
+      "delve_hero_vs_mplus": "Hero 2/6 (ilvl 308) de Delve = equivalente a drop de chave ~8. Mito 2/6 (ilvl 321) de Delve = ilvl Herói 6/6.",
+      "nota_slot_budget": "Itens de slots maiores (Cabeça, Torso, Pernas) têm mais total de stats secundários que slots menores (Pés, Pulsos) — compare sempre itens do MESMO slot entre si ao avaliar qual é melhor."
+    }
+  }
+}

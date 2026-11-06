@@ -1,0 +1,872 @@
+{
+  "_meta": {
+    "spec": "Shadow Priest",
+    "expansion": "World of Warcraft: Midnight",
+    "patch": "12.1.5",
+    "season": "Season 2",
+    "last_updated": "2026-11-06",
+    "language": "pt-BR",
+    "sources": [
+      {
+        "name": "Icy Veins",
+        "priority": 1,
+        "url": "https://www.icy-veins.com/wow/shadow-priest-pve-dps-guide",
+        "author": "Publik",
+        "updated": "2026-10-12"
+      },
+      {
+        "name": "Wow.gg",
+        "priority": 2,
+        "url": "https://wow.gg/pt-br/guides/priest-shadow",
+        "author": "Fouren",
+        "updated": "2026-08-17"
+      },
+      {
+        "name": "Murlok.io",
+        "priority": 3,
+        "url": "https://murlok.io/priest/shadow/m+",
+        "note": "dados empíricos top 50 jogadores globais (US/EU/KR/TW), atualizado a cada 8h"
+      },
+      {
+        "name": "Wowhead PT-BR",
+        "priority": 4,
+        "url": "https://www.wowhead.com/pt",
+        "note": "fonte de nomes PT-BR de itens, tier sets e bosses"
+      }
+    ],
+    "pending_sources": [
+      "Maxroll - URLs não verificadas nesta sessão",
+      "Method.gg - não raspado nesta sessão"
+    ]
+  },
+  "tier_set": {
+    "nome_en": "Cosmic Penitent's Raiment",
+    "nome_pt": "Fatiota do Penitente Cósmico",
+    "item_set_id": 2063,
+    "nome_raid": "The Venomous Abyss (Abismo Peçonhento)",
+    "season": "Season 2",
+    "patch_adicionado": "12.1.0",
+    "bosses_raid": [
+      "Nek'zali",
+      "Entombed Sentinels",
+      "The Lost Explorers",
+      "Vashnik",
+      "Sszorak",
+      "The Twin Fangs",
+      "The Coiled Altar",
+      "Kith'ix",
+      "Ula'tek"
+    ],
+    "pecas": [
+      {
+        "slot": "Head",
+        "item_en": "Cosmic Penitent's Truesight",
+        "item_pt": "Visão Verdadeira do Penitente Cósmico",
+        "item_id": 271555,
+        "stats": {
+          "ilvl_referencia": 334,
+          "track_referencia": "Mito 6/6",
+          "stats_fonte": "nether.wowhead.com locale=8, ilvl maximo do item, 2026-11-05",
+          "Intelecto": 189,
+          "Vigor": 3910,
+          "Critico": 141,
+          "Maestria": 60
+        }
+      },
+      {
+        "slot": "Shoulder",
+        "item_en": "Cosmic Penitent's Echoing Screams",
+        "item_pt": "Gritos Ecoantes do Penitente Cósmico",
+        "item_id": 271553,
+        "stats": {
+          "ilvl_referencia": 334,
+          "track_referencia": "Mito 6/6",
+          "stats_fonte": "nether.wowhead.com locale=8, ilvl maximo do item, 2026-11-05",
+          "Intelecto": 141,
+          "Vigor": 2932,
+          "Critico": 101,
+          "Aceleração": 49
+        }
+      },
+      {
+        "slot": "Chest",
+        "item_en": "Cosmic Penitent's Eclipsing Robes",
+        "item_pt": "Vestes Eclipsantes do Penitente Cósmico",
+        "item_id": 271558,
+        "stats": {
+          "ilvl_referencia": 334,
+          "track_referencia": "Mito 6/6",
+          "stats_fonte": "nether.wowhead.com locale=8, ilvl maximo do item, 2026-11-05",
+          "Intelecto": 189,
+          "Vigor": 3910,
+          "Critico": 62,
+          "Maestria": 139
+        }
+      },
+      {
+        "slot": "Hands",
+        "item_en": "Cosmic Penitent's Celestial Grips",
+        "item_pt": "Guantes Celestiais do Penitente Cósmico",
+        "item_id": 271556,
+        "stats": {
+          "ilvl_referencia": 334,
+          "track_referencia": "Mito 6/6",
+          "stats_fonte": "nether.wowhead.com locale=8, ilvl maximo do item, 2026-11-05",
+          "Intelecto": 141,
+          "Vigor": 2932,
+          "Critico": 53,
+          "Maestria": 98
+        }
+      },
+      {
+        "slot": "Legs",
+        "item_en": "Enveloping Legwraps of the Cosmic Penitent",
+        "item_pt": "Culotes Envolventes do Penitente Cósmico",
+        "item_id": 271554,
+        "stats": {
+          "ilvl_referencia": 334,
+          "track_referencia": "Mito 6/6",
+          "stats_fonte": "nether.wowhead.com locale=8, ilvl maximo do item, 2026-11-05",
+          "Intelecto": 189,
+          "Vigor": 3910,
+          "Aceleração": 143,
+          "Versatilidade": 58
+        }
+      }
+    ],
+    "bonus_2pc": {
+      "descricao_pt": "Devouring Plague tem 10% de chance de não consumir Insanidade. Shadowy Apparitions geram 2 de Insanidade ao acertar.",
+      "nota": "Ativa com 2 peças da Fatiota do Penitente Cósmico equipadas"
+    },
+    "bonus_4pc": {
+      "descricao_pt": "Devouring Plague aumenta o dano de Mind Blast e Void Blast em 20% pelo sua duração. Shadowy Apparitions causam 10% a mais de dano.",
+      "nota": "Maximiza poder do tier set — prioridade alta obter 4pc"
+    },
+    "recomendacao": "Priorize 4pc. Use os 2 slots não-tier com maior ilvl disponível.",
+    "como_obter_sem_raid": {
+      "descricao": "É possível obter o tier set SEM entrar em Raid usando dois métodos:",
+      "metodo_1": "Great Vault semanal de M+ — tem chance de dar peças de tier do Abismo Peçonhento como recompensa semanal",
+      "metodo_2": "Matrix Catalyst S2 — converte qualquer peça elegível de M+ em peça de tier com mesmos stats e ilvl",
+      "recomendacao": "Faça Great Vault toda semana. Use Catalyst nos slots que ainda faltam para completar 4pc."
+    },
+    "matrix_catalyst": "Pode ser usado para converter peças não-tier em peças de tier com Matrix Catalyst S2 (mantém stats secundários e efeito Cantrip se aplicável)"
+  },
+  "gear": {
+    "bis_mplus_sem_raid": {
+      "descricao": "Melhor gear acessível exclusivamente via M+ + Craft para Shadow Priest.",
+      "nota_tier": "Tier set SEM RAID: (1) Great Vault semanal de M+ — tem chance de dar peças de tier do Abismo Peçonhento; (2) Matrix Catalyst S2 — converte qualquer peça elegível de M+ em peça de tier.",
+      "itens_confirmados_mplus": {
+        "Shoulder": {
+          "item_pt": "Dragonas da Ascensão Cerimonial",
+          "dungeon": "Descanso do Rei (King's Rest — M+)",
+          "item_id": 239045,
+          "fonte_tipo": "M+",
+          "wowhead": "https://www.wowhead.com/pt/item=239045",
+          "nota": "BiS M+ para ombros — não é peça de tier, mas dropa em M+",
+          "item_en": "Mantle of Ceremonial Ascension",
+          "dungeon_en": "King's Rest"
+        },
+        "Cloak": {
+          "item_pt": "Mortalha do Inferninho",
+          "dungeon": "Murder Row (M+)",
+          "item_id": 251132,
+          "fonte_tipo": "M+",
+          "wowhead": "https://www.wowhead.com/pt/item=251132",
+          "item_en": "Speakeasy Shroud",
+          "dungeon_en": "Murder Row"
+        },
+        "OffHand (alternativa sem raid)": {
+          "item_pt": "Lanterna de Aln'hara",
+          "dungeon": "Craftado (Escrivania)",
+          "item_id": 245769,
+          "fonte_tipo": "Craft",
+          "nota": "12/50 Murlok — alternativa craftada competitiva.",
+          "item_en": "Aln'hara Lantern"
+        },
+        "Bracers": {
+          "item_pt": "Braceletes do Mártir",
+          "item_en": "Martyr's Bindings",
+          "item_id": 239648,
+          "dungeon": "Craftado (Alfaiataria)",
+          "fonte_tipo": "Craft",
+          "nota": "41/50 jogadores Murlok. Stats moldáveis via Missiva (Aceleração + Crítico). Embellishment: Arcanoweave Lining."
+        },
+        "Tier (via Catalyst)": {
+          "item_pt": "Fatiota do Penitente Cósmico (4 peças)",
+          "dungeon": "Great Vault M+ + Matrix Catalyst",
+          "fonte_tipo": "M+/Catalyst",
+          "nota": "Converta drops de M+ em tier com Catalyst semanalmente"
+        }
+      },
+      "slots_raid_sem_alternativa_mplus_conhecida": {
+        "Neck": {
+          "item_pt": "Relicário Aqiricida (Ula'tek — Raid)"
+        },
+        "Belt": {
+          "item_pt": "Faixa Cáustica Envolta em Correntes (Sszorak — Raid) ou Banda do Mártir (Craft Alfaiataria)"
+        },
+        "Boots": {
+          "item_pt": "Botinas Anímicas Crepitantes (Altar Enrolado — Raid)"
+        },
+        "Ring1": {
+          "item_pt": "Elo do Chama-enxame (Kith'ix — Raid, 49/50 Murlok)"
+        },
+        "Ring2": {
+          "item_pt": "Elo do Alquimista Torpe (Vashnik — Raid, 11/50) ou Elo Sin'dorei Magistral (Craft Joalheria, 9/50)"
+        },
+        "Trinket1": {
+          "item_pt": "Tentáculo do Terror Pervertido (Kith'ix — Raid)"
+        },
+        "Trinket2": {
+          "item_pt": "Ídolo da Perdição do Grão-bagateiro (Altar Enrolado — Raid)"
+        },
+        "MainHand": {
+          "item_pt": "Jan'thrazet, a Presa Anímica (Ula'tek — Raid)"
+        },
+        "OffHand": {
+          "item_pt": "Espinha do Abismo Sibilante (Raid — 21/50 Murlok)"
+        }
+      },
+      "dungeons_mplus_prioridade": [
+        {
+          "rank": 1,
+          "dungeon_pt": "Descanso do Rei",
+          "dungeon_en": "King's Rest",
+          "motivo": "Dragonas da Ascensão Cerimonial (ombros BiS M+)"
+        },
+        {
+          "rank": 2,
+          "dungeon_pt": "Murder Row",
+          "dungeon_en": "Murder Row",
+          "motivo": "Mortalha do Inferninho (capa M+ — item_id 251132)"
+        },
+        {
+          "rank": 3,
+          "dungeon_pt": "Todas as dungeons",
+          "dungeon_en": "All dungeons",
+          "motivo": "Acumular gear para Matrix Catalyst → converter em peças de Fatiota do Penitente Cósmico"
+        }
+      ]
+    },
+    "bis_mplus": {
+      "fonte": "Murlok.io (empírico top 50 M+) + Wow.gg",
+      "slots": {
+        "Head": {
+          "item_en": "Cosmic Penitent's Truesight (tier)",
+          "item_pt": "Visão Verdadeira do Penitente Cósmico (tier)",
+          "fonte_tipo": "Raid/Catalyst",
+          "item_id": 271555,
+          "stats": {
+            "ilvl_referencia": 334,
+            "track_referencia": "Mito 6/6",
+            "stats_fonte": "nether.wowhead.com locale=8, ilvl maximo do item, 2026-11-05",
+            "Intelecto": 189,
+            "Vigor": 3910,
+            "Critico": 141,
+            "Maestria": 60
+          }
+        },
+        "Neck": {
+          "item_en": "Aqirbane Reliquary",
+          "item_pt": "Relicário Aqiricida",
+          "fonte_tipo": "Raid",
+          "boss": "Ula'tek (Abismo Peçonhento)",
+          "item_id": 268265,
+          "jogadores": 50,
+          "stats": {
+            "socket": "Engaste Prismático",
+            "efeito": "Chance de conceder +434 a um atributo secundário aleatório (-73 nos outros por 12s)",
+            "ilvl_referencia": 344,
+            "stats_fonte": "nether.wowhead.com locale=8, ilvl maximo do item, 2026-11-05",
+            "Vigor": 2466,
+            "Critico": 107,
+            "Aceleração": 107,
+            "Maestria": 107,
+            "Versatilidade": 107
+          }
+        },
+        "Shoulder": {
+          "item_en": "Mantle of Ceremonial Ascension",
+          "item_pt": "Dragonas da Ascensão Cerimonial",
+          "fonte_tipo": "M+",
+          "item_id": 239045,
+          "stats": {
+            "nota": "Aceleração + Maestria (valores escalam com ilvl)",
+            "ilvl_referencia": 334,
+            "track_referencia": "Mito 6/6",
+            "stats_fonte": "nether.wowhead.com locale=8, ilvl maximo do item, 2026-11-05",
+            "Intelecto": 141,
+            "Vigor": 2932,
+            "Aceleração": 52,
+            "Maestria": 99
+          }
+        },
+        "Cloak": {
+          "item_en": "Speakeasy Shroud",
+          "item_pt": "Mortalha do Inferninho",
+          "fonte_tipo": "M+",
+          "item_id": 251132,
+          "stats": {
+            "nota": "Escala com ilvl",
+            "ilvl_referencia": 334,
+            "track_referencia": "Mito 6/6",
+            "stats_fonte": "nether.wowhead.com locale=8, ilvl maximo do item, 2026-11-05",
+            "AtributoPrimario": 106,
+            "primario_dual": "Agilidade ou Força ou Intelecto",
+            "Vigor": 2199,
+            "Critico": 66,
+            "Maestria": 47
+          }
+        },
+        "Chest": {
+          "item_en": "Cosmic Penitent's Eclipsing Robes (tier)",
+          "item_pt": "Vestes Eclipsantes do Penitente Cósmico (tier)",
+          "fonte_tipo": "Raid/Catalyst",
+          "item_id": 271558,
+          "stats": {
+            "ilvl_referencia": 334,
+            "track_referencia": "Mito 6/6",
+            "stats_fonte": "nether.wowhead.com locale=8, ilvl maximo do item, 2026-11-05",
+            "Intelecto": 189,
+            "Vigor": 3910,
+            "Critico": 62,
+            "Maestria": 139
+          }
+        },
+        "Bracers": {
+          "item_en": "Martyr's Bindings",
+          "item_pt": "Braceletes do Mártir",
+          "fonte_tipo": "Craft (Alfaiataria)",
+          "item_id": 239648,
+          "jogadores": 41,
+          "stats": {
+            "tipo": "Missiva de Artesanato",
+            "secundarios_recomendados": "Aceleração + Crítico",
+            "embellishment": "Arcanoweave Lining",
+            "ilvl_referencia": 246,
+            "stats_fonte": "nether.wowhead.com locale=8, ilvl maximo do item, 2026-11-05",
+            "Intelecto": 47,
+            "Vigor": 779
+          }
+        },
+        "Hands": {
+          "item_en": "Cosmic Penitent's Celestial Grips (tier)",
+          "item_pt": "Guantes Celestiais do Penitente Cósmico (tier)",
+          "fonte_tipo": "Raid/Catalyst",
+          "item_id": 271556,
+          "stats": {
+            "ilvl_referencia": 334,
+            "track_referencia": "Mito 6/6",
+            "stats_fonte": "nether.wowhead.com locale=8, ilvl maximo do item, 2026-11-05",
+            "Intelecto": 141,
+            "Vigor": 2932,
+            "Critico": 53,
+            "Maestria": 98
+          }
+        },
+        "Belt": {
+          "item_en": "Martyr's Waistwrap",
+          "item_pt": "Banda do Mártir",
+          "fonte_tipo": "Craft (Alfaiataria)",
+          "item_id": 239649,
+          "jogadores": 29,
+          "stats": {
+            "tipo": "Missiva de Artesanato",
+            "secundarios_recomendados": "Aceleração + Crítico",
+            "embellishment": "Arcanoweave Lining",
+            "ilvl_referencia": 246,
+            "stats_fonte": "nether.wowhead.com locale=8, ilvl maximo do item, 2026-11-05",
+            "Intelecto": 62,
+            "Vigor": 1039
+          },
+          "alternativa_raid": {
+            "item_en": "Caustic Chain-Wrapped Sash",
+            "item_pt": "Faixa Cáustica Envolta em Correntes",
+            "item_id": 268257,
+            "boss": "Sszorak (Abismo Peçonhento)",
+            "jogadores": 8,
+            "stats": {
+              "ilvl_referencia": 334,
+              "track_referencia": "Mito 6/6",
+              "stats_fonte": "nether.wowhead.com locale=8, ilvl maximo do item, 2026-11-05",
+              "Intelecto": 141,
+              "Vigor": 2932,
+              "Aceleração": 102,
+              "Maestria": 49
+            }
+          }
+        },
+        "Legs": {
+          "item_en": "Enveloping Legwraps of the Cosmic Penitent (tier)",
+          "item_pt": "Culotes Envolventes do Penitente Cósmico (tier)",
+          "fonte_tipo": "Raid/Catalyst",
+          "item_id": 271554,
+          "stats": {
+            "ilvl_referencia": 334,
+            "track_referencia": "Mito 6/6",
+            "stats_fonte": "nether.wowhead.com locale=8, ilvl maximo do item, 2026-11-05",
+            "Intelecto": 189,
+            "Vigor": 3910,
+            "Aceleração": 143,
+            "Versatilidade": 58
+          }
+        },
+        "Boots": {
+          "item_en": "Cackling Soultreads",
+          "item_pt": "Botinas Anímicas Crepitantes",
+          "fonte_tipo": "Raid",
+          "jogadores": 21,
+          "item_id": 268255,
+          "nota_uso": "Cackling Soultreads: 21/50 jogadores do top 50. Alternativa: Trail of the Cosmic Penitent (12/50). Os dois nomes estavam concatenados neste campo antes de 2026-11-05 e foram separados.",
+          "stats": {
+            "ilvl_referencia": 344,
+            "stats_fonte": "nether.wowhead.com locale=8, ilvl maximo do item, 2026-11-05",
+            "Intelecto": 155,
+            "Vigor": 3288,
+            "Aceleração": 105,
+            "Maestria": 52
+          }
+        },
+        "Ring1": {
+          "item_en": "Band of the Swarmcaller",
+          "item_pt": "Elo do Chama-enxame",
+          "fonte_tipo": "Raid",
+          "boss": "Kith'ix (Abismo Peçonhento)",
+          "item_id": 281029,
+          "jogadores": 49,
+          "stats": {
+            "efeito_cantrip": "Chance de evocar Flagelo da Ninhada Ácida causando dano de Natureza em área",
+            "ilvl_referencia": 334,
+            "track_referencia": "Mito 6/6",
+            "stats_fonte": "nether.wowhead.com locale=8, ilvl maximo do item, 2026-11-05",
+            "Vigor": 2199,
+            "Aceleração": 110,
+            "Maestria": 295
+          }
+        },
+        "Ring2": {
+          "item_en": "Vile Alchemist's Band",
+          "item_pt": "Elo do Alquimista Torpe",
+          "fonte_tipo": "Raid",
+          "boss": "Vashnik (Abismo Peçonhento)",
+          "item_id": 268249,
+          "jogadores": 11,
+          "stats": {
+            "efeito": "Redução de 7% de dano de Peçonha Mortífera",
+            "ilvl_referencia": 334,
+            "track_referencia": "Mito 6/6",
+            "stats_fonte": "nether.wowhead.com locale=8, ilvl maximo do item, 2026-11-05",
+            "Vigor": 2199,
+            "Critico": 73,
+            "Maestria": 332
+          },
+          "alternativa_craft": {
+            "item_en": "Masterwork Sin'dorei Band",
+            "item_pt": "Elo Sin'dorei Magistral",
+            "item_id": 240949,
+            "jogadores": 9,
+            "stats": "Aceleração + Crítico (Missiva) + Engaste Prismático"
+          }
+        },
+        "Trinket1": {
+          "item_en": "Twisted Horror's Tendril",
+          "item_pt": "Tentáculo do Terror Pervertido",
+          "fonte_tipo": "Raid",
+          "jogadores": 48,
+          "item_id": 281215,
+          "stats": {
+            "efeito": "Equipar: Seu dano tem alta chance de ressonância com o tentáculo e de conceder Poder Devastador, aumentando em +35 o Acerto Crítico por 15 s. Várias aplicações podem se sobrepor. Uma vez a cada 5 s, seu primeiro golpe contra um novo alvo concede 3 aplicações de Poder Devastador.",
+            "ilvl_referencia": 341,
+            "stats_fonte": "nether.wowhead.com locale=8, ilvl maximo do item, 2026-11-05",
+            "AtributoPrimario": 191,
+            "primario_dual": "Agilidade ou Força ou Intelecto"
+          }
+        },
+        "Trinket2": {
+          "item_en": "Hex Lord's Dooming Idol",
+          "item_pt": "Ídolo da Perdição do Grão-bagateiro",
+          "fonte_tipo": "Raid",
+          "boss": "The Coiled Altar (Abismo Peçonhento)",
+          "item_id": 270169,
+          "jogadores": 28,
+          "stats": {
+            "efeito": "Equipar: Seus feitiços fazem recair sobre você a Perdição do Grão-bagateiro, sugando 3 do seu Intelecto até 30 vezes; só pode ocorrer uma vez a cada 6 s. Uso: Consome o poder acumulado, aumentando em +39 o Intelecto por aplicação durante 30 s (30 s de recarga). Passivo: +149 de Aceleração.",
+            "ilvl_referencia": 344,
+            "stats_fonte": "nether.wowhead.com locale=8, ilvl maximo do item, 2026-11-05",
+            "Aceleração": 149
+          }
+        },
+        "MainHand": {
+          "item_en": "Jan'thrazet, the Soul Fang",
+          "item_pt": "Jan'thrazet, a Presa Anímica",
+          "fonte_tipo": "Raid",
+          "boss": "Ula'tek (Abismo Peçonhento)",
+          "item_id": 271092,
+          "jogadores": 48,
+          "stats": {
+            "cantrip": "Ataques de feitiço reduzem a velocidade de lançamento do inimigo em 10% e concedem +71 de Aceleração por 12s.",
+            "ilvl_referencia": 344,
+            "stats_fonte": "nether.wowhead.com locale=8, ilvl maximo do item, 2026-11-05",
+            "Intelecto": 603,
+            "Vigor": 2192,
+            "Aceleração": 104
+          }
+        },
+        "OffHand": {
+          "item_en": "Spine of the Hissing Abyss",
+          "item_pt": "Espinha do Abismo Sibilante",
+          "fonte_tipo": "Raid",
+          "boss": "Entombed Sentinels (Abismo Peçonhento)",
+          "item_id": 268197,
+          "jogadores": 21,
+          "stats": {
+            "ilvl_referencia": 334,
+            "track_referencia": "Mito 6/6",
+            "stats_fonte": "nether.wowhead.com locale=8, ilvl maximo do item, 2026-11-05",
+            "Intelecto": 289,
+            "Vigor": 1955,
+            "Aceleração": 32,
+            "Maestria": 68
+          },
+          "alternativa_craft": {
+            "item_en": "Aln'hara Lantern",
+            "item_pt": "Lanterna de Aln'hara",
+            "item_id": 245769,
+            "jogadores": 12,
+            "stats_fixos": "Intelecto 127 · Vigor 692 — o tooltip traz 'Atributo Aleatório 1/2' no lugar dos secundários",
+            "secundarios_recomendados": "Aceleração + Maestria (escolha por missiva)",
+            "missivas_possiveis": [
+              245781,
+              245783,
+              245785,
+              245787,
+              245789,
+              245791
+            ],
+            "embelezamento_fixo": false,
+            "embelezamentos_possiveis": [
+              245872,
+              245876,
+              245878,
+              245874,
+              244608,
+              244675,
+              273069
+            ],
+            "nota_embelezamento": "Sem embelezamento fixo. A Pedra Ritual do Cacador (273060) e declarada no tooltip como exclusiva de 'Armas de Ferraria', mas ha Lanternas com esse proc — divergencia aberta; vale o texto do item equipado."
+          }
+        }
+      }
+    },
+    "bis_raid": {
+      "fonte": "Wow.gg (guia de gear Raid)",
+      "slots_notaveis": {
+        "MainHand": {
+          "item_en": "Jan'thrazet, the Soul Fang",
+          "item_pt": "Jan'thrazet, a Presa Anímica",
+          "fonte_tipo": "Raid",
+          "item_id": 271092
+        },
+        "OffHand": {
+          "item_en": "Aln'hara Lantern",
+          "item_pt": "Lanterna de Aln'hara (Craftado)",
+          "fonte_tipo": "Craft",
+          "item_id": 245769
+        },
+        "Head": {
+          "item_en": "Cosmic Penitent's Truesight",
+          "item_pt": "Visão Verdadeira do Penitente Cósmico (tier)",
+          "fonte_tipo": "Raid/Catalyst",
+          "item_id": 271555
+        },
+        "Trinket1": {
+          "item_en": "Gebbo's Bottomless Bag",
+          "item_pt": "Bolsa sem Fundo de Gebbo",
+          "fonte_tipo": "Raid",
+          "item_id": 270164
+        },
+        "Trinket2": {
+          "item_en": "Freightrunner's Flask",
+          "item_pt": "Frasco do Cargueiro",
+          "fonte_tipo": "verificar"
+        }
+      }
+    },
+    "trinkets_ranking": {
+      "fonte": "Murlok.io (empírico top 50 M+)",
+      "ranking": [
+        {
+          "rank": 1,
+          "item_en": "Twisted Horror's Tendril",
+          "item_pt": "Tentáculo do Terror Pervertido",
+          "fonte_tipo": "Raid",
+          "jogadores": 48,
+          "tipo_efeito": "passivo"
+        },
+        {
+          "rank": 2,
+          "item_en": "Hex Lord's Dooming Idol",
+          "item_pt": "Ídolo da Perdição do Grão-bagateiro",
+          "fonte_tipo": "Raid",
+          "item_id": 270169,
+          "tipo_efeito": "hibrido",
+          "jogadores": 22
+        },
+        {
+          "rank": 3,
+          "item_en": "Freightrunner's Flask",
+          "item_pt": "Frasco do Cargueiro",
+          "fonte_tipo": "verificar",
+          "jogadores": 9,
+          "tipo_efeito": "ativo"
+        },
+        {
+          "rank": 4,
+          "item_en": "Gebbo's Bottomless Bag",
+          "item_pt": "Bolsa sem Fundo de Gebbo",
+          "fonte_tipo": "Raid",
+          "item_id": 270164,
+          "tipo_efeito": "passivo",
+          "jogadores": 9
+        },
+        {
+          "rank": 5,
+          "item_en": "Wavecaller's Seastone",
+          "item_pt": "Rocha Marinha do Clamaondas",
+          "fonte_tipo": "verificar",
+          "item_id": 270167,
+          "tipo_efeito": "passivo",
+          "jogadores": 7
+        }
+      ]
+    },
+    "extra_roll_voidcore": {
+      "nome_pt": "Núcleo Vazio Nebuloso",
+      "nome_en": "Nebulous Voidcore",
+      "descricao": "Sistema de bonus roll da Season 2 — garante loot extra de chefes do Abismo Peçonhento.",
+      "prioridade": [
+        {
+          "rank": 1,
+          "boss_pt": "Kith'ix",
+          "boss_en": "Kith'ix",
+          "item_pt": "Tentáculo do Terror Pervertido",
+          "item_en": "Twisted Horror's Tendril"
+        },
+        {
+          "rank": 2,
+          "boss_pt": "Ula'tek",
+          "boss_en": "Ula'tek",
+          "item_pt": "Jan'thrazet, a Presa Anímica",
+          "item_en": "Jan'thrazet, the Soul Fang",
+          "item_id": 271092
+        },
+        {
+          "rank": 3,
+          "boss_pt": "Altar Enrolado",
+          "boss_en": "The Coiled Altar",
+          "item_pt": "Ídolo da Perdição do Grão-bagateiro",
+          "item_en": "Hex Lord's Dooming Idol",
+          "item_id": 270169
+        },
+        {
+          "rank": 4,
+          "boss_pt": "Qualquer boss com peça de tier faltando",
+          "boss_en": "Any missing tier",
+          "item_pt": "Peças de Fatiota do Penitente Cósmico"
+        },
+        {
+          "rank": 5,
+          "boss_pt": "Os Exploradores Perdidos",
+          "boss_en": "The Lost Explorers",
+          "item_pt": "Bolsa sem Fundo de Gebbo",
+          "item_en": "Gebbo's Bottomless Bag",
+          "item_id": 270164
+        }
+      ]
+    }
+  },
+  "arvores_de_talentos_e_variantes": {
+    "arquivo_fonte_completo": "talent_builds_season2.json",
+    "arquetipos_hero_talents": {
+      "arconte": "Arconte (Archon) — Dano sustentado prolongado e controle estendido. Ideal para Raide Alvo Único e Míticas+ com controle de grupo.",
+      "tecelao_do_vazio": "Tecelão do Vazio (Voidweaver) — Dano explosivo (burst AoE) em janelas curtas via Fenda Entrópica. Ideal para Míticas+ rápidas e Imersões / Delves."
+    },
+    "builds_disponiveis": {
+      "mplus_arconte": "Archon M+ Build",
+      "mplus_tecelao_aoe": "Voidweaver M+ Build (AoE)",
+      "raid_arconte_st": "Archon Raid Build (padrão)",
+      "raid_tecelao_burst": "Voidweaver Raid Build",
+      "delves_tecelao_solo": "Voidweaver Delves Build"
+    },
+    "variantes_situacionais": {
+      "descricao": "Adaptações situacionais para Sacerdote Sombra conforme tipo de dano (Burst vs Sustentado) e perigos de sobrevivência.",
+      "comparativo_situacional": {
+        "arconte_vs_tecelao": "Arconte (Archon) é a escolha para dano sustentado prolongado e encontros de raide padrão; Tecelão do Vazio (Voidweaver) é a escolha para burst explosivo em janelas curtas, ideal para masmorras com pulls rápidos e Delves.",
+        "single_target_puro": "Arconte com Halo e Foco no Vazio proporciona a rotação mais estável contra chefes de alvo único puro (ex: Nek'zali).",
+        "dano_em_area_explosivo": "Tecelão do Vazio com Fenda Entrópica (Entropic Rift) gera dano inicial massivo em pacotes de monstros em M+."
+      },
+      "variante_defensiva_extrema": {
+        "nome": "Variante de Resiliência Máxima",
+        "ajustes": [
+          "Alocar Dispersão Acelerada (reduz a recarga de Dispersão para 90s).",
+          "Alocar Abraço Vampírico Aprimorado (converte 50% do dano de alvo único em cura para o grupo).",
+          "Manter Prece Desesperada (Desperate Prayer) para aumento imediato de vida máxima."
+        ]
+      },
+      "variante_utilidade_e_controle": {
+        "nome": "Variante de Suporte e Controle de Grupo",
+        "ajustes": [
+          "Alocar Dissipação em Massa (Mass Dispel) para encontros com debuffs mágicos em múltiplos alvos da raide.",
+          "Alocar Gritos Incessantes (Incessant Screams) no arquétipo Arconte para silenciamento em área estendido em Míticas+."
+        ]
+      }
+    }
+  },
+  "estatisticas_murlok_mplus": {
+    "data_coleta": "2026-11-06",
+    "patch": "12.1.5",
+    "temporada": "Midnight Season 2",
+    "amostra": "Top 50 Shadow Priests globais (US, EU, KR, TW)",
+    "faixa_rating": "3895 a 4117",
+    "distribuicao_hero_talents": {
+      "arconte": {
+        "jogadores": 35,
+        "porcentagem": 70
+      },
+      "tecelao_do_vazio": {
+        "jogadores": 15,
+        "porcentagem": 30
+      }
+    },
+    "prioridade_atributos_secundarios": [
+      {
+        "atributo": "Maestria",
+        "ordem": 1,
+        "media_porcentagem": 18,
+        "pontos": 1303
+      },
+      {
+        "atributo": "Aceleração",
+        "ordem": 2,
+        "media_porcentagem": 25,
+        "pontos": 930
+      },
+      {
+        "atributo": "Acerto Crítico",
+        "ordem": 3,
+        "media_porcentagem": 21,
+        "pontos": 732
+      },
+      {
+        "atributo": "Versatilidade",
+        "ordem": 4,
+        "media_porcentagem": 2,
+        "pontos": 124
+      }
+    ],
+    "atributos_menores": [
+      {
+        "atributo": "Evasão (Avoidance)",
+        "ordem": 1,
+        "media_porcentagem": 4,
+        "pontos": 164
+      },
+      {
+        "atributo": "Sorver (Leech)",
+        "ordem": 2,
+        "media_porcentagem": 3,
+        "pontos": 48
+      },
+      {
+        "atributo": "Velocidade (Speed)",
+        "ordem": 3,
+        "media_porcentagem": 4,
+        "pontos": 0
+      }
+    ],
+    "embelezamentos_mais_usados": [
+      {
+        "nome_pt": "Forro de Arcanotrama",
+        "nome_en": "Arcanoweave Lining",
+        "slot_tipico": "Pulsos (Braceletes do Mártir)",
+        "item_id": 239648
+      },
+      {
+        "nome_pt": "Pedra Ritual do Caçador",
+        "nome_en": "Hunter's Ritual Stone",
+        "slot_tipico": "Mão Secundária (Lanterna de Aln'hara)",
+        "item_id": 245769
+      },
+      {
+        "nome_pt": "Cordão de Arcanotrama",
+        "nome_en": "Arcanoweave Cord",
+        "slot_tipico": "Cinto",
+        "item_id": 239664
+      }
+    ],
+    "encantamentos_populares": {
+      "cabeca": "Encantamento de Elmo — Runa Empoderada de Evasão (Empowered Rune of Avoidance)",
+      "ombros": "Encantamento de Ombros — Graça de Amirdrassil (Amirdrassil's Grace)",
+      "peito": "Encantamento de Peito — Marca da Alma-mundo (Mark of the Worldsoul)",
+      "maos": "Arte de Batalha Hash'ey Antiga: Golpes do Falcão (Ancient Hash'ey Battle Art: Falco Strikes) 280563",
+      "pernas": "Fio Mágico de Seda Fogo-solar (Sunfire Silk Spellthread) 240133",
+      "pes": "Encantamento de Botas — Destreza do Lince (Lynx's Dexterity)",
+      "aneis": "Encantamento de Anel — Olhos da Águia (Eyes of the Eagle)",
+      "arma": "Rito dos Hash'ey (Rite of the Hash'ey) / Encantamento de Arma — Maestria Arcana (Arcane Mastery)"
+    },
+    "gemas_populares": {
+      "meta_eversong": [
+        {
+          "nome_pt": "Diamante do Canto Eterno Indecifrável",
+          "nome_en": "Indecipherable Eversong Diamond",
+          "item_id": 240983,
+          "efeito": "+32 de Atributo Primário"
+        },
+        {
+          "nome_pt": "Diamante do Canto Eterno Poderoso",
+          "nome_en": "Powerful Eversong Diamond",
+          "item_id": 240967
+        }
+      ],
+      "prismaticas": [
+        {
+          "nome_pt": "Granada Rápida Impecável",
+          "nome_en": "Flawless Quick Garnet",
+          "item_id": 240906,
+          "atributo": "Aceleração"
+        },
+        {
+          "nome_pt": "Peridoto Mortal Impecável",
+          "nome_en": "Flawless Deadly Peridot",
+          "item_id": 240890,
+          "atributo": "Crítico / Aceleração"
+        },
+        {
+          "nome_pt": "Peridoto Primoroso Impecável",
+          "nome_en": "Flawless Masterful Peridot",
+          "item_id": 240892,
+          "atributo": "Maestria / Aceleração"
+        },
+        {
+          "nome_pt": "Ametista Rápida Impecável",
+          "nome_en": "Flawless Quick Amethyst",
+          "item_id": 240900,
+          "atributo": "Aceleração"
+        },
+        {
+          "nome_pt": "Granada Primorosa Impecável",
+          "nome_en": "Flawless Masterful Garnet",
+          "item_id": 240908,
+          "atributo": "Maestria"
+        }
+      ]
+    },
+    "racas_mais_jogadas": [
+      "Elfo Noturno (Night Elf)",
+      "Elfo Caótico (Void Elf)",
+      "Troll",
+      "Dracthyr",
+      "Goblin"
+    ]
+  }
+}

@@ -1,0 +1,38 @@
+[build-system]
+requires = ["hatchling>=1.24"]
+build-backend = "hatchling.build"
+
+[project]
+name = "wowsim"
+version = "0.1.0"
+description = "Simulador local de equipamento para World of Warcraft Midnight S2, baseado no SimulationCraft"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+dependencies = [
+    "typer>=0.12",
+    "pydantic>=2.6",
+    "jinja2>=3.1",
+    "rich>=13.7",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0", "pytest-cov>=5.0"]
+llm = ["openai>=1.30"]
+
+[project.scripts]
+wowsim = "wowsim.cli:app"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/wowsim"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+addopts = "-ra"
+markers = [
+    "unit: testes sem simc e sem fixture real",
+    "golden: testes com o fixture real",
+    "integration_simc: exigem o binário do simc",
+    "schema: contrato de dados",
+]
