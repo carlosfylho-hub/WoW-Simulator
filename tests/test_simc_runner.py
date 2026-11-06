@@ -166,6 +166,34 @@ def test_read_results_sem_base_e_sem_profilesets(tmp_path: Path) -> None:
     assert "profilesets_ausentes" in resultado.avisos
 
 
+def test_read_results_profilesets_em_lista(tmp_path: Path) -> None:
+    """Build 12.1.5.70783 exposes profilesets as a list, not a dict."""
+    caminho = _escrever_json(
+        tmp_path,
+        {
+            "sim": {
+                "players": [
+                    {
+                        "collected_data": {
+                            "dps": {"median": 199485.0, "mean_std_dev": 153.0}
+                        }
+                    }
+                ],
+                "profilesets": [
+                    {"name": "up_head", "median": 201000.0, "median_std_dev": 1000.0}
+                ],
+            }
+        },
+    )
+    resultado = sr.read_results(caminho)
+    assert resultado.base is not None
+    assert resultado.base.dps == 199485.0
+    assert len(resultado.variacoes) == 1
+    assert resultado.variacoes[0].nome == "up_head"
+    assert resultado.variacoes[0].dps == 201000.0
+    assert resultado.avisos == ()
+
+
 def test_comparar_com_referencia() -> None:
     delta, dentro = sr.comparar_com_referencia(254000.0, 254000.0)
     assert delta == 0.0

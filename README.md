@@ -9,7 +9,7 @@ Todos os números vêm do **SimulationCraft**. Nada é estimado pelo código nem
 | Fase | Escopo | Situação |
 | :-: | :--- | :-: |
 | 0 | arquitetura e fontes | concluída — [`docs/ARQUITETURA.md`](docs/ARQUITETURA.md), [`docs/FONTES.md`](docs/FONTES.md) |
-| 1 | motor SimC, fixture, scaffold e snapshot de dados | em andamento |
+| 1 | motor SimC, fixture, scaffold e snapshot de dados | concluída — aceite do `simc-check` cumprido |
 | 2 | parser do addon | pendente |
 | 3 | catálogo | pendente |
 | 4 | gerador de variações | pendente |
@@ -48,7 +48,13 @@ Se não houver binário, escolha uma das opções:
 2. **Compilar** com um dos scripts:
 
 ```powershell
-# Windows
+# Windows: instala o toolchain, se ainda não existir
+winget install Kitware.CMake Ninja-build.Ninja Microsoft.VisualStudio.2022.BuildTools
+
+# Compila a partir de um fonte já extraído
+powershell -ExecutionPolicy Bypass -File scripts/build_simc.ps1 -SourceDir ..\..\simc-midnight
+
+# Ou clona a branch midnight e compila
 powershell -ExecutionPolicy Bypass -File scripts/build_simc.ps1
 ```
 
@@ -57,7 +63,7 @@ powershell -ExecutionPolicy Bypass -File scripts/build_simc.ps1
 bash scripts/build_simc.sh
 ```
 
-Os scripts clonam a branch `midnight` com profundidade 1 e compilam com CMake e Ninja, sem GUI e sem rede. Em máquina de 2 núcleos, espere cerca de 35 minutos.
+O script Windows importa o `vcvars64.bat`, configura com CMake e Ninja, compila sem GUI e sem rede e copia o binário para `bin/simc.exe`. O fonte usado nesta máquina declara `12.1.5.70783` e foi compilado em cerca de 1,5 min com 19 jobs. Em máquina de 2 núcleos, espere cerca de 35 minutos.
 
 ## Comandos
 
@@ -75,6 +81,15 @@ wowsim simc-check --iterations 1000 --forcar
 | Patchwerk, 1 alvo | 204.000 DPS | ±3% |
 
 Os valores de referência vêm do prompt de especificação e **não** substituem a execução: se o binário estiver ausente, o comando falha com código 2 e mostra as instruções, em vez de estimar.
+
+**Resultado do aceite com 1000 iterações:**
+
+| Cenário | DPS medido | Referência | Delta | Situação |
+| :--- | --: | --: | --: | :-: |
+| DungeonSlice | 255.601 | 254.000 | +0,63% | dentro |
+| Patchwerk, 1 alvo | 199.485 | 204.000 | −2,21% | dentro |
+
+O Patchwerk fica abaixo da referência do prompt, mas dentro da tolerância de ±3%; o valor é reportado como medido, não ajustado.
 
 ## Estrutura
 

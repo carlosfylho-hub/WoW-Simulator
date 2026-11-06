@@ -466,8 +466,15 @@ def read_results(json_path: str | Path) -> SimcResultado:
         avisos.append("base_ausente_no_json")
 
     variacoes: list[ResultadoDps] = []
-    perfis = sim.get("profilesets", {})
-    resultados = perfis.get("results") if isinstance(perfis, dict) else None
+    perfis = sim.get("profilesets")
+    if isinstance(perfis, list):
+        # Observed in build 12.1.5.70783: profilesets is a list of results.
+        resultados = perfis
+    elif isinstance(perfis, dict):
+        resultados = perfis.get("results")
+    else:
+        resultados = None
+
     if isinstance(resultados, list):
         for indice, entrada in enumerate(resultados):
             if not isinstance(entrada, dict):
@@ -476,7 +483,7 @@ def read_results(json_path: str | Path) -> SimcResultado:
             resultado = _resultado_de_bloco(nome, entrada, eh_base=False)
             if resultado is not None:
                 variacoes.append(resultado)
-    else:
+    elif resultados is None:
         avisos.append("profilesets_ausentes")
 
     return SimcResultado(

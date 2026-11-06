@@ -1,21 +1,14 @@
 # Pendências — WoW Calculator Sim
 
 **Última atualização:** 2026-11-06
-**Fase atual:** 0 concluída — Fase 1 autorizada
+**Fase atual:** 1 concluída — Fase 2 autorizada
 **Regra:** toda pendência tem identificador, impacto e condição de fechamento. Pendência sem condição de fechamento não entra.
 
 ---
 
-## 1. Bloqueante atual
+## 1. Bloqueantes
 
-### P-002 — Binário do simc não confirmado
-
-| Campo | Detalhe |
-| :--- | :--- |
-| **Situação** | Não há `simc` no PATH nem em `wow-sim/bin/`. Não foi possível executar comando para confirmar. |
-| **Bloqueia** | Toda a Fase 1 e qualquer número do relatório |
-| **Fecha com** | `simc` encontrado por `find_simc()` e `check_version()` reportando build compatível com `12.1.5.70783`; ou execução de `scripts/build_simc.ps1` / `build_simc.sh` |
-| **Observação** | Em máquina de 2 núcleos a compilação é longa; a estimativa será exibida antes de começar |
+Nenhum bloqueio ativo. O binário foi compilado a partir do fonte `12.1.5.70783` e o aceite da Fase 1 foi cumprido.
 
 ---
 
@@ -27,8 +20,19 @@
 | :--- | :--- |
 | **Situação** | **Recebido do usuário em 2026-11-06.** Export completo colado na conversa, com checksum `70553fc1`. |
 | **O que contém** | 6 loadouts salvos, 16 linhas de slot incluindo tabardo, sem `off_hand`, 5 itens na mochila, 17 marcas de ilvl, 5 moedas de Catalisador, 14 entradas de moedas de upgrade. |
-| **Ação restante** | Gravar o texto literal em `fixtures/pyrogalth.simc` na Fase 1, sem reformatar e sem reordenar linhas. |
-| **Impacto** | Desbloqueia o golden test da Fase 2 e o `simc-check` da Fase 1, este último ainda dependente de P-002. |
+| **Ação restante** | **Concluída.** Texto gravado byte a byte em `fixtures/pyrogalth.simc` (97 linhas, idêntico ao bloco de transcrição). |
+| **Impacto** | Desbloqueou o golden test da Fase 2 e o `simc-check`; ambos já exercitados com o binário real. |
+
+### P-002 — Binário do simc — **RESOLVIDA em 2026-11-06**
+
+| Campo | Detalhe |
+| :--- | :--- |
+| **Situação** | O usuário forneceu o **código-fonte** da branch `midnight` em `../simc-midnight`, cujo `client_data_version.inc` declara `CLIENT_DATA_WOW_VERSION "12.1.5.70783"`. |
+| **Toolchain** | Instalados via winget: CMake `4.4.4`, Ninja `1.13.2` e VS Build Tools `17.14.44` com carga C++ (MSVC `19.44.35229`). |
+| **Build** | `cmake -G Ninja -DCMAKE_BUILD_TYPE=Release -DBUILD_GUI=OFF -DSC_NO_NETWORKING=ON`, alvo `simc`, 19 jobs, 178 passos. |
+| **Binário** | `bin/simc.exe`, 121 MB, ignorado pelo Git. `simc-info` reporta versão `1210-01`, build `12.1.5.70783`, situação **compatível**. |
+| **Aceite** | 1000 iterações: DungeonSlice **255.601 DPS** (+0,63%) e Patchwerk **199.485 DPS** (−2,21%), ambos dentro de ±3%. |
+| **Receita reproduzível** | `scripts/build_simc.ps1 -SourceDir ..\..\simc-midnight` importa o `vcvars64.bat`, configura, compila e copia para `bin/`. |
 
 ---
 
@@ -98,9 +102,16 @@ O prompt aponta erros de nome e remete a `pendencias.md` seção `3.16-A`, que *
 
 ## 4. Pendências de engenharia
 
-### P-011 — Schema de `profilesets.results` a confirmar
+### P-011 — Schema do JSON do simc — **RESOLVIDA parcialmente em 2026-11-06**
 
-`median` e nomes das chaves de erro variam por build. `simc_runner.read_results()` é adaptador com fallback; a primeira execução real grava `dados/derivados/simc_schema.json`. Fecha com a primeira execução bem-sucedida.
+A primeira execução real confirmou o schema do build `12.1.5.70783`:
+
+- topo: `version`, `report_version`, `build_date`, `build_time`, `timestamp`, `git_revision`, `git_branch`, `sim`, `logs`;
+- `sim`: `options`, `overrides`, `players`, `statistics`;
+- `players[0].collected_data.dps`: `sum`, `count`, `mean`, `min`, `max`, `median`, `variance`, `std_dev`, `mean_variance`, `mean_std_dev`;
+- **`sim.profilesets` é uma lista**, não um dicionário com `results`. O adaptador agora aceita as duas formas e há teste para a forma em lista.
+
+Resta confirmar os campos internos de uma entrada de profileset quando houver variação simulada; isso fecha na Fase 4.
 
 ### P-012 — Comparação de talentos por arquétipo
 
