@@ -49,9 +49,9 @@ Nenhum bloqueio ativo. O binário foi compilado a partir do fonte `12.1.5.70783`
 | **Ação da Fase 3** | `data/omnium_map.py` resolve as 13 entradas por `spellId` e falha explicitamente se um ID do export não existir na árvore. |
 | **Detalhe completo** | [`docs/RAIDBOTS-REFERENCIA.md`](docs/RAIDBOTS-REFERENCIA.md). |
 
-### P-004 — ilvl por rank de trilha — **RESOLVIDA parcialmente em 2026-11-06**
+### P-004 — ilvl por rank de trilha — **RESOLVIDA em 2026-11-06**
 
-O projeto confirma Herói 6/6 = 321, Mítico 6/6 = 334, forjados 328 e 341 e cantrip 344. O Raidbots publica [`bonus-upgrade-sets.json`](https://www.raidbots.com/static/data/live/bonus-upgrade-sets.json) com 68 grupos no formato `{group, level, max, bonusId, itemLevel, costs}` — exatamente o dado que faltava. A Fase 3 deve localizar os grupos que contêm `12817–12822`, `12825–12830`, `12833–12838`, `12841–12846` e `12849–12854` e conferir os tetos conhecidos. Se o `itemLevel` bater com 321 e 334, a tabela é aceita com `fonte=raidbots:bonus-upgrade-sets`; se não bater, vale o `simc` e a divergência vira pendência. Enquanto não validado, `bonus_para_ilvl` continua devolvendo `null`.
+O projeto confirma Herói 6/6 = 321, Mítico 6/6 = 334, forjados 328 e 341 e cantrip 344. O Raidbots publica [`bonus-upgrade-sets.json`](https://www.raidbots.com/static/data/live/bonus-upgrade-sets.json) com os grupos 614 a 618, um por trilha. O script `scripts/derivar_bonus_ilvl.py` extrai os 30 ranks e valida seis âncoras: 12817 = 266, 12849 = 318, 12846 = 321, 12854 = 334, 12848 = 328 e 12856 = 341. Todas passaram. A tabela está em `dados/derivados/bonus_ilvl.json`, com `wow_build=12.1.5.70688` e `content_hash`, e `catalog.bonus_para_ilvl` a consome com `fonte=raidbots:bonus-upgrade-sets`. O 318 do prompt para Mítico 1/6 foi confirmado.
 
 ### P-005 — `slot_high_watermarks` com índices não identificados
 

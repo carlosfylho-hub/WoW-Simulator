@@ -1,0 +1,281 @@
+{
+  "_meta": {
+    "documento": "bonus_ilvl.json",
+    "gerado_em": "2026-11-06T23:37:04Z",
+    "fonte": "raidbots:bonus-upgrade-sets",
+    "url": "https://www.raidbots.com/static/data/live/bonus-upgrade-sets.json",
+    "wow_build": "12.1.5.70688",
+    "content_hash": "06e38466fa95ee1416a4331fd72a4a2f",
+    "gerado_pelo_raidbots_em": "2026-10-31T03:45:07.866Z",
+    "esperados": 30,
+    "encontrados": 30,
+    "faltando": [],
+    "validacoes": {
+      "heroi_6_6_321": true,
+      "mito_6_6_334": true,
+      "mito_1_6_318": true,
+      "aventureiro_1_6_266": true,
+      "forjado_heroi_328": true,
+      "forjado_mito_341": true
+    },
+    "validado": true
+  },
+  "bonus": {
+    "12817": {
+      "trilha": "Aventureiro",
+      "rank": "1/6",
+      "ilvl": 266,
+      "grupo": 614,
+      "evidencia": "raidbots:bonus-upgrade-sets",
+      "fonte": "raidbots:bonus-upgrade-sets"
+    },
+    "12818": {
+      "trilha": "Aventureiro",
+      "rank": "2/6",
+      "ilvl": 269,
+      "grupo": 614,
+      "evidencia": "raidbots:bonus-upgrade-sets",
+      "fonte": "raidbots:bonus-upgrade-sets"
+    },
+    "12819": {
+      "trilha": "Aventureiro",
+      "rank": "3/6",
+      "ilvl": 272,
+      "grupo": 614,
+      "evidencia": "raidbots:bonus-upgrade-sets",
+      "fonte": "raidbots:bonus-upgrade-sets"
+    },
+    "12820": {
+      "trilha": "Aventureiro",
+      "rank": "4/6",
+      "ilvl": 276,
+      "grupo": 614,
+      "evidencia": "raidbots:bonus-upgrade-sets",
+      "fonte": "raidbots:bonus-upgrade-sets"
+    },
+    "12821": {
+      "trilha": "Aventureiro",
+      "rank": "5/6",
+      "ilvl": 279,
+      "grupo": 614,
+      "evidencia": "raidbots:bonus-upgrade-sets",
+      "fonte": "raidbots:bonus-upgrade-sets"
+    },
+    "12822": {
+      "trilha": "Aventureiro",
+      "rank": "6/6",
+      "ilvl": 282,
+      "grupo": 614,
+      "evidencia": "raidbots:bonus-upgrade-sets",
+      "fonte": "raidbots:bonus-upgrade-sets"
+    },
+    "12825": {
+      "trilha": "Veterano",
+      "rank": "1/6",
+      "ilvl": 279,
+      "grupo": 615,
+      "evidencia": "raidbots:bonus-upgrade-sets",
+      "fonte": "raidbots:bonus-upgrade-sets"
+    },
+    "12826": {
+      "trilha": "Veterano",
+      "rank": "2/6",
+      "ilvl": 282,
+      "grupo": 615,
+      "evidencia": "raidbots:bonus-upgrade-sets",
+      "fonte": "raidbots:bonus-upgrade-sets"
+    },
+    "12827": {
+      "trilha": "Veterano",
+      "rank": "3/6",
+      "ilvl": 285,
+      "grupo": 615,
+      "evidencia": "raidbots:bonus-upgrade-sets",
+      "fonte": "raidbots:bonus-upgrade-sets"
+    },
+    "12828": {
+      "trilha": "Veterano",
+      "rank": "4/6",
+      "ilvl": 289,
+      "grupo": 615,
+      "evidencia": "raidbots:bonus-upgrade-sets",
+      "fonte": "raidbots:bonus-upgrade-sets"
+    },
+    "12829": {
+      "trilha": "Veterano",
+      "rank": "5/6",
+      "ilvl": 292,
+      "grupo": 615,
+      "evidencia": "raidbots:bonus-upgrade-sets",
+      "fonte": "raidbots:bonus-upgrade-sets"
+    },
+    "12830": {
+      "trilha": "Veterano",
+      "rank": "6/6",
+      "ilvl": 295,
+      "grupo": 615,
+      "evidencia": "raidbots:bonus-upgrade-sets",
+      "fonte": "raidbots:bonus-upgrade-sets"
+    },
+    "12833": {
+      "trilha": "Campeao",
+      "rank": "1/6",
+      "ilvl": 292,
+      "grupo": 616,
+      "evidencia": "raidbots:bonus-upgrade-sets",
+      "fonte": "raidbots:bonus-upgrade-sets"
+    },
+    "12834": {
+      "trilha": "Campeao",
+      "rank": "2/6",
+      "ilvl": 295,
+      "grupo": 616,
+      "evidencia": "raidbots:bonus-upgrade-sets",
+      "fonte": "raidbots:bonus-upgrade-sets"
+    },
+    "12835": {
+      "trilha": "Campeao",
+      "rank": "3/6",
+      "ilvl": 298,
+      "grupo": 616,
+      "evidencia": "raidbots:bonus-upgrade-sets",
+      "fonte": "raidbots:bonus-upgrade-sets"
+    },
+    "12836": {
+      "trilha": "Campeao",
+      "rank": "4/6",
+      "ilvl": 302,
+      "grupo": 616,
+      "evidencia": "raidbots:bonus-upgrade-sets",
+      "fonte": "raidbots:bonus-upgrade-sets"
+    },
+    "12837": {
+      "trilha": "Campeao",
+      "rank": "5/6",
+      "ilvl": 305,
+      "grupo": 616,
+      "evidencia": "raidbots:bonus-upgrade-sets",
+      "fonte": "raidbots:bonus-upgrade-sets"
+    },
+    "12838": {
+      "trilha": "Campeao",
+      "rank": "6/6",
+      "ilvl": 308,
+      "grupo": 616,
+      "evidencia": "raidbots:bonus-upgrade-sets",
+      "fonte": "raidbots:bonus-upgrade-sets"
+    },
+    "12841": {
+      "trilha": "Heroi",
+      "rank": "1/6",
+      "ilvl": 305,
+      "grupo": 617,
+      "evidencia": "raidbots:bonus-upgrade-sets",
+      "fonte": "raidbots:bonus-upgrade-sets"
+    },
+    "12842": {
+      "trilha": "Heroi",
+      "rank": "2/6",
+      "ilvl": 308,
+      "grupo": 617,
+      "evidencia": "raidbots:bonus-upgrade-sets",
+      "fonte": "raidbots:bonus-upgrade-sets"
+    },
+    "12843": {
+      "trilha": "Heroi",
+      "rank": "3/6",
+      "ilvl": 311,
+      "grupo": 617,
+      "evidencia": "raidbots:bonus-upgrade-sets",
+      "fonte": "raidbots:bonus-upgrade-sets"
+    },
+    "12844": {
+      "trilha": "Heroi",
+      "rank": "4/6",
+      "ilvl": 315,
+      "grupo": 617,
+      "evidencia": "raidbots:bonus-upgrade-sets",
+      "fonte": "raidbots:bonus-upgrade-sets"
+    },
+    "12845": {
+      "trilha": "Heroi",
+      "rank": "5/6",
+      "ilvl": 318,
+      "grupo": 617,
+      "evidencia": "raidbots:bonus-upgrade-sets",
+      "fonte": "raidbots:bonus-upgrade-sets"
+    },
+    "12846": {
+      "trilha": "Heroi",
+      "rank": "6/6",
+      "ilvl": 321,
+      "grupo": 617,
+      "evidencia": "raidbots:bonus-upgrade-sets",
+      "fonte": "raidbots:bonus-upgrade-sets"
+    },
+    "12849": {
+      "trilha": "Mito",
+      "rank": "1/6",
+      "ilvl": 318,
+      "grupo": 618,
+      "evidencia": "raidbots:bonus-upgrade-sets",
+      "fonte": "raidbots:bonus-upgrade-sets"
+    },
+    "12850": {
+      "trilha": "Mito",
+      "rank": "2/6",
+      "ilvl": 321,
+      "grupo": 618,
+      "evidencia": "raidbots:bonus-upgrade-sets",
+      "fonte": "raidbots:bonus-upgrade-sets"
+    },
+    "12851": {
+      "trilha": "Mito",
+      "rank": "3/6",
+      "ilvl": 324,
+      "grupo": 618,
+      "evidencia": "raidbots:bonus-upgrade-sets",
+      "fonte": "raidbots:bonus-upgrade-sets"
+    },
+    "12852": {
+      "trilha": "Mito",
+      "rank": "4/6",
+      "ilvl": 328,
+      "grupo": 618,
+      "evidencia": "raidbots:bonus-upgrade-sets",
+      "fonte": "raidbots:bonus-upgrade-sets"
+    },
+    "12853": {
+      "trilha": "Mito",
+      "rank": "5/6",
+      "ilvl": 331,
+      "grupo": 618,
+      "evidencia": "raidbots:bonus-upgrade-sets",
+      "fonte": "raidbots:bonus-upgrade-sets"
+    },
+    "12854": {
+      "trilha": "Mito",
+      "rank": "6/6",
+      "ilvl": 334,
+      "grupo": 618,
+      "evidencia": "raidbots:bonus-upgrade-sets",
+      "fonte": "raidbots:bonus-upgrade-sets"
+    },
+    "12848": {
+      "trilha": "Forjado com Peconha",
+      "rank": null,
+      "ilvl": 328,
+      "grupo": null,
+      "evidencia": "sistema_forjado_com_peconha.tabela_ilvl",
+      "fonte": "season2_context.json"
+    },
+    "12856": {
+      "trilha": "Forjado com Peconha",
+      "rank": null,
+      "ilvl": 341,
+      "grupo": null,
+      "evidencia": "sistema_forjado_com_peconha.tabela_ilvl",
+      "fonte": "season2_context.json"
+    }
+  }
+}

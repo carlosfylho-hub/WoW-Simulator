@@ -102,7 +102,8 @@ class NomeItem(BaseModel):
     nome_pt: str | None = None
     nome_en: str | None = None
     fonte: str
-    simulavel: bool = True
+    simulavel: bool | None = None
+    fonte_simulavel: str | None = None
 
 
 class IlvlBonus(BaseModel):
@@ -134,6 +135,7 @@ class Variacao(BaseModel):
     linhas_override: list[str]
     item_ids: list[int] = Field(default_factory=list)
     bonus_ids_envolvidos: list[int] = Field(default_factory=list)
+    aviso: str | None = None
     fonte: str
 
 
@@ -159,4 +161,59 @@ class LinhaRelatorio(BaseModel):
     nome_pt: str | None = None
     nome_en: str | None = None
     item_id: int | None = None
+    fonte: str
+
+
+class Gema(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+
+    item_id: int
+    nome_pt: str | None = None
+    nome_en: str | None = None
+    tipo: str | None = None
+    qualidade: int | None = None
+    atributos: list[str] = Field(default_factory=list)
+    unica: bool = False
+    fonte: str
+
+
+class Runa(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+
+    linha: int
+    escolha: str
+    id_base: int
+    id_buff: int | None = None
+    id_entrada: int | None = None
+    nome_pt: str | None = None
+    nome_en: str | None = None
+    efeito_pt: str | None = None
+    fonte: str
+
+
+class EncantamentoResolvido(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+
+    enchant_id: int
+    nome_pt: str | None = None
+    nome_en: str | None = None
+    camada: str
+    slot: str | None = None
+    tier: int | None = None
+    item_id: int | None = None
+    spell_id: int | None = None
+    fonte: str
+
+
+class ItemLoot(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+
+    item_id: int
+    nome_pt: str | None = None
+    nome_en: str | None = None
+    slot: str | None = None
+    ilvl: int | None = None
+    origem: str | None = None
+    tipo_efeito: str | None = None
+    usavel_conjurador: bool | None = None
     fonte: str

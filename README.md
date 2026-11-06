@@ -11,8 +11,8 @@ Todos os números vêm do **SimulationCraft**. Nada é estimado pelo código nem
 | 0 | arquitetura e fontes | concluída — [`docs/ARQUITETURA.md`](docs/ARQUITETURA.md), [`docs/FONTES.md`](docs/FONTES.md) |
 | 1 | motor SimC, fixture, scaffold e snapshot de dados | concluída — aceite do `simc-check` cumprido |
 | 2 | parser do addon | concluída — round-trip byte a byte e 17 testes |
-| 3 | catálogo | pendente |
-| 4 | gerador de variações | pendente |
+| 3 | catálogo | concluída — nomes, bônus, encantos, gemas, runas e loot |
+| 4 | gerador de variações | concluída — 7 categorias e teste com simc real |
 | 5 | relatório | pendente |
 | 6 | resumo opcional com DeepSeek | pendente |
 | 7 | interface web | opcional |
@@ -73,7 +73,29 @@ wowsim simc-check
 wowsim simc-check --iterations 1000 --forcar
 wowsim parse fixtures/pyrogalth.simc
 wowsim parse fixtures/pyrogalth.simc --json personagem.json
+wowsim upgrades fixtures/pyrogalth.simc --de 12846 --para 12854 --rodar
+wowsim encantos fixtures/pyrogalth.simc
+wowsim talentos fixtures/pyrogalth.simc --cenario mplus
+wowsim folio fixtures/pyrogalth.simc
+wowsim berloques fixtures/pyrogalth.simc --nivel 341
+wowsim tudo fixtures/pyrogalth.simc --iteracoes 1000 --max-variacoes 40 --sem-llm
 ```
+
+## Gerador de variações
+
+`wowsim.gen.profilesets` monta um único arquivo `.simc` com a base e linhas `profileset."nome"+=override`. A base é sempre a primeira variação.
+
+| Categoria | O que muda |
+| :--- | :--- |
+| `upgrade` | troca o `bonus_id` de trilha em cada slot que o usa |
+| `item` | peça da mochila no lugar da equipada, preservando encantamento e gema |
+| `encanto` | encantamento por slot; os dois anéis mudam juntos |
+| `gema` | troca de gema dentro da mesma família, sem misturar diamante com granada |
+| `talento` | uma variação por Saved Loadout |
+| `folio` | uma runa por vez dentro da mesma linha |
+| `berloque` | cada candidato em cada um dos dois slots, no nível 341, 334 ou 328 |
+
+O limite `--max-variacoes` corta o corpo, nunca a base. O tempo é estimado antes de rodar. Variações de berloque on-use carregam o aviso da regra R4.
 
 ## Parser do addon
 
@@ -121,6 +143,22 @@ wow-sim/
   tests/          pytest
 ```
 
+## Catálogo
+
+`wowsim.data.catalog` expõe, sempre com campo `fonte`:
+
+| Função | O que devolve |
+| :--- | :--- |
+| `nome_item(item_id)` | nome PT-BR e EN, arquivo de origem e se o `simc` conhece o item |
+| `bonus_para_ilvl(bonus_id)` | trilha, rank e ilvl, ou `None` quando não validado |
+| `encantamentos_por_slot(slot)` | encantamentos, arte de batalha, tinker e Magilinha |
+| `gemas(tipo)` | 72 gemas, com marca de única-equipada |
+| `runas_folio()` | 13 runas com nó, buff e entrada do Folio |
+| `itens_mplus(slot)` | loot de M+ normalizado por slot |
+| `berloques_conjurador()` | berloques utilizáveis por conjurador |
+
+O mapa de encantamento classifica a camada: `encantamento`, `arte_de_batalha`, `magilinha`, `tinker` ou `oleo_temporario`. `enchant_id` 8730 é Arte de Batalha Hash'ey e 7935 é Magilinha; trocar um pelo outro é erro de camada.
+
 ## Referências
 
 - [`docs/ARQUITETURA.md`](docs/ARQUITETURA.md) — decisões, contratos, riscos e critérios de aceite.
@@ -132,6 +170,8 @@ wow-sim/
 
 ```bash
 python scripts/sincronizar_dados.py --check
+python scripts/derivar_bonus_ilvl.py
+python scripts/derivar_omnium.py
 python scripts/inspecionar_json.py dados/bonus_ids_s2.json
 python scripts/extrair_texto_html.py pagina.html
 python scripts/buscar_texto.py bundle.js "padrao"

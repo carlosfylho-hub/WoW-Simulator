@@ -15,6 +15,8 @@ from rich.panel import Panel
 from rich.table import Table
 
 from . import simc_runner as sr
+from .gen import profilesets
+from .models import Personagem, Variacao
 from .parser.addon import SLOTS, ErroParseAddon, parse_texto
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
@@ -196,6 +198,231 @@ def simc_check(
             )
         )
         raise typer.Exit(code=1)
+
+
+def _carregar_personagem(addon: Path) -> Personagem:
+    if not addon.is_file():
+        console.print(Panel(f"Arquivo não encontrado: {addon}", title="Falha", style="red"))
+        raise typer.Exit(code=2)
+    try:
+        return parse_texto(addon.read_text(encoding="utf-8"))
+    except ErroParseAddon as exc:
+        console.print(Panel(str(exc), title="Falha no parse", style="red"))
+        raise typer.Exit(code=2)
+
+
+def _executar_lote(
+    personagem: Personagem,
+    variacoes: list[Variacao],
+    *,
+    destino: Path,
+    iterations: int,
+    rodar: bool,
+    fight_style: str = "DungeonSlice",
+    sem_llm: bool = True,
+) -> None:
+    caminho = profilesets.escrever_arquivo(personagem, variacoes, destino)
+    estimativa = profilesets.estimar_segundos(len(variacoes) - 1, iterations)
+    console.print(
+        f"Arquivo: [bold]{caminho}[/bold] | "
+        f"{len(variacoes) - 1} variações + base | "
+        f"estimativa ~{estimativa:.0f}s com {iterations} iterações"
+    )
+    if sem_llm:
+        console.print("[dim]Resumo por LLM desligado nesta fase.[/dim]")
+
+    if not rodar:
+        tabela = Table(title="Variações geradas", header_style="bold")
+        tabela.add_column("Nome")
+        tabela.add_column("Categoria")
+        tabela.add_column("Overrides", justify="right")
+        tabela.add_column("Primeira linha")
+        for variacao in variacoes:
+            primeira = variacao.linhas_override[0] if variacao.linhas_override else "—"
+            tabela.add_row(
+                variacao.nome,
+                variacao.categoria,
+                str(len(variacao.linhas_override)),
+                primeira[:70],
+            )
+        console.print(tabela)
+        console.print("Use --rodar para executar o simc e ver os DPS.")
+        return
+
+    execucao = sr.run_simc(
+        caminho,
+        iterations=iterations,
+        fight_style=fight_style,
+        threads=sr.threads_padrao(),
+    )
+    resultado = sr.read_results(execucao.json_path)
+    if resultado.base is None:
+        console.print(
+            Panel(
+                "O simc não devolveu DPS da base.",
+                title="Resultado inválido",
+                style="red",
+            )
+        )
+        raise typer.Exit(code=4)
+
+    base = resultado.base.dps
+    tabela = Table(title=f"Resultado — {fight_style}", header_style="bold")
+    tabela.add_column("Variação")
+    tabela.add_column("DPS", justify="right")
+    tabela.add_column("Delta", justify="right")
+    for variacao in resultado.variacoes:
+        delta = 100.0 * (variacao.dps - base) / base
+        tabela.add_row(variacao.nome, f"{variacao.dps:,.0f}", f"{delta:+.2f}%")
+    console.print(f"Base: {base:,.0f} DPS")
+    console.print(tabela)
+    console.print(f"JSON: {execucao.json_path}")
+
+
+def _destino(nome: str) -> Path:
+    return PROJECT_ROOT / "saida" / nome
+
+
+@app.command("upgrades")
+def upgrades(
+    addon: Path = typer.Argument(..., help="Export do SimC AddOn."),
+    de: int = typer.Option(12846, "--de", help="bonus_id da trilha atual."),
+    para: int = typer.Option(12854, "--para", help="bonus_id da trilha alvo."),
+    iterations: int = typer.Option(200, "--iterations", "-n", min=10),
+    rodar: bool = typer.Option(False, "--rodar", help="Executa o simc."),
+) -> None:
+    """Troca o bonus_id de trilha em cada slot que o usa."""
+    personagem = _carregar_personagem(addon)
+    variacoes = profilesets.gerar(
+        personagem,
+        categorias={"upgrade"},
+        de_bonus=de,
+        para_bonus=para,
+    )
+    _executar_lote(
+        personagem,
+        variacoes,
+        destino=_destino(f"upgrades_{de}_{para}.simc"),
+        iterations=iterations,
+        rodar=rodar,
+    )
+
+
+@app.command("encantos")
+def encantos(
+    addon: Path = typer.Argument(..., help="Export do SimC AddOn."),
+    iterations: int = typer.Option(200, "--iterations", "-n", min=10),
+    rodar: bool = typer.Option(False, "--rodar"),
+) -> None:
+    """Gera variações de encantamento, anéis em par e camadas separadas."""
+    personagem = _carregar_personagem(addon)
+    variacoes = profilesets.gerar(personagem, categorias={"encanto"})
+    _executar_lote(
+        personagem,
+        variacoes,
+        destino=_destino("encantos.simc"),
+        iterations=iterations,
+        rodar=rodar,
+    )
+
+
+@app.command("talentos")
+def talentos(
+    addon: Path = typer.Argument(..., help="Export do SimC AddOn."),
+    cenario: str = typer.Option("mplus", "--cenario", help="mplus ou alvo."),
+    iterations: int = typer.Option(200, "--iterations", "-n", min=10),
+    rodar: bool = typer.Option(False, "--rodar"),
+) -> None:
+    """Gera uma variação por Saved Loadout."""
+    if cenario not in {"mplus", "alvo"}:
+        console.print(Panel("Cenário deve ser mplus ou alvo.", title="Falha", style="red"))
+        raise typer.Exit(code=2)
+    personagem = _carregar_personagem(addon)
+    variacoes = profilesets.gerar(personagem, categorias={"talento"})
+    _executar_lote(
+        personagem,
+        variacoes,
+        destino=_destino(f"talentos_{cenario}.simc"),
+        iterations=iterations,
+        rodar=rodar,
+        fight_style="DungeonSlice" if cenario == "mplus" else "Patchwerk",
+    )
+
+
+@app.command("folio")
+def folio(
+    addon: Path = typer.Argument(..., help="Export do SimC AddOn."),
+    runas: Optional[str] = typer.Option(None, "--runas", help="Ex.: 1A-2B-3A-4A-5A."),
+    iterations: int = typer.Option(200, "--iterations", "-n", min=10),
+    rodar: bool = typer.Option(False, "--rodar"),
+) -> None:
+    """Troca uma runa por vez dentro da mesma linha do Folio."""
+    personagem = _carregar_personagem(addon)
+    variacoes = profilesets.gerar(personagem, categorias={"folio"}, runas=runas)
+    _executar_lote(
+        personagem,
+        variacoes,
+        destino=_destino("folio.simc"),
+        iterations=iterations,
+        rodar=rodar,
+    )
+
+
+@app.command("berloques")
+def berloques(
+    addon: Path = typer.Argument(..., help="Export do SimC AddOn."),
+    nivel: int = typer.Option(341, "--nivel", help="341, 334 ou 328."),
+    iterations: int = typer.Option(200, "--iterations", "-n", min=10),
+    rodar: bool = typer.Option(False, "--rodar"),
+) -> None:
+    """Testa cada candidato nos dois slots de berloque."""
+    personagem = _carregar_personagem(addon)
+    try:
+        variacoes = profilesets.gerar(
+            personagem, categorias={"berloque"}, nivel_berloque=nivel
+        )
+    except ValueError as exc:
+        console.print(Panel(str(exc), title="Falha", style="red"))
+        raise typer.Exit(code=2)
+    _executar_lote(
+        personagem,
+        variacoes,
+        destino=_destino(f"berloques_{nivel}.simc"),
+        iterations=iterations,
+        rodar=rodar,
+    )
+
+
+@app.command("tudo")
+def tudo(
+    addon: Path = typer.Argument(..., help="Export do SimC AddOn."),
+    iterations: int = typer.Option(1000, "--iteracoes", "--iterations", min=10),
+    max_variacoes: int = typer.Option(40, "--max-variacoes", min=1),
+    de: int = typer.Option(12846, "--de"),
+    para: int = typer.Option(12854, "--para"),
+    nivel: int = typer.Option(341, "--nivel"),
+    runas: Optional[str] = typer.Option(None, "--runas"),
+    rodar: bool = typer.Option(False, "--rodar"),
+    sem_llm: bool = typer.Option(True, "--sem-llm/--com-llm"),
+) -> None:
+    """Gera todas as categorias com limite de variações."""
+    personagem = _carregar_personagem(addon)
+    variacoes = profilesets.gerar(
+        personagem,
+        de_bonus=de,
+        para_bonus=para,
+        runas=runas,
+        nivel_berloque=nivel,
+        max_variacoes=max_variacoes,
+    )
+    _executar_lote(
+        personagem,
+        variacoes,
+        destino=_destino("tudo.simc"),
+        iterations=iterations,
+        rodar=rodar,
+        sem_llm=sem_llm,
+    )
 
 
 @app.command("parse")
