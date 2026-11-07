@@ -11,6 +11,7 @@ from fastapi.responses import FileResponse
 from pydantic import BaseModel, Field
 
 from . import db, worker
+from .static import montar_frontend
 
 
 @asynccontextmanager
@@ -62,6 +63,12 @@ def health() -> dict:
     }
 
 
+@app.get("/api/health")
+def api_health() -> dict:
+    """Mirror of Simulator-WoW's server.ts healthcheck."""
+    return {"status": "ok", "patch": "12.1.5", "season": 2}
+
+
 @app.post("/sim", status_code=202)
 def criar_sim(pedido: SimRequest) -> dict:
     job_id = db.criar_job(
@@ -92,3 +99,7 @@ def baixar_relatorio(job_id: str) -> FileResponse:
     if not caminho.is_file():
         raise HTTPException(status_code=410, detail="Arquivo do relatório ausente.")
     return FileResponse(caminho, media_type="text/markdown", filename="relatorio.md")
+
+
+# Serve the built React app (Simulator-WoW/dist) last so API routes win.
+montar_frontend(app)
