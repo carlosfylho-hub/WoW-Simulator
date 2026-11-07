@@ -145,7 +145,31 @@ A validação numérica foi testada com cliente fake: texto com número do conte
 
 ---
 
-## 5. Registro de decisões que fecharam pendências
+## 5. Verificação externa — 2026-11-07
+
+Detalhes, método e evidências em [`docs/VERIFICACAO-EXTERNA.md`](docs/VERIFICACAO-EXTERNA.md).
+
+| # | Assunto | Situação | Ação |
+| :-: | :--- | :--- | :--- |
+| P-022 | Abismo Peçonhento: snapshot diz 9 chefes | **REFUTADO** — Wowhead lista 8, final Ula'tek; Kith'ix é raid de um chefe no 12.1.5 | Corrigir o projeto de dados; o código não usa `num_bosses` |
+| P-023 | 12.1.5 rotulado como *A Maldição de Ula'tek* | **REFUTADO** — 12.1 é *The Curse of Ula'tek*; 12.1.5 é *The Promise of Tomorrow* | Rótulos corrigidos no README, arquitetura e fontes |
+| P-024 | Temporada 2 tratada como lançamento do 12.1.5 | **REFUTADO** — 12.1.5 é atualização de meio de temporada, com Keystone Myth | Não usar 12.1.5 como início da temporada |
+| P-025 | Versão interna do SimC `1210-01` | **ESCLARECIDO** — é versão do SimC, não do cliente; o build `12.1.5.70783` é a âncora | `simc-info` compara o build do cliente |
+| P-026 | Limite de 2 embelezamentos | **INDETERMINADO** nesta rodada | Manter evidência atual e não ampliar a afirmação |
+| P-027 | Códice Corrosivo e pool de masmorras | **INDETERMINADO** nesta rodada | Não usar em cálculo; declarar limite |
+| P-028 | APL do Ceifador de Almas | **INDETERMINADO** | Manter o aviso como precaução, não como fato |
+
+### O que foi confirmado
+
+- Build live `12.1.5.70783` no endpoint da Blizzard.
+- SimC `midnight` com `client_data_version.inc` em `12.1.5.70783`; commit `c20e2ad` `[live] Build 70783`.
+- 42 itens e 13 runas sem divergência de nome; ilvl igual onde o projeto declara referência.
+- Seis faixas de `bonus_id` conferidas no Wowhead: 266, 282, 318, 321, 334 e 341.
+- Catalisador preserva secundários e cantrip desde o 12.1.
+
+---
+
+## 6. Registro de decisões que fecharam pendências
 
 | Data | Pendência | Resolução |
 | :--- | :--- | :--- |
@@ -154,3 +178,8 @@ A validação numérica foi testada com cliente fake: texto com número do conte
 | 2026-11-06 | Empate técnico | Piso de 0,15% e uso do maior erro disponível |
 | 2026-11-06 | Fixture do Pyrogalth | Export recebido com checksum `70553fc1`; falta gravar em `fixtures/pyrogalth.simc` |
 | 2026-11-06 | Seleção de runas do fixture | `1A-2B-3A-4A-5A` pelos IDs `136814/136815/136817/136819/136822`, confiança média |
+| 2026-11-07 | Build do cliente e do SimC | Blizzard confirma `12.1.5.70783`; SimC `midnight` tem dados desse build |
+| 2026-11-07 | Nomes e ilvl dos itens | 42 itens no Wowhead sem divergência |
+| 2026-11-07 | Runas do Folio | 13 nomes iguais no tooltip de feitiço |
+| 2026-11-07 | Faixas de upgrade | 6 casos de `bonus_id` iguais no Wowhead |
+| 2026-11-07 | Catalisador | confirmado que preserva secundários e cantrip desde o 12.1 |

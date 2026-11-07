@@ -1,7 +1,7 @@
 # Arquitetura — WoW Calculator Sim
 
 **Projeto:** simulador local de equipamento para World of Warcraft: Midnight
-**Patch de referência:** 12.1.5 (*A Maldição de Ula'tek*), build do addon `12.1.5.70783`
+**Patch de referência:** cliente 12.1.5, build `12.1.5.70783`. O build contém o conteúdo 12.1 (*The Curse of Ula'tek*) e a atualização 12.1.5 (*The Promise of Tomorrow*); ver [`VERIFICACAO-EXTERNA.md`](VERIFICACAO-EXTERNA.md)
 **Fase:** 0 — arquitetura aprovada antes de qualquer código
 **Idioma:** documentação e saída em PT-BR; código, comentários e nomes de variável em inglês
 

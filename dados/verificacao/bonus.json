@@ -1,0 +1,103 @@
+{
+  "_meta": {
+    "gerado_em": "2026-11-07T00:01:25Z",
+    "total": 6,
+    "iguais": 6
+  },
+  "casos": [
+    {
+      "caso": "heroi_6_6",
+      "item_id": 271546,
+      "bonus": [
+        13692,
+        6652,
+        13695,
+        13698,
+        12846
+      ],
+      "ilvl_esperado": 321,
+      "ilvl_wowhead": 321,
+      "track_wowhead": "Herói",
+      "igual": true,
+      "fonte": "nether.wowhead.com/tooltip/item com bonus"
+    },
+    {
+      "caso": "mito_1_6",
+      "item_id": 271546,
+      "bonus": [
+        13692,
+        6652,
+        13695,
+        13698,
+        12849
+      ],
+      "ilvl_esperado": 318,
+      "ilvl_wowhead": 318,
+      "track_wowhead": "Mito",
+      "igual": true,
+      "fonte": "nether.wowhead.com/tooltip/item com bonus"
+    },
+    {
+      "caso": "mito_6_6",
+      "item_id": 271543,
+      "bonus": [
+        6652,
+        12854,
+        13696,
+        13695,
+        1587
+      ],
+      "ilvl_esperado": 334,
+      "ilvl_wowhead": 334,
+      "track_wowhead": "Mito",
+      "igual": true,
+      "fonte": "nether.wowhead.com/tooltip/item com bonus"
+    },
+    {
+      "caso": "forjado_mito",
+      "item_id": 273781,
+      "bonus": [
+        6652,
+        13668,
+        12856
+      ],
+      "ilvl_esperado": 341,
+      "ilvl_wowhead": 341,
+      "track_wowhead": null,
+      "igual": true,
+      "fonte": "nether.wowhead.com/tooltip/item com bonus"
+    },
+    {
+      "caso": "aventureiro_1_6",
+      "item_id": 271546,
+      "bonus": [
+        13692,
+        6652,
+        13695,
+        13698,
+        12817
+      ],
+      "ilvl_esperado": 266,
+      "ilvl_wowhead": 266,
+      "track_wowhead": "Aventureiro",
+      "igual": true,
+      "fonte": "nether.wowhead.com/tooltip/item com bonus"
+    },
+    {
+      "caso": "aventureiro_6_6",
+      "item_id": 271546,
+      "bonus": [
+        13692,
+        6652,
+        13695,
+        13698,
+        12822
+      ],
+      "ilvl_esperado": 282,
+      "ilvl_wowhead": 282,
+      "track_wowhead": "Aventureiro",
+      "igual": true,
+      "fonte": "nether.wowhead.com/tooltip/item com bonus"
+    }
+  ]
+}

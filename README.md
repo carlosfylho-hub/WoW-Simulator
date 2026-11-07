@@ -1,6 +1,8 @@
 # WoW Calculator Sim
 
-Simulador local de equipamento para **World of Warcraft: Midnight — Temporada 2**, patch **12.1.5**, build **12.1.5.70783**.
+Simulador local de equipamento para **World of Warcraft: Midnight — Temporada 2**, cliente **12.1.5**, build **12.1.5.70783**.
+
+O cliente 12.1.5 contém o conteúdo do patch 12.1 (*The Curse of Ula'tek*, raid Abismo Peçonhento com **8 chefes**) e a atualização 12.1.5 (*The Promise of Tomorrow*, raid de um chefe Kith'ix). A distinção está em [`docs/VERIFICACAO-EXTERNA.md`](docs/VERIFICACAO-EXTERNA.md).
 
 Todos os números vêm do **SimulationCraft**. Nada é estimado pelo código nem por LLM.
 
@@ -15,6 +17,7 @@ Todos os números vêm do **SimulationCraft**. Nada é estimado pelo código nem
 | 4 | gerador de variações | concluída — 7 categorias e teste com simc real |
 | 5 | relatório | concluída — Markdown e HTML com empate por erro, origem e limites |
 | 6 | resumo opcional com DeepSeek | concluída — opcional, validado número a número |
+| 6b | verificação externa | concluída — build, itens, runas, bônus, Catalisador e patch |
 | 7 | interface web | opcional |
 
 ## Instalação
@@ -166,6 +169,17 @@ wow-sim/
 
 O mapa de encantamento classifica a camada: `encantamento`, `arte_de_batalha`, `magilinha`, `tinker` ou `oleo_temporario`. `enchant_id` 8730 é Arte de Batalha Hash'ey e 7935 é Magilinha; trocar um pelo outro é erro de camada.
 
+## Verificação externa
+
+[`docs/VERIFICACAO-EXTERNA.md`](docs/VERIFICACAO-EXTERNA.md) confronta o projeto com Blizzard, SimC, Wowhead e Raidbots.
+
+- Build do cliente: `12.1.5.70783`, confirmado no endpoint da Blizzard.
+- SimC: branch `midnight`, commit `c20e2ad` com dados do build `70783`; a versão interna `1210-01` não é o patch do cliente.
+- 42 itens e 13 runas comparados no Wowhead sem divergência.
+- Seis faixas de `bonus_id` conferidas no Wowhead: 266, 282, 318, 321, 334 e 341.
+- Catalisador preserva secundários e cantrip desde o 12.1.
+- Correções: o Abismo Peçonhento tem 8 chefes, e o 12.1.5 é *The Promise of Tomorrow*, não *The Curse of Ula'tek*.
+
 ## Referências
 
 - [`docs/ARQUITETURA.md`](docs/ARQUITETURA.md) — decisões, contratos, riscos e critérios de aceite.
@@ -179,6 +193,8 @@ O mapa de encantamento classifica a camada: `encantamento`, `arte_de_batalha`, `
 python scripts/sincronizar_dados.py --check
 python scripts/derivar_bonus_ilvl.py
 python scripts/derivar_omnium.py
+python scripts/verificar_externo.py
+python scripts/verificar_bonus.py
 python scripts/inspecionar_json.py dados/bonus_ids_s2.json
 python scripts/extrair_texto_html.py pagina.html
 python scripts/buscar_texto.py bundle.js "padrao"

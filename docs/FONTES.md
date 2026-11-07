@@ -1,7 +1,7 @@
 # Fontes de dados — inventário e regras de uso
 
 **Projeto:** WoW Calculator Sim
-**Patch:** 12.1.5 (*A Maldição de Ula'tek*) — build do addon `12.1.5.70783`
+**Patch:** cliente 12.1.5 — build do addon `12.1.5.70783`. Conteúdo 12.1 (*The Curse of Ula'tek*) mais atualização 12.1.5 (*The Promise of Tomorrow*). Ver [`VERIFICACAO-EXTERNA.md`](VERIFICACAO-EXTERNA.md).
 **Fase:** 0
 **Repositório de origem dos dados:** [`WoW Calculator`](../../WoW%20Calculator)
 
@@ -94,6 +94,8 @@ Estes itens **não** entram como dado de cálculo até serem confirmados contra 
 | C9 | Marca do Magíster × Marca da Alma do Mundo no torso | Prompt alerta para o erro | [`pendencias.md`](../../WoW%20Calculator/pendencias.md:180) trata de `enchant_id` e não fecha o nome do torso | Não afirmar qual é o encantamento de torso sem conferir `enchant_ids_s2.json` |
 | C10 | Berloques do Pyrogalth | Prompt: par Dazar mais Ampola | [`import_e_interpretacao_s2.md`](../../WoW%20Calculator/import_e_interpretacao_s2.md:687) descreve `273649` e `273796` | **Resolvido pelo fixture:** `trinket1=273649` e `trinket2=273796`, ambos on-use, o que ativa a regra R4 e torna o par um caso de conflito a sinalizar |
 | C11 | Build dos dados do Raidbots | `metadata.wowBuild` = `12.1.5.70688` | Addon do usuário = `12.1.5.70783` | Raidbots é fonte secundária e de validação; todo uso registra o build e é conferido contra o simc local |
+| C12 | Contagem de chefes do Abismo Peçonhento | Snapshot `season2_context.json`: 9 chefes | Wowhead: 8 chefes, final Ula'tek; Kith'ix é raid separada do 12.1.5 | Vale o Wowhead; o campo `num_bosses` do snapshot não é usado pelo código. Ver P-022 |
+| C13 | Nome do patch 12.1.5 | Snapshot e prompt: *A Maldição de Ula'tek* | Blizzard/Wowhead: 12.1 é *The Curse of Ula'tek*; 12.1.5 é *The Promise of Tomorrow* | Usar o rótulo correto nos documentos; o build 70783 continua a âncora técnica |
 
 ---
 
