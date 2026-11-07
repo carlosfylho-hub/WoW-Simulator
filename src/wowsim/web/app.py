@@ -11,7 +11,7 @@ from fastapi.responses import FileResponse
 from pydantic import BaseModel, Field
 
 from ..simc_runner import SimcFalhou
-from . import advisor, db, sim_api, worker
+from . import advisor, catalog_api, db, sim_api, worker
 from .static import montar_frontend
 
 
@@ -88,6 +88,13 @@ def health() -> dict:
 def api_health() -> dict:
     """Mirror of Simulator-WoW's server.ts healthcheck."""
     return {"status": "ok", "patch": "12.1.5", "season": 2}
+
+
+@app.get("/api/catalog/items")
+def api_catalog_items() -> dict:
+    """Authoritative catalog (PT/EN names, ilvl, slot, source, bonus) as JSON."""
+    itens = catalog_api.itens_catalogo()
+    return {"total": len(itens), "itens": itens}
 
 
 @app.post("/api/advisor")

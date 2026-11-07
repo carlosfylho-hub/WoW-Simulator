@@ -203,6 +203,7 @@ cd ../Simulator-WoW && npm run dev
 | `POST` | `/api/advisor` | consultor Gemini com fallback local auditado |
 | `POST` | `/api/sim/profile` | roda um `.simc` e devolve **DPS medido** |
 | `POST` | `/api/sim/compare` | compara base × candidato com empate por erro |
+| `GET` | `/api/catalog/items` | catálogo autoritativo (PT/EN, ilvl, slot, fonte, bônus) |
 | `GET` | `/health` | estado e número de workers/threads |
 | `POST` | `/sim` | enfileira um job a partir do texto do addon, responde `202` |
 | `GET` | `/sim/{id}` | status e resultado do job |
@@ -211,6 +212,8 @@ cd ../Simulator-WoW && npm run dev
 O worker usa `núcleos − 1` jobs simultâneos e divide as threads do `simc` entre eles. Os endpoints `/api/sim/*` rodam o **SimC real** (`simc_runner`), nunca estimam. A consulta ao `/api/advisor` usa `GEMINI_API_KEY` (e `GEMINI_MODEL`); sem chave, cai no fallback determinístico.
 
 Na aba **SimC Inspector**, o laudo de substituição (G0–G8) traz o botão **Rodar SimC real**: ele monta base × candidato, aplica o `bonus_id` da trilha correspondente (321→12846, 328→12848, 334→12854, 341→12856) e exibe o **DPS medido** e o veredito por erro. O veredito heurístico do auditor continua sendo estimativa e é rotulado como tal.
+
+O `GET /api/catalog/items` é a **fonte única de dados**: ao abrir, o React carrega esse JSON e reconcilia em memória os nomes PT/EN dos itens com o catálogo Python (`aplicarCatalogo` em `src/data/items.ts`), sem reescrever a base local.
 
 ## App desktop independente (.exe)
 
