@@ -13,12 +13,16 @@ from functools import lru_cache
 from pathlib import Path
 from typing import Iterator
 
-from ..models import Gema, IlvlBonus, ItemLoot, NomeItem, Runa
+from ..models import Gema, IlvlBonus, ItemEquipado, ItemLoot, NomeItem, Runa
 from ..paths import DADOS_DIR, DERIVADOS_DIR, SIMC_SRC_DIR
 from .enchants import encantamentos_por_slot as _encantamentos_por_slot
 
 ITEM_DATA = SIMC_SRC_DIR / "engine" / "dbc" / "generated" / "item_data.inc"
 _ITEM_RE = re.compile(r'\{\s*"([^"]+)",\s*(\d+)')
+
+# The user only cares about these ceilings: Hero 6/6, Mythic 6/6 and the two
+# forged upgrades.
+ILVLS_ALVO = (321, 334, 341, 328)
 
 ALIASES_SLOT: dict[str, tuple[str, ...]] = {
     "off_hand": ("offhand", "maosecundaria", "escudo", "lanterna", "maosecund"),
@@ -111,6 +115,17 @@ def bonus_para_ilvl(bonus_id: int) -> IlvlBonus:
         evidencia=registro.get("evidencia"),
         fonte=registro.get("fonte") or "raidbots:bonus-upgrade-sets",
     )
+
+
+def ilvl_do_item(item: ItemEquipado) -> int | None:
+    """Best known item level for an equipped or bag item."""
+    if item.ilvl_comentario in ILVLS_ALVO:
+        return item.ilvl_comentario
+    for bonus_id in item.bonus_ids:
+        ilvl = bonus_para_ilvl(bonus_id).ilvl
+        if ilvl in ILVLS_ALVO:
+            return ilvl
+    return item.ilvl_comentario
 
 
 def encantamentos_por_slot(slot: str):
@@ -240,37 +255,44 @@ def itens_mplus(slot: str) -> list[ItemLoot]:
 
 
 def berloques_monitor(nivel: int) -> list[ItemLoot]:
-    """Trinkets at an exact ceiling from monitor_upgrades_s2.json.
+    """Trinkets at one of the four target levels (321/334/341/328).
 
-    Only items the monitor lists at that ilvl are eligible. A forged item gets
-    the forged bonus; a regular one keeps its own level. This avoids applying a
-    341 bonus to an old item and inflating its stats.
+    A raid/M+ trinket has a single item id; its track (heroic vs mythic) and its
+    forge state are expressed purely through the upgrade ``bonus_id``. The
+    monitor only lists trinkets inside the ``teto_341`` bucket (the
+    ``teto_328`` bucket holds weapons/necks, no trinkets). So we take the
+    trinkets from ``teto_341`` and apply the bonus matching the requested level:
+
+    * ``12856`` = mythic 6/6 + venom forge = 341
+    * ``12854`` = mythic 6/6           = 334
+    * ``12848`` = heroic 6/6 + venom forge = 328
+    * ``12846`` = heroic 6/6           = 321
+
+    Only the monitor's own items are eligible, which keeps a forged bonus off
+    old items and avoids inflating their stats.
     """
-    chave = {341: "teto_341", 328: "teto_328"}.get(nivel)
-    if chave is None:
+    bonus_por_nivel = {341: 12856, 334: 12854, 328: 12848, 321: 12846}
+    bonus_nivel = bonus_por_nivel.get(nivel)
+    if bonus_nivel is None:
         return []
-    dados = _dados("monitor_upgrades_s2.json").get(chave, [])
-    bonus_forjado = {341: 12856, 328: 12848}[nivel]
+    dados = _dados("monitor_upgrades_s2.json").get("teto_341", [])
     saida: list[ItemLoot] = []
     for item in dados:
         if not isinstance(item, dict) or not isinstance(item.get("id"), int):
             continue
         if normalizar_slot(item.get("slot")) != "trinket":
             continue
-        if item.get("ilvl") != nivel:
-            continue
-        peconha = item.get("peconha")
         saida.append(
             ItemLoot(
                 item_id=item["id"],
                 nome_pt=item.get("nome_pt"),
                 nome_en=item.get("nome_en"),
                 slot="trinket",
-                ilvl=item.get("ilvl"),
+                ilvl=nivel,
                 origem="monitor de upgrades",
                 usavel_conjurador=True,
-                bonus_id=bonus_forjado if peconha else None,
-                peconha=peconha,
+                bonus_id=bonus_nivel,
+                peconha=item.get("peconha"),
                 fonte="monitor_upgrades_s2.json",
             )
         )

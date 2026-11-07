@@ -36,7 +36,7 @@ SLOT_PT = {
     "feet": "pés",
     "main_hand": "arma",
 }
-NIVEL_PARA_BONUS = {341: 12856, 334: 12854, 328: 12848}
+NIVEL_PARA_BONUS = {341: 12856, 334: 12854, 328: 12848, 321: 12846}
 
 
 def _slug(texto: str) -> str:
@@ -116,6 +116,8 @@ def troca_item(personagem: Personagem, *, bonus_alvo: int | None = None) -> list
             if base is not None and candidato.item_id == base.item_id:
                 continue
             if candidato.item_id is None:
+                continue
+            if catalog.ilvl_do_item(candidato) not in catalog.ILVLS_ALVO:
                 continue
             linha = _linha_novo_item(slot, candidato.item_id, bonus_id=None, base=base)
             if bonus_alvo is not None:
@@ -276,7 +278,7 @@ def _tipo_berloque(item_id: int | None) -> str | None:
 
 def berloques(personagem: Personagem, *, nivel: int = 341) -> list[Variacao]:
     if nivel not in NIVEL_PARA_BONUS:
-        raise ValueError("Nível de berloque deve ser 341, 334 ou 328.")
+        raise ValueError("Nível de berloque deve ser 341, 334, 328 ou 321.")
     saida: list[Variacao] = []
     tipos = {
         loot.item_id: loot.tipo_efeito for loot in catalog.berloques_conjurador()

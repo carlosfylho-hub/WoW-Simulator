@@ -18,7 +18,7 @@ Todos os números vêm do **SimulationCraft**. Nada é estimado pelo código nem
 | 5 | relatório | concluída — Markdown e HTML com empate por erro, origem e limites |
 | 6 | resumo opcional com DeepSeek | concluída — opcional, validado número a número |
 | 6b | verificação externa | concluída — build, itens, runas, bônus, Catalisador e patch |
-| 7 | interface web | opcional |
+| 7 | interface web | concluída — FastAPI + SQLite + fila, alvos 321/334/341/328 |
 
 ## Instalação
 
@@ -77,6 +77,7 @@ wowsim simc-check --iterations 1000 --forcar
 wowsim parse fixtures/pyrogalth.simc
 wowsim parse fixtures/pyrogalth.simc --json personagem.json
 wowsim upgrades fixtures/pyrogalth.simc --de 12846 --para 12854 --rodar
+wowsim web --host 127.0.0.1 --port 8000
 wowsim encantos fixtures/pyrogalth.simc
 wowsim talentos fixtures/pyrogalth.simc --cenario mplus
 wowsim folio fixtures/pyrogalth.simc
@@ -103,7 +104,7 @@ A chave fica em `DEEPSEEK_API_KEY` e nunca no código. O pacote `openai` é opci
 | `gema` | troca de gema dentro da mesma família, sem misturar diamante com granada |
 | `talento` | uma variação por Saved Loadout |
 | `folio` | uma runa por vez dentro da mesma linha |
-| `berloque` | cada candidato em cada um dos dois slots, no nível 341, 334 ou 328 |
+| `berloque` | cada candidato em cada um dos dois slots, no nível 341, 334, 328 ou 321 |
 
 O limite `--max-variacoes` corta o corpo, nunca a base. O tempo é estimado antes de rodar. Variações de berloque on-use carregam o aviso da regra R4.
 
@@ -168,6 +169,36 @@ wow-sim/
 | `berloques_conjurador()` | berloques utilizáveis por conjurador |
 
 O mapa de encantamento classifica a camada: `encantamento`, `arte_de_batalha`, `magilinha`, `tinker` ou `oleo_temporario`. `enchant_id` 8730 é Arte de Batalha Hash'ey e 7935 é Magilinha; trocar um pelo outro é erro de camada.
+
+## Alvos de item level (321 / 334 / 341 / 328)
+
+O escopo de comparação é limitado a quatro níveis, conforme o pedido do usuário:
+
+| Alvo | Trilha | Forja com Peçonha | `bonus_id` |
+| :-: | :--- | :-: | :-: |
+| 321 | Herói 6/6 | não | `12846` |
+| 328 | Herói 6/6 | sim (+7) | `12848` |
+| 334 | Mítico 6/6 | não | `12854` |
+| 341 | Mítico 6/6 | sim (+7) | `12856` |
+
+`ILVLS_ALVO` em [`catalog.py`](src/wowsim/data/catalog.py:25) define essa lista, e o gerador de troca de item ignora candidatos fora dela. Um berloque tem um único `item_id`; a trilha e o estado de forja são expressos só pelo `bonus_id`. Por isso os quatro níveis de berloque usam os mesmos itens do balde `teto_341` do monitor, trocando apenas o bônus. Os itens são sempre reportados com **nome em PT-BR e em inglês** (campos `nome_pt` e `nome_en` no catálogo), e a resposta ao usuário é em PT-BR.
+
+## Interface web (opcional)
+
+A Fase 7 adiciona uma API local com FastAPI e uma fila de jobs em SQLite. Requer `pip install -e ".[web]"`.
+
+```bash
+wowsim web --host 127.0.0.1 --port 8000
+```
+
+| Método | Rota | Descrição |
+| :--- | :--- | :--- |
+| `GET` | `/health` | estado e número de workers/threads |
+| `POST` | `/sim` | enfileira um job a partir do texto do addon, responde `202` |
+| `GET` | `/sim/{id}` | status e resultado do job |
+| `GET` | `/sim/{id}/relatorio` | baixa o relatório Markdown quando concluído |
+
+O worker usa `núcleos − 1` jobs simultâneos e divide as threads do `simc` entre eles. Cada job faz parse, gera as variações no nível de item configurado, roda o `simc` e guarda o relatório. A fila é consumida no ciclo de vida (lifespan) da aplicação.
 
 ## Verificação externa
 

@@ -453,6 +453,26 @@ def tudo(
     )
 
 
+@app.command("web")
+def web(
+    host: str = typer.Option("127.0.0.1", "--host"),
+    port: int = typer.Option(8000, "--port"),
+) -> None:
+    """Sobe a interface web local, sem login."""
+    try:
+        import uvicorn
+    except ImportError:
+        console.print(
+            Panel(
+                "Instale as dependências web: pip install -e \".[web]\"",
+                title="FastAPI ausente",
+                style="red",
+            )
+        )
+        raise typer.Exit(code=2)
+    uvicorn.run("wowsim.web.app:app", host=host, port=port)
+
+
 @app.command("parse")
 def parse(
     addon: Path = typer.Argument(..., help="Arquivo com o export do SimC AddOn."),

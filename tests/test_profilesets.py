@@ -78,6 +78,11 @@ def test_encantamentos_nao_usam_camada_errada(personagem) -> None:
     assert 8730 not in ids
 
 
+def test_troca_item_ignora_niveis_fora_do_alvo(personagem) -> None:
+    """The bag has only low-level items, so none is a target for this user."""
+    assert profilesets.troca_item(personagem) == []
+
+
 def test_gemas_mantem_familia(personagem) -> None:
     variacoes = profilesets.gemas(personagem)
     assert variacoes
@@ -105,17 +110,18 @@ def test_folio_uma_linha_por_vez(personagem) -> None:
 
 
 def test_berloques_respeitam_nivel_e_slots(personagem) -> None:
-    variacoes = profilesets.berloques(personagem, nivel=341)
-    assert variacoes
-    for variacao in variacoes:
-        linha = variacao.linhas_override[0]
-        assert variacao.nome.startswith(("trinket1_", "trinket2_"))
-        if variacao.bonus_ids_envolvidos:
-            assert variacao.bonus_ids_envolvidos == [12856]
-            assert "12856" in linha
-        else:
-            assert "bonus_id=" not in linha
-    assert any(variacao.aviso for variacao in variacoes)
+    esperado = {341: 12856, 334: 12854, 328: 12848, 321: 12846}
+    for nivel, bonus in esperado.items():
+        variacoes = profilesets.berloques(personagem, nivel=nivel)
+        assert variacoes, nivel
+        for variacao in variacoes:
+            linha = variacao.linhas_override[0]
+            assert variacao.nome.startswith(("trinket1_", "trinket2_"))
+            assert variacao.bonus_ids_envolvidos == [bonus]
+            assert f"bonus_id={bonus}" in linha
+    assert any(
+        variacao.aviso for variacao in profilesets.berloques(personagem, nivel=341)
+    )
 
     with pytest.raises(ValueError):
         profilesets.berloques(personagem, nivel=300)

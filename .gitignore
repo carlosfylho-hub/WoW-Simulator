@@ -15,6 +15,9 @@ cache/
 saida/
 relatorio.md
 relatorio.html
+wowsim.db
+wowsim.db-wal
+wowsim.db-shm
 
 # Temporários
 *.tmp
