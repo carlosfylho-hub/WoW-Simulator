@@ -210,6 +210,8 @@ cd ../Simulator-WoW && npm run dev
 
 O worker usa `núcleos − 1` jobs simultâneos e divide as threads do `simc` entre eles. Os endpoints `/api/sim/*` rodam o **SimC real** (`simc_runner`), nunca estimam. A consulta ao `/api/advisor` usa `GEMINI_API_KEY` (e `GEMINI_MODEL`); sem chave, cai no fallback determinístico.
 
+Na aba **SimC Inspector**, o laudo de substituição (G0–G8) traz o botão **Rodar SimC real**: ele monta base × candidato, aplica o `bonus_id` da trilha correspondente (321→12846, 328→12848, 334→12854, 341→12856) e exibe o **DPS medido** e o veredito por erro. O veredito heurístico do auditor continua sendo estimativa e é rotulado como tal.
+
 ## App desktop independente (.exe)
 
 O app abre numa **janela própria** (pywebview/WebView2), sem navegador e sem terminal. O backend sobe numa thread e a janela aponta para `http://127.0.0.1:<porta livre>`.

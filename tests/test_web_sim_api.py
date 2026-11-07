@@ -105,3 +105,13 @@ def test_integracao_perfil_real() -> None:
     resultado = sim_api.rodar_perfil(texto, "patchwerk", iterations=20)
     assert resultado["dps"] > 0
     assert resultado["meta"]["build"]
+
+
+@pytest.mark.skipif(not _simc_disponivel(), reason="binário simc ausente")
+def test_integracao_compare_mesmo_perfil_empata() -> None:
+    texto = FIXTURE.read_text(encoding="utf-8")
+    resultado = sim_api.comparar(texto, texto, "patchwerk", iterations=20)
+    assert resultado["base_dps"] > 0
+    assert resultado["candidate_dps"] > 0
+    assert resultado["veredito"] == "Empate técnico — simular"
+    assert abs(resultado["delta_pct"]) < 0.15
