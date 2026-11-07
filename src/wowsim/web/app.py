@@ -10,7 +10,8 @@ from fastapi import FastAPI, HTTPException
 from fastapi.responses import FileResponse
 from pydantic import BaseModel, Field
 
-from . import advisor, db, worker
+from ..simc_runner import SimcFalhou
+from . import advisor, db, sim_api, worker
 from .static import montar_frontend
 
 
@@ -43,6 +44,19 @@ class AdvisorRequest(BaseModel):
     specId: str | None = None
     scenario: str | None = None
     currentGearSummary: str | None = None
+
+
+class PerfilRequest(BaseModel):
+    profile: str = Field(min_length=20, description="Texto .simc a simular.")
+    scenario: str = "patchwerk"
+    iterations: int = Field(200, ge=10, le=20000)
+
+
+class CompararRequest(BaseModel):
+    base: str = Field(min_length=20)
+    candidate: str = Field(min_length=20)
+    scenario: str = "patchwerk"
+    iterations: int = Field(200, ge=10, le=20000)
 
 
 def _publico(job: dict) -> dict:
@@ -86,6 +100,24 @@ async def api_advisor(pedido: AdvisorRequest) -> dict:
         gear_summary=pedido.currentGearSummary,
     )
     return {"response": texto}
+
+
+@app.post("/api/sim/profile")
+def api_sim_profile(pedido: PerfilRequest) -> dict:
+    """Run one .simc profile and return measured DPS."""
+    try:
+        return sim_api.rodar_perfil(pedido.profile, pedido.scenario, pedido.iterations)
+    except SimcFalhou as exc:
+        raise HTTPException(status_code=502, detail=str(exc)) from exc
+
+
+@app.post("/api/sim/compare")
+def api_sim_compare(pedido: CompararRequest) -> dict:
+    """Run base vs candidate and return measured DPS plus error-aware verdict."""
+    try:
+        return sim_api.comparar(pedido.base, pedido.candidate, pedido.scenario, pedido.iterations)
+    except SimcFalhou as exc:
+        raise HTTPException(status_code=502, detail=str(exc)) from exc
 
 
 @app.post("/sim", status_code=202)
