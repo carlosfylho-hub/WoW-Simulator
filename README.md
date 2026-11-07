@@ -18,7 +18,7 @@ Todos os números vêm do **SimulationCraft**. Nada é estimado pelo código nem
 | 5 | relatório | concluída — Markdown e HTML com empate por erro, origem e limites |
 | 6 | resumo opcional com DeepSeek | concluída — opcional, validado número a número |
 | 6b | verificação externa | concluída — build, itens, runas, bônus, Catalisador e patch |
-| 7 | interface web | concluída — FastAPI + SQLite + fila, alvos 321/334/341/328 |
+| 7 | interface unificada + app desktop | concluída — FastAPI serve o React, SimC real via API, `.exe` pywebview |
 
 ## Instalação
 
@@ -78,6 +78,7 @@ wowsim parse fixtures/pyrogalth.simc
 wowsim parse fixtures/pyrogalth.simc --json personagem.json
 wowsim upgrades fixtures/pyrogalth.simc --de 12846 --para 12854 --rodar
 wowsim web --host 127.0.0.1 --port 8000
+wowsim app
 wowsim encantos fixtures/pyrogalth.simc
 wowsim talentos fixtures/pyrogalth.simc --cenario mplus
 wowsim folio fixtures/pyrogalth.simc
@@ -183,22 +184,49 @@ O escopo de comparação é limitado a quatro níveis, conforme o pedido do usu�
 
 `ILVLS_ALVO` em [`catalog.py`](src/wowsim/data/catalog.py:25) define essa lista, e o gerador de troca de item ignora candidatos fora dela. Um berloque tem um único `item_id`; a trilha e o estado de forja são expressos só pelo `bonus_id`. Por isso os quatro níveis de berloque usam os mesmos itens do balde `teto_341` do monitor, trocando apenas o bônus. Os itens são sempre reportados com **nome em PT-BR e em inglês** (campos `nome_pt` e `nome_en` no catálogo), e a resposta ao usuário é em PT-BR.
 
-## Interface web (opcional)
+## Interface unificada (Python + React)
 
-A Fase 7 adiciona uma API local com FastAPI e uma fila de jobs em SQLite. Requer `pip install -e ".[web]"`.
+O FastAPI do `wow-sim` é o **único backend**: ele serve o build do React (`Simulator-WoW/dist`) e expõe a API. Em produção não há Node; o Vite só é usado no build. Requer `pip install -e ".[web]"`.
 
 ```bash
+# Produção local: serve React + API numa só porta
 wowsim web --host 127.0.0.1 --port 8000
+
+# Desenvolvimento: terminal 1 sobe o backend; terminal 2 o Vite (proxy /api e /sim)
+wowsim web
+cd ../Simulator-WoW && npm run dev
 ```
 
 | Método | Rota | Descrição |
 | :--- | :--- | :--- |
+| `GET` | `/api/health` | espelho do healthcheck do frontend |
+| `POST` | `/api/advisor` | consultor Gemini com fallback local auditado |
+| `POST` | `/api/sim/profile` | roda um `.simc` e devolve **DPS medido** |
+| `POST` | `/api/sim/compare` | compara base × candidato com empate por erro |
 | `GET` | `/health` | estado e número de workers/threads |
 | `POST` | `/sim` | enfileira um job a partir do texto do addon, responde `202` |
 | `GET` | `/sim/{id}` | status e resultado do job |
 | `GET` | `/sim/{id}/relatorio` | baixa o relatório Markdown quando concluído |
 
-O worker usa `núcleos − 1` jobs simultâneos e divide as threads do `simc` entre eles. Cada job faz parse, gera as variações no nível de item configurado, roda o `simc` e guarda o relatório. A fila é consumida no ciclo de vida (lifespan) da aplicação.
+O worker usa `núcleos − 1` jobs simultâneos e divide as threads do `simc` entre eles. Os endpoints `/api/sim/*` rodam o **SimC real** (`simc_runner`), nunca estimam. A consulta ao `/api/advisor` usa `GEMINI_API_KEY` (e `GEMINI_MODEL`); sem chave, cai no fallback determinístico.
+
+## App desktop independente (.exe)
+
+O app abre numa **janela própria** (pywebview/WebView2), sem navegador e sem terminal. O backend sobe numa thread e a janela aponta para `http://127.0.0.1:<porta livre>`.
+
+```bash
+pip install -e ".[desktop]"
+wowsim app
+```
+
+Para gerar um `.exe` único e clicável (Python + SimC + frontend embutidos):
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts/build_desktop.ps1
+# resultado: dist_app/SimuladorWoW.exe (aprox. 52 MB)
+```
+
+O script roda `vite build`, instala o PyInstaller e empacota `frontend/`, `dados/`, `bin/simc.exe` e os templates. O binário resultante não depende de Python nem de Node instalados.
 
 ## Verificação externa
 

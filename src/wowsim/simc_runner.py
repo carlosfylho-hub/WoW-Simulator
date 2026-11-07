@@ -17,13 +17,19 @@ import os
 import re
 import shutil
 import subprocess
+import sys
 import time
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any, Iterable, Sequence
 
-PROJECT_ROOT = Path(__file__).resolve().parents[2]
-CACHE_DIR = PROJECT_ROOT / "cache"
+from .paths import PROJECT_ROOT
+
+if getattr(sys, "frozen", False):
+    _cache_padrao = Path(os.environ.get("LOCALAPPDATA", Path.home())) / "WowSimCache"
+else:
+    _cache_padrao = PROJECT_ROOT / "cache"
+CACHE_DIR = Path(os.environ.get("WOWSIM_CACHE", _cache_padrao))
 BIN_DIR = PROJECT_ROOT / "bin"
 BUILD_ESPERADO = "12.1.5.70783"
 

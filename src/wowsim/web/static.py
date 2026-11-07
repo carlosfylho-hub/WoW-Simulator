@@ -21,10 +21,17 @@ FRONTEND_DIST_ENV = "WOWSIM_FRONTEND_DIST"
 
 
 def dist_dir() -> Path:
-    """Locate the built React app. Override with ``WOWSIM_FRONTEND_DIST``."""
+    """Locate the built React app.
+
+    Order: ``WOWSIM_FRONTEND_DIST`` override, bundled ``frontend/`` (frozen app),
+    then the sibling ``Simulator-WoW/dist`` used in development.
+    """
     explicit = os.environ.get(FRONTEND_DIST_ENV)
     if explicit:
         return Path(explicit).resolve()
+    empacotado = PROJECT_ROOT / "frontend"
+    if (empacotado / "index.html").is_file():
+        return empacotado.resolve()
     return (PROJECT_ROOT.parent / "Simulator-WoW" / "dist").resolve()
 
 

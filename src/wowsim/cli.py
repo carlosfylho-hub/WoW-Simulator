@@ -473,6 +473,30 @@ def web(
     uvicorn.run("wowsim.web.app:app", host=host, port=port)
 
 
+@app.command("app")
+def app_desktop(
+    host: str = typer.Option("127.0.0.1", "--host"),
+    port: int = typer.Option(0, "--port", help="0 escolhe uma porta livre."),
+) -> None:
+    """Abre a janela desktop (pywebview) sobre o mesmo backend local."""
+    try:
+        from .web.desktop import run
+    except ImportError:
+        console.print(
+            Panel(
+                "Instale as dependências de desktop: pip install -e \".[desktop]\"",
+                title="pywebview ausente",
+                style="red",
+            )
+        )
+        raise typer.Exit(code=2)
+    try:
+        run(host, port)
+    except RuntimeError as exc:
+        console.print(Panel(str(exc), title="Falha ao abrir o app", style="red"))
+        raise typer.Exit(code=2) from exc
+
+
 @app.command("parse")
 def parse(
     addon: Path = typer.Argument(..., help="Arquivo com o export do SimC AddOn."),

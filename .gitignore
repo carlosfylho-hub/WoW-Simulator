@@ -19,5 +19,10 @@ wowsim.db
 wowsim.db-wal
 wowsim.db-shm
 
+# Empacotamento desktop (PyInstaller)
+dist_app/
+build_app/
+*.spec.bak
+
 # Temporários
 *.tmp
