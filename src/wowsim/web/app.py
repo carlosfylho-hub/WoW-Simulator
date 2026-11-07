@@ -10,7 +10,7 @@ from fastapi import FastAPI, HTTPException
 from fastapi.responses import FileResponse
 from pydantic import BaseModel, Field
 
-from . import db, worker
+from . import advisor, db, worker
 from .static import montar_frontend
 
 
@@ -36,6 +36,13 @@ class SimRequest(BaseModel):
     addon: str = Field(min_length=20, description="Saída do /simc ou do addon.")
     iterations: int = Field(200, ge=10, le=20000)
     max_variacoes: int = Field(20, ge=1, le=200)
+
+
+class AdvisorRequest(BaseModel):
+    prompt: str = Field(min_length=1, description="Pergunta do jogador.")
+    specId: str | None = None
+    scenario: str | None = None
+    currentGearSummary: str | None = None
 
 
 def _publico(job: dict) -> dict:
@@ -67,6 +74,18 @@ def health() -> dict:
 def api_health() -> dict:
     """Mirror of Simulator-WoW's server.ts healthcheck."""
     return {"status": "ok", "patch": "12.1.5", "season": 2}
+
+
+@app.post("/api/advisor")
+async def api_advisor(pedido: AdvisorRequest) -> dict:
+    """Tactical advisor: Gemini when configured, local audited fallback otherwise."""
+    texto = await advisor.consultar(
+        pedido.prompt,
+        spec_id=pedido.specId,
+        scenario=pedido.scenario,
+        gear_summary=pedido.currentGearSummary,
+    )
+    return {"response": texto}
 
 
 @app.post("/sim", status_code=202)
