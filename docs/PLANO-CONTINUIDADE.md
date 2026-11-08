@@ -481,13 +481,29 @@ mas o simc devolve **`Vers`**. Resultado no cache real do usuário
 | scale factor | 64,4 | 60,0 | 47,3 | 31,7 | 42,8 | **36,7** |
 
 O arquivo salvo (`cache/pesos/c55b24e2d6a58730.json`) tem só crit, haste e
-mastery. A versatilidade vale **mais** que aceleração para este personagem, mas a
-poda heurística a trata como zero e descarta itens de versatilidade antes de o
-SimC medi-los.
+mastery: a versatilidade é tratada como zero pela poda heurística. Qualquer que
+seja a ordem real, zero está errado — o próprio AMR dá Aceleração 66,9 e
+Versatilidade 65,3 para este personagem.
 
-Agravante: esses pesos foram medidos com `timeout=120` (vira luta de **118 s**
-pela A-01) e só **69 iterações** — o orçamento cortou as 200 pedidas. Scale
-factor exige milhares de iterações para ter erro aceitável.
+**Correção de uma conclusão anterior.** Esta seção chegou a afirmar que, para
+este personagem, versatilidade vale mais que aceleração. **Isso estava errado**
+e foi apontado pelo usuário: a afirmação vinha de uma única medição inválida. O
+guia do próprio projeto (`dados/demonology_warlock.json`,
+`prioridade_atributos_secundarios`) põe **Aceleração em 1º** e Crítico em 2º.
+
+**O problema maior que isso revela.** A medição pôs a aceleração em **último**,
+contradizendo o guia. Ela foi feita com `timeout=120` (luta de **118 s** pela
+A-01) e só **69 iterações**, sem margem de erro registrada. Em luta curta domina a
+abertura com recargas e o valor da aceleração na economia de Estilhaços não
+aparece. Como **esses pesos alimentam a poda do Top Gear** (crit 1,0, mastery
+0,90, haste 0,67), o sistema provavelmente vem descartando itens de aceleração
+antes de simular — o oposto do desejado. Mais grave que a versatilidade sumida.
+
+**Até haver medição válida, os pesos medidos não devem ser usados na poda**; o
+fallback deve ser a ordem do guia ou os pesos curados. Medição válida = luta de
+duração correta (300 s ou DungeonSlice), milhares de iterações, margem de erro de
+cada fator guardada junto. Se a medição válida ainda divergir do guia, investigar
+a causa antes de confiar em qualquer um dos dois.
 
 **Correção:** mapear `Vers → versatility` (e `Int`, `SP` quando úteis), medir com
 luta de duração correta, por cenário, com iterações suficientes, e guardar o erro
