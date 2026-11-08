@@ -37,4 +37,5 @@ markers = [
     "golden: testes com o fixture real",
     "integration_simc: exigem o binário do simc",
     "schema: contrato de dados",
+    "slow: testes lentos (simulações reais demoradas)",
 ]

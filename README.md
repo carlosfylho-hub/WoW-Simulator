@@ -19,6 +19,7 @@ Todos os números vêm do **SimulationCraft**. Nada é estimado pelo código nem
 | 6 | resumo opcional com DeepSeek | concluída — opcional, validado número a número |
 | 6b | verificação externa | concluída — build, itens, runas, bônus, Catalisador e patch |
 | 7 | interface unificada + app desktop | concluída — FastAPI serve o React, SimC real via API, `.exe` pywebview |
+| 8 | Top Gear (estilo Raidbots) | concluída — pools, busca em estágios, API `/api/topgear`, aba no React e gate de dados |
 
 ## Instalação
 
@@ -85,6 +86,9 @@ wowsim folio fixtures/pyrogalth.simc
 wowsim berloques fixtures/pyrogalth.simc --nivel 341
 wowsim tudo fixtures/pyrogalth.simc --iteracoes 1000 --max-variacoes 40 --sem-llm
 wowsim tudo fixtures/pyrogalth.simc --iteracoes 1000 --com-llm
+wowsim topgear fixtures/pyrogalth.simc --somente-pools --pool 5
+wowsim topgear fixtures/pyrogalth.simc --scenario patchwerk --iterations-triagem 200
+python scripts/atualizar_dados.py
 ```
 
 ## Resumo opcional com DeepSeek
@@ -108,6 +112,33 @@ A chave fica em `DEEPSEEK_API_KEY` e nunca no código. O pacote `openai` é opci
 | `berloque` | cada candidato em cada um dos dois slots, no nível 341, 334, 328 ou 321 |
 
 O limite `--max-variacoes` corta o corpo, nunca a base. O tempo é estimado antes de rodar. Variações de berloque on-use carregam o aviso da regra R4.
+
+## Top Gear (estilo Raidbots)
+
+`wowsim topgear` e a rota `POST /api/topgear` procuram o melhor conjunto **medido** dentro das pools, sem produto cartesiano:
+
+1. **Pools por slot** (`topgear/pools.py`): armadura da spec, armas, pescoço, anéis e berloques elegíveis, com o `bonus_id` de cada trilha (321/334/341/328).
+2. **Validador** (`topgear/constraints.py`): no máximo 2 embelezamentos, 1 diamante de Eversong, 1 berloque on-use, arma 2M sem off-hand, 1H com off-hand válido, Folio com uma runa por linha e teto de craft 331.
+3. **Busca em estágios** (`topgear/search.py`): varredura marginal → montagem gulosa → beam de 2 slots → encantos → gemas → talentos → Folio → consumíveis → refino com mais iterações. Cada etapa só aceita ganho acima do limiar de erro (0,15%).
+   - **Talentos:** todos os loadouts salvos no export **mais** as import strings extras informadas na aba Top Gear.
+   - **Consumíveis:** frascos, poções, comida e runa de aprimoramento testados com os tokens oficiais do SimC (`flask=`, `potion=`, `food=`, `augmentation=`).
+4. **Execução** (`topgear/runner.py`): um `.simc` por rodada com `profileset."nome"+=override`, reutilizando cache e `read_results`.
+5. **Entrega**: `TopGearResult` com delta vs base, trocas por slot, histórico de rodadas e avisos. A aba **Simular → Top Gear** mostra progresso, permite cancelar e baixa o `.simc` otimizado.
+
+A prévia `wowsim topgear --somente-pools` (ou `GET /api/topgear/pools`) não roda o simc e serve para conferir contagens e elegibilidade. Jobs ficam em `topgear_jobs` (SQLite) com progresso, cancelamento e retomada de `pending`/`running` no próximo início do worker.
+
+### Poda heurística (rápido e complementar)
+
+Antes de simular, o Top Gear pontua os candidatos por atributos secundários ([`heuristic/score.py`](src/wowsim/heuristic/score.py:1) e `dados/pesos_secundarios.json`) e mede só os **top-K por slot** (`pool_efetiva_por_slot`, padrão 6). Berloques, armas, itens com efeito e itens sem stats nunca são podados. O score é sempre **estimativa** (nunca DPS); o número final continua vindo do SimC.
+
+- `GET /api/topgear/heuristica?addon=...&pool=...&top=6` devolve o ranking instantâneo por slot (sem simc) — o botão **Estimativa rápida** na aba Top Gear usa isso.
+- `verificar_podados=True` re-mede os descartados ao final e recupera algum ganho que a heurística tenha perdido (com aviso).
+- `podar=False` (ou `pool_efetiva_por_slot` alto) desliga a poda para máxima fidelidade.
+- `python scripts/derivar_pesos.py fixtures/pyrogalth.simc` grava pesos **medidos** (`calculate_scale_factors`) no cache; a poda passa a usá-los automaticamente no lugar dos curados.
+
+## Atualização de dados com gate
+
+`python scripts/atualizar_dados.py --candidato DIR` valida o snapshot antes de qualquer cópia: arquivos obrigatórios, contagens (72 gemas, 76 encantamentos, 97 enchant ids, 13 runas, 72 combinações), ilvl dos bônus 12846/12848/12854/12856, nomes PT/EN, patch 12.1.5 e hashes do `MANIFEST.json`. Falha bloqueia a atualização e registra pendência; use `--aplicar` só depois do gate aprovar.
 
 ## Parser do addon
 

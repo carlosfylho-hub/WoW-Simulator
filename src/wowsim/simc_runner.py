@@ -21,7 +21,7 @@ import sys
 import time
 from dataclasses import dataclass, field
 from pathlib import Path
-from typing import Any, Iterable, Sequence
+from typing import Any, Callable, Iterable, Sequence
 
 from .paths import PROJECT_ROOT
 
@@ -32,6 +32,59 @@ else:
 CACHE_DIR = Path(os.environ.get("WOWSIM_CACHE", _cache_padrao))
 BIN_DIR = PROJECT_ROOT / "bin"
 BUILD_ESPERADO = "12.1.5.70783"
+
+
+def _log_simc(mensagem: str) -> None:
+    """Print simc activity to the terminal.
+
+    Default is OFF for CLI/testes (``WOWSIM_LOG_SIMC`` unset = "0"). The web
+    layer turns it ON at startup via :func:`configurar_log_simc`, so end users
+    see per-round diagnostics without the CLI becoming noisy.
+    """
+    desligado = {"0", "false", "nao", "não", "off", ""}
+    if os.environ.get("WOWSIM_LOG_SIMC", "0").strip().lower() in desligado:
+        return
+    print(f"[simc] {mensagem}", flush=True)
+
+
+def configurar_log_simc(ligado: bool) -> None:
+    """Enable/disable simc logging unless ``WOWSIM_LOG_SIMC`` is already set."""
+    os.environ.setdefault("WOWSIM_LOG_SIMC", "1" if ligado else "0")
+
+
+def _podar_cache() -> None:
+    """Remove os JSONs mais antigos quando o cache passa do teto configurado.
+
+    Teto em MB via ``WOWSIM_CACHE_MAX_MB`` (padrão 2048; 0 desliga).
+    """
+    try:
+        limite_mb = float(os.environ.get("WOWSIM_CACHE_MAX_MB", "2048"))
+    except ValueError:
+        return
+    if limite_mb <= 0:
+        return
+    limite = limite_mb * 1024 * 1024
+    try:
+        arquivos = [
+            p for p in CACHE_DIR.glob("*.json") if ".meta." not in p.name and p.is_file()
+        ]
+    except OSError:
+        return
+    total = sum(p.stat().st_size for p in arquivos)
+    if total <= limite:
+        return
+    for p in sorted(arquivos, key=lambda item: item.stat().st_mtime):
+        if total <= limite:
+            break
+        try:
+            tamanho = p.stat().st_size
+            meta = p.with_suffix(".meta.json")
+            p.unlink()
+            if meta.exists():
+                meta.unlink()
+            total -= tamanho
+        except OSError:
+            continue
 
 INSTRUCOES_SIMC = f"""O binário do SimulationCraft não foi encontrado.
 
@@ -63,8 +116,21 @@ class SimcFalhou(SimcError):
     """simc ran but exited with a non-zero code or produced no usable JSON."""
 
 
+class SimcOrcamentoEsgotado(SimcFalhou):
+    """The time budget ran out while simc was still running.
+
+    Subclasses :class:`SimcFalhou` so existing handlers still work, but lets the
+    search degrade gracefully (return the best partial result) instead of
+    failing the whole job.
+    """
+
+
 class SimcSemJson(SimcError):
     """The JSON file was produced but its content is not usable."""
+
+
+class SimcCancelado(SimcError):
+    """The user cancelled the job while simc was running."""
 
 
 @dataclass(frozen=True)
@@ -198,6 +264,7 @@ def _parametros_canonicos(
     target_error: float | None,
     desired_targets: int | None,
     extra_args: Sequence[str],
+    max_time: int | None = None,
 ) -> dict[str, Any]:
     return {
         "iterations": int(iterations),
@@ -206,6 +273,7 @@ def _parametros_canonicos(
         "target_error": target_error,
         "desired_targets": desired_targets,
         "extra_args": list(extra_args),
+        "max_time": max_time,
     }
 
 
@@ -236,8 +304,14 @@ def montar_comando(
     target_error: float | None = None,
     desired_targets: int | None = None,
     extra_args: Sequence[str] = (),
+    max_time: int | None = None,
 ) -> list[str]:
-    """Build the simc command line. json2 always receives a non-empty path."""
+    """Build the simc command line. json2 always receives a non-empty path.
+
+    ``max_time`` is passed straight to simc so it stops by itself and still
+    writes the JSON (partial iterations) instead of being killed by our
+    timeout with no output.
+    """
     destino = str(json_path).strip()
     if not destino:
         raise ValueError("json2 exige um caminho de arquivo; valor vazio quebra o simc.")
@@ -256,6 +330,8 @@ def montar_comando(
         comando.append(f"target_error={float(target_error)}")
     if desired_targets is not None:
         comando.append(f"desired_targets={int(desired_targets)}")
+    if max_time is not None:
+        comando.append(f"max_time={max(1, int(max_time))}")
     comando.extend(str(arg) for arg in extra_args)
     return comando
 
@@ -275,7 +351,9 @@ def run_simc(
     target_error: float | None = None,
     desired_targets: int | None = None,
     extra_args: Sequence[str] = (),
-    timeout: float = 3600.0,
+    timeout: float | None = 3600.0,
+    max_time: int | None = None,
+    cancelar: Callable[[], bool] | None = None,
     usar_cache: bool = True,
     forcar: bool = False,
 ) -> SimcExecucao:
@@ -286,6 +364,11 @@ def run_simc(
 
     simc = find_simc(simc_path)
     info = ler_versao(simc)
+    # Deixa o simc parar sozinho 2 s antes do nosso timeout: ele ainda gravou o
+    # JSON (iterações parciais) e evitamos matar o processo sem resultado.
+    max_time_efetivo = max_time
+    if max_time_efetivo is None and timeout is not None:
+        max_time_efetivo = max(1, int(timeout) - 2)
     parametros = _parametros_canonicos(
         iterations=iterations,
         fight_style=fight_style,
@@ -293,6 +376,7 @@ def run_simc(
         target_error=target_error,
         desired_targets=desired_targets,
         extra_args=extra_args,
+        max_time=max_time_efetivo,
     )
     chave = chave_cache(perfil, parametros, simc)
 
@@ -304,6 +388,7 @@ def run_simc(
         try:
             json.loads(cache_json.read_text(encoding="utf-8"))
             meta = json.loads(cache_meta.read_text(encoding="utf-8")) if cache_meta.is_file() else {}
+            _log_simc(f"cache hit {chave} ({cache_json})")
             return SimcExecucao(
                 json_path=cache_json,
                 chave=chave,
@@ -333,31 +418,85 @@ def run_simc(
         target_error=target_error,
         desired_targets=desired_targets,
         extra_args=extra_args,
+        max_time=max_time_efetivo,
     )
 
+    _log_simc(" ".join(str(parte) for parte in comando))
+
     inicio = time.monotonic()
-    try:
-        proc = subprocess.run(
-            comando,
-            capture_output=True,
-            text=True,
-            timeout=timeout,
-            cwd=str(PROJECT_ROOT),
-            check=False,
-        )
-    except subprocess.TimeoutExpired as exc:
-        raise SimcFalhou(
-            f"O simc excedeu {timeout:.0f} s. Comando: {' '.join(comando)}"
-        ) from exc
+    if cancelar is None:
+        # Caminho simples (CLI/testes): sem cancelamento cooperativo.
+        try:
+            proc = subprocess.run(
+                comando,
+                capture_output=True,
+                text=True,
+                timeout=timeout,
+                cwd=str(PROJECT_ROOT),
+                check=False,
+            )
+        except subprocess.TimeoutExpired as exc:
+            raise SimcOrcamentoEsgotado(
+                f"O simc excedeu {timeout:.0f} s (orçamento). "
+                f"Comando: {' '.join(comando)}"
+            ) from exc
+        stdout_text = proc.stdout or ""
+        stderr_text = proc.stderr or ""
+        returncode = proc.returncode
+    else:
+        # Caminho com cancelamento. NÃO use PIPE aqui: o simc escreve muito no
+        # stdout; sem drenar o pipe durante o polling o processo bloqueia no
+        # buffer (~64 KB) e nunca termina. Redirecionamos para arquivos.
+        tmp_dir_run = CACHE_DIR / "tmp"
+        tmp_dir_run.mkdir(parents=True, exist_ok=True)
+        out_log = tmp_dir_run / f"{chave}.stdout.log"
+        err_log = tmp_dir_run / f"{chave}.stderr.log"
+        with (
+            open(out_log, "w", encoding="utf-8", errors="replace") as fo,
+            open(err_log, "w", encoding="utf-8", errors="replace") as fe,
+        ):
+            proc = subprocess.Popen(
+                comando,
+                stdout=fo,
+                stderr=fe,
+                cwd=str(PROJECT_ROOT),
+            )
+            try:
+                while True:
+                    returncode = proc.poll()
+                    if returncode is not None:
+                        break
+                    if cancelar():
+                        proc.kill()
+                        proc.wait()
+                        raise SimcCancelado(
+                            "Cancelado pelo usuário durante a simulação."
+                        )
+                    if timeout is not None and (time.monotonic() - inicio) > timeout:
+                        proc.kill()
+                        proc.wait()
+                        raise SimcOrcamentoEsgotado(
+                            f"O simc excedeu {timeout:.0f} s (orçamento). "
+                            f"Comando: {' '.join(comando)}"
+                        )
+                    time.sleep(0.5)
+            finally:
+                if proc.poll() is None:
+                    proc.kill()
+                    proc.wait()
+        stdout_text = out_log.read_text(encoding="utf-8", errors="replace")
+        stderr_text = err_log.read_text(encoding="utf-8", errors="replace")
+
     duracao = time.monotonic() - inicio
+    _log_simc(f"fim em {duracao:.2f}s (codigo {returncode})")
 
-    stdout_tail = _tail(proc.stdout)
-    stderr_tail = _tail(proc.stderr)
+    stdout_tail = _tail(stdout_text)
+    stderr_tail = _tail(stderr_text)
 
-    if proc.returncode != 0:
+    if returncode != 0:
         raise SimcFalhou(
             "O simc terminou com código "
-            f"{proc.returncode}.\nComando: {' '.join(comando)}\n"
+            f"{returncode}.\nComando: {' '.join(comando)}\n"
             f"Últimas linhas:\n{stderr_tail or stdout_tail}"
         )
     if not tmp_json.is_file():
@@ -393,6 +532,7 @@ def run_simc(
 
     shutil.move(str(tmp_json), str(cache_json))
     cache_meta.write_text(json.dumps(meta, ensure_ascii=False, indent=2), encoding="utf-8")
+    _podar_cache()
 
     return SimcExecucao(
         json_path=cache_json,

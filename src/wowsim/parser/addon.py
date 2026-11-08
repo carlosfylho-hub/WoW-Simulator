@@ -240,8 +240,19 @@ def _parse_pares(texto: str, campo: str, indice: int, alertas: list[AlertaParse]
     return pares
 
 
-def parse_texto(texto: str) -> Personagem:
-    """Parse the addon text into a Personagem. Never guesses missing values."""
+def parse_texto(
+    texto: str,
+    *,
+    classe_hint: str | None = None,
+    spec_hint: str | None = None,
+    incluir_inv: bool = False,
+) -> Personagem:
+    """Parse the addon text (SimC or AMR v181) into a Personagem.
+
+    Text starting with ``$`` is decoded as an AskMrRobot export via
+    :mod:`wowsim.parser.amr` (ADR-002). ``classe_hint``/``spec_hint`` são
+    necessários para o AMR, cujo cabeçalho de classe é ambíguo.
+    """
     linhas = texto.splitlines(keepends=True)
     uteis = [linha.strip() for linha in linhas if linha.strip()]
 
@@ -250,9 +261,17 @@ def parse_texto(texto: str) -> Personagem:
 
     primeira = uteis[0]
     if primeira.startswith("$"):
-        raise FormatoAmrRejeitado(
-            "Este é um export do AskMrRobot. O projeto lê apenas o export do "
-            "SimulationCraft AddOn: no jogo, use /simc e cole a saída."
+        from .amr import ErroAmr, para_personagem, parse_amr
+
+        try:
+            importacao = parse_amr(texto)
+        except ErroAmr as exc:
+            raise FormatoDesconhecido(str(exc)) from exc
+        return para_personagem(
+            importacao,
+            classe_hint=classe_hint,
+            spec_hint=spec_hint,
+            incluir_inv=incluir_inv,
         )
     if not (
         primeira.startswith("#")

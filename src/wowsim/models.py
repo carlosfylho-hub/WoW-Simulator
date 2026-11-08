@@ -191,6 +191,20 @@ class Runa(BaseModel):
     fonte: str
 
 
+class EmbelezamentoInfo(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+
+    item_id: int
+    craftado: bool = False
+    embutido: bool = False
+    aceita: bool = False
+    recomendado: str | None = None
+    nome_pt: str | None = None
+    nome_en: str | None = None
+    limite: int = 2
+    fonte: str
+
+
 class EncantamentoResolvido(BaseModel):
     model_config = ConfigDict(extra="forbid")
 
@@ -219,3 +233,5 @@ class ItemLoot(BaseModel):
     bonus_id: int | None = None
     peconha: str | None = None
     fonte: str
+    atributos: list[str] = Field(default_factory=list)
+    tipo: str | None = None

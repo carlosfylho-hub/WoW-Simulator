@@ -1,0 +1,268 @@
+{
+  "_meta": {
+    "fonte": "AddOn AskMrRobot local (AskMrRobot-Serializer.lua + .toc)",
+    "addon_versao": "181",
+    "gerado_em": "2026-11-08T02:02:35Z",
+    "versoes": [
+      "110",
+      "140",
+      "181",
+      "50",
+      "51",
+      "52",
+      "53",
+      "54",
+      "57",
+      "63",
+      "75",
+      "76",
+      "79",
+      "80",
+      "86",
+      "89"
+    ],
+    "total_specs": 111
+  },
+  "versoes": {
+    "89": {
+      "specs": {
+        "1": "deathknight",
+        "2": "deathknight",
+        "3": "deathknight",
+        "4": "demonhunter",
+        "5": "demonhunter",
+        "6": "druid",
+        "7": "druid",
+        "8": "druid",
+        "9": "druid",
+        "10": "hunter",
+        "11": "hunter",
+        "12": "hunter",
+        "13": "mage",
+        "14": "mage",
+        "15": "mage",
+        "16": "monk",
+        "17": "monk",
+        "18": "monk",
+        "22": "priest",
+        "23": "priest",
+        "24": "priest",
+        "25": "rogue",
+        "26": "rogue",
+        "27": "rogue"
+      }
+    },
+    "110": {
+      "specs": {
+        "31": "warlock",
+        "32": "warlock",
+        "33": "warlock"
+      }
+    },
+    "140": {
+      "specs": {
+        "34": "warlock",
+        "35": "warlock",
+        "36": "warlock"
+      }
+    },
+    "181": {
+      "specs": {
+        "1": "deathknight",
+        "2": "deathknight",
+        "3": "deathknight",
+        "4": "demonhunter",
+        "5": "demonhunter",
+        "6": "demonhunter",
+        "7": "druid",
+        "8": "druid",
+        "9": "druid",
+        "10": "druid",
+        "11": "evoker",
+        "12": "evoker",
+        "13": "evoker",
+        "14": "hunter",
+        "15": "hunter",
+        "16": "hunter",
+        "17": "mage",
+        "18": "mage",
+        "19": "mage",
+        "20": "monk",
+        "21": "monk",
+        "22": "monk",
+        "23": "paladin",
+        "24": "paladin",
+        "25": "paladin",
+        "26": "priest",
+        "27": "priest",
+        "28": "priest",
+        "29": "rogue",
+        "30": "rogue",
+        "31": "rogue",
+        "32": "shaman",
+        "33": "shaman",
+        "34": "shaman",
+        "35": "warlock",
+        "36": "warlock",
+        "37": "warlock",
+        "38": "warrior",
+        "39": "warrior",
+        "40": "warrior"
+      },
+      "racas": {
+        "1": "bloodelf",
+        "2": "draenei",
+        "3": "dwarf",
+        "4": "gnome",
+        "5": "human",
+        "6": "nightelf",
+        "7": "orc",
+        "8": "tauren",
+        "9": "troll",
+        "10": "undead",
+        "11": "goblin",
+        "12": "worgen",
+        "13": "pandaren",
+        "14": "nightborne",
+        "15": "highmountaintauren",
+        "16": "voidelf",
+        "17": "lightforgeddraenei",
+        "18": "darkirondwarf",
+        "19": "magharorc",
+        "20": "zandalaritroll",
+        "21": "kultiran",
+        "22": "vulpera",
+        "23": "mechagnome",
+        "24": "dracthyr",
+        "25": "earthen",
+        "26": "haranir"
+      },
+      "faccoes": {
+        "1": "alliance",
+        "2": "horde"
+      },
+      "classes": {
+        "1": "deathknight",
+        "2": "demonhunter",
+        "3": "druid",
+        "4": "hunter",
+        "5": "mage",
+        "6": "monk",
+        "7": "paladin",
+        "8": "priest",
+        "9": "rogue",
+        "10": "shaman",
+        "11": "warlock",
+        "12": "warrior",
+        "13": "evoker"
+      },
+      "slots": [
+        16,
+        17,
+        1,
+        2,
+        3,
+        15,
+        5,
+        9,
+        10,
+        6,
+        7,
+        8,
+        11,
+        12,
+        13,
+        14
+      ]
+    },
+    "52": {
+      "specs": {
+        "34": "warrior",
+        "35": "warrior"
+      }
+    },
+    "53": {
+      "specs": {
+        "25": "rogue",
+        "26": "rogue",
+        "27": "rogue"
+      }
+    },
+    "54": {
+      "specs": {
+        "13": "mage",
+        "14": "mage",
+        "15": "mage"
+      }
+    },
+    "75": {
+      "specs": {
+        "22": "priest",
+        "23": "priest",
+        "24": "priest"
+      }
+    },
+    "76": {
+      "specs": {
+        "22": "priest",
+        "23": "priest",
+        "24": "priest",
+        "10": "hunter",
+        "11": "hunter",
+        "12": "hunter"
+      }
+    },
+    "80": {
+      "specs": {
+        "10": "hunter",
+        "11": "hunter",
+        "12": "hunter"
+      }
+    },
+    "86": {
+      "specs": {
+        "10": "hunter",
+        "11": "hunter",
+        "12": "hunter"
+      }
+    },
+    "79": {
+      "specs": {
+        "16": "monk",
+        "17": "monk",
+        "18": "monk"
+      }
+    },
+    "63": {
+      "specs": {
+        "19": "paladin",
+        "20": "paladin",
+        "21": "paladin"
+      }
+    },
+    "57": {
+      "specs": {
+        "1": "deathknight",
+        "2": "deathknight",
+        "3": "deathknight"
+      }
+    },
+    "50": {
+      "specs": {
+        "16": "monk",
+        "17": "monk",
+        "18": "monk"
+      }
+    },
+    "51": {
+      "specs": {
+        "16": "monk",
+        "17": "monk",
+        "18": "monk",
+        "25": "rogue",
+        "26": "rogue",
+        "27": "rogue"
+      }
+    }
+  }
+}

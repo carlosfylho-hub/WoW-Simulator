@@ -22,6 +22,13 @@ CENARIOS: dict[str, dict] = {
     "cleave_aoe": {"fight_style": "DungeonSlice"},
     "delve_rooms": {"fight_style": "DungeonSlice"},
     "delve_boss": {"fight_style": "Patchwerk", "desired_targets": 1},
+    # Fight Styles extras validados no binário local do SimC.
+    "hectic_add_cleave": {"fight_style": "HecticAddCleave"},
+    "light_movement": {"fight_style": "LightMovement", "desired_targets": 1},
+    "heavy_movement": {"fight_style": "HeavyMovement", "desired_targets": 1},
+    "casting_patchwerk": {"fight_style": "CastingPatchwerk", "desired_targets": 1},
+    "cleave_add": {"fight_style": "CleaveAdd"},
+    "helter_skelter": {"fight_style": "HelterSkelter", "desired_targets": 1},
 }
 
 

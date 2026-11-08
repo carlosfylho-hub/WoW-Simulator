@@ -91,6 +91,15 @@
 - **Decisão:** saídas em `saida/`, cache em `cache/`, derivados em `dados/derivados/`, tudo dentro do projeto e ignorado pelo Git quando efêmero.
 - **Exceção:** atualização do snapshot de dados, feita por script explícito e revisada por diff.
 
+### ADR-011 — Poda heurística antes do SimC (Caminho A)
+
+- **Decisão:** antes de medir, o Top Gear e o Droptimizer pontuam os candidatos por atributos secundários (`heuristic/score.py` + `dados/pesos_secundarios.json`) e medem apenas os top-K por slot (`pool_efetiva_por_slot`, padrão 6). Berloques, armas, itens com efeito e itens sem stats nunca são podados.
+- **Motivo:** medir todos os candidatos com o SimC deixava o produto "igual ao Raidbots, porém mais lento". A heurística poda barato (estilo AMR) e o SimC confirma só os finalistas — a complementaridade pretendida.
+- **Regra preservada:** o score é sempre `heuristico=True` e **nunca** é DPS; o número final vem do SimC (P1).
+- **Verificação:** `verificar_podados=True` re-mede os descartados ao final e recupera ganho perdido, avisando para aumentar K.
+- **Transparência:** a rodada registra `estagio="poda"` com a contagem descartada e um aviso com a fonte dos pesos.
+- **Evolução:** pesos medidos via `calculate_scale_factors` do SimC substituem os curados quando disponíveis. Implementado em `data/pesos_medidos.py` + `scripts/derivar_pesos.py`; a poda usa o cache medido automaticamente quando existir.
+
 ---
 
 ## 3. Diagrama de módulos
@@ -408,6 +417,7 @@ Regras:
 | 5 | Relatório PT-BR com empate por erro, Onde dropa e Limites; cenário de anéis e berloques confere |
 | 6 | Resumo opcional nunca introduz número fora do JSON; `--sem-llm` sempre funciona |
 | 7 | Só se solicitado; sem login, concorrência igual a núcleos menos um |
+| 8 | `wowsim topgear` e `/api/topgear` produzem melhor conjunto medido dentro do orçamento, sem violar restrições; suíte verde |
 
 ---
 
@@ -424,3 +434,31 @@ Regras:
 ## 13. Pendências iniciais
 
 Ver [`../PENDENCIAS.md`](../PENDENCIAS.md). As bloqueantes para começar a Fase 1 são: ausência do fixture real e ausência de binário do simc com build compatível.
+
+---
+
+## 14. Top Gear — busca em estágios (fase 8)
+
+Módulos: `topgear/models.py`, `topgear/pools.py`, `topgear/constraints.py`, `topgear/search.py`, `topgear/runner.py`, `web/topgear_db.py`, `web/topgear_worker.py`, `web/topgear_api.py` e a aba React `TopGearPanel`.
+
+```mermaid
+flowchart TD
+  UI[Aba Top Gear] --> API[POST /api/topgear]
+  API --> DB[(topgear_jobs)]
+  API --> WK[Worker]
+  WK --> POOLS[Pools por slot]
+  WK --> SEARCH[Busca em estágios]
+  SEARCH --> VAL[Validador de restrições]
+  SEARCH --> GEN[Profilesets]
+  GEN --> SIMC[simc]
+  SIMC --> SEARCH
+  SEARCH --> OUT[TopGearResult]
+  OUT --> DB
+  DB --> UI
+```
+
+- **Regra de ouro mantida:** todo DPS vem do `simc`; pools e validador apenas reduzem o espaço de busca. Empate por erro com piso de 0,15%.
+- **Estágios:** marginal, gulosa, beam de 2 slots, encantos, gemas, talentos (loadouts validados), Folio e refino. `slots_travados`, orçamento e cancelamento são respeitados entre lotes.
+- **Persistência:** `topgear_jobs` guarda request, progresso, estado e resultado. Jobs `pending`/`running` são reenfileirados no próximo início (retomada simples, reiniciando a busca a partir da base).
+- **Gate de dados:** `data/gate.py` + `scripts/atualizar_dados.py` bloqueiam qualquer snapshot com contagem, bônus, nome, patch ou hash divergente.
+- **Limites declarados:** combinações de talentos usam loadouts validados; a otimização de gemas troca a gema principal de cada soquete; o refino usa o mesmo conjunto vencedor com mais iterações.

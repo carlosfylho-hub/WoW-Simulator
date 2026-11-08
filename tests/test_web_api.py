@@ -53,9 +53,69 @@ def test_health_e_post_sem_executar(tmp_path: Path, monkeypatch: pytest.MonkeyPa
         assert cliente.get("/sim/nao-existe").status_code == 404
 
 
+def test_import_amr(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
+    monkeypatch.setattr(db, "DB_PATH", tmp_path / "jobs.db")
+    amr = (RAIZ / "fixtures" / "pyrogalth-amr-181.txt").read_text(encoding="utf-8")
+    with TestClient(app) as cliente:
+        resposta = cliente.post(
+            "/api/import/amr",
+            json={
+                "texto": amr,
+                "classe_hint": "warlock",
+                "spec_hint": "demonology",
+            },
+        )
+        assert resposta.status_code == 200
+        corpo = resposta.json()
+        assert corpo["classe"] == "warlock"
+        assert corpo["spec"] == "demonology"
+        assert corpo["itens"] >= 10
+        assert 'warlock="Pyrogalth"' in corpo["simc"]
+        assert corpo["avisos"]
+
+
+def test_import_amr_invalido(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
+    monkeypatch.setattr(db, "DB_PATH", tmp_path / "jobs.db")
+    with TestClient(app) as cliente:
+        resposta = cliente.post(
+            "/api/import/amr", json={"texto": "$181;US;Azralon;Pyrogalth"}
+        )
+        assert resposta.status_code == 400
+
+
 def test_addon_muito_curto(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
     monkeypatch.setattr(db, "DB_PATH", tmp_path / "jobs.db")
     monkeypatch.setattr(worker, "enfileirar", lambda job_id: None)
     with TestClient(app) as cliente:
         resposta = cliente.post("/sim", json={"addon": "curto"})
+        assert resposta.status_code == 422
+
+
+def test_import_combinar_simc_e_amr(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    monkeypatch.setattr(db, "DB_PATH", tmp_path / "jobs.db")
+    simc = FIXTURE.read_text(encoding="utf-8")
+    amr = (RAIZ / "fixtures" / "pyrogalth-amr-181.txt").read_text(encoding="utf-8")
+    with TestClient(app) as cliente:
+        resposta = cliente.post(
+            "/api/import/combinar",
+            json={"simc": simc, "amr": amr, "primario": "simc"},
+        )
+        assert resposta.status_code == 200
+        corpo = resposta.json()
+        assert corpo["primario"] == "simc"
+        assert "simc" in corpo["fontes"] and "amr" in corpo["fontes"]
+        assert corpo["raca"] == "dracthyr"
+        assert corpo["talentos"] is True
+        assert corpo["possuidos"] > 0
+        assert 'warlock="Pyrogalth"' in corpo["simc"]
+
+
+def test_import_combinar_sem_fontes(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    monkeypatch.setattr(db, "DB_PATH", tmp_path / "jobs.db")
+    with TestClient(app) as cliente:
+        resposta = cliente.post("/api/import/combinar", json={})
         assert resposta.status_code == 422

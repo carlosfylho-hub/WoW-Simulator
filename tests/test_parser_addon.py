@@ -7,7 +7,6 @@ from pathlib import Path
 import pytest
 
 from wowsim.parser.addon import (
-    FormatoAmrRejeitado,
     FormatoDesconhecido,
     parse_texto,
     serializar_bloco_equipamento,
@@ -180,9 +179,17 @@ def test_reescrita_de_slot(texto: str, personagem) -> None:
     assert saida.count("12846") == texto.count("12846") - 1
 
 
-def test_rejeita_amr() -> None:
-    with pytest.raises(FormatoAmrRejeitado):
-        parse_texto("$181;US;Azralon;Pyrogalth;...")
+def test_aceita_amr() -> None:
+    amr = (RAIZ / "fixtures" / "pyrogalth-amr-181.txt").read_text(encoding="utf-8")
+    personagem = parse_texto(amr, classe_hint="warlock", spec_hint="demonology")
+    assert personagem.versao_addon == "AMR v181"
+    assert personagem.classe == "warlock"
+    assert personagem.equipado["wrist"].item_id == 239648
+
+
+def test_amr_incompleto_vira_formato_desconhecido() -> None:
+    with pytest.raises(FormatoDesconhecido):
+        parse_texto("$181;US;Azralon")
 
 
 def test_rejeita_formato_desconhecido() -> None:

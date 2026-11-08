@@ -1,0 +1,94 @@
+{
+    "fonte": "curado:icy-veins+amr",
+    "atualizado_em": "2026-11-08",
+    "versao_patch": "12.1.5",
+    "_nota": "Heuristica de ordenacao para poda. NUNCA e DPS. Apenas pondera atributos secundarios para escolher quais candidatos o SimulationCraft vai medir. Pesos relativos (1.0 = atributo mais valioso da spec).",
+    "padrao": {
+        "haste": 1.0,
+        "crit": 0.9,
+        "mastery": 0.85,
+        "versatility": 0.7
+    },
+    "por_classe": {
+        "bruxo": {
+            "haste": 1.0,
+            "crit": 0.9,
+            "mastery": 0.85,
+            "versatility": 0.7
+        },
+        "druida": {
+            "mastery": 1.0,
+            "haste": 0.9,
+            "crit": 0.85,
+            "versatility": 0.7
+        },
+        "sacerdote": {
+            "haste": 1.0,
+            "crit": 0.9,
+            "mastery": 0.85,
+            "versatility": 0.7
+        }
+    },
+    "por_spec": {
+        "affliction": {
+            "haste": 1.0,
+            "mastery": 0.95,
+            "crit": 0.8,
+            "versatility": 0.7
+        },
+        "afliacao": {
+            "haste": 1.0,
+            "mastery": 0.95,
+            "crit": 0.8,
+            "versatility": 0.7
+        },
+        "demonology": {
+            "haste": 1.0,
+            "mastery": 0.95,
+            "crit": 0.8,
+            "versatility": 0.7
+        },
+        "demonologia": {
+            "haste": 1.0,
+            "mastery": 0.95,
+            "crit": 0.8,
+            "versatility": 0.7
+        },
+        "destruction": {
+            "crit": 1.0,
+            "haste": 0.95,
+            "mastery": 0.9,
+            "versatility": 0.7
+        },
+        "destruicao": {
+            "crit": 1.0,
+            "haste": 0.95,
+            "mastery": 0.9,
+            "versatility": 0.7
+        },
+        "balance": {
+            "mastery": 1.0,
+            "haste": 0.9,
+            "crit": 0.85,
+            "versatility": 0.7
+        },
+        "equilibrio": {
+            "mastery": 1.0,
+            "haste": 0.9,
+            "crit": 0.85,
+            "versatility": 0.7
+        },
+        "shadow": {
+            "haste": 1.0,
+            "crit": 0.9,
+            "mastery": 0.85,
+            "versatility": 0.7
+        },
+        "sombra": {
+            "haste": 1.0,
+            "crit": 0.9,
+            "mastery": 0.85,
+            "versatility": 0.7
+        }
+    }
+}

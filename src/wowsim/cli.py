@@ -20,6 +20,10 @@ from .llm import montar_contexto, resumir, resumo_deterministico
 from .models import Personagem, Variacao
 from .parser.addon import SLOTS, ErroParseAddon, parse_texto
 from .report import render as render_relatorio
+from .topgear.models import TopGearRequest
+from .topgear.pools import construir_pools, resumo as resumo_pools
+from .topgear.runner import criar_simulador, estilo_de_luta
+from .topgear.search import executar_topgear
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 FIXTURE_PADRAO = PROJECT_ROOT / "fixtures" / "pyrogalth.simc"
@@ -597,6 +601,105 @@ def parse(
             encoding="utf-8",
         )
         console.print(f"JSON gravado em {json_out}")
+
+
+@app.command("topgear")
+def topgear_cmd(
+    fixture: Path = typer.Option(
+        FIXTURE_PADRAO, "--fixture", "-f", help="Export do addon em formato .simc."
+    ),
+    scenario: str = typer.Option(
+        "patchwerk", "--scenario", help="patchwerk | dungeon_slice | raid | mplus."
+    ),
+    iterations_triagem: int = typer.Option(
+        200, "--iterations-triagem", "-n", min=10, help="Iterações da triagem."
+    ),
+    orcamento: int = typer.Option(
+        600, "--orcamento", min=1, help="Orçamento de tempo em segundos."
+    ),
+    pool: int = typer.Option(
+        12, "--pool", min=1, help="Máximo de candidatos por slot."
+    ),
+    tipo_armadura: str = typer.Option(
+        "tecido", "--tipo-armadura", help="tecido | couro."
+    ),
+    atributo: str = typer.Option(
+        "Intelecto", "--atributo", help="Atributo primário da spec."
+    ),
+    simc: Optional[Path] = typer.Option(
+        None, "--simc", help="Caminho explícito para o binário do simc."
+    ),
+    somente_pools: bool = typer.Option(
+        False, "--somente-pools", help="Só mostra a prévia das pools, sem simular."
+    ),
+) -> None:
+    """Top Gear: melhor conjunto medido dentro das pools e restrições."""
+    caminho = Path(fixture)
+    if not caminho.is_file():
+        console.print(
+            Panel(
+                f"Fixture não encontrado: {caminho}\n"
+                "Cole a saída de /simc em fixtures/pyrogalth.simc antes de rodar.",
+                title="Fixture ausente",
+                style="red",
+            )
+        )
+        raise typer.Exit(code=2)
+
+    texto = caminho.read_text(encoding="utf-8")
+    personagem = parse_texto(texto)
+    pools = construir_pools(
+        tipo_armadura=tipo_armadura, atributo=atributo, pool_por_slot=pool
+    )
+    contagens = resumo_pools(pools)
+
+    if somente_pools:
+        tabela = Table(title="Pools do Top Gear", header_style="bold")
+        tabela.add_column("Slot")
+        tabela.add_column("Candidatos", justify="right")
+        for slot, total in contagens.items():
+            tabela.add_row(slot, str(total))
+        console.print(tabela)
+        return
+
+    request = TopGearRequest(  # type: ignore[call-arg]
+        addon=texto,
+        scenario=scenario,
+        iterations_triagem=iterations_triagem,
+        orcamento_segundos=orcamento,
+        pool_por_slot=pool,
+    )
+    simulador = criar_simulador(
+        personagem, fight_style=estilo_de_luta(scenario), simc_path=simc
+    )
+
+    try:
+        resultado = executar_topgear(personagem, pools, simulador=simulador, request=request)
+    except sr.SimcError as exc:
+        _erro_simc(exc, 3)
+        return
+
+    resumo = Table(title="Top Gear — resultado", header_style="bold")
+    resumo.add_column("Métrica")
+    resumo.add_column("Valor", justify="right")
+    resumo.add_row("Pools", ", ".join(f"{slot}={n}" for slot, n in contagens.items()))
+    resumo.add_row("DPS da base", f"{resultado.base_dps:,.0f}")
+    resumo.add_row("DPS do melhor conjunto", f"{resultado.melhor_dps:,.0f}")
+    resumo.add_row("Ganho", f"{resultado.delta_pct:+.2f}%")
+    resumo.add_row("Limiar de empate", f"{resultado.limiar_pct:.2f}%")
+    console.print(resumo)
+
+    if resultado.trocas:
+        trocas = Table(title="Trocas por slot", header_style="bold")
+        trocas.add_column("Slot")
+        trocas.add_column("De")
+        trocas.add_column("Para")
+        for troca in resultado.trocas:
+            trocas.add_row(troca.slot, troca.de or "—", troca.para or "—")
+        console.print(trocas)
+
+    for aviso in resultado.avisos:
+        console.print(Panel(aviso, title="Aviso", style="yellow"))
 
 
 if __name__ == "__main__":

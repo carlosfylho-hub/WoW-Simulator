@@ -1,0 +1,91 @@
+{
+    "fonte": "consumiveis_e_sistemas_s2.json + consumiveis_e_sistemas_s2.md + simc-midnight/profiles",
+    "consumiveis": {
+        "flask": [
+            {
+                "token": "flask_of_the_magisters_2",
+                "nome_pt": "Frasco dos Magísteres",
+                "nome_en": "Flask of the Magisters",
+                "item_id": 241323
+            },
+            {
+                "token": "flask_of_the_shattered_sun_2",
+                "nome_pt": "Frasco do Sol Partido",
+                "nome_en": "Flask of the Shattered Sun",
+                "item_id": 241327
+            },
+            {
+                "token": "flask_of_the_blood_knights_2",
+                "nome_pt": "Frasco dos Cavaleiros Sangrentos",
+                "nome_en": "Flask of the Blood Knights",
+                "item_id": 241325
+            },
+            {
+                "token": "flask_of_thalassian_resistance_2",
+                "nome_pt": "Frasco da Resistência Talassiana",
+                "nome_en": "Flask of Thalassian Resistance",
+                "item_id": 241321
+            }
+        ],
+        "potion": [
+            {
+                "token": "potion_of_recklessness_2",
+                "nome_pt": "Poção da Imprudência",
+                "nome_en": "Potion of Recklessness",
+                "item_id": 241289
+            },
+            {
+                "token": "draught_of_rampant_abandon_2",
+                "nome_pt": "Grogue da Impulsividade Desenfreada",
+                "nome_en": "Draught of Rampant Abandon",
+                "item_id": 241293
+            },
+            {
+                "token": "lights_potential_2",
+                "nome_pt": "Potencial da Luz",
+                "nome_en": "Light's Potential",
+                "item_id": 241309
+            },
+            {
+                "token": "liquid_luster_2",
+                "nome_pt": "Esplendor Líquido",
+                "nome_en": "Liquid Luster",
+                "item_id": 271886
+            }
+        ],
+        "food": [
+            {
+                "token": "silvermoon_parade",
+                "nome_pt": "Parada de Luaprata",
+                "nome_en": "Silvermoon Parade",
+                "item_id": 255845
+            },
+            {
+                "token": "harandar_celebration",
+                "nome_pt": "Comemoração de Harandar",
+                "nome_en": "Harandar Celebration",
+                "item_id": 255846
+            },
+            {
+                "token": "blooming_feast",
+                "nome_pt": "Banquete Desabrochante",
+                "nome_en": "Blooming Feast",
+                "item_id": 242273
+            },
+            {
+                "token": "royal_roast",
+                "nome_pt": "Assado Real",
+                "nome_en": "Royal Roast",
+                "item_id": 242275
+            }
+        ],
+        "augmentation": [
+            {
+                "token": "void_touched",
+                "nome_pt": "Runa de Aprimoramento Tocada pelo Caos",
+                "nome_en": "Void-Touched Augment Rune",
+                "item_id": 259085
+            }
+        ]
+    }
+}

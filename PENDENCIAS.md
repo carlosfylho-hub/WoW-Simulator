@@ -1,7 +1,7 @@
 # Pendências — WoW Calculator Sim
 
-**Última atualização:** 2026-11-06
-**Fase atual:** 1 concluída — Fase 2 autorizada
+**Última atualização:** 2026-11-08
+**Fase atual:** Suporte AMR + Droptimizer entregues (Fases 1–8 do ADR-002)
 **Regra:** toda pendência tem identificador, impacto e condição de fechamento. Pendência sem condição de fechamento não entra.
 
 ---
@@ -33,6 +33,16 @@ Nenhum bloqueio ativo. O binário foi compilado a partir do fonte `12.1.5.70783`
 | **Binário** | `bin/simc.exe`, 121 MB, ignorado pelo Git. `simc-info` reporta versão `1210-01`, build `12.1.5.70783`, situação **compatível**. |
 | **Aceite** | 1000 iterações: DungeonSlice **255.601 DPS** (+0,63%) e Patchwerk **199.485 DPS** (−2,21%), ambos dentro de ±3%. |
 | **Receita reproduzível** | `scripts/build_simc.ps1 -SourceDir ..\..\simc-midnight` importa o `vcvars64.bat`, configura, compila e copia para `bin/`. |
+
+### P-016 — Poda heurística (Caminho A) — **ENTREGUE em 2026-11-08**
+
+| Campo | Detalhe |
+| :--- | :--- |
+| **O que** | Pontuação heurística (`heuristic/score.py`, `dados/pesos_secundarios.json`) e poda top-K no Top Gear e no Droptimizer, com modo `verificar_podados`. |
+| **Regra** | O score nunca é DPS; o SimC continua sendo a única fonte de número (P1). |
+| **Benchmark** | Poda top-6 no perfil do fixture: **180 → 114** profilesets marginais (−36,7%) em 2026-11-08. Pesos medidos validados no SimC real (Demonology: crit 1,0 / mastery 0,905 / haste 0,671). |
+| **Pendente** | Nenhum. |
+| **Impacto** | Reduz o número de profilesets por rodada e entrega a estimativa instantânea (diferencial frente ao Raidbots). |
 
 ---
 
@@ -183,3 +193,65 @@ Detalhes, método e evidências em [`docs/VERIFICACAO-EXTERNA.md`](docs/VERIFICA
 | 2026-11-07 | Runas do Folio | 13 nomes iguais no tooltip de feitiço |
 | 2026-11-07 | Faixas de upgrade | 6 casos de `bonus_id` iguais no Wowhead |
 | 2026-11-07 | Catalisador | confirmado que preserva secundários e cantrip desde o 12.1 |
+| 2026-11-08 | Import AskMrRobot (v181) | Parser `parser/amr.py`, detecção em `parse_texto`, `POST /api/import/amr` |
+| 2026-11-08 | Enumeração AMR de specs/raças | Mapa autoritativo extraído do addon (`scripts/extrair_mapa_addon_amr.py` → `dados/amr_mapa.json`) |
+| 2026-11-08 | Slot de item do `.inv` AMR | Resolvido offline via `InventoryType` de `item_data.inc` (`catalog.slots_do_item`) |
+| 2026-11-08 | Droptimizer (upgrade/best/worst in bags) | `droptimizer/*` + `web/drop_*` + aba UI; tudo medido pelo SimC |
+
+---
+
+## 7. Suporte AMR + Droptimizer — entrega 2026-11-08
+
+Implementa o [`plans/adr-002-suporte-amr.md`](../plans/adr-002-suporte-amr.md) (Fases 1–8).
+
+**Entregue:**
+- Parser puro do export AMR v181 (`wowsim/parser/amr.py`) com fixture real `fixtures/pyrogalth-amr-181.txt`.
+- `parse_texto` roteia automaticamente exports AMR (prefixo `$`); `Personagem.raca` populado pelo mapa.
+- Mapa autoritativo (40 specs, 26 raças, facções, slots) do addon `AskMrRobot-Serializer.lua`.
+- Droptimizer com 3 modos (`upgrade`, `best_in_bags`, `worst_in_bags`) — ranking single-slot medido, limiar por erro e chunking reutilizados do Top Gear.
+- Possuídos de duas fontes: `Gear from Bags` (SimC) e `.inv` AMR (resolvido por `InventoryType`), deduplicados com proveniência.
+- API `/api/droptimizer` (criar/consultar/resultado/cancelar/listar) + worker com guarda de exceção (nunca deixa job zumbi).
+- UI: aba **Droptimizer** (`DroptimizerPanel`) com import AMR/SimC, seletor de modo, tabela de ranking e export CSV.
+
+**Limitações conhecidas (não bloqueiam):**
+- Talentos AMR não são convertidos para import string do SimC; mantém-se o loadout atual e emite aviso (`amr_talentos_nao_convertidos`).
+- `slot_high_watermarks` do AMR (índices como `P-005`) seguem `informativo`; não usados no ranking.
+- Best in Slot continua no Top Gear existente (`/api/topgear`), sem mudança de contrato.
+
+### P-029 — Combinação de exports (SimC + AMR) — **ENTREGUE em 2026-11-08**
+
+| Campo | Detalhe |
+| :--- | :--- |
+| **Motivação** | Cada formato tem dados exclusivos; juntos se complementam (SimC: talentos/omnium/bolsas; AMR: raça, `.inv`, `.hlv`, tuning de item). |
+| **Implementação** | [`parser/combinar.py`](src/wowsim/parser/combinar.py): `combinar_textos`/`mesclar_personagens` com `primario = simc \| amr`. |
+| **Política** | Equipado+talentos do primário; talentos sempre do SimC; metadados AMR enriquecem item só quando é o mesmo item; bolsas = união deduplicada; conflitos agregados em um aviso. |
+| **API** | `POST /api/import/combinar`; `DropRequest`/`TopGearRequest` aceitam `amr?` + `primario`. |
+| **UI** | Campo **AskMrRobot (opcional)** + seletor de **primário** no Droptimizer e no Top Gear; persistido em `localStorage`. |
+| **Fechamento** | Testes `tests/test_combinar.py` + endpoint em `tests/test_web_api.py`; suíte verde. Limite: talentos AMR seguem não convertidos. |
+
+---
+
+## 8. Auditoria pós-merge — correções 2026-11-08
+
+Revisão de [`plans/auditoria-pos-merge.md`](../plans/auditoria-pos-merge.md). Todos os P0/P1 aplicados; P2/P3 conforme abaixo.
+
+| ID | Correção | Local |
+| :--- | :--- | :--- |
+| **P0-01** | Find Upgrade compara por `(slot, item_id, ilvl/bônus)`; mesmo `item_id` com trilha superior deixa de ser descartado. | [`drop_worker.py`](src/wowsim/web/drop_worker.py) |
+| **P0-02** | `best_in_bags` monta o conjunto final (guloso + beam) e devolve `conjunto`/`conjunto_dps`/`delta_conjunto_pct`; `worst_in_bags` não soma perdas. | [`droptimizer/search.py`](src/wowsim/droptimizer/search.py) |
+| **P0-03** | Worker legado ganhou `except Exception` final; nenhuma exceção inesperada deixa job em `running`. | [`web/worker.py`](src/wowsim/web/worker.py) |
+| **P1-01** | Dois AMR distintos no mesmo request são rejeitados; `fontes` sem duplicata. | [`parser/combinar.py`](src/wowsim/parser/combinar.py) |
+| **P1-02** | `addon`/`amr` limitados a 20 000 caracteres (`DropRequest`, `TopGearRequest`, `CombinarRequest`) → 422. | modelos + [`web/app.py`](src/wowsim/web/app.py) |
+| **P1-03** | Possuídos deixam de incluir itens iguais ao equipado; possuídos distintos não-equipados. | [`drop_worker.py`](src/wowsim/web/drop_worker.py) |
+| **P1-04** | `primario="amr"` sem export AMR → 422 no backend; rádio AMR desabilitado na UI sem string. | modelos + painéis |
+| **P1-05** | `.simc` combinado regenerado por `serializar_texto` a partir do modelo mesclado; limitações documentadas em aviso. | [`parser/combinar.py`](src/wowsim/parser/combinar.py) |
+| **P2-01** | AMR compartilhado entre abas via evento (`assinarAmrLocal`) + evento `storage`. | [`amrStorage.ts`](../Simulator-WoW/src/services/amrStorage.ts) |
+| **P2-02** | Botão **Validar combinação** nos painéis Droptimizer e Top Gear (usa `/api/import/combinar`). | painéis + [`combinarService.ts`](../Simulator-WoW/src/services/combinarService.ts) |
+| **P2-03** | Tokens do `.inv` sem slot são contabilizados (`inv_ignorados`) e avisados (`amr_inv_ignorado`). | [`droptimizer/pools.py`](src/wowsim/droptimizer/pools.py) |
+| **P2-04** | `pool_por_slot` exposto no `DropRequest` e usado no modo upgrade. | [`droptimizer/models.py`](src/wowsim/droptimizer/models.py) |
+| **P2-05** | Removidos `type: ignore` frouxos em `_eh_amr` e `_veredito`. | [`combinar.py`](src/wowsim/parser/combinar.py), [`search.py`](src/wowsim/droptimizer/search.py) |
+| **P2-06** | `bonus_roll_items` incluído no merge de campos escalares. | [`parser/combinar.py`](src/wowsim/parser/combinar.py) |
+| **P3-03** | ADR-002 §5 sincronizado com a montagem de conjunto e o filtro de upgrade. | [`adr-002-suporte-amr.md`](../plans/adr-002-suporte-amr.md) |
+| **P3-02** | Aviso `amr_inv_inventario` do `.inv` já alinhado à combinação de exports (sem comentários obsoletos). | [`parser/amr.py`](src/wowsim/parser/amr.py) |
+
+**Testes adicionados:** P0-01, P0-02, P0-03, P1-01, P1-02, P1-03, P1-04, P1-05 e P2-03 (cobertos em `tests/test_droptimizer.py`, `tests/test_combinar.py`, `tests/test_web_importacao.py` e `tests/test_web_worker_error.py`).

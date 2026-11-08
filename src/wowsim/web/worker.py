@@ -17,14 +17,45 @@ from ..gen import profilesets
 from ..llm.summary import montar_contexto
 from ..parser.addon import ErroParseAddon, parse_texto
 from ..report import render
-from . import db
+from . import db, drop_db, perfil_store, topgear_db
 
 PROJECT_ROOT = Path(__file__).resolve().parents[3]
 SAIDA_DIR = PROJECT_ROOT / "saida" / "web"
 
 NUCLEOS = os.cpu_count() or 2
 WORKERS = max(1, NUCLEOS - 1)
+# Mantido para o worker legado; Drop/Top Gear usam threads_para_job().
 THREADS_POR_JOB = max(1, NUCLEOS // WORKERS)
+
+# Limita quantas simulações pesadas (simc) rodam ao mesmo tempo. Em desktop o
+# padrão é 1: a fila garante que cada job receba núcleos-1 threads sem saturar.
+VAGAS_SIMULACAO = max(1, int(os.environ.get("WOWSIM_SIM_VAGAS", "1")))
+_vagas = threading.Semaphore(VAGAS_SIMULACAO)
+
+_ativos = 0
+_ativos_lock = threading.Lock()
+
+
+def registrar_inicio_job() -> None:
+    """Reserva uma vaga de simulação e marca o job como ativo."""
+    _vagas.acquire()
+    global _ativos
+    with _ativos_lock:
+        _ativos += 1
+
+
+def registrar_fim_job() -> None:
+    global _ativos
+    with _ativos_lock:
+        _ativos = max(0, _ativos - 1)
+    _vagas.release()
+
+
+def threads_para_job() -> int:
+    """Divide os núcleos entre os jobs ativos: um job sozinho usa quase tudo."""
+    with _ativos_lock:
+        ativos = max(1, _ativos)
+    return max(1, (NUCLEOS - 1) // ativos)
 
 _executor: ThreadPoolExecutor | None = None
 _lock = threading.Lock()
@@ -36,11 +67,18 @@ def iniciar() -> None:
         if _executor is not None:
             return
         db.init_db()
+        perfil_store.init_db()
+        topgear_db.init_db()
+        drop_db.init_db()
         _executor = ThreadPoolExecutor(
             max_workers=WORKERS, thread_name_prefix="wowsim"
         )
     for job_id in db.jobs_pendentes():
         enfileirar(job_id)
+    for job_id in topgear_db.jobs_pendentes():
+        enfileirar_topgear(job_id)
+    for job_id in drop_db.jobs_pendentes():
+        enfileirar_drop(job_id)
 
 
 def enfileirar(job_id: str) -> None:
@@ -48,6 +86,24 @@ def enfileirar(job_id: str) -> None:
         if _executor is None:
             raise RuntimeError("O worker não foi iniciado.")
         _executor.submit(processar, job_id)
+
+
+def enfileirar_topgear(job_id: str) -> None:
+    from . import topgear_worker
+
+    with _lock:
+        if _executor is None:
+            raise RuntimeError("O worker não foi iniciado.")
+        _executor.submit(topgear_worker.processar, job_id)
+
+
+def enfileirar_drop(job_id: str) -> None:
+    from . import drop_worker
+
+    with _lock:
+        if _executor is None:
+            raise RuntimeError("O worker não foi iniciado.")
+        _executor.submit(drop_worker.processar, job_id)
 
 
 def encerrar() -> None:
@@ -69,6 +125,8 @@ def processar(job_id: str) -> None:
         status="running",
         started_at=db._agora(),  # noqa: SLF001 - same package
     )
+    registrar_inicio_job()
+    print(f"[sim {job_id[:8]}] iniciado", flush=True)
 
     try:
         personagem = parse_texto(job["addon_text"])
@@ -87,7 +145,7 @@ def processar(job_id: str) -> None:
             arquivo,
             iterations=int(job["iterations"]),
             fight_style="DungeonSlice",
-            threads=THREADS_POR_JOB,
+            threads=threads_para_job(),
         )
         resultado = sr.read_results(execucao.json_path)
         if resultado.base is None:
@@ -122,3 +180,13 @@ def processar(job_id: str) -> None:
             finished_at=db._agora(),  # noqa: SLF001
             erro=str(exc),
         )
+    except Exception as exc:  # noqa: BLE001 - nunca deixar job zumbi em "running"
+        db.atualizar_job(
+            job_id,
+            status="error",
+            finished_at=db._agora(),  # noqa: SLF001
+            erro=repr(exc),
+        )
+        print(f"[sim {job_id[:8]}] erro: {exc!r}", flush=True)
+    finally:
+        registrar_fim_job()

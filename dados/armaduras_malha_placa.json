@@ -1,0 +1,3826 @@
+{
+  "_meta": {
+    "armadura_malha_mplus": {
+      "itens": 133,
+      "slots": [
+        "chest",
+        "feet",
+        "hands",
+        "head",
+        "legs",
+        "shoulder",
+        "waist",
+        "wrist"
+      ],
+      "raspado_em": "2026-11-08T00:39:40Z"
+    },
+    "fonte": "Wowhead via crawl4ai",
+    "gerado_em": "2026-11-08T00:42:59Z",
+    "armadura_placa_mplus": {
+      "itens": 74,
+      "slots": [
+        "chest",
+        "feet",
+        "hands",
+        "head",
+        "legs",
+        "shoulder",
+        "waist",
+        "wrist"
+      ],
+      "raspado_em": "2026-11-08T00:42:59Z"
+    }
+  },
+  "armadura_malha_mplus": {
+    "descricao": "Todas as peças de Malha (Mail) raspadas do Wowhead (crawl4ai) para o Top Gear.",
+    "specs_relevantes": [
+      "Caçador",
+      "Xamã",
+      "Evocador"
+    ],
+    "fonte": {
+      "lista": "https://www.wowhead.com/items/armor/mail",
+      "tooltip": "nether.wowhead.com/tooltip/item (locale 8 + 0)",
+      "metodo": "crawl4ai + tooltip",
+      "min_id": 240000,
+      "min_ilvl": 300,
+      "max_ilvl": 350,
+      "fonte_lista": "listviewitems (lista completa do Wowhead)"
+    },
+    "feet": [
+      {
+        "item_id": 270727,
+        "nome_pt": "Escarpes Encadeados do Gladiador Peçonhento",
+        "nome_en": "Venomous Gladiator's Chain Sabatons",
+        "slot": "feet",
+        "atributos": [
+          "Agilidade",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 344
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=270727",
+        "armadura": "malha",
+        "icone": "inv_boot_mail_raidevokerulatek_d_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_boot_mail_raidevokerulatek_d_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_boot_mail_raidevokerulatek_d_01.jpg"
+      },
+      {
+        "item_id": 270728,
+        "nome_pt": "Botas Encadeadas do Gladiador Peçonhento",
+        "nome_en": "Venomous Gladiator's Chain Boots",
+        "slot": "feet",
+        "atributos": [
+          "Agilidade",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 344
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=270728",
+        "armadura": "malha",
+        "icone": "inv_boot_mail_raidevokerulatek_d_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_boot_mail_raidevokerulatek_d_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_boot_mail_raidevokerulatek_d_01.jpg"
+      },
+      {
+        "item_id": 270743,
+        "nome_pt": "Escarpes Encadeados do Gladiador Peçonhento",
+        "nome_en": "Venomous Gladiator's Chain Sabatons",
+        "slot": "feet",
+        "atributos": [
+          "Agilidade",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 344
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=270743",
+        "armadura": "malha",
+        "icone": "inv_boot_mail_raidhunterulatek_d_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_boot_mail_raidhunterulatek_d_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_boot_mail_raidhunterulatek_d_01.jpg"
+      },
+      {
+        "item_id": 270744,
+        "nome_pt": "Botas Encadeadas do Gladiador Peçonhento",
+        "nome_en": "Venomous Gladiator's Chain Boots",
+        "slot": "feet",
+        "atributos": [
+          "Agilidade",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 344
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=270744",
+        "armadura": "malha",
+        "icone": "inv_boot_mail_raidhunterulatek_d_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_boot_mail_raidhunterulatek_d_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_boot_mail_raidhunterulatek_d_01.jpg"
+      },
+      {
+        "item_id": 270759,
+        "nome_pt": "Escarpes Encadeados do Gladiador Peçonhento",
+        "nome_en": "Venomous Gladiator's Chain Sabatons",
+        "slot": "feet",
+        "atributos": [
+          "Agilidade",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 344
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=270759",
+        "armadura": "malha",
+        "icone": "inv_boot_mail_raidshamanulatek_d_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_boot_mail_raidshamanulatek_d_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_boot_mail_raidshamanulatek_d_01.jpg"
+      },
+      {
+        "item_id": 270760,
+        "nome_pt": "Botas Encadeadas do Gladiador Peçonhento",
+        "nome_en": "Venomous Gladiator's Chain Boots",
+        "slot": "feet",
+        "atributos": [
+          "Agilidade",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 344
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=270760",
+        "armadura": "malha",
+        "icone": "inv_boot_mail_raidshamanulatek_d_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_boot_mail_raidshamanulatek_d_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_boot_mail_raidshamanulatek_d_01.jpg"
+      },
+      {
+        "item_id": 251125,
+        "nome_pt": "Solas Vilimbuídas",
+        "nome_en": "Felsoaked Soles",
+        "slot": "feet",
+        "atributos": [
+          "Agilidade",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 334
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=251125",
+        "armadura": "malha",
+        "icone": "inv_boot_mail_dungeonharronir_c_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_boot_mail_dungeonharronir_c_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_boot_mail_dungeonharronir_c_01.jpg"
+      },
+      {
+        "item_id": 251145,
+        "nome_pt": "Guarda-pés da Tribo Esquecida",
+        "nome_en": "Forgotten Tribe Footguards",
+        "slot": "feet",
+        "atributos": [
+          "Agilidade",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 334
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=251145",
+        "armadura": "malha",
+        "icone": "inv_boot_mail_dungeonharronir_c_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_boot_mail_dungeonharronir_c_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_boot_mail_dungeonharronir_c_01.jpg"
+      },
+      {
+        "item_id": 268233,
+        "nome_pt": "Botas de Escamas Ferozes",
+        "nome_en": "Ferocious Scaleboots",
+        "slot": "feet",
+        "atributos": [
+          "Agilidade",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 334
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=268233",
+        "armadura": "malha",
+        "icone": "inv_boot_mail_raidhunterulatek_d_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_boot_mail_raidhunterulatek_d_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_boot_mail_raidhunterulatek_d_01.jpg"
+      },
+      {
+        "item_id": 268258,
+        "nome_pt": "Botas do Viajante Imprudente",
+        "nome_en": "Boots of the Reckless Wayfarer",
+        "slot": "feet",
+        "atributos": [
+          "Agilidade",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 334
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=268258",
+        "armadura": "malha",
+        "icone": "inv_boot_mail_raidevokerulatek_d_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_boot_mail_raidevokerulatek_d_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_boot_mail_raidevokerulatek_d_01.jpg"
+      },
+      {
+        "item_id": 271440,
+        "nome_pt": "Grevas das Profundezas Nóxias",
+        "nome_en": "Greaves of the Noxious Depths",
+        "slot": "feet",
+        "atributos": [
+          "Agilidade",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 334
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=271440",
+        "armadura": "malha",
+        "icone": "inv_boot_mail_raidshamanulatek_d_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_boot_mail_raidshamanulatek_d_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_boot_mail_raidshamanulatek_d_01.jpg"
+      },
+      {
+        "item_id": 271485,
+        "nome_pt": "Sapatos Escamados do Oráculo Ofídico",
+        "nome_en": "Scaled Shoes of the Ophidian Oracle",
+        "slot": "feet",
+        "atributos": [
+          "Agilidade",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 334
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=271485",
+        "armadura": "malha",
+        "icone": "inv_boot_mail_raidshamanulatek_d_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_boot_mail_raidshamanulatek_d_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_boot_mail_raidshamanulatek_d_01.jpg"
+      },
+      {
+        "item_id": 271494,
+        "nome_pt": "Rastros da Víbora Furtiva",
+        "nome_en": "Skulking Viper's Tracks",
+        "slot": "feet",
+        "atributos": [
+          "Agilidade",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 334
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=271494",
+        "armadura": "malha",
+        "icone": "inv_boot_mail_raidhunterulatek_d_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_boot_mail_raidhunterulatek_d_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_boot_mail_raidhunterulatek_d_01.jpg"
+      },
+      {
+        "item_id": 271503,
+        "nome_pt": "Pisoteadores Vulcânicos do Eco Calamitoso",
+        "nome_en": "Calamitous Echo's Volcanic Stompers",
+        "slot": "feet",
+        "atributos": [
+          "Agilidade",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 334
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=271503",
+        "armadura": "malha",
+        "icone": "inv_boot_mail_raidevokerulatek_d_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_boot_mail_raidevokerulatek_d_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_boot_mail_raidevokerulatek_d_01.jpg"
+      },
+      {
+        "item_id": 270496,
+        "nome_pt": "Pisoteadores Encadeados do Aspirante Peçonhento",
+        "nome_en": "Venomous Aspirant's Chain Stompers",
+        "slot": "feet",
+        "atributos": [
+          "Agilidade",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 331
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=270496",
+        "armadura": "malha",
+        "icone": "inv_boot_mail_outdooramaniloa_c_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_boot_mail_outdooramaniloa_c_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_boot_mail_outdooramaniloa_c_01.jpg"
+      },
+      {
+        "item_id": 270497,
+        "nome_pt": "Escarpes Encadeados do Aspirante Peçonhento",
+        "nome_en": "Venomous Aspirant's Chain Sabatons",
+        "slot": "feet",
+        "atributos": [
+          "Agilidade",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 331
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=270497",
+        "armadura": "malha",
+        "icone": "inv_boot_mail_outdooramaniloa_c_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_boot_mail_outdooramaniloa_c_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_boot_mail_outdooramaniloa_c_01.jpg"
+      },
+      {
+        "item_id": 272248,
+        "nome_pt": "Guarda-pés do Cavaleiro da Tempestade",
+        "nome_en": "Galerider's Footguards",
+        "slot": "feet",
+        "atributos": [
+          "Agilidade",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 321
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=272248",
+        "armadura": "malha",
+        "icone": "inv_boot_mail_outdooramaniloa_c_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_boot_mail_outdooramaniloa_c_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_boot_mail_outdooramaniloa_c_01.jpg"
+      },
+      {
+        "item_id": 275510,
+        "nome_pt": "Escarpes Rústicas do Rapinador",
+        "nome_en": "Preyhunter's Rugged Sabatons",
+        "slot": "feet",
+        "atributos": [
+          "Agilidade",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 308
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=275510",
+        "armadura": "malha",
+        "icone": "inv_boot_mail_outdooramaniloa_c_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_boot_mail_outdooramaniloa_c_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_boot_mail_outdooramaniloa_c_01.jpg"
+      }
+    ],
+    "shoulder": [
+      {
+        "item_id": 268231,
+        "nome_pt": "Espaldares Rastejalmas",
+        "nome_en": "Soulslither Spaulders",
+        "slot": "shoulder",
+        "atributos": [
+          "Agilidade",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 344
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=268231",
+        "armadura": "malha",
+        "icone": "inv_shoulder_mail_raidshamanulatek_d_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_shoulder_mail_raidshamanulatek_d_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_shoulder_mail_raidshamanulatek_d_01.jpg"
+      },
+      {
+        "item_id": 270735,
+        "nome_pt": "Espáduas Encadeadas do Gladiador Peçonhento",
+        "nome_en": "Venomous Gladiator's Chain Monnion",
+        "slot": "shoulder",
+        "atributos": [
+          "Agilidade",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 344
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=270735",
+        "armadura": "malha",
+        "icone": "inv_shoulder_mail_raidevokerulatek_d_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_shoulder_mail_raidevokerulatek_d_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_shoulder_mail_raidevokerulatek_d_01.jpg"
+      },
+      {
+        "item_id": 270736,
+        "nome_pt": "Guarda-ombros Encadeado do Gladiador Peçonhento",
+        "nome_en": "Venomous Gladiator's Chain Shoulderguard",
+        "slot": "shoulder",
+        "atributos": [
+          "Agilidade",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 344
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=270736",
+        "armadura": "malha",
+        "icone": "inv_shoulder_mail_raidevokerulatek_d_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_shoulder_mail_raidevokerulatek_d_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_shoulder_mail_raidevokerulatek_d_01.jpg"
+      },
+      {
+        "item_id": 270751,
+        "nome_pt": "Espáduas Encadeadas do Gladiador Peçonhento",
+        "nome_en": "Venomous Gladiator's Chain Monnion",
+        "slot": "shoulder",
+        "atributos": [
+          "Agilidade",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 344
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=270751",
+        "armadura": "malha",
+        "icone": "inv_shoulder_mail_raidhunterulatek_d_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_shoulder_mail_raidhunterulatek_d_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_shoulder_mail_raidhunterulatek_d_01.jpg"
+      },
+      {
+        "item_id": 270752,
+        "nome_pt": "Guarda-ombros Encadeado do Gladiador Peçonhento",
+        "nome_en": "Venomous Gladiator's Chain Shoulderguard",
+        "slot": "shoulder",
+        "atributos": [
+          "Agilidade",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 344
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=270752",
+        "armadura": "malha",
+        "icone": "inv_shoulder_mail_raidhunterulatek_d_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_shoulder_mail_raidhunterulatek_d_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_shoulder_mail_raidhunterulatek_d_01.jpg"
+      },
+      {
+        "item_id": 270767,
+        "nome_pt": "Espáduas Encadeadas do Gladiador Peçonhento",
+        "nome_en": "Venomous Gladiator's Chain Monnion",
+        "slot": "shoulder",
+        "atributos": [
+          "Agilidade",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 344
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=270767",
+        "armadura": "malha",
+        "icone": "inv_shoulder_mail_raidshamanulatek_d_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_shoulder_mail_raidshamanulatek_d_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_shoulder_mail_raidshamanulatek_d_01.jpg"
+      },
+      {
+        "item_id": 270768,
+        "nome_pt": "Guarda-ombros Encadeado do Gladiador Peçonhento",
+        "nome_en": "Venomous Gladiator's Chain Shoulderguard",
+        "slot": "shoulder",
+        "atributos": [
+          "Agilidade",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 344
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=270768",
+        "armadura": "malha",
+        "icone": "inv_shoulder_mail_raidshamanulatek_d_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_shoulder_mail_raidshamanulatek_d_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_shoulder_mail_raidshamanulatek_d_01.jpg"
+      },
+      {
+        "item_id": 251131,
+        "nome_pt": "Palas Vis Estrídulas",
+        "nome_en": "Jangling Felpaulets",
+        "slot": "shoulder",
+        "atributos": [
+          "Agilidade",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 334
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=251131",
+        "armadura": "malha",
+        "icone": "inv_shoulder_mail_dungeonharronir_c_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_shoulder_mail_dungeonharronir_c_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_shoulder_mail_dungeonharronir_c_01.jpg"
+      },
+      {
+        "item_id": 251184,
+        "nome_pt": "Coleira de Raiz-de-ferro",
+        "nome_en": "Ironroot Collar",
+        "slot": "shoulder",
+        "atributos": [
+          "Agilidade",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 334
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=251184",
+        "armadura": "malha",
+        "icone": "inv_shoulder_mail_dungeonharronir_c_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_shoulder_mail_dungeonharronir_c_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_shoulder_mail_dungeonharronir_c_01.jpg"
+      },
+      {
+        "item_id": 271481,
+        "nome_pt": "Dragonas Sibilantes do Oráculo Ofídico",
+        "nome_en": "Hissing Mantle of the Ophidian Oracle",
+        "slot": "shoulder",
+        "atributos": [
+          "Agilidade",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 334
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=271481",
+        "armadura": "malha",
+        "icone": "inv_shoulder_mail_raidshamanulatek_d_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_shoulder_mail_raidshamanulatek_d_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_shoulder_mail_raidshamanulatek_d_01.jpg"
+      },
+      {
+        "item_id": 271490,
+        "nome_pt": "Mandíbulas da Víbora Furtiva",
+        "nome_en": "Jaws of the Skulking Viper",
+        "slot": "shoulder",
+        "atributos": [
+          "Agilidade",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 334
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=271490",
+        "armadura": "malha",
+        "icone": "inv_shoulder_mail_raidhunterulatek_d_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_shoulder_mail_raidhunterulatek_d_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_shoulder_mail_raidhunterulatek_d_01.jpg"
+      },
+      {
+        "item_id": 271499,
+        "nome_pt": "Picos Cindidos do Eco Calamitoso",
+        "nome_en": "Calamitous Echo's Sundered Peaks",
+        "slot": "shoulder",
+        "atributos": [
+          "Agilidade",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 334
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=271499",
+        "armadura": "malha",
+        "icone": "inv_shoulder_mail_raidevokerulatek_d_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_shoulder_mail_raidevokerulatek_d_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_shoulder_mail_raidevokerulatek_d_01.jpg"
+      },
+      {
+        "item_id": 270488,
+        "nome_pt": "Guarda-ombros Encadeados do Aspirante Peçonhento",
+        "nome_en": "Venomous Aspirant's Chain Shoulderguards",
+        "slot": "shoulder",
+        "atributos": [
+          "Agilidade",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 331
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=270488",
+        "armadura": "malha",
+        "icone": "inv_shoulder_mail_outdooramaniloa_c_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_shoulder_mail_outdooramaniloa_c_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_shoulder_mail_outdooramaniloa_c_01.jpg"
+      },
+      {
+        "item_id": 270489,
+        "nome_pt": "Espaldares Encadeados do Aspirante Peçonhento",
+        "nome_en": "Venomous Aspirant's Chain Spaulders",
+        "slot": "shoulder",
+        "atributos": [
+          "Agilidade",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 331
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=270489",
+        "armadura": "malha",
+        "icone": "inv_shoulder_mail_outdooramaniloa_c_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_shoulder_mail_outdooramaniloa_c_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_shoulder_mail_outdooramaniloa_c_01.jpg"
+      },
+      {
+        "item_id": 272252,
+        "nome_pt": "Manto do Cavaleiro da Tempestade",
+        "nome_en": "Galerider's Mantle",
+        "slot": "shoulder",
+        "atributos": [
+          "Agilidade",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 321
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=272252",
+        "armadura": "malha",
+        "icone": "inv_shoulder_mail_outdooramaniloa_c_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_shoulder_mail_outdooramaniloa_c_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_shoulder_mail_outdooramaniloa_c_01.jpg"
+      },
+      {
+        "item_id": 275511,
+        "nome_pt": "Guarda-ombros Rústico do Rapinador",
+        "nome_en": "Preyhunter's Rugged Shoulderguards",
+        "slot": "shoulder",
+        "atributos": [
+          "Agilidade",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 308
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=275511",
+        "armadura": "malha",
+        "icone": "inv_shoulder_mail_outdooramaniloa_c_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_shoulder_mail_outdooramaniloa_c_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_shoulder_mail_outdooramaniloa_c_01.jpg"
+      }
+    ],
+    "legs": [
+      {
+        "item_id": 268237,
+        "nome_pt": "Cuísses da União Desenrolada",
+        "nome_en": "Cuisses of the Uncoiled Union",
+        "slot": "legs",
+        "atributos": [
+          "Agilidade",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 344
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=268237",
+        "armadura": "malha",
+        "icone": "inv_pant_mail_raidevokerulatek_d_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_pant_mail_raidevokerulatek_d_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_pant_mail_raidevokerulatek_d_01.jpg"
+      },
+      {
+        "item_id": 270733,
+        "nome_pt": "Perneiras Encadeadas do Gladiador Peçonhento",
+        "nome_en": "Venomous Gladiator's Chain Leggings",
+        "slot": "legs",
+        "atributos": [
+          "Agilidade",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 344
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=270733",
+        "armadura": "malha",
+        "icone": "inv_pant_mail_raidevokerulatek_d_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_pant_mail_raidevokerulatek_d_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_pant_mail_raidevokerulatek_d_01.jpg"
+      },
+      {
+        "item_id": 270734,
+        "nome_pt": "Calções Encadeados do Gladiador Peçonhento",
+        "nome_en": "Venomous Gladiator's Chain Breeches",
+        "slot": "legs",
+        "atributos": [
+          "Agilidade",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 344
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=270734",
+        "armadura": "malha",
+        "icone": "inv_pant_mail_raidevokerulatek_d_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_pant_mail_raidevokerulatek_d_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_pant_mail_raidevokerulatek_d_01.jpg"
+      },
+      {
+        "item_id": 270749,
+        "nome_pt": "Perneiras Encadeadas do Gladiador Peçonhento",
+        "nome_en": "Venomous Gladiator's Chain Leggings",
+        "slot": "legs",
+        "atributos": [
+          "Agilidade",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 344
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=270749",
+        "armadura": "malha",
+        "icone": "inv_pant_mail_raidhunterulatek_d_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_pant_mail_raidhunterulatek_d_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_pant_mail_raidhunterulatek_d_01.jpg"
+      },
+      {
+        "item_id": 270750,
+        "nome_pt": "Calções Encadeados do Gladiador Peçonhento",
+        "nome_en": "Venomous Gladiator's Chain Breeches",
+        "slot": "legs",
+        "atributos": [
+          "Agilidade",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 344
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=270750",
+        "armadura": "malha",
+        "icone": "inv_pant_mail_raidhunterulatek_d_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_pant_mail_raidhunterulatek_d_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_pant_mail_raidhunterulatek_d_01.jpg"
+      },
+      {
+        "item_id": 270765,
+        "nome_pt": "Perneiras Encadeadas do Gladiador Peçonhento",
+        "nome_en": "Venomous Gladiator's Chain Leggings",
+        "slot": "legs",
+        "atributos": [
+          "Agilidade",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 344
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=270765",
+        "armadura": "malha",
+        "icone": "inv_pant_mail_raidshamanulatek_d_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_pant_mail_raidshamanulatek_d_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_pant_mail_raidshamanulatek_d_01.jpg"
+      },
+      {
+        "item_id": 270766,
+        "nome_pt": "Calções Encadeados do Gladiador Peçonhento",
+        "nome_en": "Venomous Gladiator's Chain Breeches",
+        "slot": "legs",
+        "atributos": [
+          "Agilidade",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 344
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=270766",
+        "armadura": "malha",
+        "icone": "inv_pant_mail_raidshamanulatek_d_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_pant_mail_raidshamanulatek_d_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_pant_mail_raidshamanulatek_d_01.jpg"
+      },
+      {
+        "item_id": 251141,
+        "nome_pt": "Perneiras Articuladas de Lithiel",
+        "nome_en": "Lithiel's Linked Leggings",
+        "slot": "legs",
+        "atributos": [
+          "Agilidade",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 334
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=251141",
+        "armadura": "malha",
+        "icone": "inv_pant_mail_dungeonharronir_c_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_pant_mail_dungeonharronir_c_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_pant_mail_dungeonharronir_c_01.jpg"
+      },
+      {
+        "item_id": 271482,
+        "nome_pt": "Perneiras do Oráculo Ofídico",
+        "nome_en": "Leggings of the Ophidian Oracle",
+        "slot": "legs",
+        "atributos": [
+          "Agilidade",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 334
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=271482",
+        "armadura": "malha",
+        "icone": "inv_pant_mail_raidshamanulatek_d_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_pant_mail_raidshamanulatek_d_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_pant_mail_raidshamanulatek_d_01.jpg"
+      },
+      {
+        "item_id": 271491,
+        "nome_pt": "Culotes Retorcidos da Víbora Furtiva",
+        "nome_en": "Skulking Viper's Coiled Legwraps",
+        "slot": "legs",
+        "atributos": [
+          "Agilidade",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 334
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=271491",
+        "armadura": "malha",
+        "icone": "inv_pant_mail_raidhunterulatek_d_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_pant_mail_raidhunterulatek_d_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_pant_mail_raidhunterulatek_d_01.jpg"
+      },
+      {
+        "item_id": 271500,
+        "nome_pt": "Pilares Telúricos da Calamidade",
+        "nome_en": "Earthen Pillars of Calamity",
+        "slot": "legs",
+        "atributos": [
+          "Agilidade",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 334
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=271500",
+        "armadura": "malha",
+        "icone": "inv_pant_mail_raidevokerulatek_d_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_pant_mail_raidevokerulatek_d_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_pant_mail_raidevokerulatek_d_01.jpg"
+      },
+      {
+        "item_id": 270490,
+        "nome_pt": "Grevas de Guerra Encadeadas do Aspirante Peçonhento",
+        "nome_en": "Venomous Aspirant's Chain Wargreaves",
+        "slot": "legs",
+        "atributos": [
+          "Agilidade",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 331
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=270490",
+        "armadura": "malha",
+        "icone": "inv_pant_mail_outdooramaniloa_c_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_pant_mail_outdooramaniloa_c_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_pant_mail_outdooramaniloa_c_01.jpg"
+      },
+      {
+        "item_id": 270491,
+        "nome_pt": "Perneiras Encadeadas do Aspirante Peçonhento",
+        "nome_en": "Venomous Aspirant's Chain Leggings",
+        "slot": "legs",
+        "atributos": [
+          "Agilidade",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 331
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=270491",
+        "armadura": "malha",
+        "icone": "inv_pant_mail_outdooramaniloa_c_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_pant_mail_outdooramaniloa_c_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_pant_mail_outdooramaniloa_c_01.jpg"
+      },
+      {
+        "item_id": 272251,
+        "nome_pt": "Chausses do Cavaleiro da Tempestade",
+        "nome_en": "Galerider's Chausses",
+        "slot": "legs",
+        "atributos": [
+          "Agilidade",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 321
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=272251",
+        "armadura": "malha",
+        "icone": "inv_pant_mail_outdooramaniloa_c_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_pant_mail_outdooramaniloa_c_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_pant_mail_outdooramaniloa_c_01.jpg"
+      },
+      {
+        "item_id": 275508,
+        "nome_pt": "Guarda-pernas Rústico do Rapinador",
+        "nome_en": "Preyhunter's Rugged Legguards",
+        "slot": "legs",
+        "atributos": [
+          "Agilidade",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 308
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=275508",
+        "armadura": "malha",
+        "icone": "inv_pant_mail_outdooramaniloa_c_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_pant_mail_outdooramaniloa_c_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_pant_mail_outdooramaniloa_c_01.jpg"
+      }
+    ],
+    "hands": [
+      {
+        "item_id": 270729,
+        "nome_pt": "Manoplas Encadeadas do Gladiador Peçonhento",
+        "nome_en": "Venomous Gladiator's Chain Gauntlets",
+        "slot": "hands",
+        "atributos": [
+          "Agilidade",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 344
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=270729",
+        "armadura": "malha",
+        "icone": "inv_glove_mail_raidevokerulatek_d_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_glove_mail_raidevokerulatek_d_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_glove_mail_raidevokerulatek_d_01.jpg"
+      },
+      {
+        "item_id": 270730,
+        "nome_pt": "Protetores de Mão Encadeados do Gladiador Peçonhento",
+        "nome_en": "Venomous Gladiator's Chain Handguards",
+        "slot": "hands",
+        "atributos": [
+          "Agilidade",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 344
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=270730",
+        "armadura": "malha",
+        "icone": "inv_glove_mail_raidevokerulatek_d_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_glove_mail_raidevokerulatek_d_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_glove_mail_raidevokerulatek_d_01.jpg"
+      },
+      {
+        "item_id": 270745,
+        "nome_pt": "Manoplas Encadeadas do Gladiador Peçonhento",
+        "nome_en": "Venomous Gladiator's Chain Gauntlets",
+        "slot": "hands",
+        "atributos": [
+          "Agilidade",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 344
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=270745",
+        "armadura": "malha",
+        "icone": "inv_glove_mail_raidhunterulatek_d_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_glove_mail_raidhunterulatek_d_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_glove_mail_raidhunterulatek_d_01.jpg"
+      },
+      {
+        "item_id": 270746,
+        "nome_pt": "Protetores de Mão Encadeados do Gladiador Peçonhento",
+        "nome_en": "Venomous Gladiator's Chain Handguards",
+        "slot": "hands",
+        "atributos": [
+          "Agilidade",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 344
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=270746",
+        "armadura": "malha",
+        "icone": "inv_glove_mail_raidhunterulatek_d_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_glove_mail_raidhunterulatek_d_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_glove_mail_raidhunterulatek_d_01.jpg"
+      },
+      {
+        "item_id": 270761,
+        "nome_pt": "Manoplas Encadeadas do Gladiador Peçonhento",
+        "nome_en": "Venomous Gladiator's Chain Gauntlets",
+        "slot": "hands",
+        "atributos": [
+          "Agilidade",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 344
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=270761",
+        "armadura": "malha",
+        "icone": "inv_glove_mail_raidshamanulatek_d_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_glove_mail_raidshamanulatek_d_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_glove_mail_raidshamanulatek_d_01.jpg"
+      },
+      {
+        "item_id": 270762,
+        "nome_pt": "Protetores de Mão Encadeados do Gladiador Peçonhento",
+        "nome_en": "Venomous Gladiator's Chain Handguards",
+        "slot": "hands",
+        "atributos": [
+          "Agilidade",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 344
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=270762",
+        "armadura": "malha",
+        "icone": "inv_glove_mail_raidshamanulatek_d_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_glove_mail_raidshamanulatek_d_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_glove_mail_raidshamanulatek_d_01.jpg"
+      },
+      {
+        "item_id": 251152,
+        "nome_pt": "Manoplas da Virada de Estação",
+        "nome_en": "Season's Turn Gauntlets",
+        "slot": "hands",
+        "atributos": [
+          "Agilidade",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 334
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=251152",
+        "armadura": "malha",
+        "icone": "inv_glove_mail_dungeonharronir_c_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_glove_mail_dungeonharronir_c_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_glove_mail_dungeonharronir_c_01.jpg"
+      },
+      {
+        "item_id": 251165,
+        "nome_pt": "Ombreira pulverizante",
+        "nome_en": "Pulverizing Pads",
+        "slot": "hands",
+        "atributos": [
+          "Agilidade",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 334
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=251165",
+        "armadura": "malha",
+        "icone": "inv_glove_mail_dungeonharronir_c_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_glove_mail_dungeonharronir_c_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_glove_mail_dungeonharronir_c_01.jpg"
+      },
+      {
+        "item_id": 268238,
+        "nome_pt": "Guantes da Fúria Rodopiante",
+        "nome_en": "Grips of Swirling Fury",
+        "slot": "hands",
+        "atributos": [
+          "Agilidade",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 334
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=268238",
+        "armadura": "malha",
+        "icone": "inv_glove_mail_raidevokerulatek_d_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_glove_mail_raidevokerulatek_d_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_glove_mail_raidevokerulatek_d_01.jpg"
+      },
+      {
+        "item_id": 271484,
+        "nome_pt": "Guantes de Bagata do Oráculo Ofídico",
+        "nome_en": "Hexing Grips of the Ophidian Oracle",
+        "slot": "hands",
+        "atributos": [
+          "Agilidade",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 334
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=271484",
+        "armadura": "malha",
+        "icone": "inv_glove_mail_raidshamanulatek_d_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_glove_mail_raidshamanulatek_d_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_glove_mail_raidshamanulatek_d_01.jpg"
+      },
+      {
+        "item_id": 271493,
+        "nome_pt": "Fura-couro da Víbora Furtiva",
+        "nome_en": "Skulking Viper's Hidepiercers",
+        "slot": "hands",
+        "atributos": [
+          "Agilidade",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 334
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=271493",
+        "armadura": "malha",
+        "icone": "inv_glove_mail_raidhunterulatek_d_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_glove_mail_raidhunterulatek_d_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_glove_mail_raidhunterulatek_d_01.jpg"
+      },
+      {
+        "item_id": 271502,
+        "nome_pt": "Chifres Grandes de Ébano do Eco Calamitoso",
+        "nome_en": "Calamitous Echo's Ebon Greathorns",
+        "slot": "hands",
+        "atributos": [
+          "Agilidade",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 334
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=271502",
+        "armadura": "malha",
+        "icone": "inv_glove_mail_raidevokerulatek_d_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_glove_mail_raidevokerulatek_d_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_glove_mail_raidevokerulatek_d_01.jpg"
+      },
+      {
+        "item_id": 281238,
+        "nome_pt": "Manoplas do Comandante Aberrante",
+        "nome_en": "Aberrant Commander's Gauntlets",
+        "slot": "hands",
+        "atributos": [
+          "Agilidade",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 334
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=281238",
+        "armadura": "malha",
+        "icone": "inv_glove_mail_raidhunterulatek_d_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_glove_mail_raidhunterulatek_d_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_glove_mail_raidhunterulatek_d_01.jpg"
+      },
+      {
+        "item_id": 270494,
+        "nome_pt": "Protetores de Mão Encadeados do Aspirante Peçonhento",
+        "nome_en": "Venomous Aspirant's Chain Handguards",
+        "slot": "hands",
+        "atributos": [
+          "Agilidade",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 331
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=270494",
+        "armadura": "malha",
+        "icone": "inv_glove_mail_outdooramaniloa_c_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_glove_mail_outdooramaniloa_c_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_glove_mail_outdooramaniloa_c_01.jpg"
+      },
+      {
+        "item_id": 270495,
+        "nome_pt": "Manoplas Encadeadas do Aspirante Peçonhento",
+        "nome_en": "Venomous Aspirant's Chain Gauntlets",
+        "slot": "hands",
+        "atributos": [
+          "Agilidade",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 331
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=270495",
+        "armadura": "malha",
+        "icone": "inv_glove_mail_outdooramaniloa_c_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_glove_mail_outdooramaniloa_c_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_glove_mail_outdooramaniloa_c_01.jpg"
+      },
+      {
+        "item_id": 272249,
+        "nome_pt": "Fechos Encadeados do Cavaleiro da Tempestade",
+        "nome_en": "Galerider's Chain Clasps",
+        "slot": "hands",
+        "atributos": [
+          "Agilidade",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 321
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=272249",
+        "armadura": "malha",
+        "icone": "inv_glove_mail_outdooramaniloa_c_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_glove_mail_outdooramaniloa_c_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_glove_mail_outdooramaniloa_c_01.jpg"
+      },
+      {
+        "item_id": 275506,
+        "nome_pt": "Guantes Rústicas do Rapinador",
+        "nome_en": "Preyhunter's Rugged Grips",
+        "slot": "hands",
+        "atributos": [
+          "Agilidade",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 308
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=275506",
+        "armadura": "malha",
+        "icone": "inv_glove_mail_outdooramaniloa_c_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_glove_mail_outdooramaniloa_c_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_glove_mail_outdooramaniloa_c_01.jpg"
+      }
+    ],
+    "waist": [
+      {
+        "item_id": 270737,
+        "nome_pt": "Cinto Encadeado do Gladiador Peçonhento",
+        "nome_en": "Venomous Gladiator's Chain Belt",
+        "slot": "waist",
+        "atributos": [
+          "Agilidade",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 344
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=270737",
+        "armadura": "malha",
+        "icone": "inv_belt_mail_raidevokerulatek_d_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_belt_mail_raidevokerulatek_d_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_belt_mail_raidevokerulatek_d_01.jpg"
+      },
+      {
+        "item_id": 270738,
+        "nome_pt": "Cinturão Encadeado do Gladiador Peçonhento",
+        "nome_en": "Venomous Gladiator's Chain Girdle",
+        "slot": "waist",
+        "atributos": [
+          "Agilidade",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 344
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=270738",
+        "armadura": "malha",
+        "icone": "inv_belt_mail_raidevokerulatek_d_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_belt_mail_raidevokerulatek_d_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_belt_mail_raidevokerulatek_d_01.jpg"
+      },
+      {
+        "item_id": 270753,
+        "nome_pt": "Cinto Encadeado do Gladiador Peçonhento",
+        "nome_en": "Venomous Gladiator's Chain Belt",
+        "slot": "waist",
+        "atributos": [
+          "Agilidade",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 344
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=270753",
+        "armadura": "malha",
+        "icone": "inv_belt_mail_raidhunterulatek_d_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_belt_mail_raidhunterulatek_d_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_belt_mail_raidhunterulatek_d_01.jpg"
+      },
+      {
+        "item_id": 270754,
+        "nome_pt": "Cinturão Encadeado do Gladiador Peçonhento",
+        "nome_en": "Venomous Gladiator's Chain Girdle",
+        "slot": "waist",
+        "atributos": [
+          "Agilidade",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 344
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=270754",
+        "armadura": "malha",
+        "icone": "inv_belt_mail_raidhunterulatek_d_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_belt_mail_raidhunterulatek_d_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_belt_mail_raidhunterulatek_d_01.jpg"
+      },
+      {
+        "item_id": 270769,
+        "nome_pt": "Cinto Encadeado do Gladiador Peçonhento",
+        "nome_en": "Venomous Gladiator's Chain Belt",
+        "slot": "waist",
+        "atributos": [
+          "Agilidade",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 344
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=270769",
+        "armadura": "malha",
+        "icone": "inv_belt_mail_raidshamanulatek_d_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_belt_mail_raidshamanulatek_d_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_belt_mail_raidshamanulatek_d_01.jpg"
+      },
+      {
+        "item_id": 270770,
+        "nome_pt": "Cinturão Encadeado do Gladiador Peçonhento",
+        "nome_en": "Venomous Gladiator's Chain Girdle",
+        "slot": "waist",
+        "atributos": [
+          "Agilidade",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 344
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=270770",
+        "armadura": "malha",
+        "icone": "inv_belt_mail_raidshamanulatek_d_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_belt_mail_raidshamanulatek_d_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_belt_mail_raidshamanulatek_d_01.jpg"
+      },
+      {
+        "item_id": 251155,
+        "nome_pt": "Cordão de Defensor Tribal",
+        "nome_en": "Tribal Defender's Cord",
+        "slot": "waist",
+        "atributos": [
+          "Agilidade",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 334
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=251155",
+        "armadura": "malha",
+        "icone": "inv_belt_mail_dungeonharronir_c_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_belt_mail_dungeonharronir_c_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_belt_mail_dungeonharronir_c_01.jpg"
+      },
+      {
+        "item_id": 251228,
+        "nome_pt": "Cintel de Beemote",
+        "nome_en": "Behemoth Waistband",
+        "slot": "waist",
+        "atributos": [
+          "Agilidade",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 334
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=251228",
+        "armadura": "malha",
+        "icone": "inv_belt_mail_dungeonharronir_c_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_belt_mail_dungeonharronir_c_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_belt_mail_dungeonharronir_c_01.jpg"
+      },
+      {
+        "item_id": 268216,
+        "nome_pt": "Cíngulo de Relicário Amaldiçoado",
+        "nome_en": "Cursed Reliquary Cincture",
+        "slot": "waist",
+        "atributos": [
+          "Agilidade",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 334
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=268216",
+        "armadura": "malha",
+        "icone": "inv_belt_mail_raidevokerulatek_d_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_belt_mail_raidevokerulatek_d_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_belt_mail_raidevokerulatek_d_01.jpg"
+      },
+      {
+        "item_id": 268254,
+        "nome_pt": "Cinto de Mistura Serpentina",
+        "nome_en": "Serpentine Mixing Belt",
+        "slot": "waist",
+        "atributos": [
+          "Agilidade",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 334
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=268254",
+        "armadura": "malha",
+        "icone": "inv_belt_mail_raidshamanulatek_d_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_belt_mail_raidshamanulatek_d_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_belt_mail_raidshamanulatek_d_01.jpg"
+      },
+      {
+        "item_id": 271480,
+        "nome_pt": "Cinto Peçonhento do Oráculo Ofídico",
+        "nome_en": "Venomous Belt of the Ophidian Oracle",
+        "slot": "waist",
+        "atributos": [
+          "Agilidade",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 334
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=271480",
+        "armadura": "malha",
+        "icone": "inv_belt_mail_raidshamanulatek_d_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_belt_mail_raidshamanulatek_d_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_belt_mail_raidshamanulatek_d_01.jpg"
+      },
+      {
+        "item_id": 271489,
+        "nome_pt": "Presas Cobiçadas da Víbora Furtiva",
+        "nome_en": "Prized Fangs of the Skulking Viper",
+        "slot": "waist",
+        "atributos": [
+          "Agilidade",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 334
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=271489",
+        "armadura": "malha",
+        "icone": "inv_belt_mail_raidhunterulatek_d_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_belt_mail_raidhunterulatek_d_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_belt_mail_raidhunterulatek_d_01.jpg"
+      },
+      {
+        "item_id": 271498,
+        "nome_pt": "Cinturão Cicatricial do Eco Calamitoso",
+        "nome_en": "Calamitous Echo's Scarred Girdle",
+        "slot": "waist",
+        "atributos": [
+          "Agilidade",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 334
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=271498",
+        "armadura": "malha",
+        "icone": "inv_belt_mail_raidevokerulatek_d_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_belt_mail_raidevokerulatek_d_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_belt_mail_raidevokerulatek_d_01.jpg"
+      },
+      {
+        "item_id": 270486,
+        "nome_pt": "Fecho Encadeado do Aspirante Peçonhento",
+        "nome_en": "Venomous Aspirant's Chain Clasp",
+        "slot": "waist",
+        "atributos": [
+          "Agilidade",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 331
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=270486",
+        "armadura": "malha",
+        "icone": "inv_belt_mail_outdooramaniloa_c_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_belt_mail_outdooramaniloa_c_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_belt_mail_outdooramaniloa_c_01.jpg"
+      },
+      {
+        "item_id": 270487,
+        "nome_pt": "Cinto Encadeado do Aspirante Peçonhento",
+        "nome_en": "Venomous Aspirant's Chain Belt",
+        "slot": "waist",
+        "atributos": [
+          "Agilidade",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 331
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=270487",
+        "armadura": "malha",
+        "icone": "inv_belt_mail_outdooramaniloa_c_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_belt_mail_outdooramaniloa_c_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_belt_mail_outdooramaniloa_c_01.jpg"
+      },
+      {
+        "item_id": 272253,
+        "nome_pt": "Saia de Malha do Cavaleiro da Tempestade",
+        "nome_en": "Galerider's Mail Skirt",
+        "slot": "waist",
+        "atributos": [
+          "Agilidade",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 321
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=272253",
+        "armadura": "malha",
+        "icone": "inv_belt_mail_outdooramaniloa_c_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_belt_mail_outdooramaniloa_c_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_belt_mail_outdooramaniloa_c_01.jpg"
+      },
+      {
+        "item_id": 275505,
+        "nome_pt": "Fecho Rústico do Rapinador",
+        "nome_en": "Preyhunter's Rugged Clasp",
+        "slot": "waist",
+        "atributos": [
+          "Agilidade",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 308
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=275505",
+        "armadura": "malha",
+        "icone": "inv_belt_mail_outdooramaniloa_c_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_belt_mail_outdooramaniloa_c_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_belt_mail_outdooramaniloa_c_01.jpg"
+      }
+    ],
+    "head": [
+      {
+        "item_id": 270731,
+        "nome_pt": "Elmo Encadeado do Gladiador Peçonhento",
+        "nome_en": "Venomous Gladiator's Chain Helm",
+        "slot": "head",
+        "atributos": [
+          "Agilidade",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 344
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=270731",
+        "armadura": "malha",
+        "icone": "inv_helm_mail_raidevokerulatek_d_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_helm_mail_raidevokerulatek_d_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_helm_mail_raidevokerulatek_d_01.jpg"
+      },
+      {
+        "item_id": 270732,
+        "nome_pt": "Viseira Encadeada do Gladiador Peçonhento",
+        "nome_en": "Venomous Gladiator's Chain Faceguard",
+        "slot": "head",
+        "atributos": [
+          "Agilidade",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 344
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=270732",
+        "armadura": "malha",
+        "icone": "inv_helm_mail_raidevokerulatek_d_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_helm_mail_raidevokerulatek_d_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_helm_mail_raidevokerulatek_d_01.jpg"
+      },
+      {
+        "item_id": 270747,
+        "nome_pt": "Elmo Encadeado do Gladiador Peçonhento",
+        "nome_en": "Venomous Gladiator's Chain Helm",
+        "slot": "head",
+        "atributos": [
+          "Agilidade",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 344
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=270747",
+        "armadura": "malha",
+        "icone": "inv_helm_mail_raidhunterulatek_d_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_helm_mail_raidhunterulatek_d_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_helm_mail_raidhunterulatek_d_01.jpg"
+      },
+      {
+        "item_id": 270748,
+        "nome_pt": "Viseira Encadeada do Gladiador Peçonhento",
+        "nome_en": "Venomous Gladiator's Chain Faceguard",
+        "slot": "head",
+        "atributos": [
+          "Agilidade",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 344
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=270748",
+        "armadura": "malha",
+        "icone": "inv_helm_mail_raidhunterulatek_d_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_helm_mail_raidhunterulatek_d_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_helm_mail_raidhunterulatek_d_01.jpg"
+      },
+      {
+        "item_id": 270763,
+        "nome_pt": "Elmo Encadeado do Gladiador Peçonhento",
+        "nome_en": "Venomous Gladiator's Chain Helm",
+        "slot": "head",
+        "atributos": [
+          "Agilidade",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 344
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=270763",
+        "armadura": "malha",
+        "icone": "inv_helm_mail_raidshamanulatek_d_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_helm_mail_raidshamanulatek_d_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_helm_mail_raidshamanulatek_d_01.jpg"
+      },
+      {
+        "item_id": 270764,
+        "nome_pt": "Viseira Encadeada do Gladiador Peçonhento",
+        "nome_en": "Venomous Gladiator's Chain Faceguard",
+        "slot": "head",
+        "atributos": [
+          "Agilidade",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 344
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=270764",
+        "armadura": "malha",
+        "icone": "inv_helm_mail_raidshamanulatek_d_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_helm_mail_raidshamanulatek_d_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_helm_mail_raidshamanulatek_d_01.jpg"
+      },
+      {
+        "item_id": 251158,
+        "nome_pt": "Pesadelo de Nalorakk",
+        "nome_en": "Nalorakk's Nightmare",
+        "slot": "head",
+        "atributos": [
+          "Agilidade",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 334
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=251158",
+        "armadura": "malha",
+        "icone": "inv_helm_mail_dungeonharronir_c_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_helm_mail_dungeonharronir_c_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_helm_mail_dungeonharronir_c_01.jpg"
+      },
+      {
+        "item_id": 251220,
+        "nome_pt": "Coroa Marcada pelo Caos",
+        "nome_en": "Voidscarred Crown",
+        "slot": "head",
+        "atributos": [
+          "Agilidade",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 334
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=251220",
+        "armadura": "malha",
+        "icone": "inv_helm_mail_dungeonharronir_c_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_helm_mail_dungeonharronir_c_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_helm_mail_dungeonharronir_c_01.jpg"
+      },
+      {
+        "item_id": 268230,
+        "nome_pt": "Coroa da Presa Eterna",
+        "nome_en": "Crown of the Eternal Fang",
+        "slot": "head",
+        "atributos": [
+          "Agilidade",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 334
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=268230",
+        "armadura": "malha",
+        "icone": "inv_helm_mail_raidshamanulatek_d_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_helm_mail_raidshamanulatek_d_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_helm_mail_raidshamanulatek_d_01.jpg"
+      },
+      {
+        "item_id": 271441,
+        "nome_pt": "Coifa do Espiríleo Esmagador",
+        "nome_en": "Crushing Coiler Coif",
+        "slot": "head",
+        "atributos": [
+          "Agilidade",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 334
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=271441",
+        "armadura": "malha",
+        "icone": "inv_helm_mail_raidhunterulatek_d_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_helm_mail_raidhunterulatek_d_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_helm_mail_raidhunterulatek_d_01.jpg"
+      },
+      {
+        "item_id": 271483,
+        "nome_pt": "Coroa de Serpente do Oráculo Ofídico",
+        "nome_en": "Serpent Crown of the Ophidian Oracle",
+        "slot": "head",
+        "atributos": [
+          "Agilidade",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 334
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=271483",
+        "armadura": "malha",
+        "icone": "inv_helm_mail_raidshamanulatek_d_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_helm_mail_raidshamanulatek_d_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_helm_mail_raidshamanulatek_d_01.jpg"
+      },
+      {
+        "item_id": 271492,
+        "nome_pt": "Presas Chorosas da Víbora Furtiva",
+        "nome_en": "Skulking Viper's Weeping Fangs",
+        "slot": "head",
+        "atributos": [
+          "Agilidade",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 334
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=271492",
+        "armadura": "malha",
+        "icone": "inv_helm_mail_raidhunterulatek_d_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_helm_mail_raidhunterulatek_d_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_helm_mail_raidhunterulatek_d_01.jpg"
+      },
+      {
+        "item_id": 271501,
+        "nome_pt": "Moldamagma do Eco Calamitoso",
+        "nome_en": "Calamitous Echo's Magmashapers",
+        "slot": "head",
+        "atributos": [
+          "Agilidade",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 334
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=271501",
+        "armadura": "malha",
+        "icone": "inv_helm_mail_raidevokerulatek_d_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_helm_mail_raidevokerulatek_d_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_helm_mail_raidevokerulatek_d_01.jpg"
+      },
+      {
+        "item_id": 270492,
+        "nome_pt": "Cimeira Encadeada do Aspirante Peçonhento",
+        "nome_en": "Venomous Aspirant's Chain Headguard",
+        "slot": "head",
+        "atributos": [
+          "Agilidade",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 331
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=270492",
+        "armadura": "malha",
+        "icone": "inv_helm_mail_outdooramaniloa_c_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_helm_mail_outdooramaniloa_c_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_helm_mail_outdooramaniloa_c_01.jpg"
+      },
+      {
+        "item_id": 270493,
+        "nome_pt": "Elmo Encadeado do Aspirante Peçonhento",
+        "nome_en": "Venomous Aspirant's Chain Helm",
+        "slot": "head",
+        "atributos": [
+          "Agilidade",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 331
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=270493",
+        "armadura": "malha",
+        "icone": "inv_helm_mail_outdooramaniloa_c_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_helm_mail_outdooramaniloa_c_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_helm_mail_outdooramaniloa_c_01.jpg"
+      },
+      {
+        "item_id": 272250,
+        "nome_pt": "Mirada do Cavaleiro da Tempestade",
+        "nome_en": "Galerider's Gaze",
+        "slot": "head",
+        "atributos": [
+          "Agilidade",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 321
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=272250",
+        "armadura": "malha",
+        "icone": "inv_helm_mail_outdooramaniloa_c_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_helm_mail_outdooramaniloa_c_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_helm_mail_outdooramaniloa_c_01.jpg"
+      },
+      {
+        "item_id": 275509,
+        "nome_pt": "Pluma Rústica do Rapinador",
+        "nome_en": "Preyhunter's Rugged Plume",
+        "slot": "head",
+        "atributos": [
+          "Agilidade",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 308
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=275509",
+        "armadura": "malha",
+        "icone": "inv_helm_mail_outdooramaniloa_c_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_helm_mail_outdooramaniloa_c_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_helm_mail_outdooramaniloa_c_01.jpg"
+      }
+    ],
+    "wrist": [
+      {
+        "item_id": 270739,
+        "nome_pt": "Munhequeiras Encadeadas do Gladiador Peçonhento",
+        "nome_en": "Venomous Gladiator's Chain Wristguards",
+        "slot": "wrist",
+        "atributos": [
+          "Agilidade",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 344
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=270739",
+        "armadura": "malha",
+        "icone": "inv_bracer_mail_raidevokerulatek_d_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_bracer_mail_raidevokerulatek_d_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_bracer_mail_raidevokerulatek_d_01.jpg"
+      },
+      {
+        "item_id": 270740,
+        "nome_pt": "Braçadeiras Encadeadas do Gladiador Peçonhento",
+        "nome_en": "Venomous Gladiator's Chain Bracers",
+        "slot": "wrist",
+        "atributos": [
+          "Agilidade",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 344
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=270740",
+        "armadura": "malha",
+        "icone": "inv_bracer_mail_raidevokerulatek_d_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_bracer_mail_raidevokerulatek_d_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_bracer_mail_raidevokerulatek_d_01.jpg"
+      },
+      {
+        "item_id": 270755,
+        "nome_pt": "Munhequeiras Encadeadas do Gladiador Peçonhento",
+        "nome_en": "Venomous Gladiator's Chain Wristguards",
+        "slot": "wrist",
+        "atributos": [
+          "Agilidade",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 344
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=270755",
+        "armadura": "malha",
+        "icone": "inv_bracer_mail_raidhunterulatek_d_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_bracer_mail_raidhunterulatek_d_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_bracer_mail_raidhunterulatek_d_01.jpg"
+      },
+      {
+        "item_id": 270756,
+        "nome_pt": "Braçadeiras Encadeadas do Gladiador Peçonhento",
+        "nome_en": "Venomous Gladiator's Chain Bracers",
+        "slot": "wrist",
+        "atributos": [
+          "Agilidade",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 344
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=270756",
+        "armadura": "malha",
+        "icone": "inv_bracer_mail_raidhunterulatek_d_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_bracer_mail_raidhunterulatek_d_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_bracer_mail_raidhunterulatek_d_01.jpg"
+      },
+      {
+        "item_id": 270771,
+        "nome_pt": "Munhequeiras Encadeadas do Gladiador Peçonhento",
+        "nome_en": "Venomous Gladiator's Chain Wristguards",
+        "slot": "wrist",
+        "atributos": [
+          "Agilidade",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 344
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=270771",
+        "armadura": "malha",
+        "icone": "inv_bracer_mail_raidshamanulatek_d_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_bracer_mail_raidshamanulatek_d_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_bracer_mail_raidshamanulatek_d_01.jpg"
+      },
+      {
+        "item_id": 270772,
+        "nome_pt": "Braçadeiras Encadeadas do Gladiador Peçonhento",
+        "nome_en": "Venomous Gladiator's Chain Bracers",
+        "slot": "wrist",
+        "atributos": [
+          "Agilidade",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 344
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=270772",
+        "armadura": "malha",
+        "icone": "inv_bracer_mail_raidshamanulatek_d_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_bracer_mail_raidshamanulatek_d_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_bracer_mail_raidshamanulatek_d_01.jpg"
+      },
+      {
+        "item_id": 251200,
+        "nome_pt": "Guardas Mataflorráptor",
+        "nome_en": "Saptorbane Guards",
+        "slot": "wrist",
+        "atributos": [
+          "Agilidade",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 334
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=251200",
+        "armadura": "malha",
+        "icone": "inv_bracer_mail_dungeonharronir_c_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_bracer_mail_dungeonharronir_c_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_bracer_mail_dungeonharronir_c_01.jpg"
+      },
+      {
+        "item_id": 268217,
+        "nome_pt": "Munhequeiras da Maré Alta",
+        "nome_en": "Rising Tide Wristguards",
+        "slot": "wrist",
+        "atributos": [
+          "Agilidade",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 334
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=268217",
+        "armadura": "malha",
+        "icone": "inv_bracer_mail_raidhunterulatek_d_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_bracer_mail_raidhunterulatek_d_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_bracer_mail_raidhunterulatek_d_01.jpg"
+      },
+      {
+        "item_id": 271479,
+        "nome_pt": "Pulseiras do Oráculo Ofídico",
+        "nome_en": "Wristbands of the Ophidian Oracle",
+        "slot": "wrist",
+        "atributos": [
+          "Agilidade",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 334
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=271479",
+        "armadura": "malha",
+        "icone": "inv_bracer_mail_raidshamanulatek_d_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_bracer_mail_raidshamanulatek_d_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_bracer_mail_raidshamanulatek_d_01.jpg"
+      },
+      {
+        "item_id": 271488,
+        "nome_pt": "Munhequeiras Escamosas da Víbora Furtiva",
+        "nome_en": "Skulking Viper's Hardened Wristscales",
+        "slot": "wrist",
+        "atributos": [
+          "Agilidade",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 334
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=271488",
+        "armadura": "malha",
+        "icone": "inv_bracer_mail_raidhunterulatek_d_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_bracer_mail_raidhunterulatek_d_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_bracer_mail_raidhunterulatek_d_01.jpg"
+      },
+      {
+        "item_id": 271497,
+        "nome_pt": "Embraces Escamosos do Eco Calamitoso",
+        "nome_en": "Calamitous Echo's Scalebands",
+        "slot": "wrist",
+        "atributos": [
+          "Agilidade",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 334
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=271497",
+        "armadura": "malha",
+        "icone": "inv_bracer_mail_raidevokerulatek_d_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_bracer_mail_raidevokerulatek_d_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_bracer_mail_raidevokerulatek_d_01.jpg"
+      },
+      {
+        "item_id": 273775,
+        "nome_pt": "Munhequeiras de Escama de Hidra",
+        "nome_en": "Hydra Scale Wristguards",
+        "slot": "wrist",
+        "atributos": [
+          "Agilidade",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 334
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=273775",
+        "armadura": "malha",
+        "icone": "inv_bracer_mail_outdooramaniloa_c_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_bracer_mail_outdooramaniloa_c_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_bracer_mail_outdooramaniloa_c_01.jpg"
+      },
+      {
+        "item_id": 270484,
+        "nome_pt": "Braçadeiras Encadeadas do Aspirante Peçonhento",
+        "nome_en": "Venomous Aspirant's Chain Bracer",
+        "slot": "wrist",
+        "atributos": [
+          "Agilidade",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 331
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=270484",
+        "armadura": "malha",
+        "icone": "inv_bracer_mail_outdooramaniloa_c_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_bracer_mail_outdooramaniloa_c_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_bracer_mail_outdooramaniloa_c_01.jpg"
+      },
+      {
+        "item_id": 270485,
+        "nome_pt": "Munhecas Encadeadas do Aspirante Peçonhento",
+        "nome_en": "Venomous Aspirant's Chain Wristwraps",
+        "slot": "wrist",
+        "atributos": [
+          "Agilidade",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 331
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=270485",
+        "armadura": "malha",
+        "icone": "inv_bracer_mail_outdooramaniloa_c_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_bracer_mail_outdooramaniloa_c_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_bracer_mail_outdooramaniloa_c_01.jpg"
+      },
+      {
+        "item_id": 272254,
+        "nome_pt": "Munhequeiras de Rede Metálica do Cavaleiro da Tempestade",
+        "nome_en": "Galerider's Mesh Wraps",
+        "slot": "wrist",
+        "atributos": [
+          "Agilidade",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 321
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=272254",
+        "armadura": "malha",
+        "icone": "inv_bracer_mail_outdooramaniloa_c_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_bracer_mail_outdooramaniloa_c_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_bracer_mail_outdooramaniloa_c_01.jpg"
+      },
+      {
+        "item_id": 275504,
+        "nome_pt": "Braceletes Rústicos do Rapinador",
+        "nome_en": "Preyhunter's Rugged Bindings",
+        "slot": "wrist",
+        "atributos": [
+          "Agilidade",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 308
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=275504",
+        "armadura": "malha",
+        "icone": "inv_bracer_mail_outdooramaniloa_c_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_bracer_mail_outdooramaniloa_c_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_bracer_mail_outdooramaniloa_c_01.jpg"
+      }
+    ],
+    "chest": [
+      {
+        "item_id": 270725,
+        "nome_pt": "Escamas Blindadas do Gladiador Peçonhento",
+        "nome_en": "Venomous Gladiator's Armored Scales",
+        "slot": "chest",
+        "atributos": [
+          "Agilidade",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 344
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=270725",
+        "armadura": "malha",
+        "icone": "inv_chest_mail_raidevokerulatek_d_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_chest_mail_raidevokerulatek_d_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_chest_mail_raidevokerulatek_d_01.jpg"
+      },
+      {
+        "item_id": 270726,
+        "nome_pt": "Guarda Escamosa do Gladiador Peçonhento",
+        "nome_en": "Venomous Gladiator's Scaleguard",
+        "slot": "chest",
+        "atributos": [
+          "Agilidade",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 344
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=270726",
+        "armadura": "malha",
+        "icone": "inv_chest_mail_raidevokerulatek_d_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_chest_mail_raidevokerulatek_d_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_chest_mail_raidevokerulatek_d_01.jpg"
+      },
+      {
+        "item_id": 270741,
+        "nome_pt": "Colete Encadeado do Gladiador Peçonhento",
+        "nome_en": "Venomous Gladiator's Chain Vest",
+        "slot": "chest",
+        "atributos": [
+          "Agilidade",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 344
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=270741",
+        "armadura": "malha",
+        "icone": "inv_chest_mail_raidhunterulatek_d_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_chest_mail_raidhunterulatek_d_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_chest_mail_raidhunterulatek_d_01.jpg"
+      },
+      {
+        "item_id": 270742,
+        "nome_pt": "Túnica Encadeada do Gladiador Peçonhento",
+        "nome_en": "Venomous Gladiator's Chain Tunic",
+        "slot": "chest",
+        "atributos": [
+          "Agilidade",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 344
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=270742",
+        "armadura": "malha",
+        "icone": "inv_chest_mail_raidhunterulatek_d_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_chest_mail_raidhunterulatek_d_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_chest_mail_raidhunterulatek_d_01.jpg"
+      },
+      {
+        "item_id": 270757,
+        "nome_pt": "Colete Encadeado do Gladiador Peçonhento",
+        "nome_en": "Venomous Gladiator's Chain Vest",
+        "slot": "chest",
+        "atributos": [
+          "Agilidade",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 344
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=270757",
+        "armadura": "malha",
+        "icone": "inv_robe_mail_raidshamanulatek_d_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_robe_mail_raidshamanulatek_d_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_robe_mail_raidshamanulatek_d_01.jpg"
+      },
+      {
+        "item_id": 270758,
+        "nome_pt": "Túnica Encadeada do Gladiador Peçonhento",
+        "nome_en": "Venomous Gladiator's Chain Tunic",
+        "slot": "chest",
+        "atributos": [
+          "Agilidade",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 344
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=270758",
+        "armadura": "malha",
+        "icone": "inv_robe_mail_raidshamanulatek_d_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_robe_mail_raidshamanulatek_d_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_robe_mail_raidshamanulatek_d_01.jpg"
+      },
+      {
+        "item_id": 271876,
+        "nome_pt": "Corselete de Presátera Despertado",
+        "nome_en": "Awoken Dreadfang Cuirass",
+        "slot": "chest",
+        "atributos": [
+          "Agilidade",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 344
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=271876",
+        "armadura": "malha",
+        "icone": "inv_chest_mail_raidevokerulatek_d_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_chest_mail_raidevokerulatek_d_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_chest_mail_raidevokerulatek_d_01.jpg"
+      },
+      {
+        "item_id": 251233,
+        "nome_pt": "Colete do Manipulador",
+        "nome_en": "Manipulator's Vest",
+        "slot": "chest",
+        "atributos": [
+          "Agilidade",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 334
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=251233",
+        "armadura": "malha",
+        "icone": "inv_chest_mail_dungeonharronir_c_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_chest_mail_dungeonharronir_c_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_chest_mail_dungeonharronir_c_01.jpg"
+      },
+      {
+        "item_id": 268223,
+        "nome_pt": "Malha de Presas Ofídica",
+        "nome_en": "Ophidian Fangmail",
+        "slot": "chest",
+        "atributos": [
+          "Agilidade",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 334
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=268223",
+        "armadura": "malha",
+        "icone": "inv_chest_mail_raidhunterulatek_d_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_chest_mail_raidhunterulatek_d_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_chest_mail_raidhunterulatek_d_01.jpg"
+      },
+      {
+        "item_id": 271486,
+        "nome_pt": "Fatiota com Presas do Oráculo Ofídico",
+        "nome_en": "Fanged Raiment of the Ophidian Oracle",
+        "slot": "chest",
+        "atributos": [
+          "Agilidade",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 334
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=271486",
+        "armadura": "malha",
+        "icone": "inv_robe_mail_raidshamanulatek_d_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_robe_mail_raidshamanulatek_d_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_robe_mail_raidshamanulatek_d_01.jpg"
+      },
+      {
+        "item_id": 271495,
+        "nome_pt": "Escutela da Víbora Furtiva",
+        "nome_en": "Skulking Viper's Scuteplate",
+        "slot": "chest",
+        "atributos": [
+          "Agilidade",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 334
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=271495",
+        "armadura": "malha",
+        "icone": "inv_chest_mail_raidhunterulatek_d_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_chest_mail_raidhunterulatek_d_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_chest_mail_raidhunterulatek_d_01.jpg"
+      },
+      {
+        "item_id": 271504,
+        "nome_pt": "Caldeira Calcinante da Calamidade",
+        "nome_en": "Searing Caldera of Calamity",
+        "slot": "chest",
+        "atributos": [
+          "Agilidade",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 334
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=271504",
+        "armadura": "malha",
+        "icone": "inv_chest_mail_raidevokerulatek_d_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_chest_mail_raidevokerulatek_d_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_chest_mail_raidevokerulatek_d_01.jpg"
+      },
+      {
+        "item_id": 273789,
+        "nome_pt": "Couraça de Escamas Corroídas",
+        "nome_en": "Chestguard of Corroded Scales",
+        "slot": "chest",
+        "atributos": [
+          "Agilidade",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 334
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=273789",
+        "armadura": "malha",
+        "icone": "inv_chest_mail_outdooramaniloa_c_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_chest_mail_outdooramaniloa_c_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_chest_mail_outdooramaniloa_c_01.jpg"
+      },
+      {
+        "item_id": 270498,
+        "nome_pt": "Túnica Encadeada do Aspirante Peçonhento",
+        "nome_en": "Venomous Aspirant's Chain Tunic",
+        "slot": "chest",
+        "atributos": [
+          "Agilidade",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 331
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=270498",
+        "armadura": "malha",
+        "icone": "inv_chest_mail_outdooramaniloa_c_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_chest_mail_outdooramaniloa_c_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_chest_mail_outdooramaniloa_c_01.jpg"
+      },
+      {
+        "item_id": 270499,
+        "nome_pt": "Colete Encadeado do Aspirante Peçonhento",
+        "nome_en": "Venomous Aspirant's Chain Vest",
+        "slot": "chest",
+        "atributos": [
+          "Agilidade",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 331
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=270499",
+        "armadura": "malha",
+        "icone": "inv_chest_mail_outdooramaniloa_c_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_chest_mail_outdooramaniloa_c_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_chest_mail_outdooramaniloa_c_01.jpg"
+      },
+      {
+        "item_id": 272247,
+        "nome_pt": "Hauberque do Cavaleiro da Tempestade",
+        "nome_en": "Galerider's Byrnie",
+        "slot": "chest",
+        "atributos": [
+          "Agilidade",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 321
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=272247",
+        "armadura": "malha",
+        "icone": "inv_chest_mail_outdooramaniloa_c_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_chest_mail_outdooramaniloa_c_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_chest_mail_outdooramaniloa_c_01.jpg"
+      },
+      {
+        "item_id": 275507,
+        "nome_pt": "Cota-menor Rústica do Rapinador",
+        "nome_en": "Preyhunter's Rugged Haubergeon",
+        "slot": "chest",
+        "atributos": [
+          "Agilidade",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 308
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=275507",
+        "armadura": "malha",
+        "icone": "inv_chest_mail_outdooramaniloa_c_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_chest_mail_outdooramaniloa_c_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_chest_mail_outdooramaniloa_c_01.jpg"
+      }
+    ]
+  },
+  "armadura_placa_mplus": {
+    "descricao": "Todas as peças de Placa (Plate) raspadas do Wowhead (crawl4ai) para o Top Gear.",
+    "specs_relevantes": [
+      "Guerreiro",
+      "Paladino",
+      "Cavaleiro da Morte"
+    ],
+    "fonte": {
+      "lista": "https://www.wowhead.com/items/armor/plate",
+      "tooltip": "nether.wowhead.com/tooltip/item (locale 8 + 0)",
+      "metodo": "crawl4ai + tooltip",
+      "min_id": 240000,
+      "min_ilvl": 300,
+      "max_ilvl": 350,
+      "fonte_lista": "listviewitems (lista completa do Wowhead)"
+    },
+    "head": [
+      {
+        "item_id": 251126,
+        "nome_pt": "Grande Elmo da Tentação",
+        "nome_en": "Greathelm of Temptation",
+        "slot": "head",
+        "atributos": [
+          "Força",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 334
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=251126",
+        "armadura": "placa",
+        "icone": "inv_helm_plate_dungeonharronir_c_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_helm_plate_dungeonharronir_c_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_helm_plate_dungeonharronir_c_01.jpg"
+      },
+      {
+        "item_id": 251229,
+        "nome_pt": "Visor do Predador",
+        "nome_en": "Visor of the Predator",
+        "slot": "head",
+        "atributos": [
+          "Força",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 334
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=251229",
+        "armadura": "placa",
+        "icone": "inv_helm_armor_domanaar_d_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_helm_armor_domanaar_d_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_helm_armor_domanaar_d_01.jpg"
+      },
+      {
+        "item_id": 268229,
+        "nome_pt": "Guarda-crânio do Sacrifício Reanimado",
+        "nome_en": "Skullguard of the Risen Sacrifice",
+        "slot": "head",
+        "atributos": [
+          "Força",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 334
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=268229",
+        "armadura": "placa",
+        "icone": "inv_helm_plate_raiddeathknightulatek_d_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_helm_plate_raiddeathknightulatek_d_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_helm_plate_raiddeathknightulatek_d_01.jpg"
+      },
+      {
+        "item_id": 271456,
+        "nome_pt": "Chifres Temperados do Senhor da Guerra de Jade",
+        "nome_en": "Tempered Horns of the Jade Warlord",
+        "slot": "head",
+        "atributos": [
+          "Força",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 334
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=271456",
+        "armadura": "placa",
+        "icone": "inv_helm_plate_raidwarriorulatek_d_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_helm_plate_raidwarriorulatek_d_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_helm_plate_raidwarriorulatek_d_01.jpg"
+      },
+      {
+        "item_id": 271465,
+        "nome_pt": "Elmo Bélico da Chama Consagrada",
+        "nome_en": "Warhelm of the Consecrated Flame",
+        "slot": "head",
+        "atributos": [
+          "Força",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 334
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=271465",
+        "armadura": "placa",
+        "icone": "inv_helm_plate_raidpaladinulatek_d_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_helm_plate_raidpaladinulatek_d_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_helm_plate_raidpaladinulatek_d_01.jpg"
+      },
+      {
+        "item_id": 271474,
+        "nome_pt": "Casquete do Necrocavaleiro Pernicioso",
+        "nome_en": "Baleful Grave-Knight's Casque",
+        "slot": "head",
+        "atributos": [
+          "Força",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 334
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=271474",
+        "armadura": "placa",
+        "icone": "inv_helm_plate_raiddeathknightulatek_d_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_helm_plate_raiddeathknightulatek_d_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_helm_plate_raiddeathknightulatek_d_01.jpg"
+      },
+      {
+        "item_id": 281239,
+        "nome_pt": "Morrião do Gigante Corroído",
+        "nome_en": "Corroded Hulk's Skullcap",
+        "slot": "head",
+        "atributos": [
+          "Força",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 334
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=281239",
+        "armadura": "placa",
+        "icone": "inv_helm_plate_raidwarriorulatek_d_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_helm_plate_raidwarriorulatek_d_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_helm_plate_raidwarriorulatek_d_01.jpg"
+      },
+      {
+        "item_id": 270477,
+        "nome_pt": "Elmo de Placa do Aspirante Peçonhento",
+        "nome_en": "Venomous Aspirant's Plate Helm",
+        "slot": "head",
+        "atributos": [
+          "Força",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 331
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=270477",
+        "armadura": "placa",
+        "icone": "inv_helm_plate_outdooramaniloa_c_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_helm_plate_outdooramaniloa_c_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_helm_plate_outdooramaniloa_c_01.jpg"
+      },
+      {
+        "item_id": 272258,
+        "nome_pt": "Máscara do Portador do Juramento",
+        "nome_en": "Pledgebearer's Mask",
+        "slot": "head",
+        "atributos": [
+          "Força",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 321
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=272258",
+        "armadura": "placa",
+        "icone": "inv_helm_plate_outdooramaniloa_c_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_helm_plate_outdooramaniloa_c_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_helm_plate_outdooramaniloa_c_01.jpg"
+      },
+      {
+        "item_id": 275492,
+        "nome_pt": "Capacete Polido do Rapinador",
+        "nome_en": "Preyhunter's Polished Helmet",
+        "slot": "head",
+        "atributos": [
+          "Força",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 308
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=275492",
+        "armadura": "placa",
+        "icone": "inv_helm_plate_outdooramaniloa_c_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_helm_plate_outdooramaniloa_c_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_helm_plate_outdooramaniloa_c_01.jpg"
+      }
+    ],
+    "wrist": [
+      {
+        "item_id": 251133,
+        "nome_pt": "Avambraços do Feitor",
+        "nome_en": "Overseer's Vambraces",
+        "slot": "wrist",
+        "atributos": [
+          "Força",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 334
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=251133",
+        "armadura": "placa",
+        "icone": "inv_bracer_plate_dungeonharronir_c_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_bracer_plate_dungeonharronir_c_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_bracer_plate_dungeonharronir_c_01.jpg"
+      },
+      {
+        "item_id": 268239,
+        "nome_pt": "Braçadeiras Cascatreladas",
+        "nome_en": "Shellbound Bracers",
+        "slot": "wrist",
+        "atributos": [
+          "Força",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 334
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=268239",
+        "armadura": "placa",
+        "icone": "inv_bracer_plate_raiddeathknightulatek_d_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_bracer_plate_raiddeathknightulatek_d_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_bracer_plate_raiddeathknightulatek_d_01.jpg"
+      },
+      {
+        "item_id": 271452,
+        "nome_pt": "Braçadeiras do Senhor da Guerra de Jade",
+        "nome_en": "Bracers of the Jade Warlord",
+        "slot": "wrist",
+        "atributos": [
+          "Força",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 334
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=271452",
+        "armadura": "placa",
+        "icone": "inv_bracer_plate_raidwarriorulatek_d_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_bracer_plate_raidwarriorulatek_d_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_bracer_plate_raidwarriorulatek_d_01.jpg"
+      },
+      {
+        "item_id": 271461,
+        "nome_pt": "Braçadeiras da Chama Consagrada",
+        "nome_en": "Bracers of the Consecrated Flame",
+        "slot": "wrist",
+        "atributos": [
+          "Força",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 334
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=271461",
+        "armadura": "placa",
+        "icone": "inv_bracer_plate_raidpaladinulatek_d_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_bracer_plate_raidpaladinulatek_d_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_bracer_plate_raidpaladinulatek_d_01.jpg"
+      },
+      {
+        "item_id": 271470,
+        "nome_pt": "Avambraços do Necrocavaleiro Pernicioso",
+        "nome_en": "Baleful Grave-Knight's Vambraces",
+        "slot": "wrist",
+        "atributos": [
+          "Força",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 334
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=271470",
+        "armadura": "placa",
+        "icone": "inv_bracer_plate_raiddeathknightulatek_d_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_bracer_plate_raiddeathknightulatek_d_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_bracer_plate_raiddeathknightulatek_d_01.jpg"
+      },
+      {
+        "item_id": 270469,
+        "nome_pt": "Manilhas de Placa do Aspirante Peçonhento",
+        "nome_en": "Venomous Aspirant's Plate Cuffs",
+        "slot": "wrist",
+        "atributos": [
+          "Força",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 331
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=270469",
+        "armadura": "placa",
+        "icone": "inv_bracer_plate_outdooramaniloa_c_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_bracer_plate_outdooramaniloa_c_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_bracer_plate_outdooramaniloa_c_01.jpg"
+      },
+      {
+        "item_id": 272262,
+        "nome_pt": "Talas do Portador do Juramento",
+        "nome_en": "Pledgebearer's Splints",
+        "slot": "wrist",
+        "atributos": [
+          "Força",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 321
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=272262",
+        "armadura": "placa",
+        "icone": "inv_bracer_plate_outdooramaniloa_c_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_bracer_plate_outdooramaniloa_c_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_bracer_plate_outdooramaniloa_c_01.jpg"
+      },
+      {
+        "item_id": 275495,
+        "nome_pt": "Avambraços Polidos do Rapinador",
+        "nome_en": "Preyhunter's Polished Vambraces",
+        "slot": "wrist",
+        "atributos": [
+          "Força",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 308
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=275495",
+        "armadura": "placa",
+        "icone": "inv_bracer_plate_outdooramaniloa_c_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_bracer_plate_outdooramaniloa_c_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_bracer_plate_outdooramaniloa_c_01.jpg"
+      }
+    ],
+    "shoulder": [
+      {
+        "item_id": 251138,
+        "nome_pt": "Guarda-ombros de Brasafúria",
+        "nome_en": "Cinderfury Shoulderguards",
+        "slot": "shoulder",
+        "atributos": [
+          "Força",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 334
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=251138",
+        "armadura": "placa",
+        "icone": "inv_shoulder_plate_dungeonharronir_c_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_shoulder_plate_dungeonharronir_c_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_shoulder_plate_dungeonharronir_c_01.jpg"
+      },
+      {
+        "item_id": 268226,
+        "nome_pt": "Espaldares do Mar Avultante",
+        "nome_en": "Swelling Sea Spaulders",
+        "slot": "shoulder",
+        "atributos": [
+          "Força",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 334
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=268226",
+        "armadura": "placa",
+        "icone": "inv_shoulder_plate_raidpaladinulatek_d_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_shoulder_plate_raidpaladinulatek_d_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_shoulder_plate_raidpaladinulatek_d_01.jpg"
+      },
+      {
+        "item_id": 271444,
+        "nome_pt": "Brafoneiras do Sacrifício Esquecido",
+        "nome_en": "Pauldrons of the Forgotten Sacrifice",
+        "slot": "shoulder",
+        "atributos": [
+          "Força",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 334
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=271444",
+        "armadura": "placa",
+        "icone": "inv_shoulder_plate_raiddeathknightulatek_d_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_shoulder_plate_raiddeathknightulatek_d_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_shoulder_plate_raiddeathknightulatek_d_01.jpg"
+      },
+      {
+        "item_id": 271454,
+        "nome_pt": "Brafoneiras Furiosas do Senhor da Guerra de Jade",
+        "nome_en": "Raging Pauldrons of the Jade Warlord",
+        "slot": "shoulder",
+        "atributos": [
+          "Força",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 334
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=271454",
+        "armadura": "placa",
+        "icone": "inv_shoulder_plate_raidwarriorulatek_d_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_shoulder_plate_raidwarriorulatek_d_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_shoulder_plate_raidwarriorulatek_d_01.jpg"
+      },
+      {
+        "item_id": 271463,
+        "nome_pt": "Brafoneiras da Chama Consagrada",
+        "nome_en": "Pauldrons of the Consecrated Flame",
+        "slot": "shoulder",
+        "atributos": [
+          "Força",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 334
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=271463",
+        "armadura": "placa",
+        "icone": "inv_shoulder_plate_raidpaladinulatek_d_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_shoulder_plate_raidpaladinulatek_d_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_shoulder_plate_raidpaladinulatek_d_01.jpg"
+      },
+      {
+        "item_id": 271472,
+        "nome_pt": "Cadafalsos do Necrocavaleiro Pernicioso",
+        "nome_en": "Baleful Grave-Knight's Gibbets",
+        "slot": "shoulder",
+        "atributos": [
+          "Força",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 334
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=271472",
+        "armadura": "placa",
+        "icone": "inv_shoulder_plate_raiddeathknightulatek_d_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_shoulder_plate_raiddeathknightulatek_d_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_shoulder_plate_raiddeathknightulatek_d_01.jpg"
+      },
+      {
+        "item_id": 272260,
+        "nome_pt": "Brafoneiras do Portador do Juramento",
+        "nome_en": "Pledgebearer's Pauldrons",
+        "slot": "shoulder",
+        "atributos": [
+          "Força",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 321
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=272260",
+        "armadura": "placa",
+        "icone": "inv_shoulder_plate_outdooramaniloa_c_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_shoulder_plate_outdooramaniloa_c_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_shoulder_plate_outdooramaniloa_c_01.jpg"
+      },
+      {
+        "item_id": 275493,
+        "nome_pt": "Brafoneiras Polidas do Rapinador",
+        "nome_en": "Preyhunter's Polished Pauldrons",
+        "slot": "shoulder",
+        "atributos": [
+          "Força",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 308
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=275493",
+        "armadura": "placa",
+        "icone": "inv_shoulder_plate_outdooramaniloa_c_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_shoulder_plate_outdooramaniloa_c_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_shoulder_plate_outdooramaniloa_c_01.jpg"
+      }
+    ],
+    "waist": [
+      {
+        "item_id": 268259,
+        "nome_pt": "Cinturão do Arrependimento Tóxico",
+        "nome_en": "Girdle of Toxic Regret",
+        "slot": "waist",
+        "atributos": [
+          "Força",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 344
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=268259",
+        "armadura": "placa",
+        "icone": "inv_belt_plate_raidpaladinulatek_d_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_belt_plate_raidpaladinulatek_d_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_belt_plate_raidpaladinulatek_d_01.jpg"
+      },
+      {
+        "item_id": 251144,
+        "nome_pt": "Cinto da Dádiva do Outono",
+        "nome_en": "Autumn's Boon Belt",
+        "slot": "waist",
+        "atributos": [
+          "Força",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 334
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=251144",
+        "armadura": "placa",
+        "icone": "inv_belt_plate_dungeonharronir_c_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_belt_plate_dungeonharronir_c_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_belt_plate_dungeonharronir_c_01.jpg"
+      },
+      {
+        "item_id": 268244,
+        "nome_pt": "Cinturão da Gruta Esquecida",
+        "nome_en": "Forgotten Grotto Girdle",
+        "slot": "waist",
+        "atributos": [
+          "Força",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 334
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=268244",
+        "armadura": "placa",
+        "icone": "inv_belt_plate_raiddeathknightulatek_d_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_belt_plate_raiddeathknightulatek_d_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_belt_plate_raiddeathknightulatek_d_01.jpg"
+      },
+      {
+        "item_id": 271445,
+        "nome_pt": "Correão do Brutamontes Comilhoso",
+        "nome_en": "Fanged Brute's Greatbelt",
+        "slot": "waist",
+        "atributos": [
+          "Força",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 334
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=271445",
+        "armadura": "placa",
+        "icone": "inv_belt_plate_raidwarriorulatek_d_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_belt_plate_raidwarriorulatek_d_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_belt_plate_raidwarriorulatek_d_01.jpg"
+      },
+      {
+        "item_id": 271453,
+        "nome_pt": "Correão do Senhor da Guerra de Jade",
+        "nome_en": "Greatbelt of the Jade Warlord",
+        "slot": "waist",
+        "atributos": [
+          "Força",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 334
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=271453",
+        "armadura": "placa",
+        "icone": "inv_belt_plate_raidwarriorulatek_d_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_belt_plate_raidwarriorulatek_d_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_belt_plate_raidwarriorulatek_d_01.jpg"
+      },
+      {
+        "item_id": 271462,
+        "nome_pt": "Cinta da Chama Consagrada",
+        "nome_en": "Waistguard of the Consecrated Flame",
+        "slot": "waist",
+        "atributos": [
+          "Força",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 334
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=271462",
+        "armadura": "placa",
+        "icone": "inv_belt_plate_raidpaladinulatek_d_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_belt_plate_raidpaladinulatek_d_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_belt_plate_raidpaladinulatek_d_01.jpg"
+      },
+      {
+        "item_id": 271471,
+        "nome_pt": "Cinturão do Necrocavaleiro Pernicioso",
+        "nome_en": "Baleful Grave-Knight's Girdle",
+        "slot": "waist",
+        "atributos": [
+          "Força",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 334
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=271471",
+        "armadura": "placa",
+        "icone": "inv_belt_plate_raiddeathknightulatek_d_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_belt_plate_raiddeathknightulatek_d_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_belt_plate_raiddeathknightulatek_d_01.jpg"
+      },
+      {
+        "item_id": 270471,
+        "nome_pt": "Cinturão de Placa do Aspirante Peçonhento",
+        "nome_en": "Venomous Aspirant's Plate Girdle",
+        "slot": "waist",
+        "atributos": [
+          "Força",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 331
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=270471",
+        "armadura": "placa",
+        "icone": "inv_belt_plate_outdooramaniloa_c_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_belt_plate_outdooramaniloa_c_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_belt_plate_outdooramaniloa_c_01.jpg"
+      },
+      {
+        "item_id": 272261,
+        "nome_pt": "Cinturão do Portador do Juramento",
+        "nome_en": "Pledgebearer's Girdle",
+        "slot": "waist",
+        "atributos": [
+          "Força",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 321
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=272261",
+        "armadura": "placa",
+        "icone": "inv_belt_plate_outdooramaniloa_c_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_belt_plate_outdooramaniloa_c_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_belt_plate_outdooramaniloa_c_01.jpg"
+      },
+      {
+        "item_id": 275489,
+        "nome_pt": "Correão Polido do Rapinador",
+        "nome_en": "Preyhunter's Polished Greatbelt",
+        "slot": "waist",
+        "atributos": [
+          "Força",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 308
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=275489",
+        "armadura": "placa",
+        "icone": "inv_belt_plate_outdooramaniloa_c_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_belt_plate_outdooramaniloa_c_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_belt_plate_outdooramaniloa_c_01.jpg"
+      }
+    ],
+    "chest": [
+      {
+        "item_id": 268222,
+        "nome_pt": "Peitoral do Espírito Imprudente",
+        "nome_en": "Reckless Spirit Breastplate",
+        "slot": "chest",
+        "atributos": [
+          "Força",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 344
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=268222",
+        "armadura": "placa",
+        "icone": "inv_chest_plate_raidwarriorulatek_d_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_chest_plate_raidwarriorulatek_d_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_chest_plate_raidwarriorulatek_d_01.jpg"
+      },
+      {
+        "item_id": 251151,
+        "nome_pt": "Prêmio de Desafiante Sentinela",
+        "nome_en": "Sentinel Challenger's Prize",
+        "slot": "chest",
+        "atributos": [
+          "Força",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 334
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=251151",
+        "armadura": "placa",
+        "icone": "inv_chest_plate_dungeonharronir_c_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_chest_plate_dungeonharronir_c_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_chest_plate_dungeonharronir_c_01.jpg"
+      },
+      {
+        "item_id": 251193,
+        "nome_pt": "Costelas de Raiz profunda",
+        "nome_en": "Taproot Ribs",
+        "slot": "chest",
+        "atributos": [
+          "Força",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 334
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=251193",
+        "armadura": "placa",
+        "icone": "inv_chest_plate_dungeonharronir_c_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_chest_plate_dungeonharronir_c_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_chest_plate_dungeonharronir_c_01.jpg"
+      },
+      {
+        "item_id": 271459,
+        "nome_pt": "Corselete do Senhor da Guerra de Jade",
+        "nome_en": "Cuirass of the Jade Warlord",
+        "slot": "chest",
+        "atributos": [
+          "Força",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 334
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=271459",
+        "armadura": "placa",
+        "icone": "inv_chest_plate_raidwarriorulatek_d_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_chest_plate_raidwarriorulatek_d_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_chest_plate_raidwarriorulatek_d_01.jpg"
+      },
+      {
+        "item_id": 271468,
+        "nome_pt": "Baluarte da Chama Consagrada",
+        "nome_en": "Bulwark of the Consecrated Flame",
+        "slot": "chest",
+        "atributos": [
+          "Força",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 334
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=271468",
+        "armadura": "placa",
+        "icone": "inv_chest_plate_raidpaladinulatek_d_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_chest_plate_raidpaladinulatek_d_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_chest_plate_raidpaladinulatek_d_01.jpg"
+      },
+      {
+        "item_id": 271473,
+        "nome_pt": "Grevas do Necrocavaleiro Pernicioso",
+        "nome_en": "Baleful Grave-Knight's Greaves",
+        "slot": "chest",
+        "atributos": [
+          "Força",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 334
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=271473",
+        "armadura": "placa",
+        "icone": "inv_pant_plate_raiddeathknightulatek_d_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_pant_plate_raiddeathknightulatek_d_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_pant_plate_raiddeathknightulatek_d_01.jpg"
+      },
+      {
+        "item_id": 271475,
+        "nome_pt": "Guantes da Morte do Necrocavaleiro Pernicioso",
+        "nome_en": "Baleful Grave-Knight's Deathgrips",
+        "slot": "chest",
+        "atributos": [
+          "Força",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 334
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=271475",
+        "armadura": "placa",
+        "icone": "inv_glove_plate_raiddeathknightulatek_d_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_glove_plate_raiddeathknightulatek_d_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_glove_plate_raiddeathknightulatek_d_01.jpg"
+      },
+      {
+        "item_id": 271477,
+        "nome_pt": "Peitoral do Necrocavaleiro Pernicioso",
+        "nome_en": "Baleful Grave-Knight's Breastplate",
+        "slot": "chest",
+        "atributos": [
+          "Força",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 334
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=271477",
+        "armadura": "placa",
+        "icone": "inv_chest_plate_raiddeathknightulatek_d_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_chest_plate_raiddeathknightulatek_d_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_chest_plate_raiddeathknightulatek_d_01.jpg"
+      },
+      {
+        "item_id": 273787,
+        "nome_pt": "Placa de Escamas Entrelaçadas Envelhecida",
+        "nome_en": "Aged Interwoven Scaleplate",
+        "slot": "chest",
+        "atributos": [
+          "Força",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 334
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=273787",
+        "armadura": "placa",
+        "icone": "inv_chest_plate_outdooramaniloa_c_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_chest_plate_outdooramaniloa_c_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_chest_plate_outdooramaniloa_c_01.jpg"
+      },
+      {
+        "item_id": 272255,
+        "nome_pt": "Corselete do Portador do Juramento",
+        "nome_en": "Pledgebearer's Cuirass",
+        "slot": "chest",
+        "atributos": [
+          "Força",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 321
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=272255",
+        "armadura": "placa",
+        "icone": "inv_chest_plate_outdooramaniloa_c_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_chest_plate_outdooramaniloa_c_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_chest_plate_outdooramaniloa_c_01.jpg"
+      },
+      {
+        "item_id": 275488,
+        "nome_pt": "Brigandina Polida do Rapinador",
+        "nome_en": "Preyhunter's Polished Brigandine",
+        "slot": "chest",
+        "atributos": [
+          "Força",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 308
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=275488",
+        "armadura": "placa",
+        "icone": "inv_chest_plate_outdooramaniloa_c_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_chest_plate_outdooramaniloa_c_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_chest_plate_outdooramaniloa_c_01.jpg"
+      }
+    ],
+    "legs": [
+      {
+        "item_id": 270813,
+        "nome_pt": "Guarda-pernas de Placa do Gladiador Peçonhento",
+        "nome_en": "Venomous Gladiator's Plate Legguards",
+        "slot": "legs",
+        "atributos": [
+          "Força",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 344
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=270813",
+        "armadura": "placa",
+        "icone": "inv_pant_plate_raidwarriorulatek_d_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_pant_plate_raidwarriorulatek_d_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_pant_plate_raidwarriorulatek_d_01.jpg"
+      },
+      {
+        "item_id": 271878,
+        "nome_pt": "Chausses do Rancor Liberto",
+        "nome_en": "Chausses of Unbound Rancor",
+        "slot": "legs",
+        "atributos": [
+          "Força",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 344
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=271878",
+        "armadura": "placa",
+        "icone": "inv_pant_plate_raiddeathknightulatek_d_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_pant_plate_raiddeathknightulatek_d_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_pant_plate_raiddeathknightulatek_d_01.jpg"
+      },
+      {
+        "item_id": 251182,
+        "nome_pt": "Calções Rochosos",
+        "nome_en": "Bedrock Breeches",
+        "slot": "legs",
+        "atributos": [
+          "Força",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 334
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=251182",
+        "armadura": "placa",
+        "icone": "inv_pant_plate_dungeonharronir_c_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_pant_plate_dungeonharronir_c_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_pant_plate_dungeonharronir_c_01.jpg"
+      },
+      {
+        "item_id": 268224,
+        "nome_pt": "Grevas do Vigilante Peçonhento",
+        "nome_en": "Venom Warden's Greaves",
+        "slot": "legs",
+        "atributos": [
+          "Força",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 334
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=268224",
+        "armadura": "placa",
+        "icone": "inv_pant_plate_raidwarriorulatek_d_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_pant_plate_raidwarriorulatek_d_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_pant_plate_raidwarriorulatek_d_01.jpg"
+      },
+      {
+        "item_id": 273776,
+        "nome_pt": "Pilares de Obsidiana do Antigo General",
+        "nome_en": "Ancient General's Obsidian Pillars",
+        "slot": "legs",
+        "atributos": [
+          "Força",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 334
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=273776",
+        "armadura": "placa",
+        "icone": "inv_pant_plate_outdooramaniloa_c_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_pant_plate_outdooramaniloa_c_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_pant_plate_outdooramaniloa_c_01.jpg"
+      },
+      {
+        "item_id": 272259,
+        "nome_pt": "Joelheiras do Portador do Juramento",
+        "nome_en": "Pledgebearer's Poleyns",
+        "slot": "legs",
+        "atributos": [
+          "Força",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 321
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=272259",
+        "armadura": "placa",
+        "icone": "inv_pant_plate_outdooramaniloa_c_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_pant_plate_outdooramaniloa_c_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_pant_plate_outdooramaniloa_c_01.jpg"
+      },
+      {
+        "item_id": 275494,
+        "nome_pt": "Escarcela Polida do Rapinador",
+        "nome_en": "Preyhunter's Polished Tassets",
+        "slot": "legs",
+        "atributos": [
+          "Força",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 308
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=275494",
+        "armadura": "placa",
+        "icone": "inv_pant_plate_outdooramaniloa_c_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_pant_plate_outdooramaniloa_c_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_pant_plate_outdooramaniloa_c_01.jpg"
+      }
+    ],
+    "hands": [
+      {
+        "item_id": 251197,
+        "nome_pt": "Manoplas Espinhadas",
+        "nome_en": "Thornspike Gauntlets",
+        "slot": "hands",
+        "atributos": [
+          "Força",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 334
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=251197",
+        "armadura": "placa",
+        "icone": "inv_glove_plate_dungeonharronir_c_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_glove_plate_dungeonharronir_c_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_glove_plate_dungeonharronir_c_01.jpg"
+      },
+      {
+        "item_id": 251214,
+        "nome_pt": "Elos dos Hash'ura",
+        "nome_en": "Bonds of the Hash'ura",
+        "slot": "hands",
+        "atributos": [
+          "Força",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 334
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=251214",
+        "armadura": "placa",
+        "icone": "inv_glove_plate_dungeonharronir_c_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_glove_plate_dungeonharronir_c_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_glove_plate_dungeonharronir_c_01.jpg"
+      },
+      {
+        "item_id": 251221,
+        "nome_pt": "Manoplas do Desanimado",
+        "nome_en": "Despondent's Gauntlets",
+        "slot": "hands",
+        "atributos": [
+          "Força",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 334
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=251221",
+        "armadura": "placa",
+        "icone": "inv_glove_plate_dungeonharronir_c_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_glove_plate_dungeonharronir_c_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_glove_plate_dungeonharronir_c_01.jpg"
+      },
+      {
+        "item_id": 268220,
+        "nome_pt": "Estranguladores de Placa de Escamas",
+        "nome_en": "Scaleplate Strangulators",
+        "slot": "hands",
+        "atributos": [
+          "Força",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 334
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=268220",
+        "armadura": "placa",
+        "icone": "inv_glove_plate_raidpaladinulatek_d_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_glove_plate_raidpaladinulatek_d_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_glove_plate_raidpaladinulatek_d_01.jpg"
+      },
+      {
+        "item_id": 271455,
+        "nome_pt": "Grevas do Senhor da Guerra de Jade",
+        "nome_en": "Greaves of the Jade Warlord",
+        "slot": "hands",
+        "atributos": [
+          "Força",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 334
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=271455",
+        "armadura": "placa",
+        "icone": "inv_pant_plate_raidwarriorulatek_d_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_pant_plate_raidwarriorulatek_d_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_pant_plate_raidwarriorulatek_d_01.jpg"
+      },
+      {
+        "item_id": 271457,
+        "nome_pt": "Manoplas Cravejadas do Senhor da Guerra de Jade",
+        "nome_en": "Jeweled Gauntlets of the Jade Warlord",
+        "slot": "hands",
+        "atributos": [
+          "Força",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 334
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=271457",
+        "armadura": "placa",
+        "icone": "inv_glove_plate_raidwarriorulatek_d_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_glove_plate_raidwarriorulatek_d_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_glove_plate_raidwarriorulatek_d_01.jpg"
+      },
+      {
+        "item_id": 271464,
+        "nome_pt": "Grevas da Chama Consagrada",
+        "nome_en": "Greaves of the Consecrated Flame",
+        "slot": "hands",
+        "atributos": [
+          "Força",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 334
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=271464",
+        "armadura": "placa",
+        "icone": "inv_pant_plate_raidpaladinulatek_d_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_pant_plate_raidpaladinulatek_d_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_pant_plate_raidpaladinulatek_d_01.jpg"
+      },
+      {
+        "item_id": 271466,
+        "nome_pt": "Manoplas da Chama Consagrada",
+        "nome_en": "Gauntlets of the Consecrated Flame",
+        "slot": "hands",
+        "atributos": [
+          "Força",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 334
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=271466",
+        "armadura": "placa",
+        "icone": "inv_glove_plate_raidpaladinulatek_d_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_glove_plate_raidpaladinulatek_d_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_glove_plate_raidpaladinulatek_d_01.jpg"
+      },
+      {
+        "item_id": 270478,
+        "nome_pt": "Protetores de Mão de Placa do Aspirante Peçonhento",
+        "nome_en": "Venomous Aspirant's Plate Handguards",
+        "slot": "hands",
+        "atributos": [
+          "Força",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 331
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=270478",
+        "armadura": "placa",
+        "icone": "inv_glove_plate_outdooramaniloa_c_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_glove_plate_outdooramaniloa_c_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_glove_plate_outdooramaniloa_c_01.jpg"
+      },
+      {
+        "item_id": 272257,
+        "nome_pt": "Manoplas do Portador do Juramento",
+        "nome_en": "Pledgebearer's Gauntlets",
+        "slot": "hands",
+        "atributos": [
+          "Força",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 321
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=272257",
+        "armadura": "placa",
+        "icone": "inv_glove_plate_outdooramaniloa_c_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_glove_plate_outdooramaniloa_c_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_glove_plate_outdooramaniloa_c_01.jpg"
+      },
+      {
+        "item_id": 275491,
+        "nome_pt": "Protetores de Mão Polidos do Rapinador",
+        "nome_en": "Preyhunter's Polished Handguards",
+        "slot": "hands",
+        "atributos": [
+          "Força",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 308
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=275491",
+        "armadura": "placa",
+        "icone": "inv_glove_plate_outdooramaniloa_c_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_glove_plate_outdooramaniloa_c_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_glove_plate_outdooramaniloa_c_01.jpg"
+      }
+    ],
+    "feet": [
+      {
+        "item_id": 268245,
+        "nome_pt": "Escarpes do Sectário Sepultado",
+        "nome_en": "Entombed Cultist's Sabatons",
+        "slot": "feet",
+        "atributos": [
+          "Força",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 334
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=268245",
+        "armadura": "placa",
+        "icone": "inv_boot_plate_raidwarriorulatek_d_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_boot_plate_raidwarriorulatek_d_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_boot_plate_raidwarriorulatek_d_01.jpg"
+      },
+      {
+        "item_id": 268260,
+        "nome_pt": "Coturnos do Demônio Escamado",
+        "nome_en": "Scaled Fiend's Warboots",
+        "slot": "feet",
+        "atributos": [
+          "Força",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 334
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=268260",
+        "armadura": "placa",
+        "icone": "inv_boot_plate_raidpaladinulatek_d_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_boot_plate_raidpaladinulatek_d_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_boot_plate_raidpaladinulatek_d_01.jpg"
+      },
+      {
+        "item_id": 271458,
+        "nome_pt": "Pisantes Cruéis do Senhor da Guerra de Jade",
+        "nome_en": "Vicious Kickers of the Jade Warlord",
+        "slot": "feet",
+        "atributos": [
+          "Força",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 334
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=271458",
+        "armadura": "placa",
+        "icone": "inv_boot_plate_raidwarriorulatek_d_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_boot_plate_raidwarriorulatek_d_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_boot_plate_raidwarriorulatek_d_01.jpg"
+      },
+      {
+        "item_id": 271467,
+        "nome_pt": "Grandes Botas da Chama Consagrada",
+        "nome_en": "Greatboots of the Consecrated Flame",
+        "slot": "feet",
+        "atributos": [
+          "Força",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 334
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=271467",
+        "armadura": "placa",
+        "icone": "inv_boot_plate_raidpaladinulatek_d_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_boot_plate_raidpaladinulatek_d_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_boot_plate_raidpaladinulatek_d_01.jpg"
+      },
+      {
+        "item_id": 271476,
+        "nome_pt": "Escarpes do Necrocavaleiro Pernicioso",
+        "nome_en": "Baleful Grave-Knight's Sabatons",
+        "slot": "feet",
+        "atributos": [
+          "Força",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 334
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=271476",
+        "armadura": "placa",
+        "icone": "inv_boot_plate_raiddeathknightulatek_d_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_boot_plate_raiddeathknightulatek_d_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_boot_plate_raiddeathknightulatek_d_01.jpg"
+      },
+      {
+        "item_id": 273777,
+        "nome_pt": "Pisoteadores à Prova de Veneno",
+        "nome_en": "Poison-Proof Stompers",
+        "slot": "feet",
+        "atributos": [
+          "Força",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 334
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=273777",
+        "armadura": "placa",
+        "icone": "inv_boot_plate_outdooramaniloa_c_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_boot_plate_outdooramaniloa_c_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_boot_plate_outdooramaniloa_c_01.jpg"
+      },
+      {
+        "item_id": 270481,
+        "nome_pt": "Coturnos de Placa do Aspirante Peçonhento",
+        "nome_en": "Venomous Aspirant's Plate Warboots",
+        "slot": "feet",
+        "atributos": [
+          "Força",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 331
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=270481",
+        "armadura": "placa",
+        "icone": "inv_boot_plate_outdooramaniloa_c_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_boot_plate_outdooramaniloa_c_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_boot_plate_outdooramaniloa_c_01.jpg"
+      },
+      {
+        "item_id": 272256,
+        "nome_pt": "Escarpes do Portador do Juramento",
+        "nome_en": "Pledgebearer's Sabatons",
+        "slot": "feet",
+        "atributos": [
+          "Força",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 321
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=272256",
+        "armadura": "placa",
+        "icone": "inv_boot_plate_outdooramaniloa_c_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_boot_plate_outdooramaniloa_c_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_boot_plate_outdooramaniloa_c_01.jpg"
+      },
+      {
+        "item_id": 275490,
+        "nome_pt": "Grandes Botas Polidas do Rapinador",
+        "nome_en": "Preyhunter's Polished Greatboots",
+        "slot": "feet",
+        "atributos": [
+          "Força",
+          "Intelecto"
+        ],
+        "stats": {
+          "ilvl_referencia": 308
+        },
+        "wowhead": "https://www.wowhead.com/pt/item=275490",
+        "armadura": "placa",
+        "icone": "inv_boot_plate_outdooramaniloa_c_01",
+        "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_boot_plate_outdooramaniloa_c_01.jpg",
+        "icone_url_medium": "https://wow.zamimg.com/images/wow/icons/medium/inv_boot_plate_outdooramaniloa_c_01.jpg"
+      }
+    ]
+  }
+}

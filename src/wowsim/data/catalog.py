@@ -51,6 +51,14 @@ def _dados(nome: str) -> dict:
     return _json(str(DADOS_DIR / nome))
 
 
+def _dados_opcional(nome: str) -> dict:
+    """Like ``_dados`` but returns ``{}`` when the file is absent/invalid."""
+    try:
+        return _dados(nome)
+    except (OSError, json.JSONDecodeError):
+        return {}
+
+
 def _derivado(nome: str) -> dict:
     return _json(str(DERIVADOS_DIR / nome))
 
@@ -59,6 +67,71 @@ def _derivado(nome: str) -> dict:
 def _item_data(caminho: str, mtime: float) -> dict[int, str]:
     texto = Path(caminho).read_text(encoding="utf-8", errors="replace")
     return {int(item_id): nome for nome, item_id in _ITEM_RE.findall(texto)}
+
+
+_LINHA_ITEM = re.compile(r'\{\s*"((?:[^"\\]|\\.)*)",\s*(\d+),(.*)\},?\s*$')
+_INVTYPE_SLOTS: dict[int, tuple[str, ...]] = {
+    1: ("head",),
+    2: ("neck",),
+    3: ("shoulder",),
+    4: ("shirt",),
+    5: ("chest",),
+    6: ("waist",),
+    7: ("legs",),
+    8: ("feet",),
+    9: ("wrist",),
+    10: ("hands",),
+    11: ("finger1", "finger2"),
+    12: ("trinket1", "trinket2"),
+    13: ("main_hand",),
+    14: ("off_hand",),
+    15: ("main_hand",),
+    16: ("back",),
+    17: ("main_hand",),
+    20: ("chest",),
+    21: ("main_hand",),
+    22: ("off_hand",),
+    23: ("off_hand",),
+    25: ("main_hand",),
+}
+
+
+@lru_cache(maxsize=2)
+def _item_inv_types(caminho: str, mtime: float) -> dict[int, int]:
+    """item_id -> InventoryType a partir do ``item_data.inc`` do simc.
+
+    O 8º token (0-based) do restante da linha é o InventoryType; validado em
+    251199 (head=1), 271483 (head=1) e 239648 (wrist=9).
+    """
+    texto = Path(caminho).read_text(encoding="utf-8", errors="replace")
+    tipos: dict[int, int] = {}
+    for linha in texto.splitlines():
+        casamento = _LINHA_ITEM.search(linha)
+        if casamento is None:
+            continue
+        resto = casamento.group(3).split(",")
+        if len(resto) <= 8:
+            continue
+        try:
+            tipos[int(casamento.group(2))] = int(resto[8].strip())
+        except ValueError:
+            continue
+    return tipos
+
+
+def inventory_type(item_id: int) -> int | None:
+    """InventoryType do item (via simc), ou None se desconhecido."""
+    if not ITEM_DATA.is_file():
+        return None
+    return _item_inv_types(str(ITEM_DATA), ITEM_DATA.stat().st_mtime).get(item_id)
+
+
+def slots_do_item(item_id: int) -> list[str]:
+    """Slots internos que o item pode ocupar (anéis/berloques têm dois)."""
+    tipo = inventory_type(item_id)
+    if tipo is None:
+        return []
+    return list(_INVTYPE_SLOTS.get(tipo, ()))
 
 
 def _indice_itens() -> dict[int, str]:
@@ -225,6 +298,12 @@ def _loot_de_item(
 ) -> ItemLoot:
     stats_bruto = item.get("stats")
     stats: dict = stats_bruto if isinstance(stats_bruto, dict) else {}
+    atributos_bruto = item.get("atributos")
+    atributos = (
+        [str(atributo) for atributo in atributos_bruto]
+        if isinstance(atributos_bruto, list)
+        else []
+    )
     return ItemLoot(
         item_id=int(item["item_id"]),
         nome_pt=item.get("nome_pt"),
@@ -235,6 +314,7 @@ def _loot_de_item(
         tipo_efeito=tipo_efeito or item.get("tipo_efeito"),
         usavel_conjurador=item.get("usavel_por_conjurador"),
         fonte=fonte,
+        atributos=atributos,
     )
 
 
@@ -252,6 +332,142 @@ def itens_mplus(slot: str) -> list[ItemLoot]:
         vistos.add(item["item_id"])
         saida.append(_loot_de_item(sub, item, fonte="mplus_loot_database.json"))
     return saida
+
+
+def itens_da_secao(secao: str) -> list[ItemLoot]:
+    """Every catalog item inside a loot section, keeping provenance.
+
+    Armor sections are also merged from ``armaduras_malha_placa.json`` (scraped
+    from Wowhead), which lives outside the MANIFEST snapshot.
+    """
+    fontes = (
+        ("mplus_loot_database.json", _dados("mplus_loot_database.json")),
+        ("armaduras_malha_placa.json", _dados_opcional("armaduras_malha_placa.json")),
+    )
+    saida: list[ItemLoot] = []
+    vistos: set[int] = set()
+    for fonte, base in fontes:
+        dados = base.get(secao, {}) if isinstance(base, dict) else {}
+        if not isinstance(dados, dict):
+            continue
+        for sub, itens in dados.items():
+            if not isinstance(itens, list):
+                continue
+            for item in itens:
+                if not isinstance(item, dict) or not isinstance(item.get("item_id"), int):
+                    continue
+                if item["item_id"] in vistos:
+                    continue
+                vistos.add(item["item_id"])
+                saida.append(_loot_de_item(sub, item, fonte=fonte))
+    return saida
+
+
+_BONUS_POR_NIVEL = {341: 12856, 334: 12854, 328: 12848, 321: 12846}
+
+
+def _tipo_do_slot_monitor(slot_texto: str) -> str | None:
+    minusculo = slot_texto.lower()
+    if "2m" in minusculo or "duas" in minusculo:
+        return "2h"
+    if "1m" in minusculo or "uma" in minusculo:
+        return "1h"
+    return None
+
+
+def itens_monitor(nivel: int) -> list[ItemLoot]:
+    """Every monitor item at a target level, with its upgrade bonus.
+
+    The monitor holds weapons, neck and trinkets (no armor). Slot names are
+    normalized; ``atributos`` keeps the raw attribute text so callers can filter
+    by spec (Intelecto/Força/Agilidade).
+    """
+    bonus_nivel = _BONUS_POR_NIVEL.get(nivel)
+    if bonus_nivel is None:
+        return []
+    saida: list[ItemLoot] = []
+    for item in _dados("monitor_upgrades_s2.json").get("teto_341", []):
+        if not isinstance(item, dict) or not isinstance(item.get("id"), int):
+            continue
+        slot_texto = str(item.get("slot") or "")
+        slot = normalizar_slot(slot_texto)
+        if slot is None:
+            continue
+        atributos = item.get("atributos") or []
+        saida.append(
+            ItemLoot(
+                item_id=item["id"],
+                nome_pt=item.get("nome_pt"),
+                nome_en=item.get("nome_en"),
+                slot=slot,
+                ilvl=nivel,
+                origem="monitor de upgrades",
+                bonus_id=bonus_nivel,
+                peconha=item.get("peconha"),
+                fonte="monitor_upgrades_s2.json",
+                atributos=(
+                    [str(atributo) for atributo in atributos]
+                    if isinstance(atributos, list)
+                    else []
+                ),
+                tipo=_tipo_do_slot_monitor(slot_texto),
+            )
+        )
+    return saida
+
+
+_MAPA_STATS = {
+    "Intelecto": "intellect",
+    "Força": "strength",
+    "Agilidade": "agility",
+    "Vigor": "stamina",
+    "Aceleração": "haste",
+    "Critico": "crit",
+    "Crítico": "crit",
+    "Maestria": "mastery",
+    "Versatilidade": "versatility",
+}
+
+
+def itens_stats_index() -> dict[str, dict]:
+    """Every item in the official stats snapshot, keyed by id string.
+
+    Used so the UI can name/icon items that are outside the M+ database (delve,
+    world drops) without inventing anything: only what the snapshot declares.
+    """
+    dados = _dados_opcional("stats_oficiais_itens.json").get("itens")
+    return dados if isinstance(dados, dict) else {}
+
+
+def stats_item(item_id: int) -> dict[str, int]:
+    """Item attributes in English keys (for the UI tooltip), or empty dict."""
+    registro = _dados("stats_oficiais_itens.json").get("itens", {}).get(str(item_id))
+    if not isinstance(registro, dict):
+        return {}
+    saida: dict[str, int] = {}
+    for chave, valor in registro.items():
+        campo = _MAPA_STATS.get(chave)
+        if campo and isinstance(valor, (int, float)) and not isinstance(valor, bool):
+            saida[campo] = int(valor)
+    return saida
+
+
+def visual_item(item_id: int) -> dict:
+    """Attributes + texture slug so the UI can show an icon and a rich tooltip."""
+    from . import icons
+
+    return {"stats": stats_item(item_id), "icone": icons.icone(item_id)}
+
+
+def atributo_primario(item_id: int) -> str | None:
+    """Primary attribute from the official stats snapshot, or None if unknown."""
+    registro = _dados("stats_oficiais_itens.json").get("itens", {}).get(str(item_id))
+    if not isinstance(registro, dict):
+        return None
+    for nome in ("Intelecto", "Força", "Agilidade"):
+        if registro.get(nome):
+            return nome
+    return None
 
 
 def berloques_monitor(nivel: int) -> list[ItemLoot]:
