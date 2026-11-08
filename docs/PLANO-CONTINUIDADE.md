@@ -8,6 +8,11 @@ restante, de modo que a continuação não precise redescobrir nada nem refazer 
 > Leia as seções 1 a 4 antes de escrever qualquer linha. Elas contêm as regras que,
 > se quebradas, invalidam o produto inteiro.
 
+> **Para implementar, siga [`WORKFLOW-IMPLEMENTACAO.md`](WORKFLOW-IMPLEMENTACAO.md).**
+> Ele tem a ordem das tarefas, o código de referência validado (`docs/referencia/`),
+> os testes, os comandos e o critério de aceite de cada uma. Este arquivo continua sendo
+> o registro do **porquê**: visão, auditoria (6.A) e requisitos (6.B).
+
 ---
 
 ## 1. A visão do produto (palavras do usuário)
@@ -125,9 +130,13 @@ ou 1 peça de tier nenhuma troca isolada mostra ganho. Daí:
 
 ---
 
-## 5. Estado do código AGORA (o que já está feito)
+## 5. Estado do código na primeira entrega do Catalisador
 
-Trabalho desta sessão, **ainda sem commit**. `git diff --stat --ignore-cr-at-eol` deve
+> **Histórico.** Esta seção descreve o Catalisador como estava antes do commit
+> `afa468d`, que o entregou. O estado atual e as tarefas pendentes estão no checklist
+> de `WORKFLOW-IMPLEMENTACAO.md` §2.
+
+Trabalho daquela sessão, que na época estava **sem commit**. `git diff --stat --ignore-cr-at-eol` deve
 mostrar **169 inserções e 10 remoções** em 7 arquivos, mais 4 arquivos novos. Se mostrar
 muito mais, as quebras de linha foram corrompidas (ver invariante 4).
 
@@ -241,7 +250,11 @@ medidos com duração errada.
 
 ---
 
-#### A-02 — ALTO — O DPS do pré-voo é exibido e está inflado
+#### A-02 — BAIXO (revisado) — O DPS do pré-voo é publicado e está inflado
+
+> **Gravidade revista.** Conferido depois: a tela mostra só `rodada` e `estagio`
+> (`TopGearPanel.tsx:691`). O DPS inflado aparece no log e no JSON de progresso, não
+> na interface. Continua valendo corrigir, como tarefa simples (workflow T4).
 
 `preflight()` roda com `iterations=5` e `timeout=min(30, orçamento)`, o que pela
 A-01 vira uma luta de ~28 s. O DPS que sai dali (~349.000 no exemplo acima) é
@@ -388,9 +401,23 @@ Droptimizer, a combinação SimC + AMR (P-029) e qualquer execução com
 `primario="amr"`. Como os ids não existem, o catálogo não os reconhece e os itens
 somem ou entram sem atributos — silenciosamente.
 
-**Correção proposta.** Reescrever a decodificação de `appendItemsToExport` em
-`parser/amr.py` seguindo a tabela acima, remover `bonus_ids_negativos` e validar
-contra o export do SimC.
+**Consequências encontradas depois, na linha que vai para o simc** (`_linha_item`,
+comparada com a linha verdadeira do SimC para a mesma pulseira):
+
+| Campo | Do AMR hoje | SimC (verdade) | Por quê |
+| :--- | :--- | :--- | :--- |
+| `bonus_id` | `8790/170/3254/…` | `12214/13667/…/13696` | lido como absoluto |
+| `crafting_quality` | `8` | `5` | a tag `l` usa a escala do AMR |
+| `drop_level` | `1` | (ausente) | a tag `d` é **vínculo**; `drop_level` < 80 reduz o item no simc (`sc_item_data.cpp:208`) |
+| `gem_id2` | emitido com 2+ gemas | não existe | o simc só aceita `gem_id=a/b/c` e `gems=` (`item.cpp:842,858`) |
+
+E na mochila (`droptimizer/pools.py`): 68 dos 418 itens do `.inv` são repetidos em
+sequência (diferença 0) e são descartados como "id 0".
+
+**Correção proposta.** Codec por diferença acumulada (validado: ids 15/15, encantos
+15/15, gemas 15/15, ida e volta idêntica byte a byte em `.q2`, `.q3` e `.inv`), sem
+`drop_level`, `gem_id2` nem `crafting_quality` vindos do AMR; a tag `o` vira
+`redirected_base_stats`. Passo a passo: workflow T2.
 
 **Aceite.** Teste que compara **todos** os 15 slots do fixture AMR com os ids,
 bônus, gemas e encantamentos do `fixtures/pyrogalth.simc`, com 15/15 em ids.
@@ -697,7 +724,7 @@ spec atual; para as outras, um `/simc` feito em cada spec ou a import string col
 Inalterado: entra pelo `.gv` do AMR após A-07 e usa as mesmas etiquetas
 (direto / para catalisar). Pode rodar por loadout também.
 
-### 6.0 Correções do ranking e da UI do Droptimizer (P0 — EM ANDAMENTO)
+### 6.0 Correções do ranking e da UI do Droptimizer (ENTREGUE — `2f20be9`, `bdb16a4`; resta medir no Windows)
 
 Origem: o usuário rodou o Droptimizer real (Druida Equilíbrio, DungeonSlice, 200
 iterações, 103 candidatos) e relatou quatro problemas na tela — botão "Baixar CSV"
@@ -800,7 +827,7 @@ de ilvl diferente continuam em linhas separadas, porque são itens diferentes.
   `mean_stddev` no profileset) e passou a afirmar o erro lido.
 
 
-### 6.1 Falha pré-existente de determinismo (P0, investigar antes de prosseguir)
+### 6.1 Falha pré-existente de determinismo (RESOLVIDA em `afa468d` — o teste comparava `duracao_s`)
 
 `tests/test_topgear_search.py::test_busca_e_deterministica` compara duas execuções e
 acusa diferença **só em `rodadas`** (os conjuntos e o DPS batem). Suspeita: ordem de
@@ -813,7 +840,7 @@ sem mudar o resultado.
   `git stash && pytest ... && git stash pop`.
 * **Aceite:** teste verde, ou pendência registrada em `PENDENCIAS.md` com causa raiz.
 
-### 6.2 Testes do Catalisador (P0)
+### 6.2 Testes do Catalisador (FEITO em `afa468d` — 29 testes em `tests/test_topgear_catalisador.py`)
 
 Criar `tests/test_topgear_catalisador.py`, offline (sem binário do simc), cobrindo:
 
