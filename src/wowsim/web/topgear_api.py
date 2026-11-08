@@ -3,10 +3,12 @@
 from __future__ import annotations
 
 import json
+from datetime import datetime
 
 from fastapi import APIRouter, HTTPException, Query
 
 from ..data import pesos as pesos_mod
+from ..paths import PROJECT_ROOT
 from ..heuristic.score import pontuar_candidato
 from ..parser.addon import ErroParseAddon, parse_texto, serializar_texto
 from ..topgear.models import Conjunto, TopGearRequest
@@ -251,3 +253,25 @@ def perfil_topgear(job_id: str) -> dict:
     linhas = [serializar_texto(personagem, incluir_checksum=False).rstrip(), ""]
     linhas.extend(linhas_override(conjunto))
     return {"simc": "\n".join(linhas).rstrip() + "\n"}
+
+
+@router.post("/{job_id}/perfil/salvar")
+def salvar_perfil_topgear(job_id: str) -> dict:
+    """Grava o ``.simc`` otimizado em ``saida/`` e devolve o caminho.
+
+    Mesma razão do CSV do Droptimizer: a janela do app desktop (pywebview) não
+    tem gerenciador de download, então o link `blob:` do botão não produzia
+    arquivo nem erro.
+    """
+    texto = perfil_topgear(job_id)["simc"]
+    pasta = PROJECT_ROOT / "saida"
+    pasta.mkdir(parents=True, exist_ok=True)
+    carimbo = datetime.now().strftime("%Y%m%d-%H%M%S")
+    caminho = (pasta / f"topgear-{job_id[:8]}-{carimbo}.simc").resolve()
+    caminho.write_text(texto, encoding="utf-8")
+    return {
+        "caminho": str(caminho),
+        "pasta": str(caminho.parent),
+        "arquivo": caminho.name,
+        "linhas": texto.count("\n"),
+    }

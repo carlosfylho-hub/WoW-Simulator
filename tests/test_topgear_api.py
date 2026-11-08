@@ -167,6 +167,55 @@ def test_perfil_exportado_inclui_gemas(
         assert "enchant_id=100" in simc
 
 
+def test_salvar_perfil_grava_arquivo(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    """O .simc é gravado pelo backend: a janela do app não baixa `blob:`."""
+    from wowsim.web import topgear_api
+
+    monkeypatch.setattr(topgear_api, "PROJECT_ROOT", tmp_path)
+    cliente, _ = _cliente(tmp_path, monkeypatch)
+    with cliente:
+        job_id = cliente.post("/api/topgear", json=_pedido()).json()["id"]
+
+        # Sem resultado pronto, não há o que salvar.
+        assert cliente.post(f"/api/topgear/{job_id}/perfil/salvar").status_code == 409
+
+        resultado = {
+            "melhor": {
+                "itens": {
+                    "head": {
+                        "slot": "head",
+                        "item_id": 1,
+                        "enchant_id": 100,
+                        "gem_ids": [123],
+                        "fonte": "teste",
+                    }
+                },
+                "talentos": None,
+                "runas_folio": [],
+            },
+            "base_dps": 1000.0,
+            "melhor_dps": 1010.0,
+            "delta_pct": 1.0,
+            "limiar_pct": 0.15,
+            "trocas": [],
+            "rodadas": [],
+            "avisos": [],
+        }
+        topgear_db.atualizar_job(
+            job_id, status="done", resultado_json=json.dumps(resultado)
+        )
+
+        resposta = cliente.post(f"/api/topgear/{job_id}/perfil/salvar")
+        assert resposta.status_code == 200
+        corpo = resposta.json()
+        caminho = Path(corpo["caminho"])
+        assert caminho.is_file()
+        assert caminho.parent == (tmp_path / "saida").resolve()
+        assert "gem_id=123" in caminho.read_text(encoding="utf-8")
+
+
 def test_post_invalido_nao_enfileira(
     tmp_path: Path, monkeypatch: pytest.MonkeyPatch
 ) -> None:

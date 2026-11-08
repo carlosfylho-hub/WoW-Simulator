@@ -165,6 +165,109 @@ muito mais, as quebras de linha foram corrompidas (ver invariante 4).
 
 ## 6. O que falta — passo a passo
 
+### 6.0 Correções do ranking e da UI do Droptimizer (P0 — EM ANDAMENTO)
+
+Origem: o usuário rodou o Droptimizer real (Druida Equilíbrio, DungeonSlice, 200
+iterações, 103 candidatos) e relatou quatro problemas na tela — botão "Baixar CSV"
+sem efeito, sem ícone, sem tooltip e itens repetidos com o mesmo nome. A
+investigação achou um quinto, mais grave, que ele não citou.
+
+#### O defeito grave: o ranking marcava "empate" em tudo
+
+`_KEYS_ERRO` em [`simc_runner.py`](../src/wowsim/simc_runner.py:1) escolhia
+`std_dev`/`stddev` — a **dispersão entre lutas individuais** (3% a 7% da média) —
+em vez de `mean_error`/`mean_std_dev`, que é a **incerteza da média** (~0,5%). Esse
+valor alimenta `_limiar_por_erro`, então o piso de aceitação ficava ~7x maior que o
+real e engolia qualquer ganho.
+
+Evidência, medida no JSON real da execução do usuário
+(`cache/cf7b901bbb77814c3a37baf4.json`, 103 profilesets):
+
+| Métrica | Valor |
+| :--- | --: |
+| Ganhos reconhecidos com o código antigo (`stddev`) | **0 de 103** |
+| Ganhos reconhecidos com `mean_error` | **32 de 103** |
+| Limiar no candidato de +3,60% — antes | 6,84% |
+| Limiar no mesmo candidato — depois | 0,95% |
+
+Os dois blocos do simc usam vocabulário diferente, e é fácil errar: em
+`collected_data.dps` o certo é `mean_std_dev`; num profileset é `mean_error`
+(intervalo de confiança, = 1,96 × `mean_stddev`). **Nunca** `std_dev`/`stddev`.
+Afeta também o Top Gear, que compartilha `_limiar_por_erro`.
+
+#### Diagnóstico dos quatro problemas relatados
+
+| # | Sintoma | Causa |
+| :-: | :--- | :--- |
+| 1 | "Baixar CSV" não faz nada | O botão monta um `blob:` e chama `link.click()`. A janela do app desktop é pywebview/WebView2 criada sem gerenciador de download ([`web/desktop.py`](../src/wowsim/web/desktop.py:104)), então o clique não gera arquivo nem erro. Mesmo padrão existe no TopGearPanel (download do `.simc`), provavelmente igual de quebrado. |
+| 2 | Sem ícone | `DropRankingItem` não tinha campo de ícone. O backend já sabe o ícone (`catalog.visual_item`), mas não enviava. |
+| 3 | Sem tooltip | `WowItemTooltip` + `TooltipContext` existem e o TopGearPanel já os usa; a tabela do Droptimizer nunca foi ligada neles, e faltavam `stats`/`nome_en` no payload. |
+| 4 | Itens repetidos | Anel e berloque ocupam dois slots, então o mesmo item é medido em `trinket1` e `trinket2` e virava duas linhas idênticas na tela. |
+
+#### Já feito (backend) — sem commit ainda
+
+| Arquivo | Mudança |
+| :--- | :--- |
+| `src/wowsim/simc_runner.py` | `_KEYS_ERRO = ("mean_error", "mean_std_dev", "mean_stddev")`. Sem chave de erro da média, o erro fica `None` e o limiar cai no piso fixo de 0,15% — conservador, em vez de inflado. |
+| `src/wowsim/droptimizer/models.py` | `DropRankingItem` ganhou `nome_en`, `icone`, `stats` e `slots_testados`. |
+| `src/wowsim/droptimizer/search.py` | Preenche esses campos a partir do catálogo; nova `_agrupar_equivalentes`, aplicada antes da ordenação. |
+| `src/wowsim/droptimizer/export.py` | **novo** — `gerar_csv`, `nome_do_arquivo`, `salvar_csv`. CSV com `;` e vírgula decimal, gravado com BOM (Excel PT-BR abre sem importação manual). |
+| `src/wowsim/web/drop_api.py` | `GET /api/droptimizer/{id}/csv` (conteúdo) e `POST /api/droptimizer/{id}/csv` (grava em `saida/` e devolve o caminho). |
+| `tests/test_droptimizer_ranking.py` | **novo** — 15 testes: erro da média vs dispersão, o caso +3,6% deixando de ser empate, agrupamento (inclusive `worst_in_bags` e item sem id) e CSV. |
+
+**Decisão de produto sobre o CSV:** o backend grava o arquivo e a UI mostra o
+caminho, em vez de tentar um download pelo navegador embutido. É o único caminho
+que funciona tanto no app desktop quanto no navegador, e nunca falha em silêncio —
+que foi exatamente a queixa.
+
+**Decisão sobre o agrupamento:** a pergunta do usuário é "vale a pena usar este
+item?", e a resposta é o melhor dos slots. A linha guarda o vencedor e
+`slots_testados` registra onde ele foi medido, então nenhuma medição some. Itens
+de ilvl diferente continuam em linhas separadas, porque são itens diferentes.
+
+#### O que falta
+
+1. ~~**Teste do endpoint CSV**~~ — **RESOLVIDO.** Falhava com
+   `sqlite3.OperationalError: disk I/O error`. Causa: `db`, `perfil_store` e
+   `topgear_db` fazem `from .db import DB_PATH`, então **cada módulo tem o seu
+   objeto** — trocar só `db.DB_PATH` deixava o worker abrindo o banco real no
+   startup. O teste agora troca os três. Armadilha geral desta base: ao isolar o
+   banco num teste, patchear `db`, `perfil_store` **e** `topgear_db`.
+   15/15 verdes em `tests/test_droptimizer_ranking.py`.
+2. ~~**Frontend do Droptimizer**~~ — **FEITO.** Em `DroptimizerPanel.tsx`:
+   ícone por linha e tooltip no hover (reaproveitando `iconeDoItem`,
+   `bordaDoItem` e `showTooltip` do `TooltipContext`, o mesmo padrão do
+   TopGearPanel); botão agora **"Salvar CSV"**, chamando
+   `POST /api/droptimizer/{id}/csv`, com estado de carregando, caminho salvo em
+   verde e erro em vermelho — nunca mais falha em silêncio; marcador
+   "+N slots" quando o item foi medido em mais de um slot; campos novos em
+   `dropService.ts` (`nome_en`, `icone`, `stats`, `slots_testados`,
+   `DropCsvSalvo`, `salvarCsvDrop`).
+3. **Conferir o efeito no Top Gear** — PENDENTE, exige o simc no Windows. Ele usa
+   o mesmo `_limiar_por_erro`, então etapas que antes rejeitavam ganhos reais
+   passam a aceitá-los; falta quantificar. **Aceite:** rodar
+   `wowsim topgear fixtures\pyrogalth.simc` e registrar aqui o DPS final e o
+   número de trocas aceitas, comparando com a execução anterior do usuário
+   (base 144.688 → melhor 164.588, 3 trocas, 22 rodadas).
+4. ~~**Mesmo defeito de download no TopGearPanel**~~ — **FEITO.** Novo
+   `POST /api/topgear/{id}/perfil/salvar` grava o `.simc` em `saida/`; o botão
+   virou "Salvar .simc" e mostra o caminho. Coberto por
+   `tests/test_topgear_api.py::test_salvar_perfil_grava_arquivo`.
+5. **README, PENDENCIAS e commit** — a suíte já está em **338 passed** com
+   `-m "not integration_simc"`; restam só as 3 falhas de `Exec format error`
+   (binário Windows em Linux). `tsc --noEmit` limpo.
+
+#### Nota sobre o ambiente (Linux, acesso remoto)
+
+- O `tsc` do projeto é o binário do Windows e não roda aqui. Solução usada:
+  `npm install typescript@5.9.2` numa pasta fora do projeto e rodar
+  `~/tscheck/node_modules/.bin/tsc --noEmit -p tsconfig.json`.
+- `tests/test_simc_runner.py::test_read_results_base_e_profilesets` usava
+  `median_std_dev`, chave que a saída real do simc **não** produz. A fixture foi
+  corrigida para o vocabulário real (`mean_std_dev` na base, `mean_error` e
+  `mean_stddev` no profileset) e passou a afirmar o erro lido.
+
+
 ### 6.1 Falha pré-existente de determinismo (P0, investigar antes de prosseguir)
 
 `tests/test_topgear_search.py::test_busca_e_deterministica` compara duas execuções e
@@ -363,7 +466,8 @@ cd wow-sim && PYTHONPATH=src PYTHONDONTWRITEBYTECODE=1 ~/venv-wowsim/bin/python 
 
 ```mermaid
 flowchart TD
-  A[6.1 falha de determinismo] --> B[6.2 testes do Catalisador]
+  Z[6.0 ranking e UI do Droptimizer] --> A[6.1 falha de determinismo]
+  A --> B[6.2 testes do Catalisador]
   B --> C[6.3 validacao ao vivo no simc]
   C --> D[6.4 API e UI do Catalisador]
   D --> E[6.5 Great Vault e extra rolls]

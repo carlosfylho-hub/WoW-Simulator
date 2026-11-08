@@ -311,6 +311,23 @@ O script roda `vite build`, instala o PyInstaller e empacota `frontend/`, `dados
 - [`docs/FONTES.md`](docs/FONTES.md) — inventário de dados, confiança e conflitos.
 - [`docs/RAIDBOTS-REFERENCIA.md`](docs/RAIDBOTS-REFERENCIA.md) — dados estáticos do Raidbots, o que serve e o que não serve.
 - [`docs/PLANO-CONTINUIDADE.md`](docs/PLANO-CONTINUIDADE.md) — visão do produto, invariantes e o passo a passo do que falta (Catalisador, Great Vault, talentos AMR). Leia antes de assumir o projeto no meio.
+
+### Limiar de empate: erro da média, nunca dispersão
+
+O veredito "ganho / empate / perda" compara o delta com o **erro da média** medido
+pelo simc (`mean_error` num profileset, `mean_std_dev` na base). O desvio padrão
+das lutas individuais (`stddev`/`std_dev`) é de 3% a 7% num perfil típico e **não**
+mede incerteza: usá-lo inflava o limiar em cerca de sete vezes e fazia o ranking
+marcar empate em tudo. Sem nenhuma chave de erro da média disponível, o limiar cai
+no piso fixo de 0,15%.
+
+### Saída de arquivos
+
+O CSV do Droptimizer e o `.simc` do Top Gear são **gravados pelo backend** em
+`saida/`, e a interface mostra o caminho. A janela do app desktop não tem
+gerenciador de download, então um link `blob:` no navegador embutido não produzia
+arquivo nem mensagem de erro. Rotas: `POST /api/droptimizer/{id}/csv`,
+`GET /api/droptimizer/{id}/csv` (conteúdo) e `POST /api/topgear/{id}/perfil/salvar`.
 - [`PENDENCIAS.md`](PENDENCIAS.md) — bloqueios e pendências numeradas.
 
 ## Scripts auxiliares

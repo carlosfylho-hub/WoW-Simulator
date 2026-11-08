@@ -122,6 +122,12 @@ def _escrever_json(tmp_path: Path, dados: dict) -> Path:
 
 
 def test_read_results_base_e_profilesets(tmp_path: Path) -> None:
+    """Usa o vocabulário real do simc: os dois blocos nomeiam o erro diferente.
+
+    ``collected_data.dps`` traz ``mean_std_dev`` e um profileset traz
+    ``mean_error``/``mean_stddev``. A fixture antiga usava ``median_std_dev``,
+    chave que a saída real do build 12.1.5.70783 não produz.
+    """
     caminho = _escrever_json(
         tmp_path,
         {
@@ -132,15 +138,21 @@ def test_read_results_base_e_profilesets(tmp_path: Path) -> None:
                             "dps": {
                                 "mean": 200000.0,
                                 "median": 201000.0,
-                                "median_std_dev": 1500.0,
+                                "std_dev": 13000.0,      # dispersão entre lutas
+                                "mean_std_dev": 1500.0,  # erro da média
                             }
                         }
                     }
                 ],
                 "profilesets": {
                     "results": [
-                        {"name": "up_head", "mean": 205000.0, "mean_std_dev": 1200.0},
-                        {"name": "ench_ring", "median": 199000.0, "median_std_dev": 900.0},
+                        {"name": "up_head", "mean": 205000.0, "mean_error": 1200.0},
+                        {
+                            "name": "ench_ring",
+                            "median": 199000.0,
+                            "stddev": 9000.0,
+                            "mean_stddev": 900.0,
+                        },
                     ]
                 },
             }
@@ -154,6 +166,9 @@ def test_read_results_base_e_profilesets(tmp_path: Path) -> None:
     assert [v.nome for v in resultado.variacoes] == ["up_head", "ench_ring"]
     assert resultado.variacoes[0].dps == 205000.0
     assert resultado.variacoes[1].dps == 199000.0
+    # O erro é o da média, nunca a dispersão entre lutas (``std_dev``/``stddev``).
+    assert resultado.variacoes[0].erro_abs == 1200.0
+    assert resultado.variacoes[1].erro_abs == 900.0
     assert resultado.avisos == ()
 
 

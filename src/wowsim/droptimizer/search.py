@@ -40,6 +40,44 @@ def _veredito(delta_pct: float, limiar: float) -> VereditoDrop:
     return "empate"
 
 
+def _agrupar_equivalentes(
+    itens: list[DropRankingItem], *, pior: bool = False
+) -> list[DropRankingItem]:
+    """Funde linhas do mesmo item e ilvl medidas em slots equivalentes.
+
+    Anel e berloque ocupam dois slots, então o mesmo item é medido duas vezes e
+    o ranking mostrava a peça repetida, sem nada que a distinguisse na tela. A
+    pergunta do usuário é "vale a pena usar este item?", e a resposta é o melhor
+    dos slots. Guarda-se o vencedor e, em ``slots_testados``, onde ele foi
+    medido — nenhuma medição é escondida.
+
+    Itens sem ``item_id`` não são agrupados: sem identidade, não há como saber
+    se são o mesmo item.
+    """
+    saida: list[DropRankingItem] = []
+    posicao: dict[tuple[int, int | None], int] = {}
+    for item in itens:
+        if item.item_id is None:
+            saida.append(item)
+            continue
+        chave = (item.item_id, item.ilvl)
+        indice = posicao.get(chave)
+        if indice is None:
+            posicao[chave] = len(saida)
+            saida.append(item)
+            continue
+        atual = saida[indice]
+        # ``worst_in_bags`` procura a maior perda; os outros modos, o maior ganho.
+        vencedor = (
+            item
+            if (item.delta_pct < atual.delta_pct if pior else item.delta_pct > atual.delta_pct)
+            else atual
+        )
+        slots = sorted({*atual.slots_testados, *item.slots_testados})
+        saida[indice] = vencedor.model_copy(update={"slots_testados": slots})
+    return saida
+
+
 def _montar_conjunto(
     base: Conjunto,
     base_dps: float,
@@ -237,20 +275,36 @@ def executar_droptimizer(
             LIMIAR_PCT, base_erro, leitura.erros.get(nome)
         )
         nome_pt = candidato.nome_pt
-        if nome_pt is None and candidato.item_id is not None:
-            nome_pt = catalog.nome_item(candidato.item_id).nome_pt
+        nome_en = candidato.nome_en
+        icone = candidato.icone
+        stats = candidato.stats
+        if candidato.item_id is not None:
+            if nome_pt is None or nome_en is None:
+                nomes = catalog.nome_item(candidato.item_id)
+                nome_pt = nome_pt or nomes.nome_pt
+                nome_en = nome_en or nomes.nome_en
+            if icone is None or stats is None:
+                visual = catalog.visual_item(candidato.item_id)
+                icone = icone or visual.get("icone")
+                stats = stats or (visual.get("stats") or None)
         itens.append(
             DropRankingItem(
                 slot=slot,
                 item_id=candidato.item_id,
                 nome_pt=nome_pt,
+                nome_en=nome_en,
                 ilvl=candidato.ilvl,
                 dps=dps,
                 delta_pct=delta,
                 limiar_pct=limiar,
                 veredito=_veredito(delta, limiar),
+                icone=icone,
+                stats=stats,
+                slots_testados=[slot],
             )
         )
+
+    itens = _agrupar_equivalentes(itens, pior=pedido.modo == "worst_in_bags")
 
     if pedido.modo == "worst_in_bags":
         itens.sort(key=lambda item: (item.delta_pct, item.slot))

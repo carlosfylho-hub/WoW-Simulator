@@ -547,7 +547,22 @@ def run_simc(
 
 
 _KEYS_DPS = ("median", "mean", "avg", "dps", "value")
-_KEYS_ERRO = ("median_std_dev", "mean_std_dev", "std_dev", "stddev", "error")
+# Incerteza da MÉDIA, nunca a dispersão entre lutas.
+#
+# O simc publica as duas coisas com nomes parecidos, e elas diferem por uma ordem
+# de grandeza: ``std_dev``/``stddev`` é o desvio padrão das lutas individuais
+# (3% a 7% da média num perfil típico), enquanto ``mean_error`` e
+# ``mean_std_dev``/``mean_stddev`` são o erro da média — o que de fato diz se uma
+# diferença entre dois conjuntos é real.
+#
+# Usar a dispersão aqui inflava o limiar de aceitação em cerca de sete vezes e
+# fazia o ranking marcar "empate" em tudo: numa execução real de 103 candidatos,
+# nenhum ganho era reconhecido com ``stddev`` e 32 passam com ``mean_error``.
+#
+# Os blocos têm vocabulários diferentes: ``collected_data.dps`` usa
+# ``mean_std_dev`` e um profileset usa ``mean_stddev``/``mean_error``. Faltando
+# todos, o erro fica ``None`` e o limiar cai no piso fixo — conservador e correto.
+_KEYS_ERRO = ("mean_error", "mean_std_dev", "mean_stddev")
 _KEYS_AMOSTRAS = ("count", "iterations", "num_iterations", "samples")
 
 

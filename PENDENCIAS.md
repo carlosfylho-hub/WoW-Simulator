@@ -1,7 +1,7 @@
 # Pendências — WoW Calculator Sim
 
 **Última atualização:** 2026-11-08
-**Fase atual:** Catalisador entregue (offline); Great Vault e talentos AMR pendentes
+**Fase atual:** Catalisador entregue (offline); correções do ranking e da UI entregues
 **Regra:** toda pendência tem identificador, impacto e condição de fechamento. Pendência sem condição de fechamento não entra.
 
 ---
@@ -311,3 +311,67 @@ base — no Top Gear **e** no Droptimizer, que importa a mesma função. O campo
 preservado e entra nas chaves de deduplicação e de cache
 ([`pools.py`](src/wowsim/topgear/pools.py:1), [`heuristic/score.py`](src/wowsim/heuristic/score.py:1)).
 Regressão coberta em `tests/test_topgear_catalisador.py`.
+
+---
+
+## 10. Correções do ranking e da UI — entrega 2026-11-08
+
+Origem: execução real do Droptimizer relatada pelo usuário (Druida Equilíbrio,
+DungeonSlice, 200 iterações, 103 candidatos). Passo a passo e decisões em
+[`docs/PLANO-CONTINUIDADE.md`](docs/PLANO-CONTINUIDADE.md) §6.0.
+
+### P-035 — Limiar usava a dispersão entre lutas e marcava "empate" em tudo — **RESOLVIDA**
+
+| Campo | Detalhe |
+| :--- | :--- |
+| **Sintoma** | Todos os 103 candidatos saíam como "Empate", inclusive um ganho de +4,19%. |
+| **Causa** | `_KEYS_ERRO` em [`simc_runner.py`](src/wowsim/simc_runner.py:1) preferia `std_dev`/`stddev` — o desvio padrão **das lutas individuais** (3% a 7% da média) — em vez de `mean_error`/`mean_std_dev`, que é a **incerteza da média** (~0,5%). Esse valor alimenta `_limiar_por_erro`, então o piso de aceitação ficava ~7x maior que o real. |
+| **Evidência** | No JSON da execução do usuário (`cache/cf7b901bbb77814c3a37baf4.json`): com `stddev`, **0 de 103** candidatos eram reconhecidos como ganho; com `mean_error`, **32**. No candidato de +3,60%, o limiar caiu de **6,84%** para **0,95%**. |
+| **Correção** | `_KEYS_ERRO = ("mean_error", "mean_std_dev", "mean_stddev")`. A dispersão nunca mais é usada: faltando chave de erro da média, o erro fica `None` e o limiar cai no piso fixo de 0,15% — conservador em vez de inflado. |
+| **Alcance** | Afetava também o **Top Gear**, que compartilha `_limiar_por_erro`. |
+| **Armadilha** | Os dois blocos do simc usam vocabulário diferente: `collected_data.dps` traz `mean_std_dev`; um profileset traz `mean_error` (intervalo de confiança, = 1,96 × `mean_stddev`). |
+| **Testes** | [`tests/test_droptimizer_ranking.py`](tests/test_droptimizer_ranking.py:1) cobre os dois vocabulários, a recusa da dispersão e o caso real de +3,6% deixando de ser empate. A fixture de `test_simc_runner.py` usava `median_std_dev`, chave inexistente na saída real, e foi corrigida. |
+
+### P-036 — Botão de download não produzia arquivo — **RESOLVIDA**
+
+O botão montava um `blob:` e chamava `link.click()`. A janela do app desktop é
+pywebview/WebView2 criada sem gerenciador de download
+([`web/desktop.py`](src/wowsim/web/desktop.py:104)), então o clique não gerava
+arquivo nem erro. Valia para o CSV do Droptimizer **e** para o `.simc` do Top Gear.
+
+Agora o backend grava e devolve o caminho: `POST /api/droptimizer/{id}/csv` e
+`POST /api/topgear/{id}/perfil/salvar`, ambos em `saida/`. A UI mostra o caminho.
+`GET /api/droptimizer/{id}/csv` continua servindo o conteúdo para quem usa a API.
+O CSV sai com `;`, vírgula decimal e BOM, que é o que o Excel em PT-BR abre sem
+importação manual ([`droptimizer/export.py`](src/wowsim/droptimizer/export.py:1)).
+
+### P-037 — Ranking sem ícone e sem tooltip — **RESOLVIDA**
+
+`DropRankingItem` não carregava dados visuais, embora o catálogo já os tivesse.
+Ganhou `nome_en`, `icone` e `stats`, preenchidos por `catalog.visual_item`. A
+tabela do Droptimizer passou a usar o mesmo padrão de ícone e tooltip que o
+TopGearPanel já usava.
+
+### P-038 — O mesmo item aparecia repetido no ranking — **RESOLVIDA**
+
+Anel e berloque ocupam dois slots, então o mesmo item era medido em `trinket1` e
+`trinket2` e virava duas linhas idênticas na tela. `_agrupar_equivalentes`
+([`droptimizer/search.py`](src/wowsim/droptimizer/search.py:1)) funde linhas de
+mesmo `item_id` **e** mesmo ilvl, mantendo o melhor resultado (a maior perda no
+modo `worst_in_bags`) e registrando em `slots_testados` onde o item foi medido —
+nenhuma medição é escondida. Itens de ilvl diferente continuam separados, porque
+são itens diferentes.
+
+### P-039 — Isolar o banco em teste exige patchear três módulos
+
+`db`, `perfil_store` e `topgear_db` fazem `from .db import DB_PATH`, então cada um
+tem seu próprio objeto: trocar só `db.DB_PATH` deixa o worker abrindo o banco real
+no startup (`sqlite3.OperationalError: disk I/O error` em sistema de arquivos sem
+WAL). Teste que sobe o app precisa trocar os três.
+
+### P-040 — Medir o efeito do limiar correto no Top Gear
+
+Pendente; exige o simc no Windows. **Fecha com** uma execução de
+`wowsim topgear fixtures\pyrogalth.simc` registrando DPS final e trocas aceitas,
+comparada com a execução anterior do usuário (base 144.688 → melhor 164.588,
+3 trocas, 22 rodadas).

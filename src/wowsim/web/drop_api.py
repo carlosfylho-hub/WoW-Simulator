@@ -3,8 +3,10 @@
 from __future__ import annotations
 
 from fastapi import APIRouter, HTTPException, Query
+from fastapi.responses import PlainTextResponse
 
-from ..droptimizer.models import DropRequest
+from ..droptimizer.export import gerar_csv, salvar_csv
+from ..droptimizer.models import DropRequest, DropResult
 from ..gen.profilesets import estimar_segundos
 from ..parser.addon import ErroParseAddon, parse_texto
 from ..topgear.pools import construir_pools, resumo
@@ -135,3 +137,43 @@ def resultado_drop(job_id: str) -> dict:
     if job["status"] != "done" or job.get("resultado") is None:
         raise HTTPException(status_code=409, detail="Resultado ainda não está pronto.")
     return job["resultado"]
+
+
+def _resultado_pronto(job_id: str) -> DropResult:
+    job = drop_db.obter_job(job_id)
+    if job is None:
+        raise HTTPException(status_code=404, detail="Job não encontrado.")
+    if job["status"] != "done" or job.get("resultado") is None:
+        raise HTTPException(status_code=409, detail="Resultado ainda não está pronto.")
+    return DropResult(**job["resultado"])
+
+
+@router.get("/{job_id}/csv", response_class=PlainTextResponse)
+def csv_drop(job_id: str) -> PlainTextResponse:
+    """Ranking em CSV. Serve para quem usa a API ou abre pelo navegador."""
+    resultado = _resultado_pronto(job_id)
+    return PlainTextResponse(
+        gerar_csv(resultado),
+        media_type="text/csv; charset=utf-8",
+        headers={
+            "Content-Disposition": f'attachment; filename="droptimizer-{job_id[:8]}.csv"'
+        },
+    )
+
+
+@router.post("/{job_id}/csv")
+def salvar_csv_drop(job_id: str) -> dict:
+    """Grava o CSV em ``saida/`` e devolve o caminho.
+
+    A janela do app desktop não tem gerenciador de download, então o clique em um
+    link `blob:` não gerava arquivo nenhum. Gravar pelo backend sempre funciona e
+    o usuário recebe um caminho que ele pode abrir.
+    """
+    resultado = _resultado_pronto(job_id)
+    caminho = salvar_csv(resultado, job_id)
+    return {
+        "caminho": str(caminho),
+        "pasta": str(caminho.parent),
+        "arquivo": caminho.name,
+        "linhas": len(resultado.itens),
+    }

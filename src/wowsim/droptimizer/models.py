@@ -78,11 +78,18 @@ class DropRankingItem(BaseModel):
     slot: str
     item_id: int | None = None
     nome_pt: str | None = None
+    nome_en: str | None = None
     ilvl: int | None = None
     dps: float
     delta_pct: float
     limiar_pct: float
     veredito: VereditoDrop
+    # Dados visuais do catálogo, para a UI mostrar ícone e tooltip sem outra chamada.
+    icone: str | None = None
+    stats: dict[str, int] | None = None
+    # Slots equivalentes em que o mesmo item foi medido (anel e berloque entram
+    # em dois). A linha guarda o melhor resultado; aqui fica o que foi testado.
+    slots_testados: list[str] = Field(default_factory=list)
 
 
 class DropResult(BaseModel):
