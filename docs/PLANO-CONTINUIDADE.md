@@ -662,6 +662,22 @@ nenhum dos dois. E o Pawn exibe **várias escalas ao mesmo tempo** no tooltip
 
 Limite: continua linear (sem tier, procs ou efeito de berloque).
 
+**Só árvores de talento, mesma spec — também funciona.** Para o Pawn uma escala é
+só um conjunto de pesos com nome; ele não sabe nada de talentos. A dependência da
+build entra pela simulação que gera os pesos. Então: uma escala por loadout
+("Demo — m+ icy", "Demo — Diabolist Single"...) mais uma "Mistura". Detalhes:
+
+- O Pawn troca de escala sozinho **só ao mudar de spec** (`Pawn.lua:164`, evento
+  `PLAYER_SPECIALIZATION_CHANGED`); não reage à troca de loadout de talentos. Com
+  várias escalas da mesma spec, o usuário desliga a seleção automática
+  (`AutoSelectScales`) e escolhe quais ficam visíveis — ou deixa todas lado a lado.
+- Cada loadout deve ser medido **no cenário a que se destina**: os nomes do
+  próprio usuário já dizem qual (m+ → DungeonSlice, single → Patchwerk,
+  delves → DungeonSlice). Medir "single icy" em M+ daria pesos sem sentido.
+- Builds da mesma spec costumam ter pesos mais parecidos entre si do que specs
+  diferentes. Se duas escalas diferirem menos que a margem de erro da medição, o
+  sistema deve dizer "use uma só" em vez de instalar duas quase iguais.
+
 **AMR — não como perfil.** O AMR não aceita pesos externos; a otimização roda no
 servidor dele. O Best in Bags dele já considera várias montagens (a string do
 usuário traz Demonologia e Destruição). Pelo A-14, o sistema pode mandar ao addon
