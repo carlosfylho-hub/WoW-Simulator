@@ -571,6 +571,81 @@ decodificador validado em A-07 e exigir igualdade item a item.
 6. **A-04**, **A-05**, **A-06** — honestidade da interface e higiene.
 
 
+### 6.B Requisitos refinados pelo usuário — 2026-11-08 (substitui o desenho das três perguntas)
+
+O usuário reorganizou o produto. Registro fiel do pedido e do desenho que o atende.
+
+#### Pilar principal — onde gastar o bonus roll (com o Catalisador embutido)
+
+**Pedido, nas palavras dele:** sugerir peças de várias masmorras e ordenar as
+masmorras pela chance de cair algo que fortaleça a build ("Altar das Presas tem 7
+itens que servem para você"); mostrar as 5 melhores; mostrar **o % de upgrade de
+cada item**, porque uma masmorra com menos itens pode ter um colar que sozinho vale
+2% a mais que qualquer outro. A decisão de arriscar na masmorra com mais itens ou
+na que tem o maior item é **dele** — o sistema mostra as duas coisas, não escolhe.
+Peças que viram tier pelo Catalisador **entram na conta** e o sistema **explica**:
+"estes 5 são para catalisar, estes 2 são upgrade direto".
+
+**Desenho:**
+
+1. Pool = itens de M+ que a classe/spec pode usar (armadura do tipo certo, atributo
+   primário certo, joias, berloques de conjurador, armas). O jogo filtra o loot pela
+   spec de saque, então esse é o denominador correto. Hoje: 5 a 9 itens por
+   masmorra para Warlock (tecido + joias + armas + berloques).
+2. Nível do item = parâmetro (o nível que ele vai receber, conforme a chave que
+   roda). Muda o ranking, então fica visível na tela.
+3. Cada item é medido no seu slot contra o equipado. Se for slot de tier e não for
+   tier, mede também a versão catalisada. O item recebe uma etiqueta:
+   - **upgrade direto** — ganho sem converter;
+   - **para catalisar** — o ganho só aparece convertido (fecha 2pc/4pc);
+   - **os dois** — ganha cru e ganha mais convertido;
+   - **não serve** — ganho dentro do erro ou perda.
+4. Por masmorra: **quantos itens servem**, de quantos elegíveis (ex.: 7 de 9),
+   **o maior ganho** e **a lista completa com o % de cada item** e a etiqueta.
+5. Ordenação padrão: por quantidade de itens que servem; o usuário troca para "maior
+   ganho" com um clique. Mostrar as 5 primeiras, com as demais recolhidas.
+6. "Chance" exibida = itens que servem ÷ itens elegíveis da masmorra, com a
+   premissa escrita na tela: cada item elegível com a mesma chance de cair. É
+   suposição declarada, não medição — o ganho de cada item é que é medido.
+7. Tudo numa única execução do simc por montagem (base + todos os itens), com
+   triagem em poucas iterações e refino com milhares nos que passarem.
+
+**Lacunas de dado:** berloques têm a masmorra na chave da seção, não no item
+(recuperar pela estrutura); o banco não tem o chefe — a granularidade é masmorra.
+
+#### Camada transversal — várias árvores de talento e specs
+
+**Pedido:** embutir várias árvores de talento ou specs; o sistema calcula quais
+itens são melhores **por árvore** e o usuário monta o loadout completo de cada uma.
+
+**Viável com o SimC**, e o insumo já existe: o export do SimC traz loadouts salvos
+com nome — no fixture: *raid maxroll*, *Diabolist Delves*, *m+ icy*, *delves icy*,
+*Diabolist Single*, *single icy* — e o parser já os lê. O AMR não serve de motor
+(não tem API); os talentos dele também não são convertidos (P-012), então a fonte
+das árvores é o export do SimC, mais strings coladas pelo usuário.
+
+**Desenho:**
+
+1. O usuário marca quais loadouts comparar.
+2. Para cada loadout, roda o pilar principal com aquele `talents=` — uma execução
+   por loadout, base e candidatos no mesmo arquivo.
+3. Saída em matriz: **item × loadout**, com o % em cada coluna. Mostra o que é bom
+   em todas as builds (aposta segura) e o que só serve numa.
+4. **Loadout completo por build:** melhor peça por slot (entre o que ele tem e o que
+   escolheu buscar) e **uma execução de confirmação** do conjunto montado, para
+   pegar efeitos de combinação (tier, dois berloques de uso, embelezamentos). Não
+   reativa o Top Gear com beam/estágios — é montar e confirmar.
+5. Outra spec (ex.: Destruição): mesmo mecanismo trocando `spec=` e a árvore. Para
+   Warlock o atributo primário é o mesmo, então o pool é igual; armas podem diferir.
+
+**Custo:** multiplica o tempo pelo número de loadouts. Com triagem + refino, alguns
+minutos por loadout. Mostrar a estimativa antes de rodar.
+
+#### Grande Cofre
+
+Inalterado: entra pelo `.gv` do AMR após A-07 e usa as mesmas etiquetas
+(direto / para catalisar). Pode rodar por loadout também.
+
 ### 6.0 Correções do ranking e da UI do Droptimizer (P0 — EM ANDAMENTO)
 
 Origem: o usuário rodou o Droptimizer real (Druida Equilíbrio, DungeonSlice, 200
