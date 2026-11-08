@@ -469,6 +469,80 @@ valor marginal.
 
 ---
 
+#### A-12 — ALTO — Versatilidade some dos pesos medidos
+
+`normalizar_scale_factors` ([`data/pesos_medidos.py`](../src/wowsim/data/pesos_medidos.py:45))
+filtra as chaves por `SECUNDARIOS = ("haste", "crit", "mastery", "versatility")`,
+mas o simc devolve **`Vers`**. Resultado no cache real do usuário
+(`cache/752b8725be1361d8a9eb4bce.json`):
+
+| simc | Int | SP | Crit | Haste | Mastery | **Vers** |
+| :-- | --: | --: | --: | --: | --: | --: |
+| scale factor | 64,4 | 60,0 | 47,3 | 31,7 | 42,8 | **36,7** |
+
+O arquivo salvo (`cache/pesos/c55b24e2d6a58730.json`) tem só crit, haste e
+mastery. A versatilidade vale **mais** que aceleração para este personagem, mas a
+poda heurística a trata como zero e descarta itens de versatilidade antes de o
+SimC medi-los.
+
+Agravante: esses pesos foram medidos com `timeout=120` (vira luta de **118 s**
+pela A-01) e só **69 iterações** — o orçamento cortou as 200 pedidas. Scale
+factor exige milhares de iterações para ter erro aceitável.
+
+**Correção:** mapear `Vers → versatility` (e `Int`, `SP` quando úteis), medir com
+luta de duração correta, por cenário, com iterações suficientes, e guardar o erro
+de cada fator (o simc o publica).
+
+---
+
+#### A-13 — PROPOSTA — Exportar string do Pawn com pesos medidos pelo sistema
+
+**Formato** (exemplo que o usuário colou, gerado pelo AMR):
+`( Pawn: v1: "Pyrogalth - Demonology": Class=Warlock, Spec=Demonology,
+Intellect=162.17, CritRating=79.84, MasteryRating=71.52, HasteRating=66.92,
+Versatility=65.25 )`.
+
+**O que o sistema faria melhor:** pesos tirados de `calculate_scale_factors` do
+SimC **para o personagem exato** e **por cenário** — uma escala de M+
+(DungeonSlice) e outra de alvo único — em vez de um número único do modelo do AMR.
+
+**Limite honesto, para constar na tela:** Pawn é linear. Não enxerga bônus de
+tier, procs, efeitos de berloque nem breakpoints. Serve para o tooltip do jogo dar
+uma primeira indicação; decisão continua sendo simulação.
+
+**Pré-requisitos:** A-01 e A-12. Hoje os pesos do sistema são **piores** que os do
+AMR (luta de 118 s, 69 iterações, sem versatilidade).
+
+**Esforço:** pequeno. `derivar_pesos_medidos` já roda o cálculo; falta a fórmula
+de saída e um botão. **Aceite:** string aceita pelo Pawn no jogo, um perfil por
+cenário, com a duração da luta e as iterações registradas no nome ou na nota.
+
+---
+
+#### A-14 — PROPOSTA — Exportar string do AMR com o conjunto do sistema
+
+**Viável.** `Import.lua:305` valida só versão, nome e nível do personagem. Os
+itens são encontrados por **semelhança** (`Gear.lua:24`, `countItemDifferences`:
+id, bônus, gemas, encanto); o `guid` é opcional e só pesa se os dois lados o
+tiverem. Ou seja, uma string montada pelo sistema, sem `guid`, faz o addon apontar
+no jogo quais itens equipar e quais gemas e encantos aplicar — com o conjunto
+**medido pelo SimC**, não o escolhido pelo modelo do AMR.
+
+**Formato:** o mesmo de A-07 (diferença acumulada, `appendItemsToExport`) seguido
+de `$` e do bloco de extras (`@<setupId>#_@<rótulo>@e\...`). Várias montagens
+vão em linhas separadas, com `_bib_` na primeira linha (`Import.lua:316`).
+
+**Riscos:** formato sem documentação, pode mudar a cada versão do addon; um erro
+de codificação faz o addon recomendar o item errado em silêncio. Mitigação
+obrigatória: teste de ida e volta — codificar o conjunto, decodificar com o
+decodificador validado em A-07 e exigir igualdade item a item.
+
+**Pré-requisitos:** A-07 (é a mesma especificação, no sentido inverso).
+
+**Esforço:** médio, 1 a 2 dias.
+
+---
+
 #### Ordem sugerida de correção
 
 1. **A-01** e **A-07** — os dois que invalidam dado. Sem eles, nenhum número de
