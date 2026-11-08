@@ -44,6 +44,16 @@ Nenhum bloqueio ativo. O binário foi compilado a partir do fonte `12.1.5.70783`
 | **Pendente** | Nenhum. |
 | **Impacto** | Reduz o número de profilesets por rodada e entrega a estimativa instantânea (diferencial frente ao Raidbots). |
 
+### A-01 — Cronômetro de execução virava duração da luta — **RESOLVIDA em 2026-11-08**
+
+| Campo | Detalhe |
+| :--- | :--- |
+| **O que** | `run_simc` derivava `max_time` (duração da luta no simc, `sim.cpp`, padrão 300 s) do `timeout` de execução. `criar_simulador` passava o orçamento restante como `timeout`, então a luta encolhia a cada rodada; a CLI simulava luta de ~1 h. |
+| **Evidência** | O mesmo Patchwerk rendeu 351.323 DPS em luta de 15 s e 143.412 DPS em 598 s: o tamanho da luta mudava o número medido em até 2,4x. |
+| **Correção** | `max_time_efetivo = max_time`; o `timeout` continua como limite de parede (`subprocess.run` / `Popen` + kill → `SimcOrcamentoEsgotado`). Docstring de `montar_comando` atualizada. |
+| **Testes** | Novo `tests/test_max_time_fight_length.py` (3 casos: timeout não vira `max_time`; `max_time` explícito vale; chave de cache não depende do orçamento). Os 2 primeiros falhavam antes da correção. |
+| **Impacto** | Chaves de cache antigas deixam de ser usadas; `_podar_cache` limpa. O pré-voo passa a simular 300 s com 5 iterações. |
+
 ---
 
 ## 3. Pendências de dados

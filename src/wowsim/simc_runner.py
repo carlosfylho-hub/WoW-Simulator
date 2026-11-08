@@ -308,9 +308,8 @@ def montar_comando(
 ) -> list[str]:
     """Build the simc command line. json2 always receives a non-empty path.
 
-    ``max_time`` is passed straight to simc so it stops by itself and still
-    writes the JSON (partial iterations) instead of being killed by our
-    timeout with no output.
+    ``max_time`` is the simulated FIGHT LENGTH (simc default 300 s). Pass it only
+    when a scenario needs a specific length; never derive it from a timeout.
     """
     destino = str(json_path).strip()
     if not destino:
@@ -364,11 +363,11 @@ def run_simc(
 
     simc = find_simc(simc_path)
     info = ler_versao(simc)
-    # Deixa o simc parar sozinho 2 s antes do nosso timeout: ele ainda gravou o
-    # JSON (iterações parciais) e evitamos matar o processo sem resultado.
+    # ``max_time`` é a DURAÇÃO DA LUTA simulada (simc: sim.cpp, padrão 300 s), não
+    # um limite de execução. Nunca derivar do ``timeout``: isso mudava o DPS
+    # medido em até 2,4x e variava a luta entre rodadas. O limite de tempo de
+    # parede é o ``timeout`` (subprocess.run / Popen + kill) mais abaixo.
     max_time_efetivo = max_time
-    if max_time_efetivo is None and timeout is not None:
-        max_time_efetivo = max(1, int(timeout) - 2)
     parametros = _parametros_canonicos(
         iterations=iterations,
         fight_style=fight_style,
