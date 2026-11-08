@@ -1,0 +1,374 @@
+{
+  "_meta": {
+    "fonte": "simc engine/dbc/generated/item_data.inc (id_set, class_mask, inventory_type)",
+    "wow_build": "12.1.5.70783",
+    "regra": "Por classe: conjunto de 5 peças (head, shoulder, chest, hands, legs), qualidade Épica, máscara de uma única classe, de maior item_id (mais recente).",
+    "classes": 13
+  },
+  "por_classe": {
+    "death_knight": {
+      "set_id": 2055,
+      "class_mask": 32,
+      "slots": {
+        "head": [
+          271474
+        ],
+        "shoulder": [
+          271472
+        ],
+        "chest": [
+          271477
+        ],
+        "hands": [
+          271475
+        ],
+        "legs": [
+          271473
+        ]
+      },
+      "nomes_en": {
+        "head": "Baleful Grave-Knight's Casque",
+        "shoulder": "Baleful Grave-Knight's Gibbets",
+        "chest": "Baleful Grave-Knight's Breastplate",
+        "hands": "Baleful Grave-Knight's Deathgrips",
+        "legs": "Baleful Grave-Knight's Greaves"
+      }
+    },
+    "demon_hunter": {
+      "set_id": 2056,
+      "class_mask": 2048,
+      "slots": {
+        "head": [
+          271537
+        ],
+        "shoulder": [
+          271535
+        ],
+        "chest": [
+          271540
+        ],
+        "hands": [
+          271538
+        ],
+        "legs": [
+          271536
+        ]
+      },
+      "nomes_en": {
+        "head": "Abyssal Doomhound's Relentless Stare",
+        "shoulder": "Abyssal Doomhound's Jaws",
+        "chest": "Abyssal Doomhound's Coreguard",
+        "hands": "Abyssal Doomhound's Studded Gauntlets",
+        "legs": "Abyssal Doomhound's Legwraps"
+      }
+    },
+    "druid": {
+      "set_id": 2057,
+      "class_mask": 1024,
+      "slots": {
+        "head": [
+          271528
+        ],
+        "shoulder": [
+          271526
+        ],
+        "chest": [
+          271531
+        ],
+        "hands": [
+          271529
+        ],
+        "legs": [
+          271527
+        ]
+      },
+      "nomes_en": {
+        "head": "Enigmatic Dreamwatcher's Somnolent Stare",
+        "shoulder": "Enigmatic Dreamwatcher's Plumage",
+        "chest": "Enigmatic Dreamwatcher's Lunar Raiment",
+        "hands": "Enigmatic Dreamwatcher's Gauntlets",
+        "legs": "Enigmatic Dreamwatcher's Leggings"
+      }
+    },
+    "evoker": {
+      "set_id": 2058,
+      "class_mask": 4096,
+      "slots": {
+        "head": [
+          271501
+        ],
+        "shoulder": [
+          271499
+        ],
+        "chest": [
+          271504
+        ],
+        "hands": [
+          271502
+        ],
+        "legs": [
+          271500
+        ]
+      },
+      "nomes_en": {
+        "head": "Calamitous Echo's Magmashapers",
+        "shoulder": "Calamitous Echo's Sundered Peaks",
+        "chest": "Searing Caldera of Calamity",
+        "hands": "Calamitous Echo's Ebon Greathorns",
+        "legs": "Earthen Pillars of Calamity"
+      }
+    },
+    "hunter": {
+      "set_id": 2059,
+      "class_mask": 4,
+      "slots": {
+        "head": [
+          271492
+        ],
+        "shoulder": [
+          271490
+        ],
+        "chest": [
+          271495
+        ],
+        "hands": [
+          271493
+        ],
+        "legs": [
+          271491
+        ]
+      },
+      "nomes_en": {
+        "head": "Skulking Viper's Weeping Fangs",
+        "shoulder": "Jaws of the Skulking Viper",
+        "chest": "Skulking Viper's Scuteplate",
+        "hands": "Skulking Viper's Hidepiercers",
+        "legs": "Skulking Viper's Coiled Legwraps"
+      }
+    },
+    "mage": {
+      "set_id": 2060,
+      "class_mask": 128,
+      "slots": {
+        "head": [
+          271564
+        ],
+        "shoulder": [
+          271562
+        ],
+        "chest": [
+          271567
+        ],
+        "hands": [
+          271565
+        ],
+        "legs": [
+          271563
+        ]
+      },
+      "nomes_en": {
+        "head": "Crown of the Primal Leywarden",
+        "shoulder": "Primal Leywarden's Manaflux",
+        "chest": "Crest of the Primal Leywarden",
+        "hands": "Primal Leywarden's Manashapers",
+        "legs": "Primal Leywarden's Tailored Legwraps"
+      }
+    },
+    "monk": {
+      "set_id": 2061,
+      "class_mask": 512,
+      "slots": {
+        "head": [
+          271519
+        ],
+        "shoulder": [
+          271517
+        ],
+        "chest": [
+          271522
+        ],
+        "hands": [
+          271520
+        ],
+        "legs": [
+          271518
+        ]
+      },
+      "nomes_en": {
+        "head": "Monkey King's Unyielding Visage",
+        "shoulder": "Tassels of the Monkey King",
+        "chest": "Battle Gi of the Monkey King",
+        "hands": "Monkey King's Fighting Fists",
+        "legs": "Pantaloons of the Monkey King"
+      }
+    },
+    "paladin": {
+      "set_id": 2062,
+      "class_mask": 2,
+      "slots": {
+        "head": [
+          271465
+        ],
+        "shoulder": [
+          271463
+        ],
+        "chest": [
+          271468
+        ],
+        "hands": [
+          271466
+        ],
+        "legs": [
+          271464
+        ]
+      },
+      "nomes_en": {
+        "head": "Warhelm of the Consecrated Flame",
+        "shoulder": "Pauldrons of the Consecrated Flame",
+        "chest": "Bulwark of the Consecrated Flame",
+        "hands": "Gauntlets of the Consecrated Flame",
+        "legs": "Greaves of the Consecrated Flame"
+      }
+    },
+    "priest": {
+      "set_id": 2063,
+      "class_mask": 16,
+      "slots": {
+        "head": [
+          271555
+        ],
+        "shoulder": [
+          271553
+        ],
+        "chest": [
+          271558
+        ],
+        "hands": [
+          271556
+        ],
+        "legs": [
+          271554
+        ]
+      },
+      "nomes_en": {
+        "head": "Cosmic Penitent's Truesight",
+        "shoulder": "Cosmic Penitent's Echoing Screams",
+        "chest": "Cosmic Penitent's Eclipsing Robes",
+        "hands": "Cosmic Penitent's Celestial Grips",
+        "legs": "Enveloping Legwraps of the Cosmic Penitent"
+      }
+    },
+    "rogue": {
+      "set_id": 2064,
+      "class_mask": 8,
+      "slots": {
+        "head": [
+          271510
+        ],
+        "shoulder": [
+          271508
+        ],
+        "chest": [
+          271513
+        ],
+        "hands": [
+          271511
+        ],
+        "legs": [
+          271509
+        ]
+      },
+      "nomes_en": {
+        "head": "Chosen Bloodslayer's Spirit Shroud",
+        "shoulder": "Chosen Bloodslayer's Voodoo Guards",
+        "chest": "Chosen Bloodslayer's Banded Poncho",
+        "hands": "Chosen Bloodslayer's Fanged Grips",
+        "legs": "Chosen Bloodslayer's Reinforced Pants"
+      }
+    },
+    "shaman": {
+      "set_id": 2065,
+      "class_mask": 64,
+      "slots": {
+        "head": [
+          271483
+        ],
+        "shoulder": [
+          271481
+        ],
+        "chest": [
+          271486
+        ],
+        "hands": [
+          271484
+        ],
+        "legs": [
+          271482
+        ]
+      },
+      "nomes_en": {
+        "head": "Serpent Crown of the Ophidian Oracle",
+        "shoulder": "Hissing Mantle of the Ophidian Oracle",
+        "chest": "Fanged Raiment of the Ophidian Oracle",
+        "hands": "Hexing Grips of the Ophidian Oracle",
+        "legs": "Leggings of the Ophidian Oracle"
+      }
+    },
+    "warlock": {
+      "set_id": 2066,
+      "class_mask": 256,
+      "slots": {
+        "head": [
+          271546
+        ],
+        "shoulder": [
+          271544
+        ],
+        "chest": [
+          271549
+        ],
+        "hands": [
+          271547
+        ],
+        "legs": [
+          271545
+        ]
+      },
+      "nomes_en": {
+        "head": "Skull of the Damned Necrolyte",
+        "shoulder": "Spires of the Damned Necrolyte",
+        "chest": "Damned Necrolyte's Rattling Robes",
+        "hands": "Damned Necrolyte's Charred Grasps",
+        "legs": "Damned Necrolyte's Leg Bindings"
+      }
+    },
+    "warrior": {
+      "set_id": 2067,
+      "class_mask": 1,
+      "slots": {
+        "head": [
+          271456
+        ],
+        "shoulder": [
+          271454
+        ],
+        "chest": [
+          271459
+        ],
+        "hands": [
+          271457
+        ],
+        "legs": [
+          271455
+        ]
+      },
+      "nomes_en": {
+        "head": "Tempered Horns of the Jade Warlord",
+        "shoulder": "Raging Pauldrons of the Jade Warlord",
+        "chest": "Cuirass of the Jade Warlord",
+        "hands": "Jeweled Gauntlets of the Jade Warlord",
+        "legs": "Greaves of the Jade Warlord"
+      }
+    }
+  }
+}

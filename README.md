@@ -88,6 +88,7 @@ wowsim tudo fixtures/pyrogalth.simc --iteracoes 1000 --max-variacoes 40 --sem-ll
 wowsim tudo fixtures/pyrogalth.simc --iteracoes 1000 --com-llm
 wowsim topgear fixtures/pyrogalth.simc --somente-pools --pool 5
 wowsim topgear fixtures/pyrogalth.simc --scenario patchwerk --iterations-triagem 200
+wowsim topgear fixtures/pyrogalth.simc --catalisador --max-catalisados 2
 python scripts/atualizar_dados.py
 ```
 
@@ -119,13 +120,42 @@ O limite `--max-variacoes` corta o corpo, nunca a base. O tempo é estimado ante
 
 1. **Pools por slot** (`topgear/pools.py`): armadura da spec, armas, pescoço, anéis e berloques elegíveis, com o `bonus_id` de cada trilha (321/334/341/328).
 2. **Validador** (`topgear/constraints.py`): no máximo 2 embelezamentos, 1 diamante de Eversong, 1 berloque on-use, arma 2M sem off-hand, 1H com off-hand válido, Folio com uma runa por linha e teto de craft 331.
-3. **Busca em estágios** (`topgear/search.py`): varredura marginal → montagem gulosa → beam de 2 slots → encantos → gemas → talentos → Folio → consumíveis → refino com mais iterações. Cada etapa só aceita ganho acima do limiar de erro (0,15%).
+3. **Busca em estágios** (`topgear/search.py`): varredura marginal → montagem gulosa → **Catalisador** → beam de 2 slots → encantos → gemas → talentos → Folio → consumíveis → refino com mais iterações. Cada etapa só aceita ganho acima do limiar de erro (0,15%).
    - **Talentos:** todos os loadouts salvos no export **mais** as import strings extras informadas na aba Top Gear.
    - **Consumíveis:** frascos, poções, comida e runa de aprimoramento testados com os tokens oficiais do SimC (`flask=`, `potion=`, `food=`, `augmentation=`).
 4. **Execução** (`topgear/runner.py`): um `.simc` por rodada com `profileset."nome"+=override`, reutilizando cache e `read_results`.
 5. **Entrega**: `TopGearResult` com delta vs base, trocas por slot, histórico de rodadas e avisos. A aba **Simular → Top Gear** mostra progresso, permite cancelar e baixa o `.simc` otimizado.
 
 A prévia `wowsim topgear --somente-pools` (ou `GET /api/topgear/pools`) não roda o simc e serve para conferir contagens e elegibilidade. Jobs ficam em `topgear_jobs` (SQLite) com progresso, cancelamento e retomada de `pending`/`running` no próximo início do worker.
+
+### Catalisador (tier set a partir de qualquer peça)
+
+Com `--catalisador` (ou `catalisador: true` na API), o Top Gear também testa **converter**
+itens dos cinco slots de tier (cabeça, ombros, torso, mãos, pernas) na peça de tier da
+classe. A regra da Season 2 preserva trilha, nível de aprimoramento e stats base, então a
+linha gerada é a peça de tier com `redirected_base_stats` apontando para o item de origem
+— o mesmo formato que o addon exporta para peça já catalisada:
+
+```
+head=,id=271546,bonus_id=12854,redirected_base_stats=250001
+```
+
+O bônus de 2/4 peças é calculado pelo próprio SimC a partir do `id_set` do item. Como esse
+ganho só aparece com várias peças, há dois mecanismos:
+
+- **gêmeos**: cada candidato de slot de tier ganha a versão catalisada na pool (cobre
+  "falta 1 peça para fechar");
+- **pacotes**: combinações de 2 e 4 peças a partir do melhor conjunto (cobre "tenho 0 ou 1
+  peça"), onde nenhuma troca isolada mostraria ganho.
+
+`--max-catalisados N` limita as conversões **novas** (cargas do Catalisador). Peça que já
+está equipada catalisada não consome carga. Itens craftados ficam fora: a conversão deles
+não está confirmada nos dados do projeto.
+
+As peças de cada classe saem de `dados/derivados/tier_sets.json`, gerado por
+`python scripts/derivar_tier_sets.py` a partir do `item_data.inc` do SimC (`id_set`,
+`class_mask`, `inventory_type`) — 13 classes, conjuntos 2055 a 2067. Sem esse arquivo, o
+recurso não liga e o relatório diz o motivo.
 
 ### Poda heurística (rápido e complementar)
 
@@ -280,6 +310,7 @@ O script roda `vite build`, instala o PyInstaller e empacota `frontend/`, `dados
 - [`docs/ARQUITETURA.md`](docs/ARQUITETURA.md) — decisões, contratos, riscos e critérios de aceite.
 - [`docs/FONTES.md`](docs/FONTES.md) — inventário de dados, confiança e conflitos.
 - [`docs/RAIDBOTS-REFERENCIA.md`](docs/RAIDBOTS-REFERENCIA.md) — dados estáticos do Raidbots, o que serve e o que não serve.
+- [`docs/PLANO-CONTINUIDADE.md`](docs/PLANO-CONTINUIDADE.md) — visão do produto, invariantes e o passo a passo do que falta (Catalisador, Great Vault, talentos AMR). Leia antes de assumir o projeto no meio.
 - [`PENDENCIAS.md`](PENDENCIAS.md) — bloqueios e pendências numeradas.
 
 ## Scripts auxiliares

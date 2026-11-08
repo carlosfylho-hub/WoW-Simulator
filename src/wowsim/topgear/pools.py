@@ -110,8 +110,13 @@ def _atributo_compativel(atributos: Iterable[str], alvo: str | None) -> bool:
     return alvo.lower() in texto
 
 
-def _chave(candidato: Candidato) -> tuple[int | None, int | None, int | None]:
-    return (candidato.item_id, candidato.ilvl, candidato.bonus_id)
+def _chave(candidato: Candidato) -> tuple[int | None, int | None, int | None, int | None]:
+    return (
+        candidato.item_id,
+        candidato.ilvl,
+        candidato.bonus_id,
+        candidato.redirected_base_stats,
+    )
 
 
 def _add(pools: dict[str, dict[tuple, Candidato]], slot: str, candidato: Candidato) -> None:

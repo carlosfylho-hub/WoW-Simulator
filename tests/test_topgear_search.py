@@ -196,6 +196,16 @@ def test_verificacao_confirma_k_suficiente() -> None:
     assert any("suficiente" in aviso for aviso in resultado.avisos)
 
 
+def _sem_duracao(resultado) -> dict:
+    """Dump do resultado sem a cronometragem de cada rodada."""
+    dados = resultado.model_dump()
+    dados["rodadas"] = [
+        {campo: valor for campo, valor in rodada.items() if campo != "duracao_s"}
+        for rodada in dados["rodadas"]
+    ]
+    return dados
+
+
 def test_busca_e_deterministica() -> None:
     personagem = personagem_base()
     pools = {
@@ -209,7 +219,9 @@ def test_busca_e_deterministica() -> None:
     segundo = executar_topgear(
         personagem, pools, simulador=simulador, request=pedido(), ctx=ContextoSpec()
     )
-    assert primeiro.model_dump() == segundo.model_dump()
+    # ``duracao_s`` é tempo de parede: nunca se repete entre execuções e não faz
+    # parte do determinismo da busca. Comparar o dump cru deixava o teste instável.
+    assert _sem_duracao(primeiro) == _sem_duracao(segundo)
 
 
 def test_sem_pools_retorna_base() -> None:

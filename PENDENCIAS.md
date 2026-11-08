@@ -1,7 +1,7 @@
 # Pendências — WoW Calculator Sim
 
 **Última atualização:** 2026-11-08
-**Fase atual:** Suporte AMR + Droptimizer entregues (Fases 1–8 do ADR-002)
+**Fase atual:** Catalisador entregue (offline); Great Vault e talentos AMR pendentes
 **Regra:** toda pendência tem identificador, impacto e condição de fechamento. Pendência sem condição de fechamento não entra.
 
 ---
@@ -255,3 +255,59 @@ Revisão de [`plans/auditoria-pos-merge.md`](../plans/auditoria-pos-merge.md). T
 | **P3-02** | Aviso `amr_inv_inventario` do `.inv` já alinhado à combinação de exports (sem comentários obsoletos). | [`parser/amr.py`](src/wowsim/parser/amr.py) |
 
 **Testes adicionados:** P0-01, P0-02, P0-03, P1-01, P1-02, P1-03, P1-04, P1-05 e P2-03 (cobertos em `tests/test_droptimizer.py`, `tests/test_combinar.py`, `tests/test_web_importacao.py` e `tests/test_web_worker_error.py`).
+
+---
+
+## 9. Catalisador — entrega 2026-11-08
+
+Implementa o primeiro item do [`docs/PLANO-CONTINUIDADE.md`](docs/PLANO-CONTINUIDADE.md):
+converter item de slot de tier na peça de tier da classe para ganhar o bônus de 2/4 peças.
+
+### P-030 — Catalisador no Top Gear — **ENTREGUE em 2026-11-08 (offline)**
+
+| Campo | Detalhe |
+| :--- | :--- |
+| **Motivação** | Nem o Raidbots nem o AMR consideram o Catalisador. A regra da S2 torna **todo** drop de cabeça, ombros, torso, mãos ou pernas um drop potencial de tier. |
+| **Regra aplicada** | Preserva trilha, nível de aprimoramento e stats base (`dados/season2_context.json`). No SimC: peça de tier + `redirected_base_stats=<item de origem>`. |
+| **Evidência na fonte** | `redirected_base_stats` é opção de item em [`item.cpp:875`](../simc-midnight/engine/item/item.cpp) e entra como `redirect_item` em [`sc_item_data.cpp:1076`](../simc-midnight/engine/dbc/sc_item_data.cpp). O bônus de conjunto vem do `id_set`, calculado pelo SimC. |
+| **Dados** | [`scripts/derivar_tier_sets.py`](scripts/derivar_tier_sets.py:1) → `dados/derivados/tier_sets.json`: **13 classes**, conjuntos 2055–2067. Warlock = 2066 (271546/271544/271549/271547/271545), idêntico ao fixture do Pyrogalth. |
+| **Implementação** | [`data/tier.py`](src/wowsim/data/tier.py:1) (leitor), [`topgear/catalisador.py`](src/wowsim/topgear/catalisador.py:1) (gêmeos + pacotes de 2/4 peças), etapa `otimizar_catalisador` em [`topgear/search.py`](src/wowsim/topgear/search.py:1), teto de cargas em [`topgear/constraints.py`](src/wowsim/topgear/constraints.py:1), flags `--catalisador` e `--max-catalisados` na CLI. |
+| **Desligado por padrão** | `TopGearRequest.catalisador = False`. Sem o arquivo de tier, o recurso não liga e o relatório diz o motivo. |
+| **Testes** | [`tests/test_topgear_catalisador.py`](tests/test_topgear_catalisador.py:1) — 29 testes. Suíte: **322 passed**; as 5 falhas restantes são `Exec format error` do `simc.exe` (binário Windows) em ambiente Linux. |
+| **Pendente** | Validação ao vivo com o simc real (P-031) e exposição na UI (P-032). |
+
+### P-031 — Validar o Catalisador no simc real
+
+Só roda no Windows, com `bin/simc.exe`. Comando e critérios de aceite na seção 6.3 do
+[`docs/PLANO-CONTINUIDADE.md`](docs/PLANO-CONTINUIDADE.md).
+Controle de comparação: o fixture do Pyrogalth já traz peças catalisadas reais
+(`chest=` com `redirected_base_stats=272231` e `legs=` com `273786`).
+**Fecha com** um `.simc` gerado contendo `id=2715xx,...,redirected_base_stats=<origem>`,
+aceito pelo simc, e o bônus de conjunto visível no relatório quando há 2 ou 4 peças.
+
+### P-032 — Catalisador na API de estimativa e na UI
+
+`GET /api/topgear/estimativa` ([`web/topgear_api.py`](src/wowsim/web/topgear_api.py:110))
+ainda não conta os gêmeos nem os pacotes, então o custo mostrado fica abaixo do real quando
+o recurso está ligado. Falta também o controle no
+[`TopGearPanel.tsx`](../Simulator-WoW/src/components/TopGearPanel.tsx) e os campos em
+[`topGearService.ts`](../Simulator-WoW/src/services/topGearService.ts).
+**Fecha com** estimativa coerente, `tsc --noEmit` limpo e job criado pela UI retornando o
+estágio `catalisador` no histórico de rodadas.
+
+### P-033 — Teste de determinismo comparava cronometragem — **RESOLVIDA em 2026-11-08**
+
+`tests/test_topgear_search.py::test_busca_e_deterministica` falhava de forma intermitente
+porque comparava o `model_dump()` inteiro, incluindo `Rodada.duracao_s` (tempo de parede,
+que nunca se repete). Os conjuntos e o DPS sempre batiam. A comparação agora ignora a
+duração. Falha **anterior** a esta entrega.
+
+### P-034 — Peça já catalisada perdia os stats base — **RESOLVIDA em 2026-11-08**
+
+`conjunto_do_personagem` ([`topgear/search.py`](src/wowsim/topgear/search.py:1)) montava o
+conjunto base sem copiar `redirected_base_stats`. Toda peça **já catalisada** do personagem
+era reescrita sem o campo, perdendo os stats base do item de origem e falseando o DPS da
+base — no Top Gear **e** no Droptimizer, que importa a mesma função. O campo agora é
+preservado e entra nas chaves de deduplicação e de cache
+([`pools.py`](src/wowsim/topgear/pools.py:1), [`heuristic/score.py`](src/wowsim/heuristic/score.py:1)).
+Regressão coberta em `tests/test_topgear_catalisador.py`.

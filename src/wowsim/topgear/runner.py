@@ -78,6 +78,8 @@ def _linha_item(candidato: Candidato) -> str:
     )
     if bonus:
         partes.append("bonus_id=" + "/".join(str(b) for b in bonus))
+    if candidato.redirected_base_stats:
+        partes.append(f"redirected_base_stats={candidato.redirected_base_stats}")
     return ",".join(partes)
 
 

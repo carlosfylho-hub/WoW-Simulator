@@ -13,11 +13,16 @@ from dataclasses import dataclass
 from typing import Callable, Iterable, Mapping
 
 from .. import simc_runner as sr
-from ..data import catalog, consumables
+from ..data import catalog, consumables, tier
 from ..data import pesos as pesos_mod
 from ..data import pesos_medidos
 from ..heuristic.score import podar_por_slot
 from ..models import Personagem
+from .catalisador import (
+    adicionar_gemeos,
+    contexto_com_catalisador,
+    pacotes_de_tier,
+)
 from .constraints import avisos as avisos_de_conjunto
 from .constraints import validar
 from .models import (
@@ -105,6 +110,8 @@ def conjunto_do_personagem(personagem: Personagem) -> Conjunto:
             gem_ids=list(item.gem_ids),
             bonus_ids=list(item.bonus_ids),
             ilvl=catalog.ilvl_do_item(item),
+            # Peça já catalisada: sem isto a linha reescrita perderia os stats base.
+            redirected_base_stats=item.redirected_base_stats,
             fonte="addon",
             nome_pt=item.nome_pt,
             nome_en=item.nome_en,
@@ -424,6 +431,40 @@ def otimizar_talentos(
     )
 
 
+def otimizar_catalisador(
+    melhor: Conjunto,
+    melhor_dps: float,
+    ctx: ContextoSpec,
+    *,
+    simulador: SimuladorTopGear,
+    iterations: int,
+    classe: str | None,
+    limiar_pct: float,
+    numero: int,
+    travados: Iterable[str] = (),
+) -> tuple[Conjunto, float, list[Rodada]]:
+    """Testa pacotes de 2 e 4 peças de tier obtidas pelo Catalisador.
+
+    O bônus de tier só aparece com várias peças, então a troca isolada que a
+    busca gulosa mede não mostra o ganho de quem tem 0 ou 1 peça.
+    """
+    opcoes: dict[str, Conjunto] = {}
+    for nome, conjunto in pacotes_de_tier(melhor, classe, travados).items():
+        ok, _motivos = validar(conjunto, ctx)
+        if ok:
+            opcoes[nome] = conjunto
+    return _avaliar_opcoes(
+        melhor,
+        melhor_dps,
+        opcoes,
+        simulador=simulador,
+        iterations=iterations,
+        estagio="catalisador",
+        limiar_pct=limiar_pct,
+        numero=numero,
+    )
+
+
 def otimizar_folio(
     melhor: Conjunto,
     melhor_dps: float,
@@ -513,6 +554,7 @@ def _chave_conjunto(conjunto: Conjunto) -> tuple:
             (
                 slot,
                 candidato.item_id or 0,
+                candidato.redirected_base_stats or 0,
                 tuple(candidato.bonus_ids),
                 candidato.enchant_id or 0,
                 tuple(candidato.gem_ids),
@@ -819,6 +861,21 @@ def executar_topgear(
         descartados_itens = poda.descartados_itens
         pools = poda.mantidos
 
+    classe_tier = contexto.classe or personagem.classe
+    catalisador_ativo = False
+    if pedido.catalisador:
+        if tier.conjunto_da_classe(classe_tier) is None:
+            avisos.append(
+                "Catalisador ignorado: não há dados de tier set para a classe "
+                f"{classe_tier!r} (rode scripts/derivar_tier_sets.py)."
+            )
+        else:
+            catalisador_ativo = True
+            contexto = contexto_com_catalisador(
+                contexto, personagem, classe_tier, pedido.max_catalisados
+            )
+            pools = adicionar_gemeos(pools, classe_tier)
+
     for numero in range(1, max_rodadas + 1):
         if time.monotonic() >= deadline:
             avisos.append("Orçamento de tempo esgotado antes da convergência.")
@@ -925,6 +982,23 @@ def executar_topgear(
             limiar_pct=limiar_pct,
             numero=numero_estagio,
         )
+
+    if catalisador_ativo:
+
+        def _catalisador():
+            return otimizar_catalisador(
+                melhor,
+                melhor_dps,
+                contexto,
+                simulador=simulador,
+                iterations=pedido.iterations_triagem,
+                classe=classe_tier,
+                limiar_pct=limiar_pct,
+                numero=numero_estagio,
+                travados=travados,
+            )
+
+        etapas.append(("catalisador", _catalisador))
 
     etapas.append(("beam", _beam))
 

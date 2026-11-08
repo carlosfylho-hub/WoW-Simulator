@@ -632,6 +632,18 @@ def topgear_cmd(
     somente_pools: bool = typer.Option(
         False, "--somente-pools", help="Só mostra a prévia das pools, sem simular."
     ),
+    catalisador: bool = typer.Option(
+        False,
+        "--catalisador",
+        help="Testa converter itens dos slots de tier na peça de tier da classe.",
+    ),
+    max_catalisados: Optional[int] = typer.Option(
+        None,
+        "--max-catalisados",
+        min=0,
+        max=5,
+        help="Máximo de conversões novas do Catalisador (cargas). Sem limite se omitido.",
+    ),
 ) -> None:
     """Top Gear: melhor conjunto medido dentro das pools e restrições."""
     caminho = Path(fixture)
@@ -668,6 +680,8 @@ def topgear_cmd(
         iterations_triagem=iterations_triagem,
         orcamento_segundos=orcamento,
         pool_por_slot=pool,
+        catalisador=catalisador,
+        max_catalisados=max_catalisados,
     )
     simulador = criar_simulador(
         personagem, fight_style=estilo_de_luta(scenario), simc_path=simc

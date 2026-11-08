@@ -121,7 +121,14 @@ def _dedupe(lista: Iterable[Candidato]) -> list[Candidato]:
     vistos: set[tuple] = set()
     saida: list[Candidato] = []
     for cand in lista:
-        chave = (cand.slot, cand.item_id, cand.ilvl, tuple(cand.bonus_ids), cand.enchant_id)
+        chave = (
+            cand.slot,
+            cand.item_id,
+            cand.redirected_base_stats,
+            cand.ilvl,
+            tuple(cand.bonus_ids),
+            cand.enchant_id,
+        )
         if chave in vistos:
             continue
         vistos.add(chave)

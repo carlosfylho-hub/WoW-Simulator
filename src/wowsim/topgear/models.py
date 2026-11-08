@@ -17,6 +17,7 @@ Estagio = Literal[
     "verificacao",
     "marginal",
     "gulosa",
+    "catalisador",
     "beam",
     "encantos",
     "gemas",
@@ -69,6 +70,9 @@ class Candidato(BaseModel):
     tipo_efeito: str | None = None
     embelezamento: bool = False
     craftado: bool = False
+    # Item de origem cujos stats base a peça usa (Catalisador). Quando definido,
+    # ``item_id`` é a peça de tier e a linha do SimC leva ``redirected_base_stats``.
+    redirected_base_stats: int | None = None
 
     # Opaque payload used by talents (import string) and other pools.
     valor: str | None = None
@@ -76,6 +80,11 @@ class Candidato(BaseModel):
     # Visual data for the UI comparison (icon + attributes from the catalog).
     stats: dict[str, int] | None = None
     icone: str | None = None
+
+    @property
+    def catalisado(self) -> bool:
+        """True para peça de tier obtida pelo Catalisador a partir de outro item."""
+        return self.redirected_base_stats is not None
 
     @property
     def rotulo(self) -> str:
@@ -157,6 +166,12 @@ class TopGearRequest(BaseModel):
     # Re-mede os candidatos podados ao final e recupera ganho que a heurística
     # possa ter descartado (custo extra; desligado por padrão).
     verificar_podados: bool = False
+    # Catalisador: testa converter itens Míticos/Heroicos dos slots de tier
+    # (cabeça, ombros, torso, mãos, pernas) na peça de tier da classe. O bônus de
+    # 2/4 peças só aparece com várias peças, então há uma etapa de pacotes.
+    catalisador: bool = False
+    # Teto de conversões NOVAS (cargas do Catalisador). None = sem limite.
+    max_catalisados: int | None = Field(default=None, ge=0, le=5)
     thread: int | None = Field(default=None, ge=1, le=512)
     # Erro-alvo em % para o simc parar cedo (ex.: 0.1). None = rodar tudo.
     target_error: float | None = Field(default=None, gt=0, le=10)
@@ -241,4 +256,8 @@ class ContextoSpec(BaseModel):
     diamantes: set[int] = Field(default_factory=set)
     trinkets_on_use: set[int] = Field(default_factory=set)
     tier_ids: set[int] = Field(default_factory=set)
+    # Teto de conversões novas do Catalisador; ``None`` = sem limite.
+    max_catalisados: int | None = None
+    # (item_id, origem) das peças já catalisadas e equipadas: não gastam carga.
+    catalisados_equipados: set[tuple[int, int]] = Field(default_factory=set)
     offs_validos: set[int] = Field(default_factory=set)

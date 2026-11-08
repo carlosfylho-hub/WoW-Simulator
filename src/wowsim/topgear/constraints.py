@@ -134,6 +134,29 @@ def _erros_craft(itens: Iterable[Candidato], ctx: ContextoSpec) -> list[str]:
     return motivos
 
 
+def _conversoes_novas(itens: Iterable[Candidato], ctx: ContextoSpec) -> int:
+    """Peças catalisadas que ainda não estavam equipadas (gastam carga)."""
+    return sum(
+        1
+        for candidato in itens
+        if candidato.catalisado
+        and (candidato.item_id, candidato.redirected_base_stats)
+        not in ctx.catalisados_equipados
+    )
+
+
+def _erros_catalisador(itens: Iterable[Candidato], ctx: ContextoSpec) -> list[str]:
+    if ctx.max_catalisados is None:
+        return []
+    novas = _conversoes_novas(itens, ctx)
+    if novas > ctx.max_catalisados:
+        return [
+            f"Conjunto usa {novas} conversão(ões) do Catalisador; o máximo é "
+            f"{ctx.max_catalisados}."
+        ]
+    return []
+
+
 def validar(conjunto: Conjunto, ctx: ContextoSpec) -> tuple[bool, list[str]]:
     """Return ``(True, [])`` when the set is legal, else ``(False, motivos)``."""
     itens = list(conjunto.itens.values())
@@ -163,21 +186,36 @@ def validar(conjunto: Conjunto, ctx: ContextoSpec) -> tuple[bool, list[str]]:
     motivos.extend(_erros_armas(conjunto, ctx))
     motivos.extend(_erros_folio(conjunto))
     motivos.extend(_erros_craft(itens, ctx))
+    motivos.extend(_erros_catalisador(itens, ctx))
 
     return (not motivos, motivos)
 
 
 def avisos(conjunto: Conjunto, ctx: ContextoSpec) -> list[str]:
-    """Advisory checks that never block a set (tier breakpoints today)."""
+    """Advisory checks that never block a set (tier breakpoints, Catalyst use)."""
+    saida: list[str] = []
+    novas = _conversoes_novas(conjunto.itens.values(), ctx)
+    if novas:
+        slots = ", ".join(
+            slot
+            for slot, candidato in conjunto.itens.items()
+            if candidato.catalisado
+            and (candidato.item_id, candidato.redirected_base_stats)
+            not in ctx.catalisados_equipados
+        )
+        saida.append(
+            f"Usa {novas} conversão(ões) do Catalisador ({slots}). Pressupõe que o "
+            "Catalisador mantém trilha, nível e stats base do item original."
+        )
     if not ctx.tier_ids:
-        return []
+        return saida
     pecas = sum(
         1
         for candidato in conjunto.itens.values()
         if candidato.item_id is not None and candidato.item_id in ctx.tier_ids
     )
     if pecas == 1:
-        return ["Conjunto tier com 1 peça: o bônus de 2 peças fica inativo."]
-    if pecas == 3:
-        return ["Conjunto tier com 3 peças: o bônus de 4 peças fica inativo."]
-    return []
+        saida.append("Conjunto tier com 1 peça: o bônus de 2 peças fica inativo.")
+    elif pecas == 3:
+        saida.append("Conjunto tier com 3 peças: o bônus de 4 peças fica inativo.")
+    return saida
