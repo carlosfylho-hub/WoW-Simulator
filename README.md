@@ -195,14 +195,14 @@ O texto original é preservado. `serializar_texto` reproduz o arquivo inteiro by
 
 Os valores de referência vêm do prompt de especificação e **não** substituem a execução: se o binário estiver ausente, o comando falha com código 2 e mostra as instruções, em vez de estimar.
 
-**Resultado do aceite com 1000 iterações:**
+**Resultado do aceite (500 iterações, após a correção do `max_time` — A-01):**
 
 | Cenário | DPS medido | Referência | Delta | Situação |
 | :--- | --: | --: | --: | :-: |
-| DungeonSlice | 255.601 | 254.000 | +0,63% | dentro |
-| Patchwerk, 1 alvo | 199.485 | 204.000 | −2,21% | dentro |
+| DungeonSlice | 254.637 | 254.000 | +0,25% | dentro |
+| Patchwerk, 1 alvo | 199.478 | 204.000 | −2,22% | dentro |
 
-O Patchwerk fica abaixo da referência do prompt, mas dentro da tolerância de ±3%; o valor é reportado como medido, não ajustado.
+Os números anteriores (255.601 / 199.485 com 1000 iterações) foram medidos com a luta de duração errada, derivada do `timeout` (A-01); a duração da luta agora vem só do `max_time`. O Patchwerk fica abaixo da referência do prompt, mas dentro da tolerância de ±3%; o valor é reportado como medido, não ajustado.
 
 ## Estrutura
 
