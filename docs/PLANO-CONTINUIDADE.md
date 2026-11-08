@@ -641,6 +641,41 @@ das árvores é o export do SimC, mais strings coladas pelo usuário.
 **Custo:** multiplica o tempo pelo número de loadouts. Com triagem + refino, alguns
 minutos por loadout. Mostrar a estimativa antes de rodar.
 
+#### Perfil combinado de 2 ou 3 specs
+
+**Pedido:** um perfil no Pawn ou no AMR que contemple 2 ou 3 specs e sugira itens
+pela média delas.
+
+**Pawn — sim.** Pela fonte (`AddOns/Pawn/Pawn.lua:3071`, `PawnParseScaleTag`),
+`Class` e `Spec` são **opcionais** na string; o exemplo do próprio autor não usa
+nenhum dos dois. E o Pawn exibe **várias escalas ao mesmo tempo** no tooltip
+(`PawnIsScaleVisible`, por escala). Então:
+
+1. Gerar uma escala por spec (Demonologia, Destruição, Aflição) e uma escala
+   **"Mistura"** = média ponderada, com os pesos que o usuário escolher (ex.:
+   60/30/10 conforme o quanto joga cada uma).
+2. **Normalizar antes de fazer a média:** o scale factor do simc é DPS por ponto
+   de atributo. Dividir pelo DPS da própria spec (vira "% de DPS por ponto"), senão
+   a spec com DPS bruto maior domina a média sem que ninguém perceba.
+3. Instalar as quatro no jogo. O tooltip mostra a média **e** cada spec lado a
+   lado — a média sozinha esconderia um item ótimo para uma spec e ruim para outra.
+
+Limite: continua linear (sem tier, procs ou efeito de berloque).
+
+**AMR — não como perfil.** O AMR não aceita pesos externos; a otimização roda no
+servidor dele. O Best in Bags dele já considera várias montagens (a string do
+usuário traz Demonologia e Destruição). Pelo A-14, o sistema pode mandar ao addon
+um conjunto escolhido pela média medida, mas o AMR só exibe e equipa, não calcula.
+
+**No próprio sistema — a versão mais forte.** Média do **ganho medido** de cada
+item nas specs, não dos pesos lineares: entra tier, procs e efeito de berloque. É
+a matriz item × build com uma coluna "média ponderada" e um alerta quando o item é
+ruim em alguma spec (divergência). A escala "Mistura" do Pawn sai das mesmas
+medições, como atalho no jogo.
+
+**Insumo:** a árvore de talentos de cada spec. O export do SimC traz os loadouts da
+spec atual; para as outras, um `/simc` feito em cada spec ou a import string colada.
+
 #### Grande Cofre
 
 Inalterado: entra pelo `.gv` do AMR após A-07 e usa as mesmas etiquetas
