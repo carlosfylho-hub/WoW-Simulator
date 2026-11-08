@@ -642,7 +642,10 @@ cd wow-sim && PYTHONPATH=src PYTHONDONTWRITEBYTECODE=1 ~/venv-wowsim/bin/python 
 
 ```mermaid
 flowchart TD
-  Z[6.0 ranking e UI do Droptimizer] --> A[6.1 falha de determinismo]
+  W[6.A-01 max_time vira duracao da luta] --> X[6.A-02 pre-voo sem DPS]
+  X --> Y[6.A-03 base por lote]
+  Y --> Z[6.0 ranking e UI do Droptimizer]
+  Z --> A[6.1 falha de determinismo]
   A --> B[6.2 testes do Catalisador]
   B --> C[6.3 validacao ao vivo no simc]
   C --> D[6.4 API e UI do Catalisador]
