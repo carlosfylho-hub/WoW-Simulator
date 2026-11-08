@@ -332,13 +332,153 @@ Registrado para a próxima pessoa não repetir o trabalho:
 
 ---
 
+#### A-07 — CRÍTICO — O parser do AMR lê valor absoluto onde o formato usa diferença
+
+**O que acontece.** O export do AskMrRobot comprime os números por **diferença
+acumulada**: cada campo guarda a diferença para o valor anterior, não o valor em
+si. O parser do projeto lê tudo como absoluto.
+
+**Fonte autoritativa.** `AskMrRobot/AskMrRobot-Serializer/AskMrRobot-Serializer.lua`,
+função `appendItemsToExport` (linhas 751–870), instalada na máquina do usuário:
+
+```lua
+local prevItemId = 0
+...
+table.insert(itemParts, itemData.id - prevItemId)   -- o id é a DIFERENÇA
+prevItemId = itemData.id
+```
+
+**Impacto medido.** Comparando com os ids verdadeiros do export do SimC do mesmo
+personagem (`fixtures/pyrogalth.simc`), no mesmo momento:
+
+| Leitura | Acertos |
+| :--- | --: |
+| Parser atual (absoluto) | **1 de 15** |
+| Diferença acumulada | **15 de 15** |
+
+O único acerto é o primeiro item, porque a cadeia começa em zero e ali a
+diferença coincide com o valor. Exemplos do erro: ombro lido como `1` quando é
+`271544`; arma como `11495` quando é `251156`; pescoço como `132` quando é
+`273781`.
+
+**Não é só o id.** Pela fonte, usam diferença: o id do item, `u` (upgrade),
+`v` (level), `n` (tuning), `b` (cada bônus), `o` (origem do Catalisador),
+`x`/`y`/`z` (gemas, com contador compartilhado), `e` (encantamento) e
+`p`/`q`/`r` (relíquia). São absolutos: `s` (slot), `j`/`k` (stats de craft),
+`l` (qualidade de craft), `d` (vínculo), `c` (marca de catalisado) e
+`h` (discSpellId). Os contadores zeram a cada seção, e os itens vêm ordenados
+por id crescente.
+
+Decodificando assim, a validação contra o export do SimC dá **15/15 em ids,
+15/15 em encantamentos, 15/15 em gemas e 14/15 em bônus** (a capa diverge em um
+bônus; é item craftado e merece conferência à parte).
+
+**Sintoma que já estava visível.** O modelo tem um campo `bonus_ids_negativos`,
+criado para acomodar "bônus negativos" que apareciam no export. Bônus negativo
+não existe: eram diferenças negativas. O campo deve desaparecer com a correção.
+
+**Por que os testes não pegaram.** `tests/test_parser_amr.py::test_item_wrist_239648`
+confere exatamente **um** item — o primeiro, o único que a leitura errada acerta.
+Os outros 14 nunca foram comparados com fonte externa. Lição para a suíte: teste
+de parser precisa confrontar uma **fonte independente** (aqui, o export do SimC
+do mesmo personagem), não só a própria saída.
+
+**Alcance.** Tudo que passa pelo AMR: os itens da mochila (`.inv`) usados pelo
+Droptimizer, a combinação SimC + AMR (P-029) e qualquer execução com
+`primario="amr"`. Como os ids não existem, o catálogo não os reconhece e os itens
+somem ou entram sem atributos — silenciosamente.
+
+**Correção proposta.** Reescrever a decodificação de `appendItemsToExport` em
+`parser/amr.py` seguindo a tabela acima, remover `bonus_ids_negativos` e validar
+contra o export do SimC.
+
+**Aceite.** Teste que compara **todos** os 15 slots do fixture AMR com os ids,
+bônus, gemas e encantamentos do `fixtures/pyrogalth.simc`, com 15/15 em ids.
+
+---
+
+#### A-08 — OPORTUNIDADE — O export do AMR já traz o Grande Cofre (`.gv`)
+
+`appendItemsToExport` é a **mesma** função usada para `.inv` e para `.gv`
+(serializer, linhas 1069–1078), e `Export.lua:219` mostra `scanGreatVault()`
+lendo `C_WeeklyRewards.GetActivities()`. Ou seja: as opções do Grande Cofre vêm
+no export que o usuário já cola, no formato idêntico ao da mochila.
+
+Consequência: a entrada de dados da pauta "qual opção do Cofre pegar" — que eu
+havia estimado como o trabalho mais chato, digitar 9 itens por semana — **sai de
+graça** assim que A-07 for corrigido. O parser já separa a seção `.gv`; hoje ela
+é lida e descartada sem uso.
+
+No fixture atual `.gv` está **vazia** (0 caracteres), porque o export foi tirado
+com o cofre sem opções. Confirmar com um export tirado após o reset semanal e
+antes de coletar.
+
+---
+
+#### A-09 — OPORTUNIDADE — A tag `o` é a origem do Catalisador
+
+`o` guarda `catalystSource`: o item que foi convertido para gerar aquela peça de
+tier. É exatamente a informação que o `redirected_base_stats` do SimC carrega e
+que o trabalho do Catalisador (§4) precisa. O export do usuário tem quatro:
+`o251185`, `o22601`, `o-117436`, `o115881` (valores em diferença).
+
+Com isso o sistema sabe, sem perguntar, quais peças **já foram** catalisadas e
+não gastam carga nova.
+
+---
+
+#### A-10 — OPORTUNIDADE — A string de Best in Bags resolve a pendência P-016
+
+A string que o AMR devolve para colar no addon é, na primeira metade, **um export
+normal** no mesmo formato (`$181;...;.q2;...`) — o parser do projeto já a lê. A
+segunda metade, depois do `$`, é um bloco de encantamentos:
+
+```
+@e\7935\240133\1228974\Int/Sta\251691=5,236950=6,...
+   ^enchant  ^item   ^spell  ^nome   ^reagentes (item=qtd)
+```
+
+Isso dá, de graça, o mapa `enchant_id → item_id → spell_id → nome → materiais`,
+incluindo as duas entradas que a pendência **P-016** pede explicitamente: a Arte
+de Batalha Hash'ey (`8730 → 283998 → 1315084`) e a Magilinha de pernas
+(`7935 → 240133 → 1228974`). A lista de reagentes ainda serve como lista de
+compras, que o sistema hoje não tem.
+
+**Ressalva de produto:** aproveitar o *bloco de encantamentos* é barato e é dado
+novo. Já importar a *recomendação* do AMR (quais itens ele escolheu) tem pouco
+valor: são itens que o usuário já possui, que o sistema já lê das duas fontes, e
+a escolha do AMR vem do modelo dele, enquanto o sistema mede no SimC. O uso
+honesto da recomendação é como **conjunto candidato a conferir**: medir, na mesma
+execução, o conjunto do AMR contra o atual e contra o melhor do próprio sistema.
+
+---
+
+#### A-11 — Pawn: pouco a aproveitar
+
+A pasta do addon (`AddOns/Pawn`) foi inspecionada: `ItemIDs.lua` são 32 linhas de
+exceções, `Core.lua` é andaime de localização e `Gems.lua` traz recomendações de
+gema que o projeto já cobre melhor com as 72 gemas raspadas e seus atributos.
+Nada a importar.
+
+A **string do Pawn** que o AMR gera (`Intellect=162.17, CritRating=79.84, ...`)
+são pesos de atributo. O projeto já produz pesos **medidos** no SimC para o
+perfil exato (`scripts/derivar_pesos.py` com `calculate_scale_factors`), que são
+mais autoritativos. O único uso defensável é como fallback melhor que os pesos
+curados genéricos quando ainda não há medição — importação de cinco linhas,
+valor marginal.
+
+---
+
 #### Ordem sugerida de correção
 
-1. **A-01** — é o único que invalida número. Antes dele, nenhum resultado de
-   Patchwerk do sistema é confiável.
+1. **A-01** e **A-07** — os dois que invalidam dado. Sem eles, nenhum número de
+   Patchwerk e nenhum item vindo do AMR são confiáveis.
 2. **A-02** — barato e evita que o usuário desconfie do simulador à toa.
-3. **A-03** — precisão dos deltas em pools grandes.
-4. **A-04**, **A-05**, **A-06** — honestidade da interface e higiene.
+3. **A-08** e **A-09** — caem no colo depois de A-07 e destravam o Cofre e o
+   Catalisador sem trabalho de interface.
+4. **A-03** — precisão dos deltas em pools grandes.
+5. **A-10** — bloco de encantamentos do AMR; fecha P-016.
+6. **A-04**, **A-05**, **A-06** — honestidade da interface e higiene.
 
 
 ### 6.0 Correções do ranking e da UI do Droptimizer (P0 — EM ANDAMENTO)
