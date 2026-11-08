@@ -165,6 +165,182 @@ muito mais, as quebras de linha foram corrompidas (ver invariante 4).
 
 ## 6. O que falta — passo a passo
 
+### 6.A Auditoria do sistema — 2026-11-08 (achados, antes de corrigir)
+
+Varredura feita a pedido do usuário, por classes de defeito: corretude numérica,
+chave de cache, falhas silenciosas, concorrência, validação de API, contrato com
+o frontend e qualidade dos testes. Cada achado traz evidência medida, não
+suspeita. **Nada foi corrigido ainda** quando esta seção foi escrita.
+
+---
+
+#### A-01 — CRÍTICO — O tempo de parede vira a duração da luta
+
+**O que acontece.** `run_simc` converte o seu `timeout` (limite de execução) em
+`max_time` do simc:
+
+```python
+# simc_runner.py
+max_time_efetivo = max(1, int(timeout) - 2)   # quando max_time não foi dado
+```
+
+e `criar_simulador` define `timeout = orçamento restante`, ou **3600 s** quando
+não há orçamento (caminho da CLI):
+
+```python
+# topgear/runner.py
+timeout = max(1.0, restante) if restante is not None else 3600.0
+```
+
+**Por que está errado.** No SimulationCraft, `max_time` **não** é limite de
+execução: é a **duração da luta simulada**. Na fonte:
+`sim/sim.cpp:3802` declara `opt_timespan("max_time", ...)` e `sim/sim.cpp:1590`
+define o padrão `max_time = 300_s`. O comentário no código do projeto diz o
+contrário ("para o simc parar sozinho e ainda gravar o JSON"), e é dessa
+confusão que nasce o defeito.
+
+**Impacto medido**, lendo `options.max_time` e o DPS nos JSONs de
+`cache/` — mesmo personagem, mesmo Patchwerk:
+
+| Duração da luta | DPS medido |
+| --: | --: |
+| 15 s | **351.323** |
+| 28 s (pré-voo) | 349.522 |
+| 118 s | 216.621 |
+| 300 s (padrão do simc) | 199.725 |
+| 490 s | 147.164 |
+| 598 s | 143.412 |
+| 3598 s (CLI sem orçamento) | 188.451 |
+
+**2,4x de diferença** no mesmo perfil, vindo só do relógio. Pior: como o
+orçamento drena a cada rodada, a duração **muda entre rodadas** — o log real do
+usuário mostra `max_time` indo de 597 → 579 → 578 → 561 → 452 → 449 → … → 336.
+A base é medida numa duração e os candidatos em outra, então **o delta entre
+rodadas do Top Gear compara coisas diferentes**.
+
+**O que escapa.** `DungeonSlice` e `DungeonRoute` forçam `max_time = 360`
+internamente (`sim/sim.cpp:2349`), então sobrescrevem o valor que mandamos. Foi
+sorte: o cenário que o usuário mais usa (M+) estava protegido. **Patchwerk, que
+é o cenário padrão de `TopGearRequest` e `DropRequest`, não está.**
+
+**Efeito colateral.** `max_time` entra na chave de cache. Como ele muda a cada
+segundo de orçamento, a chave muda junto: há **26 valores distintos** de
+`max_time` no cache atual, ou seja, quase nenhum reaproveitamento entre
+execuções. Corrigir isto também conserta o cache.
+
+**Correção proposta.** Parar de derivar `max_time` do `timeout`. A proteção de
+tempo de parede já existe e é outra: `Popen` + `timeout` + matar o processo.
+`max_time` deve ser ou o padrão do simc (não passar nada) ou um parâmetro
+explícito e **constante** por cenário, nunca função do relógio.
+
+**Aceite.** (a) Nenhuma chamada passa `max_time` derivado de `timeout`; (b) dois
+jobs do mesmo perfil, com orçamentos diferentes, produzem a **mesma** chave de
+cache e o mesmo DPS; (c) teste que falha se `max_time` virar função de `timeout`;
+(d) revalidar os números de aceite do `simc-check` no README, que podem ter sido
+medidos com duração errada.
+
+---
+
+#### A-02 — ALTO — O DPS do pré-voo é exibido e está inflado
+
+`preflight()` roda com `iterations=5` e `timeout=min(30, orçamento)`, o que pela
+A-01 vira uma luta de ~28 s. O DPS que sai dali (~349.000 no exemplo acima) é
+reportado como progresso e aparece na interface, enquanto o valor real do mesmo
+perfil é ~200.000. No log do usuário o pré-voo deu 144.688, depois 132.106,
+depois 141.174 para o mesmo personagem — variação de 9% que parece instabilidade
+do simulador, mas é só a luta curta com 5 iterações.
+
+**Correção proposta.** O pré-voo existe para responder "o simc roda este perfil
+sem travar?". Deve devolver ok/falhou e duração, e **não** publicar DPS como se
+fosse medição. Se exibir algo, rotular como verificação, nunca como DPS.
+
+**Aceite.** A UI não mostra número de DPS vindo do pré-voo.
+
+---
+
+#### A-03 — MÉDIO — Deltas entre lotes usam a base do primeiro lote
+
+`_simular_em_chunks` divide o lote em partes, cada uma uma execução do simc, e
+guarda `base_dps` **só da primeira**:
+
+```python
+if base_dps is None:
+    base_dps = leitura.base_dps
+```
+
+Cada execução mede a base de novo, com RNG diferente (~0,5% de erro). Os
+candidatos da parte 2 em diante são comparados com a base da parte 1, somando ao
+delta um ruído da ordem do próprio limiar de aceitação.
+
+**Correção proposta.** Calcular o delta de cada candidato contra a base **da sua
+própria execução**, ou medir a base uma vez e reusá-la explicitamente, deixando
+claro qual foi usada.
+
+**Aceite.** Teste com simulador falso em que as bases dos lotes diferem e o
+delta de cada candidato sai correto contra a sua própria base.
+
+---
+
+#### A-04 — MÉDIO — Quatro cenários diferentes produzem a mesma simulação
+
+Em `estilo_de_luta`, `raid`, `mplus`, `cleave_aoe` e `delve_rooms` mapeiam todos
+para `DungeonSlice`, e `delve_boss` para `Patchwerk`. A interface oferece essas
+opções como se fossem distintas; escolher "Raid" ou "M+" dá exatamente o mesmo
+número. Não é bug de cálculo, é promessa falsa na interface. (Todos os nomes de
+fight style usados existem no simc — conferido em `util/util.cpp:545`.)
+
+**Correção proposta.** Ou reduzir as opções ao que de fato difere, ou marcar na
+UI quais são equivalentes hoje.
+
+---
+
+#### A-05 — BAIXO — Nome de arquivo do `.simc` salvo não é sanitizado
+
+`POST /api/topgear/{id}/perfil/salvar` monta o nome com `job_id[:8]` sem filtrar
+caracteres. Hoje o id é um UUID vindo do banco e a rota devolve 404 antes disso
+se não existir, então não é explorável; ainda assim, o CSV do Droptimizer já
+sanitiza (`nome_do_arquivo`) e o `.simc` deveria fazer o mesmo, por simetria.
+
+---
+
+#### A-06 — BAIXO — `threads` entra na chave de cache
+
+Resultado reproduzível pede isso (o número de threads muda os fluxos de RNG),
+mas como `threads_para_job()` varia conforme a carga, a mesma simulação quase
+nunca reaproveita o cache entre execuções. Decidir conscientemente: ou fixar as
+threads por job, ou tirar da chave aceitando variação dentro do erro.
+
+---
+
+#### O que foi verificado e está correto
+
+Registrado para a próxima pessoa não repetir o trabalho:
+
+- **Rótulo da heurística:** a UI mostra "Estimativa rápida (heurística) · não é
+  DPS · fonte: …". O invariante P1 está respeitado onde eu olhei.
+- **SQL:** nenhuma consulta montada por interpolação de string; tudo parametrizado.
+- **Segredos:** nenhuma chave de API no frontend nem em retorno de rota; as
+  chaves vêm só de variável de ambiente.
+- **Nomes de fight style:** todos existem no binário do simc.
+- **Chave de cache:** inclui bytes do perfil, parâmetros e identidade do binário
+  (tamanho e mtime) — o desenho está certo; o problema é o `max_time` dentro dela.
+- **`except` amplos:** os nove existentes têm justificativa escrita e caem em
+  fallback declarado; nenhum engole erro em silêncio.
+- **Concorrência:** o semáforo `VAGAS_SIMULACAO` (padrão 1) serializa as
+  simulações pesadas, o que resolve na prática o risco de oversubscription
+  apontado em `auditoria-e-plano-melhorias.md` (A2).
+
+---
+
+#### Ordem sugerida de correção
+
+1. **A-01** — é o único que invalida número. Antes dele, nenhum resultado de
+   Patchwerk do sistema é confiável.
+2. **A-02** — barato e evita que o usuário desconfie do simulador à toa.
+3. **A-03** — precisão dos deltas em pools grandes.
+4. **A-04**, **A-05**, **A-06** — honestidade da interface e higiene.
+
+
 ### 6.0 Correções do ranking e da UI do Droptimizer (P0 — EM ANDAMENTO)
 
 Origem: o usuário rodou o Droptimizer real (Druida Equilíbrio, DungeonSlice, 200
