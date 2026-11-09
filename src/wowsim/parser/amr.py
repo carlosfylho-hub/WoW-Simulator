@@ -5,11 +5,10 @@ converter ainda para :class:`~wowsim.models.Personagem` (isso é a Fase 2).
 Nada é estimado: campos desconhecidos viram aviso e ficam preservados no token
 bruto para auditoria.
 
-Token de item (confirmado no ADR-001/ADR-002)::
-
-    <item_id> s<slot> n<content_tuning>?  (b<bonus_id>)*
-    (j<crafted1>)? (k<crafted2>)? (l<crafting_quality>)?
-    (d<drop_level>)? (e<enchant_id>)? (x<gem_id>)*  !A<checksum>
+Os números de cada item são DIFERENÇAS acumuladas para o item anterior da mesma
+seção (AskMrRobot-Serializer.lua:751-870; Import.lua:127-272). A decodificação
+fica em :mod:`wowsim.parser.amr_codec`; aqui só se mapeia para o modelo interno.
+A tag ``d`` é VÍNCULO (1 = soulbound, 5 = warbound), não nível de drop.
 """
 
 from __future__ import annotations
@@ -24,6 +23,7 @@ from pydantic import BaseModel, ConfigDict, Field
 
 from ..models import AlertaParse, ItemEquipado, MarcaIlvl, Personagem
 from ..paths import DADOS_DIR
+from .amr_codec import ItemAmr, decodificar_itens
 
 # Slots do AskMrRobot (1..17) para os nomes internos do projeto.
 SLOTS_AMR: dict[int, str] = {
@@ -47,9 +47,6 @@ SLOTS_AMR: dict[int, str] = {
 }
 
 _MARCADOR_SECAO = re.compile(r"^\.([a-z]+\d*)$", re.IGNORECASE)
-_TOKEN_ITEM = re.compile(r"^(\d+)s(\d+)(?:n(-?\d+))?(.*)$")
-_CAMPO_NUMERICO = re.compile(r"([a-zA-Z!])(-?\d+)")
-_CHECKSUM = re.compile(r"!A([0-9A-Fa-f]+)")
 
 
 class ErroAmr(ValueError):
@@ -57,7 +54,7 @@ class ErroAmr(ValueError):
 
 
 class ItemAMR(BaseModel):
-    """Um item decodificado do conjunto AMR."""
+    """Um item decodificado do conjunto AMR (valores já sem diferença acumulada)."""
 
     model_config = ConfigDict(extra="forbid")
 
@@ -65,14 +62,16 @@ class ItemAMR(BaseModel):
     item_id: int
     content_tuning: int | None = None
     bonus_ids: list[int] = Field(default_factory=list)
-    bonus_ids_negativos: list[int] = Field(default_factory=list)
     crafted_stats: tuple[int, int] | None = None
-    crafting_quality: int | None = None
-    drop_level: int | None = None
+    # Escala do AMR, NÃO é o crafting_quality do simc ('l8' no AMR = 5 no SimC).
+    craft_quality_amr: int | None = None
+    # Tag 'd': 1 = soulbound, 5 = warbound. Não é nível de drop.
+    vinculo: int | None = None
     enchant_id: int | None = None
     gem_ids: list[int] = Field(default_factory=list)
-    checksum: str | None = None
-    campos_desconhecidos: list[str] = Field(default_factory=list)
+    # Tag 'o': item de origem do Catalisador = redirected_base_stats do simc.
+    catalyst_source: int | None = None
+    guid: str | None = None
     token_bruto: str
 
 
@@ -124,6 +123,7 @@ class ImportAMR(BaseModel):
     talentos: dict[str, TalentoAMR] = Field(default_factory=dict)
     watermarks: list[WatermarkAMR] = Field(default_factory=list)
     inv: list[str] = Field(default_factory=list)
+    gv: list[str] = Field(default_factory=list)
     ach: list[int] = Field(default_factory=list)
     avisos: list[AlertaParse] = Field(default_factory=list)
     texto_original: str = Field(exclude=True, repr=False)
@@ -176,95 +176,43 @@ def _secoes(tokens: list[str]) -> tuple[list[str], dict[str, list[str]]]:
     return cabecalho, secoes
 
 
-def _decodificar_item(token: str, avisos: list[AlertaParse]) -> ItemAMR | None:
-    casamento = _TOKEN_ITEM.match(token)
-    if casamento is None:
-        avisos.append(
-            AlertaParse(codigo="amr_item_invalido", detalhe=token, severidade="aviso")
-        )
-        return None
-
-    item_id = int(casamento.group(1))
-    slot_numero = int(casamento.group(2))
-    tuning = _int(casamento.group(3))
-    resto = casamento.group(4)
-
-    slot = SLOTS_AMR.get(slot_numero)
+def _para_item_amr(token: str, dec: ItemAmr, avisos: list[AlertaParse]) -> ItemAMR:
+    slot = SLOTS_AMR.get(dec.slot) if dec.slot is not None else None
     if slot is None:
-        slot = f"slot_{slot_numero}"
+        slot = f"slot_{dec.slot}"
         avisos.append(
             AlertaParse(
                 codigo="amr_slot_desconhecido",
-                detalhe=f"slot {slot_numero} no item {item_id}",
+                detalhe=f"slot {dec.slot} no item {dec.item_id}",
                 severidade="aviso",
             )
         )
-
-    bonus_ids: list[int] = []
-    bonus_negativos: list[int] = []
-    crafted: list[int] = []
-    qualidade: int | None = None
-    drop: int | None = None
-    enchant: int | None = None
-    gems: list[int] = []
-    desconhecidos: list[str] = []
-
-    for campo in _CAMPO_NUMERICO.finditer(resto):
-        tag = campo.group(1)
-        valor = int(campo.group(2))
-        if tag == "b":
-            if valor < 0:
-                bonus_negativos.append(valor)
-            else:
-                bonus_ids.append(valor)
-        elif tag in ("j", "k"):
-            crafted.append(valor)
-        elif tag == "l":
-            qualidade = valor
-        elif tag == "d":
-            drop = valor
-        elif tag == "e":
-            enchant = valor
-        elif tag == "x":
-            if valor > 0:
-                gems.append(valor)
-            else:
-                desconhecidos.append(f"x{valor}")
-        else:
-            desconhecidos.append(f"{tag}{valor}")
-
-    checksum = _CHECKSUM.search(resto)
-
     return ItemAMR(
         slot=slot,
-        item_id=item_id,
-        content_tuning=tuning,
-        bonus_ids=bonus_ids,
-        bonus_ids_negativos=bonus_negativos,
-        crafted_stats=(crafted[0], crafted[1]) if len(crafted) >= 2 else None,
-        crafting_quality=qualidade,
-        drop_level=drop,
-        enchant_id=enchant,
-        gem_ids=gems,
-        checksum=checksum.group(1) if checksum else None,
-        campos_desconhecidos=desconhecidos,
+        item_id=dec.item_id,
+        content_tuning=dec.tuning or None,
+        bonus_ids=list(dec.bonus_ids),
+        crafted_stats=(dec.stat1, dec.stat2) if dec.stat1 and dec.stat2 else None,
+        craft_quality_amr=dec.craft_quality or None,
+        vinculo=dec.vinculo or None,
+        enchant_id=dec.enchant_id or None,
+        gem_ids=[g for g in dec.gem_ids if g],
+        catalyst_source=dec.catalyst_source or None,
+        guid=dec.guid,
         token_bruto=token,
     )
 
 
 def _parse_conjunto(chave: str, tokens: list[str], avisos: list[AlertaParse]) -> ConjuntoAMR:
+    # decodificar_itens pula exatamente os mesmos tokens (vazios e "_"),
+    # então o zip mantém o par token <-> item.
+    validos = [t.strip() for t in tokens if t.strip() and t.strip() != "_"]
     itens: dict[str, ItemAMR] = {}
     desconhecidos: list[int] = []
-    for token in tokens:
-        token = token.strip()
-        if not token:
-            continue
-        item = _decodificar_item(token, avisos)
-        if item is None:
-            continue
+    for token, dec in zip(validos, decodificar_itens(validos)):
+        item = _para_item_amr(token, dec, avisos)
         if item.slot.startswith("slot_"):
             desconhecidos.append(int(item.slot.split("_", 1)[1]))
-        # Mesa de anéis/berloques: AMR já traz finger1/finger2 explícitos.
         itens[item.slot] = item
     return ConjuntoAMR(chave=chave, itens=itens, slots_desconhecidos=desconhecidos)
 
@@ -341,6 +289,7 @@ def parse_amr(texto: str) -> ImportAMR:
         campo_extra=cabecalho[9] if len(cabecalho) > 9 and cabecalho[9] else None,
         moedas=moedas,
         inv=[token for token in secoes.get("inv", []) if token],
+        gv=[token for token in secoes.get("gv", []) if token],
         ach=[
             valor
             for token in secoes.get("ach", [])
@@ -496,21 +445,19 @@ def _linha_item(item: ItemAMR) -> str:
     partes = [f"{item.slot}=", f"id={item.item_id}"]
     if item.enchant_id:
         partes.append(f"enchant_id={item.enchant_id}")
-    for indice, gema in enumerate(item.gem_ids):
-        campo = "gem_id" if indice == 0 else f"gem_id{indice + 1}"
-        partes.append(f"{campo}={gema}")
+    if item.gem_ids:
+        # O simc só conhece gem_id= (lista com "/") e gems=; não existe gem_id2.
+        partes.append("gem_id=" + "/".join(str(g) for g in item.gem_ids))
     if item.bonus_ids:
-        partes.append("bonus_id=" + "/".join(str(bonus) for bonus in item.bonus_ids))
-    if item.content_tuning is not None:
+        partes.append("bonus_id=" + "/".join(str(b) for b in item.bonus_ids))
+    if item.content_tuning:
         partes.append(f"content_tuning={item.content_tuning}")
     if item.crafted_stats is not None:
-        partes.append(
-            f"crafted_stats={item.crafted_stats[0]}/{item.crafted_stats[1]}"
-        )
-    if item.crafting_quality is not None:
-        partes.append(f"crafting_quality={item.crafting_quality}")
-    if item.drop_level is not None:
-        partes.append(f"drop_level={item.drop_level}")
+        partes.append(f"crafted_stats={item.crafted_stats[0]}/{item.crafted_stats[1]}")
+    if item.catalyst_source:
+        partes.append(f"redirected_base_stats={item.catalyst_source}")
+    # Nunca emitir drop_level (a tag 'd' é vínculo) nem crafting_quality (escala do
+    # AMR difere da do simc). Com o export do SimC presente, a combinação usa os dele.
     return ",".join(partes)
 
 
@@ -610,17 +557,6 @@ def para_personagem(
             item = conjunto.itens.get(slot)
             if item is None:
                 continue
-            if item.bonus_ids_negativos:
-                avisos.append(
-                    AlertaParse(
-                        codigo="amr_bonus_negativo",
-                        detalhe=(
-                            f"{slot}: bônus negativos {item.bonus_ids_negativos} "
-                            "preservados no token bruto; não enviados ao simc."
-                        ),
-                        severidade="aviso",
-                    )
-                )
             linha = _linha_item(item)
             linhas.append(linha)
             equipado[slot] = ItemEquipado(
@@ -630,9 +566,8 @@ def para_personagem(
                 gem_ids=list(item.gem_ids),
                 bonus_ids=list(item.bonus_ids),
                 crafted_stats=item.crafted_stats,
-                crafting_quality=item.crafting_quality,
-                drop_level=item.drop_level,
                 content_tuning=item.content_tuning,
+                redirected_base_stats=item.catalyst_source,
                 linha_original=linha,
                 origem_linha="equipado",
             )

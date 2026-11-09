@@ -6,15 +6,13 @@ AMR entrega ids (slot resolvido depois); ``Gear from Bags`` do SimC já traz slo
 
 from __future__ import annotations
 
-import re
 from typing import Iterable
 
 from ..data import catalog
 from ..models import Personagem
+from ..parser.amr_codec import decodificar_itens
 from ..topgear.models import Candidato
 from .models import ItemPossuido
-
-_ID_INV = re.compile(r"^(\d+)")
 
 
 def candidato_de_possuido(item: ItemPossuido) -> Candidato:
@@ -73,20 +71,9 @@ def possuidos_da_mochila(personagem: Personagem) -> list[ItemPossuido]:
     return deduplicar(saida)
 
 
-_CAMPO_INV = re.compile(r"([a-zA-Z])(-?\d+)")
-
-
 def ids_do_inv(importacao) -> list[int]:
-    """Ids de item do ``.inv`` do AMR (inventário/bolsas/cofre)."""
-    ids: set[int] = set()
-    for token in importacao.inv:
-        casamento = _ID_INV.match(token.strip())
-        if not casamento:
-            continue
-        item_id = int(casamento.group(1))
-        if item_id > 0:
-            ids.add(item_id)
-    return sorted(ids)
+    """Ids de item do ``.inv`` do AMR (já sem diferença acumulada)."""
+    return sorted({it.item_id for it in decodificar_itens(importacao.inv) if it.item_id > 0})
 
 
 def inv_ignorados(importacao) -> list[int]:
@@ -95,51 +82,29 @@ def inv_ignorados(importacao) -> list[int]:
     São tokens de item sem slot conhecido (ex.: materiais, receitas); o merge não
     os transforma em possuídos equipáveis. Servem para o aviso ``amr_inv_ignorado``.
     """
-    ignorados: list[int] = []
-    for token in importacao.inv:
-        casamento = _ID_INV.match(token.strip())
-        if not casamento:
-            continue
-        item_id = int(casamento.group(1))
-        if item_id <= 0:
-            continue
-        if not catalog.slots_do_item(item_id):
-            ignorados.append(item_id)
-    return sorted(set(ignorados))
+    return sorted({
+        it.item_id
+        for it in decodificar_itens(importacao.inv)
+        if it.item_id > 0 and not catalog.slots_do_item(it.item_id)
+    })
 
 
 def itens_do_inv(importacao) -> list[ItemPossuido]:
     """Converte o ``.inv`` em possuídos, resolvendo slot via InventoryType.
 
-    O token traz ``b`` (bônus), ``e`` (encanto), ``x`` (gema) e ``n`` (tuning).
-    Anéis/berloques/armas de uma mão geram uma entrada por slot possível.
+    O token traz ``b`` (bônus), ``e`` (encanto), ``x`` (gema) e ``n`` (tuning),
+    todos já decodificados. Anéis/berloques/armas de uma mão geram uma entrada
+    por slot possível.
     """
     saida: list[ItemPossuido] = []
-    for token in importacao.inv:
-        token = token.strip()
-        casamento = _ID_INV.match(token)
-        if not casamento:
+    for it in decodificar_itens(importacao.inv):
+        if it.item_id <= 0:
             continue
-        item_id = int(casamento.group(1))
-        if item_id <= 0:
-            continue
-        slots = catalog.slots_do_item(item_id)
+        slots = catalog.slots_do_item(it.item_id)
         if not slots:
             continue
 
-        bonus_ids: list[int] = []
-        gems: list[int] = []
-        enchant: int | None = None
-        for campo in _CAMPO_INV.finditer(token):
-            tag = campo.group(1)
-            valor = int(campo.group(2))
-            if tag == "b" and valor > 0:
-                bonus_ids.append(valor)
-            elif tag == "e":
-                enchant = valor
-            elif tag == "x" and valor > 0:
-                gems.append(valor)
-
+        bonus_ids = list(it.bonus_ids)
         ilvl: int | None = None
         for bonus_id in bonus_ids:
             nivel = catalog.bonus_para_ilvl(bonus_id).ilvl
@@ -147,14 +112,15 @@ def itens_do_inv(importacao) -> list[ItemPossuido]:
                 ilvl = nivel
                 break
 
+        gems = [g for g in it.gem_ids if g]
         for slot in slots:
             saida.append(
                 ItemPossuido(
                     slot=slot,
-                    item_id=item_id,
+                    item_id=it.item_id,
                     ilvl=ilvl,
                     bonus_ids=list(bonus_ids),
-                    enchant_id=enchant,
+                    enchant_id=it.enchant_id or None,
                     gem_ids=list(gems),
                     fonte="inv_amr",
                 )

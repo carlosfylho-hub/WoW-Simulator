@@ -62,22 +62,28 @@ def test_item_wrist_239648(amr) -> None:
     assert item.content_tuning == 3615
     assert 8790 in item.bonus_ids
     assert item.crafted_stats == (36, 32)
-    assert item.crafting_quality == 8
-    assert item.drop_level == 1
-    assert item.checksum == "953F0E9A"
+    # 'l' é a escala de qualidade do AMR, não o crafting_quality do simc.
+    assert item.craft_quality_amr == 8
+    # 'd' é vínculo (1 = soulbound), não nível de drop.
+    assert item.vinculo == 1
+    assert item.guid == "A953F0E9A"
 
 
 def test_item_main_hand_com_encantamento(amr) -> None:
     item = amr.conjuntos["q2"].itens["main_hand"]
-    assert item.item_id == 11500
+    # fixtures/pyrogalth.simc: main_hand=,id=251156 (o id é diferença acumulada).
+    assert item.item_id == 251156
     assert item.enchant_id == 7981  # Precisão de Jan'alai, Tier 2 (ADR-001)
 
 
-def test_bonus_negativos_preservados(amr) -> None:
+def test_back_decodificado_pelo_export(amr) -> None:
     back = amr.conjuntos["q2"].itens["back"]
-    assert back.item_id == 8
-    assert -5211 in back.bonus_ids_negativos
+    # fixtures/pyrogalth.simc: back=,id=239656 (o id é diferença acumulada).
+    # Os "bônus negativos" antes lidos eram diferenças; agora são decodificados.
+    assert back.item_id == 239656
+    assert back.bonus_ids
     assert all(bonus > 0 for bonus in back.bonus_ids)
+    assert 8790 in back.bonus_ids
 
 
 def test_slots_mapeados(amr) -> None:
@@ -152,12 +158,13 @@ def test_para_personagem_com_hints(amr) -> None:
     assert wrist.crafted_stats == (36, 32)
 
     main = personagem.equipado["main_hand"]
-    assert main.item_id == 11500
+    # fixtures/pyrogalth.simc: main_hand=,id=251156
+    assert main.item_id == 251156
     assert main.enchant_id == 7981
 
-    # Back do AMR tinha bônus negativo: não vai para o simc.
+    # Back decodificado: ids e bônus batem com o export do SimC (239656).
     back = personagem.equipado["back"]
-    assert back.item_id == 8
+    assert back.item_id == 239656
     assert all(bonus > 0 for bonus in back.bonus_ids)
 
 
@@ -168,7 +175,7 @@ def test_texto_simc_canonico(amr) -> None:
     assert "level=90" in texto
     assert "spec=demonology" in texto
     assert "wrist=,id=239648" in texto
-    assert "main_hand=,id=11500,enchant_id=7981" in texto
+    assert "main_hand=,id=251156,enchant_id=7981" in texto
     # Round-trip: serializar_texto devolve o mesmo texto gerado.
     assert serializar_texto(personagem) == texto
 

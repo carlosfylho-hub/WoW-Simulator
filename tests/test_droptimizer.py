@@ -269,7 +269,8 @@ def test_inventory_type_do_item_data() -> None:
 def test_itens_do_inv_resolve_slot() -> None:
     amr = ImportAMR(
         versao="181",
-        inv=["239648d1!A953F0E9A", "271483n334b12854!A8BC82AA9"],
+        # O id do segundo token é a DIFERENÇA para o anterior: 271483 - 239648.
+        inv=["239648d1!A953F0E9A", "31835n334b12854!A8BC82AA9"],
         texto_original="",
     )
     itens = itens_do_inv(amr)
@@ -421,5 +422,6 @@ def test_inv_ignorados_conta_tokens_sem_slot() -> None:
 
     from wowsim.droptimizer.pools import inv_ignorados
 
-    falsa = SimpleNamespace(inv=["999999999d1", "239648d1"])  # 1 sem slot, 1 wrist
+    # 1 wrist (239648) e 1 sem slot (999999999); o 2º id é a diferença acumulada.
+    falsa = SimpleNamespace(inv=["239648d1", "999760351d1"])
     assert inv_ignorados(falsa) == [999999999]

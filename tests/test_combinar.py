@@ -68,7 +68,11 @@ def test_somente_amr_sem_simc() -> None:
 
 
 def test_conflito_de_equipado_e_avisado() -> None:
-    combo = combinar_textos(SIMC, AMR, primario="simc")
+    # Com a decodificação por diferença acumulada (A-07), o AMR e o SimC do
+    # fixture apontam os MESMOS itens; para exercitar o aviso, alteramos um slot
+    # do SimC.
+    simc_alterado = SIMC.replace("wrist=,id=239648", "wrist=,id=239600", 1)
+    combo = combinar_textos(simc_alterado, AMR, primario="simc")
     codigos = {aviso.codigo for aviso in combo.avisos}
     assert "combinar_equipado_conflito" in codigos
     assert "combinar_fontes" in codigos

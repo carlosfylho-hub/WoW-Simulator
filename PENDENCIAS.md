@@ -54,6 +54,17 @@ Nenhum bloqueio ativo. O binário foi compilado a partir do fonte `12.1.5.70783`
 | **Testes** | Novo `tests/test_max_time_fight_length.py` (3 casos: timeout não vira `max_time`; `max_time` explícito vale; chave de cache não depende do orçamento). Os 2 primeiros falhavam antes da correção. |
 | **Impacto** | Chaves de cache antigas deixam de ser usadas; `_podar_cache` limpa. O pré-voo passa a simular 300 s com 5 iterações. |
 
+### A-07 — Codec do AMR por diferença acumulada — **RESOLVIDA em 2026-11-08**
+
+| Campo | Detalhe |
+| :--- | :--- |
+| **O que** | O AskMrRobot grava cada número como **diferença** para o item anterior da mesma seção (`AskMrRobot-Serializer.lua:751-870`; `Import.lua:127-272`). O parser lia como valor absoluto e acertava 1 de 15 itens. |
+| **Sintomas** | Ids errados (back `8` em vez de `239656`, main_hand `11500` em vez de `251156`), `drop_level=1` (a tag `d` é vínculo), `gem_id2=` (inexistente no simc), `crafting_quality=8` (escala do AMR, não do simc), bônus negativos e itens repetidos da mochila descartados. |
+| **Correção** | Novo `src/wowsim/parser/amr_codec.py` (decodificar/codificar, espelho da referência validada) e `parser/amr.py` reescrito: `ItemAMR` sem `drop_level`/`gem_id2`/`checksum`/`campos_desconhecidos`; expõe `craft_quality_amr`, `vinculo`, `catalyst_source`, `guid`. `_linha_item` emite só `gem_id=`, `bonus_id=`, `content_tuning=`, `crafted_stats=` e `redirected_base_stats=`. `droptimizer/pools.py` decodifica o `.inv`; `ImportAMR` ganhou `gv`. |
+| **Confirmação** | `tests/test_amr_codec.py` confronta com `fixtures/pyrogalth.simc`: ids **15/15**, encantos **15/15**, gemas **15/15**, origem do Catalisador exata (torso `271549←272231`, pernas `271545←273786`, cintura `271543←251185`, pés `271548←156350`); `.inv` 418 itens, 68 repetidos; ida e volta idêntica em `.q2/.q3/.inv`. |
+| **Testes antigos corrigidos** | `test_parser_amr.py`, `test_combinar.py` e `test_droptimizer.py` afirmavam valores absolutos que contradiziam o export do SimC; ajustados citando a linha do fixture. |
+| **Desvio** | O `grep "drop_level\\|gem_id2" src/wowsim/parser` não fica vazio: restam em `parser/addon.py` (parser do export SimC, outro formato) e em comentários; nenhum caminho do AMR os emite. |
+
 ---
 
 ## 3. Pendências de dados
