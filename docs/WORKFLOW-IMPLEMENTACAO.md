@@ -1374,6 +1374,7 @@ Registrar cada resultado em `PENDENCIAS.md`.
 | T19 | Custo de upgrade em cada item do resultado: `ItemRanking.trilha`, `rank`, `upgrade` (`{moeda, brasoes, ate: "6/6 (334)"}`); Grande Cofre usa os bônus reais do `.gv`; na tela, coluna "Para 6/6: 60 Mito" | [x] | `c8d6570` |
 | T20 ✔ `f1c0a98` | Embelezamentos: `data/embellishments` ganha `descricao` (mover o texto de `Simulator-WoW/src/data/embellishments.ts` para `dados/derivados/embelezamentos.json` por script); item craftado mostra nome, descrição, "Único-equipado: Embelezado (2)" e o custo de craft (Centelhas + brasões "a confirmar") | [ ] | |
 | T21 | Tela: seletor "Herói / Mítico" + "Rank 1/6…6/6" + "Forja do Veneno"; rótulo "Mito 4/6 · 328"; resumo do total de brasões das trocas sugeridas por build | [x] | `e91ae2d` (backend T17–T19 em `c8d6570`) |
+| — | **Correções do Craft (A1–A7)**: ver `docs/AUDITORIA-3-CRAFT.md` — fase 1 mede 3 embelezamentos (P-049), fase 2 não troca (P-050), tooltip (P-051) | [ ] | **próxima tarefa** |
 | T22 | **Modo Craft** na tela de Masmorras (decisão do usuário 2026-11-09) — ver desenho abaixo | [x] | `f1c0a98` (backend), UI no Simulator-WoW; **falta validar no simc real (T10)**: conferir que `ilevel=331,crafted_stats=…,embellishment=…` não gera erro no log |
 
 **Decisões do usuário (2026-11-09):** craft é uma 3ª opção da tela de Masmorras ("Masmorras M+ \| Grande

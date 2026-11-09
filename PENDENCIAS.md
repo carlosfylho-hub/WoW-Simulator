@@ -504,6 +504,34 @@ Pendente; exige o simc no Windows. **Fecha com** uma execução de
 comparada com a execução anterior do usuário (base 144.688 → melhor 164.588,
 3 trocas, 22 rodadas).
 
+## 12. Auditoria 3 — Craft e tooltips — 2026-11-09
+
+Diagnóstico e plano completos (com começo de código) em `docs/AUDITORIA-3-CRAFT.md`. **Nada
+implementado ainda.**
+
+### P-049 — Fase 1 do Craft mede conjuntos com 3 embelezamentos — ABERTA (ALTO)
+O simc não impõe o limite de 2 e a fase 1 não chama `constraints.validar`: peças com embelezamento
+embutido foram medidas com 3 efeitos ativos (ganhos inflados: pés 244601, pulsos 244612, cintura
+244606, pescoço 241139, anel 251513). **Fecha com** a fase 1 validando o teto (tarefa A2).
+
+### P-050 — Fase 2 do Craft não sabe "trocar" embelezamento — ABERTA (ALTO)
+Com 2 embelezados equipados, todo teste vira 3 e nada é medido. **Fecha com** a troca do reagente
+(ou da peça embutida) no slot de um embelezado atual (A3).
+
+### P-051 — Tooltip de craft sem atributos, fonte "Drop M+" e slot cru — ABERTA (MÉDIO)
+**Fecha com** a sonda de atributos no simc (`players[i].gear`) e a fonte/slot corretos (A4, A5).
+
+### P-052 — Embelezamentos já usados não são identificados — ABERTA (MÉDIO)
+**Fecha com** `masmorras/embelezados.py` cruzando `bonus_ids` com `embelezamentos.json` (A1).
+
+### P-053 — Informação do .inv aparece como aviso âmbar — ABERTA (BAIXO)
+**Fecha com** `RankingResult.informacoes` separado de `avisos` (A6).
+
+### P-054 — Pendências antigas reunidas — ABERTA
+T10 (validação no jogo, incluindo `embellishment=` no simc real), U6/U7 do redesign, desconto de
+slot nos brasões, Craft Herói e armas, custo da Forja do Veneno, cargas do Catalisador. Tabela em
+`docs/AUDITORIA-3-CRAFT.md` §2.
+
 ## 11. Auditoria das entregas da outra IA — 2026-11-08
 
 ### P-048 — Tooltip com atributos inventados e Aceleração ignorada — FECHADA em 2026-11-09
