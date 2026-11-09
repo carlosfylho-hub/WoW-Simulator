@@ -261,6 +261,7 @@ A fazer:
 | 4 | **T14** Cenários equivalentes na tela (A-04) | [x] | `18c39ae` |
 | 4 | **T15** Higiene: nome de arquivo e threads no cache (A-05, A-06) | [x] | `65e8a23` (A-05), `8e7761a` (A-06) |
 | 4 | **T16** Bloco de encantamentos do AMR fecha P-016 (A-10) | [x] | mapa gerado de BiB real |
+| 5 | **U0–U7** Redesign da interface (abas Masmorras/Perfil/Histórico, tema azul-noite, Top Gear e Droptimizer em "Avançado") | [ ] | plano e checklist próprios em `Simulator-WoW/docs/PLANO-REDESIGN-UI.md` |
 
 ---
 
