@@ -1369,12 +1369,12 @@ Registrar cada resultado em `PENDENCIAS.md`.
 
 | # | Tarefa | Status | Commit |
 | :-: | :--- | :-: | :-- |
-| T17 | `data/trilhas.py`: escada (trilha, rank) ↔ bônus ↔ ilvl a partir de `bonus_ilvl.json`; `custo_upgrade(trilha, rank_de, rank_ate=6) -> {"moeda", "brasoes"}`; `trilha_do_item(bonus_ids)` | [ ] | |
-| T18 | Ranking aceita **trilha + rank + forja** em vez de só `ilvl` (321/328/334/341 viram atalhos). `RankingRequest`: `trilha: "heroi"\|"mito"`, `rank: 1–6`, `forja: bool`; `ilvl` continua aceito (compatibilidade). `montar_opcoes` recebe o bônus | [ ] | |
-| T19 | Custo de upgrade em cada item do resultado: `ItemRanking.trilha`, `rank`, `upgrade` (`{moeda, brasoes, ate: "6/6 (334)"}`); Grande Cofre usa os bônus reais do `.gv`; na tela, coluna "Para 6/6: 60 Mito" | [ ] | |
-| T20 | Embelezamentos: `data/embellishments` ganha `descricao` (mover o texto de `Simulator-WoW/src/data/embellishments.ts` para `dados/derivados/embelezamentos.json` por script); item craftado mostra nome, descrição, "Único-equipado: Embelezado (2)" e o custo de craft (Centelhas + brasões "a confirmar") | [ ] | |
+| T17 | `data/trilhas.py`: escada (trilha, rank) ↔ bônus ↔ ilvl a partir de `bonus_ilvl.json`; `custo_upgrade(trilha, rank_de, rank_ate=6) -> {"moeda", "brasoes"}`; `trilha_do_item(bonus_ids)` | [x] | `c8d6570` |
+| T18 | Ranking aceita **trilha + rank + forja** em vez de só `ilvl` (321/328/334/341 viram atalhos). `RankingRequest`: `trilha: "heroi"\|"mito"`, `rank: 1–6`, `forja: bool`; `ilvl` continua aceito (compatibilidade). `montar_opcoes` recebe o bônus | [x] | `c8d6570` |
+| T19 | Custo de upgrade em cada item do resultado: `ItemRanking.trilha`, `rank`, `upgrade` (`{moeda, brasoes, ate: "6/6 (334)"}`); Grande Cofre usa os bônus reais do `.gv`; na tela, coluna "Para 6/6: 60 Mito" | [x] | `c8d6570` |
+| T20 ✔ `f1c0a98` | Embelezamentos: `data/embellishments` ganha `descricao` (mover o texto de `Simulator-WoW/src/data/embellishments.ts` para `dados/derivados/embelezamentos.json` por script); item craftado mostra nome, descrição, "Único-equipado: Embelezado (2)" e o custo de craft (Centelhas + brasões "a confirmar") | [ ] | |
 | T21 | Tela: seletor "Herói / Mítico" + "Rank 1/6…6/6" + "Forja do Veneno"; rótulo "Mito 4/6 · 328"; resumo do total de brasões das trocas sugeridas por build | [x] | `e91ae2d` (backend T17–T19 em `c8d6570`) |
-| T22 | **Modo Craft** na tela de Masmorras (decisão do usuário 2026-11-09) — ver desenho abaixo | [ ] | |
+| T22 | **Modo Craft** na tela de Masmorras (decisão do usuário 2026-11-09) — ver desenho abaixo | [x] | `f1c0a98` (backend), UI no Simulator-WoW; **falta validar no simc real (T10)**: conferir que `ilevel=331,crafted_stats=…,embellishment=…` não gera erro no log |
 
 **Decisões do usuário (2026-11-09):** craft é uma 3ª opção da tela de Masmorras ("Masmorras M+ \| Grande
 Cofre \| Craft"); **80 Brasões Míticos por craft está confirmado** (sem rótulo "a confirmar").
