@@ -266,10 +266,13 @@ def _parametros_canonicos(
     extra_args: Sequence[str],
     max_time: int | None = None,
 ) -> dict[str, Any]:
+    # A-06: ``threads`` NÃO entra na chave de cache. O número de threads não muda
+    # o DPS (só o tempo de parede), então reaproveitar o JSON de 1 thread para
+    # uma rodada com N threads é correto. ``montar_comando`` continua recebendo
+    # ``threads`` para a execução.
     return {
         "iterations": int(iterations),
         "fight_style": fight_style,
-        "threads": threads,
         "target_error": target_error,
         "desired_targets": desired_targets,
         "extra_args": list(extra_args),

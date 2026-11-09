@@ -130,12 +130,20 @@ Nenhum bloqueio ativo. O binário foi compilado a partir do fonte `12.1.5.70783`
 | **Correção** | Cada lote mantém a própria base; o DPS dos candidatos é reescalado para a base do primeiro lote, de modo que `100*(dps-base)/base` passe a medir o delta contra a base do próprio lote. |
 | **Teste** | `tests/test_chunks_base.py` com simulador cujo `base_dps` muda por lote: sem a correção o 2º lote dava +20%; agora todos dão +10%. |
 
-### T15 — Higiene: nome de arquivo e threads no cache (A-05, A-06) — **[~] PARCIAL em 2026-11-08**
+### T15 — Higiene: nome de arquivo e threads no cache (A-05, A-06) — **RESOLVIDA em 2026-11-09**
 
 | Campo | Detalhe |
 | :--- | :--- |
 | **Entregue (A-05)** | `topgear_api._nome_arquivo` sanitiza o nome do `.simc` salvo (só `[A-Za-z0-9_-]`, fallback `job`) — mesmo cuidado do `droptimizer/export.py::nome_do_arquivo`. `tests/test_topgear_nome_arquivo.py`. |
-| **Pendente (A-06)** | Decidir com o usuário se `threads` sai da chave de cache (`simc_runner.chave_cache`). Não alterado para não mudar a política de cache sem decisão. |
+| **Decisão (A-06)** | `threads` **sai** da chave de cache (`simc_runner._parametros_canonicos` deixa de incluí-lo); continua sendo passado ao simc em `montar_comando`. Teste: `tests/test_cache_threads.py`. |
+| **Impacto** | Rodar com 1 ou N threads reaproveita o mesmo resultado em cache; threads não mudam o DPS, só o tempo de parede. |
+
+### T14 — Cenários equivalentes na tela (A-04) — **RESOLVIDA em 2026-11-09**
+
+| Campo | Detalhe |
+| :--- | :--- |
+| **Decisão** | No topo, só **"M+ e Delves"** (`dungeon_slice`) e **"Chefe único"** (`patchwerk`). Os estilos que diferem no simc (`hectic_add_cleave`, `light_movement`, `heavy_movement`, `casting_patchwerk`, `cleave_add`, `helter_skelter`) e `delve_boss` ficam em **"Mais cenários"** (recolhido). `raid` e `cleave_aoe` saem da lista. |
+| **Retrocompatibilidade** | API e preferências salvas continuam aceitando valores antigos, mapeados para o equivalente (`raid/mplus/cleave_aoe/delve_rooms → dungeon_slice`; `delve_boss → patchwerk`) por `normalizarCenario`. O backend (`estilo_de_luta`) já faz esse mapeamento. |
 
 ### T16 — Bloco de encantamentos do AMR (A-10) — **RESOLVIDA em 2026-11-08**
 
