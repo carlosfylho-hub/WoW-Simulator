@@ -1342,6 +1342,45 @@ Registrar cada resultado em `PENDENCIAS.md`.
 
 ---
 
+## 8B. Fase 6 — trilhas, brasões e embelezamentos (pedido de 2026-11-09)
+
+> Pedido do usuário: escolher o nível pelo **nome** (Herói/Mítico + rank), saber **quantos brasões**
+> custa upar o item que vem do bônus roll/Grande Cofre e, para itens **craftados/embelezados**, o custo
+> de craft e o **nome + descrição** do embelezamento. Regra P1 vale aqui: número de brasão só de fonte
+> verificada; o que não tiver fonte aparece rotulado "a confirmar".
+
+### Fatos verificados (2026-11-09)
+
+| Fato | Valor | Fonte |
+| :--- | :--- | :--- |
+| Escada de níveis | Herói 1/6–6/6 = 305, 308, 311, 315, 318, 321 · Mito 1/6–6/6 = 318, 321, 324, 328, 331, 334 | `dados/derivados/bonus_ilvl.json` (Raidbots `bonus-upgrade-sets`, bônus 12841–12846 e 12849–12854) = Method.gg |
+| Forja do Veneno | Herói 6/6 + forja = 328 (12848) · Mito 6/6 + forja = 341 (12856) | `bonus_ilvl.json` |
+| Custo de upgrade | **20 brasões da trilha por etapa** (Herói usa Hero Mistcrest, Mito usa Myth Mistcrest); de r/6 a 6/6 = `(6 − r) × 20` | Icy Veins, "These Five Mistcrests…" (S2) |
+| Craft com Myth Mistcrest | Item sai em 318–331 conforme a qualidade | warcraft.wiki.gg/wiki/Myth_Mistcrest |
+| Centelhas de Marés por craft | 2 (armadura/1 mão) · 4 (2 mãos) | warcraft.wiki.gg (Spark of Tides) = `craft_receitas_s2.json` |
+| **Brasões por craft** | `craft_receitas_s2.json` diz **80** — **sem fonte primária**: mostrar como "a confirmar" até o usuário confirmar no jogo | — |
+| Custo da Forja do Veneno | usa *Ascendant Venomstones*; quantidade **desconhecida** | Method.gg cita, sem número |
+| Desconto de slot | existe no jogo; **não modelado** (o cálculo mostra o custo cheio) | — |
+
+**Atenção:** `dados/guia_economia_brasoes_e_upgrades_s2.md` (escrito por IA) erra a escada (diz Herói
+305–318, Mito 318–331) e mistura moedas. **Não usar como fonte de números**; a tabela acima prevalece.
+
+### Tarefas
+
+| # | Tarefa | Status | Commit |
+| :-: | :--- | :-: | :-- |
+| T17 | `data/trilhas.py`: escada (trilha, rank) ↔ bônus ↔ ilvl a partir de `bonus_ilvl.json`; `custo_upgrade(trilha, rank_de, rank_ate=6) -> {"moeda", "brasoes"}`; `trilha_do_item(bonus_ids)` | [ ] | |
+| T18 | Ranking aceita **trilha + rank + forja** em vez de só `ilvl` (321/328/334/341 viram atalhos). `RankingRequest`: `trilha: "heroi"\|"mito"`, `rank: 1–6`, `forja: bool`; `ilvl` continua aceito (compatibilidade). `montar_opcoes` recebe o bônus | [ ] | |
+| T19 | Custo de upgrade em cada item do resultado: `ItemRanking.trilha`, `rank`, `upgrade` (`{moeda, brasoes, ate: "6/6 (334)"}`); Grande Cofre usa os bônus reais do `.gv`; na tela, coluna "Para 6/6: 60 Mito" | [ ] | |
+| T20 | Embelezamentos: `data/embellishments` ganha `descricao` (mover o texto de `Simulator-WoW/src/data/embellishments.ts` para `dados/derivados/embelezamentos.json` por script); item craftado mostra nome, descrição, "Único-equipado: Embelezado (2)" e o custo de craft (Centelhas + brasões "a confirmar") | [ ] | |
+| T21 | Tela: seletor "Herói / Mítico" + "Rank 1/6…6/6" + "Forja do Veneno"; rótulo "Mito 4/6 · 328"; resumo do total de brasões das trocas sugeridas por build | [ ] | |
+
+**Aceite:** testes da escada (os 12 pares batem com `bonus_ilvl.json`), custo `(6 − r) × 20`, ilvl 318
+ambíguo exige a trilha, request antigo com `ilvl=341` continua funcionando; tsc limpo; nenhum número de
+brasão de craft sem o rótulo "a confirmar".
+
+---
+
 ## 9. Desvios encontrados
 
 *(Quem implementar: anote aqui toda divergência entre este documento e o código real,
