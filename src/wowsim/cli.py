@@ -16,7 +16,7 @@ from rich.table import Table
 
 from . import simc_runner as sr
 from .gen import profilesets
-from .llm import montar_contexto, resumir, resumo_deterministico
+from .llm import montar_contexto, resumo_deterministico
 from .models import Personagem, Variacao
 from .parser.addon import SLOTS, ErroParseAddon, parse_texto
 from .report import render as render_relatorio
@@ -225,7 +225,6 @@ def _executar_lote(
     iterations: int,
     rodar: bool,
     fight_style: str = "DungeonSlice",
-    sem_llm: bool = True,
 ) -> None:
     caminho = profilesets.escrever_arquivo(personagem, variacoes, destino)
     estimativa = profilesets.estimar_segundos(len(variacoes) - 1, iterations)
@@ -234,8 +233,6 @@ def _executar_lote(
         f"{len(variacoes) - 1} variações + base | "
         f"estimativa ~{estimativa:.0f}s com {iterations} iterações"
     )
-    if sem_llm:
-        console.print("[dim]Resumo por LLM desligado (--sem-llm).[/dim]")
 
     if not rodar:
         tabela = Table(title="Variações geradas", header_style="bold")
@@ -294,21 +291,10 @@ def _executar_lote(
     )
     console.print(f"Relatório: [bold]{caminho_md}[/bold] e [bold]{caminho_html}[/bold]")
 
-    if not sem_llm:
-        contexto = montar_contexto(
-            resultado, variacoes, iterations=iterations, fight_style=fight_style
-        )
-        texto = resumir(contexto)
-        if texto:
-            console.print(Panel(texto, title="Resumo DeepSeek", style="cyan"))
-        else:
-            console.print(
-                Panel(
-                    resumo_deterministico(contexto),
-                    title="Resumo determinístico — LLM indisponível ou descartado",
-                    style="yellow",
-                )
-            )
+    contexto = montar_contexto(
+        resultado, variacoes, iterations=iterations, fight_style=fight_style
+    )
+    console.print(Panel(resumo_deterministico(contexto), title="Resumo", style="cyan"))
 
 
 def _destino(nome: str) -> Path:
@@ -435,7 +421,6 @@ def tudo(
     nivel: int = typer.Option(341, "--nivel"),
     runas: Optional[str] = typer.Option(None, "--runas"),
     rodar: bool = typer.Option(False, "--rodar"),
-    sem_llm: bool = typer.Option(True, "--sem-llm/--com-llm"),
 ) -> None:
     """Gera todas as categorias com limite de variações."""
     personagem = _carregar_personagem(addon)
@@ -453,7 +438,6 @@ def tudo(
         destino=_destino("tudo.simc"),
         iterations=iterations,
         rodar=rodar,
-        sem_llm=sem_llm,
     )
 
 

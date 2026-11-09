@@ -74,6 +74,22 @@ def _specs(bloco: str) -> dict[int, str]:
     return saida
 
 
+def _spec_nomes(bloco: str) -> dict[int, str]:
+    """Índice AMR -> token de spec do simc (``DruidBalance`` -> ``balance``)."""
+    saida: dict[int, str] = {}
+    for _spec_blizzard, indice, comentario in re.findall(
+        r"\[(\d+)\]\s*=\s*(\d+),?\s*--\s*(\w+)", bloco
+    ):
+        for rotulo in sorted(CLASSES, key=len, reverse=True):
+            if comentario.startswith(rotulo):
+                resto = comentario[len(rotulo):]
+                token = re.sub(r"(?<!^)(?=[A-Z])", "_", resto).lower()
+                if token:
+                    saida[int(indice)] = token
+                break
+    return saida
+
+
 def _slots(bloco: str) -> list[int]:
     return [int(valor) for valor in re.findall(r"\d+", bloco)]
 
@@ -102,6 +118,7 @@ def main(argv: list[str] | None = None) -> int:
     race_ids = _mapa_nome_id(_bloco(texto, "RaceIds"))
     faction_ids = _mapa_nome_id(_bloco(texto, "FactionIds"))
     specs = _specs(_bloco(texto, "SpecIds"))
+    spec_nomes = _spec_nomes(_bloco(texto, "SpecIds"))
     slots = _slots(_bloco(texto, "SlotIds"))
 
     if not specs or not class_ids:
@@ -118,6 +135,7 @@ def main(argv: list[str] | None = None) -> int:
     versoes = mapa.setdefault("versoes", {})
     versoes[versao] = {
         "specs": {str(indice): classe for indice, classe in sorted(specs.items())},
+        "spec_nomes": {str(indice): nome for indice, nome in sorted(spec_nomes.items())},
         "racas": {str(rid): nome for rid, nome in sorted(race_ids.items())},
         "faccoes": {str(fid): nome for fid, nome in sorted(faction_ids.items())},
         "classes": {str(cid): nome for cid, nome in sorted(class_ids.items())},

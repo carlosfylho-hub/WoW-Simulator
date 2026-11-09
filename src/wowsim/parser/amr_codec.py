@@ -116,11 +116,24 @@ def _limpo(texto: str, campo: str) -> str:
 def cabecalho_do_modelo(linha_modelo: str) -> list[str]:
     """Extrai as 15 primeiras partes (identidade, spec, talentos, arvore, .qN)."""
     partes_dolar = linha_modelo.strip().split("$")
+    partes = partes_dolar[1].split(";") if len(partes_dolar) >= 2 else []
+    sN = [p for p in partes if p.startswith(".s") and p[2:].isdigit()]
+    if len(sN) > 1 or ";.inv" in linha_modelo:
+        # V-6: o export do PERSONAGEM tem blocos .sN (specs) antes do .q.
+        raise ValueError(
+            "Isso parece o export do personagem (addon AMR → Exportar). Cole a string de "
+            "Best in Bags que o site do AMR gera (Best in Bags → exportar para o addon)."
+        )
     if len(partes_dolar) != 3:
-        raise ValueError("Modelo invalido: o addon exige exatamente dois '$'.")
-    partes = partes_dolar[1].split(";")
+        raise ValueError(
+            "String do AMR inválida: a string de Best in Bags tem exatamente dois '$'. "
+            "Copie de novo do site do AMR (Best in Bags → exportar para o addon)."
+        )
     if len(partes) <= INICIO_ITENS or not partes[INICIO_ITENS - 1].startswith(".q"):
-        raise ValueError("Modelo invalido: esperado '.qN' na posicao 15.")
+        raise ValueError(
+            "String do AMR inválida: não é uma string de Best in Bags (falta o bloco '.qN'). "
+            "Copie de novo do site do AMR."
+        )
     return partes[:INICIO_ITENS]
 
 def linha_importacao(linha_modelo: str, itens: list[ItemAmr], *, setup_id: str,

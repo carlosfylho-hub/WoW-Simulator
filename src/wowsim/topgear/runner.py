@@ -232,17 +232,22 @@ def preflight(
         )
         lido = sr.read_results(execucao.json_path)
         base = lido.base.dps if lido.base is not None else None
-        if base is None:
+        avisos = (*lido.avisos, *execucao.avisos)
+        if not base:
+            linhas = [l.strip() for l in texto.splitlines()]
+            dica = ""
+            if not any(l.startswith("talents=") for l in linhas):
+                dica = " O perfil está sem talentos: cole o export do /simc no Perfil."
+            elif not any(l.startswith("spec=") for l in linhas):
+                dica = " O perfil está sem especialização (spec=)."
             return Preflight(
                 ok=False,
                 dps=None,
                 duracao_s=execucao.duracao_s,
-                erro="O simc não devolveu o DPS da base.",
-                avisos=lido.avisos,
+                erro="O simc não devolveu o DPS da base." + dica,
+                avisos=avisos,
             )
-        return Preflight(
-            ok=True, dps=base, duracao_s=execucao.duracao_s, avisos=lido.avisos
-        )
+        return Preflight(ok=True, dps=base, duracao_s=execucao.duracao_s, avisos=avisos)
     except sr.SimcError as exc:
         return Preflight(
             ok=False, dps=None, duracao_s=time.monotonic() - inicio, erro=str(exc)

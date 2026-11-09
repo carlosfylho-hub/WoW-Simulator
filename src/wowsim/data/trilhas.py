@@ -92,15 +92,57 @@ def degrau_dos_bonus(bonus_ids: Iterable[int]) -> Degrau | None:
     return None
 
 
-def custo_upgrade(d: Degrau | None) -> dict | None:
-    """Brasões para levar o item do degrau atual ao 6/6 da mesma trilha."""
+def degrau_no_slot(d: Degrau, slot: str | None) -> Degrau:
+    """A forja só existe em arma, berloque e colar; nos outros slots vale o 6/6."""
+    from . import regras
+
+    if d.forja and not regras.slot_aceita_forja(slot):
+        return degrau(d.trilha, 6)
+    return d
+
+
+def custo_upgrade(
+    d: Degrau | None, *, slot: str | None = None, marcas: dict[str, int] | None = None
+) -> dict | None:
+    """Brasões para levar o item do degrau atual ao 6/6 da mesma trilha.
+
+    Desconto da marca do slot (WowCarry): as etapas até o maior nível que o
+    personagem já teve naquele slot saem sem brasão. ``marcas`` vem de
+    ``slot_high_watermarks`` do export do SimC; sem ele, o custo é o cheio.
+    """
+    from . import regras
+
     if d is None:
         return None
-    etapas = max(0, 6 - d.rank)
+    por_etapa = int(regras.upgrade().get("brasoes_por_etapa") or BRASOES_POR_ETAPA)
     topo = degrau(d.trilha, 6)
+    if d.forja:  # V-3: forjado já está no máximo
+        return {
+            "moeda": MOEDA[d.trilha], "brasoes": 0, "etapas": 0, "etapas_gratis": 0,
+            "ate": f"{d.rotulo} ({d.ilvl}) — máximo", "forja": regras.custo_forja(),
+            "nota": "Forjado: não sobe mais.",
+        }
+    marca = (marcas or {}).get(slot) if slot else None
+    pagas = gratis = 0
+    for r in range(d.rank + 1, 7):
+        if marca is not None and degrau(d.trilha, r).ilvl <= marca:
+            gratis += 1
+        else:
+            pagas += 1
+    if marca is None:
+        nota = "Custo cheio (o export não trouxe a marca de nível deste slot)."
+    elif gratis:
+        nota = f"{gratis} etapa(s) sem brasão: você já teve nível {marca} neste slot."
+    else:
+        nota = f"Sem desconto: a marca do slot ({marca}) está abaixo das próximas etapas."
+    desconto = regras.upgrade().get("desconto_bando_pct")
+    if desconto and pagas:
+        nota += f" Com a conquista da trilha no bando, cada etapa paga custa {desconto}% menos."
     return {
         "moeda": MOEDA[d.trilha],
-        "brasoes": etapas * BRASOES_POR_ETAPA,
-        "etapas": etapas,
+        "brasoes": pagas * por_etapa,
+        "etapas": pagas + gratis,
+        "etapas_gratis": gratis,
         "ate": f"{ROTULO[d.trilha]} 6/6 ({topo.ilvl})",
+        "nota": nota,
     }

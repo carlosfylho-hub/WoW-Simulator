@@ -171,6 +171,26 @@ class SimcExecucao:
     info: SimcInfo
     stdout_tail: str = ""
     stderr_tail: str = ""
+    avisos: tuple[str, ...] = ()
+
+
+# V-2: linhas em que o simc IGNORA parte do perfil (o número sairia sem o efeito)
+# e linhas em que ele mesmo diz que o resultado não é confiável.
+_IGNORADO = ("unknown embellishment", "unknown item bonus", "has no effect, ignoring")
+_NAO_CONFIAVEL = ("does not support fight style",)
+
+
+def problemas_do_log(texto: str) -> tuple[list[str], list[str]]:
+    """(erros, avisos) lidos da saída do simc; linhas repetidas aparecem uma vez."""
+    erros: list[str] = []
+    avisos: list[str] = []
+    for linha in dict.fromkeys(l.strip() for l in texto.splitlines()):
+        baixa = linha.lower()
+        if any(p in baixa for p in _IGNORADO):
+            erros.append(linha)
+        elif any(p in baixa for p in _NAO_CONFIAVEL):
+            avisos.append(linha)
+    return erros, avisos
 
 
 @dataclass(frozen=True)
@@ -494,6 +514,12 @@ def run_simc(
 
     stdout_tail = _tail(stdout_text)
     stderr_tail = _tail(stderr_text)
+    erros_log, avisos_log = problemas_do_log(stdout_text + "\n" + stderr_text)
+    if erros_log:
+        raise SimcFalhou(
+            "O simc ignorou parte do perfil (o resultado sairia sem esse efeito): "
+            + " | ".join(erros_log[:3])
+        )
 
     if returncode != 0:
         raise SimcFalhou(
@@ -545,6 +571,7 @@ def run_simc(
         info=info,
         stdout_tail=stdout_tail,
         stderr_tail=stderr_tail,
+        avisos=tuple(avisos_log),
     )
 
 

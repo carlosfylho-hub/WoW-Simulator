@@ -50,13 +50,21 @@ def montar_opcoes(
         bonus = NIVEL_PARA_BONUS[ilvl]
     conjuntos: dict[str, Conjunto] = {}
     opcoes: dict[str, Opcao] = {}
+    from ..data import trilhas as _trilhas
+
+    d_pedido = _trilhas.degrau_dos_bonus([bonus])
     for item in itens:
         for slot in SLOTS_DUPLOS.get(item.slot, (item.slot,)):
             if base.item_id(slot) == item.item_id:
                 continue
+            # A forja só vale em arma/berloque/colar; nos outros slots, 6/6.
+            b_slot, i_slot = bonus, ilvl
+            if d_pedido is not None:
+                d_slot = _trilhas.degrau_no_slot(d_pedido, slot)
+                b_slot, i_slot = d_slot.bonus_id, d_slot.ilvl
             cru = Candidato(
-                slot=slot, item_id=item.item_id, bonus_id=bonus, bonus_ids=[bonus],
-                ilvl=ilvl, fonte=f"mplus:{item.masmorra}", nome_pt=item.nome_pt,
+                slot=slot, item_id=item.item_id, bonus_id=b_slot, bonus_ids=[b_slot],
+                ilvl=i_slot, fonte=f"mplus:{item.masmorra}", nome_pt=item.nome_pt,
             )
             variantes = [(cru, False)]
             gemeo = gemeo_catalisado(cru, classe)

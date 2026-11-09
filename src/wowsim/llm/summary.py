@@ -1,25 +1,18 @@
-"""Optional DeepSeek summary.
+"""Resumo determinístico do resultado (sem LLM).
 
-The model receives only numbers that were already calculated. The response is
-accepted only if every number in it exists in the context; otherwise the
-deterministic summary is used. The code never calculates inside this module.
+A integração com a DeepSeek foi removida em 2026-11-09 (decisão do usuário): o
+resumo é montado só com os números já medidos pelo simc. ``validar_numeros``
+fica como verificação de que um texto não traz número fora do contexto.
 """
 
 from __future__ import annotations
 
-import os
 import re
 from typing import Any, Iterable
 
 from ..gen import profilesets
 from ..models import Variacao
 from ..simc_runner import ResultadoDps, SimcResultado
-
-PROMPT_SISTEMA = (
-    "Você só reescreve os números fornecidos. Não calcule, não estime e não invente. "
-    "Se um dado não estiver no JSON, escreva 'não informado'. "
-    "Responda em PT-BR, no máximo 10 linhas, sem tabelas."
-)
 
 PISO_ERRO = 0.15
 _NUMERO_RE = re.compile(r"-?\d+(?:[.,]\d+)?")
@@ -164,50 +157,6 @@ def resumo_deterministico(contexto: dict[str, Any]) -> str:
         linhas.append(f"Empates por erro: {', '.join(empatados[:6])}.")
     linhas.append("Números medidos pelo SimulationCraft; nenhum valor foi estimado.")
     return "\n".join(linhas)
-
-
-def resumir(
-    contexto: dict[str, Any],
-    *,
-    cliente: Any | None = None,
-    modelo: str = "deepseek-chat",
-) -> str | None:
-    """Ask DeepSeek for a summary. Returns None when unavailable or invalid."""
-    if cliente is None:
-        chave = os.environ.get("DEEPSEEK_API_KEY")
-        if not chave:
-            return None
-        try:
-            from openai import OpenAI
-        except ImportError:
-            return None
-        cliente = OpenAI(api_key=chave, base_url="https://api.deepseek.com")
-
-    import json
-
-    mensagens = [
-        {"role": "system", "content": PROMPT_SISTEMA},
-        {
-            "role": "user",
-            "content": "Resuma este JSON em no máximo 10 linhas:\n"
-            + json.dumps(contexto, ensure_ascii=False),
-        },
-    ]
-    try:
-        resposta = cliente.chat.completions.create(
-            model=modelo,
-            messages=mensagens,
-            temperature=0,
-        )
-        texto = (resposta.choices[0].message.content or "").strip()
-    except Exception:
-        return None
-
-    if not texto or len(texto.splitlines()) > 10:
-        return None
-    if validar_numeros(texto, contexto):
-        return None
-    return texto
 
 
 def estimativa_do_resumo(n_variacoes: int) -> float:

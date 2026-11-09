@@ -16,7 +16,7 @@ Todos os números vêm do **SimulationCraft**. Nada é estimado pelo código nem
 | 3 | catálogo | concluída — nomes, bônus, encantos, gemas, runas e loot |
 | 4 | gerador de variações | concluída — 7 categorias e teste com simc real |
 | 5 | relatório | concluída — Markdown e HTML com empate por erro, origem e limites |
-| 6 | resumo opcional com DeepSeek | concluída — opcional, validado número a número |
+| 6 | resumo do resultado | determinístico; a DeepSeek foi removida em 2026-11-09 |
 | 6b | verificação externa | concluída — build, itens, runas, bônus, Catalisador e patch |
 | 7 | interface unificada + app desktop | concluída — FastAPI serve o React, SimC real via API, `.exe` pywebview |
 | 8 | Top Gear (estilo Raidbots) | concluída — pools, busca em estágios, API `/api/topgear`, aba no React e gate de dados |
@@ -92,11 +92,11 @@ wowsim topgear fixtures/pyrogalth.simc --catalisador --max-catalisados 2
 python scripts/atualizar_dados.py
 ```
 
-## Resumo opcional com DeepSeek
+## Resumo do resultado
 
-`--sem-llm` é o padrão e sempre funciona. Com `--com-llm`, o resumo recebe **somente** o JSON já calculado, com prompt restritivo. Depois da resposta, todo número é comparado com o contexto; se houver um número que não exista lá, o texto é descartado e o resumo determinístico entra no lugar.
-
-A chave fica em `DEEPSEEK_API_KEY` e nunca no código. O pacote `openai` é opcional: `pip install -e ".[llm]"`. Sem chave ou sem pacote, o fallback determinístico é usado sem quebrar o fluxo.
+O resumo é montado só com os números que o SimulationCraft mediu (determinístico). A integração
+com a DeepSeek (`--com-llm`, `DEEPSEEK_API_KEY`, pacote `openai`) foi **removida em 2026-11-09**
+por decisão do usuário; nenhuma chave de API é usada pelo simulador.
 
 ## Gerador de variações
 

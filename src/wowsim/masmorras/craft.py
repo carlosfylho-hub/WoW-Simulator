@@ -25,7 +25,65 @@ from .catalogo import ItemDeMasmorra
 ILVL_CRAFT = 331
 BRASOES_CRAFT = 80
 CENTELHAS = 2
+CENTELHAS_DUAS_MAOS = 4
 MASMORRA_CRAFT = "Craft"
+MOEDA_CRAFT = {"heroi": "Brasão de Herói", "mito": "Brasão Mítico"}
+
+
+def nivel_craft(trilha: str = "mito") -> int:
+    """Nível máximo do craft com 80 brasões da trilha (Icy Veins: Herói 318, Mito 331)."""
+    from ..data import regras
+
+    tabela = regras.craft().get("ilvl_max") or {"heroi": 318, "mito": 331}
+    return int(tabela.get(trilha) or ILVL_CRAFT)
+
+
+# Armas: tipo pelo texto do slot da receita -> (slot do simc, mãos).
+_TIPOS_ARMA = (
+    ("escudo", "escudo", "off_hand", "1h"),
+    ("mão secundária", "foco", "off_hand", "1h"),
+    ("arma de fogo", "arma_fogo", "main_hand", "2h"),
+    ("cajado", "cajado", "main_hand", "2h"),
+    ("haste", "arma_haste", "main_hand", "2h"),
+    ("2m", "arma_2m", "main_hand", "2h"),
+    ("adaga", "adaga", "main_hand", "1h"),
+    ("glaive", "glaive", "main_hand", "1h"),
+    ("espada", "espada", "main_hand", "1h"),
+    ("machado", "machado", "main_hand", "1h"),
+    ("maça", "maca", "main_hand", "1h"),
+    ("punho", "punho", "main_hand", "1h"),
+)
+# Proficiência de armas por classe (regra fixa do jogo).
+ARMAS_DA_CLASSE = {
+    "deathknight": {"espada", "machado", "maca", "arma_haste", "arma_2m"},
+    "demonhunter": {"glaive", "espada", "machado", "punho", "adaga"},
+    "druid": {"adaga", "maca", "cajado", "arma_haste", "punho", "foco"},
+    "evoker": {"adaga", "espada", "machado", "maca", "cajado", "punho", "foco"},
+    "hunter": {"arma_fogo", "arma_haste", "cajado", "espada", "machado", "adaga", "punho", "arma_2m"},
+    "mage": {"adaga", "espada", "cajado", "foco"},
+    "monk": {"espada", "machado", "maca", "arma_haste", "cajado", "punho"},
+    "paladin": {"espada", "machado", "maca", "arma_haste", "escudo", "arma_2m"},
+    "priest": {"adaga", "maca", "cajado", "foco"},
+    "rogue": {"adaga", "espada", "machado", "maca", "punho"},
+    "shaman": {"adaga", "machado", "maca", "cajado", "punho", "escudo", "foco"},
+    "warlock": {"adaga", "espada", "cajado", "foco"},
+    "warrior": {"adaga", "espada", "machado", "maca", "arma_haste", "cajado", "punho", "escudo", "arma_2m"},
+}
+_LISTAS_ARMAS = [
+    ("ferraria", "armas_uma_mao"), ("ferraria", "armas_duas_maos"), ("ferraria", "escudos"),
+    ("escrivania", "armas"), ("escrivania", "maos_secundarias"), ("engenharia", "armas_de_fogo"),
+]
+
+
+def tipo_da_arma(texto: str | None) -> tuple[str, str, str] | None:
+    """(tipo, slot, mãos) pelo texto da receita; None se não for arma de combate."""
+    t = (texto or "").lower()
+    if "mira" in t:
+        return None
+    for marca, tipo, slot, maos in _TIPOS_ARMA:
+        if marca in t:
+            return tipo, slot, maos
+    return None
 
 # IDs de atributo do simc para crafted_stats (stat_e: crit 32, haste 36, vers 40, mastery 49).
 ID_STAT = {"crit": 32, "haste": 36, "versatility": 40, "mastery": 49}
@@ -50,8 +108,9 @@ class ItemCraft:
     item_id: int
     nome_pt: str | None
     nome_en: str | None
-    slot: str                 # interno: head, finger, back...
+    slot: str                 # interno: head, finger, back, main_hand, off_hand
     embutido: bool            # já vem com embelezamento (não aceita outro)
+    maos: str | None = None   # armas: "1h" ou "2h"
 
 
 @dataclass(frozen=True)
@@ -115,8 +174,8 @@ def _cabe(emb: Embelezamento, slot: str) -> bool:
     return False  # "arma": o modo Craft não monta armas
 
 
-def itens_craftaveis(tipo_armadura: str | None) -> list[ItemCraft]:
-    """Peças craftáveis com id para o tipo de armadura, mais anéis e colar."""
+def itens_craftaveis(tipo_armadura: str | None, classe: str | None = None) -> list[ItemCraft]:
+    """Peças craftáveis com id para o tipo de armadura, anéis, colar e (com a classe) armas."""
     receitas = catalog._dados("craft_receitas_s2.json").get("receitas", {})
     listas = _LISTAS_ARMADURA.get(tipo_armadura or "", []) + _LISTAS_ACESSORIOS
     embutidos = {
@@ -139,6 +198,22 @@ def itens_craftaveis(tipo_armadura: str | None) -> list[ItemCraft]:
                 int(item_id), item.get("nome_pt") or emb.get("nome_pt"), item.get("nome_en"),
                 slot, bool(emb.get("embutido")),
             )
+    permitidas = ARMAS_DA_CLASSE.get(classe or "", set())
+    for prof, chave in _LISTAS_ARMAS if permitidas else []:
+        for item in receitas.get(prof, {}).get(chave, []) or []:
+            item_id = item.get("id")
+            if not item_id or item.get("pvp") or "competitor" in (item.get("nome_en") or "").lower():
+                continue
+            if "Rara" in str(item.get("qualidade") or "") or "Incomum" in str(item.get("qualidade") or ""):
+                continue  # só épicos sobem com Centelha e brasões
+            tipo = tipo_da_arma(item.get("slot") or item.get("tipo"))
+            if tipo is None or tipo[0] not in permitidas:
+                continue
+            emb = embutidos.get(item_id, {})
+            saida[(item_id, tipo[1])] = ItemCraft(
+                int(item_id), item.get("nome_pt") or emb.get("nome_pt"), item.get("nome_en"),
+                tipo[1], bool(emb.get("embutido") or item.get("embelezado_embutido")), tipo[2],
+            )
     return sorted(saida.values(), key=lambda i: (i.slot, i.item_id))
 
 
@@ -146,12 +221,16 @@ def _nome(item_id: int, slot: str, par: tuple[str, str], emb: str | None = None)
     return f"f_{item_id}_{slot}_{par[0]}_{par[1]}" + (f"_e_{emb}" if emb else "")
 
 
-def candidato(item: ItemCraft, slot: str, par: tuple[str, str], emb: Embelezamento | None = None) -> Candidato:
+def candidato(
+    item: ItemCraft, slot: str, par: tuple[str, str], emb: Embelezamento | None = None,
+    ilvl: int = ILVL_CRAFT,
+) -> Candidato:
     return Candidato(
         slot=slot,
         item_id=item.item_id,
-        ilvl=ILVL_CRAFT,
-        ilevel=ILVL_CRAFT,
+        ilvl=ilvl,
+        ilevel=ilvl,
+        tipo_arma=item.maos or "desconhecido",
         crafted_stats=[ID_STAT[par[0]], ID_STAT[par[1]]],
         embelezamento_simc=emb.token_simc if emb else None,
         embelezamento=item.embutido or emb is not None,
@@ -162,8 +241,21 @@ def candidato(item: ItemCraft, slot: str, par: tuple[str, str], emb: Embelezamen
     )
 
 
+def _troca_arma(base: Conjunto, item: ItemCraft, cand: Candidato) -> Conjunto | None:
+    """Arma craftada no conjunto, respeitando 1 mão + secundária x 2 mãos."""
+    tem_secundaria = base.itens.get("off_hand") is not None
+    if item.maos == "2h":
+        itens = dict(base.itens)
+        itens["main_hand"] = cand
+        itens.pop("off_hand", None)
+        return base.model_copy(update={"itens": itens})
+    if not tem_secundaria:
+        return None  # usa 2 mãos hoje: 1 mão ou secundária sozinha não fecham o par
+    return base.com_troca(item.slot, cand)
+
+
 def montar_opcoes_craft(
-    base: Conjunto, itens: list[ItemCraft]
+    base: Conjunto, itens: list[ItemCraft], ilvl: int = ILVL_CRAFT
 ) -> tuple[
     dict[str, Conjunto],
     dict[str, Opcao],
@@ -178,8 +270,15 @@ def montar_opcoes_craft(
         for slot in SLOTS_DUPLOS.get(item.slot, (item.slot,)):
             for par in PARES:
                 nome = _nome(item.item_id, slot, par)
-                conjuntos[nome] = base.com_troca(slot, candidato(item, slot, par))
-                opcoes[nome] = Opcao(nome, dm, slot, False, ilvl=ILVL_CRAFT)
+                cand = candidato(item, slot, par, ilvl=ilvl)
+                if item.maos:
+                    conj = _troca_arma(base, item, cand)
+                    if conj is None:
+                        continue
+                else:
+                    conj = base.com_troca(slot, cand)
+                conjuntos[nome] = conj
+                opcoes[nome] = Opcao(nome, dm, slot, False, ilvl=ilvl)
                 meta[nome] = (item, par, slot)
     return conjuntos, opcoes, meta
 
@@ -261,9 +360,10 @@ def rodar_craft(
     it_refino: int,
     max_refino: int = 24,
     sondar=None,
+    ilvl: int = ILVL_CRAFT,
 ) -> ResultadoCraft:
     """Fase 1: melhor peça+missiva por slot. Fase 2: cada embelezamento no melhor slot onde cabe."""
-    conjuntos, opcoes, meta = montar_opcoes_craft(base, itens)
+    conjuntos, opcoes, meta = montar_opcoes_craft(base, itens, ilvl)
     if not conjuntos:
         return ResultadoCraft(None, avisos=["Nenhuma peça craftável com dados para o seu tipo de armadura."])
 
@@ -332,7 +432,8 @@ def rodar_craft(
             "limiar_pct": round(a.limiar_cru, 3),
             "serve": a.delta_cru > a.limiar_cru,
             "embutido": item.embutido,
-            "ilvl": ILVL_CRAFT,
+            "ilvl": ilvl,
+            "centelhas": CENTELHAS_DUAS_MAOS if item.maos == "2h" else CENTELHAS,
         }
         for slot, (a, item, par, _) in sorted(melhor_por_slot.items(), key=lambda kv: -kv[1][0].delta_cru)
     ]
@@ -342,7 +443,7 @@ def rodar_craft(
     # derruba o ranking — a tooltip apenas fica sem os atributos.
     if sondar is not None and pecas:
         alvo = {
-            f"{slot}_{item.item_id}": candidato(item, slot, par)
+            f"{slot}_{item.item_id}": candidato(item, slot, par, ilvl=ilvl)
             for slot, (_a, item, par, _nome) in melhor_por_slot.items()
         }
         try:
@@ -394,7 +495,7 @@ def rodar_craft(
                         continue
                     _a, item, par, _nome_melhor = melhor
                     conjunto = base.com_troca(
-                        atual.slot, candidato(item, atual.slot, par, emb)
+                        atual.slot, candidato(item, atual.slot, par, emb, ilvl=ilvl)
                     )
                     ok, _motivos = validar(conjunto, ctx)
                     if not ok:
@@ -423,7 +524,7 @@ def rodar_craft(
             continue
         slot, nome_sem = alvo
         item, par, _slot = meta[nome_sem]
-        conjunto = base.com_troca(slot, candidato(item, slot, par, emb))
+        conjunto = base.com_troca(slot, candidato(item, slot, par, emb, ilvl=ilvl))
         ok, motivos = validar(conjunto, ctx)
         if not ok:
             avisos.append(f"{emb.nome_pt or emb.nome_en}: não medido ({'; '.join(motivos)})")
@@ -435,7 +536,9 @@ def rodar_craft(
 
     embs: list[dict] = []
     if fase2:
-        leitura2 = simular(fase2, it_refino)
+        # V-5: embelezamentos diferem por décimos de %; com poucas iterações a
+        # ordem entre eles fica dentro do ruído.
+        leitura2 = simular(fase2, max(it_refino, 3_000))
         base2 = leitura2.base_dps
         for nome, (emb, slot, tipo, ref, atual_nome) in por_emb.items():
             com = leitura2.resultados.get(nome)

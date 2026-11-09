@@ -27,10 +27,24 @@ from wowsim.data.embellishments import mesclar_wowhead  # noqa: E402
 
 
 def tokenizar(nome: str) -> str:
-    """Como ``util::tokenize_fn`` do simc: minúsculas, sem apóstrofo, '_' no lugar do resto."""
-    t = nome.lower().replace("'", "")
-    t = re.sub(r"[^a-z0-9]+", "_", t)
-    return t.strip("_")
+    """Igual a ``util::tokenize`` do simc (engine/util/util.cpp).
+
+    Letras viram minúsculas, espaço vira '_', dígitos e ``_ + . %`` ficam, e todo o
+    resto (hífen, vírgula, apóstrofo, acento) é REMOVIDO — não vira '_'. Ex.:
+    "M3DDY, Travel-Sized" -> ``m3ddy_travelsized``. A versão anterior trocava o
+    hífen por '_' e o simc ignorava o embelezamento em silêncio (achado pelo V-2).
+    """
+    saida = []
+    for c in nome.lstrip("_+"):
+        if ord(c) >= 0x80:
+            continue
+        if c.isalpha():
+            saida.append(c.lower())
+        elif c == " ":
+            saida.append("_")
+        elif c.isdigit() or c in "_+.%":
+            saida.append(c)
+    return "".join(saida)
 
 
 def alvo(usavel_com: str, nome_en: str) -> str | None:

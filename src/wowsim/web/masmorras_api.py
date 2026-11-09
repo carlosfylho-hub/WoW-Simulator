@@ -13,7 +13,7 @@ from ..gen.profilesets import estimar_segundos
 from ..masmorras.avaliar import montar_opcoes
 from ..masmorras.builds import cenario_da_build
 from ..masmorras.cofre import opcoes_do_cofre
-from ..masmorras.craft import itens_craftaveis, montar_opcoes_craft
+from ..masmorras.craft import itens_craftaveis, montar_opcoes_craft, nivel_craft
 from ..masmorras.catalogo import elegivel, itens_por_masmorra
 from ..masmorras.modelos import RankingRequest, RankingResult
 from ..parser.addon import ErroParseAddon, parse_texto
@@ -110,6 +110,8 @@ def estimar_masmorras(
     scenario: str = Query("dungeon_slice", description="Cenário sem builds."),
     cenarios: str = Query("", description="Cenário de cada build, separados por vírgula."),
     max_refino: int = Query(24, ge=1, le=500),
+    forcar_tier: bool = Query(False, description="T23: + plano de tier (até 6 combinações)."),
+    trilha_craft: str = Query("mito", pattern="^(heroi|mito)$"),
 ) -> dict:
     """Estimativa de custo do ranking antes do Run (por build, quando houver)."""
     contagens: Counter = Counter()
@@ -118,8 +120,10 @@ def estimar_masmorras(
             personagem = parse_texto(addon)
         except ErroParseAddon as exc:
             raise HTTPException(status_code=400, detail=str(exc)) from exc
-        itens_c = itens_craftaveis(tipo_armadura_da_classe(personagem.classe))
-        conjuntos_c, _, _ = montar_opcoes_craft(conjunto_do_personagem(personagem), itens_c)
+        itens_c = itens_craftaveis(tipo_armadura_da_classe(personagem.classe), personagem.classe)
+        conjuntos_c, _, _ = montar_opcoes_craft(
+            conjunto_do_personagem(personagem), itens_c, nivel_craft(trilha_craft)
+        )
         n = len(conjuntos_c)
         elegiveis_total = len(itens_c)
         contagens["Craft"] = elegiveis_total
@@ -128,7 +132,7 @@ def estimar_masmorras(
         segundos = (
             estimar_segundos(n, iteracoes_triagem, estilo)
             + estimar_segundos(n_ref, iteracoes_refino, estilo)
-            + estimar_segundos(30, iteracoes_refino, estilo)  # fase dos embelezamentos
+            + estimar_segundos(30, max(iteracoes_refino, 3_000), estilo)  # embelezamentos (V-5)
         )
         if medir_pesos:  # escala do Pawn da build atual (antes ficava de fora: 3 min viravam 6+)
             segundos += estimar_segundos(EXECUCOES_POR_ESCALA, iteracoes_pesos, estilo)
@@ -191,8 +195,12 @@ def estimar_masmorras(
             segundos += estimar_segundos(2, iteracoes_refino, estilo)  # confirmação
         if medir_pesos:
             segundos += estimar_segundos(EXECUCOES_POR_ESCALA, iteracoes_pesos, estilo)
+    extra_tier = 0
+    if forcar_tier and modo == "masmorras":
+        extra_tier = 6  # no máximo C(5,4)+1 combinações, medidas uma vez
+        segundos += estimar_segundos(extra_tier, iteracoes_refino, estilos[0])
     return {
-        "profilesets_total_estimado": (n + n_refino) * len(estilos),
+        "profilesets_total_estimado": (n + n_refino) * len(estilos) + extra_tier,
         "segundos_estimados": round(segundos, 1),
         # Folga de 30% + 1 min para o pré-voo e a variação entre rodadas.
         "orcamento_sugerido": int(segundos * 1.3 + 60),

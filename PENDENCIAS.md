@@ -1,7 +1,7 @@
 # Pendências — WoW Calculator Sim
 
 **Última atualização:** 2026-11-09
-**Fase atual:** P-032 fechada; abertas P-054 / P-055 (e T10, dependente do usuário)
+**Fase atual:** T24 (2026-11-09): P-021, P-031, P-054 e V-1…V-6 fechadas; abertas P-056 (DungeonRoute, decisão do usuário) e os testes no jogo (T10)
 **Fonte canônica da varredura:** [`docs/AUDITORIA-CONSOLIDADA.md`](docs/AUDITORIA-CONSOLIDADA.md)
 **Regra:** toda pendência tem identificador, impacto e condição de fechamento. Pendência sem condição de fechamento não entra.
 
@@ -107,7 +107,7 @@ Nenhum bloqueio ativo. O binário foi compilado a partir do fonte `12.1.5.70783`
 | **Frontend** | `services/masmorrasService.ts` e `components/MasmorrasPanel.tsx`: import SimC+AMR, cenário/ilvl, botão de estimativa, barra de progresso, dois botões de ordem (`aria-pressed`), cartões por masmorra com ícone, tooltip, barra proporcional, etiquetas, `explicacao` e `premissa_chance`; 5 masmorras abertas. Aba "Masmorras" em `App.tsx`. |
 | **Aceite** | `pytest` (10 testes de `test_masmorras_api.py`+ranking) e `tsc --noEmit` limpos; falta a validação ao vivo no Windows (T10). |
 
-### T8 — Grande Cofre a partir do `.gv` — **[~] PARCIAL em 2026-11-08**
+### T8 — Grande Cofre a partir do `.gv` — **ENTREGUE** (código e tela; falta só rodar com o cofre cheio depois do reset — V-1 agora explica quando o `.gv` vem vazio)
 
 | Campo | Detalhe |
 | :--- | :--- |
@@ -117,7 +117,7 @@ Nenhum bloqueio ativo. O binário foi compilado a partir do fonte `12.1.5.70783`
 | **Worker/API/tela** | `RankingRequest.modo="cofre"`; o worker monta as opções e retorna um cartão "Grande Cofre"; a tela tem o seletor Masmorras/Cofre e mostra ganho cru vs catalisado. Validado por `test_masmorras_api.py::test_modo_cofre_aceita_export_amr`. |
 | **Pendente** | validação ao vivo no Windows (T10) com o cofre cheio. |
 
-### T9 — Várias builds: matriz, média e montagem — **[~] PARCIAL em 2026-11-08**
+### T9 — Várias builds: matriz, média e montagem — **ENTREGUE** (`551f15b`, `32b9888`, `03221d7`, UI `cceb1b3`/`f0c889a`; validado no simc real em 2026-11-09 — `docs/VALIDACAO-T10-2026-11-09.md`). A tabela abaixo é o histórico de 2026-11-08.
 
 | Campo | Detalhe |
 | :--- | :--- |
@@ -155,14 +155,14 @@ Nenhum bloqueio ativo. O binário foi compilado a partir do fonte `12.1.5.70783`
 | **Gerado com dado real** | A partir de `fixtures/pyrogalth-bib-amr.txt` (BiB real do usuário): **10 encantamentos**. `tests/test_encantos_amr.py::test_fixture_real_confirma_p016`. |
 | **Fecha P-016** | Mapa com `enchant_id → item_id/spell_id`: `8730 → 283998 / 1315084` (Arte de Batalha Hash'ey), `7935 → 240133 / 1228974` (Magilinha), `8689 → 273072 / 1291694`. |
 
-### T11 — String do Pawn — **[~] PARCIAL em 2026-11-08**
+### T11 — String do Pawn — **ENTREGUE** (escala medida com 5.000 it. no simc real em 2026-11-09; falta só importar no jogo). Tabela abaixo: histórico.
 
 | Campo | Detalhe |
 | :--- | :--- |
 | **Entregue** | `exportar/pawn.py` (cópia da referência validada): `pesos_relativos`, `misturar`, `string_pawn`, `validar_como_pawn`. `derivar_pesos_medidos` ganhou `talentos=` (emite `talents=`) e grava `iteracoes/fight_style/talentos/base_dps` no cache. `tests/test_exportar_pawn.py` (5 casos, validados pelo regex do próprio Pawn). |
 | **Pendente** | UI de escala por build + "Mistura" (frontend) e a medição real com ≥ 5.000 iterações; validação no jogo (T10). |
 
-### T12 — String do AMR — **[~] PARCIAL em 2026-11-08**
+### T12 — String do AMR — **ENTREGUE** (tela feita; V-6 explica quando o usuário cola o export do personagem; falta importar no jogo). Tabela abaixo: histórico.
 
 | Campo | Detalhe |
 | :--- | :--- |
@@ -274,7 +274,10 @@ O SimC simula o berloque isoladamente, mas a recarga compartilhada é regra de j
 
 Loadouts de Soul Harvester podem rodar abaixo do real. Relatório inclui aviso fixo na categoria de talentos. Fecha com atualização do APL no repositório do simc.
 
-### P-021 — Resumo DeepSeek validado apenas com cliente falso
+### P-021 — Resumo DeepSeek validado apenas com cliente falso — **FECHADA em 2026-11-09 (removida)**
+
+Decisão do usuário: a integração com a DeepSeek foi removida (`llm.summary.resumir`, `--com-llm`, extra `llm`/`openai`, testes com cliente falso). O resumo é só o determinístico. Texto original:
+
 
 A validação numérica foi testada com cliente fake: texto com número do contexto passa, número inventado é descartado e o fallback determinístico entra. **Nenhuma chamada real ao DeepSeek foi feita**, porque não há `DEEPSEEK_API_KEY` configurada. Fecha com uma execução real e revisão do texto gerado.
 
@@ -405,7 +408,10 @@ converter item de slot de tier na peça de tier da classe para ganhar o bônus d
 | **Testes** | [`tests/test_topgear_catalisador.py`](tests/test_topgear_catalisador.py:1) — 29 testes. Suíte: **322 passed**; as 5 falhas restantes são `Exec format error` do `simc.exe` (binário Windows) em ambiente Linux. |
 | **Pendente** | Validação ao vivo com o simc real (P-031) e exposição na UI (P-032). |
 
-### P-031 — Validar o Catalisador no simc real
+### P-031 — Validar o Catalisador no simc real — **FECHADA em 2026-11-09**
+
+Validado no simc real (build Linux do mesmo código 1210-01): gêmeos catalisados aceitos e medidos; o bônus de conjunto entra no número (T23: mãos catalisadas +4,43% fechando 4 peças). Ver `docs/VALIDACAO-T10-2026-11-09.md`. Texto original:
+
 
 Só roda no Windows, com `bin/simc.exe`. Comando e critérios de aceite na seção 6.3 do
 [`docs/PLANO-CONTINUIDADE.md`](docs/PLANO-CONTINUIDADE.md).
@@ -534,36 +540,60 @@ crit 74 / haste 74 / intellect 138 / stamina 2832). A tooltip recebe `stats`, fo
 `RankingResult.informacoes` separado de `avisos`; `.inv mesclado` vai para texto-3. Commits
 `28004b9` (backend) e `ac731ba` (frontend).
 
-### P-055 — Embelezamentos sem ícone nem texto completo — PARCIAL em 2026-11-09
+### P-055 — Embelezamentos sem ícone, materiais e "onde usar" — FECHADA em 2026-11-09
 `scripts/raspar_embelezamentos.py` preencheu ícone e texto PT-BR nos 21 reagentes; o derivador
 mescla em `embelezamentos.json` e a tela mostra no cartão. Commits `b091603` (backend) e
 `0e7e377` (frontend).
 
-**Estado em 2026-11-09 (madrugada):** o raspador foi reescrito e agora tem extração
-estruturada (ver `docs/AUDITORIA-3-EXECUCAO.md` §"Crawl4AI v2"). O que **ainda falta** é
-execução com rede, nada de código pendente conhecido:
+**Fechamento em 2026-11-09 (com rede):** a causa da falha anterior era o **parser**, não a
+ausência de dado. No HTML real os reagentes e o "usado em" **não** vêm em `<a>` com texto:
+vêm em dois blobs `new Listview({...})` embutidos na página. O `created-by-spell` traz
+`reagents:[[item_id, quantidade], ...]` (a receita do próprio item) e o `reagent-for` traz
+`creates`/`displayName` (quais itens usam o reagente). `extrair_pagina` agora lê esses blobs
+primeiro (fonte `listview`), resolvendo o nome de cada reagente pelo tooltip JSON, e só cai
+nas abas `<tr>`/texto como reserva. Resultado da execução: **21/21** reagentes com
+`materiais` e `usado_em` preenchidos e ícone; nenhum valor estimado (P1). `_meta.wowhead`
+registra `sem_materiais: []` e `sem_icone: []`. Detalhes em
+`docs/AUDITORIA-3-EXECUCAO.md` §"Crawl4AI v2" e teste de fixture Listview em
+`tests/test_embelezamentos_wowhead.py`.
 
-1. **Verificar se o dado existe.** O script tinha um bloco duplicado fora de qualquer `def`
-   (linhas 89–121), ou seja, `IndentationError` — a execução anterior nunca chegou ao crawl.
-   Corrigido. Antes de rodar os 21, confirmar em 1–3 ids que a página tem as abas de receita.
-2. **Conferir os ids das abas com o HTML real** (`--debug-html 240167`). O parser aceita
-   `tab-*` cujos nomes contenham `reagent/created/craft/reagente/criado/receita` (materiais) e
-   `for/para/used/usado/teaches/contained` (usado em). Se o Wowhead mudou os ids, é só ajustar
-   `_classificar_aba` — os testes usam fixture local (`--html` também lê página salva).
-3. **Dependência de browser:** `pip install crawl4ai` + `python -m playwright install chromium`.
-   Sem isso o script avisa e devolve `materiais: []` (não quebra).
-4. **Executar** `python scripts/raspar_embelezamentos.py --delay 0.5` e depois
-   `python scripts/derivar_embelezamentos.py`, e registrar no `_meta` do JSON quantos vieram
-   sem materiais (`sem_materiais`).
-5. **Fechar** quando os 21 reagentes tiverem `materiais` e `usado_em` não vazios **ou** quando
-   ficar documentado, id a id, que o Wowhead não publica a receita (aí é dado inexistente, não
-   bug — P1 manda deixar vazio).
+### P-054 — Pendências antigas reunidas — **FECHADA em 2026-11-09 (T24)**
 
-### P-054 — Pendências antigas reunidas — ABERTA (parcial)
+Dados raspados por `scripts/raspar_regras_temporada.py` (Crawl4AI → Firecrawl → `--md`) para
+`dados/derivados/regras_temporada.json`, lido por `data/regras.py`. Amostras em
+`fixtures/regras_temporada/` (testes em `tests/test_t24_pendencias.py`).
+- **Forja do Veneno:** 10 Ascendant Venomstones; **só arma, mão secundária, berloque e colar**
+  (Method.gg). O ranking aplicava 341 a qualquer slot — corrigido (`trilhas.degrau_no_slot`).
+- **Desconto de slot:** etapas até a marca de nível do slot (`slot_high_watermarks` do export)
+  saem sem brasão; nota do desconto de 50% do bando. Sem marca: custo cheio, rotulado.
+- **Craft Herói:** 80 Brasões de Herói → 318 (Mítico → 331), escolha na tela.
+- **Armas no Craft:** por proficiência da classe; 2 mãos troca principal+secundária e gasta 4 Centelhas.
+- **Cargas do Catalisador:** campo na tela (V-4), respeitado nas builds e no plano de tier.
+- U6/U7 do redesign seguem no `Simulator-WoW/docs/PLANO-REDESIGN-UI.md` (visual, sem bloqueio).
+
+Texto original:
 T10: `embellishment=` validado no simc real com o fixture `pyrogalth.simc` (log em
 `docs/log-craft-windows-2026-11-09.txt`, commit `4e26d5e`); falta o export **vivo** do usuário.
 Seguem abertos: U6/U7 do redesign, desconto de slot nos brasões, Craft Herói e armas, custo da
 Forja do Veneno, cargas do Catalisador. Tabela em `docs/AUDITORIA-3-CRAFT.md` §2.
+
+### P-056 — DungeonSlice não é suportado pelo Equilíbrio (e outras specs) — ABERTA (decisão do usuário)
+O simc (`player_t::init` → `validate_fight_style`) avisa "does not support fight style DungeonSlice,
+results are inaccurate" para Druida Equilíbrio (só Patchwerk e DungeonRoute). O app agora mostra o
+aviso (V-2). **Fecha com** a decisão: (a) oferecer DungeonRoute com uma rota de pulls definida pelo
+usuário/fonte confiável (o simc exige `raid_event=/pull,...`, e a vida dos monstros por chave não pode
+ser inventada — P1) ou (b) usar Patchwerk como padrão para essas specs.
+
+### P-057 — Dois embelezamentos ignorados pelo simc em silêncio — FECHADA em 2026-11-09
+`derivar_embelezamentos.tokenizar` trocava hífen por "_"; o simc remove. `M3DDY, Travel-Sized`
+(`m3ddy_travelsized`) e `Coiled Snake-Eye` (`coiled_snakeeye`) eram simulados **sem efeito**. Achado
+pelo V-2 no simc real; tokenizador igual ao `util::tokenize` e JSON regenerado.
+
+### P-058 — Perfil com AMR como primário ia ao simc sem spec/talentos — FECHADA em 2026-11-09
+Com `primario=amr`, o texto do simc vinha só do AMR: sem `spec=` nem `talents=` → "Pré-voo falhou: o
+simc não devolveu o DPS da base" (DPS 0; com spec e sem talentos, ~3 mil em vez de ~140 mil).
+Correções: spec ativa lida do AMR (`spec_do_import`, `amr_mapa.json` → `spec_nomes`); talentos do
+/simc entram no texto (`combinar._garantir_spec_e_talentos`); perfil sem talentos para com mensagem clara.
 
 ## 11. Auditoria das entregas da outra IA — 2026-11-08
 

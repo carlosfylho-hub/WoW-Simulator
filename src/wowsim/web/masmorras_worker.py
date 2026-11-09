@@ -33,7 +33,17 @@ from ..masmorras.builds import (
 )
 from ..masmorras.catalogo import elegivel, itens_por_masmorra
 from ..masmorras.tier import plano_tier
-from ..masmorras.craft import BRASOES_CRAFT, CENTELHAS, ILVL_CRAFT, itens_craftaveis, rodar_craft
+from ..data import regras
+from ..data.regras import marcas_por_slot
+from ..masmorras.craft import (
+    BRASOES_CRAFT,
+    CENTELHAS,
+    CENTELHAS_DUAS_MAOS,
+    MOEDA_CRAFT,
+    itens_craftaveis,
+    nivel_craft,
+    rodar_craft,
+)
 from ..masmorras.sonda import sondar_atributos
 from ..masmorras.cofre import (
     MASMORRA_COFRE,
@@ -109,8 +119,10 @@ def _degrau_do_item(item_id: int, nivel: dict) -> trilhas.Degrau | None:
 
 
 def _item_ranking(avaliacao, nivel: dict) -> ItemRanking:
-    ilvl = nivel["padrao"].ilvl
     d = _degrau_do_item(avaliacao.item.item_id, nivel)
+    if d is not None and avaliacao.item.item_id not in nivel.get("por_item", {}):
+        d = trilhas.degrau_no_slot(d, avaliacao.slot)
+    ilvl = d.ilvl if d is not None else nivel["padrao"].ilvl
     nomes = catalog.nome_item(avaliacao.item.item_id)
     visual = catalog.visual_item(avaliacao.item.item_id)
     return ItemRanking(
@@ -128,7 +140,7 @@ def _item_ranking(avaliacao, nivel: dict) -> ItemRanking:
         icone=visual.get("icone"),
         stats=visual.get("stats"),
         degrau=d.rotulo if d else None,
-        upgrade=trilhas.custo_upgrade(d),
+        upgrade=trilhas.custo_upgrade(d, slot=avaliacao.slot, marcas=nivel.get("marcas")),
     )
 
 
@@ -269,7 +281,11 @@ def processar(job_id: str) -> None:
         atributo = atributo_da_classe(personagem.classe)
         builds = builds_do_pedido(personagem, pedido.loadouts)
         nivel_pedido = pedido.degrau()
-        nivel: dict = {"padrao": nivel_pedido, "por_item": {}}
+        nivel: dict = {
+            "padrao": nivel_pedido,
+            "por_item": {},
+            "marcas": marcas_por_slot(personagem.slot_high_watermarks),
+        }
         importacao = None
         elegiveis_itens: list = []
         if pedido.modo == "masmorras":
@@ -291,9 +307,23 @@ def processar(job_id: str) -> None:
                 )
             importacao = parse_amr(amr_texto)
             itens_cofre = [op for op in opcoes_do_cofre(importacao) if op["slots"]]
+            if not itens_cofre:  # V-1
+                raise ValueError(
+                    "O export do AMR não traz opções do Grande Cofre. O cofre só abre depois do "
+                    "reset semanal (terça): abra o cofre no jogo, faça um novo export no addon do "
+                    "AMR e cole no Perfil."
+                )
             nivel["por_item"] = {op["item_id"]: op["bonus_ids"] for op in itens_cofre}
             contagem_elegiveis = Counter({MASMORRA_COFRE: len(itens_cofre)})
 
+        if not personagem.talents_atual:
+            # Perfil só do AMR: sem talentos o simc roda uma spec "pelada" e o DPS
+            # sai dezenas de vezes menor (ex.: 3 mil em vez de 140 mil) — inútil.
+            raise ValueError(
+                "O perfil não tem talentos: ele veio só do AMR. Para simular, cole no Perfil o "
+                "export do addon SimulationCraft (/simc no jogo); o AMR fica como complemento "
+                "(Grande Cofre e itens na bolsa)."
+            )
         pre = preflight(
             personagem,
             fight_style=estilo_de_luta(pedido.scenario),
@@ -323,6 +353,12 @@ def processar(job_id: str) -> None:
         base_out: dict = {}
         resultados_build: list[ResultadoBuild] = []
         avisos_execucao: list[str] = []
+        if any("does not support fight style" in a for a in getattr(pre, "avisos", ())):
+            avisos_execucao.append(
+                f"O próprio SimulationCraft avisa que a sua spec ({personagem.spec or '?'}) não "
+                f"tem suporte ao cenário {estilo_de_luta(pedido.scenario)}: os números podem não "
+                "ser confiáveis. Compare com o cenário Patchwerk (chefe único) antes de decidir."
+            )
         resultado_craft = None
         if pedido.modo == "craft":
             # T22: peça + missiva por slot e embelezamentos, medidos pelo simc.
@@ -331,12 +367,14 @@ def processar(job_id: str) -> None:
                 builds = {}
             ctx_craft = contexto_com_catalisador(
                 construir_contexto(classe=personagem.classe, spec=personagem.spec, tipo_armadura=tipo),
-                personagem, personagem.classe, None,
+                personagem, personagem.classe, pedido.max_catalisados,
             )
             _registrar_progresso(job_id, {"estagio": "craft: peças e missivas"})
+            ilvl_craft = nivel_craft(pedido.trilha_craft)
             resultado_craft = rodar_craft(
                 conjunto_do_personagem(personagem),
-                itens_craftaveis(tipo),
+                itens_craftaveis(tipo, personagem.classe),
+                ilvl=ilvl_craft,
                 ctx=ctx_craft,
                 simular=criar_simulador(
                     personagem,
@@ -382,7 +420,7 @@ def processar(job_id: str) -> None:
                 ),
                 personagem,
                 personagem.classe,
-                None,
+                pedido.max_catalisados,
             )
             for posicao, (nome, codigo) in enumerate(builds.items(), start=1):
                 cenario = pedido.cenarios_loadouts.get(nome) or cenario_da_build(nome)
@@ -469,6 +507,7 @@ def processar(job_id: str) -> None:
                     orcamento_restante=restante,
                 ),
                 iteracoes=pedido.iteracoes_refino,
+                max_catalisados=pedido.max_catalisados,
             )
             if builds:
                 avisos_execucao.append(
@@ -557,12 +596,16 @@ def processar(job_id: str) -> None:
                 "embelezamentos": resultado_craft.embelezamentos,
                 "bloqueados": resultado_craft.bloqueados,
                 "custo": {
-                    "ilvl": ILVL_CRAFT,
-                    "nivel": "Mítico qualidade 5",
-                    "brasoes": BRASOES_CRAFT,
-                    "moeda": "Brasão Mítico",
+                    "ilvl": ilvl_craft,
+                    "nivel": f"{'Herói' if pedido.trilha_craft == 'heroi' else 'Mítico'} qualidade 5",
+                    "brasoes": int(regras.craft().get("brasoes") or BRASOES_CRAFT),
+                    "moeda": MOEDA_CRAFT[pedido.trilha_craft],
                     "centelhas": CENTELHAS,
-                    "nota": "Por peça. Arma de 2 mãos usa 4 Centelhas de Marés.",
+                    "nota": (
+                        f"Por peça. Arma de 2 mãos usa {CENTELHAS_DUAS_MAOS} Centelhas de Marés. "
+                        "Armas craftadas também aceitam a Forja do Veneno depois "
+                        f"({'318→325' if pedido.trilha_craft == 'heroi' else '331→337'})."
+                    ),
                 },
                 "limite_embelezamentos": "Único-equipado: Embelezado (2) — no máximo 2 efeitos ativos.",
                 "avisos": resultado_craft.avisos,

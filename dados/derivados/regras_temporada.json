@@ -1,0 +1,58 @@
+{
+  "forja": {
+    "custo": 10,
+    "moeda": "Ascendant Venomstone",
+    "mito": {
+      "antes": 334,
+      "depois": 341
+    },
+    "heroi": {
+      "antes": 321,
+      "depois": 328
+    },
+    "craft_arma_mito": {
+      "antes": 331,
+      "depois": 337
+    },
+    "craft_arma_heroi": {
+      "antes": 318,
+      "depois": 325
+    },
+    "slots": [
+      "main_hand",
+      "off_hand",
+      "trinket1",
+      "trinket2",
+      "neck"
+    ]
+  },
+  "craft": {
+    "brasoes": 80,
+    "ilvl_max": {
+      "heroi": 318,
+      "mito": 331
+    },
+    "ilvl_sem_brasao": 305,
+    "centelhas": {
+      "padrao": 2,
+      "duas_maos": 4
+    }
+  },
+  "upgrade": {
+    "brasoes_por_etapa": 20,
+    "marca_do_slot": true,
+    "desconto_bando_pct": 50
+  },
+  "_meta": {
+    "gerado_em": "2026-11-09T14:47:37Z",
+    "gerador": "scripts/raspar_regras_temporada.py",
+    "coletor": "md",
+    "fontes": {
+      "method_venomstones": "https://www.method.gg/guides/how-to-unlock-ascendant-venomstones-in-wow-midnight-season-2-neck-weapon-trinket-upgrades",
+      "icy_spark": "https://www.icy-veins.com/wow/spark-crafting-guide",
+      "icy_upgrade": "https://www.icy-veins.com/wow/world-of-warcraft-gear-upgrading-guide",
+      "wowcarry_desconto": "https://wowcarry.com/blog/wow/gearing-changes-in-midnight-crest-costs-free-discounts"
+    },
+    "patch": "12.1.5"
+  }
+}

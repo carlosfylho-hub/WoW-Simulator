@@ -1401,6 +1401,27 @@ Registrar cada resultado em `PENDENCIAS.md`.
   aceite: o plano escolhe 4 slots, o ganho do plano inclui o bônus, e as masmorras do plano sobem no
   ranking.
 
+**T24 — Fechar as pendências restantes (pedido do usuário 2026-11-09 11:38)** — [x] feito (Claude); detalhes em `PENDENCIAS.md` (P-054, P-056, P-057, P-058).
+Ordem (mais difícil primeiro), cada item é marcado aqui ao terminar:
+1. [x] **P-054 dados do jogo** — raspar (Firecrawl/Crawl4AI, Wowhead/Icy Veins): desconto de slot nos
+   brasões, Craft Herói (níveis/qualidades e custo), armas e mão secundária no Craft, custo da Forja do
+   Veneno. Regra P1: o que não tiver fonte fica vazio e rotulado, nunca estimado.
+2. [x] **V-4** cargas do Catalisador: `RankingRequest.max_catalisados` → builds e plano de tier; campo na tela.
+3. [x] **V-2** falhar quando o simc ignora parte do perfil ("unknown embellishment" etc.).
+4. [x] **V-1** cofre vazio com mensagem; **V-3** rótulo do forjado; **V-5** fase 2 do Craft ≥3.000 it;
+   **V-6** mensagem ao colar o export do personagem no lugar do Best in Bags.
+5. [x] Estimativa de tempo conta os profilesets do plano de tier.
+6. [x] Remover a DeepSeek (decisão do usuário): `llm/summary.py`, opção da CLI, testes, docs; P-021 fechada como removida.
+7. [x] Commitar o trabalho da outra IA que ficou sem commit (P-055: raspador Listview + JSON + testes + docs).
+8. [x] `PENDENCIAS.md`: cabeçalhos T9/T11/T12, P-031 fechada, P-021, P-054; suíte completa; build da UI; commits.
+
+Achados durante o T24 (resolvidos): P-058 (AMR primário sem spec/talentos → "Pré-voo falhou"),
+P-057 (2 embelezamentos ignorados pelo simc), forja aplicada em slots que não aceitam. Aberto para o
+usuário decidir: **P-056** (Equilíbrio não suporta DungeonSlice no simc).
+Crawl4AI: `scripts/raspar_regras_temporada.py` faz a mesma coleta que foi feita com o Firecrawl
+(Crawl4AI primeiro, Firecrawl com `FIRECRAWL_API_KEY` como reserva, `--md` offline); não grava nada
+se faltar campo.
+
 **Execução do T23 (2026-11-09, Claude):**
 - Referência: o AMR tem a mesma caixa, "Force Tier Set", no Passo 2 do Best in Bags (print do usuário,
   ao lado de "Catalyze Items"/"Upgrade Items"; "Max On-Use Items: No Limit" confirma o R4 como aviso).

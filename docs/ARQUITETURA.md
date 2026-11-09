@@ -17,7 +17,7 @@
 | P1 | **O SimulationCraft é a única fonte de número** | Todo DPS, ganho percentual e diferença vem de um JSON gerado pelo `simc`. O catálogo local só resolve nome, ID, origem, regra e track. |
 | P2 | **Proveniência obrigatória** | Todo dado de catálogo carrega `fonte="<arquivo>.json"`. Relatório sem `fonte` é bug, não estilo. |
 | P3 | **Falha explícita, nunca estimativa** | Dado ausente vira `null`, alerta de parse e registro em `PENDENCIAS.md`. Nunca preencher por inferência silenciosa. |
-| P4 | **Sem LLM no caminho do cálculo** | O resumo por DeepSeek é opcional, posterior ao cálculo e validado número a número contra o JSON. `--sem-llm` é o padrão funcional. |
+| P4 | **Sem LLM no caminho do cálculo** | Não há LLM no projeto: a DeepSeek foi removida em 2026-11-09; o resumo é determinístico, só com números medidos. |
 | P5 | **Um arquivo `.simc` por execução** | A base do personagem e todas as variações viram um único arquivo com `profileset`. Isso reduz overhead de processo e mantém a comparação no mesmo RNG de cenário. |
 | P6 | **Determinismo de dados** | O projeto lê um snapshot versionado em `dados/`, com hash. Não lê caminhos externos por padrão. |
 | P7 | **Windows e Linux** | `pathlib`, `subprocess` com lista de argumentos, sem shell específico. Nenhum `os.system`, nenhum `rm -rf`. |

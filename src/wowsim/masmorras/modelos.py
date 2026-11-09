@@ -132,6 +132,10 @@ class RankingRequest(BaseModel):
     forcar_tier: bool = False
     trilha_tier: Literal["heroi", "mito"] = "mito"
     rank_tier: int = Field(6, ge=1, le=6)
+    # V-4: cargas do Catalisador disponíveis (None = sem limite informado).
+    max_catalisados: int | None = Field(default=None, ge=0, le=20)
+    # P-054: craft com 80 Brasões de Herói (318) ou Míticos (331).
+    trilha_craft: Literal["heroi", "mito"] = "mito"
     orcamento_segundos: int = Field(900, ge=30, le=86_400)
     loadouts: list[str] = Field(default_factory=list, max_length=6)   # T9 ("Atual" = talentos do export)
     pesos_loadouts: dict[str, float] = Field(default_factory=dict)   # T9 (normalizados no motor)

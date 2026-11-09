@@ -264,8 +264,29 @@ def mesclar_personagens(
                 setattr(resultado, campo, getattr(fonte_simc, campo))
         if not resultado.texto_original and fonte_simc.texto_original:
             resultado.texto_original = fonte_simc.texto_original
+        _garantir_spec_e_talentos(resultado)
 
     return resultado, avisos
+
+
+def _garantir_spec_e_talentos(p: Personagem) -> None:
+    """Com o AMR como primário, o texto do simc vem do AMR (sem spec/talentos).
+
+    Sem ``talents=`` o simc roda a spec sem talentos e o DPS sai dezenas de vezes
+    menor (pré-voo "não devolveu o DPS"). As linhas vão no FIM do texto para não
+    deslocar ``indice_linha`` dos itens; o simc aplica as opções do ator na
+    inicialização, então a ordem não importa.
+    """
+    texto = p.texto_original or ""
+    linhas = [l.strip() for l in texto.splitlines()]
+    extra: list[str] = []
+    if p.spec and not any(l.startswith("spec=") for l in linhas):
+        extra.append(f"spec={p.spec}")
+    if p.talents_atual and not any(l.startswith("talents=") for l in linhas):
+        extra.append(f"talents={p.talents_atual}")
+    if extra:
+        fim = "" if texto.endswith(("\n", "\r\n")) or not texto else "\n"
+        p.texto_original = texto + fim + "\n".join(extra) + "\n"
 
 
 def combinar_textos(

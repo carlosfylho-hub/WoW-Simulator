@@ -32,7 +32,9 @@ def test_atalhos_antigos_continuam() -> None:
 
 def test_custo_de_upgrade_vinte_por_etapa() -> None:
     c = trilhas.custo_upgrade(trilhas.degrau("mito", 1))
-    assert c == {"moeda": "Brasão Mítico", "brasoes": 100, "etapas": 5, "ate": "Mito 6/6 (334)"}
+    assert {k: c[k] for k in ("moeda", "brasoes", "etapas", "ate")} == {
+        "moeda": "Brasão Mítico", "brasoes": 100, "etapas": 5, "ate": "Mito 6/6 (334)"
+    }
     assert trilhas.custo_upgrade(trilhas.degrau("heroi", 4))["brasoes"] == 40
     assert trilhas.custo_upgrade(trilhas.degrau("mito", 6, True))["brasoes"] == 0
 

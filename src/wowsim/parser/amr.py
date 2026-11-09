@@ -429,6 +429,22 @@ def classe_da_spec(versao: str | None, spec_id: int | None) -> str | None:
     return dados.get("specs", {}).get(str(spec_id))
 
 
+def spec_do_import(importacao: ImportAMR) -> str | None:
+    """Spec ativa (token do simc, ex.: ``balance``) pelo ``ActiveSpec`` do cabeçalho.
+
+    ``.sN`` traz o índice AMR da spec na posição N (``Amr.SpecIds``); o nome vem
+    de ``amr_mapa.json`` (``spec_nomes``, gerado de AskMrRobot-Serializer.lua).
+    """
+    pos = importacao.spec_ativa
+    talento = importacao.talentos.get(f"s{pos}") if pos else None
+    if talento is None or importacao.versao is None:
+        return None
+    dados = _mapa().get("versoes", {}).get(str(importacao.versao))
+    if not isinstance(dados, dict):
+        return None
+    return dados.get("spec_nomes", {}).get(str(talento.grupo))
+
+
 def classe_do_import(importacao: ImportAMR) -> str | None:
     """Infere a classe votando nos ids de spec das seções ``.sN``."""
     votos: dict[str, int] = {}
@@ -496,7 +512,7 @@ def para_personagem(
     conjunto = importacao.conjunto_atual
 
     classe = normalizar_classe(classe_hint)
-    spec = normalizar_spec(spec_hint)
+    spec = normalizar_spec(spec_hint) or spec_do_import(importacao)
     nome = importacao.nome or "Personagem AMR"
 
     classe_mapa = classe_do_import(importacao)

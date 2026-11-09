@@ -267,7 +267,9 @@ def test_trilha_e_rank_viram_bonus_e_custo_de_upgrade(tmp_path, monkeypatch) -> 
     assert r["nivel"] == "Mito 2/6" and r["ilvl"] == 321
     item = next(i for m in r["masmorras"] for i in m["itens"] if i["item_id"] == alvo.item_id)
     assert item["degrau"] == "Mito 2/6"
-    assert item["upgrade"] == {"moeda": "Brasão Mítico", "brasoes": 80, "etapas": 4, "ate": "Mito 6/6 (334)"}
+    assert {k: item["upgrade"][k] for k in ("moeda", "brasoes", "etapas", "ate")} == {
+        "moeda": "Brasão Mítico", "brasoes": 80, "etapas": 4, "ate": "Mito 6/6 (334)"
+    }
     troca = r["builds"][0]["trocas"][0]
     assert troca["upgrade"]["brasoes"] == 80
     assert r["builds"][0]["brasoes"] == {"Brasão Mítico": 80}

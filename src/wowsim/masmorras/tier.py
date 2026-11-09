@@ -58,6 +58,7 @@ def plano_tier(
     degrau: Degrau,
     simular: Simulador,
     iteracoes: int,
+    max_catalisados: int | None = None,
 ) -> dict:
     """Combinações de 4 peças de tier, medidas no simc. Nunca levanta por falta de dado."""
     conjunto = dados_tier.conjunto_da_classe(classe)
@@ -82,6 +83,12 @@ def plano_tier(
         saida["motivo"] = "Você já usa 4 ou mais peças de tier."
         return saida
 
+    if max_catalisados is not None and faltam > max_catalisados:  # V-4
+        saida["motivo"] = (
+            f"Faltam {faltam} peça(s) de tier, mas você informou {max_catalisados} carga(s) do "
+            "Catalisador. Cada peça vinda de masmorra gasta uma carga."
+        )
+        return saida
     fontes = _fontes_por_slot(avaliacoes, slots - set(ja_tem))
     saida["sem_fonte"] = sorted(slots - set(ja_tem) - set(fontes))
     if len(fontes) < faltam:
