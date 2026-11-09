@@ -527,6 +527,9 @@ Com 2 embelezados equipados, todo teste vira 3 e nada é medido. **Fecha com** a
 ### P-053 — Informação do .inv aparece como aviso âmbar — ABERTA (BAIXO)
 **Fecha com** `RankingResult.informacoes` separado de `avisos` (A6).
 
+### P-055 — Embelezamentos sem ícone nem texto completo — ABERTA (MÉDIO)
+Pedido do usuário: raspar o Wowhead (tooltip JSON + crawl4ai) para ícone, texto completo, materiais e onde usar. Só para a tela; o ganho continua do simc. **Fecha com** a tarefa A8 de `docs/AUDITORIA-3-CRAFT.md`.
+
 ### P-054 — Pendências antigas reunidas — ABERTA
 T10 (validação no jogo, incluindo `embellishment=` no simc real), U6/U7 do redesign, desconto de
 slot nos brasões, Craft Herói e armas, custo da Forja do Veneno, cargas do Catalisador. Tabela em

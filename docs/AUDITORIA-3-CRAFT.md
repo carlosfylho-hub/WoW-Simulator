@@ -5,7 +5,7 @@
 > checklist (§5) com o hash. Regras de sempre: P1 (nenhum número que o simc não mediu), P4 (delta
 > sempre contra a base da mesma leitura), fins de linha preservados (ver workflow §9 —
 > `git -c core.autocrlf=input add` para arquivos com blob LF) e `dados/*.json` só por script.
-> As pendências estão registradas em `PENDENCIAS.md` §12 (P-049 a P-058).
+> As pendências estão registradas em `PENDENCIAS.md` §12 (P-049 a P-055).
 
 ## 1. O que o usuário viu (prints de 2026-11-09 02:32)
 
@@ -190,6 +190,65 @@ avisos = [a.detalhe for a in combo.avisos if a.severidade != "info"]
 # RankingResult ganha `informacoes: list[str]`; a tela mostra em texto-3, não em âmbar.
 ```
 
+### 4.7 A8 — Embelezamentos completos do Wowhead: ícone, texto, materiais e onde usar
+**Pedido do usuário (2026-11-09):** raspar o Wowhead com o crawl4ai para ter a informação completa,
+com imagem. **O que isso resolve e o que não resolve:** é para a TELA (ícone, texto completo com os
+números, qualidade, materiais da receita, em que peças o reagente vale). O **ganho de dano continua
+vindo do simc** (`embellishment=` aplica o efeito real); o texto do Wowhead nunca vira número de
+DPS (P1).
+
+**Como (siga o padrão que já existe em `scripts/raspar_armaduras.py`):**
+1. **Tooltip JSON** — para cada `reagente_id` de `dados/derivados/embelezamentos.json` (21 hoje):
+   `https://nether.wowhead.com/tooltip/item/<id>?dataEnv=1&locale=8` (PT-BR) e `locale=0` (EN).
+   Devolve `name`, `icon` (slug do ícone → `https://wow.zamimg.com/images/wow/icons/large/<icon>.jpg`),
+   `quality` e `tooltip` (HTML com o efeito e os números). É leve e estruturado: **use isto
+   primeiro**, não precisa de navegador.
+2. **crawl4ai** só para o que só existe na página renderizada `https://www.wowhead.com/pt/item=<id>`:
+   a aba de **materiais da receita** ("Criado por") e a lista de **onde o reagente pode ser usado**.
+   Se a página não trouxer isso de forma estável, deixe o campo vazio — não adivinhe.
+3. Cortesia: `User-Agent` identificado (`wowsim/0.1 (+…)`), `--delay 0.5` entre chamadas, cache em
+   `cache/wowhead/` para não repetir requisição, e falha de rede não quebra o script.
+4. Saída: um script novo grava `dados/derivados/embelezamentos_wowhead.json`; o
+   `scripts/derivar_embelezamentos.py` passa a **mesclar** esse arquivo (icone, texto_completo,
+   qualidade, materiais, usado_em) em `embelezamentos.json`. `dados/*.json` só por script.
+
+```python
+# scripts/raspar_embelezamentos.py  (começo; copie o esqueleto de raspar_armaduras.py)
+TOOLTIP = "https://nether.wowhead.com/tooltip/item/{item_id}?dataEnv=1&locale={locale}"
+PAGINA = "https://www.wowhead.com/pt/item={item_id}"
+AGENTE = "wowsim/0.1 (+local embellishment scrape via crawl4ai)"
+CACHE = ROOT / "cache" / "wowhead"
+
+def _tooltip(item_id: int, locale: int) -> dict | None:
+    arquivo = CACHE / f"{item_id}_{locale}.json"
+    if arquivo.exists():
+        return json.loads(arquivo.read_text(encoding="utf-8"))
+    req = urllib.request.Request(TOOLTIP.format(item_id=item_id, locale=locale), headers={"User-Agent": AGENTE})
+    try:
+        with urllib.request.urlopen(req, timeout=20) as r:
+            dados = json.loads(r.read().decode("utf-8"))
+    except (urllib.error.URLError, ValueError):
+        return None
+    CACHE.mkdir(parents=True, exist_ok=True)
+    arquivo.write_text(json.dumps(dados, ensure_ascii=False), encoding="utf-8")
+    return dados
+
+def _texto(html: str) -> str:
+    """Tooltip HTML -> texto (reaproveite scripts/extrair_texto_html.py)."""
+    ...
+
+async def _pagina(item_id: int) -> dict:
+    """crawl4ai: materiais da receita e 'usado em'. Vazio se a página não trouxer de forma estável."""
+    from crawl4ai import AsyncWebCrawler
+    async with AsyncWebCrawler(headless=True) as crawler:
+        res = await crawler.arun(url=PAGINA.format(item_id=item_id))
+    ...  # extrair das abas; registrar em "_meta.falhas" o que não achou
+```
+
+**Tela:** o cartão de cada embelezamento (`components/masmorras/ResultadoCraft.tsx`) mostra o ícone
+(`<img src=icone_url>`), o texto completo e, recolhível, os materiais. **Aceite:** os 21 reagentes têm
+ícone; texto em PT-BR igual ao do jogo; nenhum número do texto entra em cálculo.
+
 ## 5. Checklist
 
 | # | Tarefa | Status | Commit |
@@ -200,6 +259,7 @@ avisos = [a.detalhe for a in combo.avisos if a.severidade != "info"]
 | A4 | P-051 sonda de atributos no simc + `stats` nas peças | [ ] | |
 | A5 | P-051 tooltip: fonte/slot corretos, sem "Masmorra M+" de palpite | [ ] | |
 | A6 | P-053 informação do .inv fora dos avisos | [ ] | |
+| A8 | Embelezamentos do Wowhead (tooltip JSON + crawl4ai): ícone, texto completo, materiais, onde usar — só para a tela | [ ] | |
 | A7 | Rodar o Craft no Windows com o perfil do usuário e anexar o log (T10): conferir que `embellishment=` não gera "unknown embellishment" | [ ] | |
 
-**Ordem:** A1 → A2 → A3 (mudam os números; são o que importa) → A4 → A5 → A6 → A7.
+**Ordem:** A1 → A2 → A3 (mudam os números; são o que importa) → A4 → A5 → A8 (ícones e texto) → A6 → A7 (validação no Windows por último, com tudo pronto).
