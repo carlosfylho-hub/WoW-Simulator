@@ -130,6 +130,8 @@ def estimar_masmorras(
             + estimar_segundos(n_ref, iteracoes_refino, estilo)
             + estimar_segundos(30, iteracoes_refino, estilo)  # fase dos embelezamentos
         )
+        if medir_pesos:  # escala do Pawn da build atual (antes ficava de fora: 3 min viravam 6+)
+            segundos += estimar_segundos(EXECUCOES_POR_ESCALA, iteracoes_pesos, estilo)
         return {
             "profilesets_total_estimado": n + n_ref + 30,
             "segundos_estimados": round(segundos, 1),
