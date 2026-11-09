@@ -128,6 +128,7 @@ def rodar_ranking(
     threads: int | None = None,
     cancelar=None,
     orcamento_restante=None,
+    base_out: dict | None = None,
 ) -> list[Avaliacao]:
     base = conjunto_do_personagem(personagem)
     conjuntos, opcoes = montar_opcoes(base, itens, ilvl=ilvl, classe=personagem.classe)
@@ -135,7 +136,10 @@ def rodar_ranking(
         personagem, fight_style=estilo_de_luta(cenario), threads=threads,
         cancelar=cancelar, orcamento_restante=orcamento_restante,
     )
-    triagem = avaliar(simular(conjuntos, it_triagem), opcoes)        # execução 1
+    leitura_triagem = simular(conjuntos, it_triagem)                 # execução 1
+    if base_out is not None:
+        base_out["base_dps"] = leitura_triagem.base_dps
+    triagem = avaliar(leitura_triagem, opcoes)
     # Refina tudo que não perdeu claramente; o resto fica como "não serve".
     vivos = {a.item.item_id for a in triagem if a.ganho > -a.limiar_cru}
     nomes = [n for n, op in opcoes.items() if op.item.item_id in vivos]

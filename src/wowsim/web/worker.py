@@ -17,7 +17,7 @@ from ..gen import profilesets
 from ..llm.summary import montar_contexto
 from ..parser.addon import ErroParseAddon, parse_texto
 from ..report import render
-from . import db, drop_db, perfil_store, topgear_db
+from . import db, drop_db, masmorras_db, perfil_store, topgear_db
 
 PROJECT_ROOT = Path(__file__).resolve().parents[3]
 SAIDA_DIR = PROJECT_ROOT / "saida" / "web"
@@ -70,6 +70,7 @@ def iniciar() -> None:
         perfil_store.init_db()
         topgear_db.init_db()
         drop_db.init_db()
+        masmorras_db.init_db()
         _executor = ThreadPoolExecutor(
             max_workers=WORKERS, thread_name_prefix="wowsim"
         )
@@ -79,6 +80,8 @@ def iniciar() -> None:
         enfileirar_topgear(job_id)
     for job_id in drop_db.jobs_pendentes():
         enfileirar_drop(job_id)
+    for job_id in masmorras_db.jobs_pendentes():
+        enfileirar_masmorras(job_id)
 
 
 def enfileirar(job_id: str) -> None:
@@ -104,6 +107,15 @@ def enfileirar_drop(job_id: str) -> None:
         if _executor is None:
             raise RuntimeError("O worker não foi iniciado.")
         _executor.submit(drop_worker.processar, job_id)
+
+
+def enfileirar_masmorras(job_id: str) -> None:
+    from . import masmorras_worker
+
+    with _lock:
+        if _executor is None:
+            raise RuntimeError("O worker não foi iniciado.")
+        _executor.submit(masmorras_worker.processar, job_id)
 
 
 def encerrar() -> None:
