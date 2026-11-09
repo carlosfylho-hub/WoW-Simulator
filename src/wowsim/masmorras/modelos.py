@@ -10,6 +10,7 @@ from typing import Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+from ..data import trilhas
 from ..topgear.models import Cenario
 
 Etiqueta = Literal["direto", "catalisar", "ambos", "nao_serve"]
@@ -34,6 +35,8 @@ class ItemRanking(BaseModel):
     icone: str | None = None
     stats: dict[str, int] | None = None
     aviso: str | None = None
+    degrau: str | None = None                 # "Mito 4/6"
+    upgrade: dict[str, Any] | None = None     # {moeda, brasoes, etapas, ate}
 
 
 class MasmorraRanking(BaseModel):
@@ -62,6 +65,8 @@ class TrocaBuild(BaseModel):
     ganho_pct: float           # ganho medido do item sozinho (contra ``ref``)
     icone: str | None = None
     stats: dict[str, int] | None = None
+    degrau: str | None = None
+    upgrade: dict[str, Any] | None = None
 
 
 class BuildResultado(BaseModel):
@@ -81,6 +86,8 @@ class BuildResultado(BaseModel):
     avisos: list[str] = Field(default_factory=list)
     pawn: str | None = None
     pawn_pesos: dict[str, float] | None = None
+    # Brasões para levar as trocas ao 6/6, por moeda (custo cheio, sem desconto de slot).
+    brasoes: dict[str, int] = Field(default_factory=dict)
 
 
 class LinhaMatriz(BaseModel):
@@ -111,7 +118,10 @@ class RankingRequest(BaseModel):
     scenario: Cenario = "dungeon_slice"
     # "masmorras" = ranking de M+; "cofre" = opções do Grande Cofre (.gv do AMR).
     modo: Literal["masmorras", "cofre"] = "masmorras"
-    ilvl: Literal[321, 328, 334, 341] = 341
+    ilvl: Literal[321, 328, 334, 341] = 341        # atalho antigo; trilha/rank prevalecem
+    trilha: Literal["heroi", "mito"] | None = None
+    rank: int | None = Field(default=None, ge=1, le=6)
+    forja: bool = False
     iteracoes_triagem: int = Field(300, ge=50, le=5_000)
     iteracoes_refino: int = Field(3000, ge=200, le=50_000)
     # Quantos itens da triagem vão para o refino (os melhores).
@@ -124,12 +134,20 @@ class RankingRequest(BaseModel):
     iteracoes_pesos: int = Field(5_000, ge=5_000, le=100_000)         # T11: mínimo 5.000
 
 
+    def degrau(self) -> trilhas.Degrau:
+        """Nível pedido: trilha + rank (+ forja) ou, sem trilha, o atalho do ilvl."""
+        if self.trilha:
+            return trilhas.degrau(self.trilha, self.rank or 6, self.forja)
+        return trilhas.degrau_do_ilvl(self.ilvl)
+
+
 class RankingResult(BaseModel):
     model_config = ConfigDict(extra="forbid")
 
     base_dps: float
     cenario: str
     ilvl: int
+    nivel: str | None = None          # "Mito 6/6 + Forja"
     iteracoes: int
     ordem_padrao: Literal["quantidade"] = "quantidade"
     masmorras: list[MasmorraRanking] = Field(default_factory=list)

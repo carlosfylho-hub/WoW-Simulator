@@ -18,6 +18,7 @@ from collections import Counter
 
 from .. import simc_runner as sr
 from ..data import catalog
+from ..data import trilhas
 from ..data.classes import atributo_da_classe, tipo_armadura_da_classe
 from ..data.pesos_medidos import medir_escala
 from ..exportar.pawn import escalas_das_builds
@@ -96,7 +97,17 @@ def _explicacao(direto: int, catalisar: int) -> str:
     return ". ".join(partes) + "."
 
 
-def _item_ranking(avaliacao, ilvl: int) -> ItemRanking:
+def _degrau_do_item(item_id: int, nivel: dict) -> trilhas.Degrau | None:
+    """Cofre: pelos bônus reais do item; masmorras: o nível do pedido."""
+    bonus = nivel.get("por_item", {}).get(item_id)
+    if bonus is not None:
+        return trilhas.degrau_dos_bonus(bonus)
+    return nivel.get("padrao")
+
+
+def _item_ranking(avaliacao, nivel: dict) -> ItemRanking:
+    ilvl = nivel["padrao"].ilvl
+    d = _degrau_do_item(avaliacao.item.item_id, nivel)
     nomes = catalog.nome_item(avaliacao.item.item_id)
     visual = catalog.visual_item(avaliacao.item.item_id)
     return ItemRanking(
@@ -113,10 +124,12 @@ def _item_ranking(avaliacao, ilvl: int) -> ItemRanking:
         limiar_pct=round(avaliacao.limiar_cru, 3),
         icone=visual.get("icone"),
         stats=visual.get("stats"),
+        degrau=d.rotulo if d else None,
+        upgrade=trilhas.custo_upgrade(d),
     )
 
 
-def _masmorra_ranking(linha: dict, ilvl: int) -> MasmorraRanking:
+def _masmorra_ranking(linha: dict, nivel: dict) -> MasmorraRanking:
     elegiveis = linha["elegiveis"]
     chance = (100.0 * linha["servem"] / elegiveis) if elegiveis else 0.0
     return MasmorraRanking(
@@ -128,7 +141,7 @@ def _masmorra_ranking(linha: dict, ilvl: int) -> MasmorraRanking:
         direto=linha["direto"],
         catalisar=linha["catalisar"],
         explicacao=_explicacao(linha["direto"], linha["catalisar"]),
-        itens=[_item_ranking(a, ilvl) for a in linha["itens"]],
+        itens=[_item_ranking(a, nivel) for a in linha["itens"]],
     )
 
 
@@ -148,6 +161,7 @@ def builds_do_pedido(personagem, nomes: list[str]) -> dict[str, str | None]:
 
 
 def _troca(slot: str, ganho: float, candidato) -> TrocaBuild:
+    d = trilhas.degrau_dos_bonus(candidato.bonus_ids or ([candidato.bonus_id] if candidato.bonus_id else []))
     nomes = catalog.nome_item(candidato.item_id) if candidato.item_id else None
     visual = catalog.visual_item(candidato.item_id) if candidato.item_id else {}
     return TrocaBuild(
@@ -160,6 +174,8 @@ def _troca(slot: str, ganho: float, candidato) -> TrocaBuild:
         ganho_pct=round(ganho, 3),
         icone=visual.get("icone"),
         stats=visual.get("stats") or None,
+        degrau=d.rotulo if d else None,
+        upgrade=trilhas.custo_upgrade(d),
     )
 
 
@@ -174,7 +190,8 @@ def _build_resultado(r: ResultadoBuild) -> BuildResultado:
         limiar_conjunto_pct=(
             round(r.limiar_conjunto, 3) if r.limiar_conjunto is not None else None
         ),
-        trocas=[_troca(slot, ganho, cand) for slot, ganho, cand in r.trocas],
+        trocas=(trocas := [_troca(slot, ganho, cand) for slot, ganho, cand in r.trocas]),
+        brasoes=_somar_brasoes(trocas),
         conjunto_itens=[
             cand.model_dump(mode="json", exclude_none=True)
             for cand in r.conjunto.itens.values()
@@ -182,6 +199,14 @@ def _build_resultado(r: ResultadoBuild) -> BuildResultado:
         ],
         avisos=r.avisos,
     )
+
+
+def _somar_brasoes(trocas: list[TrocaBuild]) -> dict[str, int]:
+    total: dict[str, int] = {}
+    for t in trocas:
+        if t.upgrade and t.upgrade.get("brasoes"):
+            total[t.upgrade["moeda"]] = total.get(t.upgrade["moeda"], 0) + int(t.upgrade["brasoes"])
+    return total
 
 
 def _linha_matriz(linha: dict) -> LinhaMatriz:
@@ -230,6 +255,8 @@ def processar(job_id: str) -> None:
         tipo = tipo_armadura_da_classe(personagem.classe)
         atributo = atributo_da_classe(personagem.classe)
         builds = builds_do_pedido(personagem, pedido.loadouts)
+        nivel_pedido = pedido.degrau()
+        nivel: dict = {"padrao": nivel_pedido, "por_item": {}}
         importacao = None
         elegiveis_itens: list = []
         if pedido.modo == "masmorras":
@@ -249,6 +276,7 @@ def processar(job_id: str) -> None:
                 )
             importacao = parse_amr(amr_texto)
             itens_cofre = [op for op in opcoes_do_cofre(importacao) if op["slots"]]
+            nivel["por_item"] = {op["item_id"]: op["bonus_ids"] for op in itens_cofre}
             contagem_elegiveis = Counter({MASMORRA_COFRE: len(itens_cofre)})
 
         pre = preflight(
@@ -289,7 +317,8 @@ def processar(job_id: str) -> None:
                 )
             else:
                 conjuntos, opcoes = montar_opcoes(
-                    base, elegiveis_itens, ilvl=pedido.ilvl, classe=personagem.classe
+                    base, elegiveis_itens, ilvl=nivel_pedido.ilvl, classe=personagem.classe,
+                    bonus=nivel_pedido.bonus_id,
                 )
             ctx = contexto_com_catalisador(
                 construir_contexto(
@@ -354,7 +383,8 @@ def processar(job_id: str) -> None:
                 personagem,
                 elegiveis_itens,
                 cenario=pedido.scenario,
-                ilvl=pedido.ilvl,
+                ilvl=nivel_pedido.ilvl,
+                bonus=nivel_pedido.bonus_id,
                 it_triagem=pedido.iteracoes_triagem,
                 it_refino=pedido.iteracoes_refino,
                 threads=threads_para_job(),
@@ -434,9 +464,10 @@ def processar(job_id: str) -> None:
         resultado = RankingResult(
             base_dps=float(base_out.get("base_dps") or 0.0),
             cenario=pedido.scenario,
-            ilvl=pedido.ilvl,
+            ilvl=nivel_pedido.ilvl,
+            nivel=nivel_pedido.rotulo if pedido.modo == "masmorras" else None,
             iteracoes=pedido.iteracoes_refino,
-            masmorras=[_masmorra_ranking(linha, pedido.ilvl) for linha in linhas],
+            masmorras=[_masmorra_ranking(linha, nivel) for linha in linhas],
             avisos=avisos,
             builds=builds_saida,
             matriz=matriz,

@@ -36,11 +36,18 @@ class Opcao:
 
 
 def montar_opcoes(
-    base: Conjunto, itens: list[ItemDeMasmorra], *, ilvl: int, classe: str | None
+    base: Conjunto,
+    itens: list[ItemDeMasmorra],
+    *,
+    ilvl: int,
+    classe: str | None,
+    bonus: int | None = None,
 ) -> tuple[dict[str, Conjunto], dict[str, Opcao]]:
-    if ilvl not in NIVEL_PARA_BONUS:
-        raise ValueError(f"ilvl {ilvl} sem bonus_id conhecido; use {sorted(NIVEL_PARA_BONUS)}.")
-    bonus = NIVEL_PARA_BONUS[ilvl]
+    """``bonus``: bônus de trilha/rank (``data.trilhas``); sem ele, usa o atalho do ilvl."""
+    if bonus is None:
+        if ilvl not in NIVEL_PARA_BONUS:
+            raise ValueError(f"ilvl {ilvl} sem bonus_id conhecido; use {sorted(NIVEL_PARA_BONUS)}.")
+        bonus = NIVEL_PARA_BONUS[ilvl]
     conjuntos: dict[str, Conjunto] = {}
     opcoes: dict[str, Opcao] = {}
     for item in itens:
@@ -161,9 +168,10 @@ def rodar_ranking(
     orcamento_restante=None,
     base_out: dict | None = None,
     max_refino: int = MAX_REFINO,
+    bonus: int | None = None,
 ) -> list[Avaliacao]:
     base = conjunto_do_personagem(personagem)
-    conjuntos, opcoes = montar_opcoes(base, itens, ilvl=ilvl, classe=personagem.classe)
+    conjuntos, opcoes = montar_opcoes(base, itens, ilvl=ilvl, classe=personagem.classe, bonus=bonus)
     simular = criar_simulador(
         personagem, fight_style=estilo_de_luta(cenario), threads=threads,
         cancelar=cancelar, orcamento_restante=orcamento_restante,

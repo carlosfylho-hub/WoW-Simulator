@@ -8,6 +8,7 @@ from fastapi import APIRouter, HTTPException, Query
 from pydantic import BaseModel, Field
 
 from ..data.classes import atributo_da_classe, tipo_armadura_da_classe
+from ..data import trilhas
 from ..gen.profilesets import estimar_segundos
 from ..masmorras.avaliar import montar_opcoes
 from ..masmorras.builds import cenario_da_build
@@ -94,7 +95,10 @@ EXECUCOES_POR_ESCALA = 6
 @router.get("/estimativa")
 def estimar_masmorras(
     addon: str = Query(min_length=20, description="Saída do /simc ou export AMR."),
-    ilvl: int = Query(341, description="321/328/334/341."),
+    ilvl: int = Query(341, description="321/328/334/341 (atalho)."),
+    trilha: str | None = Query(None, pattern="^(heroi|mito)$"),
+    rank: int | None = Query(None, ge=1, le=6),
+    forja: bool = Query(False),
     iteracoes_triagem: int = Query(300, ge=10, le=100_000),
     iteracoes_refino: int = Query(3000, ge=10, le=100_000),
     modo: str = Query("masmorras", pattern="^(masmorras|cofre)$"),
@@ -134,7 +138,10 @@ def estimar_masmorras(
         ]
         base = conjunto_do_personagem(personagem)
         try:
-            conjuntos, _ = montar_opcoes(base, elegiveis, ilvl=ilvl, classe=personagem.classe)
+            d = trilhas.degrau(trilha, rank or 6, forja) if trilha else trilhas.degrau_do_ilvl(ilvl)  # type: ignore[arg-type]
+            conjuntos, _ = montar_opcoes(
+                base, elegiveis, ilvl=d.ilvl, classe=personagem.classe, bonus=d.bonus_id
+            )
         except ValueError as exc:
             raise HTTPException(status_code=400, detail=str(exc)) from exc
         n = len(conjuntos)

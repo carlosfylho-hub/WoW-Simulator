@@ -259,3 +259,24 @@ def test_tempo_esgotado_sem_nada_pronto_vira_mensagem_legivel(tmp_path, monkeypa
     job = masmorras_db.obter_job(job_id)
     assert job["status"] == "error"
     assert "tempo máximo (15 min)" in job["erro"] and "simc.exe" not in job["erro"]
+
+
+def test_trilha_e_rank_viram_bonus_e_custo_de_upgrade(tmp_path, monkeypatch) -> None:
+    saida = _rodar(tmp_path, monkeypatch, trilha="mito", rank=2, loadouts=["raid maxroll"])
+    r, alvo = saida["resultado"], saida["alvo"]
+    assert r["nivel"] == "Mito 2/6" and r["ilvl"] == 321
+    item = next(i for m in r["masmorras"] for i in m["itens"] if i["item_id"] == alvo.item_id)
+    assert item["degrau"] == "Mito 2/6"
+    assert item["upgrade"] == {"moeda": "Brasão Mítico", "brasoes": 80, "etapas": 4, "ate": "Mito 6/6 (334)"}
+    troca = r["builds"][0]["trocas"][0]
+    assert troca["upgrade"]["brasoes"] == 80
+    assert r["builds"][0]["brasoes"] == {"Brasão Mítico": 80}
+
+
+def test_forja_fora_do_seis_de_seis_vira_erro(tmp_path, monkeypatch) -> None:
+    _bases(tmp_path, monkeypatch)
+    pedido = {"addon": FIXTURE.read_text(encoding="utf-8"), "trilha": "mito", "rank": 3, "forja": True}
+    job_id = masmorras_db.criar_job(json.dumps(pedido))
+    masmorras_worker.processar(job_id)
+    job = masmorras_db.obter_job(job_id)
+    assert job["status"] == "error" and "6/6" in job["erro"]
