@@ -422,6 +422,8 @@ _MAPA_STATS = {
     "Agilidade": "agility",
     "Vigor": "stamina",
     "Aceleração": "haste",
+    "Aceleracao": "haste",  # o snapshot oficial grava sem acento (88 itens)
+    "Forca": "strength",
     "Critico": "crit",
     "Crítico": "crit",
     "Maestria": "mastery",

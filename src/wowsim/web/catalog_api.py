@@ -148,5 +148,9 @@ def itens_catalogo() -> list[dict]:
             }
         )
 
+    # Atributos oficiais (snapshot no track máximo) para a tooltip; sem dado, None —
+    # a tela nunca inventa valores.
+    for registro in saida:
+        registro["stats"] = catalog.stats_item(registro["id"]) or None
     saida.sort(key=lambda d: (d["slot"] or "", d["id"], d["ilvl"] or 0))
     return saida

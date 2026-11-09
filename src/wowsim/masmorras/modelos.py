@@ -61,6 +61,7 @@ class TrocaBuild(BaseModel):
     catalisado: bool = False
     ganho_pct: float           # ganho medido do item sozinho (contra ``ref``)
     icone: str | None = None
+    stats: dict[str, int] | None = None
 
 
 class BuildResultado(BaseModel):
@@ -93,6 +94,7 @@ class LinhaMatriz(BaseModel):
     masmorra: str
     slot: str
     icone: str | None = None
+    stats: dict[str, int] | None = None
     deltas: dict[str, float]
     limiares: dict[str, float]
     etiquetas: dict[str, Etiqueta]

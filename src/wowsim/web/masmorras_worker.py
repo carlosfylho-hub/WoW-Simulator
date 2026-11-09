@@ -159,6 +159,7 @@ def _troca(slot: str, ganho: float, candidato) -> TrocaBuild:
         catalisado=candidato.catalisado,
         ganho_pct=round(ganho, 3),
         icone=visual.get("icone"),
+        stats=visual.get("stats") or None,
     )
 
 
@@ -194,6 +195,7 @@ def _linha_matriz(linha: dict) -> LinhaMatriz:
         masmorra=item.masmorra,
         slot=item.slot,
         icone=visual.get("icone"),
+        stats=visual.get("stats") or None,
         deltas={b: round(v, 3) for b, v in linha["deltas"].items()},
         limiares={b: round(v, 3) for b, v in linha["limiares"].items()},
         etiquetas=linha["etiquetas"],
