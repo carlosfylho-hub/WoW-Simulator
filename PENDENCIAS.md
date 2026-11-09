@@ -589,6 +589,10 @@ ser inventada — P1) ou (b) usar Patchwerk como padrão para essas specs.
 (`m3ddy_travelsized`) e `Coiled Snake-Eye` (`coiled_snakeeye`) eram simulados **sem efeito**. Achado
 pelo V-2 no simc real; tokenizador igual ao `util::tokenize` e JSON regenerado.
 
+### P-059 — Peça craftada sem gema e sem encantamento — FECHADA em 2026-11-09 (T25)
+O candidato do Craft não levava `enchant_id`/`gem_id`; trocar uma peça encantada por uma craftada
+media a perda do encantamento junto. Agora herda do slot (gemas só nos engastes do item no simc).
+
 ### P-058 — Perfil com AMR como primário ia ao simc sem spec/talentos — FECHADA em 2026-11-09
 Com `primario=amr`, o texto do simc vinha só do AMR: sem `spec=` nem `talents=` → "Pré-voo falhou: o
 simc não devolveu o DPS da base" (DPS 0; com spec e sem talentos, ~3 mil em vez de ~140 mil).

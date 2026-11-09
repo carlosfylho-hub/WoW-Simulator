@@ -1401,6 +1401,21 @@ Registrar cada resultado em `PENDENCIAS.md`.
   aceite: o plano escolhe 4 slots, o ganho do plano inclui o bônus, e as masmorras do plano sobem no
   ranking.
 
+**T25 — Craft: plano de 2 peças (pedido do usuário 2026-11-09 12:40)** — [x] feito (Claude).
+- Pedido: "que ele selecionasse duas dentre as demais, ou no máximo uma variante de outras 2 partes
+  declarando quanto dps tem de diferença; as outras partes copiam o que já está equipado".
+- `craft.plano_de_duas`: até 6 slots com ganho > 0 sozinhos; todas as duplas medidas JUNTAS numa
+  leitura (≥ 2.000 it.), sobre o equipado; devolve a melhor + 3 alternativas com `diferenca_pct`.
+  Os embelezamentos passam a ser medidos sobre o plano (só nos slots da dupla).
+- Bug achado pelo usuário (anel com "poucos atributos"): a peça craftada ia ao simc **sem gema e sem
+  encantamento**. Agora herda o encantamento do slot e as gemas, só nos engastes reais do item
+  (`catalog.engastes`, do `item_data.inc` do simc); engaste a mais recebe a gema mais usada.
+- Mão secundária atual vale com arma de 1 mão craftada (`offs_validos`).
+- Tooltip: rótulo do degrau ("Herói qualidade 5") em vez de "Mito 6/6 (334)" fixo; slot e fonte de
+  quem chama prevalecem sobre o catálogo ("finger"/"Catálogo").
+- simc real (Pyrogalth, Herói 318): melhor dupla Elo do Adorador dos Loas + Calças Cortesãs +1,71%
+  ±0,32; alternativas ombros −0,02, pés −0,09, mãos −0,43.
+
 **T24 — Fechar as pendências restantes (pedido do usuário 2026-11-09 11:38)** — [x] feito (Claude); detalhes em `PENDENCIAS.md` (P-054, P-056, P-057, P-058).
 Ordem (mais difícil primeiro), cada item é marcado aqui ao terminar:
 1. [x] **P-054 dados do jogo** — raspar (Firecrawl/Crawl4AI, Wowhead/Icy Veins): desconto de slot nos

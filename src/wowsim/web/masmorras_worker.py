@@ -369,6 +369,11 @@ def processar(job_id: str) -> None:
                 construir_contexto(classe=personagem.classe, spec=personagem.spec, tipo_armadura=tipo),
                 personagem, personagem.classe, pedido.max_catalisados,
             )
+            # A mão secundária que o personagem JÁ usa (ex.: lanterna craftada) é
+            # válida com uma arma de 1 mão craftada; a lista padrão só tem drops de M+.
+            oh_atual = conjunto_do_personagem(personagem).item_id("off_hand")
+            if oh_atual is not None:
+                ctx_craft = ctx_craft.model_copy(update={"offs_validos": {*ctx_craft.offs_validos, oh_atual}})
             _registrar_progresso(job_id, {"estagio": "craft: peças e missivas"})
             ilvl_craft = nivel_craft(pedido.trilha_craft)
             resultado_craft = rodar_craft(
@@ -588,13 +593,18 @@ def processar(job_id: str) -> None:
         )
         craft_saida = None
         if resultado_craft is not None:
-            for peca in resultado_craft.pecas:
+            plano_pecas = []
+            if resultado_craft.plano:
+                for linha in [resultado_craft.plano.get("melhor") or {}, *resultado_craft.plano.get("alternativas", [])]:
+                    plano_pecas += linha.get("pecas", [])
+            for peca in [*resultado_craft.pecas, *plano_pecas]:
                 visual = catalog.visual_item(peca["item_id"])
                 peca["icone"] = visual.get("icone")
             craft_saida = {
                 "pecas": resultado_craft.pecas,
                 "embelezamentos": resultado_craft.embelezamentos,
                 "bloqueados": resultado_craft.bloqueados,
+                "plano": resultado_craft.plano,
                 "custo": {
                     "ilvl": ilvl_craft,
                     "nivel": f"{'Herói' if pedido.trilha_craft == 'heroi' else 'Mítico'} qualidade 5",

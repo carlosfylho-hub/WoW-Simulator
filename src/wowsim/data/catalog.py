@@ -119,6 +119,30 @@ def _item_inv_types(caminho: str, mtime: float) -> dict[int, int]:
     return tipos
 
 
+_SOCKETS_RE = re.compile(r'^\s*\{\s*"[^"]*",\s*(\d+),.*?\{\s*(\d+),\s*(\d+),\s*(\d+)\s*\}')
+
+
+@lru_cache(maxsize=2)
+def _item_sockets(caminho: str, mtime: float) -> dict[int, int]:
+    """item_id -> nº de engastes (``socket_color[3]`` do ``item_data.inc``).
+
+    Ex.: Loa Worshiper's Band 251513 ``{ 7, 0, 0 }`` = 1 engaste (prismático).
+    """
+    saida: dict[int, int] = {}
+    for linha in Path(caminho).read_text(encoding="utf-8", errors="replace").splitlines():
+        m = _SOCKETS_RE.match(linha)
+        if m:
+            saida[int(m.group(1))] = sum(1 for g in m.groups()[1:] if int(g))
+    return saida
+
+
+def engastes(item_id: int) -> int | None:
+    """Quantos engastes o item tem no jogo (via simc), ou None se desconhecido."""
+    if not ITEM_DATA.is_file():
+        return None
+    return _item_sockets(str(ITEM_DATA), ITEM_DATA.stat().st_mtime).get(item_id)
+
+
 def inventory_type(item_id: int) -> int | None:
     """InventoryType do item (via simc), ou None se desconhecido."""
     if not ITEM_DATA.is_file():

@@ -221,13 +221,38 @@ def _nome(item_id: int, slot: str, par: tuple[str, str], emb: str | None = None)
     return f"f_{item_id}_{slot}_{par[0]}_{par[1]}" + (f"_e_{emb}" if emb else "")
 
 
+def _gema_e_encanto(item: ItemCraft, atual: Candidato | None, gema_padrao: int | None):
+    """A peça nova herda o encantamento do slot e as gemas (só nos engastes que ela tem).
+
+    Sem isso a peça craftada ia ao simc "pelada" e perdia o encantamento/gema que a
+    peça atual tem no mesmo slot — o ganho saía subestimado.
+    """
+    enchant = atual.enchant_id if atual is not None else None
+    n = catalog.engastes(item.item_id) or 0
+    gemas = list(atual.gem_ids if atual is not None else [])[:n]
+    while gema_padrao and len(gemas) < n:
+        gemas.append(gema_padrao)
+    return enchant, gemas
+
+
+def gema_mais_usada(base: Conjunto) -> int | None:
+    contagem: dict[int, int] = {}
+    for c in base.itens.values():
+        for g in c.gem_ids or []:
+            contagem[g] = contagem.get(g, 0) + 1
+    return max(contagem, key=contagem.get) if contagem else None
+
+
 def candidato(
     item: ItemCraft, slot: str, par: tuple[str, str], emb: Embelezamento | None = None,
-    ilvl: int = ILVL_CRAFT,
+    ilvl: int = ILVL_CRAFT, atual: Candidato | None = None, gema_padrao: int | None = None,
 ) -> Candidato:
+    enchant, gemas = _gema_e_encanto(item, atual, gema_padrao)
     return Candidato(
         slot=slot,
         item_id=item.item_id,
+        enchant_id=enchant,
+        gem_ids=gemas,
         ilvl=ilvl,
         ilevel=ilvl,
         tipo_arma=item.maos or "desconhecido",
@@ -265,12 +290,13 @@ def montar_opcoes_craft(
     conjuntos: dict[str, Conjunto] = {}
     opcoes: dict[str, Opcao] = {}
     meta: dict[str, tuple[ItemCraft, tuple[str, str], str]] = {}
+    gema = gema_mais_usada(base)
     for item in itens:
         dm = ItemDeMasmorra(item.item_id, item.nome_pt, item.slot, MASMORRA_CRAFT, "craft", None)
         for slot in SLOTS_DUPLOS.get(item.slot, (item.slot,)):
             for par in PARES:
                 nome = _nome(item.item_id, slot, par)
-                cand = candidato(item, slot, par, ilvl=ilvl)
+                cand = candidato(item, slot, par, ilvl=ilvl, atual=base.itens.get(slot), gema_padrao=gema)
                 if item.maos:
                     conj = _troca_arma(base, item, cand)
                     if conj is None:
@@ -292,6 +318,90 @@ class ResultadoCraft:
     # Peças (por slot) que estourariam o teto de 2 embelezamentos e por isso não
     # foram medidas. Vão para a tela como "para usar, troque um embelezado".
     bloqueados: list[dict] = field(default_factory=list)
+    # Plano de 2 peças: melhor dupla e alternativas, medidas juntas.
+    plano: dict | None = None
+
+
+MAX_SLOTS_PLANO = 6
+ALTERNATIVAS_PLANO = 3
+
+
+def plano_de_duas(base, melhor_por_slot, conjuntos, meta, *, ctx, simular, iteracoes, ilvl) -> dict | None:
+    """Duplas de peças craftadas medidas juntas; None se menos de 2 peças têm ganho.
+
+    Entram as peças com ganho positivo sozinhas, mesmo dentro da margem: medir a
+    dupla com mais iterações separa o que a triagem não separou.
+    """
+    servem = sorted(
+        ((s, v) for s, v in melhor_por_slot.items() if v[0].delta_cru > 0),
+        key=lambda kv: -kv[1][0].delta_cru,
+    )[:MAX_SLOTS_PLANO]
+    if len(servem) < 2:
+        return None
+    duplas: dict[str, tuple] = {}
+    for (s1, v1), (s2, v2) in combinations(servem, 2):
+        _a1, i1, p1, n1 = v1
+        _a2, i2, p2, n2 = v2
+        if {s1, s2} <= {"main_hand", "off_hand"} and (i1.maos == "2h" or i2.maos == "2h"):
+            continue  # 2 mãos já ocupa a secundária
+        if i1.item_id == i2.item_id:
+            continue  # único-equipado (ex.: o mesmo anel nos dois dedos)
+        conj = conjuntos[n1]
+        for s, cand in conjuntos[n2].itens.items():
+            if base.itens.get(s) is not cand:
+                conj = conj.com_troca(s, cand)
+        if i2.maos == "2h":
+            itens_c = dict(conj.itens)
+            itens_c.pop("off_hand", None)
+            conj = conj.model_copy(update={"itens": itens_c})
+        ok, _m = validar(conj, ctx)
+        if not ok:
+            continue
+        duplas[f"par_{s1}_{s2}"] = (conj, [(s1, i1, p1), (s2, i2, p2)])
+    if not duplas:
+        return {"melhor": None, "alternativas": [], "motivo": "Nenhuma dupla cabe no limite de 2 embelezamentos."}
+    leitura = simular({n: c for n, (c, _) in duplas.items()}, iteracoes)
+    if not leitura.base_dps:
+        return None
+    linhas = []
+    for nome, (conj, pecas) in duplas.items():
+        dps = leitura.resultados.get(nome)
+        if dps is None:
+            continue
+        erro = max([LIMIAR_PCT, *(abs(e) for e in (leitura.base_erro, leitura.erros.get(nome)) if e is not None)])
+        linhas.append({
+            "slots": [p[0] for p in pecas],
+            "pecas": [
+                {
+                    "slot": s, "item_id": i.item_id, "nome_pt": i.nome_pt, "nome_en": i.nome_en,
+                    "missiva": _par_texto(p), "embutido": i.embutido, "ilvl": ilvl,
+                    "centelhas": CENTELHAS_DUAS_MAOS if i.maos == "2h" else CENTELHAS,
+                }
+                for s, i, p in pecas
+            ],
+            "dps": round(dps, 1),
+            "ganho_pct": round(100.0 * (dps - leitura.base_dps) / leitura.base_dps, 3),
+            "limiar_pct": round(erro, 3),
+            "_conjunto": conj,
+        })
+    linhas.sort(key=lambda l: -l["ganho_pct"])
+    melhor = linhas[0]
+    for l in linhas:
+        l["diferenca_pct"] = round(l["ganho_pct"] - melhor["ganho_pct"], 3)
+    conjunto = melhor["_conjunto"]
+    for l in linhas:
+        l.pop("_conjunto", None)
+    return {
+        "melhor": melhor,
+        "alternativas": linhas[1 : 1 + ALTERNATIVAS_PLANO],
+        "base_dps": round(leitura.base_dps, 1),
+        "iteracoes": iteracoes,
+        "nota": (
+            "As outras peças continuam as que você usa hoje. Para trocar os demais slots por "
+            "drops, use Masmorras M+."
+        ),
+        "_conjunto": conjunto,
+    }
 
 
 def _par_texto(par: tuple[str, str]) -> str:
@@ -443,7 +553,9 @@ def rodar_craft(
     # derruba o ranking — a tooltip apenas fica sem os atributos.
     if sondar is not None and pecas:
         alvo = {
-            f"{slot}_{item.item_id}": candidato(item, slot, par, ilvl=ilvl)
+            f"{slot}_{item.item_id}": candidato(
+                item, slot, par, ilvl=ilvl, atual=base.itens.get(slot), gema_padrao=gema_mais_usada(base)
+            )
             for slot, (_a, item, par, _nome) in melhor_por_slot.items()
         }
         try:
@@ -452,6 +564,21 @@ def rodar_craft(
             stats_por_peca = {}
         for p in pecas:
             p["stats"] = stats_por_peca.get(f"{p['slot']}_{p['item_id']}")
+
+    # Fase 3 (pedido do usuário 2026-11-09): o plano é craftar DUAS peças, não
+    # todas. Mede juntas as duplas entre as melhores peças (o resto continua o
+    # que você usa hoje) e devolve a melhor e as alternativas com a diferença.
+    base_original = base
+    plano = plano_de_duas(
+        base, melhor_por_slot, conjuntos, meta, ctx=ctx, simular=simular,
+        iteracoes=max(it_refino, 2_000), ilvl=ilvl,
+    )
+    if plano is not None and plano["melhor"] is not None:
+        base = plano["_conjunto"]
+        pares_slots = set(plano["melhor"]["slots"])
+        melhor_nao_embutido = {s: v for s, v in melhor_nao_embutido.items() if s in pares_slots}
+    else:
+        plano = None
 
     # Fase 2 — embelezamentos, sempre respeitando o teto de 2 (P-050):
     #  * ainda há espaço: aplica E na melhor peça não embutida que o aceita;
@@ -495,7 +622,11 @@ def rodar_craft(
                         continue
                     _a, item, par, _nome_melhor = melhor
                     conjunto = base.com_troca(
-                        atual.slot, candidato(item, atual.slot, par, emb, ilvl=ilvl)
+                        atual.slot,
+                        candidato(
+                            item, atual.slot, par, emb, ilvl=ilvl,
+                            atual=base.itens.get(atual.slot), gema_padrao=gema_mais_usada(base),
+                        ),
                     )
                     ok, _motivos = validar(conjunto, ctx)
                     if not ok:
@@ -524,15 +655,25 @@ def rodar_craft(
             continue
         slot, nome_sem = alvo
         item, par, _slot = meta[nome_sem]
-        conjunto = base.com_troca(slot, candidato(item, slot, par, emb, ilvl=ilvl))
+        conjunto = base.com_troca(
+            slot,
+            candidato(
+                item, slot, par, emb, ilvl=ilvl,
+                atual=(base_original.itens.get(slot)), gema_padrao=gema_mais_usada(base_original),
+            ),
+        )
         ok, motivos = validar(conjunto, ctx)
         if not ok:
             avisos.append(f"{emb.nome_pt or emb.nome_en}: não medido ({'; '.join(motivos)})")
             continue
         nome = _nome(item.item_id, slot, par, emb.token_simc)
         fase2[nome] = conjunto
-        fase2[nome_sem] = conjuntos[nome_sem]  # a mesma peça sem embelezamento, NA MESMA leitura (P4)
-        por_emb[nome] = (emb, slot, "adicionar", nome_sem, None)
+        if plano is None:
+            fase2[nome_sem] = conjuntos[nome_sem]  # a mesma peça sem embelezamento, NA MESMA leitura (P4)
+            por_emb[nome] = (emb, slot, "adicionar", nome_sem, None)
+        else:
+            # Com plano, a base desta leitura JÁ tem a peça sem embelezamento.
+            por_emb[nome] = (emb, slot, "adicionar", None, None)
 
     embs: list[dict] = []
     if fase2:
@@ -544,8 +685,8 @@ def rodar_craft(
             com = leitura2.resultados.get(nome)
             if not base2 or com is None:
                 continue
-            if tipo == "adicionar":
-                referencia = leitura2.resultados.get(ref) if ref else None
+            if tipo == "adicionar" and ref:
+                referencia = leitura2.resultados.get(ref)
                 if referencia is None:
                     continue
                 erros_ref = [leitura2.erros.get(nome), leitura2.erros.get(ref)]
@@ -574,4 +715,6 @@ def rodar_craft(
                 }
             )
         embs.sort(key=lambda e: -e["ganho_pct"])
-    return ResultadoCraft(base_dps, pecas, embs, avisos, bloqueados)
+    if plano is not None:
+        plano.pop("_conjunto", None)
+    return ResultadoCraft(base_dps, pecas, embs, avisos, bloqueados, plano)

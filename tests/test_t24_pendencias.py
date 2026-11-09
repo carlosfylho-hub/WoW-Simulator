@@ -118,3 +118,43 @@ def test_token_do_embelezamento_igual_ao_simc() -> None:
     assert tokenizar("Coiled Snake-Eye") == "coiled_snakeeye"
     assert tokenizar("Hunter's Ritual Stone") == "hunters_ritual_stone"
     assert tokenizar("Darkmoon Sigil: Blood") == "darkmoon_sigil_blood"
+
+
+def test_craft_herda_encanto_e_gema_so_nos_engastes() -> None:
+    from wowsim.data import catalog
+    from wowsim.topgear.models import Candidato
+
+    assert catalog.engastes(251513) == 1  # Loa Worshiper's Band: 1 engaste prismático
+    anel = next(i for i in craft.itens_craftaveis("tecido") if i.item_id == 251513)
+    atual = Candidato(slot="finger2", item_id=1, enchant_id=7967, gem_ids=[], fonte="equipado")
+    c = craft.candidato(anel, "finger2", ("crit", "haste"), ilvl=318, atual=atual, gema_padrao=240908)
+    assert c.enchant_id == 7967 and c.gem_ids == [240908]
+    peito = next(i for i in craft.itens_craftaveis("tecido") if i.slot == "chest")
+    c2 = craft.candidato(peito, "chest", ("crit", "haste"), atual=Candidato(slot="chest", item_id=2, gem_ids=[1], fonte="equipado"))
+    assert c2.gem_ids[: (catalog.engastes(peito.item_id) or 0)] == c2.gem_ids
+
+
+def test_plano_de_duas_mede_duplas_juntas() -> None:
+    from types import SimpleNamespace
+
+    from wowsim.topgear.models import Candidato, Conjunto, ContextoSpec
+    from wowsim.topgear.runner import LeituraSim
+
+    base = Conjunto(itens={s: Candidato(slot=s, item_id=n, fonte="equipado") for n, s in enumerate(("head", "legs", "feet"), 1)})
+    itens = {s: craft.ItemCraft(100 + n, f"P{s}", None, s, False) for n, s in enumerate(("head", "legs", "feet"))}
+    conjuntos, meta, melhor = {}, {}, {}
+    for n, (s, it) in enumerate(itens.items()):
+        nome = f"c_{s}"
+        conjuntos[nome] = base.com_troca(s, Candidato(slot=s, item_id=it.item_id, fonte="craft"))
+        meta[nome] = (it, ("crit", "haste"), s)
+        melhor[s] = (SimpleNamespace(delta_cru=3 - n, limiar_cru=5), it, ("crit", "haste"), nome)
+
+    def simular(conjs, it):
+        ganho = {"par_head_legs": 3.0, "par_head_feet": 2.0, "par_legs_feet": 1.0}
+        return LeituraSim(base_dps=100.0, resultados={k: 100 + ganho[k] for k in conjs})
+
+    plano = craft.plano_de_duas(
+        base, melhor, conjuntos, meta, ctx=ContextoSpec(), simular=simular, iteracoes=2000, ilvl=318
+    )
+    assert plano["melhor"]["slots"] == ["head", "legs"]  # entra mesmo dentro da margem (delta > 0)
+    assert [a["diferenca_pct"] for a in plano["alternativas"]] == [-1.0, -2.0]
