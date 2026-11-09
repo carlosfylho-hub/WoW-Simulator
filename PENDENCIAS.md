@@ -98,6 +98,14 @@ Nenhum bloqueio ativo. O binário foi compilado a partir do fonte `12.1.5.70783`
 | **Etiquetas** | `direto` (cru passa), `catalisar` (só o catalisado passa), `ambos` (os dois passam e o catalisado supera o cru por mais que o limiar), `nao_serve`. |
 | **Confirmação** | `tests/test_masmorras_ranking.py` (5 casos): as 4 etiquetas; anel em dois slots vira uma avaliação com o melhor; delta contra a base de cada leitura; `ordenar` por quantidade e por maior; `montar_opcoes(ilvl=999)` levanta `ValueError`. |
 
+### T7 — API, worker e tela do ranking — **ENTREGUE em 2026-11-08**
+
+| Campo | Detalhe |
+| :--- | :--- |
+| **Backend** | `web/masmorras_db.py` (tabela `masmorras_jobs`), `web/masmorras_worker.py` (`processar` chama `rodar_ranking` + `agrupar` + `ordenar`, pré-voo sem DPS, guarda de exceção) e `web/masmorras_api.py` (`/api/masmorras`: `POST`, `GET /{id}`, `POST /{id}/cancelar`, `GET /{id}/resultado`, `GET /estimativa`). Router registrado antes de `montar_frontend`; `worker.enfileirar_masmorras` e retomada de jobs pendentes. |
+| **Frontend** | `services/masmorrasService.ts` e `components/MasmorrasPanel.tsx`: import SimC+AMR, cenário/ilvl, botão de estimativa, barra de progresso, dois botões de ordem (`aria-pressed`), cartões por masmorra com ícone, tooltip, barra proporcional, etiquetas, `explicacao` e `premissa_chance`; 5 masmorras abertas. Aba "Masmorras" em `App.tsx`. |
+| **Aceite** | `pytest` (10 testes de `test_masmorras_api.py`+ranking) e `tsc --noEmit` limpos; falta a validação ao vivo no Windows (T10). |
+
 ---
 
 ## 3. Pendências de dados

@@ -251,7 +251,7 @@ A fazer:
 | 1 | **T4** Pré-voo não publica DPS (A-02) | [x] | `964b4ca` |
 | 2 | **T5** Catálogo de M+ por masmorra e elegibilidade | [x] | `3e26a67` |
 | 2 | **T6** Motor do ranking de masmorras | [x] | `847eb25` |
-| 2 | **T7** API, worker e tela do ranking | [ ] | |
+| 2 | **T7** API, worker e tela do ranking | [x] | `016170b` (backend), `db117a5` (UI) |
 | 2 | **T8** Grande Cofre a partir do `.gv` | [ ] | |
 | 2 | **T9** Várias builds: matriz, média e montagem | [ ] | |
 | 2 | **T10** Validação ao vivo no Windows (usuário) | [ ] | |
