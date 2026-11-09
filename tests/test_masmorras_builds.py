@@ -4,12 +4,16 @@ from __future__ import annotations
 
 import pytest
 
+from wowsim.masmorras.avaliar import Avaliacao, Opcao
 from wowsim.masmorras.builds import (
     cenario_da_build,
     conjuntos_da_build,
     divergente,
     media_ponderada,
+    melhores_por_slot,
+    montar_conjunto,
 )
+from wowsim.masmorras.catalogo import ItemDeMasmorra
 from wowsim.topgear.models import Candidato, Conjunto
 
 pytestmark = pytest.mark.unit
@@ -64,3 +68,32 @@ def test_divergente_ganho_numa_build_e_perda_em_outra() -> None:
     assert divergente({"a": 1.0, "b": -1.0}, limiares) is True
     assert divergente({"a": 1.0, "b": 0.5}, limiares) is False
     assert divergente({"a": 0.1, "b": -0.1}, limiares) is False
+
+
+def _item(item_id: int, slot: str = "head") -> ItemDeMasmorra:
+    return ItemDeMasmorra(item_id, None, slot, "D", "armadura_tecido_mplus", None)
+
+
+def test_monta_conjunto_com_a_melhor_opcao_por_slot() -> None:
+    base = _conjunto(1)
+    item = _item(10)
+    opcoes = {"c_10_head": Opcao("c_10_head", item, "head", False)}
+    conjuntos = {"c_10_head": _conjunto(10)}
+    avaliacoes = [Avaliacao(item, 2.0, 0.15, None, None, "head")]
+
+    escolhas = melhores_por_slot(avaliacoes, opcoes, conjuntos)
+    novo = montar_conjunto(base, escolhas)
+
+    assert novo.item_id("head") == 10
+    assert base.item_id("head") == 1  # base intacta
+
+
+def test_nao_serve_nao_entra_no_conjunto() -> None:
+    base = _conjunto(1)
+    item = _item(10)
+    opcoes = {"c_10_head": Opcao("c_10_head", item, "head", False)}
+    conjuntos = {"c_10_head": _conjunto(10)}
+    avaliacoes = [Avaliacao(item, -1.0, 0.15, None, None, "head")]
+
+    assert melhores_por_slot(avaliacoes, opcoes, conjuntos) == {}
+    assert montar_conjunto(base, {}).item_id("head") == 1
