@@ -41,6 +41,7 @@ import urllib.error
 import urllib.request
 from datetime import datetime, timezone
 from pathlib import Path
+from typing import Callable
 
 for _stream in (sys.stdout, sys.stderr):
     try:
@@ -251,7 +252,11 @@ def _itens_do_bloco(bloco: str) -> list[dict]:
 
 def _formatar_linha(registro: dict) -> str:
     qtd = registro.get("quantidade")
-    return f"{qtd}× {registro['nome']}" if qtd else str(registro["nome"])
+    nome = registro.get("nome")
+    if nome is None:
+        # Nome ainda não resolvido (só o id veio do Listview): não inventamos.
+        nome = f"#{registro['item_id']}" if registro.get("item_id") is not None else "?"
+    return f"{qtd}× {nome}" if qtd else str(nome)
 
 
 def _receitas_da_pagina(bruto: str) -> list[int]:
@@ -264,30 +269,162 @@ def _receitas_da_pagina(bruto: str) -> list[int]:
     return ids
 
 
-def extrair_pagina(bruto: str, *, texto: str | None = None) -> dict:
+def _fechar_colchete(texto: str, inicio: int) -> int | None:
+    """Índice do ``]`` que fecha o ``[`` em ``inicio``, respeitando strings."""
+    profundidade = 0
+    dentro_string = False
+    escape = False
+    for i in range(inicio, len(texto)):
+        ch = texto[i]
+        if dentro_string:
+            if escape:
+                escape = False
+            elif ch == "\\":
+                escape = True
+            elif ch == '"':
+                dentro_string = False
+            continue
+        if ch == '"':
+            dentro_string = True
+        elif ch == "[":
+            profundidade += 1
+        elif ch == "]":
+            profundidade -= 1
+            if profundidade == 0:
+                return i
+    return None
+
+
+def _extrair_listview_data(bruto: str, listview_id: str) -> list[dict] | None:
+    """Array ``data:`` de um ``new Listview({ id: '<listview_id>', ... })``.
+
+    Esses blobs trazem o dado estruturado que o Wowhead renderiza nas abas:
+    ``created-by-spell`` tem ``reagents`` (ids + quantidade); ``reagent-for``
+    tem ``creates``/``displayName``. Devolve ``None`` quando não existe.
+    """
+    marca = re.search(r"id:\s*['\"]" + re.escape(listview_id) + r"['\"]", bruto or "")
+    if not marca:
+        return None
+    pos_data = bruto.find("data:", marca.end())
+    if pos_data == -1:
+        return None
+    inicio = bruto.find("[", pos_data)
+    fim = _fechar_colchete(bruto, inicio) if inicio != -1 else None
+    if fim is None:
+        return None
+    try:
+        dados = json.loads(bruto[inicio : fim + 1])
+    except json.JSONDecodeError:
+        return None
+    return dados if isinstance(dados, list) else None
+
+
+def _materiais_do_listview(
+    receitas: list, resolver_nome: Callable[[int], str | None] | None = None
+) -> list[dict]:
+    """Reagentes de uma receita (``reagents: [[id, quantidade], ...]``)."""
+    registros: list[dict] = []
+    vistos: set[int] = set()
+    for receita in receitas:
+        if not isinstance(receita, dict):
+            continue
+        for par in receita.get("reagents") or []:
+            if not isinstance(par, (list, tuple)) or not par:
+                continue
+            try:
+                item_id = int(par[0])
+            except (TypeError, ValueError):
+                continue
+            if item_id in vistos:
+                continue
+            vistos.add(item_id)
+            qtd = par[1] if len(par) > 1 and isinstance(par[1], int) else None
+            nome = resolver_nome(item_id) if resolver_nome else None
+            registros.append({"item_id": item_id, "nome": nome, "quantidade": qtd})
+    return registros
+
+
+def _usado_em_do_listview(receitas: list) -> list[dict]:
+    """Itens criados por receitas que usam este reagente (``creates`` + nome)."""
+    registros: list[dict] = []
+    vistos: set[object] = set()
+    for receita in receitas:
+        if not isinstance(receita, dict):
+            continue
+        cria = receita.get("creates") or []
+        item_id: int | None = None
+        chave: object
+        if isinstance(cria, (list, tuple)) and cria and isinstance(cria[0], int):
+            item_id = cria[0]
+            chave = item_id
+        else:
+            chave = receita.get("displayName") or receita.get("name")
+        if chave in vistos:
+            continue
+        vistos.add(chave)
+        nome = receita.get("displayName") or receita.get("name")
+        registros.append({"item_id": item_id, "nome": nome, "quantidade": None})
+    return registros
+
+
+def _nome_do_item(item_id: int) -> str | None:
+    """Nome PT-BR (ou EN) do item, pelo tooltip JSON em cache/rede."""
+    dados = _tooltip(item_id, 8) or _tooltip(item_id, 0) or {}
+    return dados.get("name")
+
+
+def _nome_do_cache(item_id: int) -> str | None:
+    """Nome do item usando só o cache local (modo offline/``--html``)."""
+    for locale in (8, 0):
+        dados = _ler_json(CACHE / f"{item_id}_{locale}.json") or {}
+        if dados.get("name"):
+            return dados["name"]
+    return None
+
+
+def extrair_pagina(
+    bruto: str,
+    *,
+    texto: str | None = None,
+    resolver_nome: Callable[[int], str | None] | None = None,
+) -> dict:
     """Página do Wowhead -> materiais e "usado em", sem adivinhação.
 
-    Primeiro pelas abas estruturadas (``id="tab-*"``); se a página não tiver
-    abas reconhecíveis, cai no recorte por título do texto. ``_fonte`` diz qual
-    caminho respondeu, para o log ficar auditável.
+    Ordem de confiança: (1) os blobs ``new Listview({...})`` embutidos, que
+    trazem a receita com ``reagents`` (ids + quantidade) e as receitas que usam
+    o reagente (``creates`` + nome); (2) as abas ``id="tab-*"`` do HTML;
+    (3) o recorte por título do texto. ``_fonte`` diz qual caminho respondeu.
     """
     bruto = bruto or ""
     materiais: list[dict] = []
     usado_em: list[dict] = []
     fonte = "vazio"
 
-    for tab_id, bloco in _RE_TAB.findall(bruto):
-        destino = _classificar_aba(tab_id)
-        if destino is None:
-            continue
-        itens = _itens_do_bloco(bloco)
-        if not itens:
-            continue
-        fonte = "abas"
-        alvo = materiais if destino == "materiais" else usado_em
-        conhecidos = {registro["item_id"] for registro in alvo}
-        alvo.extend(item for item in itens if item["item_id"] not in conhecidos)
+    # (1) Listviews: dado estruturado, o caminho mais confiável.
+    criado_por = _extrair_listview_data(bruto, "created-by-spell")
+    reagente_para = _extrair_listview_data(bruto, "reagent-for")
+    if criado_por:
+        materiais = _materiais_do_listview(criado_por, resolver_nome)
+    if reagente_para:
+        usado_em = _usado_em_do_listview(reagente_para)
+    if materiais or usado_em:
+        fonte = "listview"
 
+    # (2) Abas do HTML (quando não há Listview com o dado).
+    if not materiais and not usado_em:
+        for tab_id, bloco in _RE_TAB.findall(bruto):
+            destino = _classificar_aba(tab_id)
+            if destino is None:
+                continue
+            itens = _itens_do_bloco(bloco)
+            if not itens:
+                continue
+            fonte = "abas"
+            alvo = materiais if destino == "materiais" else usado_em
+            conhecidos = {registro["item_id"] for registro in alvo}
+            alvo.extend(item for item in itens if item["item_id"] not in conhecidos)
+
+    # (3) Texto solto, último recurso.
     if not materiais and not usado_em:
         texto = texto if texto is not None else texto_do_html(bruto)
         for titulo in ("Criado por", "Created by"):
@@ -305,7 +442,9 @@ def extrair_pagina(bruto: str, *, texto: str | None = None) -> dict:
 
     return {
         "materiais": [_formatar_linha(registro) for registro in materiais[:MAX_MATERIAIS]],
-        "usado_em": [str(registro["nome"]) for registro in usado_em[:MAX_USO]],
+        "usado_em": [
+            str(registro["nome"]) for registro in usado_em[:MAX_USO] if registro.get("nome")
+        ],
         "_detalhe": {
             "materiais": materiais[:MAX_MATERIAIS],
             "usado_em": usado_em[:MAX_USO],
@@ -425,7 +564,7 @@ async def _pagina(item_id: int, *, forcar: bool = False) -> dict:
     if bruto is None:
         return {"materiais": [], "usado_em": [], "_fonte": "vazio", "_falhas": [erro or "sem html"]}
 
-    extraido = extrair_pagina(bruto)
+    extraido = extrair_pagina(bruto, resolver_nome=_nome_do_item)
     falhas: list[str] = []
 
     # Segundo salto: sem materiais na página, tenta a receita que cria o item.
@@ -501,7 +640,7 @@ def _debug_html(item_id: int) -> int:
     CACHE_PAGINA.mkdir(parents=True, exist_ok=True)
     arquivo = CACHE_PAGINA / f"{item_id}.html"
     arquivo.write_text(bruto, encoding="utf-8")
-    extraido = extrair_pagina(bruto)
+    extraido = extrair_pagina(bruto, resolver_nome=_nome_do_item)
     print(f"{len(bruto)} bytes -> {arquivo}")
     print(f"abas vistas: {[tab for tab, _ in _RE_TAB.findall(bruto)]}")
     print(f"fonte: {extraido['_fonte']}")
@@ -529,7 +668,7 @@ def main() -> int:
         except OSError as exc:
             print(f"não foi possível ler {args.html}: {exc}")
             return 1
-        extraido = extrair_pagina(bruto)
+        extraido = extrair_pagina(bruto, resolver_nome=_nome_do_cache)
         print(json.dumps(extraido, ensure_ascii=False, indent=2))
         return 0
 
@@ -547,7 +686,7 @@ def main() -> int:
                 "_meta": {
                     "gerado_em": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
                     "gerado_por": "scripts/raspar_embelezamentos.py",
-                    "fonte": "Wowhead (tooltip JSON + crawl4ai por abas, best-effort)",
+                    "fonte": "Wowhead (tooltip JSON + Listview/abas via crawl4ai, best-effort)",
                     "sem_icone": sem_icone,
                     "sem_materiais": sem_materiais,
                 },

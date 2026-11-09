@@ -138,3 +138,49 @@ def test_materiais_da_receita_le_o_tooltip_do_spell(monkeypatch) -> None:
     )
     monkeypatch.setattr(modulo, "_tooltip_receita", lambda *_args: {"tooltip": tooltip})
     assert modulo._materiais_da_receita(441234) == ["4× Forro Arcano"]
+
+
+# Página no formato real do Wowhead: os dados das abas vêm em blobs
+# `new Listview({...})` com `reagents` (created-by-spell) e `creates`
+# (reagent-for). Este é o formato que o crawl entrega (não as <tr> visuais).
+PAGINA_LISTVIEW = """
+<script>
+new Listview({
+    template: 'spell', id: 'created-by-spell', name: 'X',
+    data: [{"creates":[190300,1,1],"displayName":"Ombro X",
+            "reagents":[[240167,1],[219515,3]]}],
+});
+new Listview({
+    template: 'spell', id: 'reagent-for', name: 'Y',
+    data: [{"creates":[190316,1,1],"displayName":"Ombros do Vazio"},
+           {"creates":[190317,1,1],"displayName":"Peito do Vazio"}],
+});
+</script>
+"""
+
+
+def test_extrair_pagina_le_listview_e_resolve_nomes() -> None:
+    modulo = _carregar_raspador()
+    nomes = {240167: "Forro Arcano", 219515: "Centelha"}
+    extraido = modulo.extrair_pagina(PAGINA_LISTVIEW, resolver_nome=nomes.get)
+    assert extraido["_fonte"] == "listview"
+    assert extraido["materiais"] == ["1× Forro Arcano", "3× Centelha"]
+    assert extraido["usado_em"] == ["Ombros do Vazio", "Peito do Vazio"]
+    assert extraido["_detalhe"]["materiais"][1]["quantidade"] == 3
+
+
+def test_extrair_pagina_listview_sem_resolver_nao_inventa_nome() -> None:
+    modulo = _carregar_raspador()
+    extraido = modulo.extrair_pagina(PAGINA_LISTVIEW)
+    assert extraido["materiais"] == ["1× #240167", "3× #219515"]
+
+
+def test_extrair_listview_data_ausente_devolve_none() -> None:
+    modulo = _carregar_raspador()
+    assert modulo._extrair_listview_data("<html></html>", "created-by-spell") is None
+
+
+def test_fechar_colchete_respeita_strings() -> None:
+    modulo = _carregar_raspador()
+    texto = '["a]b",[1,2]] cauda'
+    assert modulo._fechar_colchete(texto, 0) == texto.index("] cauda")

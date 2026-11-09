@@ -1,9 +1,10 @@
 {
   "_meta": {
-    "gerado_em": "2026-11-09T05:58:04Z",
+    "gerado_em": "2026-11-09T13:02:50Z",
     "gerado_por": "scripts/raspar_embelezamentos.py",
-    "fonte": "Wowhead (tooltip JSON + crawl4ai, best-effort)",
-    "sem_icone": []
+    "fonte": "Wowhead (tooltip JSON + Listview/abas via crawl4ai, best-effort)",
+    "sem_icone": [],
+    "sem_materiais": []
   },
   "embelezamentos": [
     {
@@ -13,11 +14,110 @@
       "icone": "inv_12_tailoring_rare_cloth_orange-_rare-cloth",
       "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_12_tailoring_rare_cloth_orange-_rare-cloth.jpg",
       "qualidade": 3,
-      "texto_completo": "Forro de Seda de Fogo Solar\nNível do Item: 72 Reagente de criação opcional +5 Dificuldade da receita\nFornece as seguintes propriedades: Cura e dano de efeitos periódicos concedem 5 de primaryStat por 15 s, acumulando até 5 vezes.\nUsável com: Receitas de Midnight para a maior parte das armaduras não adornadas.\n\"Pode ser comprado e vendido na Casa de Leilões.\"\nEmpilhamento máx: 200 Preço de Venda: 6 82",
-      "texto_en": "Sunfire Silk Lining\nItem Level 72 Optional Crafting Reagent +5 Recipe Difficulty\nProvides the following property: Healing and damage from periodic effects can increase primaryStat by 5 for 15 sec, stacking up to 5 times.\nUsable with: Midnight recipes for most unembellished armor.\n\"Can be bought and sold on the Auction House.\"\nMax Stack: 200 Sell Price: 6 82",
-      "materiais": [],
-      "usado_em": [],
-      "_falhas": []
+      "texto_completo": "Forro de Seda de Fogo Solar\nNível do Item: 72\nReagente de criação opcional +5 Dificuldade da receita\nFornece as seguintes propriedades: Cura e dano de efeitos periódicos concedem 5 de primaryStat por 15 s, acumulando até 5 vezes.\nUsável com: Receitas de Midnight para a maior parte das armaduras não adornadas.\n\"Pode ser comprado e vendido na Casa de Leilões.\"\nEmpilhamento máx: 200\nPreço de Venda: 6 82",
+      "texto_en": "Sunfire Silk Lining\nItem Level 72\nOptional Crafting Reagent +5 Recipe Difficulty\nProvides the following property: Healing and damage from periodic effects can increase primaryStat by 5 for 15 sec, stacking up to 5 times.\nUsable with: Midnight recipes for most unembellished armor.\n\"Can be bought and sold on the Auction House.\"\nMax Stack: 200\nSell Price: 6 82",
+      "materiais": [
+        "1× Filamento de Bordado",
+        "6× Seda de Fogo Solar",
+        "2× Rolo de Seda de Fogo Solar"
+      ],
+      "usado_em": [
+        "Coroa do Mártir",
+        "Luvas do Mártir",
+        "Banda do Mártir",
+        "Braceletes do Mártir",
+        "Vestimenta do Mártir",
+        "Perneiras do Mártir",
+        "Sapatilhas do Mártir",
+        "Dragonas do Mártir",
+        "Mortalha Sedosa do Seguidor",
+        "Elmo Cortesão",
+        "Luvas Cortesãs",
+        "Cinto Cortesão"
+      ],
+      "_falhas": [],
+      "_detalhe": {
+        "materiais": [
+          {
+            "item_id": 251691,
+            "nome": "Filamento de Bordado",
+            "quantidade": 1
+          },
+          {
+            "item_id": 237015,
+            "nome": "Seda de Fogo Solar",
+            "quantidade": 6
+          },
+          {
+            "item_id": 239201,
+            "nome": "Rolo de Seda de Fogo Solar",
+            "quantidade": 2
+          }
+        ],
+        "usado_em": [
+          {
+            "item_id": 239652,
+            "nome": "Coroa do Mártir",
+            "quantidade": null
+          },
+          {
+            "item_id": 239653,
+            "nome": "Luvas do Mártir",
+            "quantidade": null
+          },
+          {
+            "item_id": 239649,
+            "nome": "Banda do Mártir",
+            "quantidade": null
+          },
+          {
+            "item_id": 239648,
+            "nome": "Braceletes do Mártir",
+            "quantidade": null
+          },
+          {
+            "item_id": 239655,
+            "nome": "Vestimenta do Mártir",
+            "quantidade": null
+          },
+          {
+            "item_id": 239651,
+            "nome": "Perneiras do Mártir",
+            "quantidade": null
+          },
+          {
+            "item_id": 239654,
+            "nome": "Sapatilhas do Mártir",
+            "quantidade": null
+          },
+          {
+            "item_id": 239650,
+            "nome": "Dragonas do Mártir",
+            "quantidade": null
+          },
+          {
+            "item_id": 239656,
+            "nome": "Mortalha Sedosa do Seguidor",
+            "quantidade": null
+          },
+          {
+            "item_id": 239668,
+            "nome": "Elmo Cortesão",
+            "quantidade": null
+          },
+          {
+            "item_id": 239669,
+            "nome": "Luvas Cortesãs",
+            "quantidade": null
+          },
+          {
+            "item_id": 239670,
+            "nome": "Cinto Cortesão",
+            "quantidade": null
+          }
+        ]
+      },
+      "_fonte": "listview"
     },
     {
       "reagente_id": 240167,
@@ -26,11 +126,110 @@
       "icone": "inv_12_tailoring_rare_cloth_violet_rare-cloth",
       "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_12_tailoring_rare_cloth_violet_rare-cloth.jpg",
       "qualidade": 3,
-      "texto_completo": "Forro de Arcanotrama\nNível do Item: 72 Reagente de criação opcional +5 Dificuldade da receita\nFornece as seguintes propriedades: Seus feitiços e habilidades têm chance de atrair uma moreia de mana que potencializará você e um aliado com Percepção da Arcanotrama, aumentando seu atributo primário e o do seu aliado.\nUsável com: Receitas de Midnight para a maior parte das armaduras não adornadas.\n\"Pode ser comprado e vendido na Casa de Leilões.\"\nEmpilhamento máx: 200 Preço de Venda: 6 82",
-      "texto_en": "Arcanoweave Lining\nItem Level 72 Optional Crafting Reagent +5 Recipe Difficulty\nProvides the following property: Your spells and abilities have a chance to draw in a mana wyrm that will empower you and an ally with Arcanoweave Insight. Arcanoweave Insight increases both your and your ally's Primary Stat.\nUsable with: Midnight recipes for most unembellished armor.\n\"Can be bought and sold on the Auction House.\"\nMax Stack: 200 Sell Price: 6 82",
-      "materiais": [],
-      "usado_em": [],
-      "_falhas": []
+      "texto_completo": "Forro de Arcanotrama\nNível do Item: 72\nReagente de criação opcional +5 Dificuldade da receita\nFornece as seguintes propriedades: Seus feitiços e habilidades têm chance de atrair uma moreia de mana que potencializará você e um aliado com Percepção da Arcanotrama, aumentando seu atributo primário e o do seu aliado.\nUsável com: Receitas de Midnight para a maior parte das armaduras não adornadas.\n\"Pode ser comprado e vendido na Casa de Leilões.\"\nEmpilhamento máx: 200\nPreço de Venda: 6 82",
+      "texto_en": "Arcanoweave Lining\nItem Level 72\nOptional Crafting Reagent +5 Recipe Difficulty\nProvides the following property: Your spells and abilities have a chance to draw in a mana wyrm that will empower you and an ally with Arcanoweave Insight. Arcanoweave Insight increases both your and your ally's Primary Stat.\nUsable with: Midnight recipes for most unembellished armor.\n\"Can be bought and sold on the Auction House.\"\nMax Stack: 200\nSell Price: 6 82",
+      "materiais": [
+        "1× Filamento de Bordado",
+        "6× Arcanotrama",
+        "2× Rolo de Arcanotrama"
+      ],
+      "usado_em": [
+        "Coroa do Mártir",
+        "Luvas do Mártir",
+        "Banda do Mártir",
+        "Braceletes do Mártir",
+        "Vestimenta do Mártir",
+        "Perneiras do Mártir",
+        "Sapatilhas do Mártir",
+        "Dragonas do Mártir",
+        "Mortalha Sedosa do Seguidor",
+        "Elmo Cortesão",
+        "Luvas Cortesãs",
+        "Cinto Cortesão"
+      ],
+      "_falhas": [],
+      "_detalhe": {
+        "materiais": [
+          {
+            "item_id": 251691,
+            "nome": "Filamento de Bordado",
+            "quantidade": 1
+          },
+          {
+            "item_id": 237018,
+            "nome": "Arcanotrama",
+            "quantidade": 6
+          },
+          {
+            "item_id": 239198,
+            "nome": "Rolo de Arcanotrama",
+            "quantidade": 2
+          }
+        ],
+        "usado_em": [
+          {
+            "item_id": 239652,
+            "nome": "Coroa do Mártir",
+            "quantidade": null
+          },
+          {
+            "item_id": 239653,
+            "nome": "Luvas do Mártir",
+            "quantidade": null
+          },
+          {
+            "item_id": 239649,
+            "nome": "Banda do Mártir",
+            "quantidade": null
+          },
+          {
+            "item_id": 239648,
+            "nome": "Braceletes do Mártir",
+            "quantidade": null
+          },
+          {
+            "item_id": 239655,
+            "nome": "Vestimenta do Mártir",
+            "quantidade": null
+          },
+          {
+            "item_id": 239651,
+            "nome": "Perneiras do Mártir",
+            "quantidade": null
+          },
+          {
+            "item_id": 239654,
+            "nome": "Sapatilhas do Mártir",
+            "quantidade": null
+          },
+          {
+            "item_id": 239650,
+            "nome": "Dragonas do Mártir",
+            "quantidade": null
+          },
+          {
+            "item_id": 239656,
+            "nome": "Mortalha Sedosa do Seguidor",
+            "quantidade": null
+          },
+          {
+            "item_id": 239668,
+            "nome": "Elmo Cortesão",
+            "quantidade": null
+          },
+          {
+            "item_id": 239669,
+            "nome": "Luvas Cortesãs",
+            "quantidade": null
+          },
+          {
+            "item_id": 239670,
+            "nome": "Cinto Cortesão",
+            "quantidade": null
+          }
+        ]
+      },
+      "_fonte": "listview"
     },
     {
       "reagente_id": 244604,
@@ -39,11 +238,122 @@
       "icone": "inv_jewelry_necklace_139",
       "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_jewelry_necklace_139.jpg",
       "qualidade": 3,
-      "texto_completo": "Patuá de Pango Abençoado\nNível do Item: 72 Requer Nível 71\nReagente de criação opcional +5 Dificuldade da receita\nFornece as seguintes propriedades: Suas habilidades e feitiços benéficos têm chance de evocar o loa Kurzi para conceder Versatilidade ao seu alvo.\nÚnico-equipado: Adornado 2\nUsável com: Receitas de Midnight para a maioria dos equipamentos não adornados.\n\"Pode ser comprado e vendido na Casa de Leilões.\"\nEmpilhamento máx: 200 Preço de Venda: 7 40",
-      "texto_en": "Blessed Pango Charm\nItem Level 72 Requires Level 71\nOptional Crafting Reagent +5 Recipe Difficulty\nProvides the following property: Your helpful spells and abilities have a chance to call upon the Loa Kulzi to grant Versatility to your target.\nUnique-Equipped: Embellished 2.\nUsable with: Midnight recipes for most unembellished equipment.\n\"Can be bought and sold on the Auction House.\"\nMax Stack: 200 Sell Price: 7 40",
-      "materiais": [],
-      "usado_em": [],
-      "_falhas": []
+      "texto_completo": "Patuá de Pango Abençoado\nNível do Item: 72\nRequer Nível 71\nReagente de criação opcional +5 Dificuldade da receita\nFornece as seguintes propriedades: Suas habilidades e feitiços benéficos têm chance de evocar o loa Kurzi para conceder Versatilidade ao seu alvo.\nÚnico-equipado: Adornado 2\nUsável com: Receitas de Midnight para a maioria dos equipamentos não adornados.\n\"Pode ser comprado e vendido na Casa de Leilões.\"\nEmpilhamento máx: 200\nPreço de Venda: 7 40",
+      "texto_en": "Blessed Pango Charm\nItem Level 72\nRequires Level 71\nOptional Crafting Reagent +5 Recipe Difficulty\nProvides the following property: Your helpful spells and abilities have a chance to call upon the Loa Kulzi to grant Versatility to your target.\nUnique-Equipped: Embellished 2.\nUsable with: Midnight recipes for most unembellished equipment.\n\"Can be bought and sold on the Auction House.\"\nMax Stack: 200\nSell Price: 7 40",
+      "materiais": [
+        "10× Grânulo de Magia Selvagem",
+        "1× Canino Cortante",
+        "1× Plumagem Inigualável",
+        "1× Pelego Revenido pelo Caos",
+        "2× Pedra Crepusculada"
+      ],
+      "usado_em": [
+        "Machado Pesado Primeforjado",
+        "Divisor Albaforjado",
+        "Maça de Guerra Albaforjada",
+        "Soqueiras Primeforjadas",
+        "Lâmina Longa Albaforjada",
+        "Gume Albaforjado",
+        "Faca Ritualística Albaforjada",
+        "Espada do Competidor Talassiano",
+        "Montante do Competidor Talassiano",
+        "Espeto do Competidor Talassiano",
+        "Talhadeira do Competidor Talassiano",
+        "Máxima do Competidor Talassiano"
+      ],
+      "_falhas": [],
+      "_detalhe": {
+        "materiais": [
+          {
+            "item_id": 236951,
+            "nome": "Grânulo de Magia Selvagem",
+            "quantidade": 10
+          },
+          {
+            "item_id": 238523,
+            "nome": "Canino Cortante",
+            "quantidade": 1
+          },
+          {
+            "item_id": 238522,
+            "nome": "Plumagem Inigualável",
+            "quantidade": 1
+          },
+          {
+            "item_id": 238518,
+            "nome": "Pelego Revenido pelo Caos",
+            "quantidade": 1
+          },
+          {
+            "item_id": 242788,
+            "nome": "Pedra Crepusculada",
+            "quantidade": 2
+          }
+        ],
+        "usado_em": [
+          {
+            "item_id": 237932,
+            "nome": "Machado Pesado Primeforjado",
+            "quantidade": null
+          },
+          {
+            "item_id": 237931,
+            "nome": "Divisor Albaforjado",
+            "quantidade": null
+          },
+          {
+            "item_id": 237930,
+            "nome": "Maça de Guerra Albaforjada",
+            "quantidade": null
+          },
+          {
+            "item_id": 237929,
+            "nome": "Soqueiras Primeforjadas",
+            "quantidade": null
+          },
+          {
+            "item_id": 237928,
+            "nome": "Lâmina Longa Albaforjada",
+            "quantidade": null
+          },
+          {
+            "item_id": 237927,
+            "nome": "Gume Albaforjado",
+            "quantidade": null
+          },
+          {
+            "item_id": 237926,
+            "nome": "Faca Ritualística Albaforjada",
+            "quantidade": null
+          },
+          {
+            "item_id": 237916,
+            "nome": "Espada do Competidor Talassiano",
+            "quantidade": null
+          },
+          {
+            "item_id": 237915,
+            "nome": "Montante do Competidor Talassiano",
+            "quantidade": null
+          },
+          {
+            "item_id": 237914,
+            "nome": "Espeto do Competidor Talassiano",
+            "quantidade": null
+          },
+          {
+            "item_id": 237913,
+            "nome": "Talhadeira do Competidor Talassiano",
+            "quantidade": null
+          },
+          {
+            "item_id": 237911,
+            "nome": "Máxima do Competidor Talassiano",
+            "quantidade": null
+          }
+        ]
+      },
+      "_fonte": "listview"
     },
     {
       "reagente_id": 244608,
@@ -52,11 +362,110 @@
       "icone": "inv_12_profession_leatherworking_armor_banding_green",
       "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_12_profession_leatherworking_armor_banding_green.jpg",
       "qualidade": 3,
-      "texto_completo": "Vínculo de Esporos Primevos\nNível do Item: 72 Requer Nível 71\nReagente de criação opcional +5 Dificuldade da receita\nFornece as seguintes propriedades: Seus feitiços e habilidades podem lançar Esporos Explosivos contra os alvos, curando aliados ou causando dano aos inimigos, dependendo de quem é o alvo.\nÚnico-equipado: Adornado 2\nUsável com: Receitas de Midnight para a maioria das armas e armaduras não adornadas.\n\"Pode ser comprado e vendido na Casa de Leilões.\"\nEmpilhamento máx: 200 Preço de Venda: 4 5",
-      "texto_en": "Primal Spore Binding\nItem Level 72 Requires Level 71\nOptional Crafting Reagent +5 Recipe Difficulty\nProvides the following property: Your spells and abilities can launch Explosive Spores at your targets, healing allies or damaging enemies based on who your target is.\nUnique-Equipped: Embellished 2.\nUsable with: Midnight recipes for most unembellished weapons and armor.\n\"Can be bought and sold on the Auction House.\"\nMax Stack: 200 Sell Price: 4 5",
-      "materiais": [],
-      "usado_em": [],
-      "_falhas": []
+      "texto_completo": "Vínculo de Esporos Primevos\nNível do Item: 72\nRequer Nível 71\nReagente de criação opcional +5 Dificuldade da receita\nFornece as seguintes propriedades: Seus feitiços e habilidades podem lançar Esporos Explosivos contra os alvos, curando aliados ou causando dano aos inimigos, dependendo de quem é o alvo.\nÚnico-equipado: Adornado 2\nUsável com: Receitas de Midnight para a maioria das armas e armaduras não adornadas.\n\"Pode ser comprado e vendido na Casa de Leilões.\"\nEmpilhamento máx: 200\nPreço de Venda: 4 5",
+      "texto_en": "Primal Spore Binding\nItem Level 72\nRequires Level 71\nOptional Crafting Reagent +5 Recipe Difficulty\nProvides the following property: Your spells and abilities can launch Explosive Spores at your targets, healing allies or damaging enemies based on who your target is.\nUnique-Equipped: Embellished 2.\nUsable with: Midnight recipes for most unembellished weapons and armor.\n\"Can be bought and sold on the Auction House.\"\nMax Stack: 200\nSell Price: 4 5",
+      "materiais": [
+        "10× Grânulo de Energia Primeva",
+        "1× Pelo Fantástico",
+        "1× Pelego Tecido em Escamas"
+      ],
+      "usado_em": [
+        "Machado Pesado Primeforjado",
+        "Divisor Albaforjado",
+        "Maça de Guerra Albaforjada",
+        "Soqueiras Primeforjadas",
+        "Lâmina Longa Albaforjada",
+        "Gume Albaforjado",
+        "Faca Ritualística Albaforjada",
+        "Espada do Competidor Talassiano",
+        "Montante do Competidor Talassiano",
+        "Espeto do Competidor Talassiano",
+        "Talhadeira do Competidor Talassiano",
+        "Máxima do Competidor Talassiano"
+      ],
+      "_falhas": [],
+      "_detalhe": {
+        "materiais": [
+          {
+            "item_id": 236950,
+            "nome": "Grânulo de Energia Primeva",
+            "quantidade": 10
+          },
+          {
+            "item_id": 238525,
+            "nome": "Pelo Fantástico",
+            "quantidade": 1
+          },
+          {
+            "item_id": 244631,
+            "nome": "Pelego Tecido em Escamas",
+            "quantidade": 1
+          }
+        ],
+        "usado_em": [
+          {
+            "item_id": 237932,
+            "nome": "Machado Pesado Primeforjado",
+            "quantidade": null
+          },
+          {
+            "item_id": 237931,
+            "nome": "Divisor Albaforjado",
+            "quantidade": null
+          },
+          {
+            "item_id": 237930,
+            "nome": "Maça de Guerra Albaforjada",
+            "quantidade": null
+          },
+          {
+            "item_id": 237929,
+            "nome": "Soqueiras Primeforjadas",
+            "quantidade": null
+          },
+          {
+            "item_id": 237928,
+            "nome": "Lâmina Longa Albaforjada",
+            "quantidade": null
+          },
+          {
+            "item_id": 237927,
+            "nome": "Gume Albaforjado",
+            "quantidade": null
+          },
+          {
+            "item_id": 237926,
+            "nome": "Faca Ritualística Albaforjada",
+            "quantidade": null
+          },
+          {
+            "item_id": 237916,
+            "nome": "Espada do Competidor Talassiano",
+            "quantidade": null
+          },
+          {
+            "item_id": 237915,
+            "nome": "Montante do Competidor Talassiano",
+            "quantidade": null
+          },
+          {
+            "item_id": 237914,
+            "nome": "Espeto do Competidor Talassiano",
+            "quantidade": null
+          },
+          {
+            "item_id": 237913,
+            "nome": "Talhadeira do Competidor Talassiano",
+            "quantidade": null
+          },
+          {
+            "item_id": 237911,
+            "nome": "Máxima do Competidor Talassiano",
+            "quantidade": null
+          }
+        ]
+      },
+      "_fonte": "listview"
     },
     {
       "reagente_id": 244675,
@@ -65,11 +474,104 @@
       "icone": "inv_12_profession_leatherworking_armor_banding_brown",
       "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_12_profession_leatherworking_armor_banding_brown.jpg",
       "qualidade": 3,
-      "texto_completo": "Elo Devorador\nNível do Item: 72 Requer Nível 71\nReagente de criação opcional +5 Dificuldade da receita\nFornece as seguintes propriedades: Suas habilidades e feitiços que causam dano têm chance de lançar Setas Devoradoras que causam dano ao seu alvo e aprimoram o seu atributo secundário mais alto.\nÚnico-equipado: Adornado 2\nUsável com: Receitas de Midnight para a maioria das armas e armaduras não adornadas.\n\"Pode ser comprado e vendido na Casa de Leilões.\"\nEmpilhamento máx: 200 Preço de Venda: 3 55",
-      "texto_en": "Devouring Banding\nItem Level 72 Requires Level 71\nOptional Crafting Reagent +5 Recipe Difficulty\nProvides the following property: Your damaging spells and abilities have a chance to launch Devouring Bolts that damage your target and boost your highest secondary stat.\nUnique-Equipped: Embellished 2.\nUsable with: Midnight recipes for most unembellished weapons and armor.\n\"Can be bought and sold on the Auction House.\"\nMax Stack: 200 Sell Price: 3 55",
-      "materiais": [],
-      "usado_em": [],
-      "_falhas": []
+      "texto_completo": "Elo Devorador\nNível do Item: 72\nRequer Nível 71\nReagente de criação opcional +5 Dificuldade da receita\nFornece as seguintes propriedades: Suas habilidades e feitiços que causam dano têm chance de lançar Setas Devoradoras que causam dano ao seu alvo e aprimoram o seu atributo secundário mais alto.\nÚnico-equipado: Adornado 2\nUsável com: Receitas de Midnight para a maioria das armas e armaduras não adornadas.\n\"Pode ser comprado e vendido na Casa de Leilões.\"\nEmpilhamento máx: 200\nPreço de Venda: 3 55",
+      "texto_en": "Devouring Banding\nItem Level 72\nRequires Level 71\nOptional Crafting Reagent +5 Recipe Difficulty\nProvides the following property: Your damaging spells and abilities have a chance to launch Devouring Bolts that damage your target and boost your highest secondary stat.\nUnique-Equipped: Embellished 2.\nUsable with: Midnight recipes for most unembellished weapons and armor.\n\"Can be bought and sold on the Auction House.\"\nMax Stack: 200\nSell Price: 3 55",
+      "materiais": [
+        "10× Grânulo de Caos Puro",
+        "1× Elo de Armadura Sin'dorei"
+      ],
+      "usado_em": [
+        "Machado Pesado Primeforjado",
+        "Divisor Albaforjado",
+        "Maça de Guerra Albaforjada",
+        "Soqueiras Primeforjadas",
+        "Lâmina Longa Albaforjada",
+        "Gume Albaforjado",
+        "Faca Ritualística Albaforjada",
+        "Espada do Competidor Talassiano",
+        "Montante do Competidor Talassiano",
+        "Espeto do Competidor Talassiano",
+        "Talhadeira do Competidor Talassiano",
+        "Máxima do Competidor Talassiano"
+      ],
+      "_falhas": [],
+      "_detalhe": {
+        "materiais": [
+          {
+            "item_id": 236952,
+            "nome": "Grânulo de Caos Puro",
+            "quantidade": 10
+          },
+          {
+            "item_id": 244635,
+            "nome": "Elo de Armadura Sin'dorei",
+            "quantidade": 1
+          }
+        ],
+        "usado_em": [
+          {
+            "item_id": 237932,
+            "nome": "Machado Pesado Primeforjado",
+            "quantidade": null
+          },
+          {
+            "item_id": 237931,
+            "nome": "Divisor Albaforjado",
+            "quantidade": null
+          },
+          {
+            "item_id": 237930,
+            "nome": "Maça de Guerra Albaforjada",
+            "quantidade": null
+          },
+          {
+            "item_id": 237929,
+            "nome": "Soqueiras Primeforjadas",
+            "quantidade": null
+          },
+          {
+            "item_id": 237928,
+            "nome": "Lâmina Longa Albaforjada",
+            "quantidade": null
+          },
+          {
+            "item_id": 237927,
+            "nome": "Gume Albaforjado",
+            "quantidade": null
+          },
+          {
+            "item_id": 237926,
+            "nome": "Faca Ritualística Albaforjada",
+            "quantidade": null
+          },
+          {
+            "item_id": 237916,
+            "nome": "Espada do Competidor Talassiano",
+            "quantidade": null
+          },
+          {
+            "item_id": 237915,
+            "nome": "Montante do Competidor Talassiano",
+            "quantidade": null
+          },
+          {
+            "item_id": 237914,
+            "nome": "Espeto do Competidor Talassiano",
+            "quantidade": null
+          },
+          {
+            "item_id": 237913,
+            "nome": "Talhadeira do Competidor Talassiano",
+            "quantidade": null
+          },
+          {
+            "item_id": 237911,
+            "nome": "Máxima do Competidor Talassiano",
+            "quantidade": null
+          }
+        ]
+      },
+      "_fonte": "listview"
     },
     {
       "reagente_id": 245872,
@@ -78,11 +580,116 @@
       "icone": "inv_12_profession_inscriptions_darkmoonsigil_hunt",
       "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_12_profession_inscriptions_darkmoonsigil_hunt.jpg",
       "qualidade": 3,
-      "texto_completo": "Signo de Negraluna: Sangue\nNível do Item: 90 Reagente de criação opcional +5 Dificuldade da receita\nFornece as seguintes propriedades: Suas habilidades e feitiços que causam dano têm chance de conceder Astúcia do Andarilho , aumentando em 76 seu segundo atributo mais baixo por 15 s.\nQuando um jogador aliado morre, você recebe 63 do seu atributo secundário mais alto por 15 s. Este efeito só pode ser ativado uma vez a cada 5 min.\nÚnico-equipado: Adornado 2\nUsável com: Receitas de Midnight para a maioria das armas e itens de mão secundária não adornados.\n\"Pode ser comprado e vendido na Casa de Leilões.\"\nEmpilhamento máx: 20 Preço de Venda: 43 43 95",
-      "texto_en": "Darkmoon Sigil: Blood\nItem Level 90 Optional Crafting Reagent +5 Recipe Difficulty\nProvides the following property: Your damaging spells and abilities have the chance to grant Farstrider's Guile , increasing your lowest secondary stat by 76 for 15 sec.\nWhen an allied player dies, gain 63 of your highest secondary stat for 15 sec. This effect can only occur once every 5 min.\nUnique-Equipped: Embellished 2.\nUsable with: Midnight recipes for most unembellished weapons and off-hands.\n\"Can be bought and sold on the Auction House.\"\nMax Stack: 20 Sell Price: 43 43 95",
-      "materiais": [],
-      "usado_em": [],
-      "_falhas": []
+      "texto_completo": "Signo de Negraluna: Sangue\nNível do Item: 90\nReagente de criação opcional +5 Dificuldade da receita\nFornece as seguintes propriedades: Suas habilidades e feitiços que causam dano têm chance de conceder Astúcia do Andarilho , aumentando em 76 seu segundo atributo mais baixo por 15 s.\nQuando um jogador aliado morre, você recebe 63 do seu atributo secundário mais alto por 15 s. Este efeito só pode ser ativado uma vez a cada 5 min.\nÚnico-equipado: Adornado 2\nUsável com: Receitas de Midnight para a maioria das armas e itens de mão secundária não adornados.\n\"Pode ser comprado e vendido na Casa de Leilões.\"\nEmpilhamento máx: 20\nPreço de Venda: 43 43 95",
+      "texto_en": "Darkmoon Sigil: Blood\nItem Level 90\nOptional Crafting Reagent +5 Recipe Difficulty\nProvides the following property: Your damaging spells and abilities have the chance to grant Farstrider's Guile , increasing your lowest secondary stat by 76 for 15 sec.\nWhen an allied player dies, gain 63 of your highest secondary stat for 15 sec. This effect can only occur once every 5 min.\nUnique-Equipped: Embellished 2.\nUsable with: Midnight recipes for most unembellished weapons and off-hands.\n\"Can be bought and sold on the Auction House.\"\nMax Stack: 20\nSell Price: 43 43 95",
+      "materiais": [
+        "1× Água Musical Talassiana",
+        "10× Grânulo de Luz",
+        "1× Baralho de Negraluna: Sangue",
+        "5× Código de Alma"
+      ],
+      "usado_em": [
+        "Quebra-coco Evinúcleo",
+        "P.O.U. x3",
+        "Rifle do Competidor Talassiano",
+        "Machado Pesado Primeforjado",
+        "Divisor Albaforjado",
+        "Maça de Guerra Albaforjada",
+        "Soqueiras Primeforjadas",
+        "Lâmina Longa Albaforjada",
+        "Gume Albaforjado",
+        "Faca Ritualística Albaforjada",
+        "Espada do Competidor Talassiano",
+        "Montante do Competidor Talassiano"
+      ],
+      "_falhas": [],
+      "_detalhe": {
+        "materiais": [
+          {
+            "item_id": 245882,
+            "nome": "Água Musical Talassiana",
+            "quantidade": 1
+          },
+          {
+            "item_id": 236949,
+            "nome": "Grânulo de Luz",
+            "quantidade": 10
+          },
+          {
+            "item_id": 245855,
+            "nome": "Baralho de Negraluna: Sangue",
+            "quantidade": 1
+          },
+          {
+            "item_id": 245766,
+            "nome": "Código de Alma",
+            "quantidade": 5
+          }
+        ],
+        "usado_em": [
+          {
+            "item_id": 268475,
+            "nome": "Quebra-coco Evinúcleo",
+            "quantidade": null
+          },
+          {
+            "item_id": 268477,
+            "nome": "P.O.U. x3",
+            "quantidade": null
+          },
+          {
+            "item_id": 268479,
+            "nome": "Rifle do Competidor Talassiano",
+            "quantidade": null
+          },
+          {
+            "item_id": 237932,
+            "nome": "Machado Pesado Primeforjado",
+            "quantidade": null
+          },
+          {
+            "item_id": 237931,
+            "nome": "Divisor Albaforjado",
+            "quantidade": null
+          },
+          {
+            "item_id": 237930,
+            "nome": "Maça de Guerra Albaforjada",
+            "quantidade": null
+          },
+          {
+            "item_id": 237929,
+            "nome": "Soqueiras Primeforjadas",
+            "quantidade": null
+          },
+          {
+            "item_id": 237928,
+            "nome": "Lâmina Longa Albaforjada",
+            "quantidade": null
+          },
+          {
+            "item_id": 237927,
+            "nome": "Gume Albaforjado",
+            "quantidade": null
+          },
+          {
+            "item_id": 237926,
+            "nome": "Faca Ritualística Albaforjada",
+            "quantidade": null
+          },
+          {
+            "item_id": 237916,
+            "nome": "Espada do Competidor Talassiano",
+            "quantidade": null
+          },
+          {
+            "item_id": 237915,
+            "nome": "Montante do Competidor Talassiano",
+            "quantidade": null
+          }
+        ]
+      },
+      "_fonte": "listview"
     },
     {
       "reagente_id": 245874,
@@ -91,11 +698,116 @@
       "icone": "inv_12_profession_inscriptions_darkmoonsigil_void",
       "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_12_profession_inscriptions_darkmoonsigil_void.jpg",
       "qualidade": 3,
-      "texto_completo": "Signo de Negraluna: Caos\nNível do Item: 90 Reagente de criação opcional +5 Dificuldade da receita\nFornece as seguintes propriedades: Suas habilidades e feitiços que causam dano têm chance de envolver você com Vidro Caótico, concedendo 40 de Versatilidade ao longo de 15 s. Múltiplas aplicações podem se sobrepor.\nÚnico-equipado: Adornado 2\nUsável com: Receitas de Midnight para a maioria das armas e itens de mão secundária não adornados.\n\"Pode ser comprado e vendido na Casa de Leilões.\"\nEmpilhamento máx: 20 Preço de Venda: 43 43 95",
-      "texto_en": "Darkmoon Sigil: Void\nItem Level 90 Optional Crafting Reagent +5 Recipe Difficulty\nProvides the following property: Your damaging spells and abilities have the chance to embolden you in Void Glass granting 40 Versatility over 15 sec. Multiple applications can overlap.\nUnique-Equipped: Embellished 2.\nUsable with: Midnight recipes for most unembellished weapons and off-hands.\n\"Can be bought and sold on the Auction House.\"\nMax Stack: 20 Sell Price: 43 43 95",
-      "materiais": [],
-      "usado_em": [],
-      "_falhas": []
+      "texto_completo": "Signo de Negraluna: Caos\nNível do Item: 90\nReagente de criação opcional +5 Dificuldade da receita\nFornece as seguintes propriedades: Suas habilidades e feitiços que causam dano têm chance de envolver você com Vidro Caótico, concedendo 40 de Versatilidade ao longo de 15 s. Múltiplas aplicações podem se sobrepor.\nÚnico-equipado: Adornado 2\nUsável com: Receitas de Midnight para a maioria das armas e itens de mão secundária não adornados.\n\"Pode ser comprado e vendido na Casa de Leilões.\"\nEmpilhamento máx: 20\nPreço de Venda: 43 43 95",
+      "texto_en": "Darkmoon Sigil: Void\nItem Level 90\nOptional Crafting Reagent +5 Recipe Difficulty\nProvides the following property: Your damaging spells and abilities have the chance to embolden you in Void Glass granting 40 Versatility over 15 sec. Multiple applications can overlap.\nUnique-Equipped: Embellished 2.\nUsable with: Midnight recipes for most unembellished weapons and off-hands.\n\"Can be bought and sold on the Auction House.\"\nMax Stack: 20\nSell Price: 43 43 95",
+      "materiais": [
+        "1× Água Musical Talassiana",
+        "10× Grânulo de Caos Puro",
+        "1× Baralho de Negraluna: Caos",
+        "5× Código de Alma"
+      ],
+      "usado_em": [
+        "Quebra-coco Evinúcleo",
+        "P.O.U. x3",
+        "Rifle do Competidor Talassiano",
+        "Machado Pesado Primeforjado",
+        "Divisor Albaforjado",
+        "Maça de Guerra Albaforjada",
+        "Soqueiras Primeforjadas",
+        "Lâmina Longa Albaforjada",
+        "Gume Albaforjado",
+        "Faca Ritualística Albaforjada",
+        "Espada do Competidor Talassiano",
+        "Montante do Competidor Talassiano"
+      ],
+      "_falhas": [],
+      "_detalhe": {
+        "materiais": [
+          {
+            "item_id": 245882,
+            "nome": "Água Musical Talassiana",
+            "quantidade": 1
+          },
+          {
+            "item_id": 236952,
+            "nome": "Grânulo de Caos Puro",
+            "quantidade": 10
+          },
+          {
+            "item_id": 245750,
+            "nome": "Baralho de Negraluna: Caos",
+            "quantidade": 1
+          },
+          {
+            "item_id": 245766,
+            "nome": "Código de Alma",
+            "quantidade": 5
+          }
+        ],
+        "usado_em": [
+          {
+            "item_id": 268475,
+            "nome": "Quebra-coco Evinúcleo",
+            "quantidade": null
+          },
+          {
+            "item_id": 268477,
+            "nome": "P.O.U. x3",
+            "quantidade": null
+          },
+          {
+            "item_id": 268479,
+            "nome": "Rifle do Competidor Talassiano",
+            "quantidade": null
+          },
+          {
+            "item_id": 237932,
+            "nome": "Machado Pesado Primeforjado",
+            "quantidade": null
+          },
+          {
+            "item_id": 237931,
+            "nome": "Divisor Albaforjado",
+            "quantidade": null
+          },
+          {
+            "item_id": 237930,
+            "nome": "Maça de Guerra Albaforjada",
+            "quantidade": null
+          },
+          {
+            "item_id": 237929,
+            "nome": "Soqueiras Primeforjadas",
+            "quantidade": null
+          },
+          {
+            "item_id": 237928,
+            "nome": "Lâmina Longa Albaforjada",
+            "quantidade": null
+          },
+          {
+            "item_id": 237927,
+            "nome": "Gume Albaforjado",
+            "quantidade": null
+          },
+          {
+            "item_id": 237926,
+            "nome": "Faca Ritualística Albaforjada",
+            "quantidade": null
+          },
+          {
+            "item_id": 237916,
+            "nome": "Espada do Competidor Talassiano",
+            "quantidade": null
+          },
+          {
+            "item_id": 237915,
+            "nome": "Montante do Competidor Talassiano",
+            "quantidade": null
+          }
+        ]
+      },
+      "_fonte": "listview"
     },
     {
       "reagente_id": 245876,
@@ -104,11 +816,116 @@
       "icone": "inv_12_profession_inscriptions_darkmoonsigil_bloom",
       "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_12_profession_inscriptions_darkmoonsigil_bloom.jpg",
       "qualidade": 3,
-      "texto_completo": "Signo de Negraluna: Caçada\nNível do Item: 90 Reagente de criação opcional +5 Dificuldade da receita\nFornece as seguintes propriedades: Seus feitiços e habilidades têm chance de conceder 56 de atributos secundários por 15 s com base no tipo da criatura-alvo.\nÚnico-equipado: Adornado 2\nUsável com: Receitas de Midnight para a maioria das armas e itens de mão secundária não adornados.\n\"Pode ser comprado e vendido na Casa de Leilões.\"\nEmpilhamento máx: 20 Preço de Venda: 43 43 95",
-      "texto_en": "Darkmoon Sigil: Hunt\nItem Level 90 Optional Crafting Reagent +5 Recipe Difficulty\nProvides the following property: Your spells and abilities have the chance to grant 56 secondary stats for 15 sec based on the target creature's type.\nUnique-Equipped: Embellished 2.\nUsable with: Midnight recipes for most unembellished weapons and off-hands.\n\"Can be bought and sold on the Auction House.\"\nMax Stack: 20 Sell Price: 43 43 95",
-      "materiais": [],
-      "usado_em": [],
-      "_falhas": []
+      "texto_completo": "Signo de Negraluna: Caçada\nNível do Item: 90\nReagente de criação opcional +5 Dificuldade da receita\nFornece as seguintes propriedades: Seus feitiços e habilidades têm chance de conceder 56 de atributos secundários por 15 s com base no tipo da criatura-alvo.\nÚnico-equipado: Adornado 2\nUsável com: Receitas de Midnight para a maioria das armas e itens de mão secundária não adornados.\n\"Pode ser comprado e vendido na Casa de Leilões.\"\nEmpilhamento máx: 20\nPreço de Venda: 43 43 95",
+      "texto_en": "Darkmoon Sigil: Hunt\nItem Level 90\nOptional Crafting Reagent +5 Recipe Difficulty\nProvides the following property: Your spells and abilities have the chance to grant 56 secondary stats for 15 sec based on the target creature's type.\nUnique-Equipped: Embellished 2.\nUsable with: Midnight recipes for most unembellished weapons and off-hands.\n\"Can be bought and sold on the Auction House.\"\nMax Stack: 20\nSell Price: 43 43 95",
+      "materiais": [
+        "1× Água Musical Talassiana",
+        "10× Grânulo de Magia Selvagem",
+        "1× Baralho de Negraluna: Caçada",
+        "5× Código de Alma"
+      ],
+      "usado_em": [
+        "Quebra-coco Evinúcleo",
+        "P.O.U. x3",
+        "Rifle do Competidor Talassiano",
+        "Machado Pesado Primeforjado",
+        "Divisor Albaforjado",
+        "Maça de Guerra Albaforjada",
+        "Soqueiras Primeforjadas",
+        "Lâmina Longa Albaforjada",
+        "Gume Albaforjado",
+        "Faca Ritualística Albaforjada",
+        "Espada do Competidor Talassiano",
+        "Montante do Competidor Talassiano"
+      ],
+      "_falhas": [],
+      "_detalhe": {
+        "materiais": [
+          {
+            "item_id": 245882,
+            "nome": "Água Musical Talassiana",
+            "quantidade": 1
+          },
+          {
+            "item_id": 236951,
+            "nome": "Grânulo de Magia Selvagem",
+            "quantidade": 10
+          },
+          {
+            "item_id": 245829,
+            "nome": "Baralho de Negraluna: Caçada",
+            "quantidade": 1
+          },
+          {
+            "item_id": 245766,
+            "nome": "Código de Alma",
+            "quantidade": 5
+          }
+        ],
+        "usado_em": [
+          {
+            "item_id": 268475,
+            "nome": "Quebra-coco Evinúcleo",
+            "quantidade": null
+          },
+          {
+            "item_id": 268477,
+            "nome": "P.O.U. x3",
+            "quantidade": null
+          },
+          {
+            "item_id": 268479,
+            "nome": "Rifle do Competidor Talassiano",
+            "quantidade": null
+          },
+          {
+            "item_id": 237932,
+            "nome": "Machado Pesado Primeforjado",
+            "quantidade": null
+          },
+          {
+            "item_id": 237931,
+            "nome": "Divisor Albaforjado",
+            "quantidade": null
+          },
+          {
+            "item_id": 237930,
+            "nome": "Maça de Guerra Albaforjada",
+            "quantidade": null
+          },
+          {
+            "item_id": 237929,
+            "nome": "Soqueiras Primeforjadas",
+            "quantidade": null
+          },
+          {
+            "item_id": 237928,
+            "nome": "Lâmina Longa Albaforjada",
+            "quantidade": null
+          },
+          {
+            "item_id": 237927,
+            "nome": "Gume Albaforjado",
+            "quantidade": null
+          },
+          {
+            "item_id": 237926,
+            "nome": "Faca Ritualística Albaforjada",
+            "quantidade": null
+          },
+          {
+            "item_id": 237916,
+            "nome": "Espada do Competidor Talassiano",
+            "quantidade": null
+          },
+          {
+            "item_id": 237915,
+            "nome": "Montante do Competidor Talassiano",
+            "quantidade": null
+          }
+        ]
+      },
+      "_fonte": "listview"
     },
     {
       "reagente_id": 245878,
@@ -117,11 +934,116 @@
       "icone": "inv_12_profession_inscriptions_darkmoonsigil_rot",
       "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_12_profession_inscriptions_darkmoonsigil_rot.jpg",
       "qualidade": 3,
-      "texto_completo": "Signo de Negraluna: Podridão\nNível do Item: 90 Reagente de criação opcional +5 Dificuldade da receita\nFornece as seguintes propriedades: Atinge seu alvo com Raízes Pútridas, causando 113 de dano de Natureza a cada 2 s por 6 s. Este efeito acumula até 10 vezes. Novos acúmulos não renovam os já aplicados.\nÚnico-equipado: Adornado 2\nUsável com: Receitas de Midnight para a maioria das armas e itens de mão secundária não adornados.\n\"Pode ser comprado e vendido na Casa de Leilões.\"\nEmpilhamento máx: 20 Preço de Venda: 43 43 95",
-      "texto_en": "Darkmoon Sigil: Rot\nItem Level 90 Optional Crafting Reagent +5 Recipe Difficulty\nProvides the following property: Afflict your target with Rotting Roots dealing 113 Nature Damage every 2 seconds for 6 sec. This effect stacks up to 10 times. New stacks do not refresh applied stacks.\nUnique-Equipped: Embellished 2.\nUsable with: Midnight recipes for most unembellished weapons and off-hands.\n\"Can be bought and sold on the Auction House.\"\nMax Stack: 20 Sell Price: 43 43 95",
-      "materiais": [],
-      "usado_em": [],
-      "_falhas": []
+      "texto_completo": "Signo de Negraluna: Podridão\nNível do Item: 90\nReagente de criação opcional +5 Dificuldade da receita\nFornece as seguintes propriedades: Atinge seu alvo com Raízes Pútridas, causando 113 de dano de Natureza a cada 2 s por 6 s. Este efeito acumula até 10 vezes. Novos acúmulos não renovam os já aplicados.\nÚnico-equipado: Adornado 2\nUsável com: Receitas de Midnight para a maioria das armas e itens de mão secundária não adornados.\n\"Pode ser comprado e vendido na Casa de Leilões.\"\nEmpilhamento máx: 20\nPreço de Venda: 43 43 95",
+      "texto_en": "Darkmoon Sigil: Rot\nItem Level 90\nOptional Crafting Reagent +5 Recipe Difficulty\nProvides the following property: Afflict your target with Rotting Roots dealing 113 Nature Damage every 2 seconds for 6 sec. This effect stacks up to 10 times. New stacks do not refresh applied stacks.\nUnique-Equipped: Embellished 2.\nUsable with: Midnight recipes for most unembellished weapons and off-hands.\n\"Can be bought and sold on the Auction House.\"\nMax Stack: 20\nSell Price: 43 43 95",
+      "materiais": [
+        "1× Água Musical Talassiana",
+        "10× Grânulo de Energia Primeva",
+        "1× Baralho de Negraluna: Podridão",
+        "5× Código de Alma"
+      ],
+      "usado_em": [
+        "Quebra-coco Evinúcleo",
+        "P.O.U. x3",
+        "Rifle do Competidor Talassiano",
+        "Machado Pesado Primeforjado",
+        "Divisor Albaforjado",
+        "Maça de Guerra Albaforjada",
+        "Soqueiras Primeforjadas",
+        "Lâmina Longa Albaforjada",
+        "Gume Albaforjado",
+        "Faca Ritualística Albaforjada",
+        "Espada do Competidor Talassiano",
+        "Montante do Competidor Talassiano"
+      ],
+      "_falhas": [],
+      "_detalhe": {
+        "materiais": [
+          {
+            "item_id": 245882,
+            "nome": "Água Musical Talassiana",
+            "quantidade": 1
+          },
+          {
+            "item_id": 236950,
+            "nome": "Grânulo de Energia Primeva",
+            "quantidade": 10
+          },
+          {
+            "item_id": 245846,
+            "nome": "Baralho de Negraluna: Podridão",
+            "quantidade": 1
+          },
+          {
+            "item_id": 245766,
+            "nome": "Código de Alma",
+            "quantidade": 5
+          }
+        ],
+        "usado_em": [
+          {
+            "item_id": 268475,
+            "nome": "Quebra-coco Evinúcleo",
+            "quantidade": null
+          },
+          {
+            "item_id": 268477,
+            "nome": "P.O.U. x3",
+            "quantidade": null
+          },
+          {
+            "item_id": 268479,
+            "nome": "Rifle do Competidor Talassiano",
+            "quantidade": null
+          },
+          {
+            "item_id": 237932,
+            "nome": "Machado Pesado Primeforjado",
+            "quantidade": null
+          },
+          {
+            "item_id": 237931,
+            "nome": "Divisor Albaforjado",
+            "quantidade": null
+          },
+          {
+            "item_id": 237930,
+            "nome": "Maça de Guerra Albaforjada",
+            "quantidade": null
+          },
+          {
+            "item_id": 237929,
+            "nome": "Soqueiras Primeforjadas",
+            "quantidade": null
+          },
+          {
+            "item_id": 237928,
+            "nome": "Lâmina Longa Albaforjada",
+            "quantidade": null
+          },
+          {
+            "item_id": 237927,
+            "nome": "Gume Albaforjado",
+            "quantidade": null
+          },
+          {
+            "item_id": 237926,
+            "nome": "Faca Ritualística Albaforjada",
+            "quantidade": null
+          },
+          {
+            "item_id": 237916,
+            "nome": "Espada do Competidor Talassiano",
+            "quantidade": null
+          },
+          {
+            "item_id": 237915,
+            "nome": "Montante do Competidor Talassiano",
+            "quantidade": null
+          }
+        ]
+      },
+      "_fonte": "listview"
     },
     {
       "reagente_id": 248133,
@@ -130,11 +1052,110 @@
       "icone": "inv_10_engineering_manufacturedparts_electricalparts_color1",
       "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_10_engineering_manufacturedparts_electricalparts_color1.jpg",
       "qualidade": 3,
-      "texto_completo": "Detonadores de Tornozelo Cinéticos\nNível do Item: 72 Reagente de criação opcional +5 Dificuldade da receita\nFornece as seguintes propriedades: Prepara suas botas para o combate, lançando você no ar e derrubando inimigos ao atingir o solo.\nSó pode ser usado em ambientes externos.\nUsável com: Botas de Engenharia de Midnight\n\"Podem ser comprados e vendidos na Casa de Leilões.\"\nEmpilhamento máx: 20 Preço de Venda: 16 92 10",
-      "texto_en": "Kinetic Ankle Primers\nItem Level 72 Optional Crafting Reagent +5 Recipe Difficulty\nProvides the following property: Prime your boots for engagement, launching you into the air and knocking up enemies on impact.\nCan only be used outdoors.\nUsable with: Midnight Engineering Boots\n\"Can be bought and sold on the Auction House.\"\nMax Stack: 20 Sell Price: 16 92 10",
-      "materiais": [],
-      "usado_em": [],
-      "_falhas": []
+      "texto_completo": "Detonadores de Tornozelo Cinéticos\nNível do Item: 72\nReagente de criação opcional +5 Dificuldade da receita\nFornece as seguintes propriedades: Prepara suas botas para o combate, lançando você no ar e derrubando inimigos ao atingir o solo.\nSó pode ser usado em ambientes externos.\nUsável com: Botas de Engenharia de Midnight\n\"Podem ser comprados e vendidos na Casa de Leilões.\"\nEmpilhamento máx: 20\nPreço de Venda: 16 92 10",
+      "texto_en": "Kinetic Ankle Primers\nItem Level 72\nOptional Crafting Reagent +5 Recipe Difficulty\nProvides the following property: Prime your boots for engagement, launching you into the air and knocking up enemies on impact.\nCan only be used outdoors.\nUsable with: Midnight Engineering Boots\n\"Can be bought and sold on the Auction House.\"\nMax Stack: 20\nSell Price: 16 92 10",
+      "materiais": [
+        "2× Engrenagem da Canção",
+        "3× Aeterlúmen",
+        "1× Evinúcleo"
+      ],
+      "usado_em": [
+        "Quebra-coco Evinúcleo",
+        "P.O.U. x3",
+        "Rifle do Competidor Talassiano",
+        "Pisa-leves de Aeterlúmen",
+        "Pisantes de Aeterlúmen",
+        "Trambotas de Aeterlúmen",
+        "Pisoteadores de Aeterlúmen",
+        "Pisa-leves Quel'dorei",
+        "Pisantes Quel'dorei",
+        "Trambotas Quel'dorei",
+        "Pisoteadores Quel'dorei",
+        "Pé-ligeiro de Evinúcleo"
+      ],
+      "_falhas": [],
+      "_detalhe": {
+        "materiais": [
+          {
+            "item_id": 243574,
+            "nome": "Engrenagem da Canção",
+            "quantidade": 2
+          },
+          {
+            "item_id": 243578,
+            "nome": "Aeterlúmen",
+            "quantidade": 3
+          },
+          {
+            "item_id": 243581,
+            "nome": "Evinúcleo",
+            "quantidade": 1
+          }
+        ],
+        "usado_em": [
+          {
+            "item_id": 268475,
+            "nome": "Quebra-coco Evinúcleo",
+            "quantidade": null
+          },
+          {
+            "item_id": 268477,
+            "nome": "P.O.U. x3",
+            "quantidade": null
+          },
+          {
+            "item_id": 268479,
+            "nome": "Rifle do Competidor Talassiano",
+            "quantidade": null
+          },
+          {
+            "item_id": 244771,
+            "nome": "Pisa-leves de Aeterlúmen",
+            "quantidade": null
+          },
+          {
+            "item_id": 244772,
+            "nome": "Pisantes de Aeterlúmen",
+            "quantidade": null
+          },
+          {
+            "item_id": 244773,
+            "nome": "Trambotas de Aeterlúmen",
+            "quantidade": null
+          },
+          {
+            "item_id": 244774,
+            "nome": "Pisoteadores de Aeterlúmen",
+            "quantidade": null
+          },
+          {
+            "item_id": 244767,
+            "nome": "Pisa-leves Quel'dorei",
+            "quantidade": null
+          },
+          {
+            "item_id": 244768,
+            "nome": "Pisantes Quel'dorei",
+            "quantidade": null
+          },
+          {
+            "item_id": 244769,
+            "nome": "Trambotas Quel'dorei",
+            "quantidade": null
+          },
+          {
+            "item_id": 244770,
+            "nome": "Pisoteadores Quel'dorei",
+            "quantidade": null
+          },
+          {
+            "item_id": 245337,
+            "nome": "Pé-ligeiro de Evinúcleo",
+            "quantidade": null
+          }
+        ]
+      },
+      "_fonte": "listview"
     },
     {
       "reagente_id": 248136,
@@ -143,11 +1164,110 @@
       "icone": "inv_pet_futurebotpet_orange",
       "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_pet_futurebotpet_orange.jpg",
       "qualidade": 3,
-      "texto_completo": "M3D1 de Bolso\nNível do Item: 372 Reagente de criação opcional\nFornece as seguintes propriedades:\nUma versão de bolso do seu parceiro M3D1 que revive você após morrer ao ar livre.\nUsável com: Receitas de Midnight para a maior parte dos equipamentos não adornados.\n\"Produto criado por jogadores com perícia em Engenharia. Pode ser comprado e vendido na Casa de Leilões.\"\nEmpilhamento máx: 1000 Preço de Venda: 17 46 5",
-      "texto_en": "M3DDY, Travel-Sized\nItem Level 372 Optional Crafting Reagent\nProvides the following property:\nA pocket-sized version of your buddy, M3DDY, that will revive you upon your untimely demise while outdoors.\nUsable with: Midnight recipes for most unembellished equipment.\n\"Created by players with the Engineering skill. Can be bought and sold on the Auction House.\"\nMax Stack: 1000 Sell Price: 17 46 5",
-      "materiais": [],
-      "usado_em": [],
-      "_falhas": []
+      "texto_completo": "M3D1 de Bolso\nNível do Item: 372\nReagente de criação opcional\nFornece as seguintes propriedades:\nUma versão de bolso do seu parceiro M3D1 que revive você após morrer ao ar livre.\nUsável com: Receitas de Midnight para a maior parte dos equipamentos não adornados.\n\"Produto criado por jogadores com perícia em Engenharia. Pode ser comprado e vendido na Casa de Leilões.\"\nEmpilhamento máx: 1000\nPreço de Venda: 17 46 5",
+      "texto_en": "M3DDY, Travel-Sized\nItem Level 372\nOptional Crafting Reagent\nProvides the following property:\nA pocket-sized version of your buddy, M3DDY, that will revive you upon your untimely demise while outdoors.\nUsable with: Midnight recipes for most unembellished equipment.\n\"Created by players with the Engineering skill. Can be bought and sold on the Auction House.\"\nMax Stack: 1000\nSell Price: 17 46 5",
+      "materiais": [
+        "1× Rebimboca de Alma",
+        "3× Aeterlúmen",
+        "2× Evinúcleo"
+      ],
+      "usado_em": [
+        "Visor-zoom de Evinúcleo",
+        "Vulto de Evinúcleo",
+        "Reconhecimento de Evinúcleo",
+        "Protetor Ocular de Evinúcleo",
+        "Amarra de Pulso de Evinúcleo",
+        "Braceletes de Evinúcleo",
+        "Braçadeiras de Corrente de Evinúcleo",
+        "Peso de Engrenagem de Evinúcleo",
+        "Invólucro Ocular de Aeterlúmen",
+        "Optovisores de Aeterlúmen",
+        "Proteção de Visão de Aeterlúmen",
+        "Guarda de Sol de Aeterlúmen"
+      ],
+      "_falhas": [],
+      "_detalhe": {
+        "materiais": [
+          {
+            "item_id": 243576,
+            "nome": "Rebimboca de Alma",
+            "quantidade": 1
+          },
+          {
+            "item_id": 243578,
+            "nome": "Aeterlúmen",
+            "quantidade": 3
+          },
+          {
+            "item_id": 243581,
+            "nome": "Evinúcleo",
+            "quantidade": 2
+          }
+        ],
+        "usado_em": [
+          {
+            "item_id": 244751,
+            "nome": "Visor-zoom de Evinúcleo",
+            "quantidade": null
+          },
+          {
+            "item_id": 244752,
+            "nome": "Vulto de Evinúcleo",
+            "quantidade": null
+          },
+          {
+            "item_id": 244753,
+            "nome": "Reconhecimento de Evinúcleo",
+            "quantidade": null
+          },
+          {
+            "item_id": 244754,
+            "nome": "Protetor Ocular de Evinúcleo",
+            "quantidade": null
+          },
+          {
+            "item_id": 245341,
+            "nome": "Amarra de Pulso de Evinúcleo",
+            "quantidade": null
+          },
+          {
+            "item_id": 245342,
+            "nome": "Braceletes de Evinúcleo",
+            "quantidade": null
+          },
+          {
+            "item_id": 245343,
+            "nome": "Braçadeiras de Corrente de Evinúcleo",
+            "quantidade": null
+          },
+          {
+            "item_id": 245344,
+            "nome": "Peso de Engrenagem de Evinúcleo",
+            "quantidade": null
+          },
+          {
+            "item_id": 244743,
+            "nome": "Invólucro Ocular de Aeterlúmen",
+            "quantidade": null
+          },
+          {
+            "item_id": 244744,
+            "nome": "Optovisores de Aeterlúmen",
+            "quantidade": null
+          },
+          {
+            "item_id": 244745,
+            "nome": "Proteção de Visão de Aeterlúmen",
+            "quantidade": null
+          },
+          {
+            "item_id": 244746,
+            "nome": "Guarda de Sol de Aeterlúmen",
+            "quantidade": null
+          }
+        ]
+      },
+      "_fonte": "listview"
     },
     {
       "reagente_id": 248592,
@@ -156,11 +1276,116 @@
       "icone": "inv_robotpet",
       "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_robotpet.jpg",
       "qualidade": 3,
-      "texto_completo": "B1P, Calcinador de Almas\nNível do Item: 372 Reagente de criação opcional +5 Dificuldade da receita\nFornece as seguintes propriedades: Evoca B1P, o Calcinador de Almas, para lançar centelhas de alma contra seus inimigos, causando dano de Fogo em uma área cônica à sua frente por 6 s.\nUsável com: Equipamentos Criados de Engenharia de Midnight\n\"Evoca B1P, Calcinador de Almas. Produto criado por jogadores com perícia em Engenharia. Pode ser comprado e vendido na Casa de Leilões.\"\nEmpilhamento máx: 1000 Preço de Venda: 8 73",
-      "texto_en": "B1P, Scorcher of Souls\nItem Level 372 Optional Crafting Reagent +5 Recipe Difficulty\nProvides the following property: Summons B1P, Scorcher of Souls to spray soul sparks on your enemies dealing Fire damage in a cone in front of you for 6 sec.\nUsable with: Midnight Engineering Crafted Equipment\n\"Summons B1P, Scorcher of Souls. Created by players with the Engineering skill. Can be bought and sold on the Auction House.\"\nMax Stack: 1000 Sell Price: 8 73",
-      "materiais": [],
-      "usado_em": [],
-      "_falhas": []
+      "texto_completo": "B1P, Calcinador de Almas\nNível do Item: 372\nReagente de criação opcional +5 Dificuldade da receita\nFornece as seguintes propriedades: Evoca B1P, o Calcinador de Almas, para lançar centelhas de alma contra seus inimigos, causando dano de Fogo em uma área cônica à sua frente por 6 s.\nUsável com: Equipamentos Criados de Engenharia de Midnight\n\"Evoca B1P, Calcinador de Almas. Produto criado por jogadores com perícia em Engenharia. Pode ser comprado e vendido na Casa de Leilões.\"\nEmpilhamento máx: 1000\nPreço de Venda: 8 73",
+      "texto_en": "B1P, Scorcher of Souls\nItem Level 372\nOptional Crafting Reagent +5 Recipe Difficulty\nProvides the following property: Summons B1P, Scorcher of Souls to spray soul sparks on your enemies dealing Fire damage in a cone in front of you for 6 sec.\nUsable with: Midnight Engineering Crafted Equipment\n\"Summons B1P, Scorcher of Souls. Created by players with the Engineering skill. Can be bought and sold on the Auction House.\"\nMax Stack: 1000\nSell Price: 8 73",
+      "materiais": [
+        "10× Monte de Sucata",
+        "1× Grânulo de Magia Selvagem",
+        "5× Evinúcleo",
+        "1× Rolo de Linho Brilhante"
+      ],
+      "usado_em": [
+        "Visor-zoom de Evinúcleo",
+        "Vulto de Evinúcleo",
+        "Reconhecimento de Evinúcleo",
+        "Protetor Ocular de Evinúcleo",
+        "Amarra de Pulso de Evinúcleo",
+        "Braceletes de Evinúcleo",
+        "Braçadeiras de Corrente de Evinúcleo",
+        "Peso de Engrenagem de Evinúcleo",
+        "Invólucro Ocular de Aeterlúmen",
+        "Optovisores de Aeterlúmen",
+        "Proteção de Visão de Aeterlúmen",
+        "Guarda de Sol de Aeterlúmen"
+      ],
+      "_falhas": [],
+      "_detalhe": {
+        "materiais": [
+          {
+            "item_id": 253303,
+            "nome": "Monte de Sucata",
+            "quantidade": 10
+          },
+          {
+            "item_id": 236951,
+            "nome": "Grânulo de Magia Selvagem",
+            "quantidade": 1
+          },
+          {
+            "item_id": 243581,
+            "nome": "Evinúcleo",
+            "quantidade": 5
+          },
+          {
+            "item_id": 239700,
+            "nome": "Rolo de Linho Brilhante",
+            "quantidade": 1
+          }
+        ],
+        "usado_em": [
+          {
+            "item_id": 244751,
+            "nome": "Visor-zoom de Evinúcleo",
+            "quantidade": null
+          },
+          {
+            "item_id": 244752,
+            "nome": "Vulto de Evinúcleo",
+            "quantidade": null
+          },
+          {
+            "item_id": 244753,
+            "nome": "Reconhecimento de Evinúcleo",
+            "quantidade": null
+          },
+          {
+            "item_id": 244754,
+            "nome": "Protetor Ocular de Evinúcleo",
+            "quantidade": null
+          },
+          {
+            "item_id": 245341,
+            "nome": "Amarra de Pulso de Evinúcleo",
+            "quantidade": null
+          },
+          {
+            "item_id": 245342,
+            "nome": "Braceletes de Evinúcleo",
+            "quantidade": null
+          },
+          {
+            "item_id": 245343,
+            "nome": "Braçadeiras de Corrente de Evinúcleo",
+            "quantidade": null
+          },
+          {
+            "item_id": 245344,
+            "nome": "Peso de Engrenagem de Evinúcleo",
+            "quantidade": null
+          },
+          {
+            "item_id": 244743,
+            "nome": "Invólucro Ocular de Aeterlúmen",
+            "quantidade": null
+          },
+          {
+            "item_id": 244744,
+            "nome": "Optovisores de Aeterlúmen",
+            "quantidade": null
+          },
+          {
+            "item_id": 244745,
+            "nome": "Proteção de Visão de Aeterlúmen",
+            "quantidade": null
+          },
+          {
+            "item_id": 244746,
+            "nome": "Guarda de Sol de Aeterlúmen",
+            "quantidade": null
+          }
+        ]
+      },
+      "_fonte": "listview"
     },
     {
       "reagente_id": 251488,
@@ -169,11 +1394,68 @@
       "icone": "item_cutmetagem",
       "icone_url": "https://wow.zamimg.com/images/wow/icons/large/item_cutmetagem.jpg",
       "qualidade": 3,
-      "texto_completo": "Íris Focalizadora Prismática\nNível do Item: 72 Reagente de criação opcional +5 Dificuldade da receita\nFornece as seguintes propriedades: Seus feitiços e habilidades têm chance de ativar a Íris, que dispara um feixe de luz focado no seu alvo e causa ( 1 * 1102 ) de dano Arcano a cada segundo por 4 s.\nCada cor de gema única que você tiver engastado fortalece a Íris, fazendo com que cause 1% de dano adicional.\nUsável com: Receitas de Midnight para a maioria dos equipamentos não adornados.\n\"Pode ser comprado e vendido na Casa de Leilões.\"\nEmpilhamento máx: 20 Preço de Venda: 13 20",
-      "texto_en": "Prismatic Focusing Iris\nItem Level 72 Optional Crafting Reagent +5 Recipe Difficulty\nProvides the following property: Your spells and abilities have a chance to activate the Iris, firing a focused beam of light at your target and dealing ( 1 * 1102 ) Arcane damage every second for 4 sec.\nEach unique gem color you have socketed empowers the Iris, causing it to deal 1% additional damage per.\nUsable with: Midnight recipes for most unembellished equipment.\n\"Can be bought and sold on the Auction House.\"\nMax Stack: 20 Sell Price: 13 20",
-      "materiais": [],
-      "usado_em": [],
-      "_falhas": []
+      "texto_completo": "Íris Focalizadora Prismática\nNível do Item: 72\nReagente de criação opcional +5 Dificuldade da receita\nFornece as seguintes propriedades: Seus feitiços e habilidades têm chance de ativar a Íris, que dispara um feixe de luz focado no seu alvo e causa ( 1 * 1102 ) de dano Arcano a cada segundo por 4 s.\nCada cor de gema única que você tiver engastado fortalece a Íris, fazendo com que cause 1% de dano adicional.\nUsável com: Receitas de Midnight para a maioria dos equipamentos não adornados.\n\"Pode ser comprado e vendido na Casa de Leilões.\"\nEmpilhamento máx: 20\nPreço de Venda: 13 20",
+      "texto_en": "Prismatic Focusing Iris\nItem Level 72\nOptional Crafting Reagent +5 Recipe Difficulty\nProvides the following property: Your spells and abilities have a chance to activate the Iris, firing a focused beam of light at your target and dealing ( 1 * 1102 ) Arcane damage every second for 4 sec.\nEach unique gem color you have socketed empowers the Iris, causing it to deal 1% additional damage per.\nUsable with: Midnight recipes for most unembellished equipment.\n\"Can be bought and sold on the Auction House.\"\nMax Stack: 20\nSell Price: 13 20",
+      "materiais": [
+        "2× Lente Sin'dorei",
+        "2× Pó de Gema Luzente"
+      ],
+      "usado_em": [
+        "Elo Sin'dorei Magistral",
+        "Amuleto Sin'dorei Magistral",
+        "Elo de Cobre Rebrilhante",
+        "Patuá Noturno",
+        "Sinete do Competidor Talassiano",
+        "Amuleto do Competidor Talassiano"
+      ],
+      "_falhas": [],
+      "_detalhe": {
+        "materiais": [
+          {
+            "item_id": 240972,
+            "nome": "Lente Sin'dorei",
+            "quantidade": 2
+          },
+          {
+            "item_id": 242620,
+            "nome": "Pó de Gema Luzente",
+            "quantidade": 2
+          }
+        ],
+        "usado_em": [
+          {
+            "item_id": 240949,
+            "nome": "Elo Sin'dorei Magistral",
+            "quantidade": null
+          },
+          {
+            "item_id": 240950,
+            "nome": "Amuleto Sin'dorei Magistral",
+            "quantidade": null
+          },
+          {
+            "item_id": 240947,
+            "nome": "Elo de Cobre Rebrilhante",
+            "quantidade": null
+          },
+          {
+            "item_id": 240948,
+            "nome": "Patuá Noturno",
+            "quantidade": null
+          },
+          {
+            "item_id": 240951,
+            "nome": "Sinete do Competidor Talassiano",
+            "quantidade": null
+          },
+          {
+            "item_id": 240952,
+            "nome": "Amuleto do Competidor Talassiano",
+            "quantidade": null
+          }
+        ]
+      },
+      "_fonte": "listview"
     },
     {
       "reagente_id": 251490,
@@ -182,11 +1464,122 @@
       "icone": "inv_jewelry_ring_77",
       "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_jewelry_ring_77.jpg",
       "qualidade": 3,
-      "texto_completo": "Bandoleira de Gemas Estabilizadora\nNível do Item: 72 Reagente de criação opcional +5 Dificuldade da receita\nFornece as seguintes propriedades: Dobrando as gemas, dobrando o poder!\nTodos os ornamentos de Joalheria operam com o dobro de força.\nUsável com: Receitas de Midnight para a maioria dos equipamentos não adornados.\n\"Pode ser comprado e vendido na Casa de Leilões.\"\nEmpilhamento máx: 20 Preço de Venda: 2 50",
-      "texto_en": "Stabilizing Gemstone Bandolier\nItem Level 72 Optional Crafting Reagent +5 Recipe Difficulty\nProvides the following property: Double the gems, double the power!\nAll Jewelcrafting embellishments operate at double strength.\nUsable with: Midnight recipes for most unembellished equipment.\n\"Can be bought and sold on the Auction House.\"\nMax Stack: 20 Sell Price: 2 50",
-      "materiais": [],
-      "usado_em": [],
-      "_falhas": []
+      "texto_completo": "Bandoleira de Gemas Estabilizadora\nNível do Item: 72\nReagente de criação opcional +5 Dificuldade da receita\nFornece as seguintes propriedades: Dobrando as gemas, dobrando o poder!\nTodos os ornamentos de Joalheria operam com o dobro de força.\nUsável com: Receitas de Midnight para a maioria dos equipamentos não adornados.\n\"Pode ser comprado e vendido na Casa de Leilões.\"\nEmpilhamento máx: 20\nPreço de Venda: 2 50",
+      "texto_en": "Stabilizing Gemstone Bandolier\nItem Level 72\nOptional Crafting Reagent +5 Recipe Difficulty\nProvides the following property: Double the gems, double the power!\nAll Jewelcrafting embellishments operate at double strength.\nUsable with: Midnight recipes for most unembellished equipment.\n\"Can be bought and sold on the Auction House.\"\nMax Stack: 20\nSell Price: 2 50",
+      "materiais": [
+        "1× Granada Sanguínea",
+        "1× Lápis Amani",
+        "1× Ametista Tenebrosa",
+        "1× Peridoto de Harandar",
+        "3× Pó de Gema Luzente"
+      ],
+      "usado_em": [
+        "Coroa do Mártir",
+        "Luvas do Mártir",
+        "Banda do Mártir",
+        "Braceletes do Mártir",
+        "Vestimenta do Mártir",
+        "Perneiras do Mártir",
+        "Sapatilhas do Mártir",
+        "Dragonas do Mártir",
+        "Mortalha Sedosa do Seguidor",
+        "Elmo Cortesão",
+        "Luvas Cortesãs",
+        "Cinto Cortesão"
+      ],
+      "_falhas": [],
+      "_detalhe": {
+        "materiais": [
+          {
+            "item_id": 242553,
+            "nome": "Granada Sanguínea",
+            "quantidade": 1
+          },
+          {
+            "item_id": 242554,
+            "nome": "Lápis Amani",
+            "quantidade": 1
+          },
+          {
+            "item_id": 242606,
+            "nome": "Ametista Tenebrosa",
+            "quantidade": 1
+          },
+          {
+            "item_id": 242607,
+            "nome": "Peridoto de Harandar",
+            "quantidade": 1
+          },
+          {
+            "item_id": 242620,
+            "nome": "Pó de Gema Luzente",
+            "quantidade": 3
+          }
+        ],
+        "usado_em": [
+          {
+            "item_id": 239652,
+            "nome": "Coroa do Mártir",
+            "quantidade": null
+          },
+          {
+            "item_id": 239653,
+            "nome": "Luvas do Mártir",
+            "quantidade": null
+          },
+          {
+            "item_id": 239649,
+            "nome": "Banda do Mártir",
+            "quantidade": null
+          },
+          {
+            "item_id": 239648,
+            "nome": "Braceletes do Mártir",
+            "quantidade": null
+          },
+          {
+            "item_id": 239655,
+            "nome": "Vestimenta do Mártir",
+            "quantidade": null
+          },
+          {
+            "item_id": 239651,
+            "nome": "Perneiras do Mártir",
+            "quantidade": null
+          },
+          {
+            "item_id": 239654,
+            "nome": "Sapatilhas do Mártir",
+            "quantidade": null
+          },
+          {
+            "item_id": 239650,
+            "nome": "Dragonas do Mártir",
+            "quantidade": null
+          },
+          {
+            "item_id": 239656,
+            "nome": "Mortalha Sedosa do Seguidor",
+            "quantidade": null
+          },
+          {
+            "item_id": 239668,
+            "nome": "Elmo Cortesão",
+            "quantidade": null
+          },
+          {
+            "item_id": 239669,
+            "nome": "Luvas Cortesãs",
+            "quantidade": null
+          },
+          {
+            "item_id": 239670,
+            "nome": "Cinto Cortesão",
+            "quantidade": null
+          }
+        ]
+      },
+      "_fonte": "listview"
     },
     {
       "reagente_id": 255844,
@@ -195,11 +1588,110 @@
       "icone": "creatureportrait_robot_bulldog",
       "icone_url": "https://wow.zamimg.com/images/wow/icons/large/creatureportrait_robot_bulldog.jpg",
       "qualidade": 3,
-      "texto_completo": "P51U, Filhotinho Sossegado\nNível do Item: 72 Reagente de criação opcional +5 Dificuldade da receita\nFornece as seguintes propriedades: Concede invisibilidade ao usuário por 4-18 s.\nSó pode ser usado em ambientes externos. Não pode ser usado em combate.\nUsável com: Equipamentos Criados de Engenharia de Midnight\n\"Pode ser comprado e vendido na Casa de Leilões.\"\nEmpilhamento máx: 20 Preço de Venda: 8 65",
-      "texto_en": "HU5H, Nonchalant Pup\nItem Level 72 Optional Crafting Reagent +5 Recipe Difficulty\nProvides the following property: Grants the user invisibility for 4-18 sec.\nCan only be used outdoors. Cannot be cast in combat.\nUsable with: Midnight Engineering Crafted Equipment\n\"Can be bought and sold on the Auction House.\"\nMax Stack: 20 Sell Price: 8 65",
-      "materiais": [],
-      "usado_em": [],
-      "_falhas": []
+      "texto_completo": "P51U, Filhotinho Sossegado\nNível do Item: 72\nReagente de criação opcional +5 Dificuldade da receita\nFornece as seguintes propriedades: Concede invisibilidade ao usuário por 4-18 s.\nSó pode ser usado em ambientes externos. Não pode ser usado em combate.\nUsável com: Equipamentos Criados de Engenharia de Midnight\n\"Pode ser comprado e vendido na Casa de Leilões.\"\nEmpilhamento máx: 20\nPreço de Venda: 8 65",
+      "texto_en": "HU5H, Nonchalant Pup\nItem Level 72\nOptional Crafting Reagent +5 Recipe Difficulty\nProvides the following property: Grants the user invisibility for 4-18 sec.\nCan only be used outdoors. Cannot be cast in combat.\nUsable with: Midnight Engineering Crafted Equipment\n\"Can be bought and sold on the Auction House.\"\nMax Stack: 20\nSell Price: 8 65",
+      "materiais": [
+        "10× Monte de Sucata",
+        "1× Grânulo de Caos Puro",
+        "5× Evinúcleo"
+      ],
+      "usado_em": [
+        "Visor-zoom de Evinúcleo",
+        "Vulto de Evinúcleo",
+        "Reconhecimento de Evinúcleo",
+        "Protetor Ocular de Evinúcleo",
+        "Amarra de Pulso de Evinúcleo",
+        "Braceletes de Evinúcleo",
+        "Braçadeiras de Corrente de Evinúcleo",
+        "Peso de Engrenagem de Evinúcleo",
+        "Invólucro Ocular de Aeterlúmen",
+        "Optovisores de Aeterlúmen",
+        "Proteção de Visão de Aeterlúmen",
+        "Guarda de Sol de Aeterlúmen"
+      ],
+      "_falhas": [],
+      "_detalhe": {
+        "materiais": [
+          {
+            "item_id": 253303,
+            "nome": "Monte de Sucata",
+            "quantidade": 10
+          },
+          {
+            "item_id": 236952,
+            "nome": "Grânulo de Caos Puro",
+            "quantidade": 1
+          },
+          {
+            "item_id": 243581,
+            "nome": "Evinúcleo",
+            "quantidade": 5
+          }
+        ],
+        "usado_em": [
+          {
+            "item_id": 244751,
+            "nome": "Visor-zoom de Evinúcleo",
+            "quantidade": null
+          },
+          {
+            "item_id": 244752,
+            "nome": "Vulto de Evinúcleo",
+            "quantidade": null
+          },
+          {
+            "item_id": 244753,
+            "nome": "Reconhecimento de Evinúcleo",
+            "quantidade": null
+          },
+          {
+            "item_id": 244754,
+            "nome": "Protetor Ocular de Evinúcleo",
+            "quantidade": null
+          },
+          {
+            "item_id": 245341,
+            "nome": "Amarra de Pulso de Evinúcleo",
+            "quantidade": null
+          },
+          {
+            "item_id": 245342,
+            "nome": "Braceletes de Evinúcleo",
+            "quantidade": null
+          },
+          {
+            "item_id": 245343,
+            "nome": "Braçadeiras de Corrente de Evinúcleo",
+            "quantidade": null
+          },
+          {
+            "item_id": 245344,
+            "nome": "Peso de Engrenagem de Evinúcleo",
+            "quantidade": null
+          },
+          {
+            "item_id": 244743,
+            "nome": "Invólucro Ocular de Aeterlúmen",
+            "quantidade": null
+          },
+          {
+            "item_id": 244744,
+            "nome": "Optovisores de Aeterlúmen",
+            "quantidade": null
+          },
+          {
+            "item_id": 244745,
+            "nome": "Proteção de Visão de Aeterlúmen",
+            "quantidade": null
+          },
+          {
+            "item_id": 244746,
+            "nome": "Guarda de Sol de Aeterlúmen",
+            "quantidade": null
+          }
+        ]
+      },
+      "_fonte": "listview"
     },
     {
       "reagente_id": 257741,
@@ -208,11 +1700,110 @@
       "icone": "inv_pet_futurebotpet",
       "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_pet_futurebotpet.jpg",
       "qualidade": 3,
-      "texto_completo": "B0P, Seletor de Cabuns\nNível do Item: 72 Reagente de criação opcional +5 Dificuldade da receita\nFornece as seguintes propriedades:\nSeus feitiços e habilidades de dano ou cura têm uma chance de disparar até 5 Grandes Cabuns, causando até 698 de dano de Fogo ou 1051 de cura com base na quantidade de Grandes Cabuns ativados.\nUsável com: Equipamentos Criados de Engenharia de Midnight\n\"Pode ser comprado e vendido na Casa de Leilões.\"\nEmpilhamento máx: 20 Preço de Venda: 8 65",
-      "texto_en": "B0P, Curator of Booms\nItem Level 72 Optional Crafting Reagent +5 Recipe Difficulty\nProvides the following property:\nYour damaging or healing spells and abilities have a chance to fire up to 5 Big Booms, dealing up to 698 Fire damage or 1051 healing based on the amount of Big Booms delivered.\nUsable with: Midnight Engineering Crafted Equipment\n\"Can be bought and sold on the Auction House.\"\nMax Stack: 20 Sell Price: 8 65",
-      "materiais": [],
-      "usado_em": [],
-      "_falhas": []
+      "texto_completo": "B0P, Seletor de Cabuns\nNível do Item: 72\nReagente de criação opcional +5 Dificuldade da receita\nFornece as seguintes propriedades:\nSeus feitiços e habilidades de dano ou cura têm uma chance de disparar até 5 Grandes Cabuns, causando até 698 de dano de Fogo ou 1051 de cura com base na quantidade de Grandes Cabuns ativados.\nUsável com: Equipamentos Criados de Engenharia de Midnight\n\"Pode ser comprado e vendido na Casa de Leilões.\"\nEmpilhamento máx: 20\nPreço de Venda: 8 65",
+      "texto_en": "B0P, Curator of Booms\nItem Level 72\nOptional Crafting Reagent +5 Recipe Difficulty\nProvides the following property:\nYour damaging or healing spells and abilities have a chance to fire up to 5 Big Booms, dealing up to 698 Fire damage or 1051 healing based on the amount of Big Booms delivered.\nUsable with: Midnight Engineering Crafted Equipment\n\"Can be bought and sold on the Auction House.\"\nMax Stack: 20\nSell Price: 8 65",
+      "materiais": [
+        "10× Monte de Sucata",
+        "1× Grânulo de Caos Puro",
+        "5× Evinúcleo"
+      ],
+      "usado_em": [
+        "Visor-zoom de Evinúcleo",
+        "Vulto de Evinúcleo",
+        "Reconhecimento de Evinúcleo",
+        "Protetor Ocular de Evinúcleo",
+        "Amarra de Pulso de Evinúcleo",
+        "Braceletes de Evinúcleo",
+        "Braçadeiras de Corrente de Evinúcleo",
+        "Peso de Engrenagem de Evinúcleo",
+        "Invólucro Ocular de Aeterlúmen",
+        "Optovisores de Aeterlúmen",
+        "Proteção de Visão de Aeterlúmen",
+        "Guarda de Sol de Aeterlúmen"
+      ],
+      "_falhas": [],
+      "_detalhe": {
+        "materiais": [
+          {
+            "item_id": 253303,
+            "nome": "Monte de Sucata",
+            "quantidade": 10
+          },
+          {
+            "item_id": 236952,
+            "nome": "Grânulo de Caos Puro",
+            "quantidade": 1
+          },
+          {
+            "item_id": 243581,
+            "nome": "Evinúcleo",
+            "quantidade": 5
+          }
+        ],
+        "usado_em": [
+          {
+            "item_id": 244751,
+            "nome": "Visor-zoom de Evinúcleo",
+            "quantidade": null
+          },
+          {
+            "item_id": 244752,
+            "nome": "Vulto de Evinúcleo",
+            "quantidade": null
+          },
+          {
+            "item_id": 244753,
+            "nome": "Reconhecimento de Evinúcleo",
+            "quantidade": null
+          },
+          {
+            "item_id": 244754,
+            "nome": "Protetor Ocular de Evinúcleo",
+            "quantidade": null
+          },
+          {
+            "item_id": 245341,
+            "nome": "Amarra de Pulso de Evinúcleo",
+            "quantidade": null
+          },
+          {
+            "item_id": 245342,
+            "nome": "Braceletes de Evinúcleo",
+            "quantidade": null
+          },
+          {
+            "item_id": 245343,
+            "nome": "Braçadeiras de Corrente de Evinúcleo",
+            "quantidade": null
+          },
+          {
+            "item_id": 245344,
+            "nome": "Peso de Engrenagem de Evinúcleo",
+            "quantidade": null
+          },
+          {
+            "item_id": 244743,
+            "nome": "Invólucro Ocular de Aeterlúmen",
+            "quantidade": null
+          },
+          {
+            "item_id": 244744,
+            "nome": "Optovisores de Aeterlúmen",
+            "quantidade": null
+          },
+          {
+            "item_id": 244745,
+            "nome": "Proteção de Visão de Aeterlúmen",
+            "quantidade": null
+          },
+          {
+            "item_id": 244746,
+            "nome": "Guarda de Sol de Aeterlúmen",
+            "quantidade": null
+          }
+        ]
+      },
+      "_fonte": "listview"
     },
     {
       "reagente_id": 270898,
@@ -221,11 +1812,122 @@
       "icone": "inv_121_professions_fishing_curseworm_red",
       "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_121_professions_fishing_curseworm_red.jpg",
       "qualidade": 3,
-      "texto_completo": "Forro de Couro de Cobra\nNível do Item: 72 Reagente de criação opcional +15 Dificuldade da receita\nFornece as seguintes propriedades: Suas habilidades que causam dano podem aplicar Ácido Corrosivo a um alvo, causando dano periódico. Causar dano ao alvo novamente tem uma chance de detonar o veneno e espalhar dano aos inimigos em volta.\nUsável com: Receitas de Midnight para a maioria das armaduras não adornadas.\n\"Pode ser comprado e vendido na Casa de Leilões.\"\nEmpilhamento máx: 200 Preço de Venda: 6 82",
-      "texto_en": "Snakeskin Lining\nItem Level 72 Optional Crafting Reagent +15 Recipe Difficulty\nProvides the following property: Your damaging abilities can apply Corrosive Acid to a target, dealing damage over time. Damaging the target again has a chance to detonate the venom and splash damage to surrounding enemies.\nUsable with: Midnight recipes for most unembellished armor.\n\"Can be bought and sold on the Auction House.\"\nMax Stack: 200 Sell Price: 6 82",
-      "materiais": [],
-      "usado_em": [],
-      "_falhas": []
+      "texto_completo": "Forro de Couro de Cobra\nNível do Item: 72\nReagente de criação opcional +15 Dificuldade da receita\nFornece as seguintes propriedades: Suas habilidades que causam dano podem aplicar Ácido Corrosivo a um alvo, causando dano periódico. Causar dano ao alvo novamente tem uma chance de detonar o veneno e espalhar dano aos inimigos em volta.\nUsável com: Receitas de Midnight para a maioria das armaduras não adornadas.\n\"Pode ser comprado e vendido na Casa de Leilões.\"\nEmpilhamento máx: 200\nPreço de Venda: 6 82",
+      "texto_en": "Snakeskin Lining\nItem Level 72\nOptional Crafting Reagent +15 Recipe Difficulty\nProvides the following property: Your damaging abilities can apply Corrosive Acid to a target, dealing damage over time. Damaging the target again has a chance to detonate the venom and splash damage to surrounding enemies.\nUsable with: Midnight recipes for most unembellished armor.\n\"Can be bought and sold on the Auction House.\"\nMax Stack: 200\nSell Price: 6 82",
+      "materiais": [
+        "1× Filamento de Bordado",
+        "6× Globo Pragatado",
+        "4× Coágulo de Peçonha Neutralizada",
+        "2× Rolo de Arcanotrama",
+        "2× Rolo de Seda de Fogo Solar"
+      ],
+      "usado_em": [
+        "Coroa do Mártir",
+        "Luvas do Mártir",
+        "Banda do Mártir",
+        "Braceletes do Mártir",
+        "Vestimenta do Mártir",
+        "Perneiras do Mártir",
+        "Sapatilhas do Mártir",
+        "Dragonas do Mártir",
+        "Mortalha Sedosa do Seguidor",
+        "Elmo Cortesão",
+        "Luvas Cortesãs",
+        "Cinto Cortesão"
+      ],
+      "_falhas": [],
+      "_detalhe": {
+        "materiais": [
+          {
+            "item_id": 251691,
+            "nome": "Filamento de Bordado",
+            "quantidade": 1
+          },
+          {
+            "item_id": 274781,
+            "nome": "Globo Pragatado",
+            "quantidade": 6
+          },
+          {
+            "item_id": 274777,
+            "nome": "Coágulo de Peçonha Neutralizada",
+            "quantidade": 4
+          },
+          {
+            "item_id": 239198,
+            "nome": "Rolo de Arcanotrama",
+            "quantidade": 2
+          },
+          {
+            "item_id": 239201,
+            "nome": "Rolo de Seda de Fogo Solar",
+            "quantidade": 2
+          }
+        ],
+        "usado_em": [
+          {
+            "item_id": 239652,
+            "nome": "Coroa do Mártir",
+            "quantidade": null
+          },
+          {
+            "item_id": 239653,
+            "nome": "Luvas do Mártir",
+            "quantidade": null
+          },
+          {
+            "item_id": 239649,
+            "nome": "Banda do Mártir",
+            "quantidade": null
+          },
+          {
+            "item_id": 239648,
+            "nome": "Braceletes do Mártir",
+            "quantidade": null
+          },
+          {
+            "item_id": 239655,
+            "nome": "Vestimenta do Mártir",
+            "quantidade": null
+          },
+          {
+            "item_id": 239651,
+            "nome": "Perneiras do Mártir",
+            "quantidade": null
+          },
+          {
+            "item_id": 239654,
+            "nome": "Sapatilhas do Mártir",
+            "quantidade": null
+          },
+          {
+            "item_id": 239650,
+            "nome": "Dragonas do Mártir",
+            "quantidade": null
+          },
+          {
+            "item_id": 239656,
+            "nome": "Mortalha Sedosa do Seguidor",
+            "quantidade": null
+          },
+          {
+            "item_id": 239668,
+            "nome": "Elmo Cortesão",
+            "quantidade": null
+          },
+          {
+            "item_id": 239669,
+            "nome": "Luvas Cortesãs",
+            "quantidade": null
+          },
+          {
+            "item_id": 239670,
+            "nome": "Cinto Cortesão",
+            "quantidade": null
+          }
+        ]
+      },
+      "_fonte": "listview"
     },
     {
       "reagente_id": 273059,
@@ -234,11 +1936,122 @@
       "icone": "inv_12_profession_blacksmithing_weightstone_green",
       "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_12_profession_blacksmithing_weightstone_green.jpg",
       "qualidade": 3,
-      "texto_completo": "Pedra Ritual do Caçador\nNível do Item: 80 Reagente de criação opcional +15 Dificuldade da receita\nFornece as seguintes propriedades: Suas habilidades e feitiços que causam dano têm chance de conceder 101 de um atributo secundário aleatório por 15 s.\nDurante uma Caça às Presas, este efeito aumenta em 50%. Este bônus só fica disponível em ambientes externos e enquanto você caça presas.\nUsável com: Armas de Ferraria de Midnight\n\"Criado por jogadores com a perícia Ferraria. Pode ser comprada e vendida na Casa de Leilões.\"\nEmpilhamento máx: 1000 Preço de Venda: 6 15",
-      "texto_en": "Hunter's Ritual Stone\nItem Level 80 Optional Crafting Reagent +15 Recipe Difficulty\nProvides the following property: Your damaging spells and abilities have a chance to grant 101 of a random secondary stat for 15 sec.\nWhile on a Prey Hunt this effect is increased by 50%. This bonus is only available outdoors while hunting prey.\nUsable with: Midnight Blacksmithing Weapons\n\"Crafted by players with the Blacksmithing skill. Can be bought and sold on the Auction House.\"\nMax Stack: 1000 Sell Price: 6 15",
-      "materiais": [],
-      "usado_em": [],
-      "_falhas": []
+      "texto_completo": "Pedra Ritual do Caçador\nNível do Item: 80\nReagente de criação opcional +15 Dificuldade da receita\nFornece as seguintes propriedades: Suas habilidades e feitiços que causam dano têm chance de conceder 101 de um atributo secundário aleatório por 15 s.\nDurante uma Caça às Presas, este efeito aumenta em 50%. Este bônus só fica disponível em ambientes externos e enquanto você caça presas.\nUsável com: Armas de Ferraria de Midnight\n\"Criado por jogadores com a perícia Ferraria. Pode ser comprada e vendida na Casa de Leilões.\"\nEmpilhamento máx: 1000\nPreço de Venda: 6 15",
+      "texto_en": "Hunter's Ritual Stone\nItem Level 80\nOptional Crafting Reagent +15 Recipe Difficulty\nProvides the following property: Your damaging spells and abilities have a chance to grant 101 of a random secondary stat for 15 sec.\nWhile on a Prey Hunt this effect is increased by 50%. This bonus is only available outdoors while hunting prey.\nUsable with: Midnight Blacksmithing Weapons\n\"Crafted by players with the Blacksmithing skill. Can be bought and sold on the Auction House.\"\nMax Stack: 1000\nSell Price: 6 15",
+      "materiais": [
+        "4× Fluxo Fulgurante",
+        "2× Coágulo de Peçonha Neutralizada",
+        "2× Globo Pragatado",
+        "6× Minério de Estanho Umbrático",
+        "3× Lingote de Cobre Refulgente"
+      ],
+      "usado_em": [
+        "Machado Pesado Primeforjado",
+        "Divisor Albaforjado",
+        "Maça de Guerra Albaforjada",
+        "Soqueiras Primeforjadas",
+        "Lâmina Longa Albaforjada",
+        "Gume Albaforjado",
+        "Faca Ritualística Albaforjada",
+        "Espada do Competidor Talassiano",
+        "Montante do Competidor Talassiano",
+        "Espeto do Competidor Talassiano",
+        "Talhadeira do Competidor Talassiano",
+        "Máxima do Competidor Talassiano"
+      ],
+      "_falhas": [],
+      "_detalhe": {
+        "materiais": [
+          {
+            "item_id": 243060,
+            "nome": "Fluxo Fulgurante",
+            "quantidade": 4
+          },
+          {
+            "item_id": 274777,
+            "nome": "Coágulo de Peçonha Neutralizada",
+            "quantidade": 2
+          },
+          {
+            "item_id": 274781,
+            "nome": "Globo Pragatado",
+            "quantidade": 2
+          },
+          {
+            "item_id": 237362,
+            "nome": "Minério de Estanho Umbrático",
+            "quantidade": 6
+          },
+          {
+            "item_id": 238197,
+            "nome": "Lingote de Cobre Refulgente",
+            "quantidade": 3
+          }
+        ],
+        "usado_em": [
+          {
+            "item_id": 237932,
+            "nome": "Machado Pesado Primeforjado",
+            "quantidade": null
+          },
+          {
+            "item_id": 237931,
+            "nome": "Divisor Albaforjado",
+            "quantidade": null
+          },
+          {
+            "item_id": 237930,
+            "nome": "Maça de Guerra Albaforjada",
+            "quantidade": null
+          },
+          {
+            "item_id": 237929,
+            "nome": "Soqueiras Primeforjadas",
+            "quantidade": null
+          },
+          {
+            "item_id": 237928,
+            "nome": "Lâmina Longa Albaforjada",
+            "quantidade": null
+          },
+          {
+            "item_id": 237927,
+            "nome": "Gume Albaforjado",
+            "quantidade": null
+          },
+          {
+            "item_id": 237926,
+            "nome": "Faca Ritualística Albaforjada",
+            "quantidade": null
+          },
+          {
+            "item_id": 237916,
+            "nome": "Espada do Competidor Talassiano",
+            "quantidade": null
+          },
+          {
+            "item_id": 237915,
+            "nome": "Montante do Competidor Talassiano",
+            "quantidade": null
+          },
+          {
+            "item_id": 237914,
+            "nome": "Espeto do Competidor Talassiano",
+            "quantidade": null
+          },
+          {
+            "item_id": 237913,
+            "nome": "Talhadeira do Competidor Talassiano",
+            "quantidade": null
+          },
+          {
+            "item_id": 237911,
+            "nome": "Máxima do Competidor Talassiano",
+            "quantidade": null
+          }
+        ]
+      },
+      "_fonte": "listview"
     },
     {
       "reagente_id": 273062,
@@ -247,11 +2060,56 @@
       "icone": "inv_10_engineering_scope_color3",
       "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_10_engineering_scope_color3.jpg",
       "qualidade": 3,
-      "texto_completo": "Olho de Cobra Enrolado\nNível do Item: 72 Reagente de criação opcional +15 Dificuldade da receita\nFornece as seguintes propriedades:\nSuas habilidades e feitiços que causam dano têm chance de conceder 67 de um atributo secundário aleatório por 15 s.\nSe este efeito for ativado por um Acerto Crítico, ele concede bônus a seu atributo secundário mais alto.\nUsável com: Armas de Fogo de Engenharia de Midnight\n\"Pode ser comprado e vendido na Casa de Leilões.\"\nEmpilhamento máx: 20 Preço de Venda: 17 30 50",
-      "texto_en": "Coiled Snake-Eye\nItem Level 72 Optional Crafting Reagent +15 Recipe Difficulty\nProvides the following property:\nYour damaging spells and abilties have a chance to grant 67 of a random secondary stat for 15 sec.\nIf this effect was triggered by a Critical Strike, it grants your highest secondary stat instead.\nUsable with: Midnight Engineering Guns\n\"Can be bought and sold on the Auction House.\"\nMax Stack: 20 Sell Price: 17 30 50",
-      "materiais": [],
-      "usado_em": [],
-      "_falhas": []
+      "texto_completo": "Olho de Cobra Enrolado\nNível do Item: 72\nReagente de criação opcional +15 Dificuldade da receita\nFornece as seguintes propriedades:\nSuas habilidades e feitiços que causam dano têm chance de conceder 67 de um atributo secundário aleatório por 15 s.\nSe este efeito for ativado por um Acerto Crítico, ele concede bônus a seu atributo secundário mais alto.\nUsável com: Armas de Fogo de Engenharia de Midnight\n\"Pode ser comprado e vendido na Casa de Leilões.\"\nEmpilhamento máx: 20\nPreço de Venda: 17 30 50",
+      "texto_en": "Coiled Snake-Eye\nItem Level 72\nOptional Crafting Reagent +15 Recipe Difficulty\nProvides the following property:\nYour damaging spells and abilties have a chance to grant 67 of a random secondary stat for 15 sec.\nIf this effect was triggered by a Critical Strike, it grants your highest secondary stat instead.\nUsable with: Midnight Engineering Guns\n\"Can be bought and sold on the Auction House.\"\nMax Stack: 20\nSell Price: 17 30 50",
+      "materiais": [
+        "10× Monte de Sucata",
+        "3× Coágulo de Peçonha Neutralizada",
+        "5× Evinúcleo"
+      ],
+      "usado_em": [
+        "Quebra-coco Evinúcleo",
+        "P.O.U. x3",
+        "Rifle do Competidor Talassiano"
+      ],
+      "_falhas": [],
+      "_detalhe": {
+        "materiais": [
+          {
+            "item_id": 253303,
+            "nome": "Monte de Sucata",
+            "quantidade": 10
+          },
+          {
+            "item_id": 274777,
+            "nome": "Coágulo de Peçonha Neutralizada",
+            "quantidade": 3
+          },
+          {
+            "item_id": 243581,
+            "nome": "Evinúcleo",
+            "quantidade": 5
+          }
+        ],
+        "usado_em": [
+          {
+            "item_id": 268475,
+            "nome": "Quebra-coco Evinúcleo",
+            "quantidade": null
+          },
+          {
+            "item_id": 268477,
+            "nome": "P.O.U. x3",
+            "quantidade": null
+          },
+          {
+            "item_id": 268479,
+            "nome": "Rifle do Competidor Talassiano",
+            "quantidade": null
+          }
+        ]
+      },
+      "_fonte": "listview"
     },
     {
       "reagente_id": 273065,
@@ -260,11 +2118,80 @@
       "icone": "jewelcrafting_cut-epic-gem_color1",
       "icone_url": "https://wow.zamimg.com/images/wow/icons/large/jewelcrafting_cut-epic-gem_color1.jpg",
       "qualidade": 3,
-      "texto_completo": "Amolita Polida\nNível do Item: 72 Reagente de criação opcional +15 Dificuldade da receita\nFornece as seguintes propriedades: Acertos críticos concedem uma bênção cumulativa que aumenta o seu Acerto Crítico. Com o máximo de aplicações, os acertos críticos causam uma explosão de dano.\nUsável com: Receitas de Midnight para a maioria dos acessórios não adornados.\n\"Pode ser comprado e vendido na Casa de Leilões.\"\nEmpilhamento máx: 20 Preço de Venda: 13 20",
-      "texto_en": "Polished Ammolite\nItem Level 72 Optional Crafting Reagent +15 Recipe Difficulty\nProvides the following property: Critical strikes bestow a stacking blessing that grants more Critical Strike. At maximum stacks, critical strikes cause a burst of damage.\nUsable with: Midnight recipes for most unembellished accessories.\n\"Can be bought and sold on the Auction House.\"\nMax Stack: 20 Sell Price: 13 20",
-      "materiais": [],
-      "usado_em": [],
-      "_falhas": []
+      "texto_completo": "Amolita Polida\nNível do Item: 72\nReagente de criação opcional +15 Dificuldade da receita\nFornece as seguintes propriedades: Acertos críticos concedem uma bênção cumulativa que aumenta o seu Acerto Crítico. Com o máximo de aplicações, os acertos críticos causam uma explosão de dano.\nUsável com: Receitas de Midnight para a maioria dos acessórios não adornados.\n\"Pode ser comprado e vendido na Casa de Leilões.\"\nEmpilhamento máx: 20\nPreço de Venda: 13 20",
+      "texto_en": "Polished Ammolite\nItem Level 72\nOptional Crafting Reagent +15 Recipe Difficulty\nProvides the following property: Critical strikes bestow a stacking blessing that grants more Critical Strike. At maximum stacks, critical strikes cause a burst of damage.\nUsable with: Midnight recipes for most unembellished accessories.\n\"Can be bought and sold on the Auction House.\"\nMax Stack: 20\nSell Price: 13 20",
+      "materiais": [
+        "6× Coágulo de Peçonha Neutralizada",
+        "4× Globo Pragatado",
+        "2× Lente Sin'dorei",
+        "2× Pó de Gema Luzente"
+      ],
+      "usado_em": [
+        "Elo Sin'dorei Magistral",
+        "Amuleto Sin'dorei Magistral",
+        "Elo de Cobre Rebrilhante",
+        "Patuá Noturno",
+        "Sinete do Competidor Talassiano",
+        "Amuleto do Competidor Talassiano"
+      ],
+      "_falhas": [],
+      "_detalhe": {
+        "materiais": [
+          {
+            "item_id": 274777,
+            "nome": "Coágulo de Peçonha Neutralizada",
+            "quantidade": 6
+          },
+          {
+            "item_id": 274781,
+            "nome": "Globo Pragatado",
+            "quantidade": 4
+          },
+          {
+            "item_id": 240972,
+            "nome": "Lente Sin'dorei",
+            "quantidade": 2
+          },
+          {
+            "item_id": 242620,
+            "nome": "Pó de Gema Luzente",
+            "quantidade": 2
+          }
+        ],
+        "usado_em": [
+          {
+            "item_id": 240949,
+            "nome": "Elo Sin'dorei Magistral",
+            "quantidade": null
+          },
+          {
+            "item_id": 240950,
+            "nome": "Amuleto Sin'dorei Magistral",
+            "quantidade": null
+          },
+          {
+            "item_id": 240947,
+            "nome": "Elo de Cobre Rebrilhante",
+            "quantidade": null
+          },
+          {
+            "item_id": 240948,
+            "nome": "Patuá Noturno",
+            "quantidade": null
+          },
+          {
+            "item_id": 240951,
+            "nome": "Sinete do Competidor Talassiano",
+            "quantidade": null
+          },
+          {
+            "item_id": 240952,
+            "nome": "Amuleto do Competidor Talassiano",
+            "quantidade": null
+          }
+        ]
+      },
+      "_fonte": "listview"
     },
     {
       "reagente_id": 273068,
@@ -273,11 +2200,128 @@
       "icone": "inv_knife_1h_ulatek_d_01",
       "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_knife_1h_ulatek_d_01.jpg",
       "qualidade": 3,
-      "texto_completo": "Presa Adornada\nNível do Item: 72 Requer Nível 71\nReagente de criação opcional +15 Dificuldade da receita\nFornece as seguintes propriedades: Seus feitiços e habilidades têm chance de aumentar sua Aceleração, com um aumento de chance quando o alvo está com os pontos de vida baixos.\nUsável com: Receitas de Midnight para a maioria dos equipamentos não adornados.\n\"Pode ser comprado e vendido na Casa de Leilões.\"\nEmpilhamento máx: 200 Preço de Venda: 7 40",
-      "texto_en": "Adorned Fang\nItem Level 72 Requires Level 71\nOptional Crafting Reagent +15 Recipe Difficulty\nProvides the following property: Your spells and abilities have a chance to increase your Haste, with the chance increasing when a target is at lower health.\nUsable with: Midnight recipes for most unembellished equipment.\n\"Can be bought and sold on the Auction House.\"\nMax Stack: 200 Sell Price: 7 40",
-      "materiais": [],
-      "usado_em": [],
-      "_falhas": []
+      "texto_completo": "Presa Adornada\nNível do Item: 72\nRequer Nível 71\nReagente de criação opcional +15 Dificuldade da receita\nFornece as seguintes propriedades: Seus feitiços e habilidades têm chance de aumentar sua Aceleração, com um aumento de chance quando o alvo está com os pontos de vida baixos.\nUsável com: Receitas de Midnight para a maioria dos equipamentos não adornados.\n\"Pode ser comprado e vendido na Casa de Leilões.\"\nEmpilhamento máx: 200\nPreço de Venda: 7 40",
+      "texto_en": "Adorned Fang\nItem Level 72\nRequires Level 71\nOptional Crafting Reagent +15 Recipe Difficulty\nProvides the following property: Your spells and abilities have a chance to increase your Haste, with the chance increasing when a target is at lower health.\nUsable with: Midnight recipes for most unembellished equipment.\n\"Can be bought and sold on the Auction House.\"\nMax Stack: 200\nSell Price: 7 40",
+      "materiais": [
+        "6× Coágulo de Peçonha Neutralizada",
+        "1× Canino Cortante",
+        "1× Plumagem Inigualável",
+        "8× Globo Pragatado",
+        "1× Pelego Revenido pelo Caos",
+        "2× Pedra Crepusculada"
+      ],
+      "usado_em": [
+        "Coroa do Mártir",
+        "Luvas do Mártir",
+        "Banda do Mártir",
+        "Braceletes do Mártir",
+        "Vestimenta do Mártir",
+        "Perneiras do Mártir",
+        "Sapatilhas do Mártir",
+        "Dragonas do Mártir",
+        "Mortalha Sedosa do Seguidor",
+        "Elmo Cortesão",
+        "Luvas Cortesãs",
+        "Cinto Cortesão"
+      ],
+      "_falhas": [],
+      "_detalhe": {
+        "materiais": [
+          {
+            "item_id": 274777,
+            "nome": "Coágulo de Peçonha Neutralizada",
+            "quantidade": 6
+          },
+          {
+            "item_id": 238523,
+            "nome": "Canino Cortante",
+            "quantidade": 1
+          },
+          {
+            "item_id": 238522,
+            "nome": "Plumagem Inigualável",
+            "quantidade": 1
+          },
+          {
+            "item_id": 274781,
+            "nome": "Globo Pragatado",
+            "quantidade": 8
+          },
+          {
+            "item_id": 238518,
+            "nome": "Pelego Revenido pelo Caos",
+            "quantidade": 1
+          },
+          {
+            "item_id": 242788,
+            "nome": "Pedra Crepusculada",
+            "quantidade": 2
+          }
+        ],
+        "usado_em": [
+          {
+            "item_id": 239652,
+            "nome": "Coroa do Mártir",
+            "quantidade": null
+          },
+          {
+            "item_id": 239653,
+            "nome": "Luvas do Mártir",
+            "quantidade": null
+          },
+          {
+            "item_id": 239649,
+            "nome": "Banda do Mártir",
+            "quantidade": null
+          },
+          {
+            "item_id": 239648,
+            "nome": "Braceletes do Mártir",
+            "quantidade": null
+          },
+          {
+            "item_id": 239655,
+            "nome": "Vestimenta do Mártir",
+            "quantidade": null
+          },
+          {
+            "item_id": 239651,
+            "nome": "Perneiras do Mártir",
+            "quantidade": null
+          },
+          {
+            "item_id": 239654,
+            "nome": "Sapatilhas do Mártir",
+            "quantidade": null
+          },
+          {
+            "item_id": 239650,
+            "nome": "Dragonas do Mártir",
+            "quantidade": null
+          },
+          {
+            "item_id": 239656,
+            "nome": "Mortalha Sedosa do Seguidor",
+            "quantidade": null
+          },
+          {
+            "item_id": 239668,
+            "nome": "Elmo Cortesão",
+            "quantidade": null
+          },
+          {
+            "item_id": 239669,
+            "nome": "Luvas Cortesãs",
+            "quantidade": null
+          },
+          {
+            "item_id": 239670,
+            "nome": "Cinto Cortesão",
+            "quantidade": null
+          }
+        ]
+      },
+      "_fonte": "listview"
     }
   ]
 }

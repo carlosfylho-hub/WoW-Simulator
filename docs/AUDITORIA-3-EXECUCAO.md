@@ -90,7 +90,7 @@ Desvios encontrados nesta continuação:
 | :--- | :--- | :--- |
 | T10 / P-031 / P-040 | Exige simc no Windows + export **vivo** do usuário | Rodar o roteiro §8 do workflow e registrar os números no `PENDENCIAS.md` |
 | P-054 | Craft Herói (305–318), armas no Craft, custo da Forja do Veneno (sem número oficial), cargas do Catalisador, desconto de slot | Fonte confirmada para os custos; ou decisão de escopo do usuário |
-| P-055 | Materiais da receita e "onde usar" dos embelezamentos | Rodar o raspador com rede e documentar os ids sem receita publicada (ver §"Crawl4AI v2") |
+| P-055 | ~~Materiais da receita e "onde usar"~~ **FECHADA em 2026-11-09**: o parser passou a ler os blobs `Listview` embutidos; **21/21** reagentes com `materiais` e `usado_em` (ver §"Crawl4AI v2") | Executado com rede (ver §"Crawl4AI v2") |
 | U0–U7 | Redesign da UI | `Simulator-WoW/docs/PLANO-REDESIGN-UI.md` (rodada própria) |
 
 ---
@@ -115,6 +115,7 @@ de `_secao` aparecia **duplicado fora de qualquer `def`** (linhas 89–121, inde
 | Materiais só por texto | Segundo salto: se a página lista receitas (`spell=<id>`), o tooltip JSON da receita entrega os reagentes com quantidade (`"3× Nome"`) |
 | `"Reagentes para"` casava com `"Reagentes"` | `_secao(..., evitar=("reagentes para", "reagent for"))` |
 | `texto_do_html` colapsava blocos em uma linha | `</p|div|li|tr|td|h1-6|table|section|ul|ol>` viram quebra de linha (melhora o texto do cartão e o recorte por título) |
+| Reagentes procurados só em `<a>` com texto e `float` no `td` | **Causa real (execução 2026-11-09):** no HTML os reagentes são `<a href="...item=id/slug">` **sem texto** (nome vem do slug) e o "usado em" vem em `new Listview({...})` embutido, não no `<tr>`. `extrair_pagina` agora lê os blobs `Listview` (`created-by-spell` → `reagents:[[id,qtd]]`; `reagent-for` → `creates`/`displayName`), resolve o nome pelo tooltip JSON e só usa `<tr>`/texto como reserva (`_fonte` = `listview`\|`abas`\|`texto`) |
 
 Comportamento mantido por contrato:
 
@@ -122,16 +123,22 @@ Comportamento mantido por contrato:
 - O detalhe estruturado vai em `_detalhe` (não entra em `mesclar_wowhead`, que só copia `_CAMPOS_WOWHEAD`).
 - P1 preservado: sem dado, campo vazio + motivo em `_falhas`; nada é estimado.
 
-Testes novos em `tests/test_embelezamentos_wowhead.py` (9): classificação de abas, separação
+Testes em `tests/test_embelezamentos_wowhead.py` (17): classificação de abas, separação
 materiais × "usado em", quantidade explícita, fallback por texto sem misturar títulos,
-dedupe de receitas e leitura do tooltip de spell. Suíte: **490 passed, 2 deselected**.
+dedupe de receitas, leitura do tooltip de spell, leitura dos blobs `Listview`
+(`_extrair_listview_data`, `_fechar_colchete`), materiais com nome resolvido e "usado em"
+por `creates`/`displayName`, além do caso sem resolver (nome vira `#id`, não inventa).
 
-### O que falta (não é código)
+### Execução real (2026-11-09) — concluída
 
-1. Rodar `python scripts/raspar_embelezamentos.py --debug-html 240167` para confirmar os ids
-   reais das abas e ver `materiais`/`usado_em` no console.
-2. Ter `crawl4ai` + Chromium (`pip install crawl4ai`; `python -m playwright install chromium`).
-3. Rodar os 21 ids, depois `scripts/derivar_embelezamentos.py`, e anotar em `PENDENCIAS.md`
-   quais ids não têm receita publicada no Wowhead (aí é ausência de dado, não bug).
-4. Se os ids das abas tiverem mudado, ajustar só `_classificar_aba` — os testes e o `--html`
-   permitem fazer isso sem rede.
+Com `crawl4ai` + Chromium instalados e rede ativa:
+
+- `--debug-html 240167` confirmou as abas reais: `tab-created-by-spell`, `tab-taught-by-item`,
+  `tab-reagent-for`. As listas **não** ficam no `<tr>` renderizado; o dado estruturado está
+  nos blocos `new Listview({...})` (o `tab-reagent-for` vinha vazio no HTML até o clique).
+- `python scripts/raspar_embelezamentos.py --delay 0.5` → **21 embelezamentos**,
+  `sem_icone: []`, `sem_materiais: []`; todos com `usado_em` (ex.: 240167 →
+  `1× Filamento de Bordado`, `6× Arcanotrama`, `2× Rolo de Arcanotrama`; 12 itens em "usado em").
+- `python scripts/derivar_embelezamentos.py` mesclou tudo em
+  `dados/derivados/embelezamentos.json` (`_meta.wowhead` preenchido, `sem simc: []`).
+- Suíte de embelezamentos/craft: **35 passed**. Nada estimado (P1).
