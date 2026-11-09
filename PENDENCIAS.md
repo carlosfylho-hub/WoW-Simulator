@@ -113,6 +113,13 @@ Nenhum bloqueio ativo. O binário foi compilado a partir do fonte `12.1.5.70783`
 | **Entregue** | `masmorras/cofre.py::opcoes_do_cofre`: resolve `item_id`, `slots`, `ilvl` e `bonus_ids` decodificando o `.gv` com o codec do T2. `tests/test_masmorras_cofre.py` (tokens sintéticos via `codificar_itens`): head `271483`/334 e wrist `239648`; `.gv` vazio = `[]`. |
 | **Pendente** | (1) fixture real com o cofre cheio em `fixtures/pyrogalth-amr-181-cofre.txt` (usuário); (2) virar as opções em `Candidato` com os bônus reais e reusar `avaliar`/`fonte="cofre"`; (3) worker/API/tela separando "ganho se pegar" de "ganho se pegar e catalisar". Fecha no T10 com o fixture. |
 
+### T9 — Várias builds: matriz, média e montagem — **[~] PARCIAL em 2026-11-08**
+
+| Campo | Detalhe |
+| :--- | :--- |
+| **Entregue** | `masmorras/builds.py`: `conjuntos_da_build` (ref + talentos por build, base imutável — P4), `cenario_da_build` (single/raid/boss → patchwerk; resto → dungeon_slice), `media_ponderada` (erro se os pesos somam 0) e `divergente`. `tests/test_masmorras_builds.py` (10 casos). |
+| **Pendente** | montagem do conjunto completo por build com execução de confirmação; worker/API/tela com a matriz e os pesos por build; preenchimento de `RankingRequest.loadouts`/`pesos_loadouts`. |
+
 ---
 
 ## 3. Pendências de dados

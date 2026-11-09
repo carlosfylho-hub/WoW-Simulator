@@ -253,7 +253,7 @@ A fazer:
 | 2 | **T6** Motor do ranking de masmorras | [x] | `847eb25` |
 | 2 | **T7** API, worker e tela do ranking | [x] | `016170b` (backend), `db117a5` (UI) |
 | 2 | **T8** Grande Cofre a partir do `.gv` | [~] | parcial: `opcoes_do_cofre`; falta fixture real + eval/UI |
-| 2 | **T9** Várias builds: matriz, média e montagem | [ ] | |
+| 2 | **T9** Várias builds: matriz, média e montagem | [~] | parcial: `builds.py`; falta montagem + UI |
 | 2 | **T10** Validação ao vivo no Windows (usuário) | [ ] | |
 | 3 | **T11** String do Pawn | [ ] | |
 | 3 | **T12** String do AMR | [ ] | |
