@@ -24,6 +24,15 @@ DIR = sr.CACHE_DIR / "pesos"
 SECUNDARIOS = ("haste", "crit", "mastery", "versatility")
 FONTE = "simc:scale_factors"
 
+# Nomes que o simc usa em scale_factors -> nomes do projeto (o simc diz "Vers").
+_ALIAS_SIMC = {
+    "crit": "crit",
+    "haste": "haste",
+    "mastery": "mastery",
+    "vers": "versatility",
+    "versatility": "versatility",
+}
+
 
 def chave_pesos(personagem: Personagem) -> str:
     """Stable key from spec, talents and equipped item ids (gear-dependent)."""
@@ -58,7 +67,7 @@ def normalizar_scale_factors(bruto: dict) -> dict[str, float]:
 
     saida: dict[str, float] = {}
     for chave, valor in sf.items():
-        nome = str(chave).strip().lower()
+        nome = _ALIAS_SIMC.get(str(chave).strip().lower())
         if nome in SECUNDARIOS and isinstance(valor, (int, float)) and not isinstance(valor, bool):
             saida[nome] = float(valor)
     if not saida:

@@ -152,6 +152,39 @@ def test_poda_desligada_nao_descarta() -> None:
     assert not any("Poda heurística" in aviso for aviso in resultado.avisos)
 
 
+def test_poda_ignora_pesos_medidos(monkeypatch) -> None:
+    """A-12: a poda usa só pesos curados, mesmo havendo pesos medidos salvos."""
+    from wowsim.data import pesos_medidos
+    from wowsim.data.pesos import PesosSpec
+
+    absurdos = PesosSpec(
+        {"haste": 0.0, "crit": 1.0}, "simc:scale_factors", None, None, True
+    )
+    monkeypatch.setattr(
+        pesos_medidos, "carregar_pesos_medidos", lambda *a, **k: absurdos
+    )
+
+    personagem = personagem_base()
+    pools = {
+        "head": [
+            candidato_head(10, stats={"haste": 300}),
+            candidato_head(11, stats={"haste": 100}),
+        ]
+    }
+    resultado = executar_topgear(
+        personagem,
+        pools,
+        simulador=simulador_falso({10: 800.0, 11: 300.0}),
+        request=pedido(podar=True, pool_efetiva_por_slot=1),
+        ctx=ContextoSpec(),
+    )
+
+    aviso_poda = [a for a in resultado.avisos if "Poda heurística" in a]
+    assert aviso_poda
+    # A fonte citada é a curada, nunca "simc:scale_factors".
+    assert "curado:" in aviso_poda[0]
+
+
 def test_verificacao_recupera_candidato_podado() -> None:
     personagem = personagem_base()
     # item 11 tem score baixo (é podado), mas DPS muito maior.

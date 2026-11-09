@@ -11,7 +11,6 @@ from typing import Callable, Mapping
 from .. import simc_runner as sr
 from ..data import catalog
 from ..data import pesos as pesos_mod
-from ..data import pesos_medidos
 from ..heuristic.score import podar_por_slot
 from ..models import Personagem
 from ..topgear.constraints import validar
@@ -217,9 +216,10 @@ def executar_droptimizer(
     # de cada slot. Nunca poda berloques/armas/efeitos/itens sem stats; o score
     # é sempre estimativa, nunca DPS.
     if pedido.podar and pedido.pool_efetiva_por_slot > 0:
-        pesos_heur = pesos_medidos.carregar_pesos_medidos(
-            personagem
-        ) or pesos_mod.pesos_para(contexto.classe, contexto.spec)
+        # Pesos medidos ficam fora da poda até haver medição válida (luta de
+        # duração correta, milhares de iterações). Os salvos hoje puseram
+        # Aceleração em último, contra o guia. Ver PLANO-CONTINUIDADE A-12.
+        pesos_heur = pesos_mod.pesos_para(contexto.classe, contexto.spec)
         poda = podar_por_slot(
             dict(candidatos),
             pesos_heur.valores,

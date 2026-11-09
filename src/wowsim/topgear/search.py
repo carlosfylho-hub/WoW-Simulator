@@ -15,7 +15,6 @@ from typing import Callable, Iterable, Mapping
 from .. import simc_runner as sr
 from ..data import catalog, consumables, tier
 from ..data import pesos as pesos_mod
-from ..data import pesos_medidos
 from ..heuristic.score import podar_por_slot
 from ..models import Personagem
 from .catalisador import (
@@ -840,9 +839,10 @@ def executar_topgear(
     # é sempre estimativa, nunca DPS.
     descartados_itens: dict[str, list[Candidato]] = {}
     if pedido.podar and pedido.pool_efetiva_por_slot > 0:
-        pesos_heur = pesos_medidos.carregar_pesos_medidos(
-            personagem
-        ) or pesos_mod.pesos_para(contexto.classe, contexto.spec)
+        # Pesos medidos ficam fora da poda até haver medição válida (luta de
+        # duração correta, milhares de iterações). Os salvos hoje puseram
+        # Aceleração em último, contra o guia. Ver PLANO-CONTINUIDADE A-12.
+        pesos_heur = pesos_mod.pesos_para(contexto.classe, contexto.spec)
         poda = podar_por_slot(
             pools,
             pesos_heur.valores,

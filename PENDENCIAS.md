@@ -65,6 +65,15 @@ Nenhum bloqueio ativo. O binário foi compilado a partir do fonte `12.1.5.70783`
 | **Testes antigos corrigidos** | `test_parser_amr.py`, `test_combinar.py` e `test_droptimizer.py` afirmavam valores absolutos que contradiziam o export do SimC; ajustados citando a linha do fixture. |
 | **Desvio** | O `grep "drop_level\\|gem_id2" src/wowsim/parser` não fica vazio: restam em `parser/addon.py` (parser do export SimC, outro formato) e em comentários; nenhum caminho do AMR os emite. |
 
+### A-12 — `Vers` e poda só com pesos curados — **RESOLVIDA em 2026-11-08**
+
+| Campo | Detalhe |
+| :--- | :--- |
+| **O que** | O simc chama o fator de versatilidade de `Vers` (`cache/752b8725….json`: `Int, SP, Crit, Haste, Mastery, Vers`), mas `normalizar_scale_factors` filtrava por `"versatility"` e descartava a versatilidade. Além disso, a poda usava pesos **medidos** salvos de luta de 118 s / 69 iterações, que puseram Aceleração em último, contra o guia do projeto. |
+| **Correção** | `_ALIAS_SIMC` mapeia `crit/haste/mastery/vers/versatility` para os nomes do projeto. A poda (Top Gear e Droptimizer) usa **só** `pesos_para(...)` curados; `pesos_medidos` ficou fora da poda até haver medição válida. |
+| **Testes** | Novo `tests/test_pesos_alias.py` (`Vers` → `versatility`) e `test_poda_ignora_pesos_medidos` (monkeypatch em `carregar_pesos_medidos` com pesos absurdos → o aviso de poda cita a fonte `curado:`). |
+| **Impacto** | Ranking deixa de ser guiado por pesos medidos inválidos; a versatilidade volta a participar da estimativa de poda. |
+
 ---
 
 ## 3. Pendências de dados
