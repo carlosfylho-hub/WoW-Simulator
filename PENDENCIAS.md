@@ -506,6 +506,9 @@ comparada com a execução anterior do usuário (base 144.688 → melhor 164.588
 
 ## 11. Auditoria das entregas da outra IA — 2026-11-08
 
+### P-048 — Tooltip com atributos inventados e Aceleração ignorada — FECHADA em 2026-11-09
+Três falhas somadas: (1) `catalog._MAPA_STATS` não conhecia `Aceleracao`/`Forca` sem acento, que é como o snapshot oficial grava — nenhum dos 88 itens com Aceleração tinha `haste`, inclusive para a poda heurística; (2) o catálogo da tela não enviava atributos; (3) a tooltip inventava `+189 Intelecto / +3.910 Vigor` quando faltava dado (violava P1). Commits `07472b0` (wow-sim) e `38873ff` (Simulator-WoW). Nota: os valores são os do track máximo (`ilvl_referencia`), não do ilvl exibido.
+
 ### P-047 — AMR lia o equipado da spec errada — FECHADA em 2026-11-08
 `ImportAMR.conjunto_atual` assumia `.q2`. O 10º campo do cabeçalho é `data.ActiveSpec` (AskMrRobot-Serializer.lua:943) e `.qN` é o equipado da spec N: para um druida Equilíbrio (spec 1) o sistema lia o `.q2` (outra spec, itens antigos) e acusava 15 slots divergindo do SimC. Agora usa a spec ativa (`spec_ativa`); sem o campo, cai no `.q2`. Testes em `tests/test_amr_spec_ativa.py`. Observação: no parser, o campo `moedas` são na verdade as profissões (`id:nível`) — só o nome está errado, nada usa o valor como moeda.
 
