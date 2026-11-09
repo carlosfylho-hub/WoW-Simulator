@@ -47,6 +47,31 @@ def tokenizar(nome: str) -> str:
     return "".join(saida)
 
 
+_VARIAVEIS = {"primaryStat": "atributo primário", "secondaryStat": "atributo secundário"}
+
+
+def _limpar_variaveis(texto: str) -> str:
+    """O Wowhead deixa variáveis cruas (ex.: "5 de primaryStat"); troca pelo nome."""
+    for crua, nome in _VARIAVEIS.items():
+        texto = texto.replace(crua, nome)
+    return texto
+
+
+def efeito_do_tooltip(texto: str | None) -> str | None:
+    """Efeito completo do reagente a partir do tooltip PT-BR (várias linhas, juntas)."""
+    if not texto:
+        return None
+    m = re.search(r"Fornece as seguintes propriedades:\s*(.+?)\s*(?:Usável com:|$)", texto, re.S)
+    if not m:
+        return None
+    linhas = [l.strip() for l in m.group(1).splitlines() if l.strip()]
+    efeito = " ".join(linhas)
+    efeito = re.sub(r"\s*Único-equipado:.*$", "", efeito)          # já dito no limite de 2
+    efeito = re.sub(r"\(\s*1\s*\*\s*(\d+)\s*\)", r"\1", efeito)   # fórmula crua do Wowhead
+    efeito = re.sub(r"\s+([,.])", r"\1", efeito)
+    return efeito or None
+
+
 def alvo(usavel_com: str, nome_en: str) -> str | None:
     """Onde o reagente pode ir. None = de profissão específica (fora do modo Craft)."""
     u = (usavel_com or "").lower()
@@ -113,6 +138,16 @@ def main() -> None:
             wowhead_meta = wowhead.get("_meta")
         except (OSError, json.JSONDecodeError):
             wowhead_meta = {"erro": "embelezamentos_wowhead.json inválido"}
+
+    # Descrição = o efeito inteiro, lido do tooltip PT-BR do Wowhead: tudo entre
+    # "Fornece as seguintes propriedades:" e "Usável com:" (o efeito pode começar
+    # na linha seguinte e ter várias linhas). Sem tooltip, fica a do jogo.
+    for item in saida:
+        efeito = efeito_do_tooltip(item.get("texto_completo"))
+        if efeito:
+            item["descricao"] = efeito
+        if item.get("descricao"):
+            item["descricao"] = _limpar_variaveis(item["descricao"])
 
     destino = RAIZ / "dados/derivados/embelezamentos.json"
     destino.write_text(

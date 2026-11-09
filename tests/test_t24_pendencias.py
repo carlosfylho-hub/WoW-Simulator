@@ -158,3 +158,19 @@ def test_plano_de_duas_mede_duplas_juntas() -> None:
     )
     assert plano["melhor"]["slots"] == ["head", "legs"]  # entra mesmo dentro da margem (delta > 0)
     assert [a["diferenca_pct"] for a in plano["alternativas"]] == [-1.0, -2.0]
+
+
+def test_descricao_do_embelezamento_completa() -> None:
+    sys.path.insert(0, str(RAIZ / "scripts"))
+    from derivar_embelezamentos import efeito_do_tooltip
+
+    t = (
+        "B0P\nNível do Item: 72\nFornece as seguintes propriedades:\nLinha um.\nLinha dois.\n"
+        "Único-equipado: Adornado 2\nUsável com: Engenharia\nPreço"
+    )
+    assert efeito_do_tooltip(t) == "Linha um. Linha dois."
+    import json
+
+    dados = json.loads((RAIZ / "dados/derivados/embelezamentos.json").read_text(encoding="utf-8"))
+    assert all(e.get("descricao") for e in dados["embelezamentos"])
+    assert not any("primaryStat" in e["descricao"] for e in dados["embelezamentos"])
