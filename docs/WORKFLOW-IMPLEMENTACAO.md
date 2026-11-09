@@ -260,7 +260,7 @@ A fazer:
 | 4 | **T13** Base por lote (A-03) | [x] | |
 | 4 | **T14** Cenários equivalentes na tela (A-04) | [ ] | |
 | 4 | **T15** Higiene: nome de arquivo e threads no cache (A-05, A-06) | [~] | A-05 feito; A-06 aguarda decisão |
-| 4 | **T16** Bloco de encantamentos do AMR fecha P-016 (A-10) | [~] | parser+script prontos; falta string real |
+| 4 | **T16** Bloco de encantamentos do AMR fecha P-016 (A-10) | [x] | mapa gerado de BiB real |
 
 ---
 

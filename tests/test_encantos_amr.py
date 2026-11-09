@@ -2,11 +2,16 @@
 
 from __future__ import annotations
 
+from pathlib import Path
+
 import pytest
 
 from wowsim.parser.amr_codec import encantos_da_linha
 
 pytestmark = pytest.mark.unit
+
+RAIZ = Path(__file__).resolve().parents[1]
+BIB = RAIZ / "fixtures" / "pyrogalth-bib-amr.txt"
 
 # Casos reais do P-016: Arte de Batalha Hash'ey e Magilinha.
 LINHA = (
@@ -31,3 +36,25 @@ def test_extrai_encantos_do_bloco_e() -> None:
 
 def test_sem_bloco_retorna_vazio() -> None:
     assert encantos_da_linha("$abc$") == {}
+
+
+def _encantos_do_fixture() -> dict[int, dict]:
+    saida: dict[int, dict] = {}
+    for linha in BIB.read_text(encoding="utf-8").splitlines():
+        if linha.strip():
+            saida.update(encantos_da_linha(linha.strip()))
+    return saida
+
+
+def test_fixture_real_confirma_p016() -> None:
+    encantos = _encantos_do_fixture()
+    assert len(encantos) == 10
+    assert encantos[8730]["item_id"] == 283998
+    assert encantos[8730]["spell_id"] == 1315084
+    assert encantos[7935]["item_id"] == 240133
+    assert encantos[7935]["spell_id"] == 1228974
+    assert encantos[8689]["item_id"] == 273072
+    # Nenhum campo de materiais pode vazar para a linha seguinte.
+    for valor in encantos.values():
+        assert "$" not in valor["materiais"]
+        assert "\n" not in valor["materiais"]

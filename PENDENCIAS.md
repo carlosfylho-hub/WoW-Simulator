@@ -135,12 +135,13 @@ Nenhum bloqueio ativo. O binário foi compilado a partir do fonte `12.1.5.70783`
 | **Entregue (A-05)** | `topgear_api._nome_arquivo` sanitiza o nome do `.simc` salvo (só `[A-Za-z0-9_-]`, fallback `job`) — mesmo cuidado do `droptimizer/export.py::nome_do_arquivo`. `tests/test_topgear_nome_arquivo.py`. |
 | **Pendente (A-06)** | Decidir com o usuário se `threads` sai da chave de cache (`simc_runner.chave_cache`). Não alterado para não mudar a política de cache sem decisão. |
 
-### T16 — Bloco de encantamentos do AMR (A-10) — **[~] PARCIAL em 2026-11-08**
+### T16 — Bloco de encantamentos do AMR (A-10) — **RESOLVIDA em 2026-11-08**
 
 | Campo | Detalhe |
 | :--- | :--- |
-| **Entregue** | `parser/amr_codec.encantos_da_linha` lê o bloco `@e\id\item\spell\texto\materiais` (6 campos; `materiais` pode ser vazio). Script `scripts/extrair_encantos_amr.py <bib.txt>` grava `dados/derivados/encantos_amr.json`. `tests/test_encantos_amr.py` confirma os casos do P-016: `8730 → 283998 / 1315084` (Arte de Batalha Hash'ey) e `7935 → 240133 / 1228974` (Magilinha). |
-| **Pendente** | gerar o arquivo com uma string de Best in Bags **real** do AMR (a do usuário) para fechar o P-016; então o mapa pode alimentar `data/enchants.py`. |
+| **Entregue** | `parser/amr_codec.encantos_da_linha` lê o bloco `@e\id\item\spell\texto\materiais`. Script `scripts/extrair_encantos_amr.py` processa **linha a linha** (evita vazar a linha seguinte para os materiais) e grava `dados/derivados/encantos_amr.json`. |
+| **Gerado com dado real** | A partir de `fixtures/pyrogalth-bib-amr.txt` (BiB real do usuário): **10 encantamentos**. `tests/test_encantos_amr.py::test_fixture_real_confirma_p016`. |
+| **Fecha P-016** | Mapa com `enchant_id → item_id/spell_id`: `8730 → 283998 / 1315084` (Arte de Batalha Hash'ey), `7935 → 240133 / 1228974` (Magilinha), `8689 → 273072 / 1291694`. |
 
 ### T11 — String do Pawn — **[~] PARCIAL em 2026-11-08**
 
@@ -154,7 +155,8 @@ Nenhum bloqueio ativo. O binário foi compilado a partir do fonte `12.1.5.70783`
 | Campo | Detalhe |
 | :--- | :--- |
 | **Entregue** | `exportar/amr.py`: `itens_de_conjunto` (Conjunto → ItemAmr; gemas completadas até 3, Catalisador → `catalyst_source`) reusando `linha_importacao`/`itens_da_linha` do codec. `tests/test_exportar_amr.py` (conversão, dois `$`, ida-e-volta, `setup` começando com "AMR" recusado). |
-| **Pendente** | copiar o cabeçalho de uma BiB **real** do AMR (modelo do usuário), a tela e a validação no jogo (T10). |
+| **Validado com dado real** | `test_ida_e_volta_com_bib_real`: usa o cabeçalho de `fixtures/pyrogalth-bib-amr.txt`, gera a linha com `linha_importacao` e compara valores decodificados (bônus, encanto, gemas) — sem `@e` de encantos no escopo do T12. |
+| **Pendente** | a tela ("Gerar string do AMR" por build) e a validação no jogo (T10). |
 
 ---
 

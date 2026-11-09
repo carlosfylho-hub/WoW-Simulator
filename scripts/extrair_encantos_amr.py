@@ -26,8 +26,14 @@ def main() -> int:
     parser.add_argument("--saida", type=Path, default=DESTINO)
     args = parser.parse_args()
 
-    texto = Path(args.arquivo).read_text(encoding="utf-8").strip()
-    encantos = encantos_da_linha(texto)
+    texto = Path(args.arquivo).read_text(encoding="utf-8")
+    # Cada linha é uma string de BiB independente: processar separadamente evita
+    # que a última entrada de uma linha absorva a linha seguinte (não há '@' entre
+    # o fim de uma linha e o '$' da próxima).
+    encantos: dict[int, dict] = {}
+    for linha in texto.splitlines():
+        if linha.strip():
+            encantos.update(encantos_da_linha(linha.strip()))
     if not encantos:
         print("Nenhum encantamento @e encontrado na string.")
         return 1
