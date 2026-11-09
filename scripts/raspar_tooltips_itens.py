@@ -30,7 +30,7 @@ from pathlib import Path
 RAIZ = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(RAIZ / "src"))
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from raspar_efeitos_embutidos import coletar, extrair, ids_embutidos  # noqa: E402
+from raspar_efeitos_embutidos import coletar, extrair, ids_embutidos, salvar_cache  # noqa: E402
 
 DESTINO = RAIZ / "dados" / "derivados" / "tooltips_itens.json"
 
@@ -70,6 +70,7 @@ def main(argv: list[str] | None = None) -> int:
         # Tier: 1 peça por conjunto basta (as outras herdam o bônus).
         alvo = [i for i in todos if i not in grupos["tier"] or i in {min(s) for s in conjuntos_de_tier()}]
         tooltips = coletar(alvo, None)
+        salvar_cache(tooltips, "itens")  # reprocessar: --json cache/tooltips_wowhead/itens.json
 
     itens: dict[str, dict] = {}
     for item_id, tooltip in tooltips.items():

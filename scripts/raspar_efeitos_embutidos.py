@@ -23,6 +23,7 @@ from __future__ import annotations
 
 import argparse
 import asyncio
+import html
 import json
 import os
 import re
@@ -123,6 +124,20 @@ def coletar(ids: list[int], arq_json: Path | None) -> dict[int, str]:
     return saida
 
 
+CACHE = RAIZ / "cache" / "tooltips_wowhead"
+
+
+def salvar_cache(tooltips: dict[int, str], nome: str) -> None:
+    """Guarda os tooltips brutos: reprocessar com ``--json`` não baixa de novo."""
+    try:
+        CACHE.mkdir(parents=True, exist_ok=True)
+        (CACHE / f"{nome}.json").write_text(
+            json.dumps({str(k): v for k, v in tooltips.items()}, ensure_ascii=False), encoding="utf-8"
+        )
+    except OSError:
+        pass
+
+
 # ---------------------------------------------------------------- extração
 def _limpar(texto: str) -> str:
     texto = re.sub(r"\(\s*1\s*\*\s*(\d+)\s*\)", r"\1", texto)                    # (1 * 846) -> 846
@@ -134,14 +149,26 @@ def _limpar(texto: str) -> str:
     return re.sub(r"\s+", " ", texto).strip()
 
 
+def texto_do_tooltip(bruto: str) -> str:
+    """O endpoint do Wowhead devolve HTML (``<a>``, ``<!--…-->``, ``<br>``); vira texto.
+
+    Pelo Firecrawl o texto já vinha limpo; pelo HTTP direto (o ``.bat``), não.
+    """
+    t = re.sub(r"<!--.*?-->", "", bruto or "", flags=re.S)
+    t = re.sub(r"<br\s*/?>", " ", t, flags=re.I)
+    t = re.sub(r"<[^>]+>", "", t)
+    return html.unescape(t)
+
+
 def extrair(tooltip: str) -> dict | None:
     """Efeito ("Equipar:"/"Uso:") e bônus de conjunto ("(2) Conjunto :")."""
+    tooltip = texto_do_tooltip(tooltip)
     efeitos = [
         _limpar(m.group(1))
         for m in re.finditer(r"((?:Equipar|Uso):.*?)(?=Equipar:|Uso:|Requer Nível|Preço de Venda|$)", tooltip, re.S)
     ]
     conjunto = None
-    m_nome = re.search(r"Requer Nível \d+(.+?) \(0/(\d+)\)", tooltip)
+    m_nome = re.search(r"Requer Nível \d+\s*(.+?)\s*\(0/(\d+)\)", tooltip, re.S)
     # "(2) Conjunto : ..." (craft) ou "(4) Conjunto Equilíbrio: ..." (tier, por especialização).
     bonus = []
     for m in re.finditer(
@@ -171,6 +198,7 @@ def main(argv: list[str] | None = None) -> int:
 
     ids = ids_embutidos()
     tooltips = coletar(ids, args.json)
+    salvar_cache(tooltips, "efeitos_embutidos")
     itens: dict[str, dict] = {}
     faltou: list[int] = []
     for item_id in ids:

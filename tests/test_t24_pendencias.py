@@ -216,3 +216,19 @@ def test_tooltips_de_itens_com_conjunto_de_tier(tmp_path) -> None:
     from wowsim.data import catalog
 
     assert catalog.visual_item(251513)["efeito"].startswith("Equipar:")
+
+
+def test_tooltip_em_html_do_wowhead_vira_texto() -> None:
+    sys.path.insert(0, str(RAIZ / "scripts"))
+    import raspar_efeitos_embutidos as r
+
+    h = (
+        'Requer Nível 90</td></tr></table><a href="/pt/item-set=1">Casca X</a> (0/5)<br><span>'
+        '<a href="/pt/spell=1">(2) Conjunto Equilíbrio: Dano <!--pts1:0-->20<!---->% &amp; mais.</a></span>'
+        '<br /><div class="whtt-sellprice">Preço de Venda: 1</div>'
+    )
+    c = r.extrair(h)["conjunto"]
+    assert c["nome"] == "Casca X" and c["total"] == 5
+    assert c["bonus"] == [{"pecas": 2, "efeito": "Dano 20% & mais.", "spec": "Equilíbrio"}]
+    e = r.extrair('Equipar: <!--useEffect:0:2--><a href="/x" class="q2">Faz algo.<br /><br />Toda cor.</a><br>Requer Nível 90')
+    assert e["efeito"] == "Equipar: Faz algo. Toda cor."
