@@ -51,6 +51,8 @@ class MasmorraRanking(BaseModel):
     catalisar: int
     explicacao: str
     itens: list[ItemRanking] = Field(default_factory=list)
+    # T23: quantas peças do melhor plano de 4 peças de tier vêm desta masmorra.
+    pecas_tier: int = 0
 
 
 class TrocaBuild(BaseModel):
@@ -126,6 +128,10 @@ class RankingRequest(BaseModel):
     iteracoes_refino: int = Field(3000, ge=200, le=50_000)
     # Quantos itens da triagem vão para o refino (os melhores).
     max_refino: int = Field(24, ge=1, le=500)
+    # T23: forçar tier set — plano de 4 peças com nível próprio para o tier.
+    forcar_tier: bool = False
+    trilha_tier: Literal["heroi", "mito"] = "mito"
+    rank_tier: int = Field(6, ge=1, le=6)
     orcamento_segundos: int = Field(900, ge=30, le=86_400)
     loadouts: list[str] = Field(default_factory=list, max_length=6)   # T9 ("Atual" = talentos do export)
     pesos_loadouts: dict[str, float] = Field(default_factory=dict)   # T9 (normalizados no motor)
@@ -165,3 +171,5 @@ class RankingResult(BaseModel):
     pawn_iguais: list[list[str]] = Field(default_factory=list)
     # T22: modo Craft — {pecas, embelezamentos, custo, avisos}
     craft: dict[str, Any] | None = None
+    # T23: plano de 4 peças de tier (só com forcar_tier no modo Masmorras)
+    tier: dict[str, Any] | None = None

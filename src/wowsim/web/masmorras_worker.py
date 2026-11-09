@@ -32,6 +32,7 @@ from ..masmorras.builds import (
     rodar_build,
 )
 from ..masmorras.catalogo import elegivel, itens_por_masmorra
+from ..masmorras.tier import plano_tier
 from ..masmorras.craft import BRASOES_CRAFT, CENTELHAS, ILVL_CRAFT, itens_craftaveis, rodar_craft
 from ..masmorras.sonda import sondar_atributos
 from ..masmorras.cofre import (
@@ -129,6 +130,16 @@ def _item_ranking(avaliacao, nivel: dict) -> ItemRanking:
         degrau=d.rotulo if d else None,
         upgrade=trilhas.custo_upgrade(d),
     )
+
+
+def _com_plano_tier(masmorras: list[MasmorraRanking], plano: dict | None) -> list[MasmorraRanking]:
+    """Com tier forçado, as masmorras que dão peças do melhor plano vêm primeiro."""
+    contagem = (plano or {}).get("masmorras_do_plano") or {}
+    if not contagem:
+        return masmorras
+    for m in masmorras:
+        m.pecas_tier = int(contagem.get(m.masmorra, 0))
+    return sorted(masmorras, key=lambda m: -m.pecas_tier)  # estável: mantém a ordem dentro do grupo
 
 
 def _masmorra_ranking(linha: dict, nivel: dict) -> MasmorraRanking:
@@ -441,6 +452,29 @@ def processar(job_id: str) -> None:
         if masmorras_db.esta_cancelado(job_id):
             raise _Cancelado()
 
+        # T23: forçar tier set — melhor plano de 4 peças, medido junto (bônus de conjunto incluso).
+        plano_tier_saida = None
+        if pedido.forcar_tier and pedido.modo == "masmorras":
+            _registrar_progresso(job_id, {"estagio": "tier set: combinações de 4 peças"})
+            plano_tier_saida = plano_tier(
+                conjunto_do_personagem(personagem),
+                avaliacoes,
+                classe=personagem.classe,
+                degrau=trilhas.degrau(pedido.trilha_tier, pedido.rank_tier),
+                simular=criar_simulador(
+                    personagem,
+                    fight_style=estilo_de_luta(pedido.scenario),
+                    threads=threads_para_job(),
+                    cancelar=cancelado,
+                    orcamento_restante=restante,
+                ),
+                iteracoes=pedido.iteracoes_refino,
+            )
+            if builds:
+                avisos_execucao.append(
+                    "O plano de tier set foi medido com os talentos atuais e o cenário principal (não por build)."
+                )
+
         # T11: escala do Pawn por build (ou da build atual, sem loadouts).
         pawn: dict = {"builds": {}, "mistura": None, "iguais": []}
         if pedido.medir_pesos and (restante() or 0) < 30:
@@ -540,7 +574,8 @@ def processar(job_id: str) -> None:
             ilvl=nivel_pedido.ilvl,
             nivel=nivel_pedido.rotulo if pedido.modo == "masmorras" else None,
             iteracoes=pedido.iteracoes_refino,
-            masmorras=[_masmorra_ranking(linha, nivel) for linha in linhas],
+            masmorras=_com_plano_tier([_masmorra_ranking(linha, nivel) for linha in linhas], plano_tier_saida),
+            tier=plano_tier_saida,
             avisos=avisos,
             informacoes=informacoes,
             builds=builds_saida,

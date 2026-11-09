@@ -322,3 +322,13 @@ def test_modo_craft_no_worker(tmp_path, monkeypatch) -> None:
     assert all(e["troca_de"] == "Forro de Arcanotrama" for e in trocas)
     assert any(e["descricao"] for e in craft["embelezamentos"])
     assert job["resultado"]["masmorras"] == []
+
+
+def test_forcar_tier_gera_plano_e_ordena_masmorras(tmp_path, monkeypatch) -> None:
+    r = _rodar(tmp_path, monkeypatch, forcar_tier=True, trilha_tier="heroi", rank_tier=6, loadouts=["raid maxroll"])["resultado"]
+    tier = r["tier"]
+    assert tier is not None and tier["disponivel"] is True
+    assert tier["nivel"] == "Herói 6/6 (321)"
+    if tier["masmorras_do_plano"]:
+        primeiras = [m["pecas_tier"] for m in r["masmorras"][: len(tier["masmorras_do_plano"])]]
+        assert all(p > 0 for p in primeiras)

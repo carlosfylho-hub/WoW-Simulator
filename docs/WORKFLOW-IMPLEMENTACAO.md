@@ -1377,7 +1377,7 @@ Registrar cada resultado em `PENDENCIAS.md`.
 | — | **Correções do Craft (A1–A7)**: P-049…P-053 — ver `docs/AUDITORIA-3-EXECUCAO.md` | [x] | `92ed854`…`4e26d5e` (detalhe na execução); estado vivo em `docs/AUDITORIA-CONSOLIDADA.md` |
 | — | **P-032** Catalisador na estimativa + checkbox/cargas no Top Gear | [x] | `e9931ac` (backend), `6ce9f39` (UI) |
 | — | **P-054 / P-055** (Craft Herói/armas/cargas, materiais Wowhead) | [ ] | **bloqueado** — ver `docs/AUDITORIA-CONSOLIDADA.md` §3 (depende de dado de jogo/Wowhead instável) |
-| T23 | **Forçar tier set (4 peças)** no ranking de Masmorras — pedido do usuário 2026-11-09, desenho abaixo | [~] | em execução (Claude) |
+| T23 | **Forçar tier set (4 peças)** no ranking de Masmorras — pedido do usuário 2026-11-09, desenho abaixo | [x] | backend + testes + UI (este commit); validado no simc real 2026-11-09 (ver abaixo) |
 
 **Desenho do T23 (forçar tier set):**
 - Pedido: `forcar_tier: bool`, `trilha_tier: "heroi"|"mito"` e `rank_tier: 1–6` (o nível das peças de
@@ -1400,6 +1400,24 @@ Registrar cada resultado em `PENDENCIAS.md`.
 - Testes: simulador falso em que o bônus de 4 peças vale +5% só quando há 4 ids de tier no conjunto;
   aceite: o plano escolhe 4 slots, o ganho do plano inclui o bônus, e as masmorras do plano sobem no
   ranking.
+
+**Execução do T23 (2026-11-09, Claude):**
+- Referência: o AMR tem a mesma caixa, "Force Tier Set", no Passo 2 do Best in Bags (print do usuário,
+  ao lado de "Catalyze Items"/"Upgrade Items"; "Max On-Use Items: No Limit" confirma o R4 como aviso).
+  Diferença nossa: a trilha/rank das peças de tier é escolhida à parte.
+- Backend: `masmorras/tier.py` (novo), `modelos.py` (`forcar_tier`, `trilha_tier`, `rank_tier`,
+  `MasmorraRanking.pecas_tier`, `RankingResult.tier`), `web/masmorras_worker.py` (`_com_plano_tier`,
+  ordenação estável por `-pecas_tier`). Testes: `tests/test_tier_plano.py` (4) e
+  `test_forcar_tier_gera_plano_e_ordena_masmorras`.
+- UI (Simulator-WoW): caixa "Forçar tier set" + "Trilha das peças de tier" + "Rank" em
+  `ConfiguracaoRanking.tsx` (desligada quando há builds marcadas — decisão: não medir plano por build);
+  cartão `masmorras/PlanoTier.tsx`; o ranking ordena por `pecas_tier` antes do critério escolhido e
+  mostra "N peça(s) do plano de tier".
+- simc real (druida Ngmmexe, Herói 6/6 = 321, refino 300): já usa cabeça/ombros/pernas; plano = mãos
+  catalisadas de Guantes da Defesa Eletrizada (Templo de Sethraliss) **+4,43% ±0,73**; alternativa
+  peito +1,00% ±0,75. Templo de Sethraliss sobe para o 1º lugar com "1 peça do plano".
+- Pendente (V-4): limite de cargas do Catalisador ainda não entra no plano (cada combinação mostra
+  quantas cargas usa).
 | T22 | **Modo Craft** na tela de Masmorras (decisão do usuário 2026-11-09) — ver desenho abaixo | [x] | `f1c0a98` (backend), UI no Simulator-WoW; **falta validar no simc real (T10)**: conferir que `ilevel=331,crafted_stats=…,embellishment=…` não gera erro no log |
 
 **Decisões do usuário (2026-11-09):** craft é uma 3ª opção da tela de Masmorras ("Masmorras M+ \| Grande
