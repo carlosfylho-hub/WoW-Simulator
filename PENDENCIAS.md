@@ -111,7 +111,8 @@ Nenhum bloqueio ativo. O binário foi compilado a partir do fonte `12.1.5.70783`
 | Campo | Detalhe |
 | :--- | :--- |
 | **Entregue** | `masmorras/cofre.py::opcoes_do_cofre`: resolve `item_id`, `slots`, `ilvl` e `bonus_ids` decodificando o `.gv` com o codec do T2. `tests/test_masmorras_cofre.py` (tokens sintéticos via `codificar_itens`): head `271483`/334 e wrist `239648`; `.gv` vazio = `[]`. |
-| **Pendente** | (1) fixture real com o cofre cheio em `fixtures/pyrogalth-amr-181-cofre.txt` (usuário); (2) virar as opções em `Candidato` com os bônus reais e reusar `avaliar`/`fonte="cofre"`; (3) worker/API/tela separando "ganho se pegar" de "ganho se pegar e catalisar". Fecha no T10 com o fixture. |
+| **Validado com dado real** | `fixtures/ngmmexe-amr-cofre.txt` (export do druida com o `.gv` preenchido): `opcoes_do_cofre` resolveu `248583` (trinket1/2, ilvl 305) e `272239` (chest, ilvl 305); o token placeholder `269862` ficou sem slot e é ignorado. Confirma o formato do `.gv` (a classe não importa para o parser). |
+| **Pendente** | (2) virar as opções em `Candidato` com os bônus reais e reusar `avaliar`/`fonte="cofre"`; (3) worker/API/tela separando "ganho se pegar" de "ganho se pegar e catalisar". |
 
 ### T9 — Várias builds: matriz, média e montagem — **[~] PARCIAL em 2026-11-08**
 

@@ -1,14 +1,19 @@
-"""T8: opções do Grande Cofre a partir do .gv (tokens sintéticos via codec)."""
+"""T8: opções do Grande Cofre a partir do .gv (sintético e dado real)."""
 
 from __future__ import annotations
+
+from pathlib import Path
 
 import pytest
 
 from wowsim.masmorras.cofre import opcoes_do_cofre
-from wowsim.parser.amr import ImportAMR
+from wowsim.parser.amr import ImportAMR, parse_amr
 from wowsim.parser.amr_codec import ItemAmr, codificar_itens
 
 pytestmark = pytest.mark.unit
+
+RAIZ = Path(__file__).resolve().parents[1]
+COFRE = RAIZ / "fixtures" / "ngmmexe-amr-cofre.txt"
 
 
 def _importacao(items: list[ItemAmr]) -> ImportAMR:
@@ -37,3 +42,15 @@ def test_opcoes_resolvem_slot_ilvl_e_bonus() -> None:
 
 def test_gv_vazio_nao_gera_opcoes() -> None:
     assert opcoes_do_cofre(ImportAMR(versao="181", texto_original="")) == []
+
+
+def test_gv_real_do_druida_resolve_os_itens_do_cofre() -> None:
+    """O cofre real (Ngmmexe) tem 2 itens de 305 na linha 'Mundo'; um token é
+    placeholder sem slot e deve ser ignorado."""
+    amr = parse_amr(COFRE.read_text(encoding="utf-8"))
+    opcoes = {op["item_id"]: op for op in opcoes_do_cofre(amr)}
+
+    assert opcoes[248583]["slots"] == ["trinket1", "trinket2"]  # Tambor dos Vínculos
+    assert opcoes[248583]["ilvl"] == 305
+    assert opcoes[272239]["slots"] == ["chest"]  # Brigandina do Espreitador
+    assert opcoes[272239]["ilvl"] == 305
