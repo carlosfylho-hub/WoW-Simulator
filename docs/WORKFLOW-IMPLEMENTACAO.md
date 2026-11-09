@@ -1401,6 +1401,17 @@ Registrar cada resultado em `PENDENCIAS.md`.
   aceite: o plano escolhe 4 slots, o ganho do plano inclui o bônus, e as masmorras do plano sobem no
   ranking.
 
+**T27 — Efeitos e bônus de conjunto em toda tooltip (pedido do usuário 2026-11-09 15:50)** — [~]
+código feito; dados parciais.
+- `scripts/raspar_tooltips_itens.py`: drops de M+ (90), tier de todas as classes (65; 1 peça por
+  classe basta, as outras herdam) e craft (75) → `dados/derivados/tooltips_itens.json`
+  (`efeito` "Equipar/Uso", `conjunto` com bônus por especialização, `engaste`).
+- `data/tooltips.py` → `catalog.visual_item` → campos `efeito`/`conjunto` em ItemRanking, TrocaBuild,
+  LinhaMatriz, peças do Craft e do plano de tier; a tooltip mostra o efeito e a seção do conjunto,
+  filtrada pela especialização do perfil (`definirSpecAtual`).
+- Dados já gerados: 26 craft + tier de druida e bruxo (Firecrawl). **Falta** rodar
+  `atualizar_tooltips.bat` (pasta raiz) no Windows para os drops de M+ e o tier das outras classes.
+
 **T26 — Descrição dos embelezamentos embutidos (pedido do usuário 2026-11-09 15:12)** — [x] feito.
 - `scripts/raspar_efeitos_embutidos.py` (HTTP direto → Crawl4AI → Firecrawl; `--json` offline) lê o
   tooltip PT-BR do Wowhead das 26 peças com embelezamento embutido e grava

@@ -482,7 +482,9 @@ def visual_item(item_id: int) -> dict:
     """Attributes + texture slug so the UI can show an icon and a rich tooltip."""
     from . import icons
 
-    return {"stats": stats_item(item_id), "icone": icons.icone(item_id)}
+    from . import tooltips
+
+    return {"stats": stats_item(item_id), "icone": icons.icone(item_id), **tooltips.info(item_id)}
 
 
 def atributo_primario(item_id: int) -> str | None:

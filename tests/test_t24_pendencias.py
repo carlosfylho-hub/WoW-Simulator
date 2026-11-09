@@ -191,3 +191,28 @@ def test_efeito_embutido_do_item_craftado(tmp_path) -> None:
 
     assert "avatar de um loa" in efeito_embutido(251513)
     assert efeito_embutido(239659).startswith("Conjunto Ornamentos de Seda de Fogo Solar (2 peças)")
+
+
+def test_tooltips_de_itens_com_conjunto_de_tier(tmp_path) -> None:
+    sys.path.insert(0, str(RAIZ / "scripts"))
+    import raspar_tooltips_itens as r
+
+    destino = tmp_path / "t.json"
+    pasta = FIX / "efeitos_embutidos"
+    assert r.main(["--json", str(pasta / "tooltips_pt.json"), str(pasta / "tooltips_tier_pt.json"),
+                   "--destino", str(destino), "--parcial"]) == 0
+    import json
+
+    itens = json.loads(destino.read_text(encoding="utf-8"))["itens"]
+    # Uma peça raspada por classe: as 5 peças do druida herdam o mesmo conjunto.
+    from wowsim.data import tier
+
+    druida = tier.conjunto_da_classe("druid")
+    assert all(itens[str(i)]["conjunto"]["nome"] == "Casca do Velassonhos Enigmático" for i in druida.ids)
+    bonus = itens["271528"]["conjunto"]["bonus"]
+    assert any(b["spec"] == "Equilíbrio" and b["pecas"] == 4 for b in bonus)
+    assert "30,4% do Poder Mágico" in bonus[0]["efeito"]
+
+    from wowsim.data import catalog
+
+    assert catalog.visual_item(251513)["efeito"].startswith("Equipar:")

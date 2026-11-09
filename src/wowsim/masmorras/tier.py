@@ -10,6 +10,9 @@ número porque o simc simula o conjunto inteiro. Desenho: workflow T23.
 
 from __future__ import annotations
 
+from ..data import tooltips as _tooltips
+
+
 from itertools import combinations
 from typing import Callable, Mapping
 
@@ -117,6 +120,8 @@ def plano_tier(
                     "fonte_item_id": a.item.item_id,
                     "fonte_nome": a.item.nome_pt,
                     "masmorra": a.item.masmorra,
+                    # Tooltip: bônus do conjunto de tier que a peça fecha.
+                    "conjunto": _tooltips.info(peca.item_id).get("conjunto"),
                 }
             )
         else:

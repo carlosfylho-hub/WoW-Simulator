@@ -34,6 +34,8 @@ class ItemRanking(BaseModel):
     limiar_pct: float
     icone: str | None = None
     stats: dict[str, int] | None = None
+    efeito: str | None = None               # "Equipar/Uso" do item (tooltip do Wowhead)
+    conjunto: dict[str, Any] | None = None  # bônus de conjunto (tier: por especialização)
     aviso: str | None = None
     degrau: str | None = None                 # "Mito 4/6"
     upgrade: dict[str, Any] | None = None     # {moeda, brasoes, etapas, ate}
@@ -67,6 +69,8 @@ class TrocaBuild(BaseModel):
     ganho_pct: float           # ganho medido do item sozinho (contra ``ref``)
     icone: str | None = None
     stats: dict[str, int] | None = None
+    efeito: str | None = None               # "Equipar/Uso" do item (tooltip do Wowhead)
+    conjunto: dict[str, Any] | None = None  # bônus de conjunto (tier: por especialização)
     degrau: str | None = None
     upgrade: dict[str, Any] | None = None
 
@@ -104,6 +108,8 @@ class LinhaMatriz(BaseModel):
     slot: str
     icone: str | None = None
     stats: dict[str, int] | None = None
+    efeito: str | None = None               # "Equipar/Uso" do item (tooltip do Wowhead)
+    conjunto: dict[str, Any] | None = None  # bônus de conjunto (tier: por especialização)
     deltas: dict[str, float]
     limiares: dict[str, float]
     etiquetas: dict[str, Etiqueta]

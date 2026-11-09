@@ -128,6 +128,8 @@ def _limpar(texto: str) -> str:
     texto = re.sub(r"\(\s*1\s*\*\s*(\d+)\s*\)", r"\1", texto)                    # (1 * 846) -> 846
     texto = re.sub(r"\(\s*1\s*\*\s*(\d+)\s*\*\s*(\d+)\s*\)", r"\1 × \2", texto)    # (1 * 161 * 10)
     texto = re.sub(r"\[\s*1\s*\*\s*(\d+)\s*\*\s*\(\s*(\d+)\s*\)\s*\]", r"\1 × \2", texto)
+    texto = re.sub(r"\(?\[(\d+(?:\.\d+)?)% of Spell Power\]\)?", lambda m: f"{m.group(1).replace('.', ',')}% do Poder Mágico", texto)
+    texto = re.sub(r"\(?\[(\d+(?:\.\d+)?)% of Attack Power\]\)?", lambda m: f"{m.group(1).replace('.', ',')}% do Poder de Ataque", texto)
     texto = re.sub(r"([.!)])(?=[A-ZÁÉÍÓÚÂÊÔÃÕÇ])", r"\1 ", texto)                  # frases coladas
     return re.sub(r"\s+", " ", texto).strip()
 
@@ -140,10 +142,15 @@ def extrair(tooltip: str) -> dict | None:
     ]
     conjunto = None
     m_nome = re.search(r"Requer Nível \d+(.+?) \(0/(\d+)\)", tooltip)
-    bonus = [
-        {"pecas": int(m.group(1)), "efeito": _limpar(m.group(2))}
-        for m in re.finditer(r"\((\d)\) Conjunto\s*:\s*(.*?)(?=\(\d\) Conjunto|Preço de Venda|$)", tooltip, re.S)
-    ]
+    # "(2) Conjunto : ..." (craft) ou "(4) Conjunto Equilíbrio: ..." (tier, por especialização).
+    bonus = []
+    for m in re.finditer(
+        r"\((\d)\) Conjunto(?: ([^:(]+?))?\s*:\s*(.*?)(?=\(\d\) Conjunto|Preço de Venda|$)", tooltip, re.S
+    ):
+        b = {"pecas": int(m.group(1)), "efeito": _limpar(m.group(3))}
+        if m.group(2):
+            b["spec"] = m.group(2).strip()
+        bonus.append(b)
     if bonus:
         conjunto = {
             "nome": m_nome.group(1).strip() if m_nome else None,

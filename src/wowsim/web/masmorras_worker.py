@@ -139,6 +139,8 @@ def _item_ranking(avaliacao, nivel: dict) -> ItemRanking:
         limiar_pct=round(avaliacao.limiar_cru, 3),
         icone=visual.get("icone"),
         stats=visual.get("stats"),
+        efeito=visual.get("efeito"),
+        conjunto=visual.get("conjunto"),
         degrau=d.rotulo if d else None,
         upgrade=trilhas.custo_upgrade(d, slot=avaliacao.slot, marcas=nivel.get("marcas")),
     )
@@ -199,6 +201,8 @@ def _troca(slot: str, ganho: float, candidato) -> TrocaBuild:
         ganho_pct=round(ganho, 3),
         icone=visual.get("icone"),
         stats=visual.get("stats") or None,
+        efeito=visual.get("efeito"),
+        conjunto=visual.get("conjunto"),
         degrau=d.rotulo if d else None,
         upgrade=trilhas.custo_upgrade(d),
     )
@@ -246,6 +250,8 @@ def _linha_matriz(linha: dict) -> LinhaMatriz:
         slot=item.slot,
         icone=visual.get("icone"),
         stats=visual.get("stats") or None,
+        efeito=visual.get("efeito"),
+        conjunto=visual.get("conjunto"),
         deltas={b: round(v, 3) for b, v in linha["deltas"].items()},
         limiares={b: round(v, 3) for b, v in linha["limiares"].items()},
         etiquetas=linha["etiquetas"],
@@ -600,6 +606,10 @@ def processar(job_id: str) -> None:
             for peca in [*resultado_craft.pecas, *plano_pecas]:
                 visual = catalog.visual_item(peca["item_id"])
                 peca["icone"] = visual.get("icone")
+                peca["conjunto"] = visual.get("conjunto")
+                peca.setdefault("efeito", visual.get("efeito"))
+                if not peca.get("efeito"):
+                    peca["efeito"] = visual.get("efeito")
             craft_saida = {
                 "pecas": resultado_craft.pecas,
                 "embelezamentos": resultado_craft.embelezamentos,

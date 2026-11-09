@@ -1,0 +1,878 @@
+{
+  "_meta": {
+    "gerado_em": "2026-11-09T18:52:30Z",
+    "gerador": "scripts/raspar_tooltips_itens.py",
+    "fonte": "nether.wowhead.com tooltip PT-BR (locale=8)",
+    "sem_tooltip": [
+      158366,
+      158367,
+      158374,
+      159234,
+      159243,
+      159247,
+      159255,
+      159259,
+      159263,
+      159300,
+      159301,
+      159304,
+      159312,
+      159313,
+      159317,
+      159327,
+      159329,
+      159337,
+      159459,
+      159617,
+      159667,
+      162544,
+      193691,
+      193750,
+      193751,
+      193757,
+      193758,
+      193762,
+      193764,
+      193766,
+      237786,
+      237788,
+      237828,
+      237831,
+      237834,
+      237837,
+      237839,
+      237840,
+      237850,
+      239031,
+      239032,
+      239033,
+      239045,
+      239047,
+      239048,
+      239648,
+      239649,
+      239656,
+      239668,
+      239669,
+      239670,
+      239671,
+      239672,
+      239673,
+      239674,
+      239675,
+      239676,
+      240949,
+      240950,
+      244569,
+      244572,
+      244573,
+      244575,
+      244576,
+      244577,
+      244581,
+      244584,
+      245766,
+      245769,
+      245771,
+      245879,
+      245881,
+      245882,
+      250214,
+      250215,
+      250224,
+      250225,
+      250228,
+      250229,
+      250238,
+      251124,
+      251127,
+      251129,
+      251130,
+      251135,
+      251136,
+      251137,
+      251139,
+      251140,
+      251142,
+      251146,
+      251147,
+      251148,
+      251153,
+      251154,
+      251159,
+      251160,
+      251173,
+      251183,
+      251185,
+      251189,
+      251191,
+      251194,
+      251198,
+      251199,
+      251222,
+      251223,
+      251226,
+      251227,
+      251232,
+      251234,
+      251235,
+      251285,
+      252258,
+      257747,
+      259085,
+      263894,
+      268200,
+      268475,
+      268477,
+      268479,
+      271454,
+      271455,
+      271456,
+      271457,
+      271459,
+      271463,
+      271464,
+      271465,
+      271466,
+      271468,
+      271472,
+      271473,
+      271474,
+      271475,
+      271477,
+      271481,
+      271482,
+      271483,
+      271484,
+      271486,
+      271490,
+      271491,
+      271492,
+      271493,
+      271495,
+      271499,
+      271500,
+      271501,
+      271502,
+      271504,
+      271508,
+      271509,
+      271510,
+      271511,
+      271513,
+      271517,
+      271518,
+      271519,
+      271520,
+      271522,
+      271535,
+      271536,
+      271537,
+      271538,
+      271540,
+      271553,
+      271554,
+      271555,
+      271556,
+      271558,
+      271562,
+      271563,
+      271564,
+      271565,
+      271567,
+      271681,
+      272196,
+      273060,
+      273649,
+      273773,
+      273774,
+      273779,
+      273781,
+      273785,
+      273786,
+      273791,
+      273792,
+      273794,
+      273795,
+      273796,
+      273797,
+      274781,
+      275223
+    ],
+    "parcial": true
+  },
+  "itens": {
+    "239657": {
+      "efeito": null,
+      "conjunto": {
+        "nome": "Ornamentos de Seda de Fogo Solar",
+        "total": 3,
+        "bonus": [
+          {
+            "pecas": 2,
+            "efeito": "Acima de 80% dos pontos de vida, ganha 103 de Aceleração."
+          }
+        ]
+      },
+      "engaste": false
+    },
+    "239658": {
+      "efeito": null,
+      "conjunto": {
+        "nome": "Ornamentos de Seda de Fogo Solar",
+        "total": 3,
+        "bonus": [
+          {
+            "pecas": 2,
+            "efeito": "Acima de 80% dos pontos de vida, ganha 103 de Aceleração."
+          }
+        ]
+      },
+      "engaste": false
+    },
+    "239659": {
+      "efeito": null,
+      "conjunto": {
+        "nome": "Ornamentos de Seda de Fogo Solar",
+        "total": 3,
+        "bonus": [
+          {
+            "pecas": 2,
+            "efeito": "Acima de 80% dos pontos de vida, ganha 103 de Aceleração."
+          }
+        ]
+      },
+      "engaste": false
+    },
+    "239660": {
+      "efeito": null,
+      "conjunto": {
+        "nome": "Ornamentos de Arcanotrama",
+        "total": 3,
+        "bonus": [
+          {
+            "pecas": 2,
+            "efeito": "Acima de 80% dos pontos de vida, ganha 103 de Acerto Crítico."
+          }
+        ]
+      },
+      "engaste": false
+    },
+    "239661": {
+      "efeito": null,
+      "conjunto": {
+        "nome": "Ornamentos de Arcanotrama",
+        "total": 3,
+        "bonus": [
+          {
+            "pecas": 2,
+            "efeito": "Acima de 80% dos pontos de vida, ganha 103 de Acerto Crítico."
+          }
+        ]
+      },
+      "engaste": false
+    },
+    "239662": {
+      "efeito": null,
+      "conjunto": {
+        "nome": "Ornamentos de Arcanotrama",
+        "total": 3,
+        "bonus": [
+          {
+            "pecas": 2,
+            "efeito": "Acima de 80% dos pontos de vida, ganha 103 de Acerto Crítico."
+          }
+        ]
+      },
+      "engaste": false
+    },
+    "239663": {
+      "efeito": "Equipar: Seus feitiços e habilidades têm chance de causar 3707 de dano Radiante ao seu alvo atual.",
+      "conjunto": null,
+      "engaste": false
+    },
+    "239664": {
+      "efeito": "Equipar: Seus feitiços de cura e de dano têm chance de aumentar em 136 sua Maestria por 12 s.",
+      "conjunto": null,
+      "engaste": false
+    },
+    "241139": {
+      "efeito": "Equipar: Seus feitiços e habilidades têm chance de evocar as Chamas da Fênix para envolver o seu alvo. Se o alvo for um aliado, ele terá 587 × 20 pontos de vida curados ao longo de 10 s. Se o alvo for um inimigo, ele receberá 391 × 20 de dano de Fogo ao longo de 10 s. Cada cor de gema única engastada fortalecerá as chamas em 1%.",
+      "conjunto": null,
+      "engaste": true
+    },
+    "241140": {
+      "efeito": "Equipar: Seus feitiços e habilidades podem fazer com que o sinete ressoe com a Alma do Mundo, concedendo uma dádiva de 23 a todos os seus atributos secundários por 15 s. Toda cor única de gema engastada fortalece em 1% os atributos secundários associados a ela por essa dádiva.",
+      "conjunto": null,
+      "engaste": true
+    },
+    "241340": {
+      "efeito": "Equipar: Quando curar ou causar dano, você tem chance de aumentar em 163 a Força, a Agilidade, o Intelecto ou o Espírito por 15 s. Seu maior atributo é sempre escolhido. Equipar: Aumenta em 40% os efeitos de poções de cura e de mana no usuário. Estes efeitos não são cumulativos.",
+      "conjunto": null,
+      "engaste": false
+    },
+    "244463": {
+      "efeito": "Equipar: Seus feitiços e habilidades têm chance de aumentar em 80 sua Aceleração por 10 s.",
+      "conjunto": null,
+      "engaste": false
+    },
+    "244472": {
+      "efeito": "Equipar: A luz protege. Há uma chance de, quando for atacado, você ganhar a Proteção da Paliçada, que concede um escudo que absorve 1192 de dano e dura 6 s. Caso o escudo seja quebrado antes de expirar, a magia do escudo estoura, lançando uma Penitência da Paliçada que causa 1192 de dano Sagrado aos inimigos próximos.",
+      "conjunto": null,
+      "engaste": false
+    },
+    "244601": {
+      "efeito": "Equipar: Seus feitiços e habilidades têm chance de ressoar com a Alma do Mundo, criando um Orbe de Poder Azerothiano próximo. Coletar esse orbe fortalece você, concedendo 75 do seu atributo secundário mais alto por 15 s.",
+      "conjunto": null,
+      "engaste": false
+    },
+    "244602": {
+      "efeito": "Equipar: Causar dano a um alvo tem chance de marcá-lo, fazendo com que um Patrulheiro Élfico lance um Ataque Surpresa de longe! Esse ataque surpresa causa 6531 de dano Físico ao alvo.",
+      "conjunto": null,
+      "engaste": false
+    },
+    "244605": {
+      "efeito": "Equipar: Seus feitiços e habilidades têm chance de encher você de Fervor da Batalha. O Fervor da Batalha aumenta em 11 sua aceleração para 15 s, acumulando até 5 vezes.",
+      "conjunto": null,
+      "engaste": false
+    },
+    "244606": {
+      "efeito": "Equipar: Suas habilidades e feitiços que causam dano têm chance de atingir o seu alvo com uma Bagata Necrótica, causando 161 × 10 de dano de Natureza ao longo de 10 s. Esta bagata se espalha pelos inimigos próximos à vítima original toda vez que causar dano, até 5 vezes.",
+      "conjunto": null,
+      "engaste": false
+    },
+    "244609": {
+      "efeito": null,
+      "conjunto": {
+        "nome": "Paramentos do Guardirraiz",
+        "total": 3,
+        "bonus": [
+          {
+            "pecas": 2,
+            "efeito": "Seus feitiços e habilidades podem implorar por um fragmento do poder da Árvore do Mundo, concedendo 159 de um atributo secundário aleatório a você por 15 s."
+          }
+        ]
+      },
+      "engaste": false
+    },
+    "244610": {
+      "efeito": null,
+      "conjunto": {
+        "nome": "Paramentos do Guardirraiz",
+        "total": 3,
+        "bonus": [
+          {
+            "pecas": 2,
+            "efeito": "Seus feitiços e habilidades podem implorar por um fragmento do poder da Árvore do Mundo, concedendo 159 de um atributo secundário aleatório a você por 15 s."
+          }
+        ]
+      },
+      "engaste": false
+    },
+    "244611": {
+      "efeito": null,
+      "conjunto": {
+        "nome": "Paramentos do Guardirraiz",
+        "total": 3,
+        "bonus": [
+          {
+            "pecas": 2,
+            "efeito": "Seus feitiços e habilidades podem implorar por um fragmento do poder da Árvore do Mundo, concedendo 159 de um atributo secundário aleatório a você por 15 s."
+          }
+        ]
+      },
+      "engaste": false
+    },
+    "244612": {
+      "efeito": null,
+      "conjunto": {
+        "nome": "Materiais da Travessa do Assassino",
+        "total": 3,
+        "bonus": [
+          {
+            "pecas": 2,
+            "efeito": "A cada 30 s durante o combate, você aproveita o seu próximo acerto crítico para ganhar Vantagem. Toda situação é diferente, e o mesmo pode ser dito da Vantagem concedida. Tônicos de cura, adagas envenenadas e outros contrabandos mágicos são opções válidas. (30s de recarga)"
+          }
+        ]
+      },
+      "engaste": false
+    },
+    "244613": {
+      "efeito": null,
+      "conjunto": {
+        "nome": "Materiais da Travessa do Assassino",
+        "total": 3,
+        "bonus": [
+          {
+            "pecas": 2,
+            "efeito": "A cada 30 s durante o combate, você aproveita o seu próximo acerto crítico para ganhar Vantagem. Toda situação é diferente, e o mesmo pode ser dito da Vantagem concedida. Tônicos de cura, adagas envenenadas e outros contrabandos mágicos são opções válidas. (30s de recarga)"
+          }
+        ]
+      },
+      "engaste": false
+    },
+    "244614": {
+      "efeito": null,
+      "conjunto": {
+        "nome": "Materiais da Travessa do Assassino",
+        "total": 3,
+        "bonus": [
+          {
+            "pecas": 2,
+            "efeito": "A cada 30 s durante o combate, você aproveita o seu próximo acerto crítico para ganhar Vantagem. Toda situação é diferente, e o mesmo pode ser dito da Vantagem concedida. Tônicos de cura, adagas envenenadas e outros contrabandos mágicos são opções válidas. (30s de recarga)"
+          }
+        ]
+      },
+      "engaste": false
+    },
+    "244679": {
+      "efeito": "Equipar: Suas habilidades e feitiços nocivos têm chance de fazer seu alvo sangrar, causando 846 de dano Físico a cada 2 por 10 s.",
+      "conjunto": null,
+      "engaste": false
+    },
+    "251073": {
+      "efeito": "Uso: Ao usar: ativa a matriz e gera uma Barreira de Pedra do Caos, absorvendo 71597 de dano pelos próximos 10 s. A barreira se fortalece em mais 1% por cor de gema única que você tiver engastado. (3 Min Recarga)",
+      "conjunto": null,
+      "engaste": true
+    },
+    "251513": {
+      "efeito": "Equipar: Seus feitiços e habilidades que causam dano têm a chance de carregar o elo, evocando o avatar de um loa para ajudar você em combate. Toda cor única de gema engastada que estiver no seu equipamento permitirá que um loa diferente seja evocado. Esses efeitos vão de causar dano aos seus inimigos até conceder a você poder temporário.",
+      "conjunto": null,
+      "engaste": true
+    },
+    "271526": {
+      "conjunto": {
+        "nome": "Casca do Velassonhos Enigmático",
+        "total": 5,
+        "bonus": [
+          {
+            "pecas": 2,
+            "efeito": "O dano de Surto Estelar aumenta em 20%. A Chuva Estelar também causa 30,4% do Poder Mágico de dano Astral instantaneamente a todos os inimigos válidos ao seu alcance quando lançada.",
+            "spec": "Equilíbrio"
+          },
+          {
+            "pecas": 2,
+            "efeito": "Quando [Encarnação: Avatar de Ashamane / Berserk] se encerra, você causa mais 10% de dano por [Encarnação: Avatar de Ashamane: 0.75] s por cada ponto de combo gasto durante [Encarnação: Avatar de Ashamane / Berserk]. (100ms de recarga)",
+            "spec": "Feral"
+          },
+          {
+            "pecas": 2,
+            "efeito": "Surra tem 20% de chance de fazer o seu próximo Destroçar causar mais 100% de dano.",
+            "spec": "Guardião"
+          },
+          {
+            "pecas": 2,
+            "efeito": "Rejuvenescer tem 15% de chance de conceder Gênese, potencializando em 15% todos os seus efeitos de cura periódica por 8 s. Várias aplicações podem se sobrepor. (Chance de ativar:15%, 100ms de recarga)",
+            "spec": "Restauração"
+          },
+          {
+            "pecas": 4,
+            "efeito": "Seu dano aumenta em 10% em qualquer Eclipse. Esse bônus diminui para 2% no ponto intermediário do Eclipse e volta a aumentar para 10% no final dele. (100ms de recarga)",
+            "spec": "Equilíbrio"
+          },
+          {
+            "pecas": 4,
+            "efeito": "[Encarnação: Avatar de Ashamane / Berserk] dura 10 s a mais.",
+            "spec": "Feral"
+          },
+          {
+            "pecas": 4,
+            "efeito": "Surra invoca 3 espinhos, cada um empalando um alvo e causando 54% do Poder de Ataque de dano de Natureza, mais 27% do Poder de Ataque de dano de Natureza a até 5 inimigos próximos, e prolonga a duração de [Encarnação: Guardião de Ursoc / Berserk] em 0.5 s, até um máximo de 5.0 s.",
+            "spec": "Guardião"
+          },
+          {
+            "pecas": 4,
+            "efeito": "Rapidez da Natureza, Tranquilidade e [Encarnação: Árvore da Vida / Convocar Espíritos] têm 100% de chance de conceder Gênese. A duração de Gênese aumenta em 8 s.",
+            "spec": "Restauração"
+          }
+        ]
+      }
+    },
+    "271527": {
+      "conjunto": {
+        "nome": "Casca do Velassonhos Enigmático",
+        "total": 5,
+        "bonus": [
+          {
+            "pecas": 2,
+            "efeito": "O dano de Surto Estelar aumenta em 20%. A Chuva Estelar também causa 30,4% do Poder Mágico de dano Astral instantaneamente a todos os inimigos válidos ao seu alcance quando lançada.",
+            "spec": "Equilíbrio"
+          },
+          {
+            "pecas": 2,
+            "efeito": "Quando [Encarnação: Avatar de Ashamane / Berserk] se encerra, você causa mais 10% de dano por [Encarnação: Avatar de Ashamane: 0.75] s por cada ponto de combo gasto durante [Encarnação: Avatar de Ashamane / Berserk]. (100ms de recarga)",
+            "spec": "Feral"
+          },
+          {
+            "pecas": 2,
+            "efeito": "Surra tem 20% de chance de fazer o seu próximo Destroçar causar mais 100% de dano.",
+            "spec": "Guardião"
+          },
+          {
+            "pecas": 2,
+            "efeito": "Rejuvenescer tem 15% de chance de conceder Gênese, potencializando em 15% todos os seus efeitos de cura periódica por 8 s. Várias aplicações podem se sobrepor. (Chance de ativar:15%, 100ms de recarga)",
+            "spec": "Restauração"
+          },
+          {
+            "pecas": 4,
+            "efeito": "Seu dano aumenta em 10% em qualquer Eclipse. Esse bônus diminui para 2% no ponto intermediário do Eclipse e volta a aumentar para 10% no final dele. (100ms de recarga)",
+            "spec": "Equilíbrio"
+          },
+          {
+            "pecas": 4,
+            "efeito": "[Encarnação: Avatar de Ashamane / Berserk] dura 10 s a mais.",
+            "spec": "Feral"
+          },
+          {
+            "pecas": 4,
+            "efeito": "Surra invoca 3 espinhos, cada um empalando um alvo e causando 54% do Poder de Ataque de dano de Natureza, mais 27% do Poder de Ataque de dano de Natureza a até 5 inimigos próximos, e prolonga a duração de [Encarnação: Guardião de Ursoc / Berserk] em 0.5 s, até um máximo de 5.0 s.",
+            "spec": "Guardião"
+          },
+          {
+            "pecas": 4,
+            "efeito": "Rapidez da Natureza, Tranquilidade e [Encarnação: Árvore da Vida / Convocar Espíritos] têm 100% de chance de conceder Gênese. A duração de Gênese aumenta em 8 s.",
+            "spec": "Restauração"
+          }
+        ]
+      }
+    },
+    "271528": {
+      "efeito": null,
+      "conjunto": {
+        "nome": "Casca do Velassonhos Enigmático",
+        "total": 5,
+        "bonus": [
+          {
+            "pecas": 2,
+            "efeito": "O dano de Surto Estelar aumenta em 20%. A Chuva Estelar também causa 30,4% do Poder Mágico de dano Astral instantaneamente a todos os inimigos válidos ao seu alcance quando lançada.",
+            "spec": "Equilíbrio"
+          },
+          {
+            "pecas": 2,
+            "efeito": "Quando [Encarnação: Avatar de Ashamane / Berserk] se encerra, você causa mais 10% de dano por [Encarnação: Avatar de Ashamane: 0.75] s por cada ponto de combo gasto durante [Encarnação: Avatar de Ashamane / Berserk]. (100ms de recarga)",
+            "spec": "Feral"
+          },
+          {
+            "pecas": 2,
+            "efeito": "Surra tem 20% de chance de fazer o seu próximo Destroçar causar mais 100% de dano.",
+            "spec": "Guardião"
+          },
+          {
+            "pecas": 2,
+            "efeito": "Rejuvenescer tem 15% de chance de conceder Gênese, potencializando em 15% todos os seus efeitos de cura periódica por 8 s. Várias aplicações podem se sobrepor. (Chance de ativar:15%, 100ms de recarga)",
+            "spec": "Restauração"
+          },
+          {
+            "pecas": 4,
+            "efeito": "Seu dano aumenta em 10% em qualquer Eclipse. Esse bônus diminui para 2% no ponto intermediário do Eclipse e volta a aumentar para 10% no final dele. (100ms de recarga)",
+            "spec": "Equilíbrio"
+          },
+          {
+            "pecas": 4,
+            "efeito": "[Encarnação: Avatar de Ashamane / Berserk] dura 10 s a mais.",
+            "spec": "Feral"
+          },
+          {
+            "pecas": 4,
+            "efeito": "Surra invoca 3 espinhos, cada um empalando um alvo e causando 54% do Poder de Ataque de dano de Natureza, mais 27% do Poder de Ataque de dano de Natureza a até 5 inimigos próximos, e prolonga a duração de [Encarnação: Guardião de Ursoc / Berserk] em 0.5 s, até um máximo de 5.0 s.",
+            "spec": "Guardião"
+          },
+          {
+            "pecas": 4,
+            "efeito": "Rapidez da Natureza, Tranquilidade e [Encarnação: Árvore da Vida / Convocar Espíritos] têm 100% de chance de conceder Gênese. A duração de Gênese aumenta em 8 s.",
+            "spec": "Restauração"
+          }
+        ]
+      },
+      "engaste": false
+    },
+    "271529": {
+      "conjunto": {
+        "nome": "Casca do Velassonhos Enigmático",
+        "total": 5,
+        "bonus": [
+          {
+            "pecas": 2,
+            "efeito": "O dano de Surto Estelar aumenta em 20%. A Chuva Estelar também causa 30,4% do Poder Mágico de dano Astral instantaneamente a todos os inimigos válidos ao seu alcance quando lançada.",
+            "spec": "Equilíbrio"
+          },
+          {
+            "pecas": 2,
+            "efeito": "Quando [Encarnação: Avatar de Ashamane / Berserk] se encerra, você causa mais 10% de dano por [Encarnação: Avatar de Ashamane: 0.75] s por cada ponto de combo gasto durante [Encarnação: Avatar de Ashamane / Berserk]. (100ms de recarga)",
+            "spec": "Feral"
+          },
+          {
+            "pecas": 2,
+            "efeito": "Surra tem 20% de chance de fazer o seu próximo Destroçar causar mais 100% de dano.",
+            "spec": "Guardião"
+          },
+          {
+            "pecas": 2,
+            "efeito": "Rejuvenescer tem 15% de chance de conceder Gênese, potencializando em 15% todos os seus efeitos de cura periódica por 8 s. Várias aplicações podem se sobrepor. (Chance de ativar:15%, 100ms de recarga)",
+            "spec": "Restauração"
+          },
+          {
+            "pecas": 4,
+            "efeito": "Seu dano aumenta em 10% em qualquer Eclipse. Esse bônus diminui para 2% no ponto intermediário do Eclipse e volta a aumentar para 10% no final dele. (100ms de recarga)",
+            "spec": "Equilíbrio"
+          },
+          {
+            "pecas": 4,
+            "efeito": "[Encarnação: Avatar de Ashamane / Berserk] dura 10 s a mais.",
+            "spec": "Feral"
+          },
+          {
+            "pecas": 4,
+            "efeito": "Surra invoca 3 espinhos, cada um empalando um alvo e causando 54% do Poder de Ataque de dano de Natureza, mais 27% do Poder de Ataque de dano de Natureza a até 5 inimigos próximos, e prolonga a duração de [Encarnação: Guardião de Ursoc / Berserk] em 0.5 s, até um máximo de 5.0 s.",
+            "spec": "Guardião"
+          },
+          {
+            "pecas": 4,
+            "efeito": "Rapidez da Natureza, Tranquilidade e [Encarnação: Árvore da Vida / Convocar Espíritos] têm 100% de chance de conceder Gênese. A duração de Gênese aumenta em 8 s.",
+            "spec": "Restauração"
+          }
+        ]
+      }
+    },
+    "271531": {
+      "conjunto": {
+        "nome": "Casca do Velassonhos Enigmático",
+        "total": 5,
+        "bonus": [
+          {
+            "pecas": 2,
+            "efeito": "O dano de Surto Estelar aumenta em 20%. A Chuva Estelar também causa 30,4% do Poder Mágico de dano Astral instantaneamente a todos os inimigos válidos ao seu alcance quando lançada.",
+            "spec": "Equilíbrio"
+          },
+          {
+            "pecas": 2,
+            "efeito": "Quando [Encarnação: Avatar de Ashamane / Berserk] se encerra, você causa mais 10% de dano por [Encarnação: Avatar de Ashamane: 0.75] s por cada ponto de combo gasto durante [Encarnação: Avatar de Ashamane / Berserk]. (100ms de recarga)",
+            "spec": "Feral"
+          },
+          {
+            "pecas": 2,
+            "efeito": "Surra tem 20% de chance de fazer o seu próximo Destroçar causar mais 100% de dano.",
+            "spec": "Guardião"
+          },
+          {
+            "pecas": 2,
+            "efeito": "Rejuvenescer tem 15% de chance de conceder Gênese, potencializando em 15% todos os seus efeitos de cura periódica por 8 s. Várias aplicações podem se sobrepor. (Chance de ativar:15%, 100ms de recarga)",
+            "spec": "Restauração"
+          },
+          {
+            "pecas": 4,
+            "efeito": "Seu dano aumenta em 10% em qualquer Eclipse. Esse bônus diminui para 2% no ponto intermediário do Eclipse e volta a aumentar para 10% no final dele. (100ms de recarga)",
+            "spec": "Equilíbrio"
+          },
+          {
+            "pecas": 4,
+            "efeito": "[Encarnação: Avatar de Ashamane / Berserk] dura 10 s a mais.",
+            "spec": "Feral"
+          },
+          {
+            "pecas": 4,
+            "efeito": "Surra invoca 3 espinhos, cada um empalando um alvo e causando 54% do Poder de Ataque de dano de Natureza, mais 27% do Poder de Ataque de dano de Natureza a até 5 inimigos próximos, e prolonga a duração de [Encarnação: Guardião de Ursoc / Berserk] em 0.5 s, até um máximo de 5.0 s.",
+            "spec": "Guardião"
+          },
+          {
+            "pecas": 4,
+            "efeito": "Rapidez da Natureza, Tranquilidade e [Encarnação: Árvore da Vida / Convocar Espíritos] têm 100% de chance de conceder Gênese. A duração de Gênese aumenta em 8 s.",
+            "spec": "Restauração"
+          }
+        ]
+      }
+    },
+    "271544": {
+      "conjunto": {
+        "nome": "Grilhões Despedaçados do Necrólito Maldito",
+        "total": 5,
+        "bonus": [
+          {
+            "pecas": 2,
+            "efeito": "Dano de [Murchar / Corrupção] aumentado em 25%. Dano de Agonia aumentado em 15%.",
+            "spec": "Suplício"
+          },
+          {
+            "pecas": 2,
+            "efeito": "Aumenta em 10% o dano do Diabrete Selvagem. Aumenta em 20% o dano da Implosão.",
+            "spec": "Demonologia"
+          },
+          {
+            "pecas": 2,
+            "efeito": "Dano de Incinerar aumentado em 25%, e Incinerar tem mais 10% de chance de evocar um Eco de Sargeras.",
+            "spec": "Destruição"
+          },
+          {
+            "pecas": 4,
+            "efeito": "Cada Agonia Instável ativa aumenta em 2% o dano causado pelos seus feitiços e habilidades, até um máximo de 6%. A Semente da Corrupção aplica Agonia Instável ao seu alvo com 20% de eficácia.",
+            "spec": "Suplício"
+          },
+          {
+            "pecas": 4,
+            "efeito": "Quando a energia deles se esvai, os Diabretes Selvagens têm 20% de chance de se atirar no alvo deles e implodir com 350% de eficácia contra o alvo principal e 315% de eficácia contra alvos secundários.",
+            "spec": "Demonologia"
+          },
+          {
+            "pecas": 4,
+            "efeito": "Alvos que recebem dano de Eco de Sargeras recebem mais 6% de dano dos seus feitiços e habilidades por 6 s.",
+            "spec": "Destruição"
+          }
+        ]
+      }
+    },
+    "271545": {
+      "conjunto": {
+        "nome": "Grilhões Despedaçados do Necrólito Maldito",
+        "total": 5,
+        "bonus": [
+          {
+            "pecas": 2,
+            "efeito": "Dano de [Murchar / Corrupção] aumentado em 25%. Dano de Agonia aumentado em 15%.",
+            "spec": "Suplício"
+          },
+          {
+            "pecas": 2,
+            "efeito": "Aumenta em 10% o dano do Diabrete Selvagem. Aumenta em 20% o dano da Implosão.",
+            "spec": "Demonologia"
+          },
+          {
+            "pecas": 2,
+            "efeito": "Dano de Incinerar aumentado em 25%, e Incinerar tem mais 10% de chance de evocar um Eco de Sargeras.",
+            "spec": "Destruição"
+          },
+          {
+            "pecas": 4,
+            "efeito": "Cada Agonia Instável ativa aumenta em 2% o dano causado pelos seus feitiços e habilidades, até um máximo de 6%. A Semente da Corrupção aplica Agonia Instável ao seu alvo com 20% de eficácia.",
+            "spec": "Suplício"
+          },
+          {
+            "pecas": 4,
+            "efeito": "Quando a energia deles se esvai, os Diabretes Selvagens têm 20% de chance de se atirar no alvo deles e implodir com 350% de eficácia contra o alvo principal e 315% de eficácia contra alvos secundários.",
+            "spec": "Demonologia"
+          },
+          {
+            "pecas": 4,
+            "efeito": "Alvos que recebem dano de Eco de Sargeras recebem mais 6% de dano dos seus feitiços e habilidades por 6 s.",
+            "spec": "Destruição"
+          }
+        ]
+      }
+    },
+    "271546": {
+      "efeito": null,
+      "conjunto": {
+        "nome": "Grilhões Despedaçados do Necrólito Maldito",
+        "total": 5,
+        "bonus": [
+          {
+            "pecas": 2,
+            "efeito": "Dano de [Murchar / Corrupção] aumentado em 25%. Dano de Agonia aumentado em 15%.",
+            "spec": "Suplício"
+          },
+          {
+            "pecas": 2,
+            "efeito": "Aumenta em 10% o dano do Diabrete Selvagem. Aumenta em 20% o dano da Implosão.",
+            "spec": "Demonologia"
+          },
+          {
+            "pecas": 2,
+            "efeito": "Dano de Incinerar aumentado em 25%, e Incinerar tem mais 10% de chance de evocar um Eco de Sargeras.",
+            "spec": "Destruição"
+          },
+          {
+            "pecas": 4,
+            "efeito": "Cada Agonia Instável ativa aumenta em 2% o dano causado pelos seus feitiços e habilidades, até um máximo de 6%. A Semente da Corrupção aplica Agonia Instável ao seu alvo com 20% de eficácia.",
+            "spec": "Suplício"
+          },
+          {
+            "pecas": 4,
+            "efeito": "Quando a energia deles se esvai, os Diabretes Selvagens têm 20% de chance de se atirar no alvo deles e implodir com 350% de eficácia contra o alvo principal e 315% de eficácia contra alvos secundários.",
+            "spec": "Demonologia"
+          },
+          {
+            "pecas": 4,
+            "efeito": "Alvos que recebem dano de Eco de Sargeras recebem mais 6% de dano dos seus feitiços e habilidades por 6 s.",
+            "spec": "Destruição"
+          }
+        ]
+      },
+      "engaste": false
+    },
+    "271547": {
+      "conjunto": {
+        "nome": "Grilhões Despedaçados do Necrólito Maldito",
+        "total": 5,
+        "bonus": [
+          {
+            "pecas": 2,
+            "efeito": "Dano de [Murchar / Corrupção] aumentado em 25%. Dano de Agonia aumentado em 15%.",
+            "spec": "Suplício"
+          },
+          {
+            "pecas": 2,
+            "efeito": "Aumenta em 10% o dano do Diabrete Selvagem. Aumenta em 20% o dano da Implosão.",
+            "spec": "Demonologia"
+          },
+          {
+            "pecas": 2,
+            "efeito": "Dano de Incinerar aumentado em 25%, e Incinerar tem mais 10% de chance de evocar um Eco de Sargeras.",
+            "spec": "Destruição"
+          },
+          {
+            "pecas": 4,
+            "efeito": "Cada Agonia Instável ativa aumenta em 2% o dano causado pelos seus feitiços e habilidades, até um máximo de 6%. A Semente da Corrupção aplica Agonia Instável ao seu alvo com 20% de eficácia.",
+            "spec": "Suplício"
+          },
+          {
+            "pecas": 4,
+            "efeito": "Quando a energia deles se esvai, os Diabretes Selvagens têm 20% de chance de se atirar no alvo deles e implodir com 350% de eficácia contra o alvo principal e 315% de eficácia contra alvos secundários.",
+            "spec": "Demonologia"
+          },
+          {
+            "pecas": 4,
+            "efeito": "Alvos que recebem dano de Eco de Sargeras recebem mais 6% de dano dos seus feitiços e habilidades por 6 s.",
+            "spec": "Destruição"
+          }
+        ]
+      }
+    },
+    "271549": {
+      "conjunto": {
+        "nome": "Grilhões Despedaçados do Necrólito Maldito",
+        "total": 5,
+        "bonus": [
+          {
+            "pecas": 2,
+            "efeito": "Dano de [Murchar / Corrupção] aumentado em 25%. Dano de Agonia aumentado em 15%.",
+            "spec": "Suplício"
+          },
+          {
+            "pecas": 2,
+            "efeito": "Aumenta em 10% o dano do Diabrete Selvagem. Aumenta em 20% o dano da Implosão.",
+            "spec": "Demonologia"
+          },
+          {
+            "pecas": 2,
+            "efeito": "Dano de Incinerar aumentado em 25%, e Incinerar tem mais 10% de chance de evocar um Eco de Sargeras.",
+            "spec": "Destruição"
+          },
+          {
+            "pecas": 4,
+            "efeito": "Cada Agonia Instável ativa aumenta em 2% o dano causado pelos seus feitiços e habilidades, até um máximo de 6%. A Semente da Corrupção aplica Agonia Instável ao seu alvo com 20% de eficácia.",
+            "spec": "Suplício"
+          },
+          {
+            "pecas": 4,
+            "efeito": "Quando a energia deles se esvai, os Diabretes Selvagens têm 20% de chance de se atirar no alvo deles e implodir com 350% de eficácia contra o alvo principal e 315% de eficácia contra alvos secundários.",
+            "spec": "Demonologia"
+          },
+          {
+            "pecas": 4,
+            "efeito": "Alvos que recebem dano de Eco de Sargeras recebem mais 6% de dano dos seus feitiços e habilidades por 6 s.",
+            "spec": "Destruição"
+          }
+        ]
+      }
+    }
+  }
+}
