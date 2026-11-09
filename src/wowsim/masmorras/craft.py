@@ -62,6 +62,22 @@ class Embelezamento:
     token_simc: str
     alvo: str | None
     descricao: str | None
+    # Bônus que o item equipado carrega quando este embelezamento foi aplicado
+    # (``bonus_id`` de dados/derivados/embelezamentos.json). Permite reconhecer,
+    # no export do SimC, qual reagente já está em uso (P-052).
+    bonus_id: int | None = None
+
+
+def _construir(e: dict) -> Embelezamento:
+    return Embelezamento(
+        e["reagente_id"],
+        e.get("nome_pt"),
+        e["nome_en"],
+        e["token_simc"],
+        e.get("alvo"),
+        e.get("descricao"),
+        e.get("bonus_id"),
+    )
 
 
 @lru_cache(maxsize=1)
@@ -69,10 +85,14 @@ def embelezamentos() -> tuple[Embelezamento, ...]:
     """Embelezamentos que o simc conhece (dados/derivados/embelezamentos.json)."""
     dados = catalog._derivado("embelezamentos.json").get("embelezamentos", [])
     return tuple(
-        Embelezamento(e["reagente_id"], e.get("nome_pt"), e["nome_en"], e["token_simc"], e.get("alvo"), e.get("descricao"))
-        for e in dados
-        if e.get("alvo")
+        _construir(e) for e in dados if e.get("alvo")
     )
+
+
+def embelezamentos_com_bonus() -> tuple[Embelezamento, ...]:
+    """Todos os embelezamentos com ``bonus_id`` (inclusive alvo=None, de engenharia)."""
+    dados = catalog._derivado("embelezamentos.json").get("embelezamentos", [])
+    return tuple(_construir(e) for e in dados if e.get("bonus_id") is not None)
 
 
 def _cabe(emb: Embelezamento, slot: str) -> bool:
