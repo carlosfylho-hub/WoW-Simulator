@@ -83,14 +83,17 @@ def salvar_pesos_medidos(
     valores: dict[str, float],
     *,
     fonte: str = FONTE,
+    metadados: dict | None = None,
 ) -> PesosSpec:
     DIR.mkdir(parents=True, exist_ok=True)
-    dados = {
+    dados: dict = {
         "valores": valores,
         "fonte": fonte,
         "classe": personagem.classe,
         "spec": personagem.spec,
     }
+    if metadados:
+        dados.update(metadados)
     _arquivo(personagem).write_text(
         json.dumps(dados, ensure_ascii=False, indent=2), encoding="utf-8"
     )
@@ -131,6 +134,7 @@ def derivar_pesos_medidos(
     iterations: int = 200,
     fight_style: str = "Patchwerk",
     timeout: float = 120.0,
+    talentos: str | None = None,
 ) -> PesosSpec | None:
     """Run one small simc with ``calculate_scale_factors=1`` and cache weights.
 
@@ -144,13 +148,14 @@ def derivar_pesos_medidos(
         serializar_texto(personagem, incluir_checksum=False), encoding="utf-8"
     )
     try:
+        extra = ("calculate_scale_factors=1", *([f"talents={talentos}"] if talentos else []))
         execucao = sr.run_simc(
             perfil,
             simc_path=simc_path,
             iterations=iterations,
             fight_style=fight_style,
             timeout=timeout,
-            extra_args=("calculate_scale_factors=1",),
+            extra_args=extra,
             usar_cache=True,
         )
         resultado = sr.read_results(execucao.json_path)
@@ -159,4 +164,14 @@ def derivar_pesos_medidos(
         return None
     if not valores:
         return None
-    return salvar_pesos_medidos(personagem, valores)
+    base_dps = resultado.base.dps if resultado.base is not None else None
+    return salvar_pesos_medidos(
+        personagem,
+        valores,
+        metadados={
+            "iteracoes": iterations,
+            "fight_style": fight_style,
+            "talentos": talentos,
+            "base_dps": base_dps,
+        },
+    )

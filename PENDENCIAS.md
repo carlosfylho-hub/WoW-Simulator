@@ -142,6 +142,20 @@ Nenhum bloqueio ativo. O binário foi compilado a partir do fonte `12.1.5.70783`
 | **Entregue** | `parser/amr_codec.encantos_da_linha` lê o bloco `@e\id\item\spell\texto\materiais` (6 campos; `materiais` pode ser vazio). Script `scripts/extrair_encantos_amr.py <bib.txt>` grava `dados/derivados/encantos_amr.json`. `tests/test_encantos_amr.py` confirma os casos do P-016: `8730 → 283998 / 1315084` (Arte de Batalha Hash'ey) e `7935 → 240133 / 1228974` (Magilinha). |
 | **Pendente** | gerar o arquivo com uma string de Best in Bags **real** do AMR (a do usuário) para fechar o P-016; então o mapa pode alimentar `data/enchants.py`. |
 
+### T11 — String do Pawn — **[~] PARCIAL em 2026-11-08**
+
+| Campo | Detalhe |
+| :--- | :--- |
+| **Entregue** | `exportar/pawn.py` (cópia da referência validada): `pesos_relativos`, `misturar`, `string_pawn`, `validar_como_pawn`. `derivar_pesos_medidos` ganhou `talentos=` (emite `talents=`) e grava `iteracoes/fight_style/talentos/base_dps` no cache. `tests/test_exportar_pawn.py` (5 casos, validados pelo regex do próprio Pawn). |
+| **Pendente** | UI de escala por build + "Mistura" (frontend) e a medição real com ≥ 5.000 iterações; validação no jogo (T10). |
+
+### T12 — String do AMR — **[~] PARCIAL em 2026-11-08**
+
+| Campo | Detalhe |
+| :--- | :--- |
+| **Entregue** | `exportar/amr.py`: `itens_de_conjunto` (Conjunto → ItemAmr; gemas completadas até 3, Catalisador → `catalyst_source`) reusando `linha_importacao`/`itens_da_linha` do codec. `tests/test_exportar_amr.py` (conversão, dois `$`, ida-e-volta, `setup` começando com "AMR" recusado). |
+| **Pendente** | copiar o cabeçalho de uma BiB **real** do AMR (modelo do usuário), a tela e a validação no jogo (T10). |
+
 ---
 
 ## 3. Pendências de dados
