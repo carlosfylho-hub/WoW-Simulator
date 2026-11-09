@@ -506,34 +506,45 @@ comparada com a execução anterior do usuário (base 144.688 → melhor 164.588
 
 ## 12. Auditoria 3 — Craft e tooltips — 2026-11-09
 
-Diagnóstico e plano completos (com começo de código) em `docs/AUDITORIA-3-CRAFT.md`. **Nada
-implementado ainda.**
+Diagnóstico em `docs/AUDITORIA-3-CRAFT.md`; execução registrada em
+`docs/AUDITORIA-3-EXECUCAO.md` (tabela pauta → commit → testes → status).
 
-### P-049 — Fase 1 do Craft mede conjuntos com 3 embelezamentos — ABERTA (ALTO)
-O simc não impõe o limite de 2 e a fase 1 não chama `constraints.validar`: peças com embelezamento
-embutido foram medidas com 3 efeitos ativos (ganhos inflados: pés 244601, pulsos 244612, cintura
-244606, pescoço 241139, anel 251513). **Fecha com** a fase 1 validando o teto (tarefa A2).
+### P-049 — Fase 1 do Craft mede conjuntos com 3 embelezamentos — FECHADA em 2026-11-09
+A fase 1 agora valida cada conjunto antes de simular; peça que estouraria o teto sai do ranking
+e vira linha `bloqueados` (motivo na tela). Testes em `tests/test_craft.py`. Commit `9106017`
+(backend) e `3c9abc7` (frontend).
 
-### P-050 — Fase 2 do Craft não sabe "trocar" embelezamento — ABERTA (ALTO)
-Com 2 embelezados equipados, todo teste vira 3 e nada é medido. **Fecha com** a troca do reagente
-(ou da peça embutida) no slot de um embelezado atual (A3).
+### P-050 — Fase 2 do Craft não sabe "trocar" embelezamento — FECHADA em 2026-11-09
+No teto, mede a troca do reagente aplicado (contagem não sobe) ou da peça embutida inteira;
+escolhe a melhor peça não embutida por slot. Testes em `tests/test_craft.py` e no worker.
+Commits `7d16755` (backend) e `dc74db1` (frontend).
 
-### P-051 — Tooltip de craft sem atributos, fonte "Drop M+" e slot cru — ABERTA (MÉDIO)
-**Fecha com** a sonda de atributos no simc (`players[i].gear`) e a fonte/slot corretos (A4, A5).
+### P-051 — Tooltip de craft sem atributos, fonte "Drop M+" e slot cru — FECHADA em 2026-11-09
+Sonda em `masmorras/sonda.py` lê `players[i].gear` (validada no simc real: item 239675 →
+crit 74 / haste 74 / intellect 138 / stamina 2832). A tooltip recebe `stats`, fonte "Craft
+(Mítico qualidade 5)" e slot em PT-BR; sem fonte diz "Fonte não informada" (P1). Commits
+`8f1baff`+`2af0f46` (backend) e `56e424d` (frontend).
 
-### P-052 — Embelezamentos já usados não são identificados — ABERTA (MÉDIO)
-**Fecha com** `masmorras/embelezados.py` cruzando `bonus_ids` com `embelezamentos.json` (A1).
+### P-052 — Embelezamentos já usados não são identificados — FECHADA em 2026-11-09
+`masmorras/embelezados.py` cruza `bonus_ids` com `embelezamentos.json` e marca embutidos;
+`Embelezamento` ganhou `bonus_id`. Testes em `tests/test_embelezados.py`. Commit `92ed854`.
 
-### P-053 — Informação do .inv aparece como aviso âmbar — ABERTA (BAIXO)
-**Fecha com** `RankingResult.informacoes` separado de `avisos` (A6).
+### P-053 — Informação do .inv aparece como aviso âmbar — FECHADA em 2026-11-09
+`RankingResult.informacoes` separado de `avisos`; `.inv mesclado` vai para texto-3. Commits
+`28004b9` (backend) e `ac731ba` (frontend).
 
-### P-055 — Embelezamentos sem ícone nem texto completo — ABERTA (MÉDIO)
-Pedido do usuário: raspar o Wowhead (tooltip JSON + crawl4ai) para ícone, texto completo, materiais e onde usar. Só para a tela; o ganho continua do simc. **Fecha com** a tarefa A8 de `docs/AUDITORIA-3-CRAFT.md`.
+### P-055 — Embelezamentos sem ícone nem texto completo — PARCIAL em 2026-11-09
+`scripts/raspar_embelezamentos.py` preencheu ícone e texto PT-BR nos 21 reagentes; o derivador
+mescla em `embelezamentos.json` e a tela mostra no cartão. **Falta** materiais da receita e
+"onde usar": a página renderizada do Wowhead não os traz de forma estável, então ficaram vazios
+(P1: não adivinhar). **Fecha com** uma extração estável desses dois campos (script já pronto).
+Commits `b091603` (backend) e `0e7e377` (frontend).
 
-### P-054 — Pendências antigas reunidas — ABERTA
-T10 (validação no jogo, incluindo `embellishment=` no simc real), U6/U7 do redesign, desconto de
-slot nos brasões, Craft Herói e armas, custo da Forja do Veneno, cargas do Catalisador. Tabela em
-`docs/AUDITORIA-3-CRAFT.md` §2.
+### P-054 — Pendências antigas reunidas — ABERTA (parcial)
+T10: `embellishment=` validado no simc real com o fixture `pyrogalth.simc` (log em
+`docs/log-craft-windows-2026-11-09.txt`, commit `4e26d5e`); falta o export **vivo** do usuário.
+Seguem abertos: U6/U7 do redesign, desconto de slot nos brasões, Craft Herói e armas, custo da
+Forja do Veneno, cargas do Catalisador. Tabela em `docs/AUDITORIA-3-CRAFT.md` §2.
 
 ## 11. Auditoria das entregas da outra IA — 2026-11-08
 
