@@ -66,6 +66,11 @@ class Embelezamento:
     # (``bonus_id`` de dados/derivados/embelezamentos.json). Permite reconhecer,
     # no export do SimC, qual reagente já está em uso (P-052).
     bonus_id: int | None = None
+    # Dados visuais do Wowhead (A8). Só para a tela; nenhum número daqui vira DPS.
+    icone_url: str | None = None
+    texto_completo: str | None = None
+    materiais: list[str] = field(default_factory=list)
+    usado_em: list[str] = field(default_factory=list)
 
 
 def _construir(e: dict) -> Embelezamento:
@@ -77,6 +82,10 @@ def _construir(e: dict) -> Embelezamento:
         e.get("alvo"),
         e.get("descricao"),
         e.get("bonus_id"),
+        e.get("icone_url"),
+        e.get("texto_completo"),
+        list(e.get("materiais") or []),
+        list(e.get("usado_em") or []),
     )
 
 
@@ -452,6 +461,10 @@ def rodar_craft(
                     "slot_medido": slot,
                     "tipo": tipo,
                     "troca_de": atual_nome,
+                    "icone_url": emb.icone_url,
+                    "texto_completo": emb.texto_completo,
+                    "materiais": emb.materiais,
+                    "usado_em": emb.usado_em,
                     "ganho_pct": round(100.0 * (com - referencia) / base2, 3),
                     "ganho_total_pct": round(100.0 * (com - base2) / base2, 3),
                     "limiar_pct": round(erro, 3),

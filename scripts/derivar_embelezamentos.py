@@ -14,11 +14,16 @@ from __future__ import annotations
 import argparse
 import json
 import re
+import sys
 from datetime import datetime, timezone
 from pathlib import Path
 
 RAIZ = Path(__file__).resolve().parents[1]
 PADRAO_SIMC = RAIZ.parent / "simc-midnight"
+if str(RAIZ / "src") not in sys.path:
+    sys.path.insert(0, str(RAIZ / "src"))
+
+from wowsim.data.embellishments import mesclar_wowhead  # noqa: E402
 
 
 def tokenizar(nome: str) -> str:
@@ -83,6 +88,18 @@ def main() -> None:
             }
         )
 
+    # A8/P-055: mescla ícone/texto/materiais raspados do Wowhead, se existirem.
+    # Só para a tela; o ganho de dano continua vindo do simc (P1).
+    wowhead_path = RAIZ / "dados/derivados/embelezamentos_wowhead.json"
+    wowhead_meta = None
+    if wowhead_path.is_file():
+        try:
+            wowhead = json.loads(wowhead_path.read_text(encoding="utf-8"))
+            mesclar_wowhead(saida, wowhead)
+            wowhead_meta = wowhead.get("_meta")
+        except (OSError, json.JSONDecodeError):
+            wowhead_meta = {"erro": "embelezamentos_wowhead.json inválido"}
+
     destino = RAIZ / "dados/derivados/embelezamentos.json"
     destino.write_text(
         json.dumps(
@@ -94,6 +111,7 @@ def main() -> None:
                     "simc_build": build.group(1) if build else None,
                     "sem_correspondencia_no_simc": sem_simc,
                     "limite": "Único-equipado: Embelezado (2) — no máximo 2 efeitos ativos",
+                    "wowhead": wowhead_meta,
                 },
                 "embelezamentos": saida,
             },

@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "gerado_em": "2026-11-09T04:34:56Z",
+    "gerado_em": "2026-11-09T05:58:05Z",
     "gerado_por": "scripts/derivar_embelezamentos.py",
     "fontes": [
       "dados/craft_sistemas_s2.json",
@@ -8,7 +8,13 @@
     ],
     "simc_build": "12.1.5.70783",
     "sem_correspondencia_no_simc": [],
-    "limite": "Único-equipado: Embelezado (2) — no máximo 2 efeitos ativos"
+    "limite": "Único-equipado: Embelezado (2) — no máximo 2 efeitos ativos",
+    "wowhead": {
+      "gerado_em": "2026-11-09T05:58:04Z",
+      "gerado_por": "scripts/raspar_embelezamentos.py",
+      "fonte": "Wowhead (tooltip JSON + crawl4ai, best-effort)",
+      "sem_icone": []
+    }
   },
   "embelezamentos": [
     {
@@ -19,7 +25,12 @@
       "bonus_id": 12385,
       "alvo": "armadura",
       "usavel_com": "Receitas de Midnight para a maior parte das armaduras não adornadas.",
-      "descricao": "Cura e dano de efeitos periódicos concedem 5 de primaryStat por 15 s, acumulando até 5 vezes."
+      "descricao": "Cura e dano de efeitos periódicos concedem 5 de primaryStat por 15 s, acumulando até 5 vezes.",
+      "icone": "inv_12_tailoring_rare_cloth_orange-_rare-cloth",
+      "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_12_tailoring_rare_cloth_orange-_rare-cloth.jpg",
+      "texto_completo": "Forro de Seda de Fogo Solar\nNível do Item: 72 Reagente de criação opcional +5 Dificuldade da receita\nFornece as seguintes propriedades: Cura e dano de efeitos periódicos concedem 5 de primaryStat por 15 s, acumulando até 5 vezes.\nUsável com: Receitas de Midnight para a maior parte das armaduras não adornadas.\n\"Pode ser comprado e vendido na Casa de Leilões.\"\nEmpilhamento máx: 200 Preço de Venda: 6 82",
+      "texto_en": "Sunfire Silk Lining\nItem Level 72 Optional Crafting Reagent +5 Recipe Difficulty\nProvides the following property: Healing and damage from periodic effects can increase primaryStat by 5 for 15 sec, stacking up to 5 times.\nUsable with: Midnight recipes for most unembellished armor.\n\"Can be bought and sold on the Auction House.\"\nMax Stack: 200 Sell Price: 6 82",
+      "qualidade": 3
     },
     {
       "reagente_id": 240167,
@@ -29,7 +40,12 @@
       "bonus_id": 12384,
       "alvo": "armadura",
       "usavel_com": "Receitas de Midnight para a maior parte das armaduras não adornadas.",
-      "descricao": "Seus feitiços e habilidades têm chance de atrair uma moreia de mana que potencializará você e um aliado com Percepção da Arcanotrama, aumentando seu atributo primário e o do seu aliado."
+      "descricao": "Seus feitiços e habilidades têm chance de atrair uma moreia de mana que potencializará você e um aliado com Percepção da Arcanotrama, aumentando seu atributo primário e o do seu aliado.",
+      "icone": "inv_12_tailoring_rare_cloth_violet_rare-cloth",
+      "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_12_tailoring_rare_cloth_violet_rare-cloth.jpg",
+      "texto_completo": "Forro de Arcanotrama\nNível do Item: 72 Reagente de criação opcional +5 Dificuldade da receita\nFornece as seguintes propriedades: Seus feitiços e habilidades têm chance de atrair uma moreia de mana que potencializará você e um aliado com Percepção da Arcanotrama, aumentando seu atributo primário e o do seu aliado.\nUsável com: Receitas de Midnight para a maior parte das armaduras não adornadas.\n\"Pode ser comprado e vendido na Casa de Leilões.\"\nEmpilhamento máx: 200 Preço de Venda: 6 82",
+      "texto_en": "Arcanoweave Lining\nItem Level 72 Optional Crafting Reagent +5 Recipe Difficulty\nProvides the following property: Your spells and abilities have a chance to draw in a mana wyrm that will empower you and an ally with Arcanoweave Insight. Arcanoweave Insight increases both your and your ally's Primary Stat.\nUsable with: Midnight recipes for most unembellished armor.\n\"Can be bought and sold on the Auction House.\"\nMax Stack: 200 Sell Price: 6 82",
+      "qualidade": 3
     },
     {
       "reagente_id": 244604,
@@ -39,7 +55,12 @@
       "bonus_id": 12686,
       "alvo": "qualquer",
       "usavel_com": "Receitas de Midnight para a maioria dos equipamentos não adornados.",
-      "descricao": "Suas habilidades e feitiços benéficos têm chance de evocar o loa Kurzi para conceder Versatilidade ao seu alvo."
+      "descricao": "Suas habilidades e feitiços benéficos têm chance de evocar o loa Kurzi para conceder Versatilidade ao seu alvo.",
+      "icone": "inv_jewelry_necklace_139",
+      "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_jewelry_necklace_139.jpg",
+      "texto_completo": "Patuá de Pango Abençoado\nNível do Item: 72 Requer Nível 71\nReagente de criação opcional +5 Dificuldade da receita\nFornece as seguintes propriedades: Suas habilidades e feitiços benéficos têm chance de evocar o loa Kurzi para conceder Versatilidade ao seu alvo.\nÚnico-equipado: Adornado 2\nUsável com: Receitas de Midnight para a maioria dos equipamentos não adornados.\n\"Pode ser comprado e vendido na Casa de Leilões.\"\nEmpilhamento máx: 200 Preço de Venda: 7 40",
+      "texto_en": "Blessed Pango Charm\nItem Level 72 Requires Level 71\nOptional Crafting Reagent +5 Recipe Difficulty\nProvides the following property: Your helpful spells and abilities have a chance to call upon the Loa Kulzi to grant Versatility to your target.\nUnique-Equipped: Embellished 2.\nUsable with: Midnight recipes for most unembellished equipment.\n\"Can be bought and sold on the Auction House.\"\nMax Stack: 200 Sell Price: 7 40",
+      "qualidade": 3
     },
     {
       "reagente_id": 244608,
@@ -49,7 +70,12 @@
       "bonus_id": 12687,
       "alvo": "arma_ou_armadura",
       "usavel_com": "Receitas de Midnight para a maioria das armas e armaduras não adornadas.",
-      "descricao": "Seus feitiços e habilidades podem lançar Esporos Explosivos contra os alvos, curando aliados ou causando dano aos inimigos, dependendo de quem é o alvo."
+      "descricao": "Seus feitiços e habilidades podem lançar Esporos Explosivos contra os alvos, curando aliados ou causando dano aos inimigos, dependendo de quem é o alvo.",
+      "icone": "inv_12_profession_leatherworking_armor_banding_green",
+      "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_12_profession_leatherworking_armor_banding_green.jpg",
+      "texto_completo": "Vínculo de Esporos Primevos\nNível do Item: 72 Requer Nível 71\nReagente de criação opcional +5 Dificuldade da receita\nFornece as seguintes propriedades: Seus feitiços e habilidades podem lançar Esporos Explosivos contra os alvos, curando aliados ou causando dano aos inimigos, dependendo de quem é o alvo.\nÚnico-equipado: Adornado 2\nUsável com: Receitas de Midnight para a maioria das armas e armaduras não adornadas.\n\"Pode ser comprado e vendido na Casa de Leilões.\"\nEmpilhamento máx: 200 Preço de Venda: 4 5",
+      "texto_en": "Primal Spore Binding\nItem Level 72 Requires Level 71\nOptional Crafting Reagent +5 Recipe Difficulty\nProvides the following property: Your spells and abilities can launch Explosive Spores at your targets, healing allies or damaging enemies based on who your target is.\nUnique-Equipped: Embellished 2.\nUsable with: Midnight recipes for most unembellished weapons and armor.\n\"Can be bought and sold on the Auction House.\"\nMax Stack: 200 Sell Price: 4 5",
+      "qualidade": 3
     },
     {
       "reagente_id": 244675,
@@ -59,7 +85,12 @@
       "bonus_id": 12685,
       "alvo": "arma_ou_armadura",
       "usavel_com": "Receitas de Midnight para a maioria das armas e armaduras não adornadas.",
-      "descricao": "Suas habilidades e feitiços que causam dano têm chance de lançar Setas Devoradoras que causam dano ao seu alvo e aprimoram o seu atributo secundário mais alto."
+      "descricao": "Suas habilidades e feitiços que causam dano têm chance de lançar Setas Devoradoras que causam dano ao seu alvo e aprimoram o seu atributo secundário mais alto.",
+      "icone": "inv_12_profession_leatherworking_armor_banding_brown",
+      "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_12_profession_leatherworking_armor_banding_brown.jpg",
+      "texto_completo": "Elo Devorador\nNível do Item: 72 Requer Nível 71\nReagente de criação opcional +5 Dificuldade da receita\nFornece as seguintes propriedades: Suas habilidades e feitiços que causam dano têm chance de lançar Setas Devoradoras que causam dano ao seu alvo e aprimoram o seu atributo secundário mais alto.\nÚnico-equipado: Adornado 2\nUsável com: Receitas de Midnight para a maioria das armas e armaduras não adornadas.\n\"Pode ser comprado e vendido na Casa de Leilões.\"\nEmpilhamento máx: 200 Preço de Venda: 3 55",
+      "texto_en": "Devouring Banding\nItem Level 72 Requires Level 71\nOptional Crafting Reagent +5 Recipe Difficulty\nProvides the following property: Your damaging spells and abilities have a chance to launch Devouring Bolts that damage your target and boost your highest secondary stat.\nUnique-Equipped: Embellished 2.\nUsable with: Midnight recipes for most unembellished weapons and armor.\n\"Can be bought and sold on the Auction House.\"\nMax Stack: 200 Sell Price: 3 55",
+      "qualidade": 3
     },
     {
       "reagente_id": 245872,
@@ -69,7 +100,12 @@
       "bonus_id": 12705,
       "alvo": "arma",
       "usavel_com": "Receitas de Midnight para a maioria das armas e itens de mão secundária não adornados.",
-      "descricao": "Suas habilidades e feitiços que causam dano têm chance de conceder Astúcia do Andarilho, aumentando em 76 seu segundo atributo mais baixo por 15 s."
+      "descricao": "Suas habilidades e feitiços que causam dano têm chance de conceder Astúcia do Andarilho, aumentando em 76 seu segundo atributo mais baixo por 15 s.",
+      "icone": "inv_12_profession_inscriptions_darkmoonsigil_hunt",
+      "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_12_profession_inscriptions_darkmoonsigil_hunt.jpg",
+      "texto_completo": "Signo de Negraluna: Sangue\nNível do Item: 90 Reagente de criação opcional +5 Dificuldade da receita\nFornece as seguintes propriedades: Suas habilidades e feitiços que causam dano têm chance de conceder Astúcia do Andarilho , aumentando em 76 seu segundo atributo mais baixo por 15 s.\nQuando um jogador aliado morre, você recebe 63 do seu atributo secundário mais alto por 15 s. Este efeito só pode ser ativado uma vez a cada 5 min.\nÚnico-equipado: Adornado 2\nUsável com: Receitas de Midnight para a maioria das armas e itens de mão secundária não adornados.\n\"Pode ser comprado e vendido na Casa de Leilões.\"\nEmpilhamento máx: 20 Preço de Venda: 43 43 95",
+      "texto_en": "Darkmoon Sigil: Blood\nItem Level 90 Optional Crafting Reagent +5 Recipe Difficulty\nProvides the following property: Your damaging spells and abilities have the chance to grant Farstrider's Guile , increasing your lowest secondary stat by 76 for 15 sec.\nWhen an allied player dies, gain 63 of your highest secondary stat for 15 sec. This effect can only occur once every 5 min.\nUnique-Equipped: Embellished 2.\nUsable with: Midnight recipes for most unembellished weapons and off-hands.\n\"Can be bought and sold on the Auction House.\"\nMax Stack: 20 Sell Price: 43 43 95",
+      "qualidade": 3
     },
     {
       "reagente_id": 245874,
@@ -79,7 +115,12 @@
       "bonus_id": 13640,
       "alvo": "arma",
       "usavel_com": "Receitas de Midnight para a maioria das armas e itens de mão secundária não adornados.",
-      "descricao": "Suas habilidades e feitiços que causam dano têm chance de envolver você com Vidro Caótico, concedendo 40 de Versatilidade ao longo de 15 s. Múltiplas aplicações podem se sobrepor."
+      "descricao": "Suas habilidades e feitiços que causam dano têm chance de envolver você com Vidro Caótico, concedendo 40 de Versatilidade ao longo de 15 s. Múltiplas aplicações podem se sobrepor.",
+      "icone": "inv_12_profession_inscriptions_darkmoonsigil_void",
+      "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_12_profession_inscriptions_darkmoonsigil_void.jpg",
+      "texto_completo": "Signo de Negraluna: Caos\nNível do Item: 90 Reagente de criação opcional +5 Dificuldade da receita\nFornece as seguintes propriedades: Suas habilidades e feitiços que causam dano têm chance de envolver você com Vidro Caótico, concedendo 40 de Versatilidade ao longo de 15 s. Múltiplas aplicações podem se sobrepor.\nÚnico-equipado: Adornado 2\nUsável com: Receitas de Midnight para a maioria das armas e itens de mão secundária não adornados.\n\"Pode ser comprado e vendido na Casa de Leilões.\"\nEmpilhamento máx: 20 Preço de Venda: 43 43 95",
+      "texto_en": "Darkmoon Sigil: Void\nItem Level 90 Optional Crafting Reagent +5 Recipe Difficulty\nProvides the following property: Your damaging spells and abilities have the chance to embolden you in Void Glass granting 40 Versatility over 15 sec. Multiple applications can overlap.\nUnique-Equipped: Embellished 2.\nUsable with: Midnight recipes for most unembellished weapons and off-hands.\n\"Can be bought and sold on the Auction House.\"\nMax Stack: 20 Sell Price: 43 43 95",
+      "qualidade": 3
     },
     {
       "reagente_id": 245876,
@@ -89,7 +130,12 @@
       "bonus_id": 12693,
       "alvo": "arma",
       "usavel_com": "Receitas de Midnight para a maioria das armas e itens de mão secundária não adornados.",
-      "descricao": "Seus feitiços e habilidades têm chance de conceder 56 de atributos secundários por 15 s com base no tipo da criatura-alvo."
+      "descricao": "Seus feitiços e habilidades têm chance de conceder 56 de atributos secundários por 15 s com base no tipo da criatura-alvo.",
+      "icone": "inv_12_profession_inscriptions_darkmoonsigil_bloom",
+      "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_12_profession_inscriptions_darkmoonsigil_bloom.jpg",
+      "texto_completo": "Signo de Negraluna: Caçada\nNível do Item: 90 Reagente de criação opcional +5 Dificuldade da receita\nFornece as seguintes propriedades: Seus feitiços e habilidades têm chance de conceder 56 de atributos secundários por 15 s com base no tipo da criatura-alvo.\nÚnico-equipado: Adornado 2\nUsável com: Receitas de Midnight para a maioria das armas e itens de mão secundária não adornados.\n\"Pode ser comprado e vendido na Casa de Leilões.\"\nEmpilhamento máx: 20 Preço de Venda: 43 43 95",
+      "texto_en": "Darkmoon Sigil: Hunt\nItem Level 90 Optional Crafting Reagent +5 Recipe Difficulty\nProvides the following property: Your spells and abilities have the chance to grant 56 secondary stats for 15 sec based on the target creature's type.\nUnique-Equipped: Embellished 2.\nUsable with: Midnight recipes for most unembellished weapons and off-hands.\n\"Can be bought and sold on the Auction House.\"\nMax Stack: 20 Sell Price: 43 43 95",
+      "qualidade": 3
     },
     {
       "reagente_id": 245878,
@@ -99,7 +145,12 @@
       "bonus_id": 12692,
       "alvo": "arma",
       "usavel_com": "Receitas de Midnight para a maioria das armas e itens de mão secundária não adornados.",
-      "descricao": "Atinge seu alvo com Raízes Pútridas, causando 113 de dano de Natureza a cada 2 s por 6 s. Este efeito acumula até 10 vezes. Novos acúmulos não renovam os já aplicados."
+      "descricao": "Atinge seu alvo com Raízes Pútridas, causando 113 de dano de Natureza a cada 2 s por 6 s. Este efeito acumula até 10 vezes. Novos acúmulos não renovam os já aplicados.",
+      "icone": "inv_12_profession_inscriptions_darkmoonsigil_rot",
+      "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_12_profession_inscriptions_darkmoonsigil_rot.jpg",
+      "texto_completo": "Signo de Negraluna: Podridão\nNível do Item: 90 Reagente de criação opcional +5 Dificuldade da receita\nFornece as seguintes propriedades: Atinge seu alvo com Raízes Pútridas, causando 113 de dano de Natureza a cada 2 s por 6 s. Este efeito acumula até 10 vezes. Novos acúmulos não renovam os já aplicados.\nÚnico-equipado: Adornado 2\nUsável com: Receitas de Midnight para a maioria das armas e itens de mão secundária não adornados.\n\"Pode ser comprado e vendido na Casa de Leilões.\"\nEmpilhamento máx: 20 Preço de Venda: 43 43 95",
+      "texto_en": "Darkmoon Sigil: Rot\nItem Level 90 Optional Crafting Reagent +5 Recipe Difficulty\nProvides the following property: Afflict your target with Rotting Roots dealing 113 Nature Damage every 2 seconds for 6 sec. This effect stacks up to 10 times. New stacks do not refresh applied stacks.\nUnique-Equipped: Embellished 2.\nUsable with: Midnight recipes for most unembellished weapons and off-hands.\n\"Can be bought and sold on the Auction House.\"\nMax Stack: 20 Sell Price: 43 43 95",
+      "qualidade": 3
     },
     {
       "reagente_id": 248133,
@@ -109,7 +160,12 @@
       "bonus_id": 12717,
       "alvo": null,
       "usavel_com": "Botas de Engenharia de Midnight",
-      "descricao": "Prepara suas botas para o combate, lançando você no ar e derrubando inimigos ao atingir o solo."
+      "descricao": "Prepara suas botas para o combate, lançando você no ar e derrubando inimigos ao atingir o solo.",
+      "icone": "inv_10_engineering_manufacturedparts_electricalparts_color1",
+      "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_10_engineering_manufacturedparts_electricalparts_color1.jpg",
+      "texto_completo": "Detonadores de Tornozelo Cinéticos\nNível do Item: 72 Reagente de criação opcional +5 Dificuldade da receita\nFornece as seguintes propriedades: Prepara suas botas para o combate, lançando você no ar e derrubando inimigos ao atingir o solo.\nSó pode ser usado em ambientes externos.\nUsável com: Botas de Engenharia de Midnight\n\"Podem ser comprados e vendidos na Casa de Leilões.\"\nEmpilhamento máx: 20 Preço de Venda: 16 92 10",
+      "texto_en": "Kinetic Ankle Primers\nItem Level 72 Optional Crafting Reagent +5 Recipe Difficulty\nProvides the following property: Prime your boots for engagement, launching you into the air and knocking up enemies on impact.\nCan only be used outdoors.\nUsable with: Midnight Engineering Boots\n\"Can be bought and sold on the Auction House.\"\nMax Stack: 20 Sell Price: 16 92 10",
+      "qualidade": 3
     },
     {
       "reagente_id": 248136,
@@ -119,7 +175,12 @@
       "bonus_id": 12991,
       "alvo": "qualquer",
       "usavel_com": "Receitas de Midnight para a maior parte dos equipamentos não adornados.",
-      "descricao": null
+      "descricao": null,
+      "icone": "inv_pet_futurebotpet_orange",
+      "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_pet_futurebotpet_orange.jpg",
+      "texto_completo": "M3D1 de Bolso\nNível do Item: 372 Reagente de criação opcional\nFornece as seguintes propriedades:\nUma versão de bolso do seu parceiro M3D1 que revive você após morrer ao ar livre.\nUsável com: Receitas de Midnight para a maior parte dos equipamentos não adornados.\n\"Produto criado por jogadores com perícia em Engenharia. Pode ser comprado e vendido na Casa de Leilões.\"\nEmpilhamento máx: 1000 Preço de Venda: 17 46 5",
+      "texto_en": "M3DDY, Travel-Sized\nItem Level 372 Optional Crafting Reagent\nProvides the following property:\nA pocket-sized version of your buddy, M3DDY, that will revive you upon your untimely demise while outdoors.\nUsable with: Midnight recipes for most unembellished equipment.\n\"Created by players with the Engineering skill. Can be bought and sold on the Auction House.\"\nMax Stack: 1000 Sell Price: 17 46 5",
+      "qualidade": 3
     },
     {
       "reagente_id": 248592,
@@ -129,7 +190,12 @@
       "bonus_id": 12990,
       "alvo": null,
       "usavel_com": "Equipamentos Criados de Engenharia de Midnight",
-      "descricao": "Evoca B1P, o Calcinador de Almas, para lançar centelhas de alma contra seus inimigos, causando dano de Fogo em uma área cônica à sua frente por 6 s."
+      "descricao": "Evoca B1P, o Calcinador de Almas, para lançar centelhas de alma contra seus inimigos, causando dano de Fogo em uma área cônica à sua frente por 6 s.",
+      "icone": "inv_robotpet",
+      "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_robotpet.jpg",
+      "texto_completo": "B1P, Calcinador de Almas\nNível do Item: 372 Reagente de criação opcional +5 Dificuldade da receita\nFornece as seguintes propriedades: Evoca B1P, o Calcinador de Almas, para lançar centelhas de alma contra seus inimigos, causando dano de Fogo em uma área cônica à sua frente por 6 s.\nUsável com: Equipamentos Criados de Engenharia de Midnight\n\"Evoca B1P, Calcinador de Almas. Produto criado por jogadores com perícia em Engenharia. Pode ser comprado e vendido na Casa de Leilões.\"\nEmpilhamento máx: 1000 Preço de Venda: 8 73",
+      "texto_en": "B1P, Scorcher of Souls\nItem Level 372 Optional Crafting Reagent +5 Recipe Difficulty\nProvides the following property: Summons B1P, Scorcher of Souls to spray soul sparks on your enemies dealing Fire damage in a cone in front of you for 6 sec.\nUsable with: Midnight Engineering Crafted Equipment\n\"Summons B1P, Scorcher of Souls. Created by players with the Engineering skill. Can be bought and sold on the Auction House.\"\nMax Stack: 1000 Sell Price: 8 73",
+      "qualidade": 3
     },
     {
       "reagente_id": 251488,
@@ -139,7 +205,12 @@
       "bonus_id": 13453,
       "alvo": "qualquer",
       "usavel_com": "Receitas de Midnight para a maioria dos equipamentos não adornados.",
-      "descricao": "Seus feitiços e habilidades têm chance de ativar a Íris, que dispara um feixe de luz focado no seu alvo e causa (1 * 1102) de dano Arcano a cada segundo por 4 s."
+      "descricao": "Seus feitiços e habilidades têm chance de ativar a Íris, que dispara um feixe de luz focado no seu alvo e causa (1 * 1102) de dano Arcano a cada segundo por 4 s.",
+      "icone": "item_cutmetagem",
+      "icone_url": "https://wow.zamimg.com/images/wow/icons/large/item_cutmetagem.jpg",
+      "texto_completo": "Íris Focalizadora Prismática\nNível do Item: 72 Reagente de criação opcional +5 Dificuldade da receita\nFornece as seguintes propriedades: Seus feitiços e habilidades têm chance de ativar a Íris, que dispara um feixe de luz focado no seu alvo e causa ( 1 * 1102 ) de dano Arcano a cada segundo por 4 s.\nCada cor de gema única que você tiver engastado fortalece a Íris, fazendo com que cause 1% de dano adicional.\nUsável com: Receitas de Midnight para a maioria dos equipamentos não adornados.\n\"Pode ser comprado e vendido na Casa de Leilões.\"\nEmpilhamento máx: 20 Preço de Venda: 13 20",
+      "texto_en": "Prismatic Focusing Iris\nItem Level 72 Optional Crafting Reagent +5 Recipe Difficulty\nProvides the following property: Your spells and abilities have a chance to activate the Iris, firing a focused beam of light at your target and dealing ( 1 * 1102 ) Arcane damage every second for 4 sec.\nEach unique gem color you have socketed empowers the Iris, causing it to deal 1% additional damage per.\nUsable with: Midnight recipes for most unembellished equipment.\n\"Can be bought and sold on the Auction House.\"\nMax Stack: 20 Sell Price: 13 20",
+      "qualidade": 3
     },
     {
       "reagente_id": 251490,
@@ -149,7 +220,12 @@
       "bonus_id": 13454,
       "alvo": "qualquer",
       "usavel_com": "Receitas de Midnight para a maioria dos equipamentos não adornados.",
-      "descricao": "Dobrando as gemas, dobrando o poder!"
+      "descricao": "Dobrando as gemas, dobrando o poder!",
+      "icone": "inv_jewelry_ring_77",
+      "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_jewelry_ring_77.jpg",
+      "texto_completo": "Bandoleira de Gemas Estabilizadora\nNível do Item: 72 Reagente de criação opcional +5 Dificuldade da receita\nFornece as seguintes propriedades: Dobrando as gemas, dobrando o poder!\nTodos os ornamentos de Joalheria operam com o dobro de força.\nUsável com: Receitas de Midnight para a maioria dos equipamentos não adornados.\n\"Pode ser comprado e vendido na Casa de Leilões.\"\nEmpilhamento máx: 20 Preço de Venda: 2 50",
+      "texto_en": "Stabilizing Gemstone Bandolier\nItem Level 72 Optional Crafting Reagent +5 Recipe Difficulty\nProvides the following property: Double the gems, double the power!\nAll Jewelcrafting embellishments operate at double strength.\nUsable with: Midnight recipes for most unembellished equipment.\n\"Can be bought and sold on the Auction House.\"\nMax Stack: 20 Sell Price: 2 50",
+      "qualidade": 3
     },
     {
       "reagente_id": 255844,
@@ -159,7 +235,12 @@
       "bonus_id": 13556,
       "alvo": null,
       "usavel_com": "Equipamentos Criados de Engenharia de Midnight",
-      "descricao": "Concede invisibilidade ao usuário por 4-18 s."
+      "descricao": "Concede invisibilidade ao usuário por 4-18 s.",
+      "icone": "creatureportrait_robot_bulldog",
+      "icone_url": "https://wow.zamimg.com/images/wow/icons/large/creatureportrait_robot_bulldog.jpg",
+      "texto_completo": "P51U, Filhotinho Sossegado\nNível do Item: 72 Reagente de criação opcional +5 Dificuldade da receita\nFornece as seguintes propriedades: Concede invisibilidade ao usuário por 4-18 s.\nSó pode ser usado em ambientes externos. Não pode ser usado em combate.\nUsável com: Equipamentos Criados de Engenharia de Midnight\n\"Pode ser comprado e vendido na Casa de Leilões.\"\nEmpilhamento máx: 20 Preço de Venda: 8 65",
+      "texto_en": "HU5H, Nonchalant Pup\nItem Level 72 Optional Crafting Reagent +5 Recipe Difficulty\nProvides the following property: Grants the user invisibility for 4-18 sec.\nCan only be used outdoors. Cannot be cast in combat.\nUsable with: Midnight Engineering Crafted Equipment\n\"Can be bought and sold on the Auction House.\"\nMax Stack: 20 Sell Price: 8 65",
+      "qualidade": 3
     },
     {
       "reagente_id": 257741,
@@ -169,7 +250,12 @@
       "bonus_id": 13588,
       "alvo": null,
       "usavel_com": "Equipamentos Criados de Engenharia de Midnight",
-      "descricao": null
+      "descricao": null,
+      "icone": "inv_pet_futurebotpet",
+      "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_pet_futurebotpet.jpg",
+      "texto_completo": "B0P, Seletor de Cabuns\nNível do Item: 72 Reagente de criação opcional +5 Dificuldade da receita\nFornece as seguintes propriedades:\nSeus feitiços e habilidades de dano ou cura têm uma chance de disparar até 5 Grandes Cabuns, causando até 698 de dano de Fogo ou 1051 de cura com base na quantidade de Grandes Cabuns ativados.\nUsável com: Equipamentos Criados de Engenharia de Midnight\n\"Pode ser comprado e vendido na Casa de Leilões.\"\nEmpilhamento máx: 20 Preço de Venda: 8 65",
+      "texto_en": "B0P, Curator of Booms\nItem Level 72 Optional Crafting Reagent +5 Recipe Difficulty\nProvides the following property:\nYour damaging or healing spells and abilities have a chance to fire up to 5 Big Booms, dealing up to 698 Fire damage or 1051 healing based on the amount of Big Booms delivered.\nUsable with: Midnight Engineering Crafted Equipment\n\"Can be bought and sold on the Auction House.\"\nMax Stack: 20 Sell Price: 8 65",
+      "qualidade": 3
     },
     {
       "reagente_id": 270898,
@@ -179,7 +265,12 @@
       "bonus_id": 13764,
       "alvo": "armadura",
       "usavel_com": "Receitas de Midnight para a maioria das armaduras não adornadas.",
-      "descricao": "Suas habilidades que causam dano podem aplicar Ácido Corrosivo a um alvo, causando dano periódico. Causar dano ao alvo novamente tem uma chance de detonar o veneno e espalhar dano aos inimigos em volta."
+      "descricao": "Suas habilidades que causam dano podem aplicar Ácido Corrosivo a um alvo, causando dano periódico. Causar dano ao alvo novamente tem uma chance de detonar o veneno e espalhar dano aos inimigos em volta.",
+      "icone": "inv_121_professions_fishing_curseworm_red",
+      "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_121_professions_fishing_curseworm_red.jpg",
+      "texto_completo": "Forro de Couro de Cobra\nNível do Item: 72 Reagente de criação opcional +15 Dificuldade da receita\nFornece as seguintes propriedades: Suas habilidades que causam dano podem aplicar Ácido Corrosivo a um alvo, causando dano periódico. Causar dano ao alvo novamente tem uma chance de detonar o veneno e espalhar dano aos inimigos em volta.\nUsável com: Receitas de Midnight para a maioria das armaduras não adornadas.\n\"Pode ser comprado e vendido na Casa de Leilões.\"\nEmpilhamento máx: 200 Preço de Venda: 6 82",
+      "texto_en": "Snakeskin Lining\nItem Level 72 Optional Crafting Reagent +15 Recipe Difficulty\nProvides the following property: Your damaging abilities can apply Corrosive Acid to a target, dealing damage over time. Damaging the target again has a chance to detonate the venom and splash damage to surrounding enemies.\nUsable with: Midnight recipes for most unembellished armor.\n\"Can be bought and sold on the Auction House.\"\nMax Stack: 200 Sell Price: 6 82",
+      "qualidade": 3
     },
     {
       "reagente_id": 273059,
@@ -189,7 +280,12 @@
       "bonus_id": 13771,
       "alvo": null,
       "usavel_com": "Armas de Ferraria de Midnight",
-      "descricao": "Suas habilidades e feitiços que causam dano têm chance de conceder 101 de um atributo secundário aleatório por 15 s."
+      "descricao": "Suas habilidades e feitiços que causam dano têm chance de conceder 101 de um atributo secundário aleatório por 15 s.",
+      "icone": "inv_12_profession_blacksmithing_weightstone_green",
+      "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_12_profession_blacksmithing_weightstone_green.jpg",
+      "texto_completo": "Pedra Ritual do Caçador\nNível do Item: 80 Reagente de criação opcional +15 Dificuldade da receita\nFornece as seguintes propriedades: Suas habilidades e feitiços que causam dano têm chance de conceder 101 de um atributo secundário aleatório por 15 s.\nDurante uma Caça às Presas, este efeito aumenta em 50%. Este bônus só fica disponível em ambientes externos e enquanto você caça presas.\nUsável com: Armas de Ferraria de Midnight\n\"Criado por jogadores com a perícia Ferraria. Pode ser comprada e vendida na Casa de Leilões.\"\nEmpilhamento máx: 1000 Preço de Venda: 6 15",
+      "texto_en": "Hunter's Ritual Stone\nItem Level 80 Optional Crafting Reagent +15 Recipe Difficulty\nProvides the following property: Your damaging spells and abilities have a chance to grant 101 of a random secondary stat for 15 sec.\nWhile on a Prey Hunt this effect is increased by 50%. This bonus is only available outdoors while hunting prey.\nUsable with: Midnight Blacksmithing Weapons\n\"Crafted by players with the Blacksmithing skill. Can be bought and sold on the Auction House.\"\nMax Stack: 1000 Sell Price: 6 15",
+      "qualidade": 3
     },
     {
       "reagente_id": 273062,
@@ -199,7 +295,12 @@
       "bonus_id": 13769,
       "alvo": null,
       "usavel_com": "Armas de Fogo de Engenharia de Midnight",
-      "descricao": null
+      "descricao": null,
+      "icone": "inv_10_engineering_scope_color3",
+      "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_10_engineering_scope_color3.jpg",
+      "texto_completo": "Olho de Cobra Enrolado\nNível do Item: 72 Reagente de criação opcional +15 Dificuldade da receita\nFornece as seguintes propriedades:\nSuas habilidades e feitiços que causam dano têm chance de conceder 67 de um atributo secundário aleatório por 15 s.\nSe este efeito for ativado por um Acerto Crítico, ele concede bônus a seu atributo secundário mais alto.\nUsável com: Armas de Fogo de Engenharia de Midnight\n\"Pode ser comprado e vendido na Casa de Leilões.\"\nEmpilhamento máx: 20 Preço de Venda: 17 30 50",
+      "texto_en": "Coiled Snake-Eye\nItem Level 72 Optional Crafting Reagent +15 Recipe Difficulty\nProvides the following property:\nYour damaging spells and abilties have a chance to grant 67 of a random secondary stat for 15 sec.\nIf this effect was triggered by a Critical Strike, it grants your highest secondary stat instead.\nUsable with: Midnight Engineering Guns\n\"Can be bought and sold on the Auction House.\"\nMax Stack: 20 Sell Price: 17 30 50",
+      "qualidade": 3
     },
     {
       "reagente_id": 273065,
@@ -209,7 +310,12 @@
       "bonus_id": 13768,
       "alvo": "acessorio",
       "usavel_com": "Receitas de Midnight para a maioria dos acessórios não adornados.",
-      "descricao": "Acertos críticos concedem uma bênção cumulativa que aumenta o seu Acerto Crítico. Com o máximo de aplicações, os acertos críticos causam uma explosão de dano."
+      "descricao": "Acertos críticos concedem uma bênção cumulativa que aumenta o seu Acerto Crítico. Com o máximo de aplicações, os acertos críticos causam uma explosão de dano.",
+      "icone": "jewelcrafting_cut-epic-gem_color1",
+      "icone_url": "https://wow.zamimg.com/images/wow/icons/large/jewelcrafting_cut-epic-gem_color1.jpg",
+      "texto_completo": "Amolita Polida\nNível do Item: 72 Reagente de criação opcional +15 Dificuldade da receita\nFornece as seguintes propriedades: Acertos críticos concedem uma bênção cumulativa que aumenta o seu Acerto Crítico. Com o máximo de aplicações, os acertos críticos causam uma explosão de dano.\nUsável com: Receitas de Midnight para a maioria dos acessórios não adornados.\n\"Pode ser comprado e vendido na Casa de Leilões.\"\nEmpilhamento máx: 20 Preço de Venda: 13 20",
+      "texto_en": "Polished Ammolite\nItem Level 72 Optional Crafting Reagent +15 Recipe Difficulty\nProvides the following property: Critical strikes bestow a stacking blessing that grants more Critical Strike. At maximum stacks, critical strikes cause a burst of damage.\nUsable with: Midnight recipes for most unembellished accessories.\n\"Can be bought and sold on the Auction House.\"\nMax Stack: 20 Sell Price: 13 20",
+      "qualidade": 3
     },
     {
       "reagente_id": 273068,
@@ -219,7 +325,12 @@
       "bonus_id": 13767,
       "alvo": "qualquer",
       "usavel_com": "Receitas de Midnight para a maioria dos equipamentos não adornados.",
-      "descricao": "Seus feitiços e habilidades têm chance de aumentar sua Aceleração, com um aumento de chance quando o alvo está com os pontos de vida baixos."
+      "descricao": "Seus feitiços e habilidades têm chance de aumentar sua Aceleração, com um aumento de chance quando o alvo está com os pontos de vida baixos.",
+      "icone": "inv_knife_1h_ulatek_d_01",
+      "icone_url": "https://wow.zamimg.com/images/wow/icons/large/inv_knife_1h_ulatek_d_01.jpg",
+      "texto_completo": "Presa Adornada\nNível do Item: 72 Requer Nível 71\nReagente de criação opcional +15 Dificuldade da receita\nFornece as seguintes propriedades: Seus feitiços e habilidades têm chance de aumentar sua Aceleração, com um aumento de chance quando o alvo está com os pontos de vida baixos.\nUsável com: Receitas de Midnight para a maioria dos equipamentos não adornados.\n\"Pode ser comprado e vendido na Casa de Leilões.\"\nEmpilhamento máx: 200 Preço de Venda: 7 40",
+      "texto_en": "Adorned Fang\nItem Level 72 Requires Level 71\nOptional Crafting Reagent +15 Recipe Difficulty\nProvides the following property: Your spells and abilities have a chance to increase your Haste, with the chance increasing when a target is at lower health.\nUsable with: Midnight recipes for most unembellished equipment.\n\"Can be bought and sold on the Auction House.\"\nMax Stack: 200 Sell Price: 7 40",
+      "qualidade": 3
     }
   ]
 }

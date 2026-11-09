@@ -152,3 +152,35 @@ def info(item_id: int) -> EmbelezamentoInfo:
 def listar_craftados() -> list[dict]:
     """All craftable items with their embellishment facts, for the catalog API."""
     return [dict(registro) for registro in _indice().values()]
+
+
+_CAMPOS_WOWHEAD = (
+    "icone",
+    "icone_url",
+    "texto_completo",
+    "texto_en",
+    "qualidade",
+    "materiais",
+    "usado_em",
+)
+
+
+def mesclar_wowhead(embelezamentos: list[dict], wowhead: dict) -> list[dict]:
+    """Mescla ícone/texto/materiais do Wowhead em cada embelezamento (por reagente).
+
+    O texto do Wowhead é só descritivo (tela); nenhum número dele entra em
+    cálculo de DPS (P1). Campos ausentes/vazios do Wowhead não sobrescrevem nada.
+    """
+    por_id: dict[int, dict] = {}
+    for entrada in wowhead.get("embelezamentos", []) or []:
+        if isinstance(entrada, dict) and entrada.get("reagente_id") is not None:
+            por_id[int(entrada["reagente_id"])] = entrada
+    for item in embelezamentos:
+        extra = por_id.get(int(item["reagente_id"]))
+        if not extra:
+            continue
+        for campo in _CAMPOS_WOWHEAD:
+            valor = extra.get(campo)
+            if valor not in (None, "", []):
+                item[campo] = valor
+    return embelezamentos
