@@ -252,7 +252,7 @@ A fazer:
 | 2 | **T5** Catálogo de M+ por masmorra e elegibilidade | [x] | `3e26a67` |
 | 2 | **T6** Motor do ranking de masmorras | [x] | `847eb25` |
 | 2 | **T7** API, worker e tela do ranking | [x] | `016170b` (backend), `db117a5` (UI) |
-| 2 | **T8** Grande Cofre a partir do `.gv` | [~] | parcial: `opcoes_do_cofre`; falta fixture real + eval/UI |
+| 2 | **T8** Grande Cofre a partir do `.gv` | [x] | `092211f`/`925fccc` (lib), `c7eba46` (backend), `8c6bbf0` (UI) |
 | 2 | **T9** Várias builds: matriz, média e montagem | [~] | parcial: `builds.py`; falta montagem + UI |
 | 2 | **T10** Validação ao vivo no Windows (usuário) | [ ] | |
 | 3 | **T11** String do Pawn | [~] | biblioteca pronta; falta UI/medição |

@@ -113,7 +113,8 @@ Nenhum bloqueio ativo. O binário foi compilado a partir do fonte `12.1.5.70783`
 | **Entregue** | `masmorras/cofre.py::opcoes_do_cofre`: resolve `item_id`, `slots`, `ilvl` e `bonus_ids` decodificando o `.gv` com o codec do T2. `tests/test_masmorras_cofre.py` (tokens sintéticos via `codificar_itens`): head `271483`/334 e wrist `239648`; `.gv` vazio = `[]`. |
 | **Validado com dado real** | `fixtures/ngmmexe-amr-cofre.txt` (export do druida com o `.gv` preenchido): `opcoes_do_cofre` resolveu `248583` (trinket1/2, ilvl 305) e `272239` (chest, ilvl 305); o token placeholder `269862` ficou sem slot e é ignorado. Confirma o formato do `.gv` (a classe não importa para o parser). |
 | **Eval** | `masmorras/cofre.montar_opcoes_cofre` converte as opções em `Candidato` com os bônus **reais** (não `NIVEL_PARA_BONUS`), testa anel/berloque em dois slots e reusa `avaliar`/`fonte="cofre"`. Testado com o `.gv` real do druida. |
-| **Pendente** | (3) worker/API/tela separando "ganho se pegar" de "ganho se pegar e catalisar". |
+| **Worker/API/tela** | `RankingRequest.modo="cofre"`; o worker monta as opções e retorna um cartão "Grande Cofre"; a tela tem o seletor Masmorras/Cofre e mostra ganho cru vs catalisado. Validado por `test_masmorras_api.py::test_modo_cofre_aceita_export_amr`. |
+| **Pendente** | validação ao vivo no Windows (T10) com o cofre cheio. |
 
 ### T9 — Várias builds: matriz, média e montagem — **[~] PARCIAL em 2026-11-08**
 
