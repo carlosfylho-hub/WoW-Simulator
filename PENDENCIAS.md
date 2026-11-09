@@ -90,6 +90,14 @@ Nenhum bloqueio ativo. O binário foi compilado a partir do fonte `12.1.5.70783`
 | **Refatoração** | `tipo_armadura_da_classe` e `atributo_da_classe` movidas para `src/wowsim/data/classes.py`; `web/topgear_worker.py` reexporta, então nenhum importador quebrou. O pacote `masmorras` não depende de `web`. |
 | **Confirmação** | `tests/test_masmorras_catalogo.py`: Warlock (tecido, Intelecto) tem **51 elegíveis**, 4 a 8 por masmorra, exatamente as contagens do protótipo; nenhum couro elegível para tecido; todo berloque tem masmorra resolvida. |
 
+### T6 — Motor do ranking de masmorras — **ENTREGUE em 2026-11-08**
+
+| Campo | Detalhe |
+| :--- | :--- |
+| **O que** | `masmorras/avaliar.py`: `montar_opcoes` (cada item vira `Conjunto` com uma troca; anel/berloque em dois slots; slot de tier ganha o gêmeo catalisado), `avaliar` (delta contra a base da MESMA leitura — P4), `rodar_ranking` (triagem + refino, sem `max_time` — A-01), `agrupar` e `ordenar`. `masmorras/modelos.py` com os contratos de API/tela. |
+| **Etiquetas** | `direto` (cru passa), `catalisar` (só o catalisado passa), `ambos` (os dois passam e o catalisado supera o cru por mais que o limiar), `nao_serve`. |
+| **Confirmação** | `tests/test_masmorras_ranking.py` (5 casos): as 4 etiquetas; anel em dois slots vira uma avaliação com o melhor; delta contra a base de cada leitura; `ordenar` por quantidade e por maior; `montar_opcoes(ilvl=999)` levanta `ValueError`. |
+
 ---
 
 ## 3. Pendências de dados
