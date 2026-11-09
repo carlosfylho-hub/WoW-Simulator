@@ -506,6 +506,10 @@ comparada com a execução anterior do usuário (base 144.688 → melhor 164.588
 
 ## 11. Auditoria das entregas da outra IA — 2026-11-08
 
+### P-047 — AMR lia o equipado da spec errada — FECHADA em 2026-11-08
+`ImportAMR.conjunto_atual` assumia `.q2`. O 10º campo do cabeçalho é `data.ActiveSpec` (AskMrRobot-Serializer.lua:943) e `.qN` é o equipado da spec N: para um druida Equilíbrio (spec 1) o sistema lia o `.q2` (outra spec, itens antigos) e acusava 15 slots divergindo do SimC. Agora usa a spec ativa (`spec_ativa`); sem o campo, cai no `.q2`. Testes em `tests/test_amr_spec_ativa.py`. Observação: no parser, o campo `moedas` são na verdade as profissões (`id:nível`) — só o nome está errado, nada usa o valor como moeda.
+
+
 Registro completo em `docs/AUDITORIA-ENTREGAS-IA.md`. Testes 397 ok, tsc limpo, CRLF íntegro.
 
 ### P-041 — T9 monta o conjunto com a versão crua de um item a catalisar — FECHADA em 2026-11-08 (551f15b, 32b9888, 03221d7, UI)

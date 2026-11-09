@@ -130,12 +130,28 @@ class ImportAMR(BaseModel):
 
     @property
     def conjunto_atual(self) -> ConjuntoAMR | None:
-        """AMR coloca o conjunto ativo em ``.q2``; cai no primeiro ``.q``."""
+        """Conjunto equipado da spec ATIVA.
+
+        O 10º campo do cabeçalho (``campo_extra``) é ``data.ActiveSpec``
+        (AskMrRobot-Serializer.lua:943) e o bloco ``.qN`` é o equipado da spec N.
+        Antes isto assumia ``.q2`` — certo só para quem joga a 2ª spec (ex.:
+        Demonologia) e errado para Equilíbrio (spec 1): lia o equipamento de
+        outra spec. Sem o campo, cai no ``.q2`` e depois no primeiro ``.q``.
+        """
+        ativa = self.spec_ativa
+        if ativa is not None and f"q{ativa}" in self.conjuntos:
+            return self.conjuntos[f"q{ativa}"]
         if "q2" in self.conjuntos:
             return self.conjuntos["q2"]
         for chave in sorted(self.conjuntos):
             return self.conjuntos[chave]
         return None
+
+    @property
+    def spec_ativa(self) -> int | None:
+        """Posição da spec ativa (1–4) no export, ou None se ausente."""
+        valor = _int(self.campo_extra)
+        return valor if valor is not None and 1 <= valor <= 4 else None
 
 
 def detectar(texto: str) -> bool:
