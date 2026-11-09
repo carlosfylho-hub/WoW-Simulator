@@ -312,6 +312,11 @@ def test_modo_craft_no_worker(tmp_path, monkeypatch) -> None:
     assert craft["custo"]["brasoes"] == 80 and craft["custo"]["ilvl"] == 331
     assert craft["pecas"][0]["slot"] == "shoulder"
     assert craft["pecas"][0]["missiva"] == "Aceleração + Maestria"
-    arcano = next(e for e in craft["embelezamentos"] if e["nome_en"] == "Arcanoweave Lining")
-    assert arcano["ganho_pct"] == pytest.approx(0.4) and arcano["descricao"]
+    # O personagem do fixture já usa Forro de Arcanotrama aplicado em duas peças
+    # (costas e pulsos), então está no teto: medir outro embelezamento exige
+    # TROCAR o reagente, nunca somar um terceiro (P-050).
+    trocas = [e for e in craft["embelezamentos"] if e["tipo"] == "troca"]
+    assert trocas, craft["embelezamentos"]
+    assert all(e["troca_de"] == "Forro de Arcanotrama" for e in trocas)
+    assert any(e["descricao"] for e in craft["embelezamentos"])
     assert job["resultado"]["masmorras"] == []

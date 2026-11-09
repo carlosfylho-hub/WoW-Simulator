@@ -99,3 +99,63 @@ def test_fase1_mede_peca_embutida_quando_ha_so_um_embutido() -> None:
     r = craft.rodar_craft(base, [item], ctx=ctx, simular=_Sim(), it_triagem=10, it_refino=10)
     assert any(p["item_id"] == 244601 for p in r.pecas)
     assert r.bloqueados == []
+
+
+class _SimEmb:
+    """Base 100; Presa Adornada (adorned_fang) vale 0,4%; missiva Ace+Mae +1%."""
+
+    def __call__(self, conjuntos, iterations):
+        r = {}
+        for nome, c in conjuntos.items():
+            dps = 100.0
+            for cand in c.itens.values():
+                if cand.crafted_stats == [36, 49]:
+                    dps += 1.0
+                if cand.embelezamento_simc == "adorned_fang":
+                    dps += 0.4
+            r[nome] = dps
+        return LeituraSim(base_dps=100.0, resultados=r)
+
+
+def test_fase2_troca_o_reagente_quando_o_teto_esta_cheio() -> None:
+    # Dois embelezamentos aplicados (bônus): Arcanotrama nas costas e Elo Devorador
+    # na cintura. No teto, a fase 2 deve TROCAR o reagente, não somar um terceiro.
+    base = Conjunto(
+        itens={
+            "back": Candidato(
+                slot="back", item_id=239656, fonte="craft", bonus_ids=[12384]
+            ),
+            "waist": Candidato(
+                slot="waist", item_id=239649, fonte="craft", bonus_ids=[12685]
+            ),
+        }
+    )
+    item = craft.ItemCraft(244572, "Dragonas", "Mantle", "shoulder", False)
+    r = craft.rodar_craft(
+        base, [item], ctx=ContextoSpec(), simular=_SimEmb(), it_triagem=10, it_refino=10
+    )
+    trocas = [e for e in r.embelezamentos if e["tipo"] == "troca"]
+    presa = next(e for e in trocas if e["nome_en"] == "Adorned Fang")
+    assert presa["ganho_pct"] == pytest.approx(0.4)
+    assert presa["troca_de"] in ("Forro de Arcanotrama", "Elo Devorador")
+    assert presa["slot_medido"] in ("back", "waist")
+
+
+def test_fase2_troca_a_peca_embutida_quando_so_ha_embutidos() -> None:
+    # Peito e mãos embutidos (teto cheio). A peça craftada de peito com Presa
+    # Adornada substitui a peça embutida inteira.
+    base = Conjunto(
+        itens={
+            "chest": Candidato(slot="chest", item_id=244613, fonte="craft"),
+            "hands": Candidato(slot="hands", item_id=244614, fonte="craft"),
+        }
+    )
+    ctx = ContextoSpec(embelezamentos={244613, 244614})
+    item = craft.ItemCraft(244571, "Vestes", "Robes", "chest", False)
+    r = craft.rodar_craft(
+        base, [item], ctx=ctx, simular=_SimEmb(), it_triagem=10, it_refino=10
+    )
+    pecas_emb = [e for e in r.embelezamentos if e["tipo"] == "peca"]
+    presa = next(e for e in pecas_emb if e["nome_en"] == "Adorned Fang")
+    assert presa["slot_medido"] == "chest"
+    assert presa["troca_de"] == "244613"

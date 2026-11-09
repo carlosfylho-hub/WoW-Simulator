@@ -224,6 +224,24 @@ def _agrupar_bloqueados(
     return sorted(agrupado.values(), key=lambda b: (b["slot"], b["item_id"]))
 
 
+def trocar_embelezamento(base: Conjunto, atual, novo: Embelezamento) -> Conjunto:
+    """Troca o reagente de um embelezado atual pelo ``novo`` no mesmo slot (P-050)."""
+    candidato_atual = base.itens[atual.slot]
+    bonus = [
+        b
+        for b in (candidato_atual.bonus_ids or [])
+        if not (atual.aplicado is not None and b == atual.aplicado.bonus_id)
+    ]
+    novo_item = candidato_atual.model_copy(
+        update={
+            "bonus_ids": bonus,
+            "embelezamento_simc": novo.token_simc,
+            "embelezamento": True,
+        }
+    )
+    return base.com_troca(atual.slot, novo_item)
+
+
 def rodar_craft(
     base: Conjunto,
     itens: list[ItemCraft],
@@ -279,11 +297,18 @@ def rodar_craft(
 
     # Melhor peça por slot (avaliar já escolhe o melhor par de cada item).
     melhor_por_slot: dict[str, tuple[Avaliacao, ItemCraft, tuple[str, str], str]] = {}
+    # Melhor peça NÃO embutida por slot: é ela que recebe um embelezamento novo,
+    # porque a embutida já consome um dos 2 efeitos (P-050).
+    melhor_nao_embutido: dict[str, tuple[Avaliacao, ItemCraft, tuple[str, str], str]] = {}
     for a in avaliacoes:
         item, par, _slot = meta[a.nome_cru]
         atual = melhor_por_slot.get(a.slot)
         if atual is None or a.delta_cru > atual[0].delta_cru:
             melhor_por_slot[a.slot] = (a, item, par, a.nome_cru)
+        if not item.embutido:
+            sem_emb = melhor_nao_embutido.get(a.slot)
+            if sem_emb is None or a.delta_cru > sem_emb[0].delta_cru:
+                melhor_nao_embutido[a.slot] = (a, item, par, a.nome_cru)
 
     pecas = [
         {
@@ -302,16 +327,70 @@ def rodar_craft(
         for slot, (a, item, par, _) in sorted(melhor_por_slot.items(), key=lambda kv: -kv[1][0].delta_cru)
     ]
 
-    # Fase 2: cada embelezamento aplicável, no slot de maior ganho onde cabe (sem embutido).
+    # Fase 2 — embelezamentos, sempre respeitando o teto de 2 (P-050):
+    #  * ainda há espaço: aplica E na melhor peça não embutida que o aceita;
+    #  * no teto, com reagente aplicado: TROCA o reagente atual por E no mesmo slot
+    #    (a contagem continua igual);
+    #  * no teto só com embutidos: troca a peça embutida por uma craftada com E.
+    from .embelezados import embelezados_do_conjunto
+
     avisos: list[str] = []
     fase2: dict[str, Conjunto] = {}
-    por_emb: dict[str, tuple[Embelezamento, str, str]] = {}
+    # nome -> (emb, slot, tipo, ref_sem_emb | None, nome_do_atual)
+    por_emb: dict[str, tuple[Embelezamento, str, str, str | None, str | None]] = {}
+    embelezados = embelezados_do_conjunto(base)
+    no_teto = len(embelezados) >= ctx.max_embelezamentos
+
     for emb in embelezamentos():
+        if no_teto:
+            aplicados = [
+                a for a in embelezados
+                if a.aplicado is not None and not a.embutido and _cabe(emb, a.slot)
+            ]
+            embutidos = [a for a in embelezados if a.embutido and _cabe(emb, a.slot)]
+            mediu = False
+            # (a) trocar o reagente de um embelezado aplicado (total não sobe).
+            for atual in aplicados:
+                if atual.aplicado.reagente_id == emb.reagente_id:
+                    continue  # já é este embelezamento
+                conjunto = trocar_embelezamento(base, atual, emb)
+                ok, _motivos = validar(conjunto, ctx)
+                if not ok:
+                    continue
+                nome = f"swap_{emb.token_simc}_{atual.slot}"
+                fase2[nome] = conjunto
+                por_emb[nome] = (emb, atual.slot, "troca", None, atual.aplicado.nome_pt)
+                mediu = True
+            # (b) no teto só com embutidos: substitui a peça embutida inteira.
+            if not mediu:
+                for atual in embutidos:
+                    melhor = melhor_nao_embutido.get(atual.slot)
+                    if melhor is None:
+                        continue
+                    _a, item, par, _nome_melhor = melhor
+                    conjunto = base.com_troca(
+                        atual.slot, candidato(item, atual.slot, par, emb)
+                    )
+                    ok, _motivos = validar(conjunto, ctx)
+                    if not ok:
+                        continue
+                    nome = f"peca_{emb.token_simc}_{atual.slot}"
+                    fase2[nome] = conjunto
+                    por_emb[nome] = (emb, atual.slot, "peca", None, str(atual.item_id))
+                    mediu = True
+            if not mediu and not aplicados and not embutidos:
+                avisos.append(
+                    f"{emb.nome_pt or emb.nome_en}: não medido "
+                    "(o limite de 2 embelezamentos já está cheio)."
+                )
+            continue
+
+        # (c) ainda há espaço: aplica E na melhor peça não embutida que o aceita.
         alvo = next(
             (
                 (slot, nome)
-                for slot, (a, item, par, nome) in sorted(melhor_por_slot.items(), key=lambda kv: -kv[1][0].delta_cru)
-                if not item.embutido and _cabe(emb, slot)
+                for slot, (a, item, par, nome) in sorted(melhor_nao_embutido.items(), key=lambda kv: -kv[1][0].delta_cru)
+                if _cabe(emb, slot)
             ),
             None,
         )
@@ -327,18 +406,27 @@ def rodar_craft(
         nome = _nome(item.item_id, slot, par, emb.token_simc)
         fase2[nome] = conjunto
         fase2[nome_sem] = conjuntos[nome_sem]  # a mesma peça sem embelezamento, NA MESMA leitura (P4)
-        por_emb[nome] = (emb, slot, nome_sem)
+        por_emb[nome] = (emb, slot, "adicionar", nome_sem, None)
 
     embs: list[dict] = []
     if fase2:
         leitura2 = simular(fase2, it_refino)
         base2 = leitura2.base_dps
-        for nome, (emb, slot, nome_sem) in por_emb.items():
+        for nome, (emb, slot, tipo, ref, atual_nome) in por_emb.items():
             com = leitura2.resultados.get(nome)
-            sem = leitura2.resultados.get(nome_sem)
-            if not base2 or com is None or sem is None:
+            if not base2 or com is None:
                 continue
-            erro = max([LIMIAR_PCT, *(abs(e) for e in (leitura2.erros.get(nome), leitura2.erros.get(nome_sem)) if e is not None)])
+            if tipo == "adicionar":
+                referencia = leitura2.resultados.get(ref) if ref else None
+                if referencia is None:
+                    continue
+                erros_ref = [leitura2.erros.get(nome), leitura2.erros.get(ref)]
+            else:  # troca/peça: compara com a base da mesma leitura (P4)
+                referencia = base2
+                erros_ref = [leitura2.erros.get(nome), leitura2.base_erro]
+            erro = max(
+                [LIMIAR_PCT, *(abs(e) for e in erros_ref if e is not None)]
+            )
             embs.append(
                 {
                     "nome_pt": emb.nome_pt,
@@ -346,8 +434,10 @@ def rodar_craft(
                     "descricao": emb.descricao,
                     "reagente_id": emb.reagente_id,
                     "slot_medido": slot,
-                    "ganho_pct": round(100.0 * (com - sem) / base2, 3),  # só o efeito
-                    "ganho_total_pct": round(100.0 * (com - base2) / base2, 3),  # peça + efeito
+                    "tipo": tipo,
+                    "troca_de": atual_nome,
+                    "ganho_pct": round(100.0 * (com - referencia) / base2, 3),
+                    "ganho_total_pct": round(100.0 * (com - base2) / base2, 3),
                     "limiar_pct": round(erro, 3),
                 }
             )
