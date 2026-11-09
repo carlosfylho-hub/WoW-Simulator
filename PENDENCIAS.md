@@ -135,6 +135,13 @@ Nenhum bloqueio ativo. O binário foi compilado a partir do fonte `12.1.5.70783`
 | **Entregue (A-05)** | `topgear_api._nome_arquivo` sanitiza o nome do `.simc` salvo (só `[A-Za-z0-9_-]`, fallback `job`) — mesmo cuidado do `droptimizer/export.py::nome_do_arquivo`. `tests/test_topgear_nome_arquivo.py`. |
 | **Pendente (A-06)** | Decidir com o usuário se `threads` sai da chave de cache (`simc_runner.chave_cache`). Não alterado para não mudar a política de cache sem decisão. |
 
+### T16 — Bloco de encantamentos do AMR (A-10) — **[~] PARCIAL em 2026-11-08**
+
+| Campo | Detalhe |
+| :--- | :--- |
+| **Entregue** | `parser/amr_codec.encantos_da_linha` lê o bloco `@e\id\item\spell\texto\materiais` (6 campos; `materiais` pode ser vazio). Script `scripts/extrair_encantos_amr.py <bib.txt>` grava `dados/derivados/encantos_amr.json`. `tests/test_encantos_amr.py` confirma os casos do P-016: `8730 → 283998 / 1315084` (Arte de Batalha Hash'ey) e `7935 → 240133 / 1228974` (Magilinha). |
+| **Pendente** | gerar o arquivo com uma string de Best in Bags **real** do AMR (a do usuário) para fechar o P-016; então o mapa pode alimentar `data/enchants.py`. |
+
 ---
 
 ## 3. Pendências de dados

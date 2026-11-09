@@ -141,3 +141,30 @@ def linha_importacao(linha_modelo: str, itens: list[ItemAmr], *, setup_id: str,
 def itens_da_linha(linha: str) -> list[ItemAmr]:
     partes = linha.strip().split("$")[1].split(";")
     return decodificar_itens(partes[INICIO_ITENS:])
+
+
+def encantos_da_linha(linha: str) -> dict[int, dict]:
+    """Extrai o bloco ``@e\\id\\itemId\\spellId\\texto\\materiais`` de uma linha
+    de Best in Bags do AMR. Cada entrada tem 6 campos; ``materiais`` pode ser
+    vazio, mas a barra final é obrigatória (Import.lua faz ``gsub`` no texto).
+    """
+    saida: dict[int, dict] = {}
+    for parte in linha.split("@"):
+        if not parte.startswith("e\\"):
+            continue
+        campos = parte.split("\\")
+        if len(campos) < 6:
+            continue
+        try:
+            enchant_id = int(campos[1])
+            item_id = int(campos[2])
+            spell_id = int(campos[3])
+        except ValueError:
+            continue
+        saida[enchant_id] = {
+            "item_id": item_id,
+            "spell_id": spell_id,
+            "nome": campos[4],
+            "materiais": campos[5],
+        }
+    return saida
