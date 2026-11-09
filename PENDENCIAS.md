@@ -106,6 +106,13 @@ Nenhum bloqueio ativo. O binário foi compilado a partir do fonte `12.1.5.70783`
 | **Frontend** | `services/masmorrasService.ts` e `components/MasmorrasPanel.tsx`: import SimC+AMR, cenário/ilvl, botão de estimativa, barra de progresso, dois botões de ordem (`aria-pressed`), cartões por masmorra com ícone, tooltip, barra proporcional, etiquetas, `explicacao` e `premissa_chance`; 5 masmorras abertas. Aba "Masmorras" em `App.tsx`. |
 | **Aceite** | `pytest` (10 testes de `test_masmorras_api.py`+ranking) e `tsc --noEmit` limpos; falta a validação ao vivo no Windows (T10). |
 
+### T8 — Grande Cofre a partir do `.gv` — **[~] PARCIAL em 2026-11-08**
+
+| Campo | Detalhe |
+| :--- | :--- |
+| **Entregue** | `masmorras/cofre.py::opcoes_do_cofre`: resolve `item_id`, `slots`, `ilvl` e `bonus_ids` decodificando o `.gv` com o codec do T2. `tests/test_masmorras_cofre.py` (tokens sintéticos via `codificar_itens`): head `271483`/334 e wrist `239648`; `.gv` vazio = `[]`. |
+| **Pendente** | (1) fixture real com o cofre cheio em `fixtures/pyrogalth-amr-181-cofre.txt` (usuário); (2) virar as opções em `Candidato` com os bônus reais e reusar `avaliar`/`fonte="cofre"`; (3) worker/API/tela separando "ganho se pegar" de "ganho se pegar e catalisar". Fecha no T10 com o fixture. |
+
 ---
 
 ## 3. Pendências de dados
