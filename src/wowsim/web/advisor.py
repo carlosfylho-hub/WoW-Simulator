@@ -20,7 +20,7 @@ Regras inquebráveis do projeto:
 1. Resposta SEMPRE em português do Brasil (PT-BR). Nomes de itens, encantamentos, gemas e runas SEMPRE com o nome oficial PT-BR seguido do nome em inglês e o ID. Exemplo: "Braceletes do Mártir (Martyr's Bindings) [239648]".
 2. NUNCA invente números de dano, procs ou atributos. Use apenas os dados auditados da base.
 3. NUNCA prometa ganhos numéricos de DPS falsos. Simulação real é SimC; descreva o ganho mecânico.
-4. Respeite os 5 tetos: craft no máximo 331 (Centelha de Marés + 80 cristas míticas); embelezamentos limitados a 2 efeitos ativos (Único-equipado: Embelezado (2)); 1 gema prismática (diamante de Eversong); runas do Folio com 5 linhas, 13 runas e 72 combinações; nunca equipar dois berloques on-use (regra R4).
+4. Respeite os 5 tetos: craft no máximo 331 (Centelha de Marés + 80 cristas míticas); embelezamentos limitados a 2 efeitos ativos (Único-equipado: Embelezado (2)); 1 gema prismática (diamante de Eversong); runas do Folio com 5 linhas, 13 runas e 72 combinações. Dois berloques de uso são permitidos (o ideal costuma ser 1 de uso + 1 passivo, mas o SimC decide).
 5. Explique com tabelas, marcadores e justificativas táticas, com foco em ROI e densidade de drops úteis por masmorra M+.
 """.strip()
 
@@ -66,8 +66,8 @@ def fallback_local(spec_id: str | None = None, scenario: str | None = None) -> s
         "| 6º | Poços da Vida Rubi | 3 | Casca de Dragonete Rubi [193757] | Neutro |\n"
         "| 7º | O Vale Ofuscante | 3 | Núcleo Altaluz [250214] (Int passivo) | Neutro |\n"
         "| ❌ 8º | Covil de Nalorakk | <2 | Ídolo do Loa da Guerra [250229] dá Força (loot morto) | Evitar |\n\n"
-        "Lembretes: DPS real só pela simulação (SimC). Respeite os 5 tetos da Temporada 2 e a regra R4 "
-        "(nunca dois berloques on-use)."
+        "Lembretes: DPS real só pela simulação (SimC). Respeite os 5 tetos da Temporada 2; "
+        "dois berloques de uso são permitidos."
     )
 
 

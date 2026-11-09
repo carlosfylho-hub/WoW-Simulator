@@ -111,19 +111,29 @@ def test_mesmo_item_nao_vai_para_os_dois_slots() -> None:
 
 def test_montar_valido_tira_a_troca_mais_fraca_ate_validar() -> None:
     base = _base()
-    # Dois berloques de uso: a regra R4 permite um só.
+    # Limite explícito (o padrão não limita berloques de uso: o jogo permite dois).
     escolhas = {
         "trinket1": (3.0, _cand("trinket1", 30)),
         "trinket2": (1.0, _cand("trinket2", 31)),
         "head": (2.0, _cand("head", 10)),
     }
-    ctx = _ctx(trinkets_on_use={30, 31})
+    ctx = _ctx(trinkets_on_use={30, 31}, max_on_use=1)
     conjunto, trocas, descartadas = montar_valido(base, escolhas, ctx)
     assert conjunto.item_id("trinket1") == 30
     assert conjunto.item_id("trinket2") == 5  # volta ao equipado
     assert conjunto.item_id("head") == 10
     assert [slot for slot, _, _ in trocas] == ["trinket1", "head"]
     assert [slot for slot, _ in descartadas] == ["trinket2"]
+
+
+def test_dois_berloques_de_uso_ficam_por_padrao() -> None:
+    escolhas = {
+        "trinket1": (3.0, _cand("trinket1", 30)),
+        "trinket2": (1.0, _cand("trinket2", 31)),
+    }
+    conjunto, trocas, descartadas = montar_valido(_base(), escolhas, _ctx(trinkets_on_use={30, 31}))
+    assert (conjunto.item_id("trinket1"), conjunto.item_id("trinket2")) == (30, 31)
+    assert descartadas == []
 
 
 # ---------------------------------------------------------------- P-043

@@ -84,8 +84,21 @@ def test_berloques_on_use() -> None:
     assert any("on-use" in motivo for motivo in motivos)
 
 
-def test_berloque_on_use_por_catalogo() -> None:
+def test_dois_berloques_de_uso_sao_permitidos_por_padrao() -> None:
+    # O jogo não proíbe: sem ``max_on_use`` o par passa e vira só aviso.
     ctx = ContextoSpec(trinkets_on_use={500, 501})
+    conjunto = Conjunto(
+        itens={
+            "trinket1": cand("trinket1", 500),
+            "trinket2": cand("trinket2", 501),
+        }
+    )
+    assert validar(conjunto, ctx) == (True, [])
+    assert any("Dois berloques de uso" in a for a in avisos(conjunto, ctx))
+
+
+def test_berloque_on_use_por_catalogo_com_limite_explicito() -> None:
+    ctx = ContextoSpec(trinkets_on_use={500, 501}, max_on_use=1)
     conjunto = Conjunto(
         itens={
             "trinket1": cand("trinket1", 500),

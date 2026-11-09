@@ -262,7 +262,10 @@ Resta confirmar os campos internos de uma entrada de profileset quando houver va
 
 Import string não é decodificada. Variações de talento usam apenas loadouts nomeados do addon ou códigos de `talent_builds_season2.json`. Fora de escopo decodificar nó.
 
-### P-013 — Berloques on-use e regra R4
+### P-013 — Berloques on-use e regra R4 — **REVISTA em 2026-11-08**
+
+> **Correção do usuário:** o jogo **não** proíbe dois berloques de uso (ele usa dois ativos hoje); 1 ativo + 1 passivo é só a recomendação comum. A R4 deixou de bloquear: `ContextoSpec.max_on_use` passou a `None` (sem limite) e o par vira aviso em `constraints.avisos`. O SimC simula os dois e o número medido decide. O texto abaixo é o registro antigo.
+
 
 O SimC simula o berloque isoladamente, mas a recarga compartilhada é regra de jogo. O gerador marca par on-use mais on-use como `nao_simulavel`. O export atual tem `273649` e `273796`, ambos ativos, o que é exatamente o caso de conflito. Fecha com teste de regra no gerador.
 

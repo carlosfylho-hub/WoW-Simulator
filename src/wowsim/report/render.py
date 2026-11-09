@@ -24,7 +24,7 @@ PISO_ERRO = 0.15
 LIMITES = [
     "Códice Corrosivo não é simulado pelo SimC; os poderes P01–P39 ficam fora do número.",
     "Sobrevivência, dano recebido, escudos e efeitos defensivos não entram no DPS.",
-    "Dois berloques on-use dividem recarga no jogo; o SimC pode não reproduzir esse limite.",
+    "Dois berloques de uso são permitidos e medidos pelo SimC; 1 de uso + 1 passivo é só a recomendação comum.",
     "Comparação de talentos é por loadout salvo, não por nó da árvore.",
     "Diferenças abaixo de 0,15% são ruído e nunca viram recomendação.",
     "Itens fora do banco do SimC não entram na simulação.",

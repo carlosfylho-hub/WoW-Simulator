@@ -302,8 +302,8 @@ def berloques(personagem: Personagem, *, nivel: int = 341) -> list[Variacao]:
             aviso = None
             if tipo_candidato == "ativo" and tipo_outro == "ativo":
                 aviso = (
-                    "Regra R4: dois berloques on-use dividem recarga no jogo; "
-                    "o SimC pode não reproduzir esse limite."
+                    "Dois berloques de uso: o jogo permite e o SimC mede o par; "
+                    "costuma render menos que 1 de uso + 1 passivo."
                 )
             linha = _linha_novo_item(
                 slot, candidato.item_id, bonus_id=candidato.bonus_id, base=None

@@ -248,7 +248,9 @@ class ContextoSpec(BaseModel):
 
     max_embelezamentos: int = 2
     max_diamantes: int = 1
-    max_on_use: int = 1
+    # O jogo NÃO limita berloques de uso; 1 ativo + 1 passivo é só a recomendação
+    # comum (vira aviso). ``None`` = sem limite; um número reativa o bloqueio.
+    max_on_use: int | None = None
     craft_ilvl_teto: int = 331
     exige_offhand_com_1h: bool = True
 

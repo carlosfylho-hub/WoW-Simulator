@@ -177,7 +177,7 @@ def validar(conjunto: Conjunto, ctx: ContextoSpec) -> tuple[bool, list[str]]:
         )
 
     on_use = _berloques_on_use(conjunto, ctx)
-    if len(on_use) > ctx.max_on_use:
+    if ctx.max_on_use is not None and len(on_use) > ctx.max_on_use:
         motivos.append(
             f"Berloques on-use em {', '.join(on_use)}: o máximo é "
             f"{ctx.max_on_use} efeito ativo (regra R4)."
@@ -194,6 +194,8 @@ def validar(conjunto: Conjunto, ctx: ContextoSpec) -> tuple[bool, list[str]]:
 def avisos(conjunto: Conjunto, ctx: ContextoSpec) -> list[str]:
     """Advisory checks that never block a set (tier breakpoints, Catalyst use)."""
     saida: list[str] = []
+    if len(_berloques_on_use(conjunto, ctx)) >= 2:
+        saida.append("Dois berloques de uso: o jogo permite e o SimC mede o par, mas costuma render menos que 1 de uso + 1 passivo.")
     novas = _conversoes_novas(conjunto.itens.values(), ctx)
     if novas:
         slots = ", ".join(
