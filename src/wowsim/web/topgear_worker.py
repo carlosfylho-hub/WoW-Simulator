@@ -11,6 +11,7 @@ import json
 import time
 
 from .. import simc_runner as sr
+from ..data.classes import atributo_da_classe, tipo_armadura_da_classe
 from ..parser.addon import ErroParseAddon
 from ..parser.combinar import combinar_textos
 from ..topgear.models import TopGearRequest
@@ -23,41 +24,6 @@ from .worker import registrar_fim_job, registrar_inicio_job, threads_para_job
 
 class _Cancelado(Exception):
     pass
-
-
-_TECIDO = {"warlock", "priest", "mage"}
-_COURO = {"druid", "rogue", "monk", "demonhunter"}
-_MALHA = {"hunter", "shaman", "evoker"}
-_PLACA = {"warrior", "paladin", "deathknight"}
-_FORCA = {"warrior", "paladin", "deathknight"}
-_AGILIDADE = {"rogue", "hunter", "monk", "demonhunter"}
-
-
-def tipo_armadura_da_classe(classe: str | None) -> str:
-    """Map class to its real armor type: tecido, couro, malha or placa.
-
-    Previously mail/plate classes silently fell back to cloth, producing pools
-    with illegal armor for Hunters/Shamans/Evokers and Warriors/Paladins/DKs.
-    """
-    nome = (classe or "").lower()
-    if nome in _PLACA:
-        return "placa"
-    if nome in _MALHA:
-        return "malha"
-    if nome in _COURO:
-        return "couro"
-    if nome in _TECIDO:
-        return "tecido"
-    return "tecido"
-
-
-def atributo_da_classe(classe: str | None) -> str:
-    nome = (classe or "").lower()
-    if nome in _FORCA:
-        return "Força"
-    if nome in _AGILIDADE:
-        return "Agilidade"
-    return "Intelecto"
 
 
 def _registrar_progresso(job_id: str, evento: dict) -> None:

@@ -81,6 +81,15 @@ Nenhum bloqueio ativo. O binário foi compilado a partir do fonte `12.1.5.70783`
 | **O que** | O estágio de pré-voo (5 iterações, só para saber se o simc roda o perfil) gravava `dps` no JSON de progresso de `topgear_worker.py` e `drop_worker.py`. Gravidade baixa: a tela mostra só `rodada` e `estagio`. |
 | **Correção** | Removido o campo `dps` do evento de pré-voo; fica só `duracao_s`. O DPS continua vindo apenas das rodadas medidas (P1). |
 
+### T5 — Catálogo de M+ por masmorra e elegibilidade — **ENTREGUE em 2026-11-08**
+
+| Campo | Detalhe |
+| :--- | :--- |
+| **O que** | O catálogo descartava a masmorra (guardava o slot em `origem`). Novo pacote `src/wowsim/masmorras/`: `catalogo.py` com `itens_por_masmorra()` e `elegivel()`; `MASMORRA_DA_SUBSECAO` resolve os berloques (subseções sem `dungeon_pt`). |
+| **Elegibilidade** | Armadura só do tipo da classe; berloque de conjurador para Intelecto (`usavel_por_conjurador is not False`); demais pelo atributo primário; atributo desconhecido = mantém (o simc decide). |
+| **Refatoração** | `tipo_armadura_da_classe` e `atributo_da_classe` movidas para `src/wowsim/data/classes.py`; `web/topgear_worker.py` reexporta, então nenhum importador quebrou. O pacote `masmorras` não depende de `web`. |
+| **Confirmação** | `tests/test_masmorras_catalogo.py`: Warlock (tecido, Intelecto) tem **51 elegíveis**, 4 a 8 por masmorra, exatamente as contagens do protótipo; nenhum couro elegível para tecido; todo berloque tem masmorra resolvida. |
+
 ---
 
 ## 3. Pendências de dados
