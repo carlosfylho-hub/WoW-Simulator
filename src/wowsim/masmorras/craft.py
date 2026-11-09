@@ -155,11 +155,15 @@ def candidato(item: ItemCraft, slot: str, par: tuple[str, str], emb: Embelezamen
 
 def montar_opcoes_craft(
     base: Conjunto, itens: list[ItemCraft]
-) -> tuple[dict[str, Conjunto], dict[str, Opcao], dict[str, tuple[ItemCraft, tuple[str, str]]]]:
+) -> tuple[
+    dict[str, Conjunto],
+    dict[str, Opcao],
+    dict[str, tuple[ItemCraft, tuple[str, str], str]],
+]:
     """Cada peça × cada par de secundários, em cada slot onde cabe."""
     conjuntos: dict[str, Conjunto] = {}
     opcoes: dict[str, Opcao] = {}
-    meta: dict[str, tuple[ItemCraft, tuple[str, str]]] = {}
+    meta: dict[str, tuple[ItemCraft, tuple[str, str], str]] = {}
     for item in itens:
         dm = ItemDeMasmorra(item.item_id, item.nome_pt, item.slot, MASMORRA_CRAFT, "craft", None)
         for slot in SLOTS_DUPLOS.get(item.slot, (item.slot,)):
@@ -167,7 +171,7 @@ def montar_opcoes_craft(
                 nome = _nome(item.item_id, slot, par)
                 conjuntos[nome] = base.com_troca(slot, candidato(item, slot, par))
                 opcoes[nome] = Opcao(nome, dm, slot, False, ilvl=ILVL_CRAFT)
-                meta[nome] = (item, par)
+                meta[nome] = (item, par, slot)
     return conjuntos, opcoes, meta
 
 
@@ -177,10 +181,47 @@ class ResultadoCraft:
     pecas: list[dict] = field(default_factory=list)
     embelezamentos: list[dict] = field(default_factory=list)
     avisos: list[str] = field(default_factory=list)
+    # Peças (por slot) que estourariam o teto de 2 embelezamentos e por isso não
+    # foram medidas. Vão para a tela como "para usar, troque um embelezado".
+    bloqueados: list[dict] = field(default_factory=list)
 
 
 def _par_texto(par: tuple[str, str]) -> str:
     return f"{NOME_STAT[par[0]]} + {NOME_STAT[par[1]]}"
+
+
+def _agrupar_bloqueados(
+    itens_bloqueados: list[tuple[str, list[str]]],
+    meta_original: dict[str, tuple[ItemCraft, tuple[str, str], str]],
+    base: Conjunto,
+) -> list[dict]:
+    """Uma linha por (item, slot) que estouraria o teto de embelezamentos (P-049)."""
+    from .embelezados import embelezados_do_conjunto
+
+    atuais = embelezados_do_conjunto(base)
+    slots_atuais = ", ".join(a.slot for a in atuais) or "nenhum"
+    agrupado: dict[tuple[int, str], dict] = {}
+    for nome, motivos in itens_bloqueados:
+        item, _par, slot = meta_original[nome]
+        chave = (item.item_id, slot)
+        if chave in agrupado:
+            continue
+        if item.embutido:
+            motivo = (
+                "Peça já vem com embelezamento embutido e somaria um 3º efeito; "
+                f"para usar, troque um dos seus embelezados ({slots_atuais})."
+            )
+        else:
+            motivo = "; ".join(motivos)
+        agrupado[chave] = {
+            "slot": slot,
+            "item_id": item.item_id,
+            "nome_pt": item.nome_pt,
+            "nome_en": item.nome_en,
+            "embutido": item.embutido,
+            "motivo": motivo,
+        }
+    return sorted(agrupado.values(), key=lambda b: (b["slot"], b["item_id"]))
 
 
 def rodar_craft(
@@ -198,6 +239,31 @@ def rodar_craft(
     if not conjuntos:
         return ResultadoCraft(None, avisos=["Nenhuma peça craftável com dados para o seu tipo de armadura."])
 
+    # P-049: a fase 1 mede no simc, que NÃO impõe o limite de 2 embelezamentos.
+    # Valida cada conjunto ANTES de simular; o que estoura o teto não entra no
+    # ranking (senão o ganho medido inclui um 3º efeito que o jogo desliga).
+    meta_original = dict(meta)
+    validos: dict[str, Conjunto] = {}
+    bloqueados_itens: list[tuple[str, list[str]]] = []
+    for nome, conjunto_c in conjuntos.items():
+        ok, motivos = validar(conjunto_c, ctx)
+        if ok:
+            validos[nome] = conjunto_c
+        else:
+            bloqueados_itens.append((nome, motivos))
+    conjuntos = validos
+    opcoes = {n: opcoes[n] for n in validos}
+    meta = {n: meta[n] for n in validos}
+    bloqueados = _agrupar_bloqueados(bloqueados_itens, meta_original, base)
+    if not conjuntos:
+        return ResultadoCraft(
+            None,
+            bloqueados=bloqueados,
+            avisos=[
+                "Nenhuma peça craftável pode ser medida sem estourar o limite de 2 embelezamentos."
+            ],
+        )
+
     leitura = simular(conjuntos, it_triagem)
     triagem = avaliar(leitura, opcoes)
     vivos = itens_para_refinar(triagem, max_refino)
@@ -214,7 +280,7 @@ def rodar_craft(
     # Melhor peça por slot (avaliar já escolhe o melhor par de cada item).
     melhor_por_slot: dict[str, tuple[Avaliacao, ItemCraft, tuple[str, str], str]] = {}
     for a in avaliacoes:
-        item, par = meta[a.nome_cru]
+        item, par, _slot = meta[a.nome_cru]
         atual = melhor_por_slot.get(a.slot)
         if atual is None or a.delta_cru > atual[0].delta_cru:
             melhor_por_slot[a.slot] = (a, item, par, a.nome_cru)
@@ -252,7 +318,7 @@ def rodar_craft(
         if alvo is None:
             continue
         slot, nome_sem = alvo
-        item, par = meta[nome_sem]
+        item, par, _slot = meta[nome_sem]
         conjunto = base.com_troca(slot, candidato(item, slot, par, emb))
         ok, motivos = validar(conjunto, ctx)
         if not ok:
@@ -286,4 +352,4 @@ def rodar_craft(
                 }
             )
         embs.sort(key=lambda e: -e["ganho_pct"])
-    return ResultadoCraft(base_dps, pecas, embs, avisos)
+    return ResultadoCraft(base_dps, pecas, embs, avisos, bloqueados)

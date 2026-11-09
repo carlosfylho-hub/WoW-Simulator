@@ -500,6 +500,7 @@ def processar(job_id: str) -> None:
             craft_saida = {
                 "pecas": resultado_craft.pecas,
                 "embelezamentos": resultado_craft.embelezamentos,
+                "bloqueados": resultado_craft.bloqueados,
                 "custo": {
                     "ilvl": ILVL_CRAFT,
                     "nivel": "Mítico qualidade 5",

@@ -72,3 +72,30 @@ def test_teto_de_dois_embelezamentos_impede_o_terceiro() -> None:
     r = craft.rodar_craft(base, [item], ctx=ContextoSpec(), simular=_Sim(), it_triagem=10, it_refino=10)
     assert r.embelezamentos == []
     assert any("não medido" in a for a in r.avisos)
+
+
+def test_fase1_nao_mede_peca_embutida_quando_ja_ha_dois_embutidos() -> None:
+    # Peito e mãos já vêm com embelezamento embutido; mais um nos pés = 3 efeitos.
+    base = Conjunto(
+        itens={
+            "chest": Candidato(slot="chest", item_id=244613, fonte="craft"),
+            "hands": Candidato(slot="hands", item_id=244614, fonte="craft"),
+        }
+    )
+    ctx = ContextoSpec(embelezamentos={244613, 244614})
+    item = craft.ItemCraft(244601, "Ataduras", "Rootbound Wraps", "feet", True)
+    r = craft.rodar_craft(base, [item], ctx=ctx, simular=_Sim(), it_triagem=10, it_refino=10)
+    assert all(p["item_id"] != 244601 for p in r.pecas)
+    assert any(b["item_id"] == 244601 for b in r.bloqueados)
+    assert any("embutido" in b["motivo"] for b in r.bloqueados)
+
+
+def test_fase1_mede_peca_embutida_quando_ha_so_um_embutido() -> None:
+    base = Conjunto(
+        itens={"chest": Candidato(slot="chest", item_id=244613, fonte="craft")}
+    )
+    ctx = ContextoSpec(embelezamentos={244613})
+    item = craft.ItemCraft(244601, "Ataduras", "Rootbound Wraps", "feet", True)
+    r = craft.rodar_craft(base, [item], ctx=ctx, simular=_Sim(), it_triagem=10, it_refino=10)
+    assert any(p["item_id"] == 244601 for p in r.pecas)
+    assert r.bloqueados == []
