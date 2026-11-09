@@ -253,10 +253,10 @@ A fazer:
 | 2 | **T6** Motor do ranking de masmorras | [x] | `847eb25` |
 | 2 | **T7** API, worker e tela do ranking | [x] | `016170b` (backend), `db117a5` (UI) |
 | 2 | **T8** Grande Cofre a partir do `.gv` | [x] | `092211f`/`925fccc` (lib), `c7eba46` (backend), `8c6bbf0` (UI) |
-| 2 | **T9** Várias builds: matriz, média e montagem | [~] | parcial: `builds.py` (`4f7dd28`); auditoria achou P-041..P-043; em execução (Claude) |
+| 2 | **T9** Várias builds: matriz, média e montagem | [x] | `551f15b` (montagem), `03221d7` (worker/API), UI `Simulator-WoW@HEAD` |
 | 2 | **T10** Validação ao vivo no Windows (usuário) | [ ] | |
-| 3 | **T11** String do Pawn | [~] | biblioteca pronta; falta UI/medição |
-| 3 | **T12** String do AMR | [~] | biblioteca pronta; falta BiB real/UI |
+| 3 | **T11** String do Pawn | [x] | `32b9888` (medição), `03221d7`, UI; validar no jogo (T10) |
+| 3 | **T12** String do AMR | [x] | `03221d7` (`/api/exportar/amr`), UI; importar no jogo (T10) |
 | 4 | **T13** Base por lote (A-03) | [x] | |
 | 4 | **T14** Cenários equivalentes na tela (A-04) | [x] | `18c39ae` |
 | 4 | **T15** Higiene: nome de arquivo e threads no cache (A-05, A-06) | [x] | `65e8a23` (A-05), `8e7761a` (A-06) |
@@ -1351,6 +1351,7 @@ com data, arquivo, o que o documento dizia e o que era de fato.)*
 | 2026-11-08 | T2 | Aceite: `grep "drop_level\|gem_id2" src/wowsim/parser` vazio | `parser/addon.py` (parser do export SimC, outro formato) e comentários explicativos mantêm esses nomes | Nenhum caminho do AMR os emite; registrado em `PENDENCIAS.md` (A-07). |
 | 2026-11-08 | T9 | Montar com a melhor opção por slot | `melhores_por_slot` escolhia sempre a versão crua e um slot por item | P-041/P-042; corrigido no T9 (Claude). |
 | 2026-11-08 | T11 | Medição com ≥ 5.000 iterações e talentos na chave | `derivar_pesos_medidos`: 200 iterações, chave sem talentos, só secundários normalizados | P-044; `medir_escala` nova, a antiga continua para a poda. |
+| 2026-11-08 | geral | Repositório todo em CRLF | Arquivos criados no Windows ficam LF no blob (git com autocrlf) e CRLF no disco; o git do Linux sem autocrlf grava CRLF no blob | Para arquivos com blob LF use `git -c core.autocrlf=input add`; confira `git diff --stat` = `--ignore-cr-at-eol` antes de enviar. |
 
 ---
 

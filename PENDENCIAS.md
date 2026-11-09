@@ -505,23 +505,23 @@ comparada com a execução anterior do usuário (base 144.688 → melhor 164.588
 
 Registro completo em `docs/AUDITORIA-ENTREGAS-IA.md`. Testes 397 ok, tsc limpo, CRLF íntegro.
 
-### P-041 — T9 monta o conjunto com a versão crua de um item a catalisar — ABERTA (ALTO)
+### P-041 — T9 monta o conjunto com a versão crua de um item a catalisar — FECHADA em 2026-11-08 (551f15b, 32b9888, 03221d7, UI)
 `melhores_por_slot` pega o primeiro profileset do item (sempre o cru). **Fecha com** a
 `Avaliacao` guardando o profileset vencedor e teste com item `catalisar`.
 
-### P-042 — T9 perde o 2º anel/berloque e não chama `constraints.validar` — ABERTA (MÉDIO)
+### P-042 — T9 perde o 2º anel/berloque e não chama `constraints.validar` — FECHADA em 2026-11-08 (551f15b, 32b9888, 03221d7, UI)
 **Fecha com** escolha por slot físico sem repetir item e validação antes da confirmação.
 
-### P-043 — `loadouts`/`pesos_loadouts` aceitos e ignorados pelo worker — ABERTA (MÉDIO)
+### P-043 — `loadouts`/`pesos_loadouts` aceitos e ignorados pelo worker — FECHADA em 2026-11-08 (551f15b, 32b9888, 03221d7, UI)
 **Fecha com** o fluxo de builds do T9 no worker (matriz, média, divergência, conjunto
 montado e execução de confirmação).
 
-### P-044 — Medição de pesos do Pawn: chave sem talentos, 200 iterações, sem Int/DPS — ABERTA (ALTO p/ T11)
+### P-044 — Medição de pesos do Pawn: chave sem talentos, 200 iterações, sem Int/DPS — FECHADA em 2026-11-08 (551f15b, 32b9888, 03221d7, UI)
 **Fecha com** `medir_escala` lendo scale factors crus, DPS e erro, ≥ 5.000 iterações e
 talentos na chave.
 
-### P-045 — Estimativa de custo ignora o modo cofre — ABERTA (BAIXO)
+### P-045 — Estimativa de custo ignora o modo cofre — FECHADA em 2026-11-08 (551f15b, 32b9888, 03221d7, UI)
 **Fecha com** parâmetro `modo` na estimativa.
 
-### P-046 — Telas do T9, T11 e T12 inexistentes — ABERTA
+### P-046 — Telas do T9, T11 e T12 inexistentes — FECHADA em 2026-11-08 (551f15b, 32b9888, 03221d7, UI)
 **Fecha com** as telas descritas no workflow.
