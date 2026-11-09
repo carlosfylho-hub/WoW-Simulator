@@ -125,7 +125,8 @@ def processar(job_id: str) -> None:
             job_id,
             {
                 "estagio": "pre-voo",
-                "dps": pre.dps,
+                # Sem DPS: 5 iterações servem para saber se o simc roda o perfil,
+                # não para medir dano.
                 "duracao_s": round(pre.duracao_s, 2),
             },
         )
