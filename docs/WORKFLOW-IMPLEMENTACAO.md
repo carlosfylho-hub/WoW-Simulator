@@ -246,7 +246,7 @@ A fazer:
 | Fase | Tarefa | Status | Commit |
 | :-: | :--- | :-: | :-- |
 | 1 | **T1** Duração da luta não vem do relógio (A-01) | [x] | `84ce4d9` |
-| 1 | **T2** Codec do AMR por diferença acumulada (A-07) | [ ] | |
+| 1 | **T2** Codec do AMR por diferença acumulada (A-07) | [x] | `2ca377c` |
 | 1 | **T3** Pesos: `Vers` e poda só com pesos curados (A-12) | [ ] | |
 | 1 | **T4** Pré-voo não publica DPS (A-02) | [ ] | |
 | 2 | **T5** Catálogo de M+ por masmorra e elegibilidade | [ ] | |
@@ -1299,7 +1299,7 @@ com data, arquivo, o que o documento dizia e o que era de fato.)*
 
 | Data | Tarefa | Documento dizia | Código real | O que foi feito |
 | :--- | :-: | :--- | :--- | :--- |
-| | | | | |
+| 2026-11-08 | T2 | Aceite: `grep "drop_level\|gem_id2" src/wowsim/parser` vazio | `parser/addon.py` (parser do export SimC, outro formato) e comentários explicativos mantêm esses nomes | Nenhum caminho do AMR os emite; registrado em `PENDENCIAS.md` (A-07). |
 
 ---
 
