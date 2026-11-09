@@ -34,9 +34,10 @@ def test_stats_do_gear_aceita_bloco_aninhado_stats() -> None:
 
 
 def test_stats_das_players_mapeia_por_copy() -> None:
+    # O simc grava "shoulders"/"wrists" (plural); o slot interno é "shoulder".
     players = [
         {"gear": {}},  # original
-        {"gear": {"shoulder": {"intellect": 1000, "crit_rating": 400}}},
+        {"gear": {"shoulders": {"intellect": 1000, "crit_rating": 400}}},
     ]
     candidatos = {"x": Candidato(slot="shoulder", item_id=1, fonte="craft")}
     assert sonda.stats_das_players(players, candidatos) == {

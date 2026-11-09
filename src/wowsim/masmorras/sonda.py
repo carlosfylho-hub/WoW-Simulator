@@ -32,6 +32,12 @@ MAPA_STATS = {
     "stamina": "stamina",
 }
 
+# Slot interno -> chave em ``players[i].gear`` (o simc usa plural em dois).
+GEAR_SLOT = {
+    "shoulder": "shoulders",
+    "wrist": "wrists",
+}
+
 
 def stats_do_gear(gear: dict) -> dict[str, int]:
     """Atributos de um item do bloco ``gear`` do simc, nas chaves do projeto."""
@@ -62,7 +68,8 @@ def stats_das_players(
         gear = jogador.get("gear")
         if not isinstance(gear, dict):
             continue
-        entrada = gear.get(candidatos[nome].slot)
+        slot = candidatos[nome].slot
+        entrada = gear.get(GEAR_SLOT.get(slot, slot))
         if isinstance(entrada, dict):
             saida[nome] = stats_do_gear(entrada)
     return saida
