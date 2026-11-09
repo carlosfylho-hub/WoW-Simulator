@@ -66,6 +66,9 @@ class Avaliacao:
     limiar_cat: float | None = None
     slot: str = ""
     ilvl: int | None = None
+    # Profileset vencedor de cada versão (P-041): a montagem usa a versão certa.
+    nome_cru: str = ""
+    nome_cat: str | None = None
 
     @property
     def etiqueta(self) -> str:
@@ -78,6 +81,16 @@ class Avaliacao:
         if cat:
             return "catalisar"
         return "nao_serve"
+
+    @property
+    def usa_catalisado(self) -> bool:
+        """A versão a usar é a catalisada só quando ela é o motivo de servir."""
+        return self.delta_cat is not None and self.etiqueta in ("catalisar", "ambos")
+
+    @property
+    def ganho_escolhido(self) -> float:
+        """Ganho da versão que a montagem vai usar."""
+        return self.delta_cat if self.usa_catalisado else self.delta_cru  # type: ignore[return-value]
 
     @property
     def ganho(self) -> float:
@@ -107,16 +120,19 @@ def avaliar(
         registro = melhor.setdefault(op.item.item_id, {"item": op.item})
         campo = "cat" if op.catalisado else "cru"
         if campo not in registro or delta > registro[campo][0]:
-            registro[campo] = (delta, limiar, op.slot, op.ilvl)
+            registro[campo] = (delta, limiar, op.slot, op.ilvl, nome)
 
     saida: list[Avaliacao] = []
     for registro in melhor.values():
         if "cru" not in registro:
             continue
-        d_cru, l_cru, slot, ilvl = registro["cru"]
-        d_cat, l_cat, _, _ = registro.get("cat", (None, None, "", None))
+        d_cru, l_cru, slot, ilvl, n_cru = registro["cru"]
+        d_cat, l_cat, _, _, n_cat = registro.get("cat", (None, None, "", None, None))
         saida.append(
-            Avaliacao(registro["item"], d_cru, l_cru, d_cat, l_cat, slot, ilvl)
+            Avaliacao(
+                registro["item"], d_cru, l_cru, d_cat, l_cat, slot, ilvl,
+                nome_cru=n_cru, nome_cat=n_cat,
+            )
         )
     return saida
 
