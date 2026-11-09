@@ -1373,7 +1373,28 @@ Registrar cada resultado em `PENDENCIAS.md`.
 | T18 | Ranking aceita **trilha + rank + forja** em vez de só `ilvl` (321/328/334/341 viram atalhos). `RankingRequest`: `trilha: "heroi"\|"mito"`, `rank: 1–6`, `forja: bool`; `ilvl` continua aceito (compatibilidade). `montar_opcoes` recebe o bônus | [ ] | |
 | T19 | Custo de upgrade em cada item do resultado: `ItemRanking.trilha`, `rank`, `upgrade` (`{moeda, brasoes, ate: "6/6 (334)"}`); Grande Cofre usa os bônus reais do `.gv`; na tela, coluna "Para 6/6: 60 Mito" | [ ] | |
 | T20 | Embelezamentos: `data/embellishments` ganha `descricao` (mover o texto de `Simulator-WoW/src/data/embellishments.ts` para `dados/derivados/embelezamentos.json` por script); item craftado mostra nome, descrição, "Único-equipado: Embelezado (2)" e o custo de craft (Centelhas + brasões "a confirmar") | [ ] | |
-| T21 | Tela: seletor "Herói / Mítico" + "Rank 1/6…6/6" + "Forja do Veneno"; rótulo "Mito 4/6 · 328"; resumo do total de brasões das trocas sugeridas por build | [ ] | |
+| T21 | Tela: seletor "Herói / Mítico" + "Rank 1/6…6/6" + "Forja do Veneno"; rótulo "Mito 4/6 · 328"; resumo do total de brasões das trocas sugeridas por build | [x] | `e91ae2d` (backend T17–T19 em `c8d6570`) |
+| T22 | **Modo Craft** na tela de Masmorras (decisão do usuário 2026-11-09) — ver desenho abaixo | [ ] | |
+
+**Decisões do usuário (2026-11-09):** craft é uma 3ª opção da tela de Masmorras ("Masmorras M+ \| Grande
+Cofre \| Craft"); **80 Brasões Míticos por craft está confirmado** (sem rótulo "a confirmar").
+
+**Desenho do T22 (o simc mede tudo, inclusive o embelezamento):**
+- simc aceita no item `ilevel=`, `crafted_stats=a/b` (missiva) e `embellishment=<nome tokenizado>`
+  (`engine/item/item.cpp:844/855/871`, `item_t::decode_embellishment`); a tabela
+  `engine/dbc/generated/embellishment_data.inc` tem os 27 de Midnight com o mesmo `nome_en` de
+  `dados/craft_sistemas_s2.json` (Forro de Arcanotrama = "Arcanoweave Lining", bônus 12384).
+- `scripts/derivar_embelezamentos.py` → `dados/derivados/embelezamentos.json`: reagente, nome PT/EN,
+  token do simc, bônus, descrição PT, onde se aplica (armadura / acessório / arma / qualquer). Os de
+  Engenharia e de armas de profissão específicas ficam de fora.
+- `Candidato` ganha `ilevel`, `crafted_stats`, `embelezamento_simc`; `_linha_item` emite os três.
+- `masmorras/craft.py`: (1) para cada item craftável do tipo de armadura (+ anéis/colar) e cada um dos 6
+  pares de secundários (missivas Talassianas), um candidato Mítico Q5 = **331** → triagem/refino →
+  melhor par por slot; (2) cada embelezamento aplicável é medido no melhor slot onde cabe, respeitando o
+  teto de 2 efeitos (`constraints.validar`); (3) saída com custo: 80 Brasões Míticos + 2 Centelhas de
+  Marés (4 em arma de 2 mãos) por item.
+- Tela: "Craft" lista os slots (item, missiva, ganho, custo) e os embelezamentos (nome, descrição, ganho,
+  "Único-equipado: Embelezado (2)").
 
 **Aceite:** testes da escada (os 12 pares batem com `bonus_ilvl.json`), custo `(6 − r) × 20`, ilvl 318
 ambíguo exige a trilha, request antigo com `ilvl=341` continua funcionando; tsc limpo; nenhum número de
