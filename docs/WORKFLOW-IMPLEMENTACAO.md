@@ -1375,7 +1375,7 @@ Registrar cada resultado em `PENDENCIAS.md`.
 | T20 ✔ `f1c0a98` | Embelezamentos: `data/embellishments` ganha `descricao` (mover o texto de `Simulator-WoW/src/data/embellishments.ts` para `dados/derivados/embelezamentos.json` por script); item craftado mostra nome, descrição, "Único-equipado: Embelezado (2)" e o custo de craft (Centelhas + brasões "a confirmar") | [ ] | |
 | T21 | Tela: seletor "Herói / Mítico" + "Rank 1/6…6/6" + "Forja do Veneno"; rótulo "Mito 4/6 · 328"; resumo do total de brasões das trocas sugeridas por build | [x] | `e91ae2d` (backend T17–T19 em `c8d6570`) |
 | — | **Correções do Craft (A1–A7)**: P-049…P-053 — ver `docs/AUDITORIA-3-EXECUCAO.md` | [x] | `92ed854`…`4e26d5e` (detalhe na execução); estado vivo em `docs/AUDITORIA-CONSOLIDADA.md` |
-| — | **P-032** Catalisador na estimativa + checkbox/cargas no Top Gear | [x] | `5e93a68`+ (continuação 2026-11-09; ver `AUDITORIA-3-EXECUCAO.md`) |
+| — | **P-032** Catalisador na estimativa + checkbox/cargas no Top Gear | [x] | `e9931ac` (backend), `6ce9f39` (UI) |
 | — | **P-054 / P-055** (Craft Herói/armas/cargas, materiais Wowhead) | [ ] | **bloqueado** — ver `docs/AUDITORIA-CONSOLIDADA.md` §3 (depende de dado de jogo/Wowhead instável) |
 | T22 | **Modo Craft** na tela de Masmorras (decisão do usuário 2026-11-09) — ver desenho abaixo | [x] | `f1c0a98` (backend), UI no Simulator-WoW; **falta validar no simc real (T10)**: conferir que `ilevel=331,crafted_stats=…,embellishment=…` não gera erro no log |
 

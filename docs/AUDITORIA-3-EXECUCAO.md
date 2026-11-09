@@ -75,7 +75,7 @@ sessão anterior.
 
 | # | O que era | O que foi feito | Arquivos | Testes | Commit | Status |
 | :-: | :--- | :--- | :--- | :--- | :-- | :-: |
-| P-032 | Estimativa do Top Gear não contava gêmeos/pacotes do Catalisador; UI sem o controle | Backend: `estimar_pacotes_max` + `extras_profilesets` em `estimar_custo` + `catalisador`/`max_catalisados` em `GET /api/topgear/estimativa`. Frontend: checkbox "Catalisador" + cargas no `TopGearPanel` e campos no `topGearService` | `src/wowsim/topgear/catalisador.py`, `src/wowsim/topgear/runner.py`, `src/wowsim/web/topgear_api.py`, `Simulator-WoW/.../TopGearPanel.tsx`, `.../topGearService.ts`, `tests/test_topgear_catalisador_estimativa.py` | `test_topgear_catalisador_estimativa.py` (9) | ver `git log` | Concluído (falta validar o job ao vivo no Windows — T10) |
+| P-032 | Estimativa do Top Gear não contava gêmeos/pacotes do Catalisador; UI sem o controle | Backend: `estimar_pacotes_max` + `extras_profilesets` em `estimar_custo` + `catalisador`/`max_catalisados` em `GET /api/topgear/estimativa`. Frontend: checkbox "Catalisador" + cargas no `TopGearPanel` e campos no `topGearService` | `src/wowsim/topgear/catalisador.py`, `src/wowsim/topgear/runner.py`, `src/wowsim/web/topgear_api.py`, `Simulator-WoW/.../TopGearPanel.tsx`, `.../topGearService.ts`, `tests/test_topgear_catalisador_estimativa.py` | `test_topgear_catalisador_estimativa.py` (9) | `e9931ac` (backend), `6ce9f39` (UI) | Concluído (falta validar o job ao vivo no Windows — T10) |
 
 Desvios encontrados nesta continuação:
 
