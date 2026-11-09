@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+import re
 from datetime import datetime
 
 from fastapi import APIRouter, HTTPException, Query
@@ -255,6 +256,13 @@ def perfil_topgear(job_id: str) -> dict:
     return {"simc": "\n".join(linhas).rstrip() + "\n"}
 
 
+def _nome_arquivo(job_id: str) -> str:
+    """Nome estável e seguro (sem caractere que o Windows recuse)."""
+    carimbo = datetime.now().strftime("%Y%m%d-%H%M%S")
+    limpo = re.sub(r"[^A-Za-z0-9_-]", "", job_id[:8]) or "job"
+    return f"topgear-{limpo}-{carimbo}.simc"
+
+
 @router.post("/{job_id}/perfil/salvar")
 def salvar_perfil_topgear(job_id: str) -> dict:
     """Grava o ``.simc`` otimizado em ``saida/`` e devolve o caminho.
@@ -266,8 +274,7 @@ def salvar_perfil_topgear(job_id: str) -> dict:
     texto = perfil_topgear(job_id)["simc"]
     pasta = PROJECT_ROOT / "saida"
     pasta.mkdir(parents=True, exist_ok=True)
-    carimbo = datetime.now().strftime("%Y%m%d-%H%M%S")
-    caminho = (pasta / f"topgear-{job_id[:8]}-{carimbo}.simc").resolve()
+    caminho = (pasta / _nome_arquivo(job_id)).resolve()
     caminho.write_text(texto, encoding="utf-8")
     return {
         "caminho": str(caminho),

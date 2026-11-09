@@ -128,6 +128,13 @@ Nenhum bloqueio ativo. O binário foi compilado a partir do fonte `12.1.5.70783`
 | **Correção** | Cada lote mantém a própria base; o DPS dos candidatos é reescalado para a base do primeiro lote, de modo que `100*(dps-base)/base` passe a medir o delta contra a base do próprio lote. |
 | **Teste** | `tests/test_chunks_base.py` com simulador cujo `base_dps` muda por lote: sem a correção o 2º lote dava +20%; agora todos dão +10%. |
 
+### T15 — Higiene: nome de arquivo e threads no cache (A-05, A-06) — **[~] PARCIAL em 2026-11-08**
+
+| Campo | Detalhe |
+| :--- | :--- |
+| **Entregue (A-05)** | `topgear_api._nome_arquivo` sanitiza o nome do `.simc` salvo (só `[A-Za-z0-9_-]`, fallback `job`) — mesmo cuidado do `droptimizer/export.py::nome_do_arquivo`. `tests/test_topgear_nome_arquivo.py`. |
+| **Pendente (A-06)** | Decidir com o usuário se `threads` sai da chave de cache (`simc_runner.chave_cache`). Não alterado para não mudar a política de cache sem decisão. |
+
 ---
 
 ## 3. Pendências de dados
