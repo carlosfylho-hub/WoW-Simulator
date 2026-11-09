@@ -253,7 +253,7 @@ A fazer:
 | 2 | **T6** Motor do ranking de masmorras | [x] | `847eb25` |
 | 2 | **T7** API, worker e tela do ranking | [x] | `016170b` (backend), `db117a5` (UI) |
 | 2 | **T8** Grande Cofre a partir do `.gv` | [x] | `092211f`/`925fccc` (lib), `c7eba46` (backend), `8c6bbf0` (UI) |
-| 2 | **T9** Várias builds: matriz, média e montagem | [~] | parcial: `builds.py`; falta montagem + UI |
+| 2 | **T9** Várias builds: matriz, média e montagem | [~] | parcial: `builds.py` (`4f7dd28`); auditoria achou P-041..P-043; em execução (Claude) |
 | 2 | **T10** Validação ao vivo no Windows (usuário) | [ ] | |
 | 3 | **T11** String do Pawn | [~] | biblioteca pronta; falta UI/medição |
 | 3 | **T12** String do AMR | [~] | biblioteca pronta; falta BiB real/UI |
@@ -1174,6 +1174,31 @@ antes de rodar.
 
 **Commit:** `feat(masmorras): comparacao por build com media ponderada e montagem`
 
+#### T9 — Plano de execução (Claude, 2026-11-08, após a auditoria)
+
+Auditoria em `docs/AUDITORIA-ENTREGAS-IA.md`; defeitos P-041 a P-046 em `PENDENCIAS.md` §11.
+
+1. [ ] **P-041** — `Avaliacao` ganha `nome_cru`/`nome_cat` (profileset vencedor de cada
+   versão); `melhores_por_slot` usa a versão de maior `ganho`. Teste: item `catalisar`
+   entra catalisado.
+2. [ ] **P-042** — escolha por slot físico: anel/berloque disputam os dois slots, sem
+   repetir `item_id`; `montar_valido` tira a troca de menor ganho até
+   `constraints.validar` aceitar (contexto com catalisador). Testes: dois anéis bons
+   ocupam `finger1` e `finger2`; conjunto inválido perde a troca mais fraca.
+3. [ ] **P-043** — `rodar_ranking_builds` em `masmorras/builds.py`: por build, triagem e
+   refino com `ref` (P4, `referencia="ref"`), cenário da build (escolha do usuário em
+   `cenarios_loadouts` prevalece), montagem e **uma execução de confirmação** `ref` ×
+   `montado`. Matriz item × build com média ponderada e divergência. O ranking das
+   masmorras no modo builds usa a média ponderada dos deltas e dos limiares (decisão:
+   assim a contagem "servem" responde à pergunta "serve para o meu conjunto de builds").
+4. [ ] Modelos: `BuildResultado`, `LinhaMatriz`; `RankingResult.builds`/`matriz`
+   (vazios fora do modo builds). `conjunto_itens` guarda o conjunto montado completo
+   (para a string do AMR).
+5. [ ] API: `POST /api/masmorras/builds` (lê os loadouts do texto e sugere o cenário);
+   estimativa multiplica pelo número de builds e aceita `modo` (fecha **P-045**).
+6. [ ] Tela: seleção de builds com peso e cenário; matriz; cartão por build com o delta
+   medido do conjunto ± limiar e as trocas.
+
 ### T10 — Validação ao vivo no Windows (usuário)
 
 Roteiro em §8. Registre os números reais em `PENDENCIAS.md` (fecha P-031 e P-040).
@@ -1215,6 +1240,30 @@ fixo: "O Pawn soma atributos e não enxerga bônus de tier, procs nem efeitos de
 Use como primeira indicação."
 
 **Commit:** `feat(exportar): string do Pawn por build e mistura ponderada`
+
+#### T11 — Plano de execução (Claude, 2026-11-08)
+
+1. [ ] **P-044** — `data/pesos_medidos.py::medir_escala(personagem, *, talentos,
+   fight_style, iterations>=5000, ...)`: arquivo próprio por build (talentos na chave),
+   `calculate_scale_factors=1` + `scale_only=Int,Crit,Haste,Mastery,Vers`; lê
+   `players[0].scale_factors` (DPS por ponto, **crus**), `collected_data.dps.mean` e
+   `mean_std_dev`, `scale_deltas`. Erro do fator ≈ `√2 · erro_dps / delta`
+   (scale_factor_control.cpp, sem `center_scale_delta`). Não substitui os pesos curados
+   da poda (A-12).
+2. [ ] `exportar/pawn.py::escalas_das_builds(medicoes, pesos, classe, spec, nome)` →
+   uma string por build + "Mistura"; `quase_iguais(a, b)` compara a diferença relativa
+   com o erro somado (`2·√(e₁²+e₂²)`) e devolve "use uma só".
+3. [ ] Worker: `medir_pesos` no pedido; resultado em `BuildResultado.pawn` e
+   `RankingResult.pawn_mistura`.
+4. [ ] Tela: botão Copiar por escala (clipboard com fallback de seleção) e o texto fixo
+   sobre os limites do Pawn.
+
+#### T12 — Plano de execução (Claude, 2026-11-08)
+
+1. [ ] `POST /api/exportar/amr` `{modelo, build, itens}` → `linha_importacao` com
+   `setup_id="WSIM-<build>"` saneado; erros de modelo viram 400.
+2. [ ] Tela: campo único para colar o modelo (BiB do AMR), botão "Gerar string do AMR"
+   por build, Copiar, aviso fixo sobre `_bib_` em várias linhas.
 
 ### T12 — String do AMR
 
@@ -1300,6 +1349,8 @@ com data, arquivo, o que o documento dizia e o que era de fato.)*
 | Data | Tarefa | Documento dizia | Código real | O que foi feito |
 | :--- | :-: | :--- | :--- | :--- |
 | 2026-11-08 | T2 | Aceite: `grep "drop_level\|gem_id2" src/wowsim/parser` vazio | `parser/addon.py` (parser do export SimC, outro formato) e comentários explicativos mantêm esses nomes | Nenhum caminho do AMR os emite; registrado em `PENDENCIAS.md` (A-07). |
+| 2026-11-08 | T9 | Montar com a melhor opção por slot | `melhores_por_slot` escolhia sempre a versão crua e um slot por item | P-041/P-042; corrigido no T9 (Claude). |
+| 2026-11-08 | T11 | Medição com ≥ 5.000 iterações e talentos na chave | `derivar_pesos_medidos`: 200 iterações, chave sem talentos, só secundários normalizados | P-044; `medir_escala` nova, a antiga continua para a poda. |
 
 ---
 

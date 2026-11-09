@@ -500,3 +500,28 @@ Pendente; exige o simc no Windows. **Fecha com** uma execução de
 `wowsim topgear fixtures\pyrogalth.simc` registrando DPS final e trocas aceitas,
 comparada com a execução anterior do usuário (base 144.688 → melhor 164.588,
 3 trocas, 22 rodadas).
+
+## 11. Auditoria das entregas da outra IA — 2026-11-08
+
+Registro completo em `docs/AUDITORIA-ENTREGAS-IA.md`. Testes 397 ok, tsc limpo, CRLF íntegro.
+
+### P-041 — T9 monta o conjunto com a versão crua de um item a catalisar — ABERTA (ALTO)
+`melhores_por_slot` pega o primeiro profileset do item (sempre o cru). **Fecha com** a
+`Avaliacao` guardando o profileset vencedor e teste com item `catalisar`.
+
+### P-042 — T9 perde o 2º anel/berloque e não chama `constraints.validar` — ABERTA (MÉDIO)
+**Fecha com** escolha por slot físico sem repetir item e validação antes da confirmação.
+
+### P-043 — `loadouts`/`pesos_loadouts` aceitos e ignorados pelo worker — ABERTA (MÉDIO)
+**Fecha com** o fluxo de builds do T9 no worker (matriz, média, divergência, conjunto
+montado e execução de confirmação).
+
+### P-044 — Medição de pesos do Pawn: chave sem talentos, 200 iterações, sem Int/DPS — ABERTA (ALTO p/ T11)
+**Fecha com** `medir_escala` lendo scale factors crus, DPS e erro, ≥ 5.000 iterações e
+talentos na chave.
+
+### P-045 — Estimativa de custo ignora o modo cofre — ABERTA (BAIXO)
+**Fecha com** parâmetro `modo` na estimativa.
+
+### P-046 — Telas do T9, T11 e T12 inexistentes — ABERTA
+**Fecha com** as telas descritas no workflow.
