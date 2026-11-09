@@ -1,7 +1,8 @@
 # Pendências — WoW Calculator Sim
 
-**Última atualização:** 2026-11-08
-**Fase atual:** Catalisador entregue (offline); correções do ranking e da UI entregues
+**Última atualização:** 2026-11-09
+**Fase atual:** P-032 fechada; abertas P-054 / P-055 (e T10, dependente do usuário)
+**Fonte canônica da varredura:** [`docs/AUDITORIA-CONSOLIDADA.md`](docs/AUDITORIA-CONSOLIDADA.md)
 **Regra:** toda pendência tem identificador, impacto e condição de fechamento. Pendência sem condição de fechamento não entra.
 
 ---
@@ -413,15 +414,15 @@ Controle de comparação: o fixture do Pyrogalth já traz peças catalisadas rea
 **Fecha com** um `.simc` gerado contendo `id=2715xx,...,redirected_base_stats=<origem>`,
 aceito pelo simc, e o bônus de conjunto visível no relatório quando há 2 ou 4 peças.
 
-### P-032 — Catalisador na API de estimativa e na UI
+### P-032 — Catalisador na API de estimativa e na UI — **FECHADA em 2026-11-09**
 
-`GET /api/topgear/estimativa` ([`web/topgear_api.py`](src/wowsim/web/topgear_api.py:110))
-ainda não conta os gêmeos nem os pacotes, então o custo mostrado fica abaixo do real quando
-o recurso está ligado. Falta também o controle no
-[`TopGearPanel.tsx`](../Simulator-WoW/src/components/TopGearPanel.tsx) e os campos em
-[`topGearService.ts`](../Simulator-WoW/src/services/topGearService.ts).
-**Fecha com** estimativa coerente, `tsc --noEmit` limpo e job criado pela UI retornando o
-estágio `catalisador` no histórico de rodadas.
+| Campo | Detalhe |
+| :--- | :--- |
+| **O que** | A estimativa do Top Gear não contava os gêmeos nem os pacotes do Catalisador, então o custo mostrado ficava abaixo do real quando o recurso estava ligado. Faltava o controle na tela. |
+| **Backend** | `topgear/catalisador.py::estimar_pacotes_max` (teto conservador de profilesets de 2/4 peças, respeitando `max_catalisados` e `ja_tier`); `topgear/runner.py::estimar_custo` ganhou `extras_profilesets`; `web/topgear_api.py::estimar_topgear` aceita `catalisador`/`max_catalisados`, soma gêmeos na pool e os pacotes em `extras_catalisador`, devolvendo `catalisador`/`extras_catalisador`/`avisos`. |
+| **Frontend** | `TopGearPanel.tsx`: checkbox "Catalisador" + campo "cargas" (`max_catalisados`); `topGearService.ts`: `estimativaTopGear`/`criarTopGear` enviam `catalisador`/`max_catalisados`. `tsc --noEmit` limpo. |
+| **Testes** | `tests/test_topgear_catalisador_estimativa.py` (9 casos): contagem de pacotes C(5,2)+C(5,4), efeito de `ja_tier`, teto de cargas, `extras_profilesets` em `estimar_custo` e contrato de `GET /api/topgear/estimativa` com `catalisador`. O fixture veste o tier set completo (5 peças) → pacotes = 0 (comportamento correto; a contagem é provada com pools sintéticas). |
+| **Impacto** | O custo exibido antes do Run passa a incluir o Catalisador; a UI reflete o recurso. Nenhum número de DPS nasce aqui (P1). |
 
 ### P-033 — Teste de determinismo comparava cronometragem — **RESOLVIDA em 2026-11-08**
 
@@ -506,8 +507,8 @@ comparada com a execução anterior do usuário (base 144.688 → melhor 164.588
 
 ## 12. Auditoria 3 — Craft e tooltips — 2026-11-09
 
-Diagnóstico em `docs/AUDITORIA-3-CRAFT.md`; execução registrada em
-`docs/AUDITORIA-3-EXECUCAO.md` (tabela pauta → commit → testes → status).
+Estado consolidado (erros corrigidos + abertos): [`docs/AUDITORIA-CONSOLIDADA.md`](docs/AUDITORIA-CONSOLIDADA.md).
+Diagnóstico original: `docs/AUDITORIA-3-CRAFT.md`. Execução: `docs/AUDITORIA-3-EXECUCAO.md`.
 
 ### P-049 — Fase 1 do Craft mede conjuntos com 3 embelezamentos — FECHADA em 2026-11-09
 A fase 1 agora valida cada conjunto antes de simular; peça que estouraria o teto sai do ranking

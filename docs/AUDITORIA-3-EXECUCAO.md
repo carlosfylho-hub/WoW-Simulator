@@ -62,3 +62,33 @@ npx tsc --noEmit -p tsconfig.json
   (305–318), armas no Craft, custo da Forja do Veneno, cargas do Catalisador.
 - A8: materiais da receita e "onde o reagente pode ser usado" dependem de uma extração
   estável da página do Wowhead; o script está pronto para preencher quando isso ocorrer.
+
+---
+
+## Continuação — 2026-11-09 (P-032 fechada)
+
+Sessão de continuação. O estado real do código foi conferido antes de agir: **T9/T11/T12
+(matroz/pesos por build, Pawn por build + Mistura, string do AMR) já estavam implementados
+no backend e no frontend** — não foram refeitos. O que estava em aberto e sem testes era o
+**P-032** (Catalisador na estimativa + UI), com alterações não commitadas deixadas por uma
+sessão anterior.
+
+| # | O que era | O que foi feito | Arquivos | Testes | Commit | Status |
+| :-: | :--- | :--- | :--- | :--- | :-- | :-: |
+| P-032 | Estimativa do Top Gear não contava gêmeos/pacotes do Catalisador; UI sem o controle | Backend: `estimar_pacotes_max` + `extras_profilesets` em `estimar_custo` + `catalisador`/`max_catalisados` em `GET /api/topgear/estimativa`. Frontend: checkbox "Catalisador" + cargas no `TopGearPanel` e campos no `topGearService` | `src/wowsim/topgear/catalisador.py`, `src/wowsim/topgear/runner.py`, `src/wowsim/web/topgear_api.py`, `Simulator-WoW/.../TopGearPanel.tsx`, `.../topGearService.ts`, `tests/test_topgear_catalisador_estimativa.py` | `test_topgear_catalisador_estimativa.py` (9) | ver `git log` | Concluído (falta validar o job ao vivo no Windows — T10) |
+
+Desvios encontrados nesta continuação:
+
+1. **Fixture veste tier set completo.** `fixtures/pyrogalth.simc` tem **5 peças de tier**
+   equipadas, então o Catalisador não gera gêmeos nem pacotes (faltam 2 e 4 peças = 0).
+   O comportamento é correto; a contagem de pacotes é provada com pools sintéticas em
+   `test_topgear_catalisador_estimativa.py` (C(5,2)+C(5,4) etc.), não pelo fixture.
+
+## Bloqueado (fora do alcance automático)
+
+| Item | Motivo | Condição de fechamento |
+| :--- | :--- | :--- |
+| T10 / P-031 / P-040 | Exige simc no Windows + export **vivo** do usuário | Rodar o roteiro §8 do workflow e registrar os números no `PENDENCIAS.md` |
+| P-054 | Craft Herói (305–318), armas no Craft, custo da Forja do Veneno (sem número oficial), cargas do Catalisador, desconto de slot | Fonte confirmada para os custos; ou decisão de escopo do usuário |
+| P-055 | Materiais da receita e "onde usar" dos embelezamentos | Extração estável do Wowhead (script pronto em `scripts/raspar_embelezamentos.py`) |
+| U0–U7 | Redesign da UI | `Simulator-WoW/docs/PLANO-REDESIGN-UI.md` (rodada própria) |

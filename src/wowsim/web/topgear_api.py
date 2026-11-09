@@ -9,12 +9,15 @@ from datetime import datetime
 from fastapi import APIRouter, HTTPException, Query
 
 from ..data import pesos as pesos_mod
+from ..data import tier
 from ..paths import PROJECT_ROOT
 from ..heuristic.score import pontuar_candidato
 from ..parser.addon import ErroParseAddon, parse_texto, serializar_texto
+from ..topgear.catalisador import adicionar_gemeos, estimar_pacotes_max, pecas_de_tier
 from ..topgear.models import Conjunto, TopGearRequest
 from ..topgear.pools import construir_pools, resumo, secoes_ausentes
 from ..topgear.runner import estimar_custo, linhas_override
+from ..topgear.search import conjunto_do_personagem
 from . import topgear_db
 from .topgear_worker import atributo_da_classe, tipo_armadura_da_classe
 from .worker import enfileirar_topgear
@@ -120,6 +123,8 @@ def estimar_topgear(
     max_profilesets_rodada: int = Query(300, ge=1, le=5_000),
     tipo_armadura: str | None = Query(None),
     atributo: str | None = Query(None),
+    catalisador: bool = Query(False),
+    max_catalisados: int | None = Query(None, ge=0, le=5),
 ) -> dict:
     """Estimativa de custo exibida antes do Run (profilesets e segundos)."""
     try:
@@ -129,14 +134,40 @@ def estimar_topgear(
     tipo = tipo_armadura or tipo_armadura_da_classe(personagem.classe)
     atrib = atributo or atributo_da_classe(personagem.classe)
     pools = construir_pools(tipo_armadura=tipo, atributo=atrib, pool_por_slot=pool)
+    extras = 0
+    avisos_cat: list[str] = []
+    if catalisador:
+        if not tier.disponivel():
+            avisos_cat.append(
+                "Catalisador pedido, mas tier_sets.json está ausente — custo sem gêmeos/pacotes."
+            )
+        else:
+            antes = sum(len(lista) for lista in pools.values())
+            pools = adicionar_gemeos(pools, personagem.classe)
+            gemeos = sum(len(lista) for lista in pools.values()) - antes
+            ja_tier = len(pecas_de_tier(conjunto_do_personagem(personagem), personagem.classe))
+            extras = estimar_pacotes_max(
+                pools,
+                personagem.classe,
+                ja_tier=ja_tier,
+                max_catalisados=max_catalisados,
+            )
+            avisos_cat.append(
+                f"Catalisador: +{gemeos} gêmeos na pool e ~{extras} pacotes de 2/4 peças."
+            )
     estimativa = estimar_custo(
         pools,
         iterations=iterations,
         orcamento_segundos=orcamento_segundos,
         target_error=target_error,
         max_profilesets_rodada=max_profilesets_rodada,
+        extras_profilesets=extras,
     )
     estimativa["contagens"] = resumo(pools)
+    estimativa["catalisador"] = bool(catalisador)
+    estimativa["extras_catalisador"] = extras
+    if avisos_cat:
+        estimativa["avisos"] = list(estimativa.get("avisos") or []) + avisos_cat
     return estimativa
 
 

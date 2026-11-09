@@ -125,6 +125,36 @@ def contexto_com_catalisador(
     )
 
 
+def estimar_pacotes_max(
+    pools: Mapping[str, list[Candidato]],
+    classe: str | None,
+    *,
+    ja_tier: int = 0,
+    max_catalisados: int | None = None,
+    alvos: Iterable[int] = ALVOS_PECAS,
+) -> int:
+    """Teto conservador de profilesets da etapa de pacotes (antes do Run).
+
+    Sem o conjunto ótimo ainda, conta slots de tier com candidatos e as
+    combinações de 2/4 peças. Se ``max_catalisados`` estiver definido, não
+    estima pacotes que exigiriam mais cargas que o teto.
+    """
+    if tier.conjunto_da_classe(classe) is None:
+        return 0
+    elegiveis = sum(1 for slot in SLOTS_TIER if pools.get(slot))
+    if elegiveis <= 0:
+        return 0
+    total = 0
+    for alvo in sorted(set(alvos)):
+        faltam = alvo - ja_tier
+        if faltam <= 0 or faltam > elegiveis:
+            continue
+        if max_catalisados is not None and faltam > max_catalisados:
+            continue
+        total += sum(1 for _ in itertools.combinations(range(elegiveis), faltam))
+    return total
+
+
 def pacotes_de_tier(
     melhor: Conjunto,
     classe: str | None,

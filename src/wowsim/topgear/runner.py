@@ -256,16 +256,17 @@ def estimar_custo(
     orcamento_segundos: int,
     target_error: float | None = None,
     max_profilesets_rodada: int | None = None,
+    extras_profilesets: int = 0,
 ) -> dict:
     """Estima profilesets e tempo antes do Run (P0 — custo visível).
 
     A conta é conservadora: uma rodada marginal (todos os candidatos), a
-    montagem gulosa por slot e uma folga para beam/refino. Serve para avisar o
-    usuário antes de disparar um job que estouraria o orçamento.
+    montagem gulosa por slot e uma folga para beam/refino. ``extras_profilesets``
+    cobre etapas fora das pools (ex.: pacotes do Catalisador).
     """
     n_candidatos = sum(len(lista) for lista in pools.values())
     n_slots = sum(1 for lista in pools.values() if lista)
-    total = n_candidatos + n_slots * 4
+    total = n_candidatos + n_slots * 4 + max(0, int(extras_profilesets))
     limite = max_profilesets_rodada or total
     por_rodada = min(total, limite) if total else 0
     erro = erro_alvo_efetivo(target_error, por_rodada)

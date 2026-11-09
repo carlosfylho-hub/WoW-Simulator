@@ -1,11 +1,11 @@
 # Auditoria 3 — Craft, tooltips e o que falta (2026-11-09)
 
-> **Para a IA que continuar:** este documento é só diagnóstico e plano. **Nada aqui foi
-> implementado.** Siga a ordem da §4, uma tarefa por commit, testes antes do código, e marque o
-> checklist (§5) com o hash. Regras de sempre: P1 (nenhum número que o simc não mediu), P4 (delta
-> sempre contra a base da mesma leitura), fins de linha preservados (ver workflow §9 —
-> `git -c core.autocrlf=input add` para arquivos com blob LF) e `dados/*.json` só por script.
-> As pendências estão registradas em `PENDENCIAS.md` §12 (P-049 a P-055).
+> **HISTÓRICO.** A1–A7 / P-049…P-053 foram **implementados** (ver
+> [`AUDITORIA-3-EXECUCAO.md`](AUDITORIA-3-EXECUCAO.md)). A fonte canônica do estado atual é
+> [`AUDITORIA-CONSOLIDADA.md`](AUDITORIA-CONSOLIDADA.md). Continuam abertos: P-054, P-055
+> (materiais/usado-em) e T10 com export vivo. O texto abaixo é o diagnóstico original.
+
+> Regras de sempre: P1, P4, CRLF, `dados/*.json` só por script. Pendências em `PENDENCIAS.md` §12.
 
 ## 1. O que o usuário viu (prints de 2026-11-09 02:32)
 
