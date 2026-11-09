@@ -574,6 +574,12 @@ def rodar_craft(
         iteracoes=max(it_refino, 2_000), ilvl=ilvl,
     )
     if plano is not None and plano["melhor"] is not None:
+        # Tooltip: a peça do plano é a mesma (item + missiva) da lista "sozinha";
+        # reaproveita os atributos que a sonda leu do simc.
+        stats_por_peca = {(p["slot"], p["item_id"]): p.get("stats") for p in pecas}
+        for linha in [plano["melhor"], *plano["alternativas"]]:
+            for p in linha["pecas"]:
+                p["stats"] = stats_por_peca.get((p["slot"], p["item_id"]))
         base = plano["_conjunto"]
         pares_slots = set(plano["melhor"]["slots"])
         melhor_nao_embutido = {s: v for s, v in melhor_nao_embutido.items() if s in pares_slots}
