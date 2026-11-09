@@ -120,6 +120,14 @@ Nenhum bloqueio ativo. O binário foi compilado a partir do fonte `12.1.5.70783`
 | **Entregue** | `masmorras/builds.py`: `conjuntos_da_build` (ref + talentos por build, base imutável — P4), `cenario_da_build` (single/raid/boss → patchwerk; resto → dungeon_slice), `media_ponderada` (erro se os pesos somam 0) e `divergente`. `tests/test_masmorras_builds.py` (10 casos). |
 | **Pendente** | montagem do conjunto completo por build com execução de confirmação; worker/API/tela com a matriz e os pesos por build; preenchimento de `RankingRequest.loadouts`/`pesos_loadouts`. |
 
+### T13 — Base por lote (A-03) — **RESOLVIDA em 2026-11-08**
+
+| Campo | Detalhe |
+| :--- | :--- |
+| **O que** | `_simular_em_chunks` dividia as pools em lotes e usava só a base do **primeiro** lote. Candidatos dos lotes seguintes eram comparados contra a base errada, inflando/reduzindo o delta. |
+| **Correção** | Cada lote mantém a própria base; o DPS dos candidatos é reescalado para a base do primeiro lote, de modo que `100*(dps-base)/base` passe a medir o delta contra a base do próprio lote. |
+| **Teste** | `tests/test_chunks_base.py` com simulador cujo `base_dps` muda por lote: sem a correção o 2º lote dava +20%; agora todos dão +10%. |
+
 ---
 
 ## 3. Pendências de dados

@@ -80,9 +80,17 @@ def _simular_em_chunks(
         leitura = simulador(parte, iterations)
         if base_dps is None:
             base_dps = leitura.base_dps
-        if base_erro is None:
             base_erro = leitura.base_erro
-        resultados.update(leitura.resultados)
+        # A-03: cada lote tem a SUA própria base. Reescala o DPS dos candidatos
+        # para a base do primeiro lote, para que o delta calculado abaixo
+        # (100*(dps-base)/base) meça contra a base do próprio lote, e não contra
+        # a de outro lote. Sem isto, candidatos de lotes cuja base difere
+        # aparecem com delta errado.
+        escala = 1.0
+        if leitura.base_dps and base_dps and leitura.base_dps > 0:
+            escala = base_dps / leitura.base_dps
+        for nome, dps in leitura.resultados.items():
+            resultados[nome] = dps * escala
         erros.update(leitura.erros)
     return LeituraSim(
         base_dps=base_dps, resultados=resultados, base_erro=base_erro, erros=erros

@@ -257,7 +257,7 @@ A fazer:
 | 2 | **T10** Validação ao vivo no Windows (usuário) | [ ] | |
 | 3 | **T11** String do Pawn | [ ] | |
 | 3 | **T12** String do AMR | [ ] | |
-| 4 | **T13** Base por lote (A-03) | [ ] | |
+| 4 | **T13** Base por lote (A-03) | [x] | |
 | 4 | **T14** Cenários equivalentes na tela (A-04) | [ ] | |
 | 4 | **T15** Higiene: nome de arquivo e threads no cache (A-05, A-06) | [ ] | |
 | 4 | **T16** Bloco de encantamentos do AMR fecha P-016 (A-10) | [ ] | |
