@@ -258,8 +258,8 @@ A fazer:
 | 3 | **T11** String do Pawn | [~] | biblioteca pronta; falta UI/medição |
 | 3 | **T12** String do AMR | [~] | biblioteca pronta; falta BiB real/UI |
 | 4 | **T13** Base por lote (A-03) | [x] | |
-| 4 | **T14** Cenários equivalentes na tela (A-04) | [ ] | |
-| 4 | **T15** Higiene: nome de arquivo e threads no cache (A-05, A-06) | [~] | A-05 feito; A-06 aguarda decisão |
+| 4 | **T14** Cenários equivalentes na tela (A-04) | [x] | `18c39ae` |
+| 4 | **T15** Higiene: nome de arquivo e threads no cache (A-05, A-06) | [x] | `65e8a23` (A-05), `8e7761a` (A-06) |
 | 4 | **T16** Bloco de encantamentos do AMR fecha P-016 (A-10) | [x] | mapa gerado de BiB real |
 
 ---
