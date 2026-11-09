@@ -112,6 +112,8 @@ class RankingRequest(BaseModel):
     ilvl: Literal[321, 328, 334, 341] = 341
     iteracoes_triagem: int = Field(300, ge=50, le=5_000)
     iteracoes_refino: int = Field(3000, ge=200, le=50_000)
+    # Quantos itens da triagem vão para o refino (os melhores).
+    max_refino: int = Field(24, ge=1, le=500)
     orcamento_segundos: int = Field(900, ge=30, le=86_400)
     loadouts: list[str] = Field(default_factory=list, max_length=6)   # T9 ("Atual" = talentos do export)
     pesos_loadouts: dict[str, float] = Field(default_factory=dict)   # T9 (normalizados no motor)

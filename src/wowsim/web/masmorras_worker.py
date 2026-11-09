@@ -59,6 +59,14 @@ from .worker import registrar_fim_job, registrar_inicio_job, threads_para_job
 BUILD_ATUAL = "Atual"
 
 
+def _mensagem_orcamento(minutos: float) -> str:
+    """Erro de tempo esgotado em linguagem de gente (o comando do simc fica no log)."""
+    return (
+        f"O tempo máximo ({minutos:.0f} min) acabou antes do fim. Aumente o tempo máximo em "
+        "\"Mais opções\", marque menos builds ou reduza as iterações."
+    )
+
+
 class _Cancelado(Exception):
     pass
 
@@ -269,6 +277,7 @@ def processar(job_id: str) -> None:
 
         base_out: dict = {}
         resultados_build: list[ResultadoBuild] = []
+        avisos_execucao: list[str] = []
         if builds:
             # T9: uma medição por build, cada uma contra o próprio ``ref`` (P4).
             base = conjunto_do_personagem(personagem)
@@ -301,15 +310,27 @@ def processar(job_id: str) -> None:
                     cancelar=cancelado,
                     orcamento_restante=restante,
                 )
-                resultados_build.append(
-                    rodar_build(
-                        base, conjuntos, opcoes,
-                        nome=nome, codigo=codigo, cenario=cenario, ctx=ctx,
-                        simular=simular,
-                        it_triagem=pedido.iteracoes_triagem,
-                        it_refino=pedido.iteracoes_refino,
+                try:
+                    resultados_build.append(
+                        rodar_build(
+                            base, conjuntos, opcoes,
+                            nome=nome, codigo=codigo, cenario=cenario, ctx=ctx,
+                            simular=simular,
+                            it_triagem=pedido.iteracoes_triagem,
+                            it_refino=pedido.iteracoes_refino,
+                            max_refino=pedido.max_refino,
+                        )
                     )
-                )
+                except sr.SimcOrcamentoEsgotado:
+                    if not resultados_build:
+                        raise
+                    # Guarda o que já foi medido em vez de perder tudo.
+                    feitas = ", ".join(r.nome for r in resultados_build)
+                    faltaram = ", ".join(list(builds)[posicao - 1:])
+                    avisos_execucao.append(
+                        f"O tempo máximo acabou: resultado só com {feitas}; ficaram de fora {faltaram}."
+                    )
+                    break
             por_build = {r.nome: r.avaliacoes for r in resultados_build}
             avaliacoes = avaliacoes_medias(por_build, pedido.pesos_loadouts)
             base_out["base_dps"] = resultados_build[0].ref_dps
@@ -324,6 +345,7 @@ def processar(job_id: str) -> None:
                 cancelar=cancelado,
                 orcamento_restante=restante,
                 base_out=base_out,
+                max_refino=pedido.max_refino,
             )
         else:
             avaliacoes = rodar_ranking(
@@ -337,13 +359,16 @@ def processar(job_id: str) -> None:
                 cancelar=cancelado,
                 orcamento_restante=restante,
                 base_out=base_out,
+                max_refino=pedido.max_refino,
             )
         if masmorras_db.esta_cancelado(job_id):
             raise _Cancelado()
 
         # T11: escala do Pawn por build (ou da build atual, sem loadouts).
         pawn: dict = {"builds": {}, "mistura": None, "iguais": []}
-        if pedido.medir_pesos:
+        if pedido.medir_pesos and (restante() or 0) < 30:
+            avisos_execucao.append("Escala do Pawn não medida: o tempo máximo acabou antes.")
+        elif pedido.medir_pesos:
             alvos = [(r.nome, r.codigo, r.cenario) for r in resultados_build] or [
                 (BUILD_ATUAL, personagem.talents_atual, pedido.scenario)
             ]
@@ -376,16 +401,18 @@ def processar(job_id: str) -> None:
             for a in combo.avisos
             if a.severidade != "info" or a.codigo == "combinar_inv_mesclado"
         ]
+        avisos.extend(avisos_execucao)
         builds_saida = [_build_resultado(r) for r in resultados_build]
         for b in builds_saida:
             escala = pawn["builds"].get(b.nome)
             if escala:
                 b.pawn = escala["string"]
                 b.pawn_pesos = escala["pesos_pct_por_ponto"]
+        concluidas = [r.nome for r in resultados_build]
         pesos_builds = (
-            pesos_normalizados(list(builds), pedido.pesos_loadouts) if builds else {}
+            pesos_normalizados(concluidas, pedido.pesos_loadouts) if concluidas else {}
         )
-        if builds:
+        if concluidas:
             avisos.append(
                 "Ranking pela média ponderada das builds: "
                 + ", ".join(f"{b} {round(100 * w)}%" for b, w in pesos_builds.items())
@@ -437,6 +464,13 @@ def processar(job_id: str) -> None:
             job_id, status="cancelled", finished_at=masmorras_db._agora()
         )
         print(f"[masmorras {job_id[:8]}] cancelado", flush=True)
+    except sr.SimcOrcamentoEsgotado as exc:
+        print(f"[masmorras {job_id[:8]}] erro: {exc}", flush=True)  # comando completo só no log
+        minutos = float(job["request"].get("orcamento_segundos") or 900) / 60
+        masmorras_db.atualizar_job(
+            job_id, status="error", finished_at=masmorras_db._agora(),
+            erro=_mensagem_orcamento(minutos),
+        )
     except (ErroParseAddon, sr.SimcError, ValueError, OSError) as exc:
         if isinstance(exc, sr.SimcCancelado) or masmorras_db.esta_cancelado(job_id):
             masmorras_db.atualizar_job(

@@ -367,9 +367,15 @@ def gerar(
     return [base] + corpo
 
 
-def estimar_segundos(n_variacoes: int, iterations: int) -> float:
-    """Rough estimate from the measured 1000-iteration base run (~1.3 s)."""
-    return max(1.0, n_variacoes * iterations * 0.0013)
+def estimar_segundos(n_variacoes: int, iterations: int, fight_style: str | None = None) -> float:
+    """Estimativa pela velocidade medida do simc (``calibracao``), por estilo de luta.
+
+    Sem ``fight_style`` usa a taxa genérica antiga (~1,3 s por 1.000 iterações).
+    """
+    from .. import calibracao
+
+    taxa = calibracao.taxa(fight_style) if fight_style else calibracao.TAXA_GENERICA
+    return max(1.0, n_variacoes * iterations * taxa)
 
 
 def escrever_arquivo(

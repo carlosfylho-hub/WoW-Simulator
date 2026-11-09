@@ -16,6 +16,7 @@ from typing import Callable, Mapping
 
 from .. import simc_runner as sr
 from ..data import catalog
+from .. import calibracao
 from ..gen.profilesets import estimar_segundos
 from ..models import Personagem
 from ..parser.addon import serializar_texto
@@ -335,6 +336,9 @@ def criar_simulador(
             f"rodada concluida em {execucao.duracao_s:.2f}s "
             f"(cache_hit={execucao.cache_hit})"
         )
+        if not execucao.cache_hit:
+            # Velocidade real desta máquina, para as próximas estimativas.
+            calibracao.registrar(fight_style, len(candidatos) + 1, iterations, execucao.duracao_s)
         lido = sr.read_results(execucao.json_path)
         base = lido.base.dps if lido.base is not None else None
         base_erro = lido.base.erro_pct if lido.base is not None else None

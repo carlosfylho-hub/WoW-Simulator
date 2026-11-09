@@ -16,6 +16,7 @@ from ..masmorras.catalogo import elegivel, itens_por_masmorra
 from ..masmorras.modelos import RankingRequest, RankingResult
 from ..parser.addon import ErroParseAddon, parse_texto
 from ..parser.amr import parse_amr
+from ..topgear.runner import estilo_de_luta
 from ..topgear.search import conjunto_do_personagem
 from . import masmorras_db
 from .worker import enfileirar_masmorras
@@ -101,6 +102,9 @@ def estimar_masmorras(
     builds: int = Query(0, ge=0, le=6, description="Quantas builds (T9)."),
     medir_pesos: bool = Query(False),
     iteracoes_pesos: int = Query(5_000, ge=5_000, le=100_000),
+    scenario: str = Query("dungeon_slice", description="Cenário sem builds."),
+    cenarios: str = Query("", description="Cenário de cada build, separados por vírgula."),
+    max_refino: int = Query(24, ge=1, le=500),
 ) -> dict:
     """Estimativa de custo do ranking antes do Run (por build, quando houver)."""
     contagens: Counter = Counter()
@@ -137,16 +141,26 @@ def estimar_masmorras(
         elegiveis_total = len(elegiveis)
         contagens.update(item.masmorra for item in elegiveis)
 
-    por_rodada = estimar_segundos(n, iteracoes_triagem) + estimar_segundos(n, iteracoes_refino)
-    vezes = max(1, builds)
-    segundos = por_rodada * vezes
-    if builds:
-        segundos += builds * estimar_segundos(2, iteracoes_refino)  # confirmação
-    if medir_pesos:
-        segundos += vezes * estimar_segundos(EXECUCOES_POR_ESCALA, iteracoes_pesos)
+    # Refino: só os ``max_refino`` melhores itens (cada item ~ n/elegíveis profilesets).
+    por_item = n / elegiveis_total if elegiveis_total else 1.0
+    n_refino = min(n, round(max_refino * por_item))
+    lista = [c for c in cenarios.split(",") if c.strip()][: max(1, builds)] if builds else []
+    estilos = [estilo_de_luta(c.strip()) for c in lista] or [estilo_de_luta(scenario)]
+    if builds and len(estilos) < builds:
+        estilos += [estilos[-1]] * (builds - len(estilos))
+    segundos = 0.0
+    for estilo in estilos:
+        segundos += estimar_segundos(n, iteracoes_triagem, estilo)
+        segundos += estimar_segundos(n_refino, iteracoes_refino, estilo)
+        if builds:
+            segundos += estimar_segundos(2, iteracoes_refino, estilo)  # confirmação
+        if medir_pesos:
+            segundos += estimar_segundos(EXECUCOES_POR_ESCALA, iteracoes_pesos, estilo)
     return {
-        "profilesets_total_estimado": n * vezes,
+        "profilesets_total_estimado": (n + n_refino) * len(estilos),
         "segundos_estimados": round(segundos, 1),
+        # Folga de 30% + 1 min para o pré-voo e a variação entre rodadas.
+        "orcamento_sugerido": int(segundos * 1.3 + 60),
         "elegiveis_total": elegiveis_total,
         "contagens": dict(contagens),
         "builds": builds,

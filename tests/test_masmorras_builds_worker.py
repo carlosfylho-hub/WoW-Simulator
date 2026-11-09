@@ -219,3 +219,43 @@ def test_string_amr_com_o_conjunto_montado(tmp_path, monkeypatch) -> None:
 def test_setup_id_saneado() -> None:
     assert exportar_api.setup_id_da_build("a$b;c@d#e") == "WSIM-a-b-c-d-e"
     assert not exportar_api.setup_id_da_build("AMR x").upper().startswith("AMR")
+
+
+def test_tempo_esgotado_na_segunda_build_guarda_a_primeira(tmp_path, monkeypatch) -> None:
+    from wowsim import simc_runner as sr
+
+    original = masmorras_worker.rodar_build
+    chamadas = {"n": 0}
+
+    def rodar(*a, **k):
+        chamadas["n"] += 1
+        if chamadas["n"] == 2:
+            raise sr.SimcOrcamentoEsgotado("O simc excedeu 405 s (orçamento). Comando: simc.exe ...")
+        return original(*a, **k)
+
+    monkeypatch.setattr(masmorras_worker, "rodar_build", rodar)
+    r = _rodar(tmp_path, monkeypatch, loadouts=["raid maxroll", "Diabolist Delves"])["resultado"]
+    assert [b["nome"] for b in r["builds"]] == ["raid maxroll"]
+    assert r["pesos_builds"] == {"raid maxroll": 1.0}
+    assert any("ficaram de fora Diabolist Delves" in a for a in r["avisos"])
+
+
+def test_tempo_esgotado_sem_nada_pronto_vira_mensagem_legivel(tmp_path, monkeypatch) -> None:
+    from wowsim import simc_runner as sr
+
+    def rodar(*a, **k):
+        raise sr.SimcOrcamentoEsgotado("O simc excedeu 405 s (orçamento). Comando: simc.exe x y z")
+
+    _bases(tmp_path, monkeypatch)
+    monkeypatch.setattr(masmorras_worker, "rodar_build", rodar)
+    monkeypatch.setattr(masmorras_worker, "criar_simulador", lambda *a, **k: None)
+    monkeypatch.setattr(
+        masmorras_worker, "preflight", lambda *a, **k: SimpleNamespace(ok=True, duracao_s=0.1, erro=None)
+    )
+    monkeypatch.setattr(masmorras_worker, "threads_para_job", lambda: 1)
+    pedido = {"addon": FIXTURE.read_text(encoding="utf-8"), "loadouts": ["raid maxroll"], "orcamento_segundos": 900}
+    job_id = masmorras_db.criar_job(json.dumps(pedido))
+    masmorras_worker.processar(job_id)
+    job = masmorras_db.obter_job(job_id)
+    assert job["status"] == "error"
+    assert "tempo máximo (15 min)" in job["erro"] and "simc.exe" not in job["erro"]

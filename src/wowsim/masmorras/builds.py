@@ -17,7 +17,7 @@ from ..topgear.constraints import validar
 from ..topgear.models import Candidato, Conjunto, ContextoSpec
 from ..topgear.runner import LeituraSim
 from ..topgear.search import _limiar_por_erro
-from .avaliar import LIMIAR_PCT, Avaliacao, Opcao, avaliar
+from .avaliar import LIMIAR_PCT, MAX_REFINO, Avaliacao, Opcao, avaliar, itens_para_refinar
 
 Simulador = Callable[[Mapping[str, Conjunto], int], LeituraSim]
 
@@ -210,6 +210,7 @@ def rodar_build(
     simular: Simulador,
     it_triagem: int,
     it_refino: int,
+    max_refino: int = MAX_REFINO,
 ) -> ResultadoBuild:
     """Triagem, refino, montagem e confirmação de UMA build (até 3 execuções)."""
     com_build = conjuntos_da_build(base, codigo, conjuntos)
@@ -219,7 +220,7 @@ def rodar_build(
     triagem = avaliar(leitura, opcoes, referencia="ref")
     ref_dps = leitura.resultados.get("ref")
 
-    vivos = {a.item.item_id for a in triagem if a.ganho > -a.limiar_cru}
+    vivos = itens_para_refinar(triagem, max_refino)
     nomes = [n for n, op in opcoes.items() if op.item.item_id in vivos]
     avaliacoes = triagem
     if nomes:

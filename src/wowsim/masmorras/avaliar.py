@@ -17,6 +17,11 @@ from ..topgear.runner import LeituraSim, criar_simulador, estilo_de_luta
 from ..topgear.search import _limiar_por_erro, conjunto_do_personagem
 from .catalogo import ItemDeMasmorra
 
+# Refinar a 3.000 iterações TODOS os itens vivos custava 10× a triagem (log do
+# usuário 2026-11-08: 88 profilesets em DungeonSlice estouraram o orçamento).
+# Só os melhores da triagem precisam de precisão; o resto fica com a triagem.
+MAX_REFINO = 24
+
 SLOTS_DUPLOS = {"finger": ("finger1", "finger2"), "trinket": ("trinket1", "trinket2")}
 LIMIAR_PCT = 0.15
 
@@ -137,6 +142,12 @@ def avaliar(
     return saida
 
 
+def itens_para_refinar(triagem: list[Avaliacao], maximo: int = MAX_REFINO) -> set[int]:
+    """Itens que vão para o refino: não perderam com folga e estão entre os melhores."""
+    vivos = sorted((a for a in triagem if a.ganho > -a.limiar_cru), key=lambda a: -a.ganho)
+    return {a.item.item_id for a in vivos[: max(1, maximo)]}
+
+
 def rodar_ranking(
     personagem,
     itens: list[ItemDeMasmorra],
@@ -149,6 +160,7 @@ def rodar_ranking(
     cancelar=None,
     orcamento_restante=None,
     base_out: dict | None = None,
+    max_refino: int = MAX_REFINO,
 ) -> list[Avaliacao]:
     base = conjunto_do_personagem(personagem)
     conjuntos, opcoes = montar_opcoes(base, itens, ilvl=ilvl, classe=personagem.classe)
@@ -160,8 +172,8 @@ def rodar_ranking(
     if base_out is not None:
         base_out["base_dps"] = leitura_triagem.base_dps
     triagem = avaliar(leitura_triagem, opcoes)
-    # Refina tudo que não perdeu claramente; o resto fica como "não serve".
-    vivos = {a.item.item_id for a in triagem if a.ganho > -a.limiar_cru}
+    # Refina os melhores que não perderam claramente; o resto fica com a triagem.
+    vivos = itens_para_refinar(triagem, max_refino)
     nomes = [n for n, op in opcoes.items() if op.item.item_id in vivos]
     refino = avaliar(
         simular({n: conjuntos[n] for n in nomes}, it_refino),

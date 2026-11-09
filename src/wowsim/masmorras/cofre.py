@@ -14,7 +14,7 @@ from ..topgear.catalisador import gemeo_catalisado
 from ..topgear.models import Candidato, Conjunto
 from ..topgear.runner import criar_simulador, estilo_de_luta
 from ..topgear.search import conjunto_do_personagem
-from .avaliar import Opcao, avaliar
+from .avaliar import MAX_REFINO, Opcao, avaliar, itens_para_refinar
 from .catalogo import ItemDeMasmorra
 
 MASMORRA_COFRE = "Grande Cofre"
@@ -103,6 +103,7 @@ def rodar_ranking_cofre(
     cancelar=None,
     orcamento_restante=None,
     base_out: dict | None = None,
+    max_refino: int = MAX_REFINO,
 ) -> list:
     """Como ``rodar_ranking`` (T6), mas para as opções do Grande Cofre (T8)."""
     base = conjunto_do_personagem(personagem)
@@ -120,7 +121,7 @@ def rodar_ranking_cofre(
     if base_out is not None:
         base_out["base_dps"] = leitura.base_dps
     triagem = avaliar(leitura, opcoes)
-    vivos = {a.item.item_id for a in triagem if a.ganho > -a.limiar_cru}
+    vivos = itens_para_refinar(triagem, max_refino)
     nomes = [n for n, op in opcoes.items() if op.item.item_id in vivos]
     refino = avaliar(
         simular({n: conjuntos[n] for n in nomes}, it_refino),
