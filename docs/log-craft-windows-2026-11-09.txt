@@ -1,0 +1,52 @@
+classe=warlock demonology tipo=tecido item=239675 Courtly Shoulders
+=== SIMC STDOUT (tail) ===
+    Pet "overlord" Gains:
+    Pet "grand_warlock_alythess" Gains:
+  Waiting:  0.00%
+ *** Targets *** 
+Target: Fluffy_Pillow humanoid tank_dummy unknown 93
+  DTPS=188811.80099028314 DTPS-Error=0/0.00% DTPS-Range=0/0.00%
+  DPR=0 RPS-Out=188811.80099028314 RPS-In=0 Resource=health Waiting=0 ApM=0
+  Core Stats:    strength=0|0(0)  agility=0|0(0)  stamina=0|0(0)  intellect=0|0(0)  spirit=0|0(0)  health=0|73572223  mana=0|0
+  Generic Stats: mastery=0.00%|0.00%(0)  versatility=0.00%|0.00%(0)  leech=0.00%|0.00%(0)  runspeed=7.00%|7.00%(0)
+  Spell Stats:   power=0|0(0)  hit=0.00%|0.00%(0)  crit=0.00%|0.00%(0)  haste=0.00%|0.00%(0)  speed=0.00%|0.00%  manareg=0|0(0)
+  Attack Stats:  power=0|0(0)  hit=0.00%|0.00%(0)  crit=5.00%|5.00%(0)  expertise=0.00%|0.00%(0)  haste=0.00%|0.00%(0)  speed=0.00%|0.00%
+  Defense Stats: armor=1470|1470(1470) miss=3.00%|3.00%  dodge=3.00%|3.00%(0)  parry=3.00%|3.00%(0)  block=0.00%|0.00%(0) crit=0.00%|0.00%  versatility=0.00%|0.00%(0)
+  Priorities (actions.precombat):
+    snapshot_stats
+  Priorities (actions.default):
+  Actions:
+  Constant Buffs:
+    arcane_intellect/battle_shout/bleeding/chaos_brand/hunters_mark/mark_of_the_wild/mortal_wounds/mystic_touch/power_word_fortitude/skyfury
+  Dynamic Buffs:
+    cloven_soul : start= 10.0 refresh=  0.0 interval= 34.1 trigger= 34.4 duration= 14.4 uptime= 42.22%
+  Waiting:  0.00%
+Profilesets (median Damage per Second):
+    194365.962 : emb_
+Baseline Performance:
+  Networking    = disabled
+  RNG Engine    = xoshiro256+
+  Iterations    = 2 (2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+  TotalEvents   = 60433
+  MaxEventQueue = 275
+  TargetHealth  = 73572224
+  SimSeconds    = 330.000
+  CpuSeconds    = 0
+  WallSeconds   = 0.0488111
+  InitSeconds   = 0.0171761
+  MergeSeconds  = 0
+  AnalyzeSeconds= 0.0003938
+  SpeedUp       = inf
+  EndTime       = 2026-11-09 02:59:44-0300
+text report took 0.0010723 seconds.
+JSON report version 2.0.0 took 0.000449 seconds.
+=== SIMC STDERR (tail) ===
+Implementation Not Yet Verified: Rune of Unleashed Fire: Procs are assumed to target the same unit that triggered them. Procs triggered by damage are assumed to proc damage. Procs triggered by healing/aura are assumed to proc heal.
+Trivial: Warning: Unknown option 'slot' with value 'shoulder,id=239675,ilevel=331,crafted_stats=32/36,embellishment=arcanoweave_lining', ignoring
+Implementation Not Yet Verified: Rune of Unleashed Fire: Procs are assumed to target the same unit that triggered them. Procs triggered by damage are assumed to proc damage. Procs triggered by healing/aura are assumed to proc heal.
+Trivial: Warning: Unknown option 'slot' with value 'shoulder,id=239675,ilevel=331,crafted_stats=32/36,embellishment=arcanoweave_lining', ignoring
+Implementation Not Yet Verified: Rune of Unleashed Fire: Procs are assumed to target the same unit that triggered them. Procs triggered by damage are assumed to proc damage. Procs triggered by healing/aura are assumed to proc heal.
+=== RESULTADO ===
+base_dps: 188811.8009902838
+variacao: emb_ 194365.96177577705
+avisos: ()
