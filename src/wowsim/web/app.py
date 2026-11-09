@@ -20,6 +20,7 @@ from . import (
     catalog_api,
     db,
     drop_api,
+    exportar_api,
     masmorras_api,
     perfil_store,
     sim_api,
@@ -364,6 +365,7 @@ def baixar_relatorio(job_id: str) -> FileResponse:
 app.include_router(topgear_api.router)
 app.include_router(drop_api.router)
 app.include_router(masmorras_api.router)
+app.include_router(exportar_api.router)
 
 
 # Serve the built React app (Simulator-WoW/dist) last so API routes win.

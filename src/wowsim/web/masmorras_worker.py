@@ -3,6 +3,11 @@
 Reaproveita o parser (SimC/AMR), o pré-voo e o motor ``masmorras.avaliar``.
 Exceções inesperadas nunca deixam o job em ``running``. O pré-voo não publica
 DPS (A-02): 5 iterações só confirmam que o simc roda o perfil.
+
+Com ``loadouts`` no pedido (T9) cada build é medida contra a própria referência
+``ref`` (P4), o conjunto montado passa por uma execução de confirmação e o
+ranking das masmorras usa a média ponderada das builds. Com ``medir_pesos``
+(T11) cada build ganha a sua escala do Pawn, medida pelo simc.
 """
 
 from __future__ import annotations
@@ -14,16 +19,44 @@ from collections import Counter
 from .. import simc_runner as sr
 from ..data import catalog
 from ..data.classes import atributo_da_classe, tipo_armadura_da_classe
-from ..masmorras.avaliar import agrupar, ordenar, rodar_ranking
+from ..data.pesos_medidos import medir_escala
+from ..exportar.pawn import escalas_das_builds
+from ..masmorras.avaliar import agrupar, montar_opcoes, ordenar, rodar_ranking
+from ..masmorras.builds import (
+    ResultadoBuild,
+    avaliacoes_medias,
+    cenario_da_build,
+    matriz_builds,
+    pesos_normalizados,
+    rodar_build,
+)
 from ..masmorras.catalogo import elegivel, itens_por_masmorra
-from ..masmorras.cofre import MASMORRA_COFRE, opcoes_do_cofre, rodar_ranking_cofre
-from ..masmorras.modelos import ItemRanking, MasmorraRanking, RankingRequest, RankingResult
+from ..masmorras.cofre import (
+    MASMORRA_COFRE,
+    montar_opcoes_cofre,
+    opcoes_do_cofre,
+    rodar_ranking_cofre,
+)
+from ..masmorras.modelos import (
+    BuildResultado,
+    ItemRanking,
+    LinhaMatriz,
+    MasmorraRanking,
+    RankingRequest,
+    RankingResult,
+    TrocaBuild,
+)
 from ..parser.addon import ErroParseAddon
 from ..parser.amr import parse_amr
 from ..parser.combinar import combinar_textos
-from ..topgear.runner import estilo_de_luta, preflight
+from ..topgear.catalisador import contexto_com_catalisador
+from ..topgear.pools import construir_contexto
+from ..topgear.runner import criar_simulador, estilo_de_luta, preflight
+from ..topgear.search import conjunto_do_personagem
 from . import masmorras_db
 from .worker import registrar_fim_job, registrar_inicio_job, threads_para_job
+
+BUILD_ATUAL = "Atual"
 
 
 class _Cancelado(Exception):
@@ -91,6 +124,76 @@ def _masmorra_ranking(linha: dict, ilvl: int) -> MasmorraRanking:
     )
 
 
+def builds_do_pedido(personagem, nomes: list[str]) -> dict[str, str | None]:
+    """Nome da build -> import string. ``Atual`` = talentos do export."""
+    saida: dict[str, str | None] = {}
+    for nome in nomes:
+        if nome == BUILD_ATUAL:
+            saida[nome] = personagem.talents_atual
+        elif nome in personagem.loadouts:
+            saida[nome] = personagem.loadouts[nome]
+        else:
+            raise ValueError(
+                f"A build {nome!r} não está no export do SimC (loadouts salvos)."
+            )
+    return saida
+
+
+def _troca(slot: str, ganho: float, candidato) -> TrocaBuild:
+    nomes = catalog.nome_item(candidato.item_id) if candidato.item_id else None
+    visual = catalog.visual_item(candidato.item_id) if candidato.item_id else {}
+    return TrocaBuild(
+        slot=slot,
+        item_id=candidato.item_id,
+        nome_pt=candidato.nome_pt or (nomes.nome_pt if nomes else None),
+        nome_en=candidato.nome_en or (nomes.nome_en if nomes else None),
+        ilvl=candidato.ilvl,
+        catalisado=candidato.catalisado,
+        ganho_pct=round(ganho, 3),
+        icone=visual.get("icone"),
+    )
+
+
+def _build_resultado(r: ResultadoBuild) -> BuildResultado:
+    return BuildResultado(
+        nome=r.nome,
+        cenario=r.cenario,
+        ref_dps=r.ref_dps,
+        delta_conjunto_pct=(
+            round(r.delta_conjunto, 3) if r.delta_conjunto is not None else None
+        ),
+        limiar_conjunto_pct=(
+            round(r.limiar_conjunto, 3) if r.limiar_conjunto is not None else None
+        ),
+        trocas=[_troca(slot, ganho, cand) for slot, ganho, cand in r.trocas],
+        conjunto_itens=[
+            cand.model_dump(mode="json", exclude_none=True)
+            for cand in r.conjunto.itens.values()
+            if cand.item_id is not None
+        ],
+        avisos=r.avisos,
+    )
+
+
+def _linha_matriz(linha: dict) -> LinhaMatriz:
+    item = linha["item"]
+    nomes = catalog.nome_item(item.item_id)
+    visual = catalog.visual_item(item.item_id)
+    return LinhaMatriz(
+        item_id=item.item_id,
+        nome_pt=item.nome_pt or nomes.nome_pt,
+        nome_en=nomes.nome_en,
+        masmorra=item.masmorra,
+        slot=item.slot,
+        icone=visual.get("icone"),
+        deltas={b: round(v, 3) for b, v in linha["deltas"].items()},
+        limiares={b: round(v, 3) for b, v in linha["limiares"].items()},
+        etiquetas=linha["etiquetas"],
+        media_pct=round(linha["media_pct"], 3),
+        divergente=linha["divergente"],
+    )
+
+
 def processar(job_id: str) -> None:
     job = masmorras_db.obter_job(job_id)
     if job is None:
@@ -116,6 +219,9 @@ def processar(job_id: str) -> None:
         personagem = combo.personagem
         tipo = tipo_armadura_da_classe(personagem.classe)
         atributo = atributo_da_classe(personagem.classe)
+        builds = builds_do_pedido(personagem, pedido.loadouts)
+        importacao = None
+        elegiveis_itens: list = []
         if pedido.modo == "masmorras":
             elegiveis_itens = [
                 item
@@ -162,7 +268,52 @@ def processar(job_id: str) -> None:
             return pedido.orcamento_segundos - (time.monotonic() - inicio)
 
         base_out: dict = {}
-        if pedido.modo == "cofre":
+        resultados_build: list[ResultadoBuild] = []
+        if builds:
+            # T9: uma medição por build, cada uma contra o próprio ``ref`` (P4).
+            base = conjunto_do_personagem(personagem)
+            if pedido.modo == "cofre":
+                conjuntos, opcoes = montar_opcoes_cofre(
+                    base, importacao, classe=personagem.classe
+                )
+            else:
+                conjuntos, opcoes = montar_opcoes(
+                    base, elegiveis_itens, ilvl=pedido.ilvl, classe=personagem.classe
+                )
+            ctx = contexto_com_catalisador(
+                construir_contexto(
+                    classe=personagem.classe, spec=personagem.spec, tipo_armadura=tipo
+                ),
+                personagem,
+                personagem.classe,
+                None,
+            )
+            for posicao, (nome, codigo) in enumerate(builds.items(), start=1):
+                cenario = pedido.cenarios_loadouts.get(nome) or cenario_da_build(nome)
+                _registrar_progresso(
+                    job_id,
+                    {"estagio": f"build {posicao}/{len(builds)}: {nome}", "cenario": cenario},
+                )
+                simular = criar_simulador(
+                    personagem,
+                    fight_style=estilo_de_luta(cenario),
+                    threads=threads_para_job(),
+                    cancelar=cancelado,
+                    orcamento_restante=restante,
+                )
+                resultados_build.append(
+                    rodar_build(
+                        base, conjuntos, opcoes,
+                        nome=nome, codigo=codigo, cenario=cenario, ctx=ctx,
+                        simular=simular,
+                        it_triagem=pedido.iteracoes_triagem,
+                        it_refino=pedido.iteracoes_refino,
+                    )
+                )
+            por_build = {r.nome: r.avaliacoes for r in resultados_build}
+            avaliacoes = avaliacoes_medias(por_build, pedido.pesos_loadouts)
+            base_out["base_dps"] = resultados_build[0].ref_dps
+        elif pedido.modo == "cofre":
             avaliacoes = rodar_ranking_cofre(
                 personagem,
                 importacao,
@@ -190,12 +341,67 @@ def processar(job_id: str) -> None:
         if masmorras_db.esta_cancelado(job_id):
             raise _Cancelado()
 
+        # T11: escala do Pawn por build (ou da build atual, sem loadouts).
+        pawn: dict = {"builds": {}, "mistura": None, "iguais": []}
+        if pedido.medir_pesos:
+            alvos = [(r.nome, r.codigo, r.cenario) for r in resultados_build] or [
+                (BUILD_ATUAL, personagem.talents_atual, pedido.scenario)
+            ]
+            medicoes = {}
+            for nome, codigo, cenario in alvos:
+                _registrar_progresso(
+                    job_id,
+                    {"estagio": f"escala do Pawn: {nome}", "iteracoes": pedido.iteracoes_pesos},
+                )
+                medicoes[nome] = medir_escala(
+                    personagem,
+                    talentos=codigo,
+                    fight_style=estilo_de_luta(cenario),
+                    iterations=pedido.iteracoes_pesos,
+                    threads=threads_para_job(),
+                    timeout=max(1.0, restante() or 1.0),
+                    cancelar=cancelado,
+                )
+            pawn = escalas_das_builds(
+                medicoes,
+                pedido.pesos_loadouts,
+                personagem=personagem.nome or "WSIM",
+                classe=personagem.classe,
+                spec=personagem.spec,
+            )
+
         linhas = ordenar(agrupar(avaliacoes, dict(contagem_elegiveis)), por="quantidade")
         avisos = [
             a.detalhe
             for a in combo.avisos
             if a.severidade != "info" or a.codigo == "combinar_inv_mesclado"
         ]
+        builds_saida = [_build_resultado(r) for r in resultados_build]
+        for b in builds_saida:
+            escala = pawn["builds"].get(b.nome)
+            if escala:
+                b.pawn = escala["string"]
+                b.pawn_pesos = escala["pesos_pct_por_ponto"]
+        pesos_builds = (
+            pesos_normalizados(list(builds), pedido.pesos_loadouts) if builds else {}
+        )
+        if builds:
+            avisos.append(
+                "Ranking pela média ponderada das builds: "
+                + ", ".join(f"{b} {round(100 * w)}%" for b, w in pesos_builds.items())
+                + "."
+            )
+        matriz = (
+            [
+                _linha_matriz(linha)
+                for linha in matriz_builds(
+                    {r.nome: r.avaliacoes for r in resultados_build},
+                    pedido.pesos_loadouts,
+                )
+            ]
+            if resultados_build
+            else []
+        )
         resultado = RankingResult(
             base_dps=float(base_out.get("base_dps") or 0.0),
             cenario=pedido.scenario,
@@ -203,6 +409,16 @@ def processar(job_id: str) -> None:
             iteracoes=pedido.iteracoes_refino,
             masmorras=[_masmorra_ranking(linha, pedido.ilvl) for linha in linhas],
             avisos=avisos,
+            builds=builds_saida,
+            matriz=matriz,
+            pesos_builds=pesos_builds,
+            pawn_atual=(
+                (pawn["builds"].get(BUILD_ATUAL) or {}).get("string")
+                if not resultados_build
+                else None
+            ),
+            pawn_mistura=pawn["mistura"],
+            pawn_iguais=pawn["iguais"],
         )
 
         masmorras_db.atualizar_job(
@@ -213,7 +429,7 @@ def processar(job_id: str) -> None:
         )
         print(
             f"[masmorras {job_id[:8]}] concluido: base={resultado.base_dps:.0f} dps, "
-            f"{len(resultado.masmorras)} masmorras",
+            f"{len(resultado.masmorras)} masmorras, {len(builds_saida)} builds",
             flush=True,
         )
     except _Cancelado:
@@ -222,10 +438,16 @@ def processar(job_id: str) -> None:
         )
         print(f"[masmorras {job_id[:8]}] cancelado", flush=True)
     except (ErroParseAddon, sr.SimcError, ValueError, OSError) as exc:
-        masmorras_db.atualizar_job(
-            job_id, status="error", finished_at=masmorras_db._agora(), erro=str(exc)
-        )
-        print(f"[masmorras {job_id[:8]}] erro: {exc}", flush=True)
+        if isinstance(exc, sr.SimcCancelado) or masmorras_db.esta_cancelado(job_id):
+            masmorras_db.atualizar_job(
+                job_id, status="cancelled", finished_at=masmorras_db._agora()
+            )
+            print(f"[masmorras {job_id[:8]}] cancelado", flush=True)
+        else:
+            masmorras_db.atualizar_job(
+                job_id, status="error", finished_at=masmorras_db._agora(), erro=str(exc)
+            )
+            print(f"[masmorras {job_id[:8]}] erro: {exc}", flush=True)
     except Exception as exc:  # noqa: BLE001 - nunca deixar job zumbi
         masmorras_db.atualizar_job(
             job_id, status="error", finished_at=masmorras_db._agora(), erro=repr(exc)
