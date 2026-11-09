@@ -90,5 +90,48 @@ Desvios encontrados nesta continuação:
 | :--- | :--- | :--- |
 | T10 / P-031 / P-040 | Exige simc no Windows + export **vivo** do usuário | Rodar o roteiro §8 do workflow e registrar os números no `PENDENCIAS.md` |
 | P-054 | Craft Herói (305–318), armas no Craft, custo da Forja do Veneno (sem número oficial), cargas do Catalisador, desconto de slot | Fonte confirmada para os custos; ou decisão de escopo do usuário |
-| P-055 | Materiais da receita e "onde usar" dos embelezamentos | Extração estável do Wowhead (script pronto em `scripts/raspar_embelezamentos.py`) |
+| P-055 | Materiais da receita e "onde usar" dos embelezamentos | Rodar o raspador com rede e documentar os ids sem receita publicada (ver §"Crawl4AI v2") |
 | U0–U7 | Redesign da UI | `Simulator-WoW/docs/PLANO-REDESIGN-UI.md` (rodada própria) |
+
+---
+
+## Crawl4AI v2 — raspador de embelezamentos reescrito (2026-11-09)
+
+Motivo: o A8 marcou P-055 como parcial ("a página não traz os dados de forma estável"), mas a
+causa real era outra — o script **não executava**. Em `scripts/raspar_embelezamentos.py` o corpo
+de `_secao` aparecia **duplicado fora de qualquer `def`** (linhas 89–121, indentado após o
+`return` de `texto_do_html`), o que é `IndentationError` na carga do módulo. O teste
+`test_texto_do_html_limpa_tags_e_preserva_quebras` importava o arquivo e por isso falhava: o
+"crawl não achou nada" nunca chegou a ser tentado.
+
+| Antes | Depois |
+| :--- | :--- |
+| Texto da página inteira + regex `_secao` procurando o título | Página fatiada em `id="tab-*"`; cada `<tr>` vira `{item_id, nome, quantidade}` por aba |
+| `AsyncWebCrawler(headless=True)` + `arun(url)` | `BrowserConfig` + `CrawlerRunConfig` (`page_timeout`, `delay_before_return_html`, `excluded_tags`, `exclude_external_links`) |
+| Um `try` sem retry | 3 tentativas com backoff; erro de cada id vai para `_falhas` |
+| Só `resultado.html` | `html` → `markdown`/`fit_markdown` (tolera versões do crawl4ai) |
+| Nenhum cache de página | `cache/wowhead/pagina/<id>.html`; reexecutar é offline; `--forcar-pagina` ignora |
+| Sem diagnóstico | `--debug-html <id>` (baixa 1 página, lista abas e o que extraiu) e `--html <arquivo>` (parseia HTML salvo, sem rede) |
+| Materiais só por texto | Segundo salto: se a página lista receitas (`spell=<id>`), o tooltip JSON da receita entrega os reagentes com quantidade (`"3× Nome"`) |
+| `"Reagentes para"` casava com `"Reagentes"` | `_secao(..., evitar=("reagentes para", "reagent for"))` |
+| `texto_do_html` colapsava blocos em uma linha | `</p|div|li|tr|td|h1-6|table|section|ul|ol>` viram quebra de linha (melhora o texto do cartão e o recorte por título) |
+
+Comportamento mantido por contrato:
+
+- `materiais`/`usado_em` continuam `list[str]` — [`ResultadoCraft.tsx`](../Simulator-WoW/src/components/masmorras/ResultadoCraft.tsx:136) renderiza string a string.
+- O detalhe estruturado vai em `_detalhe` (não entra em `mesclar_wowhead`, que só copia `_CAMPOS_WOWHEAD`).
+- P1 preservado: sem dado, campo vazio + motivo em `_falhas`; nada é estimado.
+
+Testes novos em `tests/test_embelezamentos_wowhead.py` (9): classificação de abas, separação
+materiais × "usado em", quantidade explícita, fallback por texto sem misturar títulos,
+dedupe de receitas e leitura do tooltip de spell. Suíte: **490 passed, 2 deselected**.
+
+### O que falta (não é código)
+
+1. Rodar `python scripts/raspar_embelezamentos.py --debug-html 240167` para confirmar os ids
+   reais das abas e ver `materiais`/`usado_em` no console.
+2. Ter `crawl4ai` + Chromium (`pip install crawl4ai`; `python -m playwright install chromium`).
+3. Rodar os 21 ids, depois `scripts/derivar_embelezamentos.py`, e anotar em `PENDENCIAS.md`
+   quais ids não têm receita publicada no Wowhead (aí é ausência de dado, não bug).
+4. Se os ids das abas tiverem mudado, ajustar só `_classificar_aba` — os testes e o `--html`
+   permitem fazer isso sem rede.

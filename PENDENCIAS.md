@@ -536,10 +536,28 @@ crit 74 / haste 74 / intellect 138 / stamina 2832). A tooltip recebe `stats`, fo
 
 ### P-055 — Embelezamentos sem ícone nem texto completo — PARCIAL em 2026-11-09
 `scripts/raspar_embelezamentos.py` preencheu ícone e texto PT-BR nos 21 reagentes; o derivador
-mescla em `embelezamentos.json` e a tela mostra no cartão. **Falta** materiais da receita e
-"onde usar": a página renderizada do Wowhead não os traz de forma estável, então ficaram vazios
-(P1: não adivinhar). **Fecha com** uma extração estável desses dois campos (script já pronto).
-Commits `b091603` (backend) e `0e7e377` (frontend).
+mescla em `embelezamentos.json` e a tela mostra no cartão. Commits `b091603` (backend) e
+`0e7e377` (frontend).
+
+**Estado em 2026-11-09 (madrugada):** o raspador foi reescrito e agora tem extração
+estruturada (ver `docs/AUDITORIA-3-EXECUCAO.md` §"Crawl4AI v2"). O que **ainda falta** é
+execução com rede, nada de código pendente conhecido:
+
+1. **Verificar se o dado existe.** O script tinha um bloco duplicado fora de qualquer `def`
+   (linhas 89–121), ou seja, `IndentationError` — a execução anterior nunca chegou ao crawl.
+   Corrigido. Antes de rodar os 21, confirmar em 1–3 ids que a página tem as abas de receita.
+2. **Conferir os ids das abas com o HTML real** (`--debug-html 240167`). O parser aceita
+   `tab-*` cujos nomes contenham `reagent/created/craft/reagente/criado/receita` (materiais) e
+   `for/para/used/usado/teaches/contained` (usado em). Se o Wowhead mudou os ids, é só ajustar
+   `_classificar_aba` — os testes usam fixture local (`--html` também lê página salva).
+3. **Dependência de browser:** `pip install crawl4ai` + `python -m playwright install chromium`.
+   Sem isso o script avisa e devolve `materiais: []` (não quebra).
+4. **Executar** `python scripts/raspar_embelezamentos.py --delay 0.5` e depois
+   `python scripts/derivar_embelezamentos.py`, e registrar no `_meta` do JSON quantos vieram
+   sem materiais (`sem_materiais`).
+5. **Fechar** quando os 21 reagentes tiverem `materiais` e `usado_em` não vazios **ou** quando
+   ficar documentado, id a id, que o Wowhead não publica a receita (aí é dado inexistente, não
+   bug — P1 manda deixar vazio).
 
 ### P-054 — Pendências antigas reunidas — ABERTA (parcial)
 T10: `embellishment=` validado no simc real com o fixture `pyrogalth.simc` (log em
