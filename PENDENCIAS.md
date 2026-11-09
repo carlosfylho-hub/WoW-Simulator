@@ -74,6 +74,13 @@ Nenhum bloqueio ativo. O binário foi compilado a partir do fonte `12.1.5.70783`
 | **Testes** | Novo `tests/test_pesos_alias.py` (`Vers` → `versatility`) e `test_poda_ignora_pesos_medidos` (monkeypatch em `carregar_pesos_medidos` com pesos absurdos → o aviso de poda cita a fonte `curado:`). |
 | **Impacto** | Ranking deixa de ser guiado por pesos medidos inválidos; a versatilidade volta a participar da estimativa de poda. |
 
+### A-02 — Pré-voo publicava DPS de 5 iterações — **RESOLVIDA em 2026-11-08**
+
+| Campo | Detalhe |
+| :--- | :--- |
+| **O que** | O estágio de pré-voo (5 iterações, só para saber se o simc roda o perfil) gravava `dps` no JSON de progresso de `topgear_worker.py` e `drop_worker.py`. Gravidade baixa: a tela mostra só `rodada` e `estagio`. |
+| **Correção** | Removido o campo `dps` do evento de pré-voo; fica só `duracao_s`. O DPS continua vindo apenas das rodadas medidas (P1). |
+
 ---
 
 ## 3. Pendências de dados

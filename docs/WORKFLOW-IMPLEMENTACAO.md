@@ -247,8 +247,8 @@ A fazer:
 | :-: | :--- | :-: | :-- |
 | 1 | **T1** Duração da luta não vem do relógio (A-01) | [x] | `84ce4d9` |
 | 1 | **T2** Codec do AMR por diferença acumulada (A-07) | [x] | `2ca377c` |
-| 1 | **T3** Pesos: `Vers` e poda só com pesos curados (A-12) | [ ] | |
-| 1 | **T4** Pré-voo não publica DPS (A-02) | [ ] | |
+| 1 | **T3** Pesos: `Vers` e poda só com pesos curados (A-12) | [x] | `6cc1e82` |
+| 1 | **T4** Pré-voo não publica DPS (A-02) | [x] | `964b4ca` |
 | 2 | **T5** Catálogo de M+ por masmorra e elegibilidade | [ ] | |
 | 2 | **T6** Motor do ranking de masmorras | [ ] | |
 | 2 | **T7** API, worker e tela do ranking | [ ] | |
