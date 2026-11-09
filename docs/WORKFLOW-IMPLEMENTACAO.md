@@ -1377,6 +1377,29 @@ Registrar cada resultado em `PENDENCIAS.md`.
 | — | **Correções do Craft (A1–A7)**: P-049…P-053 — ver `docs/AUDITORIA-3-EXECUCAO.md` | [x] | `92ed854`…`4e26d5e` (detalhe na execução); estado vivo em `docs/AUDITORIA-CONSOLIDADA.md` |
 | — | **P-032** Catalisador na estimativa + checkbox/cargas no Top Gear | [x] | `e9931ac` (backend), `6ce9f39` (UI) |
 | — | **P-054 / P-055** (Craft Herói/armas/cargas, materiais Wowhead) | [ ] | **bloqueado** — ver `docs/AUDITORIA-CONSOLIDADA.md` §3 (depende de dado de jogo/Wowhead instável) |
+| T23 | **Forçar tier set (4 peças)** no ranking de Masmorras — pedido do usuário 2026-11-09, desenho abaixo | [~] | em execução (Claude) |
+
+**Desenho do T23 (forçar tier set):**
+- Pedido: `forcar_tier: bool`, `trilha_tier: "heroi"|"mito"` e `rank_tier: 1–6` (o nível das peças de
+  tier, separado do nível dos drops — o usuário monta personagens secundários, como o druida, em Herói).
+- `masmorras/tier.py::plano_tier(...)`, depois do ranking normal (modo Masmorras):
+  1. Slots de tier da classe (`tier.conjunto_da_classe(classe).slots`); quantos o personagem já usa.
+  2. Para cada slot sem tier, a melhor **fonte** (item de masmorra que catalisa para aquele slot) pelo
+     `delta_cat` já medido no ranking; o gêmeo é refeito no nível `trilha_tier/rank_tier`
+     (`gemeo_catalisado` sobre um candidato cru com o bônus desse degrau).
+  3. Combinações que deixam o conjunto com **4 peças** (e a de 5, se houver): no máximo C(5,4)+1 = 6
+     profilesets, medidos **juntos numa leitura** contra a base (P4) — o bônus de 2 e 4 peças entra no
+     número porque o simc simula o conjunto inteiro.
+  4. Saída `RankingResult.tier`: combinações ordenadas por ganho (peças com a masmorra de origem,
+     quantas conversões do Catalisador cada uma exige, ganho ± limiar), a melhor, e
+     `masmorras_do_plano` (masmorra → nº de peças do melhor plano).
+- Com `forcar_tier`, o "Rolar o bônus em" ordena primeiro pelas masmorras que dão peças do melhor
+  plano de 4 peças; cada linha mostra "2 peças do plano de tier".
+- Limite conhecido (registrar na tela): o plano usa os talentos/cenário principais; com builds
+  marcadas, ele é medido só uma vez (não por build).
+- Testes: simulador falso em que o bônus de 4 peças vale +5% só quando há 4 ids de tier no conjunto;
+  aceite: o plano escolhe 4 slots, o ganho do plano inclui o bônus, e as masmorras do plano sobem no
+  ranking.
 | T22 | **Modo Craft** na tela de Masmorras (decisão do usuário 2026-11-09) — ver desenho abaixo | [x] | `f1c0a98` (backend), UI no Simulator-WoW; **falta validar no simc real (T10)**: conferir que `ilevel=331,crafted_stats=…,embellishment=…` não gera erro no log |
 
 **Decisões do usuário (2026-11-09):** craft é uma 3ª opção da tela de Masmorras ("Masmorras M+ \| Grande
