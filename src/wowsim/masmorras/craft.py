@@ -251,6 +251,7 @@ def rodar_craft(
     it_triagem: int,
     it_refino: int,
     max_refino: int = 24,
+    sondar=None,
 ) -> ResultadoCraft:
     """Fase 1: melhor peça+missiva por slot. Fase 2: cada embelezamento no melhor slot onde cabe."""
     conjuntos, opcoes, meta = montar_opcoes_craft(base, itens)
@@ -326,6 +327,21 @@ def rodar_craft(
         }
         for slot, (a, item, par, _) in sorted(melhor_por_slot.items(), key=lambda kv: -kv[1][0].delta_cru)
     ]
+
+    # P-051 (A4): atributos reais da peça craftada, lidos do simc (players[i].gear).
+    # É só para a tooltip; nunca entra em cálculo de DPS. Falha da sonda não
+    # derruba o ranking — a tooltip apenas fica sem os atributos.
+    if sondar is not None and pecas:
+        alvo = {
+            f"{slot}_{item.item_id}": candidato(item, slot, par)
+            for slot, (_a, item, par, _nome) in melhor_por_slot.items()
+        }
+        try:
+            stats_por_peca = sondar(alvo) or {}
+        except Exception:  # noqa: BLE001 - sonda é opcional/visual
+            stats_por_peca = {}
+        for p in pecas:
+            p["stats"] = stats_por_peca.get(f"{p['slot']}_{p['item_id']}")
 
     # Fase 2 — embelezamentos, sempre respeitando o teto de 2 (P-050):
     #  * ainda há espaço: aplica E na melhor peça não embutida que o aceita;

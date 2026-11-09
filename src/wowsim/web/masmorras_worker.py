@@ -33,6 +33,7 @@ from ..masmorras.builds import (
 )
 from ..masmorras.catalogo import elegivel, itens_por_masmorra
 from ..masmorras.craft import BRASOES_CRAFT, CENTELHAS, ILVL_CRAFT, itens_craftaveis, rodar_craft
+from ..masmorras.sonda import sondar_atributos
 from ..masmorras.cofre import (
     MASMORRA_COFRE,
     montar_opcoes_cofre,
@@ -336,6 +337,19 @@ def processar(job_id: str) -> None:
                 it_triagem=pedido.iteracoes_triagem,
                 it_refino=pedido.iteracoes_refino,
                 max_refino=pedido.max_refino,
+                # Sonda curta de atributos (P-051/A4) só se ainda houver folga
+                # de orçamento; é visual e não entra em cálculo de DPS.
+                sondar=(
+                    (
+                        lambda candidatos: sondar_atributos(
+                            personagem,
+                            candidatos,
+                            fight_style=estilo_de_luta(pedido.scenario),
+                        )
+                    )
+                    if (restante() or 0) > 20
+                    else None
+                ),
             )
             base_out["base_dps"] = resultado_craft.base_dps
             avaliacoes = []

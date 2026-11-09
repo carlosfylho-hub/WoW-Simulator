@@ -303,6 +303,8 @@ def test_modo_craft_no_worker(tmp_path, monkeypatch) -> None:
         masmorras_worker, "preflight", lambda *a, **k: SimpleNamespace(ok=True, duracao_s=0.1, erro=None)
     )
     monkeypatch.setattr(masmorras_worker, "threads_para_job", lambda: 1)
+    # A sonda de atributos (A4) fala com o simc real; aqui é isolada.
+    monkeypatch.setattr(masmorras_worker, "sondar_atributos", lambda *a, **k: {})
     pedido = {"addon": FIXTURE.read_text(encoding="utf-8"), "modo": "craft", "orcamento_segundos": 600}
     job_id = masmorras_db.criar_job(json.dumps(pedido))
     masmorras_worker.processar(job_id)
