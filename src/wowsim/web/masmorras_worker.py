@@ -32,6 +32,7 @@ from ..masmorras.builds import (
     rodar_build,
 )
 from ..masmorras.catalogo import elegivel, itens_por_masmorra
+from ..masmorras.craft import BRASOES_CRAFT, CENTELHAS, ILVL_CRAFT, itens_craftaveis, rodar_craft
 from ..masmorras.cofre import (
     MASMORRA_COFRE,
     montar_opcoes_cofre,
@@ -266,6 +267,8 @@ def processar(job_id: str) -> None:
                 if elegivel(item, tipo_armadura=tipo, atributo=atributo)
             ]
             contagem_elegiveis = Counter(item.masmorra for item in elegiveis_itens)
+        elif pedido.modo == "craft":
+            contagem_elegiveis = Counter()
         else:
             amr_texto = (pedido.amr or "").strip()
             if not amr_texto and (pedido.addon or "").strip().startswith("$"):
@@ -308,7 +311,35 @@ def processar(job_id: str) -> None:
         base_out: dict = {}
         resultados_build: list[ResultadoBuild] = []
         avisos_execucao: list[str] = []
-        if builds:
+        resultado_craft = None
+        if pedido.modo == "craft":
+            # T22: peça + missiva por slot e embelezamentos, medidos pelo simc.
+            if builds:
+                avisos_execucao.append("O modo Craft mede só a build atual (as builds marcadas foram ignoradas).")
+                builds = {}
+            ctx_craft = contexto_com_catalisador(
+                construir_contexto(classe=personagem.classe, spec=personagem.spec, tipo_armadura=tipo),
+                personagem, personagem.classe, None,
+            )
+            _registrar_progresso(job_id, {"estagio": "craft: peças e missivas"})
+            resultado_craft = rodar_craft(
+                conjunto_do_personagem(personagem),
+                itens_craftaveis(tipo),
+                ctx=ctx_craft,
+                simular=criar_simulador(
+                    personagem,
+                    fight_style=estilo_de_luta(pedido.scenario),
+                    threads=threads_para_job(),
+                    cancelar=cancelado,
+                    orcamento_restante=restante,
+                ),
+                it_triagem=pedido.iteracoes_triagem,
+                it_refino=pedido.iteracoes_refino,
+                max_refino=pedido.max_refino,
+            )
+            base_out["base_dps"] = resultado_craft.base_dps
+            avaliacoes = []
+        elif builds:
             # T9: uma medição por build, cada uma contra o próprio ``ref`` (P4).
             base = conjunto_do_personagem(personagem)
             if pedido.modo == "cofre":
@@ -461,7 +492,27 @@ def processar(job_id: str) -> None:
             if resultados_build
             else []
         )
+        craft_saida = None
+        if resultado_craft is not None:
+            for peca in resultado_craft.pecas:
+                visual = catalog.visual_item(peca["item_id"])
+                peca["icone"] = visual.get("icone")
+            craft_saida = {
+                "pecas": resultado_craft.pecas,
+                "embelezamentos": resultado_craft.embelezamentos,
+                "custo": {
+                    "ilvl": ILVL_CRAFT,
+                    "nivel": "Mítico qualidade 5",
+                    "brasoes": BRASOES_CRAFT,
+                    "moeda": "Brasão Mítico",
+                    "centelhas": CENTELHAS,
+                    "nota": "Por peça. Arma de 2 mãos usa 4 Centelhas de Marés.",
+                },
+                "limite_embelezamentos": "Único-equipado: Embelezado (2) — no máximo 2 efeitos ativos.",
+                "avisos": resultado_craft.avisos,
+            }
         resultado = RankingResult(
+            craft=craft_saida,
             base_dps=float(base_out.get("base_dps") or 0.0),
             cenario=pedido.scenario,
             ilvl=nivel_pedido.ilvl,

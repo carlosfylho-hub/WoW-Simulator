@@ -280,3 +280,38 @@ def test_forja_fora_do_seis_de_seis_vira_erro(tmp_path, monkeypatch) -> None:
     masmorras_worker.processar(job_id)
     job = masmorras_db.obter_job(job_id)
     assert job["status"] == "error" and "6/6" in job["erro"]
+
+
+def test_modo_craft_no_worker(tmp_path, monkeypatch) -> None:
+    _bases(tmp_path, monkeypatch)
+
+    class Sim:
+        def __call__(self, conjuntos, iterations):
+            r = {}
+            for nome, c in conjuntos.items():
+                dps = 100.0
+                for cand in c.itens.values():
+                    if cand.crafted_stats == [36, 49] and cand.slot == "shoulder":
+                        dps += 1.0
+                    if cand.embelezamento_simc == "arcanoweave_lining":
+                        dps += 0.4
+                r[nome] = dps
+            return LeituraSim(base_dps=100.0, resultados=r)
+
+    monkeypatch.setattr(masmorras_worker, "criar_simulador", lambda *a, **k: Sim())
+    monkeypatch.setattr(
+        masmorras_worker, "preflight", lambda *a, **k: SimpleNamespace(ok=True, duracao_s=0.1, erro=None)
+    )
+    monkeypatch.setattr(masmorras_worker, "threads_para_job", lambda: 1)
+    pedido = {"addon": FIXTURE.read_text(encoding="utf-8"), "modo": "craft", "orcamento_segundos": 600}
+    job_id = masmorras_db.criar_job(json.dumps(pedido))
+    masmorras_worker.processar(job_id)
+    job = masmorras_db.obter_job(job_id)
+    assert job["status"] == "done", job.get("erro")
+    craft = job["resultado"]["craft"]
+    assert craft["custo"]["brasoes"] == 80 and craft["custo"]["ilvl"] == 331
+    assert craft["pecas"][0]["slot"] == "shoulder"
+    assert craft["pecas"][0]["missiva"] == "Aceleração + Maestria"
+    arcano = next(e for e in craft["embelezamentos"] if e["nome_en"] == "Arcanoweave Lining")
+    assert arcano["ganho_pct"] == pytest.approx(0.4) and arcano["descricao"]
+    assert job["resultado"]["masmorras"] == []

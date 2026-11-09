@@ -1,0 +1,225 @@
+{
+  "_meta": {
+    "gerado_em": "2026-11-09T04:34:56Z",
+    "gerado_por": "scripts/derivar_embelezamentos.py",
+    "fontes": [
+      "dados/craft_sistemas_s2.json",
+      "simc engine/dbc/generated/embellishment_data.inc"
+    ],
+    "simc_build": "12.1.5.70783",
+    "sem_correspondencia_no_simc": [],
+    "limite": "Único-equipado: Embelezado (2) — no máximo 2 efeitos ativos"
+  },
+  "embelezamentos": [
+    {
+      "reagente_id": 240165,
+      "nome_pt": "Forro de Seda de Fogo Solar",
+      "nome_en": "Sunfire Silk Lining",
+      "token_simc": "sunfire_silk_lining",
+      "bonus_id": 12385,
+      "alvo": "armadura",
+      "usavel_com": "Receitas de Midnight para a maior parte das armaduras não adornadas.",
+      "descricao": "Cura e dano de efeitos periódicos concedem 5 de primaryStat por 15 s, acumulando até 5 vezes."
+    },
+    {
+      "reagente_id": 240167,
+      "nome_pt": "Forro de Arcanotrama",
+      "nome_en": "Arcanoweave Lining",
+      "token_simc": "arcanoweave_lining",
+      "bonus_id": 12384,
+      "alvo": "armadura",
+      "usavel_com": "Receitas de Midnight para a maior parte das armaduras não adornadas.",
+      "descricao": "Seus feitiços e habilidades têm chance de atrair uma moreia de mana que potencializará você e um aliado com Percepção da Arcanotrama, aumentando seu atributo primário e o do seu aliado."
+    },
+    {
+      "reagente_id": 244604,
+      "nome_pt": "Patuá de Pango Abençoado",
+      "nome_en": "Blessed Pango Charm",
+      "token_simc": "blessed_pango_charm",
+      "bonus_id": 12686,
+      "alvo": "qualquer",
+      "usavel_com": "Receitas de Midnight para a maioria dos equipamentos não adornados.",
+      "descricao": "Suas habilidades e feitiços benéficos têm chance de evocar o loa Kurzi para conceder Versatilidade ao seu alvo."
+    },
+    {
+      "reagente_id": 244608,
+      "nome_pt": "Vínculo de Esporos Primevos",
+      "nome_en": "Primal Spore Binding",
+      "token_simc": "primal_spore_binding",
+      "bonus_id": 12687,
+      "alvo": "arma_ou_armadura",
+      "usavel_com": "Receitas de Midnight para a maioria das armas e armaduras não adornadas.",
+      "descricao": "Seus feitiços e habilidades podem lançar Esporos Explosivos contra os alvos, curando aliados ou causando dano aos inimigos, dependendo de quem é o alvo."
+    },
+    {
+      "reagente_id": 244675,
+      "nome_pt": "Elo Devorador",
+      "nome_en": "Devouring Banding",
+      "token_simc": "devouring_banding",
+      "bonus_id": 12685,
+      "alvo": "arma_ou_armadura",
+      "usavel_com": "Receitas de Midnight para a maioria das armas e armaduras não adornadas.",
+      "descricao": "Suas habilidades e feitiços que causam dano têm chance de lançar Setas Devoradoras que causam dano ao seu alvo e aprimoram o seu atributo secundário mais alto."
+    },
+    {
+      "reagente_id": 245872,
+      "nome_pt": "Signo de Negraluna: Sangue",
+      "nome_en": "Darkmoon Sigil: Blood",
+      "token_simc": "darkmoon_sigil_blood",
+      "bonus_id": 12705,
+      "alvo": "arma",
+      "usavel_com": "Receitas de Midnight para a maioria das armas e itens de mão secundária não adornados.",
+      "descricao": "Suas habilidades e feitiços que causam dano têm chance de conceder Astúcia do Andarilho, aumentando em 76 seu segundo atributo mais baixo por 15 s."
+    },
+    {
+      "reagente_id": 245874,
+      "nome_pt": "Signo de Negraluna: Caos",
+      "nome_en": "Darkmoon Sigil: Void",
+      "token_simc": "darkmoon_sigil_void",
+      "bonus_id": 13640,
+      "alvo": "arma",
+      "usavel_com": "Receitas de Midnight para a maioria das armas e itens de mão secundária não adornados.",
+      "descricao": "Suas habilidades e feitiços que causam dano têm chance de envolver você com Vidro Caótico, concedendo 40 de Versatilidade ao longo de 15 s. Múltiplas aplicações podem se sobrepor."
+    },
+    {
+      "reagente_id": 245876,
+      "nome_pt": "Signo de Negraluna: Caçada",
+      "nome_en": "Darkmoon Sigil: Hunt",
+      "token_simc": "darkmoon_sigil_hunt",
+      "bonus_id": 12693,
+      "alvo": "arma",
+      "usavel_com": "Receitas de Midnight para a maioria das armas e itens de mão secundária não adornados.",
+      "descricao": "Seus feitiços e habilidades têm chance de conceder 56 de atributos secundários por 15 s com base no tipo da criatura-alvo."
+    },
+    {
+      "reagente_id": 245878,
+      "nome_pt": "Signo de Negraluna: Podridão",
+      "nome_en": "Darkmoon Sigil: Rot",
+      "token_simc": "darkmoon_sigil_rot",
+      "bonus_id": 12692,
+      "alvo": "arma",
+      "usavel_com": "Receitas de Midnight para a maioria das armas e itens de mão secundária não adornados.",
+      "descricao": "Atinge seu alvo com Raízes Pútridas, causando 113 de dano de Natureza a cada 2 s por 6 s. Este efeito acumula até 10 vezes. Novos acúmulos não renovam os já aplicados."
+    },
+    {
+      "reagente_id": 248133,
+      "nome_pt": "Detonadores de Tornozelo Cinéticos",
+      "nome_en": "Kinetic Ankle Primers",
+      "token_simc": "kinetic_ankle_primers",
+      "bonus_id": 12717,
+      "alvo": null,
+      "usavel_com": "Botas de Engenharia de Midnight",
+      "descricao": "Prepara suas botas para o combate, lançando você no ar e derrubando inimigos ao atingir o solo."
+    },
+    {
+      "reagente_id": 248136,
+      "nome_pt": "M3D1 de Bolso",
+      "nome_en": "M3DDY, Travel-Sized",
+      "token_simc": "m3ddy_travel_sized",
+      "bonus_id": 12991,
+      "alvo": "qualquer",
+      "usavel_com": "Receitas de Midnight para a maior parte dos equipamentos não adornados.",
+      "descricao": null
+    },
+    {
+      "reagente_id": 248592,
+      "nome_pt": "B1P, Calcinador de Almas",
+      "nome_en": "B1P, Scorcher of Souls",
+      "token_simc": "b1p_scorcher_of_souls",
+      "bonus_id": 12990,
+      "alvo": null,
+      "usavel_com": "Equipamentos Criados de Engenharia de Midnight",
+      "descricao": "Evoca B1P, o Calcinador de Almas, para lançar centelhas de alma contra seus inimigos, causando dano de Fogo em uma área cônica à sua frente por 6 s."
+    },
+    {
+      "reagente_id": 251488,
+      "nome_pt": "Íris Focalizadora Prismática",
+      "nome_en": "Prismatic Focusing Iris",
+      "token_simc": "prismatic_focusing_iris",
+      "bonus_id": 13453,
+      "alvo": "qualquer",
+      "usavel_com": "Receitas de Midnight para a maioria dos equipamentos não adornados.",
+      "descricao": "Seus feitiços e habilidades têm chance de ativar a Íris, que dispara um feixe de luz focado no seu alvo e causa (1 * 1102) de dano Arcano a cada segundo por 4 s."
+    },
+    {
+      "reagente_id": 251490,
+      "nome_pt": "Bandoleira de Gemas Estabilizadora",
+      "nome_en": "Stabilizing Gemstone Bandolier",
+      "token_simc": "stabilizing_gemstone_bandolier",
+      "bonus_id": 13454,
+      "alvo": "qualquer",
+      "usavel_com": "Receitas de Midnight para a maioria dos equipamentos não adornados.",
+      "descricao": "Dobrando as gemas, dobrando o poder!"
+    },
+    {
+      "reagente_id": 255844,
+      "nome_pt": "P51U, Filhotinho Sossegado",
+      "nome_en": "HU5H, Nonchalant Pup",
+      "token_simc": "hu5h_nonchalant_pup",
+      "bonus_id": 13556,
+      "alvo": null,
+      "usavel_com": "Equipamentos Criados de Engenharia de Midnight",
+      "descricao": "Concede invisibilidade ao usuário por 4-18 s."
+    },
+    {
+      "reagente_id": 257741,
+      "nome_pt": "B0P, Seletor de Cabuns",
+      "nome_en": "B0P, Curator of Booms",
+      "token_simc": "b0p_curator_of_booms",
+      "bonus_id": 13588,
+      "alvo": null,
+      "usavel_com": "Equipamentos Criados de Engenharia de Midnight",
+      "descricao": null
+    },
+    {
+      "reagente_id": 270898,
+      "nome_pt": "Forro de Couro de Cobra",
+      "nome_en": "Snakeskin Lining",
+      "token_simc": "snakeskin_lining",
+      "bonus_id": 13764,
+      "alvo": "armadura",
+      "usavel_com": "Receitas de Midnight para a maioria das armaduras não adornadas.",
+      "descricao": "Suas habilidades que causam dano podem aplicar Ácido Corrosivo a um alvo, causando dano periódico. Causar dano ao alvo novamente tem uma chance de detonar o veneno e espalhar dano aos inimigos em volta."
+    },
+    {
+      "reagente_id": 273059,
+      "nome_pt": "Pedra Ritual do Caçador",
+      "nome_en": "Hunter's Ritual Stone",
+      "token_simc": "hunters_ritual_stone",
+      "bonus_id": 13771,
+      "alvo": null,
+      "usavel_com": "Armas de Ferraria de Midnight",
+      "descricao": "Suas habilidades e feitiços que causam dano têm chance de conceder 101 de um atributo secundário aleatório por 15 s."
+    },
+    {
+      "reagente_id": 273062,
+      "nome_pt": "Olho de Cobra Enrolado",
+      "nome_en": "Coiled Snake-Eye",
+      "token_simc": "coiled_snake_eye",
+      "bonus_id": 13769,
+      "alvo": null,
+      "usavel_com": "Armas de Fogo de Engenharia de Midnight",
+      "descricao": null
+    },
+    {
+      "reagente_id": 273065,
+      "nome_pt": "Amolita Polida",
+      "nome_en": "Polished Ammolite",
+      "token_simc": "polished_ammolite",
+      "bonus_id": 13768,
+      "alvo": "acessorio",
+      "usavel_com": "Receitas de Midnight para a maioria dos acessórios não adornados.",
+      "descricao": "Acertos críticos concedem uma bênção cumulativa que aumenta o seu Acerto Crítico. Com o máximo de aplicações, os acertos críticos causam uma explosão de dano."
+    },
+    {
+      "reagente_id": 273068,
+      "nome_pt": "Presa Adornada",
+      "nome_en": "Adorned Fang",
+      "token_simc": "adorned_fang",
+      "bonus_id": 13767,
+      "alvo": "qualquer",
+      "usavel_com": "Receitas de Midnight para a maioria dos equipamentos não adornados.",
+      "descricao": "Seus feitiços e habilidades têm chance de aumentar sua Aceleração, com um aumento de chance quando o alvo está com os pontos de vida baixos."
+    }
+  ]
+}

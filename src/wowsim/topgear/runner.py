@@ -81,6 +81,12 @@ def _linha_item(candidato: Candidato) -> str:
         partes.append("bonus_id=" + "/".join(str(b) for b in bonus))
     if candidato.redirected_base_stats:
         partes.append(f"redirected_base_stats={candidato.redirected_base_stats}")
+    if candidato.ilevel:
+        partes.append(f"ilevel={candidato.ilevel}")
+    if candidato.crafted_stats:
+        partes.append("crafted_stats=" + "/".join(str(s) for s in candidato.crafted_stats))
+    if candidato.embelezamento_simc:
+        partes.append(f"embellishment={candidato.embelezamento_simc}")
     return ",".join(partes)
 
 

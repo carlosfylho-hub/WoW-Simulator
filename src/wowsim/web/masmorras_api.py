@@ -13,6 +13,7 @@ from ..gen.profilesets import estimar_segundos
 from ..masmorras.avaliar import montar_opcoes
 from ..masmorras.builds import cenario_da_build
 from ..masmorras.cofre import opcoes_do_cofre
+from ..masmorras.craft import itens_craftaveis, montar_opcoes_craft
 from ..masmorras.catalogo import elegivel, itens_por_masmorra
 from ..masmorras.modelos import RankingRequest, RankingResult
 from ..parser.addon import ErroParseAddon, parse_texto
@@ -101,7 +102,7 @@ def estimar_masmorras(
     forja: bool = Query(False),
     iteracoes_triagem: int = Query(300, ge=10, le=100_000),
     iteracoes_refino: int = Query(3000, ge=10, le=100_000),
-    modo: str = Query("masmorras", pattern="^(masmorras|cofre)$"),
+    modo: str = Query("masmorras", pattern="^(masmorras|cofre|craft)$"),
     amr: str | None = Query(None, description="Export AMR (modo cofre)."),
     builds: int = Query(0, ge=0, le=6, description="Quantas builds (T9)."),
     medir_pesos: bool = Query(False),
@@ -112,6 +113,31 @@ def estimar_masmorras(
 ) -> dict:
     """Estimativa de custo do ranking antes do Run (por build, quando houver)."""
     contagens: Counter = Counter()
+    if modo == "craft":
+        try:
+            personagem = parse_texto(addon)
+        except ErroParseAddon as exc:
+            raise HTTPException(status_code=400, detail=str(exc)) from exc
+        itens_c = itens_craftaveis(tipo_armadura_da_classe(personagem.classe))
+        conjuntos_c, _, _ = montar_opcoes_craft(conjunto_do_personagem(personagem), itens_c)
+        n = len(conjuntos_c)
+        elegiveis_total = len(itens_c)
+        contagens["Craft"] = elegiveis_total
+        estilo = estilo_de_luta(scenario)
+        n_ref = min(n, max_refino * 6)
+        segundos = (
+            estimar_segundos(n, iteracoes_triagem, estilo)
+            + estimar_segundos(n_ref, iteracoes_refino, estilo)
+            + estimar_segundos(30, iteracoes_refino, estilo)  # fase dos embelezamentos
+        )
+        return {
+            "profilesets_total_estimado": n + n_ref + 30,
+            "segundos_estimados": round(segundos, 1),
+            "orcamento_sugerido": int(segundos * 1.3 + 60),
+            "elegiveis_total": elegiveis_total,
+            "contagens": dict(contagens),
+            "builds": 0,
+        }
     if modo == "cofre":
         texto = (amr or "").strip() or (addon.strip() if addon.strip().startswith("$") else "")
         if not texto:

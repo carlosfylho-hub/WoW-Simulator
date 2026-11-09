@@ -117,7 +117,7 @@ class RankingRequest(BaseModel):
     primario: Literal["simc", "amr"] = "simc"
     scenario: Cenario = "dungeon_slice"
     # "masmorras" = ranking de M+; "cofre" = opções do Grande Cofre (.gv do AMR).
-    modo: Literal["masmorras", "cofre"] = "masmorras"
+    modo: Literal["masmorras", "cofre", "craft"] = "masmorras"
     ilvl: Literal[321, 328, 334, 341] = 341        # atalho antigo; trilha/rank prevalecem
     trilha: Literal["heroi", "mito"] | None = None
     rank: int | None = Field(default=None, ge=1, le=6)
@@ -161,3 +161,5 @@ class RankingResult(BaseModel):
     pawn_atual: str | None = None
     pawn_mistura: str | None = None
     pawn_iguais: list[list[str]] = Field(default_factory=list)
+    # T22: modo Craft — {pecas, embelezamentos, custo, avisos}
+    craft: dict[str, Any] | None = None

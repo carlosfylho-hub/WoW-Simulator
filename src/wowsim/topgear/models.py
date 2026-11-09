@@ -70,6 +70,11 @@ class Candidato(BaseModel):
     tipo_efeito: str | None = None
     embelezamento: bool = False
     craftado: bool = False
+    # Craft (modo Craft): ilvl forçado, par de secundários da missiva (ids de stat do
+    # simc) e embelezamento aplicado (nome tokenizado do simc).
+    ilevel: int | None = None
+    crafted_stats: list[int] = Field(default_factory=list)
+    embelezamento_simc: str | None = None
     # Item de origem cujos stats base a peça usa (Catalisador). Quando definido,
     # ``item_id`` é a peça de tier e a linha do SimC leva ``redirected_base_stats``.
     redirected_base_stats: int | None = None
