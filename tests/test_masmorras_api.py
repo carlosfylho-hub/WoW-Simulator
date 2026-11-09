@@ -44,6 +44,9 @@ def _cliente(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> tuple[TestClien
     return TestClient(app), enfileirados
 
 
+AMR_COFRE = RAIZ / "fixtures" / "ngmmexe-amr-cofre.txt"
+
+
 def _pedido() -> dict:
     return {
         "addon": FIXTURE.read_text(encoding="utf-8"),
@@ -53,6 +56,19 @@ def _pedido() -> dict:
         "iteracoes_refino": 200,
         "orcamento_segundos": 60,
     }
+
+
+def test_modo_cofre_aceita_export_amr(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
+    cliente, enfileirados = _cliente(tmp_path, monkeypatch)
+    with cliente:
+        pedido = _pedido()
+        pedido["modo"] = "cofre"
+        pedido["addon"] = AMR_COFRE.read_text(encoding="utf-8")
+        resposta = cliente.post("/api/masmorras", json=pedido)
+        assert resposta.status_code == 202
+        assert enfileirados == [resposta.json()["id"]]
+        consulta = cliente.get(f"/api/masmorras/{resposta.json()['id']}")
+        assert consulta.json()["request"]["modo"] == "cofre"
 
 
 def test_criar_consultar_cancelar(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:

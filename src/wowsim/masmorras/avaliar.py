@@ -27,6 +27,7 @@ class Opcao:
     item: ItemDeMasmorra
     slot: str            # slot interno onde foi testado
     catalisado: bool
+    ilvl: int | None = None  # ilvl próprio do item (cofre); masmorras usam o do pedido
 
 
 def montar_opcoes(
@@ -64,6 +65,7 @@ class Avaliacao:
     delta_cat: float | None = None
     limiar_cat: float | None = None
     slot: str = ""
+    ilvl: int | None = None
 
     @property
     def etiqueta(self) -> str:
@@ -105,15 +107,17 @@ def avaliar(
         registro = melhor.setdefault(op.item.item_id, {"item": op.item})
         campo = "cat" if op.catalisado else "cru"
         if campo not in registro or delta > registro[campo][0]:
-            registro[campo] = (delta, limiar, op.slot)
+            registro[campo] = (delta, limiar, op.slot, op.ilvl)
 
     saida: list[Avaliacao] = []
     for registro in melhor.values():
         if "cru" not in registro:
             continue
-        d_cru, l_cru, slot = registro["cru"]
-        d_cat, l_cat, _ = registro.get("cat", (None, None, ""))
-        saida.append(Avaliacao(registro["item"], d_cru, l_cru, d_cat, l_cat, slot))
+        d_cru, l_cru, slot, ilvl = registro["cru"]
+        d_cat, l_cat, _, _ = registro.get("cat", (None, None, "", None))
+        saida.append(
+            Avaliacao(registro["item"], d_cru, l_cru, d_cat, l_cat, slot, ilvl)
+        )
     return saida
 
 

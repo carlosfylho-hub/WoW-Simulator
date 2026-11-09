@@ -16,8 +16,10 @@ from ..data import catalog
 from ..data.classes import atributo_da_classe, tipo_armadura_da_classe
 from ..masmorras.avaliar import agrupar, ordenar, rodar_ranking
 from ..masmorras.catalogo import elegivel, itens_por_masmorra
+from ..masmorras.cofre import MASMORRA_COFRE, opcoes_do_cofre, rodar_ranking_cofre
 from ..masmorras.modelos import ItemRanking, MasmorraRanking, RankingRequest, RankingResult
 from ..parser.addon import ErroParseAddon
+from ..parser.amr import parse_amr
 from ..parser.combinar import combinar_textos
 from ..topgear.runner import estilo_de_luta, preflight
 from . import masmorras_db
@@ -61,7 +63,7 @@ def _item_ranking(avaliacao, ilvl: int) -> ItemRanking:
         nome_pt=avaliacao.item.nome_pt or nomes.nome_pt,
         nome_en=nomes.nome_en,
         slot=avaliacao.item.slot,
-        ilvl=ilvl,
+        ilvl=avaliacao.ilvl if avaliacao.ilvl is not None else ilvl,
         etiqueta=avaliacao.etiqueta,
         delta_cru_pct=round(avaliacao.delta_cru, 3),
         delta_catalisado_pct=(
@@ -114,12 +116,24 @@ def processar(job_id: str) -> None:
         personagem = combo.personagem
         tipo = tipo_armadura_da_classe(personagem.classe)
         atributo = atributo_da_classe(personagem.classe)
-        elegiveis_itens = [
-            item
-            for item in itens_por_masmorra()
-            if elegivel(item, tipo_armadura=tipo, atributo=atributo)
-        ]
-        contagem_elegiveis = Counter(item.masmorra for item in elegiveis_itens)
+        if pedido.modo == "masmorras":
+            elegiveis_itens = [
+                item
+                for item in itens_por_masmorra()
+                if elegivel(item, tipo_armadura=tipo, atributo=atributo)
+            ]
+            contagem_elegiveis = Counter(item.masmorra for item in elegiveis_itens)
+        else:
+            amr_texto = (pedido.amr or "").strip()
+            if not amr_texto and (pedido.addon or "").strip().startswith("$"):
+                amr_texto = pedido.addon.strip()
+            if not amr_texto:
+                raise ValueError(
+                    "O Grande Cofre exige um export do AskMrRobot com o .gv."
+                )
+            importacao = parse_amr(amr_texto)
+            itens_cofre = [op for op in opcoes_do_cofre(importacao) if op["slots"]]
+            contagem_elegiveis = Counter({MASMORRA_COFRE: len(itens_cofre)})
 
         pre = preflight(
             personagem,
@@ -148,18 +162,31 @@ def processar(job_id: str) -> None:
             return pedido.orcamento_segundos - (time.monotonic() - inicio)
 
         base_out: dict = {}
-        avaliacoes = rodar_ranking(
-            personagem,
-            elegiveis_itens,
-            cenario=pedido.scenario,
-            ilvl=pedido.ilvl,
-            it_triagem=pedido.iteracoes_triagem,
-            it_refino=pedido.iteracoes_refino,
-            threads=threads_para_job(),
-            cancelar=cancelado,
-            orcamento_restante=restante,
-            base_out=base_out,
-        )
+        if pedido.modo == "cofre":
+            avaliacoes = rodar_ranking_cofre(
+                personagem,
+                importacao,
+                cenario=pedido.scenario,
+                it_triagem=pedido.iteracoes_triagem,
+                it_refino=pedido.iteracoes_refino,
+                threads=threads_para_job(),
+                cancelar=cancelado,
+                orcamento_restante=restante,
+                base_out=base_out,
+            )
+        else:
+            avaliacoes = rodar_ranking(
+                personagem,
+                elegiveis_itens,
+                cenario=pedido.scenario,
+                ilvl=pedido.ilvl,
+                it_triagem=pedido.iteracoes_triagem,
+                it_refino=pedido.iteracoes_refino,
+                threads=threads_para_job(),
+                cancelar=cancelado,
+                orcamento_restante=restante,
+                base_out=base_out,
+            )
         if masmorras_db.esta_cancelado(job_id):
             raise _Cancelado()
 

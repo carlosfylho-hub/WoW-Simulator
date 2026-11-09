@@ -57,6 +57,8 @@ class RankingRequest(BaseModel):
     amr: str | None = Field(default=None, max_length=20_000)
     primario: Literal["simc", "amr"] = "simc"
     scenario: Cenario = "dungeon_slice"
+    # "masmorras" = ranking de M+; "cofre" = opções do Grande Cofre (.gv do AMR).
+    modo: Literal["masmorras", "cofre"] = "masmorras"
     ilvl: Literal[321, 328, 334, 341] = 341
     iteracoes_triagem: int = Field(300, ge=50, le=5_000)
     iteracoes_refino: int = Field(3000, ge=200, le=50_000)

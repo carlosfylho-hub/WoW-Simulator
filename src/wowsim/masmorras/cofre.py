@@ -12,7 +12,9 @@ from ..parser.amr import ImportAMR
 from ..parser.amr_codec import decodificar_itens
 from ..topgear.catalisador import gemeo_catalisado
 from ..topgear.models import Candidato, Conjunto
-from .avaliar import Opcao
+from ..topgear.runner import criar_simulador, estilo_de_luta
+from ..topgear.search import conjunto_do_personagem
+from .avaliar import Opcao, avaliar
 from .catalogo import ItemDeMasmorra
 
 MASMORRA_COFRE = "Grande Cofre"
@@ -84,5 +86,45 @@ def montar_opcoes_cofre(
             for candidato, catalisado in variantes:
                 nome = f"{'k' if catalisado else 'c'}_{item_id}_{slot}"
                 conjuntos[nome] = base.com_troca(slot, candidato)
-                opcoes[nome] = Opcao(nome, item_dm, slot, catalisado)
+                opcoes[nome] = Opcao(
+                    nome, item_dm, slot, catalisado, ilvl=op["ilvl"]
+                )
     return conjuntos, opcoes
+
+
+def rodar_ranking_cofre(
+    personagem,
+    importacao: ImportAMR,
+    *,
+    cenario: str = "dungeon_slice",
+    it_triagem: int = 300,
+    it_refino: int = 3000,
+    threads: int | None = None,
+    cancelar=None,
+    orcamento_restante=None,
+    base_out: dict | None = None,
+) -> list:
+    """Como ``rodar_ranking`` (T6), mas para as opções do Grande Cofre (T8)."""
+    base = conjunto_do_personagem(personagem)
+    conjuntos, opcoes = montar_opcoes_cofre(
+        base, importacao, classe=personagem.classe
+    )
+    simular = criar_simulador(
+        personagem,
+        fight_style=estilo_de_luta(cenario),
+        threads=threads,
+        cancelar=cancelar,
+        orcamento_restante=orcamento_restante,
+    )
+    leitura = simular(conjuntos, it_triagem)
+    if base_out is not None:
+        base_out["base_dps"] = leitura.base_dps
+    triagem = avaliar(leitura, opcoes)
+    vivos = {a.item.item_id for a in triagem if a.ganho > -a.limiar_cru}
+    nomes = [n for n, op in opcoes.items() if op.item.item_id in vivos]
+    refino = avaliar(
+        simular({n: conjuntos[n] for n in nomes}, it_refino),
+        {n: opcoes[n] for n in nomes},
+    )
+    refinados = {a.item.item_id for a in refino}
+    return refino + [a for a in triagem if a.item.item_id not in refinados]
