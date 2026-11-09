@@ -1401,6 +1401,15 @@ Registrar cada resultado em `PENDENCIAS.md`.
   aceite: o plano escolhe 4 slots, o ganho do plano inclui o bônus, e as masmorras do plano sobem no
   ranking.
 
+**T26 — Descrição dos embelezamentos embutidos (pedido do usuário 2026-11-09 15:12)** — [x] feito.
+- `scripts/raspar_efeitos_embutidos.py` (HTTP direto → Crawl4AI → Firecrawl; `--json` offline) lê o
+  tooltip PT-BR do Wowhead das 26 peças com embelezamento embutido e grava
+  `dados/derivados/efeitos_embutidos.json` (efeito "Equipar/Uso" + bônus de conjunto craftado).
+  Amostras em `fixtures/efeitos_embutidos/tooltips_pt.json` (coletadas com Firecrawl).
+- `embellishments.efeito_embutido` → campo `efeito` nas peças do Craft (lista, plano, bloqueadas);
+  a tooltip mostra a seção "Embelezado" com o texto; o selo "embelezado" tem o texto no title.
+- Também: descrição dos 21 reagentes completa (efeito em várias linhas) e atributos nas peças do plano.
+
 **T25 — Craft: plano de 2 peças (pedido do usuário 2026-11-09 12:40)** — [x] feito (Claude).
 - Pedido: "que ele selecionasse duas dentre as demais, ou no máximo uma variante de outras 2 partes
   declarando quanto dps tem de diferença; as outras partes copiam o que já está equipado".

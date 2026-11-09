@@ -1,0 +1,248 @@
+{
+  "_meta": {
+    "gerado_em": "2026-11-09T18:15:31Z",
+    "gerador": "scripts/raspar_efeitos_embutidos.py",
+    "fonte": "nether.wowhead.com tooltip PT-BR (locale=8)",
+    "sem_efeito": []
+  },
+  "itens": {
+    "239657": {
+      "efeito": null,
+      "conjunto": {
+        "nome": "Ornamentos de Seda de Fogo Solar",
+        "total": 3,
+        "bonus": [
+          {
+            "pecas": 2,
+            "efeito": "Acima de 80% dos pontos de vida, ganha 103 de Aceleração."
+          }
+        ]
+      },
+      "engaste": false
+    },
+    "239658": {
+      "efeito": null,
+      "conjunto": {
+        "nome": "Ornamentos de Seda de Fogo Solar",
+        "total": 3,
+        "bonus": [
+          {
+            "pecas": 2,
+            "efeito": "Acima de 80% dos pontos de vida, ganha 103 de Aceleração."
+          }
+        ]
+      },
+      "engaste": false
+    },
+    "239659": {
+      "efeito": null,
+      "conjunto": {
+        "nome": "Ornamentos de Seda de Fogo Solar",
+        "total": 3,
+        "bonus": [
+          {
+            "pecas": 2,
+            "efeito": "Acima de 80% dos pontos de vida, ganha 103 de Aceleração."
+          }
+        ]
+      },
+      "engaste": false
+    },
+    "239660": {
+      "efeito": null,
+      "conjunto": {
+        "nome": "Ornamentos de Arcanotrama",
+        "total": 3,
+        "bonus": [
+          {
+            "pecas": 2,
+            "efeito": "Acima de 80% dos pontos de vida, ganha 103 de Acerto Crítico."
+          }
+        ]
+      },
+      "engaste": false
+    },
+    "239661": {
+      "efeito": null,
+      "conjunto": {
+        "nome": "Ornamentos de Arcanotrama",
+        "total": 3,
+        "bonus": [
+          {
+            "pecas": 2,
+            "efeito": "Acima de 80% dos pontos de vida, ganha 103 de Acerto Crítico."
+          }
+        ]
+      },
+      "engaste": false
+    },
+    "239662": {
+      "efeito": null,
+      "conjunto": {
+        "nome": "Ornamentos de Arcanotrama",
+        "total": 3,
+        "bonus": [
+          {
+            "pecas": 2,
+            "efeito": "Acima de 80% dos pontos de vida, ganha 103 de Acerto Crítico."
+          }
+        ]
+      },
+      "engaste": false
+    },
+    "239663": {
+      "efeito": "Equipar: Seus feitiços e habilidades têm chance de causar 3707 de dano Radiante ao seu alvo atual.",
+      "conjunto": null,
+      "engaste": false
+    },
+    "239664": {
+      "efeito": "Equipar: Seus feitiços de cura e de dano têm chance de aumentar em 136 sua Maestria por 12 s.",
+      "conjunto": null,
+      "engaste": false
+    },
+    "241139": {
+      "efeito": "Equipar: Seus feitiços e habilidades têm chance de evocar as Chamas da Fênix para envolver o seu alvo. Se o alvo for um aliado, ele terá 587 × 20 pontos de vida curados ao longo de 10 s. Se o alvo for um inimigo, ele receberá 391 × 20 de dano de Fogo ao longo de 10 s. Cada cor de gema única engastada fortalecerá as chamas em 1%.",
+      "conjunto": null,
+      "engaste": true
+    },
+    "241140": {
+      "efeito": "Equipar: Seus feitiços e habilidades podem fazer com que o sinete ressoe com a Alma do Mundo, concedendo uma dádiva de 23 a todos os seus atributos secundários por 15 s. Toda cor única de gema engastada fortalece em 1% os atributos secundários associados a ela por essa dádiva.",
+      "conjunto": null,
+      "engaste": true
+    },
+    "241340": {
+      "efeito": "Equipar: Quando curar ou causar dano, você tem chance de aumentar em 163 a Força, a Agilidade, o Intelecto ou o Espírito por 15 s. Seu maior atributo é sempre escolhido. Equipar: Aumenta em 40% os efeitos de poções de cura e de mana no usuário. Estes efeitos não são cumulativos.",
+      "conjunto": null,
+      "engaste": false
+    },
+    "244463": {
+      "efeito": "Equipar: Seus feitiços e habilidades têm chance de aumentar em 80 sua Aceleração por 10 s.",
+      "conjunto": null,
+      "engaste": false
+    },
+    "244472": {
+      "efeito": "Equipar: A luz protege. Há uma chance de, quando for atacado, você ganhar a Proteção da Paliçada, que concede um escudo que absorve 1192 de dano e dura 6 s. Caso o escudo seja quebrado antes de expirar, a magia do escudo estoura, lançando uma Penitência da Paliçada que causa 1192 de dano Sagrado aos inimigos próximos.",
+      "conjunto": null,
+      "engaste": false
+    },
+    "244601": {
+      "efeito": "Equipar: Seus feitiços e habilidades têm chance de ressoar com a Alma do Mundo, criando um Orbe de Poder Azerothiano próximo. Coletar esse orbe fortalece você, concedendo 75 do seu atributo secundário mais alto por 15 s.",
+      "conjunto": null,
+      "engaste": false
+    },
+    "244602": {
+      "efeito": "Equipar: Causar dano a um alvo tem chance de marcá-lo, fazendo com que um Patrulheiro Élfico lance um Ataque Surpresa de longe! Esse ataque surpresa causa 6531 de dano Físico ao alvo.",
+      "conjunto": null,
+      "engaste": false
+    },
+    "244605": {
+      "efeito": "Equipar: Seus feitiços e habilidades têm chance de encher você de Fervor da Batalha. O Fervor da Batalha aumenta em 11 sua aceleração para 15 s, acumulando até 5 vezes.",
+      "conjunto": null,
+      "engaste": false
+    },
+    "244606": {
+      "efeito": "Equipar: Suas habilidades e feitiços que causam dano têm chance de atingir o seu alvo com uma Bagata Necrótica, causando 161 × 10 de dano de Natureza ao longo de 10 s. Esta bagata se espalha pelos inimigos próximos à vítima original toda vez que causar dano, até 5 vezes.",
+      "conjunto": null,
+      "engaste": false
+    },
+    "244609": {
+      "efeito": null,
+      "conjunto": {
+        "nome": "Paramentos do Guardirraiz",
+        "total": 3,
+        "bonus": [
+          {
+            "pecas": 2,
+            "efeito": "Seus feitiços e habilidades podem implorar por um fragmento do poder da Árvore do Mundo, concedendo 159 de um atributo secundário aleatório a você por 15 s."
+          }
+        ]
+      },
+      "engaste": false
+    },
+    "244610": {
+      "efeito": null,
+      "conjunto": {
+        "nome": "Paramentos do Guardirraiz",
+        "total": 3,
+        "bonus": [
+          {
+            "pecas": 2,
+            "efeito": "Seus feitiços e habilidades podem implorar por um fragmento do poder da Árvore do Mundo, concedendo 159 de um atributo secundário aleatório a você por 15 s."
+          }
+        ]
+      },
+      "engaste": false
+    },
+    "244611": {
+      "efeito": null,
+      "conjunto": {
+        "nome": "Paramentos do Guardirraiz",
+        "total": 3,
+        "bonus": [
+          {
+            "pecas": 2,
+            "efeito": "Seus feitiços e habilidades podem implorar por um fragmento do poder da Árvore do Mundo, concedendo 159 de um atributo secundário aleatório a você por 15 s."
+          }
+        ]
+      },
+      "engaste": false
+    },
+    "244612": {
+      "efeito": null,
+      "conjunto": {
+        "nome": "Materiais da Travessa do Assassino",
+        "total": 3,
+        "bonus": [
+          {
+            "pecas": 2,
+            "efeito": "A cada 30 s durante o combate, você aproveita o seu próximo acerto crítico para ganhar Vantagem. Toda situação é diferente, e o mesmo pode ser dito da Vantagem concedida. Tônicos de cura, adagas envenenadas e outros contrabandos mágicos são opções válidas. (30s de recarga)"
+          }
+        ]
+      },
+      "engaste": false
+    },
+    "244613": {
+      "efeito": null,
+      "conjunto": {
+        "nome": "Materiais da Travessa do Assassino",
+        "total": 3,
+        "bonus": [
+          {
+            "pecas": 2,
+            "efeito": "A cada 30 s durante o combate, você aproveita o seu próximo acerto crítico para ganhar Vantagem. Toda situação é diferente, e o mesmo pode ser dito da Vantagem concedida. Tônicos de cura, adagas envenenadas e outros contrabandos mágicos são opções válidas. (30s de recarga)"
+          }
+        ]
+      },
+      "engaste": false
+    },
+    "244614": {
+      "efeito": null,
+      "conjunto": {
+        "nome": "Materiais da Travessa do Assassino",
+        "total": 3,
+        "bonus": [
+          {
+            "pecas": 2,
+            "efeito": "A cada 30 s durante o combate, você aproveita o seu próximo acerto crítico para ganhar Vantagem. Toda situação é diferente, e o mesmo pode ser dito da Vantagem concedida. Tônicos de cura, adagas envenenadas e outros contrabandos mágicos são opções válidas. (30s de recarga)"
+          }
+        ]
+      },
+      "engaste": false
+    },
+    "244679": {
+      "efeito": "Equipar: Suas habilidades e feitiços nocivos têm chance de fazer seu alvo sangrar, causando 846 de dano Físico a cada 2 por 10 s.",
+      "conjunto": null,
+      "engaste": false
+    },
+    "251073": {
+      "efeito": "Uso: Ao usar: ativa a matriz e gera uma Barreira de Pedra do Caos, absorvendo 71597 de dano pelos próximos 10 s. A barreira se fortalece em mais 1% por cor de gema única que você tiver engastado. (3 Min Recarga)",
+      "conjunto": null,
+      "engaste": true
+    },
+    "251513": {
+      "efeito": "Equipar: Seus feitiços e habilidades que causam dano têm a chance de carregar o elo, evocando o avatar de um loa para ajudar você em combate. Toda cor única de gema engastada que estiver no seu equipamento permitirá que um loa diferente seja evocado. Esses efeitos vão de causar dano aos seus inimigos até conceder a você poder temporário.",
+      "conjunto": null,
+      "engaste": true
+    }
+  }
+}

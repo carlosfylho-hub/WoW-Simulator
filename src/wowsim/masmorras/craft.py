@@ -374,7 +374,7 @@ def plano_de_duas(base, melhor_por_slot, conjuntos, meta, *, ctx, simular, itera
             "pecas": [
                 {
                     "slot": s, "item_id": i.item_id, "nome_pt": i.nome_pt, "nome_en": i.nome_en,
-                    "missiva": _par_texto(p), "embutido": i.embutido, "ilvl": ilvl,
+                    "missiva": _par_texto(p), "embutido": i.embutido, "efeito": _efeito(i), "ilvl": ilvl,
                     "centelhas": CENTELHAS_DUAS_MAOS if i.maos == "2h" else CENTELHAS,
                 }
                 for s, i, p in pecas
@@ -402,6 +402,15 @@ def plano_de_duas(base, melhor_por_slot, conjuntos, meta, *, ctx, simular, itera
         ),
         "_conjunto": conjunto,
     }
+
+
+def _efeito(item: ItemCraft) -> str | None:
+    """Texto do embelezamento que já vem no item (só tela)."""
+    if not item.embutido:
+        return None
+    from ..data.embellishments import efeito_embutido
+
+    return efeito_embutido(item.item_id)
 
 
 def _par_texto(par: tuple[str, str]) -> str:
@@ -437,6 +446,7 @@ def _agrupar_bloqueados(
             "nome_pt": item.nome_pt,
             "nome_en": item.nome_en,
             "embutido": item.embutido,
+            "efeito": _efeito(item),
             "motivo": motivo,
         }
     return sorted(agrupado.values(), key=lambda b: (b["slot"], b["item_id"]))
@@ -542,6 +552,7 @@ def rodar_craft(
             "limiar_pct": round(a.limiar_cru, 3),
             "serve": a.delta_cru > a.limiar_cru,
             "embutido": item.embutido,
+            "efeito": _efeito(item),
             "ilvl": ilvl,
             "centelhas": CENTELHAS_DUAS_MAOS if item.maos == "2h" else CENTELHAS,
         }

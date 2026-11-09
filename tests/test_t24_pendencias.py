@@ -174,3 +174,20 @@ def test_descricao_do_embelezamento_completa() -> None:
     dados = json.loads((RAIZ / "dados/derivados/embelezamentos.json").read_text(encoding="utf-8"))
     assert all(e.get("descricao") for e in dados["embelezamentos"])
     assert not any("primaryStat" in e["descricao"] for e in dados["embelezamentos"])
+
+
+def test_efeito_embutido_do_item_craftado(tmp_path) -> None:
+    sys.path.insert(0, str(RAIZ / "scripts"))
+    import raspar_efeitos_embutidos as r
+
+    e = r.extrair("Engaste PrismáticoEquipar: Faz algo (1 * 846) de dano.Outra frase.Requer Nível 90Preço de Venda: 1")
+    assert e["efeito"] == "Equipar: Faz algo 846 de dano. Outra frase." and e["engaste"]
+    c = r.extrair("Requer Nível 90Ornamentos X (0/3)A(2) Conjunto : Ganha 103 de Aceleração.Preço de Venda: 1")
+    assert c["conjunto"] == {"nome": "Ornamentos X", "total": 3, "bonus": [{"pecas": 2, "efeito": "Ganha 103 de Aceleração."}]}
+    destino = tmp_path / "x.json"
+    assert r.main(["--json", str(FIX / "efeitos_embutidos" / "tooltips_pt.json"), "--destino", str(destino)]) == 0
+
+    from wowsim.data.embellishments import efeito_embutido
+
+    assert "avatar de um loa" in efeito_embutido(251513)
+    assert efeito_embutido(239659).startswith("Conjunto Ornamentos de Seda de Fogo Solar (2 peças)")

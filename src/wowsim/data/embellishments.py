@@ -149,6 +149,36 @@ def info(item_id: int) -> EmbelezamentoInfo:
     )
 
 
+def efeito_embutido(item_id: int) -> str | None:
+    """Texto do embelezamento que JÁ VEM no item craftado (``efeitos_embutidos.json``).
+
+    Gerado por ``scripts/raspar_efeitos_embutidos.py`` (tooltip PT-BR do Wowhead).
+    Junta o efeito "Equipar/Uso" e, se houver, o bônus do conjunto craftado.
+    Só para a tela (P1); sem dado, None.
+    """
+    try:
+        dados = _derivado_json("efeitos_embutidos.json")
+    except (OSError, ValueError):
+        return None
+    reg = (dados.get("itens") or {}).get(str(item_id))
+    if not reg:
+        return None
+    partes = [reg["efeito"]] if reg.get("efeito") else []
+    conjunto = reg.get("conjunto")
+    if conjunto:
+        for b in conjunto.get("bonus", []):
+            partes.append(
+                f"Conjunto {conjunto.get('nome') or ''} ({b['pecas']} peças): {b['efeito']}".replace("  ", " ")
+            )
+    return " ".join(partes) or None
+
+
+def _derivado_json(nome: str) -> dict:
+    from . import catalog
+
+    return catalog._derivado(nome)
+
+
 def listar_craftados() -> list[dict]:
     """All craftable items with their embellishment facts, for the catalog API."""
     return [dict(registro) for registro in _indice().values()]
