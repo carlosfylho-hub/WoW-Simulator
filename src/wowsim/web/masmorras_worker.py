@@ -473,10 +473,17 @@ def processar(job_id: str) -> None:
             )
 
         linhas = ordenar(agrupar(avaliacoes, dict(contagem_elegiveis)), por="quantidade")
+        # P-053: o .inv mesclado é informação, não alerta. Vai para um campo
+        # próprio (texto secundário na tela), fora da lista âmbar de avisos.
+        informacoes = [
+            a.detalhe
+            for a in combo.avisos
+            if a.severidade == "info" or a.codigo == "combinar_inv_mesclado"
+        ]
         avisos = [
             a.detalhe
             for a in combo.avisos
-            if a.severidade != "info" or a.codigo == "combinar_inv_mesclado"
+            if a.severidade != "info" and a.codigo != "combinar_inv_mesclado"
         ]
         avisos.extend(avisos_execucao)
         builds_saida = [_build_resultado(r) for r in resultados_build]
@@ -535,6 +542,7 @@ def processar(job_id: str) -> None:
             iteracoes=pedido.iteracoes_refino,
             masmorras=[_masmorra_ranking(linha, nivel) for linha in linhas],
             avisos=avisos,
+            informacoes=informacoes,
             builds=builds_saida,
             matriz=matriz,
             pesos_builds=pesos_builds,

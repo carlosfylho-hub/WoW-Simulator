@@ -153,6 +153,8 @@ class RankingResult(BaseModel):
     masmorras: list[MasmorraRanking] = Field(default_factory=list)
     premissa_chance: str = PREMISSA_CHANCE
     avisos: list[str] = Field(default_factory=list)
+    # Informações neutras (ex.: ".inv mesclado"), fora dos avisos âmbar (P-053).
+    informacoes: list[str] = Field(default_factory=list)
     # T9 (vazios fora do modo builds)
     builds: list[BuildResultado] = Field(default_factory=list)
     matriz: list[LinhaMatriz] = Field(default_factory=list)
