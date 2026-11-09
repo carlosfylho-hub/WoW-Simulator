@@ -6,9 +6,12 @@ from pathlib import Path
 
 import pytest
 
-from wowsim.masmorras.cofre import opcoes_do_cofre
+from wowsim.masmorras.avaliar import avaliar
+from wowsim.masmorras.cofre import montar_opcoes_cofre, opcoes_do_cofre
 from wowsim.parser.amr import ImportAMR, parse_amr
 from wowsim.parser.amr_codec import ItemAmr, codificar_itens
+from wowsim.topgear.models import Conjunto
+from wowsim.topgear.runner import LeituraSim
 
 pytestmark = pytest.mark.unit
 
@@ -54,3 +57,30 @@ def test_gv_real_do_druida_resolve_os_itens_do_cofre() -> None:
     assert opcoes[248583]["ilvl"] == 305
     assert opcoes[272239]["slots"] == ["chest"]  # Brigandina do Espreitador
     assert opcoes[272239]["ilvl"] == 305
+
+
+def test_montar_opcoes_cofre_usa_bonus_reais_e_avalia() -> None:
+    amr = parse_amr(COFRE.read_text(encoding="utf-8"))
+    conjuntos, opcoes = montar_opcoes_cofre(Conjunto(), amr, classe="druid")
+
+    ids = {op.item.item_id for op in opcoes.values()}
+    assert 248583 in ids
+    assert 272239 in ids
+
+    # O candidato usa os bônus REAIS do cofre, não NIVEL_PARA_BONUS.
+    nome = next(n for n, op in opcoes.items() if op.item.item_id == 248583)
+    slot = opcoes[nome].slot
+    assert conjuntos[nome].itens[slot].bonus_ids == [6652, 12841, 13183]
+
+    def simulador(candidatos, iterations):
+        base = 100_000.0
+        resultados = {}
+        for nome_cand in candidatos:
+            ganho = 2.0 if opcoes[nome_cand].item.item_id == 272239 else 1.0
+            resultados[nome_cand] = base * (1 + ganho / 100)
+        return LeituraSim(base_dps=base, resultados=resultados)
+
+    avaliacoes = avaliar(simulador(conjuntos, 100), opcoes)
+    por_id = {a.item.item_id: a for a in avaliacoes}
+    assert por_id[272239].etiqueta == "direto"
+    assert por_id[248583].etiqueta == "direto"

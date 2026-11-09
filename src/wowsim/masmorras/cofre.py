@@ -10,6 +10,12 @@ from __future__ import annotations
 from ..data import catalog
 from ..parser.amr import ImportAMR
 from ..parser.amr_codec import decodificar_itens
+from ..topgear.catalisador import gemeo_catalisado
+from ..topgear.models import Candidato, Conjunto
+from .avaliar import Opcao
+from .catalogo import ItemDeMasmorra
+
+MASMORRA_COFRE = "Grande Cofre"
 
 
 def opcoes_do_cofre(importacao: ImportAMR) -> list[dict]:
@@ -34,3 +40,49 @@ def opcoes_do_cofre(importacao: ImportAMR) -> list[dict]:
             }
         )
     return saida
+
+
+def montar_opcoes_cofre(
+    base: Conjunto, importacao: ImportAMR, *, classe: str | None
+) -> tuple[dict[str, Conjunto], dict[str, Opcao]]:
+    """Converte as opções do cofre em conjuntos/candidatos com os bônus REAIS.
+
+    Usa o mesmo ``avaliar`` do T6 (fonte="cofre"); anel/berloque são testados nos
+    dois slots. Itens sem slot resolvido (placeholder do cofre) são ignorados.
+    """
+    conjuntos: dict[str, Conjunto] = {}
+    opcoes: dict[str, Opcao] = {}
+    for op in opcoes_do_cofre(importacao):
+        item_id = op["item_id"]
+        if not item_id or not op["slots"]:
+            continue
+        nomes = catalog.nome_item(item_id)
+        for slot in op["slots"]:
+            if base.item_id(slot) == item_id:
+                continue
+            cru = Candidato(
+                slot=slot,
+                item_id=item_id,
+                bonus_ids=list(op["bonus_ids"]),
+                ilvl=op["ilvl"],
+                fonte="cofre",
+                nome_pt=nomes.nome_pt,
+                nome_en=nomes.nome_en,
+            )
+            variantes = [(cru, False)]
+            gemeo = gemeo_catalisado(cru, classe)
+            if gemeo is not None:
+                variantes.append((gemeo, True))
+            item_dm = ItemDeMasmorra(
+                item_id=item_id,
+                nome_pt=nomes.nome_pt,
+                slot=slot,
+                masmorra=MASMORRA_COFRE,
+                secao="cofre",
+                usavel_conjurador=None,
+            )
+            for candidato, catalisado in variantes:
+                nome = f"{'k' if catalisado else 'c'}_{item_id}_{slot}"
+                conjuntos[nome] = base.com_troca(slot, candidato)
+                opcoes[nome] = Opcao(nome, item_dm, slot, catalisado)
+    return conjuntos, opcoes
